@@ -107,9 +107,14 @@ const completionSpec: Fig.Spec = {
       description: "Do -O and also discard docstrings",
     },
     {
-      name: "-g",
+      name: "-q",
       description:
-        "Don’t display the copyright and version messages even in interactive mode",
+        "Don’t print version and copyright messages on interactive startup",
+    },
+    {
+      name: "-P",
+      description:
+        "Don’t prepend a potentially unsafe path to sys.path, such as the current directory, the script’s directory, or an empty string. Also PYTHONSAFEPATH",
     },
     {
       name: "-R",
@@ -161,6 +166,19 @@ const completionSpec: Fig.Spec = {
           { name: "pycache_prefix=PATH" },
         ],
       },
+    },
+    {
+      name: "--help-env",
+      description: "Print help about Python environment variables and exit",
+    },
+    {
+      name: "--help-xoptions",
+      description:
+        "Print help about implementation-specific -X options and exit",
+    },
+    {
+      name: "--help-all",
+      description: "Print complete help information and exit",
     },
   ],
 };
