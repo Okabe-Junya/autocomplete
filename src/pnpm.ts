@@ -530,6 +530,50 @@ The name of the current package is available through the environment variable PN
     ],
   },
   {
+    name: "dlx",
+    description: `Run a package in a temporary environment.`,
+    args: [
+      {
+        name: "command",
+        generators: npmSearchGenerator,
+        debounce: true,
+      },
+      {
+        name: "args",
+        isOptional: true,
+        isVariadic: true,
+      },
+    ],
+    options: [
+      {
+        name: "--package",
+        description: "The package to install before running the command",
+        isRepeatable: true,
+        args: {
+          name: "package",
+          generators: npmSearchGenerator,
+          debounce: true,
+        },
+      },
+      {
+        name: ["-c", "--shell-mode"],
+        description: `Runs the script inside of a shell. Uses /bin/sh on UNIX and \\cmd.exe on Windows`,
+      },
+      {
+        name: ["-s", "--silent"],
+        description: "No output is logged to the console, except fatal errors",
+      },
+      {
+        name: "--reporter",
+        description: `Allows you to choose the reporter that will log debug info to the terminal about the installation progress`,
+        args: {
+          name: "Reporter Type",
+          suggestions: ["silent", "default", "append-only", "ndjson"],
+        },
+      },
+    ],
+  },
+  {
     name: ["test", "t", "tst"],
     description: `Runs an arbitrary command specified in the package's test property of its scripts object.
 The intended usage of the property is to specify a command that runs unit or integration testing for your program`,
@@ -583,6 +627,39 @@ Details at: https://pnpm.io/cli/audit`,
       {
         name: "--ignore-registry-errors",
         description: `If the registry responds with a non-200 status code, the process should exit with 0. So the process will fail only if the registry actually successfully responds with found vulnerabilities`,
+      },
+    ],
+  },
+  {
+    name: "licenses",
+    description: "Check licenses in consumed packages",
+    subcommands: [
+      {
+        name: ["ls", "list"],
+        description: "Check the licenses of the installed packages",
+        options: [
+          {
+            name: ["-D", "--dev"],
+            description: `Check only "devDependencies"`,
+          },
+          {
+            name: "--json",
+            description: "Show information in JSON format",
+          },
+          {
+            name: "--long",
+            description: `Show more details (such as a link to the repo)`,
+          },
+          {
+            name: "--no-optional",
+            description: `Don't check "optionalDependencies"`,
+          },
+          {
+            name: ["-P", "--prod"],
+            description: `Check only "dependencies" and "optionalDependencies"`,
+          },
+          FILTER_OPTION,
+        ],
       },
     ],
   },
@@ -762,6 +839,78 @@ When running this command recursively (pnpm -r publish), pnpm will publish all t
       },
       FILTER_OPTION,
     ],
+  },
+  {
+    name: "deploy",
+    description: `Experimental! Deploy a package from a workspace.
+Requires --filter=<deployed project name> to select the project to deploy, and a target directory to deploy it to`,
+    args: {
+      name: "target directory",
+      template: "folders",
+    },
+    options: [
+      {
+        name: ["-D", "--dev"],
+        description: `Only devDependencies are installed regardless of the NODE_ENV`,
+      },
+      {
+        name: "--no-optional",
+        description: "optionalDependencies are not installed",
+      },
+      {
+        name: ["-P", "--prod"],
+        description: `Packages in devDependencies won't be installed`,
+      },
+      FILTER_OPTION,
+    ],
+  },
+  {
+    name: "pack",
+    description: "Create a tarball from a package",
+    options: [
+      {
+        name: "--pack-destination",
+        description: `Directory in which pnpm pack will save tarballs. The default is the current working directory`,
+        args: {
+          name: "dir",
+          template: "folders",
+        },
+      },
+    ],
+  },
+  {
+    name: "root",
+    description: "Prints the effective modules directory",
+    options: [
+      {
+        name: ["-g", "--global"],
+        description: "Print the global node_modules directory",
+      },
+    ],
+  },
+  {
+    name: "cat-file",
+    description:
+      "Prints the contents of a file based on the hash value stored in the index file",
+    args: {
+      name: "hash",
+    },
+  },
+  {
+    name: "cat-index",
+    description: "Prints the index file of a specific package from the store",
+    args: {
+      name: "package",
+      generators: generatorInstalledPackages,
+    },
+  },
+  {
+    name: "find-hash",
+    description:
+      "Experimental! Lists the packages that include the file with the specified hash",
+    args: {
+      name: "hash",
+    },
   },
   {
     name: ["recursive", "m", "multi", "-r"],
