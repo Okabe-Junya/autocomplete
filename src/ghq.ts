@@ -4,7 +4,7 @@ const completionSpec: Fig.Spec = {
     "'ghq' provides a way to organize remote repository clones, like go get does. When you clone a remote repository by ghq get, ghq makes a directory under a specific root directory (by default ~/ghq) using the remote repository URL’s host and path",
   subcommands: [
     {
-      name: "get",
+      name: ["get", "clone"],
       description: "Clone/sync with a remote repository",
       options: [
         {
@@ -51,6 +51,15 @@ const completionSpec: Fig.Spec = {
           name: "--bare",
           description: "Do a bare clone (default: false)",
         },
+        {
+          name: "--partial",
+          description:
+            'Do a partial clone. Can specify either "blobless" or "treeless"',
+          args: {
+            name: "string",
+            suggestions: ["blobless", "treeless"],
+          },
+        },
       ],
       args: {
         name: "<repository URL>|<project>|<user>/<project>|<host>/<user>/<project>",
@@ -79,10 +88,31 @@ const completionSpec: Fig.Spec = {
           description: "Print unique subpaths (default: false)",
           exclusiveOn: ["--full-path"],
         },
+        {
+          name: "--bare",
+          description: "Query bare repositories (default: false)",
+        },
       ],
       args: {
         name: "query",
         isOptional: true,
+      },
+    },
+    {
+      name: "rm",
+      description: "Remove local repository",
+      options: [
+        {
+          name: "--dry-run",
+          description: "Do not remove actually (default: false)",
+        },
+        {
+          name: "--bare",
+          description: "Remove a bare repository (default: false)",
+        },
+      ],
+      args: {
+        name: "<project>|<user>/<project>|<host>/<user>/<project>",
       },
     },
     {
@@ -104,9 +134,31 @@ const completionSpec: Fig.Spec = {
           description: "Specify vcs backend explicitly",
           args: { name: "vcs" },
         },
+        {
+          name: "--bare",
+          description: "Create a bare repository (default: false)",
+        },
       ],
       args: {
         name: "<project>|<user>/<project>|<host>/<user>/<project>",
+      },
+    },
+    {
+      name: "migrate",
+      description: "Migrate existing repository to ghq-managed directory",
+      options: [
+        {
+          name: "-y",
+          description: "Skip confirmation prompt (default: false)",
+        },
+        {
+          name: "--dry-run",
+          description: "Show what would happen without moving (default: false)",
+        },
+      ],
+      args: {
+        name: "repository-directory",
+        template: "folders",
       },
     },
   ],

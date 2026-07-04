@@ -178,12 +178,15 @@ const completionSpec: Fig.Spec = {
       description: "Request RSA public key from server",
     },
     {
-      name: ["--help", "-?"],
+      name: ["--help", "-?", "-I"],
       description: "Display help message and exit",
     },
     {
       name: "--histignore",
       description: "Patterns specifying which statements to ignore for logging",
+      args: {
+        name: "name",
+      },
     },
     {
       name: ["-h", "--host"],
@@ -271,13 +274,6 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--network-namespace",
-      description: "Specify network namespace",
-      args: {
-        name: "name",
-      },
-    },
-    {
       name: ["-A", "--no-auto-rehash"],
       description: "Disable automatic rehashing",
     },
@@ -306,6 +302,27 @@ const completionSpec: Fig.Spec = {
       description: "Password to use when connecting to server",
       args: {
         name: "password",
+      },
+    },
+    {
+      name: "--password1",
+      description: "Password for first factor authentication plugin",
+      args: {
+        name: "name",
+      },
+    },
+    {
+      name: "--password2",
+      description: "Password for second factor authentication plugin",
+      args: {
+        name: "name",
+      },
+    },
+    {
+      name: "--password3",
+      description: "Password for third factor authentication plugin",
+      args: {
+        name: "name",
       },
     },
     {
@@ -505,6 +522,29 @@ const completionSpec: Fig.Spec = {
     {
       name: "--ssl-mode",
       description: "Desired security state of connection to server",
+      args: {
+        name: "mode",
+        suggestions: [
+          { name: "DISABLED" },
+          { name: "PREFERRED" },
+          { name: "REQUIRED" },
+          { name: "VERIFY_CA" },
+          { name: "VERIFY_IDENTITY" },
+        ],
+      },
+    },
+    {
+      name: "--ssl-session-data",
+      description: "Session data file to use to enable SSL session reuse",
+      args: {
+        name: "filename",
+        template: "filepaths",
+      },
+    },
+    {
+      name: "--ssl-session-data-continue-on-failed-reuse",
+      description:
+        "Allow the connection to succeed even if session data cannot be reused",
     },
     {
       name: ["-j", "--syslog"],
@@ -535,6 +575,13 @@ const completionSpec: Fig.Spec = {
       description: "Permissible TLS protocols for encrypted connections",
       args: {
         name: "protocol_list",
+      },
+    },
+    {
+      name: "--tls-sni-servername",
+      description: "The SNI server name to pass to the server",
+      args: {
+        name: "name",
       },
     },
     {

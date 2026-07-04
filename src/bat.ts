@@ -7,6 +7,23 @@ const completionSpec: Fig.Spec = {
       description: "Show non-printable characters",
     },
     {
+      name: "--nonprintable-notation",
+      description: "Set notation for non-printable characters",
+      args: {
+        name: "<notation>",
+        suggestions: ["unicode", "caret"],
+      },
+    },
+    {
+      name: "--binary",
+      description: "How to treat binary content",
+      args: {
+        name: "<behavior>",
+        default: "no-printing",
+        suggestions: ["no-printing", "as-text"],
+      },
+    },
+    {
       name: ["-p", "--plain"],
       description: "Show plain style, no decorations",
     },
@@ -107,6 +124,10 @@ const completionSpec: Fig.Spec = {
           },
         },
       },
+    },
+    {
+      name: ["-S", "--chop-long-lines"],
+      description: "Truncate all lines longer than screen width",
     },
     {
       name: "--terminal-width",
@@ -281,12 +302,83 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--theme-light",
+      description:
+        "Set the theme name for syntax highlighting used when the terminal uses a light background",
+      args: {
+        name: "<theme>",
+        generators: {
+          script: ["bat", "--list-themes"],
+          postProcess: function (out) {
+            return out.split("\n").map((theme) => {
+              return { name: theme, description: "theme: " + theme };
+            });
+          },
+        },
+      },
+    },
+    {
+      name: "--theme-dark",
+      description:
+        "Set the theme name for syntax highlighting used when the terminal uses a dark background",
+      args: {
+        name: "<theme>",
+        generators: {
+          script: ["bat", "--list-themes"],
+          postProcess: function (out) {
+            return out.split("\n").map((theme) => {
+              return { name: theme, description: "theme: " + theme };
+            });
+          },
+        },
+      },
+    },
+    {
       name: "--list-themes",
       description: "Display a list of supported themes for syntax highlighting",
     },
     {
+      name: ["-s", "--squeeze-blank"],
+      description: "Squeeze consecutive empty lines into a single empty line",
+    },
+    {
+      name: "--squeeze-limit",
+      description:
+        "Set the maximum number of consecutive empty lines to be printed",
+      args: {
+        name: "<squeeze-limit>",
+      },
+    },
+    {
+      name: "--strip-ansi",
+      description: "Specify when to strip ANSI escape sequences from the input",
+      args: {
+        name: "<when>",
+        default: "never",
+        suggestions: ["auto", "always", "never"],
+      },
+    },
+    {
       name: "--style",
-      description: "Display a list of supported themes for syntax highlighting",
+      description:
+        "Configure which elements to display in addition to the file contents",
+      args: {
+        name: "<components>",
+        suggestions: [
+          "default",
+          "full",
+          "auto",
+          "plain",
+          "changes",
+          "header",
+          "header-filename",
+          "header-filesize",
+          "grid",
+          "rule",
+          "numbers",
+          "snip",
+        ],
+      },
     },
     {
       name: ["-r", "--line-range"],
@@ -307,12 +399,24 @@ const completionSpec: Fig.Spec = {
         "Make output unbuffered (exists for POSIX-compliance reasons and is simply ignored)",
     },
     {
+      name: "--completion",
+      description: "Show shell completion for a certain shell",
+      args: {
+        name: "<SHELL>",
+        suggestions: ["bash", "fish", "zsh", "ps1"],
+      },
+    },
+    {
       name: "--diagnostic",
       description: "Show diagnostic information for bug reports",
     },
     {
       name: "--acknowledgements",
       description: "Show acknowledgements",
+    },
+    {
+      name: "--set-terminal-title",
+      description: "Set terminal title to filenames when using a pager",
     },
     {
       name: ["-h", "--help"],

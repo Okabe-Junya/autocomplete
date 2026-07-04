@@ -16,28 +16,16 @@ const completionSpec: Fig.Spec = {
       description: "Cache management",
     },
     {
-      name: "charts",
-      deprecated: true,
-      description:
-        "DEPRECATED: sync releases from state file (helm upgrade --install)",
-    },
-    {
       name: "completion",
       description: "Generate the autocompletion script for the specified shell",
     },
     {
-      name: "delete",
-      description:
-        "The helmfile delete sub-command deletes all the releases defined in the manifests",
-      deprecated: {
-        description:
-          "Note that delete doesn’t purge releases. If you really want to remove releases for reuse, add --purge flag to run it like helmfile delete --purge",
-      },
+      name: "create",
+      description: "Create a helmfile deployment project scaffold",
     },
     {
       name: "deps",
-      description:
-        "Update charts based on their requirements, it locks your helmfile state and local charts dependencies",
+      description: "Update charts based on their requirements",
     },
     {
       name: "destroy",
@@ -45,13 +33,16 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "diff",
+      description: "Diff releases defined in state file",
+    },
+    {
+      name: "doctor",
       description:
-        "Diff releases defined in state file, it executes the helm-diff plugin across all of the charts/releases defined in the manifest",
+        "AI-assisted diff analysis: summarize changes and flag risks",
     },
     {
       name: "fetch",
-      description:
-        "Fetch charts from state file, it downloads or copies local charts to a local directory for debug purpose",
+      description: "Fetch charts from state file",
     },
     {
       name: "help",
@@ -71,13 +62,17 @@ const completionSpec: Fig.Spec = {
       description: "List releases defined in state file",
     },
     {
-      name: "repos",
-      description: "Repos releases defined in state file",
+      name: "print-env",
+      description: "Print parsed environment configuration",
     },
     {
-      name: "secrets",
+      name: "repos",
+      description: "Add chart repositories defined in state file",
+    },
+    {
+      name: "show-dag",
       description:
-        "Causes the helm-secrets plugin to be executed to decrypt the file",
+        "Print a table with GROUP, RELEASE, and DEPENDENCIES columns showing the release deployment order",
     },
     {
       name: "status",
@@ -96,11 +91,16 @@ const completionSpec: Fig.Spec = {
       description: "Test charts from state file (helm test)",
     },
     {
+      name: "unittest",
+      description:
+        "Unit test charts from state file using helm-unittest plugin",
+    },
+    {
       name: "version",
       description: "Print the CLI version",
     },
     {
-      name: " write-values",
+      name: "write-values",
       description:
         "Write values files for releases. Similar to `helmfile template`, write values files instead of manifests",
     },
@@ -108,13 +108,13 @@ const completionSpec: Fig.Spec = {
   options: [
     {
       name: ["--help", "-h"],
-      description:
-        "Do not exit with an error code if the provided selector has no matching releases",
+      description: "Show help for helmfile",
       isPersistent: true,
     },
     {
       name: "--allow-no-matching-release",
-      description: "Show help for helmfile",
+      description:
+        "Do not exit with an error code if the provided selector has no matching releases",
       isPersistent: true,
     },
     {
@@ -123,7 +123,7 @@ const completionSpec: Fig.Spec = {
         "Set chart. Uses the chart set in release by default, and is available in template as {{ .Chart }}",
       isPersistent: true,
       args: {
-        name: "string",
+        name: "chart",
       },
     },
     {
@@ -138,9 +138,21 @@ const completionSpec: Fig.Spec = {
       isPersistent: true,
     },
     {
+      name: "--disable-force-update",
+      description:
+        "Do not force helm repos to update when executing helm repo add (Helm 3 only)",
+      isPersistent: true,
+    },
+    {
       name: "--enable-live-output",
       description:
         "Show live output from the Helm binary Stdout/Stderr into Helmfile own Stdout/Stderr. It only applies for the Helm CLI commands, Stdout/Stderr for Hooks are still displayed only when it's execution finishes",
+      isPersistent: true,
+    },
+    {
+      name: "--enforce-plugin-verification",
+      description:
+        "Fail plugin installation if verification is not supported (for security purposes)",
       isPersistent: true,
     },
     {
@@ -168,13 +180,25 @@ const completionSpec: Fig.Spec = {
       isPersistent: true,
     },
     {
-      name: "--kube-context", // in the helmfile doc, they list this option under -i, should we include -i or not?
+      name: "--kube-context",
       description: "Set kubectl context. Uses current context by default",
       isPersistent: true,
       args: { name: "kube-context" },
     },
     {
-      name: "--log-level", // in the helmfile doc, they list this option under -i, should we include -i or not?
+      name: "--kubeconfig",
+      description: "Use a particular kubeconfig file",
+      isPersistent: true,
+      args: { name: "kubeconfig", template: "filepaths" },
+    },
+    {
+      name: ["--kustomize-binary", "-k"],
+      description: 'Path to the kustomize binary (default "kustomize")',
+      isPersistent: true,
+      args: { name: "binary" },
+    },
+    {
+      name: "--log-level",
       description: "Set log level, default info (default info)",
       isPersistent: true,
       args: { name: "log-level" },
@@ -192,6 +216,12 @@ const completionSpec: Fig.Spec = {
       isPersistent: true,
     },
     {
+      name: "--oci-plain-http",
+      description:
+        "Use plain HTTP for OCI registries (required for local/insecure registries in Helm 4)",
+      isPersistent: true,
+    },
+    {
       name: ["--quiet", "-q"],
       description: "Silence output. Equivalent to log-level warn",
       isPersistent: true,
@@ -201,12 +231,31 @@ const completionSpec: Fig.Spec = {
       description:
         "Only run using the releases that match labels. Labels can take the form of foo=bar or foo!=bar",
       isPersistent: true,
-      args: { name: " selector " },
+      isRepeatable: true,
+      args: { name: "selector" },
+    },
+    {
+      name: "--sequential-helmfiles",
+      description:
+        "Process helmfile.d files sequentially in alphabetical order instead of in parallel",
+      isPersistent: true,
+    },
+    {
+      name: "--skip-deps",
+      description:
+        'Skip running "helm repo update" and "helm dependency build"',
+      isPersistent: true,
+    },
+    {
+      name: "--skip-refresh",
+      description: 'Skip running "helm repo update"',
+      isPersistent: true,
     },
     {
       name: "--state-values-file",
       description: "Specify state values in a YAML file",
       isPersistent: true,
+      isRepeatable: true,
       args: { name: "state-values-file", template: "filepaths" },
     },
     {
@@ -214,7 +263,22 @@ const completionSpec: Fig.Spec = {
       description:
         "Set state values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
       isPersistent: true,
-      args: { name: "state-values-=set" },
+      isRepeatable: true,
+      args: { name: "state-values-set" },
+    },
+    {
+      name: "--state-values-set-string",
+      description:
+        "Set state STRING values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
+      isPersistent: true,
+      isRepeatable: true,
+      args: { name: "state-values-set-string" },
+    },
+    {
+      name: "--strip-args-values-on-exit-error",
+      description:
+        "Strip the potential secret values of the helm command args contained in a helmfile error message (default true)",
+      isPersistent: true,
     },
     {
       name: ["--version", "-v"],

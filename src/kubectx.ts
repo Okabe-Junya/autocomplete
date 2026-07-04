@@ -18,6 +18,40 @@ const completionSpec: Fig.Spec = {
       description: "Show help for kubectx",
     },
     {
+      name: ["--shell", "-s"],
+      description: "Start a shell scoped to context",
+      args: {
+        name: "context",
+        isOptional: true,
+        generators: {
+          script: ["kubectx"],
+          postProcess: (out) =>
+            out.split("\n").map((item) => ({
+              name: item,
+              priority: 90,
+              icon: "fig://icon?type=kubernetes",
+            })) as Fig.Suggestion[],
+        },
+      },
+    },
+    {
+      name: ["--readonly", "-r"],
+      description: "Start a read-only shell for context",
+      args: {
+        name: "context",
+        isOptional: true,
+        generators: {
+          script: ["kubectx"],
+          postProcess: (out) =>
+            out.split("\n").map((item) => ({
+              name: item,
+              priority: 90,
+              icon: "fig://icon?type=kubernetes",
+            })) as Fig.Suggestion[],
+        },
+      },
+    },
+    {
       name: ["--current", "-c"],
       description: "Show current context",
     },
@@ -53,6 +87,10 @@ const completionSpec: Fig.Spec = {
           },
         },
       },
+    },
+    {
+      name: ["--version", "-V"],
+      description: "Show version",
     },
   ],
   args: {

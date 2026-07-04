@@ -68,6 +68,14 @@ const completionSpec: Fig.Spec = {
       description: "Natural sort of (version) numbers within text",
     },
     {
+      name: ["-G", "--gitsort"],
+      description: "Sort by git status",
+    },
+    {
+      name: ["-U", "--no-sort"],
+      description: "Do not sort. List entries in directory order",
+    },
+    {
       name: "--classic",
       description: "Enable classic mode (no colors or icons)",
     },
@@ -100,6 +108,68 @@ const completionSpec: Fig.Spec = {
       description: "Prints version information",
     },
     {
+      name: "--config-file",
+      description: "Provide a custom lsd configuration file",
+      args: {
+        name: "path",
+        template: "filepaths",
+      },
+    },
+    {
+      name: "--group-directories-first",
+      description: "Groups the directories at the top before the files",
+    },
+    {
+      name: ["-g", "--git"],
+      description:
+        "Show git status on file and directory, only when used with --long option",
+    },
+    {
+      name: ["-Z", "--context"],
+      description: "Print security context (label) of each file",
+    },
+    {
+      name: "--header",
+      description: "Display block headers",
+    },
+    {
+      name: "--truncate-owner-after",
+      description:
+        "Truncate the user and group names if they exceed a certain number of characters",
+      args: {
+        name: "num",
+      },
+    },
+    {
+      name: "--truncate-owner-marker",
+      description:
+        "Truncation marker appended to a truncated user or group name",
+      args: {
+        name: "str",
+      },
+    },
+    {
+      name: ["-N", "--literal"],
+      description: "Print entry names without quoting",
+    },
+    {
+      name: "--permission",
+      description: "How to display permissions",
+      args: {
+        name: "mode",
+        suggestions: ["rwx", "octal", "attributes", "disable"],
+      },
+    },
+    {
+      name: "--hyperlink",
+      description: "Attach hyperlink to filenames",
+      args: {
+        name: "mode",
+        default: "never",
+        suggestions: ["always", "auto", "never"],
+      },
+    },
+    {
       name: "--blocks",
       description:
         "Specify the blocks that will be displayed and in what order",
@@ -109,11 +179,13 @@ const completionSpec: Fig.Spec = {
           "permission",
           "user",
           "group",
+          "context",
           "size",
           "date",
           "name",
           "inode",
           "links",
+          "git",
         ],
       },
     },
@@ -131,7 +203,7 @@ const completionSpec: Fig.Spec = {
       description: "How to display date",
       args: {
         name: "date",
-        suggestions: ["date", "relative", "+date-time-format"],
+        suggestions: ["date", "locale", "relative", "+date-time-format"],
         default: "date",
       },
     },
@@ -190,7 +262,7 @@ const completionSpec: Fig.Spec = {
       description: "Sort by WORD instead of name",
       args: {
         name: "WORD",
-        suggestions: ["size", "time", "version", "extension"],
+        suggestions: ["size", "time", "version", "extension", "git", "none"],
       },
     },
   ],

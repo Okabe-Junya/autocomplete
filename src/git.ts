@@ -3869,6 +3869,30 @@ const addOptions: Fig.Option[] = [
       "Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index",
   },
   {
+    name: "--auto-advance",
+    description:
+      "Auto advance to the next file when selecting hunks interactively",
+  },
+  {
+    name: ["-U", "--unified"],
+    description: "Generate diffs with <n> lines of context",
+    args: {
+      name: "n",
+    },
+  },
+  {
+    name: "--inter-hunk-context",
+    description:
+      "Show context between diff hunks up to the specified number of lines",
+    args: {
+      name: "n",
+    },
+  },
+  {
+    name: "--sparse",
+    description: "Allow updating entries outside of the sparse-checkout cone",
+  },
+  {
     name: ["-e", "--edit"],
     description:
       "Open the diff vs. the index in an editor and let the user edit it. After the editor was closed, adjust the hunk headers and apply the patch to the index",
@@ -4453,6 +4477,33 @@ const completionSpec: Fig.Spec = {
             "Use the interactive patch selection interface to chose which changes to commi",
         },
         {
+          name: "--interactive",
+          description: "Interactively add files to the index before committing",
+        },
+        {
+          name: ["-U", "--unified"],
+          description: "Generate diffs with <n> lines of context",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--inter-hunk-context",
+          description:
+            "Show context between diff hunks up to the specified number of lines",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--trailer",
+          isRepeatable: true,
+          description: "Add a custom trailer to the commit message",
+          args: {
+            name: "token[(=|:)value]",
+          },
+        },
+        {
           name: ["-C", "--reuse-message"],
           description:
             "Take an existing commit object, and reuse the log message and the authorship",
@@ -4473,9 +4524,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--fixup",
           description:
-            "Construct a commit message for use with rebase --autosquash. The commit messa",
+            "Construct a commit message for use with rebase --autosquash. Accepts an optional amend: or reword: prefix before <commit>",
           args: {
-            name: "commit",
+            name: "[(amend|reword):]commit",
             generators: gitGenerators.commits,
           },
         },
@@ -4511,6 +4562,18 @@ const completionSpec: Fig.Spec = {
           name: "--long",
           description:
             "When doing a dry-run, give the output in the long-format. Implies --dry-run",
+        },
+        {
+          name: "--ahead-behind",
+          description:
+            "Display full ahead/behind values in the branch section when doing a dry-run",
+          exclusiveOn: ["--no-ahead-behind"],
+        },
+        {
+          name: "--no-ahead-behind",
+          description:
+            "Do not compute full ahead/behind values in the branch section when doing a dry-run",
+          exclusiveOn: ["--ahead-behind"],
         },
         {
           name: ["-z", "--null"],
@@ -5235,6 +5298,18 @@ const completionSpec: Fig.Spec = {
           description:
             "Do not automatically reschedule exec commands that failed. This only makes sense in interactive mode (or when an --exec option was provided)",
         },
+        {
+          name: "--update-refs",
+          description:
+            "Automatically force-update any branches that point to commits that are being rebased",
+          exclusiveOn: ["--no-update-refs"],
+        },
+        {
+          name: "--no-update-refs",
+          description:
+            "Do not automatically force-update branches that point to commits that are being rebased",
+          exclusiveOn: ["--update-refs"],
+        },
       ],
       args: [
         {
@@ -5697,6 +5772,18 @@ const completionSpec: Fig.Spec = {
             isOptional: true,
           },
         },
+        {
+          name: "--force-if-includes",
+          description:
+            "Enforce that the updated remote ref be reachable from one of the source commit's reflog entries, in addition to the checks done by --force-with-lease",
+          exclusiveOn: ["--no-force-if-includes"],
+        },
+        {
+          name: "--no-force-if-includes",
+          description:
+            "Disable --force-if-includes even if it was previously enabled",
+          exclusiveOn: ["--force-if-includes"],
+        },
       ],
       args: [
         {
@@ -5727,7 +5814,7 @@ const completionSpec: Fig.Spec = {
             name: "remote",
             generators: gitGenerators.remotes,
             filterStrategy: "fuzzy",
-            suggestions: ["false", "true", "merges", "preserve", "interactive"],
+            suggestions: ["false", "true", "merges", "interactive"],
           },
         },
         { name: "--no-rebase", description: "Override earlier --rebase" },
@@ -6849,6 +6936,24 @@ const completionSpec: Fig.Spec = {
           description:
             'Read refspecs, one per line, from stdin in addition to those provided as arguments. The "tag <name>" format is not supported',
         },
+        {
+          name: "--refetch",
+          description:
+            "Re-fetch without negotiating common commits, sending only object filters",
+        },
+        {
+          name: "--filter",
+          description:
+            "Use the partial clone feature and request that the server sends a subset of reachable objects",
+          args: {
+            name: "filter-spec",
+          },
+        },
+        {
+          name: "--negotiate-only",
+          description:
+            "Do not fetch a packfile; instead, print ancestors of the negotiation tips",
+        },
       ],
     },
     {
@@ -6870,6 +6975,10 @@ const completionSpec: Fig.Spec = {
               name: ["-k", "--keep-index"],
               description:
                 "All changed already added to the index are left intact",
+            },
+            {
+              name: ["-S", "--staged"],
+              description: "Stash only the changes that are currently staged",
             },
             {
               name: ["-u", "--include-untracked"],
@@ -7003,6 +7112,21 @@ const completionSpec: Fig.Spec = {
               name: ["-q", "--quiet"],
               description: "Quiet, suppress feedback messages",
             },
+            {
+              name: "--label-ours",
+              description: "Label for the upstream side in conflict markers",
+              args: { name: "label" },
+            },
+            {
+              name: "--label-theirs",
+              description: "Label for the stashed side in conflict markers",
+              args: { name: "label" },
+            },
+            {
+              name: "--label-base",
+              description: "Label for the base in diff3 conflict markers",
+              args: { name: "label" },
+            },
           ],
           args: {
             name: "stash",
@@ -7064,6 +7188,39 @@ const completionSpec: Fig.Spec = {
               generators: gitGenerators.commits,
             },
           ],
+        },
+        {
+          name: "export",
+          description:
+            "Export the stash list as a single object, for transfer or backup",
+          options: [
+            {
+              name: "--print",
+              description: "Print the object ID instead of writing it to a ref",
+              exclusiveOn: ["--to-ref"],
+            },
+            {
+              name: "--to-ref",
+              description: "Save the exported data to the given ref",
+              exclusiveOn: ["--print"],
+              args: { name: "ref" },
+            },
+          ],
+          args: {
+            name: "stash",
+            isOptional: true,
+            isVariadic: true,
+            generators: gitGenerators.stashes,
+            filterStrategy: "fuzzy",
+          },
+        },
+        {
+          name: "import",
+          description: "Import a stash list previously created by stash export",
+          args: {
+            name: "commit",
+            generators: gitGenerators.commits,
+          },
         },
       ],
     },
@@ -7926,6 +8083,16 @@ const completionSpec: Fig.Spec = {
           description: "Turns off branch colors",
           exclusiveOn: ["--color"],
         },
+        {
+          name: "--recurse-submodules",
+          description:
+            "Recurse through submodules to create/list/delete branches",
+        },
+        {
+          name: "--omit-empty",
+          description:
+            "Do not output a newline after empty formatted refs when used with --format",
+        },
       ],
     },
     {
@@ -8023,17 +8190,37 @@ const completionSpec: Fig.Spec = {
         {
           name: "--conflict",
           description:
-            "The same as --merge option above, but changes the way the conflicting hunks are presented, overriding the merge.conflictStyle configuration variable. Possible values are 'merge' (default) and 'diff3' (in addition to what is shown by 'merge' style, shows the original contents)",
+            "The same as --merge option above, but changes the way the conflicting hunks are presented, overriding the merge.conflictStyle configuration variable. Possible values are 'merge' (default), 'diff3', and 'zdiff3'",
           requiresSeparator: true,
           args: {
             isOptional: true,
-            suggestions: ["merge", "diff3"],
+            suggestions: ["merge", "diff3", "zdiff3"],
           },
         },
         {
           name: ["-p", "--patch"],
           description:
             "Interactively select hunks in the difference between the <tree-ish> (or the index, if unspecified) and the working tree",
+        },
+        {
+          name: "--auto-advance",
+          description:
+            "Auto advance to the next file when selecting hunks interactively",
+        },
+        {
+          name: ["-U", "--unified"],
+          description: "Generate diffs with <n> lines of context",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--inter-hunk-context",
+          description:
+            "Show context between diff hunks up to the specified number of lines",
+          args: {
+            name: "n",
+          },
         },
         {
           name: "--ignore-other-worktrees",
@@ -9045,7 +9232,22 @@ const completionSpec: Fig.Spec = {
             "The same as --merge option, but changes the way the conflicting hunks are presented",
           args: {
             name: "style",
-            suggestions: ["merge", "diff3"],
+            suggestions: ["merge", "diff3", "zdiff3"],
+          },
+        },
+        {
+          name: ["-U", "--unified"],
+          description: "Generate diffs with <n> lines of context",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--inter-hunk-context",
+          description:
+            "Show context between diff hunks up to the specified number of lines",
+          args: {
+            name: "n",
           },
         },
         {
@@ -9178,7 +9380,7 @@ const completionSpec: Fig.Spec = {
             "The same as --merge option above, but changes the way the conflicting hunks are presented, overriding the merge.conflictStyle configuration variable",
           args: {
             name: "style",
-            suggestions: ["merge", "diff3"],
+            suggestions: ["merge", "diff3", "zdiff3"],
             default: "merge",
           },
         },
@@ -9253,6 +9455,16 @@ const completionSpec: Fig.Spec = {
           exclusiveOn: ["--recurse-submodules"],
           description: "Submodules working trees will not be updated",
         },
+        {
+          name: "--overwrite-ignore",
+          exclusiveOn: ["--no-overwrite-ignore"],
+          description: "Update ignored files in the working tree (default)",
+        },
+        {
+          name: "--no-overwrite-ignore",
+          exclusiveOn: ["--overwrite-ignore"],
+          description: "Do not update ignored files in the working tree",
+        },
       ],
       args: [
         {
@@ -9311,6 +9523,14 @@ const completionSpec: Fig.Spec = {
                 name: "new-branch",
               },
             },
+            {
+              name: "--orphan",
+              description:
+                "With add, create a new working tree containing a new unborn branch named <new-branch> whose history will start from HEAD after the first commit",
+              args: {
+                name: "new-branch",
+              },
+            },
           ],
         },
         {
@@ -9334,6 +9554,12 @@ const completionSpec: Fig.Spec = {
               args: {
                 name: "time",
               },
+            },
+            {
+              name: "-z",
+              description:
+                "With list --porcelain, terminate each line with a NUL rather than a newline",
+              dependsOn: ["--porcelain"],
             },
           ],
         },
@@ -9438,6 +9664,390 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "maintenance",
+      description: "Run tasks to optimize Git repository data",
+      subcommands: [
+        {
+          name: "run",
+          description: "Run one or more maintenance tasks",
+          options: [
+            {
+              name: "--auto",
+              description:
+                "Run tasks based on the state of the repository, potentially skipping some tasks",
+              exclusiveOn: ["--no-auto"],
+            },
+            {
+              name: "--no-auto",
+              description:
+                "Run tasks regardless of the state of the repository",
+              exclusiveOn: ["--auto"],
+            },
+            {
+              name: "--schedule",
+              description: "Run tasks based on the given frequency",
+              args: {
+                name: "frequency",
+                suggestions: ["hourly", "daily", "weekly"],
+              },
+            },
+            {
+              name: "--quiet",
+              description: "Do not report progress or other information",
+            },
+            {
+              name: "--task",
+              description: "Run a specific task",
+              isRepeatable: true,
+              args: {
+                name: "task",
+                suggestions: [
+                  "commit-graph",
+                  "prefetch",
+                  "gc",
+                  "loose-objects",
+                  "incremental-repack",
+                  "pack-refs",
+                  "reflog-expire",
+                  "worktree-prune",
+                  "rerere-gc",
+                ],
+              },
+            },
+          ],
+        },
+        {
+          name: "start",
+          description:
+            "Start running maintenance on the current repository on a regular schedule",
+          options: [
+            {
+              name: "--scheduler",
+              description:
+                "Specify the scheduler to trigger git maintenance run",
+              args: {
+                name: "scheduler",
+                suggestions: [
+                  "auto",
+                  "crontab",
+                  "systemd-timer",
+                  "launchctl",
+                  "schtasks",
+                ],
+              },
+            },
+          ],
+        },
+        {
+          name: "stop",
+          description:
+            "Halt the background maintenance schedule for the current repository",
+        },
+        {
+          name: "register",
+          description:
+            "Initialize Git config values so any scheduled maintenance will start running on this repository",
+          options: [
+            {
+              name: "--config-file",
+              description:
+                "Use the given config file instead of the global config",
+              args: {
+                name: "path",
+                template: "filepaths",
+              },
+            },
+          ],
+        },
+        {
+          name: "unregister",
+          description:
+            "Remove the current repository from background maintenance",
+          options: [
+            {
+              name: "--config-file",
+              description:
+                "Use the given config file instead of the global config",
+              args: {
+                name: "path",
+                template: "filepaths",
+              },
+            },
+            {
+              name: ["-f", "--force"],
+              description:
+                "Return success even if the repository was not registered",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "sparse-checkout",
+      description: "Reduce your working tree to a subset of tracked files",
+      subcommands: [
+        {
+          name: "init",
+          description: "Initialize the sparse-checkout in cone mode",
+          options: [
+            {
+              name: "--cone",
+              description: "Initialize the sparse-checkout in cone mode",
+            },
+            {
+              name: "--sparse-index",
+              description: "Toggle the use of a sparse index",
+              exclusiveOn: ["--no-sparse-index"],
+            },
+            {
+              name: "--no-sparse-index",
+              description: "Disable the use of a sparse index",
+              exclusiveOn: ["--sparse-index"],
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List patterns defining the current sparse checkout",
+        },
+        {
+          name: "set",
+          description: "Set the sparse-checkout patterns",
+          options: [
+            {
+              name: "--cone",
+              description: "Interpret the patterns in cone mode",
+            },
+            {
+              name: "--sparse-index",
+              description: "Toggle the use of a sparse index",
+              exclusiveOn: ["--no-sparse-index"],
+            },
+            {
+              name: "--no-sparse-index",
+              description: "Disable the use of a sparse index",
+              exclusiveOn: ["--sparse-index"],
+            },
+            {
+              name: "--skip-checks",
+              description:
+                "Skip some sanity checks on the given paths that might give false positives",
+            },
+            {
+              name: "--stdin",
+              description: "Read patterns from standard input",
+            },
+          ],
+          args: {
+            name: "patterns",
+            isVariadic: true,
+            isOptional: true,
+          },
+        },
+        {
+          name: "add",
+          description: "Add patterns to the sparse-checkout",
+          options: [
+            {
+              name: "--skip-checks",
+              description:
+                "Skip some sanity checks on the given paths that might give false positives",
+            },
+            {
+              name: "--stdin",
+              description: "Read patterns from standard input",
+            },
+          ],
+          args: {
+            name: "patterns",
+            isVariadic: true,
+            isOptional: true,
+          },
+        },
+        {
+          name: "reapply",
+          description: "Reapply the sparsity pattern rules to the working tree",
+          options: [
+            {
+              name: "--cone",
+              description: "Interpret the patterns in cone mode",
+            },
+            {
+              name: "--sparse-index",
+              description: "Toggle the use of a sparse index",
+              exclusiveOn: ["--no-sparse-index"],
+            },
+            {
+              name: "--no-sparse-index",
+              description: "Disable the use of a sparse index",
+              exclusiveOn: ["--sparse-index"],
+            },
+          ],
+        },
+        {
+          name: "disable",
+          description: "Disable the sparse-checkout feature",
+        },
+        {
+          name: "check-rules",
+          description:
+            "Check whether given pathnames will be included in the current sparse-checkout",
+          options: [
+            {
+              name: "-z",
+              description:
+                "Terminate input and output files by a NUL character instead of a newline",
+            },
+            {
+              name: "--skip-checks",
+              description:
+                "Skip some sanity checks on the given paths that might give false positives",
+            },
+            {
+              name: "--cone",
+              description:
+                "When used with --rules-file, interpret patterns as cone mode patterns",
+            },
+            {
+              name: "--rules-file",
+              description: "Use patterns in <file> instead of the current ones",
+              args: {
+                name: "file",
+                template: "filepaths",
+              },
+            },
+          ],
+        },
+        {
+          name: "clean",
+          description:
+            "Remove files and directories that are not present in the sparse-checkout definition",
+          options: [
+            {
+              name: ["-n", "--dry-run"],
+              description:
+                "Do not remove anything; just show what would be removed",
+            },
+            {
+              name: ["-f", "--force"],
+              description: "Force removal of files and directories",
+            },
+            {
+              name: ["-v", "--verbose"],
+              description: "Report each affected file, not just directories",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "range-diff",
+      description: "Compare two commit ranges (e.g. two versions of a branch)",
+      options: [
+        {
+          name: ["-p", "--patch"],
+          description: "Generate a patch",
+        },
+        {
+          name: ["-s", "--no-patch"],
+          description: "Suppress diff output",
+        },
+        {
+          name: "--creation-factor",
+          description: "Percentage by which creation is weighted",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--no-dual-color",
+          description: "Use simple diff colors, instead of dual color diff",
+          exclusiveOn: ["--dual-color"],
+        },
+        {
+          name: "--dual-color",
+          description:
+            "Color the diff to indicate provenance from the old or new range",
+          exclusiveOn: ["--no-dual-color"],
+        },
+        {
+          name: "--notes",
+          description: "Passed to git log; show notes attached to commits",
+          args: {
+            name: "notes",
+            isOptional: true,
+          },
+        },
+        {
+          name: "--no-notes",
+          description:
+            "Passed to git log; do not show notes attached to commits",
+        },
+        {
+          name: "--left-only",
+          description: "Only emit output related to the first range",
+          exclusiveOn: ["--right-only"],
+        },
+        {
+          name: "--right-only",
+          description: "Only emit output related to the second range",
+          exclusiveOn: ["--left-only"],
+        },
+      ],
+      args: [
+        {
+          name: "old-base..old-tip",
+          description:
+            "Old commit range, or old-tip if using two/three-arg form",
+        },
+        {
+          name: "new-base..new-tip",
+          description:
+            "New commit range, or new-tip if using two/three-arg form",
+        },
+      ],
+    },
+    {
+      name: "backfill",
+      description: "Download missing objects in a partial clone",
+      options: [
+        {
+          name: "--min-batch-size",
+          description: "Minimum number of objects to request at a time",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "--sparse",
+          description:
+            "Restrict the missing objects to the current sparse-checkout",
+          exclusiveOn: ["--no-sparse"],
+        },
+        {
+          name: "--no-sparse",
+          description:
+            "Do not restrict the missing objects to the sparse-checkout",
+          exclusiveOn: ["--sparse"],
+        },
+        {
+          name: "--include-edges",
+          description: "Include blobs from boundary commits in the backfill",
+          exclusiveOn: ["--no-include-edges"],
+        },
+        {
+          name: "--no-include-edges",
+          description:
+            "Do not include blobs from boundary commits in the backfill",
+          exclusiveOn: ["--include-edges"],
+        },
+      ],
+      args: {
+        name: "revision-range",
+        isOptional: true,
+      },
     },
     {
       name: "apply",

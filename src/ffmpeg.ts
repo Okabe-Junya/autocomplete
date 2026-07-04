@@ -29,6 +29,10 @@ const completionSpec: Fig.Spec = {
       description: "Show license",
     },
     {
+      name: "-license",
+      description: "Show license",
+    },
+    {
       name: "-h",
       description: "Show help",
       args: { name: "topic" },
@@ -202,19 +206,45 @@ const completionSpec: Fig.Spec = {
       description: "Number of threads for -filter_complex",
     },
     {
+      name: "-filter_buffered_frames",
+      description: "Maximum number of buffered frames in a filter graph",
+    },
+    {
       name: "-stats",
       description: "Print progress report during encoding",
+    },
+    {
+      name: "-print_graphs",
+      description: "Print execution graph data to stderr",
+    },
+    {
+      name: "-print_graphs_file",
+      description: "Write execution graph data to the specified file",
+      args: { name: "filename", template: "filepaths" },
+    },
+    {
+      name: "-print_graphs_format",
+      description: "Set the output printing format",
+      args: {
+        name: "format",
+        suggestions: [
+          "default",
+          "compact",
+          "csv",
+          "flat",
+          "ini",
+          "json",
+          "xml",
+          "mermaid",
+          "mermaidhtml",
+        ],
+      },
     },
     {
       name: "-max_error_rate",
       description:
         "Ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success",
       args: { name: "maximum error rate" },
-    },
-    {
-      name: "-vol",
-      description: "Change audio volume (256=normal)",
-      args: { name: "volume" },
     },
     {
       name: "-cpuflags",
@@ -285,7 +315,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "-adrift_threshold",
-      description: "Audio drift threshold",
+      description: "Deprecated, does nothing",
+      deprecated: true,
       args: { name: "threshold" },
     },
     {
@@ -351,10 +382,6 @@ const completionSpec: Fig.Spec = {
       description: "Print timestamp debugging info",
     },
     {
-      name: "-psnr",
-      description: "Calculate PSNR of compressed frames",
-    },
-    {
       name: "-vstats",
       description: "Dump video coding statistics to file",
     },
@@ -369,7 +396,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "-qphist",
-      description: "Show QP histogram",
+      description: "Deprecated, does nothing",
+      deprecated: true,
     },
     {
       name: "-sdp_file",
@@ -505,6 +533,12 @@ const completionSpec: Fig.Spec = {
       args: { name: "title=string:st=number..." },
     },
     {
+      name: "-stream_group",
+      description:
+        "Add stream group with specified streams and group type-specific arguments",
+      args: { name: "id=number:st=number..." },
+    },
+    {
       name: "-target",
       description:
         'Specify target file type ("vcd", "svcd", "dvd", "dv" or "dv50" with optional prefixes "pal-", "ntsc-" or "film-")',
@@ -534,6 +568,11 @@ const completionSpec: Fig.Spec = {
       description: "Reinit filtergraph on input parameter changes",
     },
     {
+      name: "-drop_changed",
+      description:
+        "Drop frame instead of reiniting filtergraph on input parameter changes",
+    },
+    {
       name: "-discard",
       description: "Discard",
     },
@@ -547,11 +586,6 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "[-]input_file_id[:stream_specifier][,sync_file_id[:stream_specifier]]",
       },
-    },
-    {
-      name: "-map_channel",
-      description: "Map an audio channel from one stream to another",
-      args: { name: "file.stream.channel[:syncfile.syncstream]" },
     },
     {
       name: "-map_chapters",
@@ -592,8 +626,25 @@ const completionSpec: Fig.Spec = {
       args: { name: "speed" },
     },
     {
+      name: "-readrate_initial_burst",
+      description:
+        "The initial amount of input to burst read before imposing any readrate",
+      args: { name: "seconds" },
+    },
+    {
+      name: "-readrate_catchup",
+      description:
+        "Temporary readrate used to catch up if an input lags behind the specified readrate",
+      args: { name: "speed" },
+    },
+    {
       name: "-shortest",
       description: "Finish encoding within shortest input",
+    },
+    {
+      name: "-shortest_buf_duration",
+      description:
+        "Maximum buffering duration (in seconds) for the -shortest option",
     },
     {
       name: "-bitexact",
@@ -657,6 +708,30 @@ const completionSpec: Fig.Spec = {
       args: { name: "number" },
     },
     {
+      name: "-stats_enc_pre",
+      description: "Write encoding stats before encoding",
+    },
+    {
+      name: "-stats_enc_post",
+      description: "Write encoding stats after encoding",
+    },
+    {
+      name: "-stats_mux_pre",
+      description: "Write packets stats before muxing",
+    },
+    {
+      name: "-stats_enc_pre_fmt",
+      description: "Format of the stats written with -stats_enc_pre",
+    },
+    {
+      name: "-stats_enc_post_fmt",
+      description: "Format of the stats written with -stats_enc_post",
+    },
+    {
+      name: "-stats_mux_pre_fmt",
+      description: "Format of the stats written with -stats_mux_pre",
+    },
+    {
       name: "-autorotate",
       description: "Automatically insert correct rotate filters",
     },
@@ -664,6 +739,26 @@ const completionSpec: Fig.Spec = {
       name: "-autoscale",
       description:
         "Automatically insert a scale filter at the end of the filter graph",
+    },
+    {
+      name: "-apply_cropping",
+      description: "Select the cropping to apply",
+    },
+    {
+      name: "-display_rotation",
+      description:
+        "Set pure counter-clockwise rotation in degrees for stream(s)",
+      args: { name: "angle" },
+    },
+    {
+      name: "-display_hflip",
+      description:
+        "Set display horizontal flip for stream(s) (overrides any display rotation if it is not set)",
+    },
+    {
+      name: "-display_vflip",
+      description:
+        "Set display vertical flip for stream(s) (overrides any display rotation if it is not set)",
     },
     {
       name: "-muxdelay",
@@ -744,11 +839,6 @@ const completionSpec: Fig.Spec = {
       name: "-fpsmax",
       description: "Set max frame rate (Hz value, fraction or abbreviation)",
       args: { name: "rate" },
-    },
-    {
-      name: "-s",
-      description: "Set frame size (WxH or abbreviation)",
-      args: { name: "size" },
     },
     {
       name: "-aspect",
@@ -884,12 +974,6 @@ const completionSpec: Fig.Spec = {
       args: { name: "format" },
     },
     {
-      name: "-vbsf",
-      description: "Deprecated",
-      deprecated: true,
-      args: { name: "video bitstream_filters" },
-    },
-    {
       name: "-vpre",
       description: "Set the video options to the indicated preset",
       args: { name: "preset" },
@@ -970,12 +1054,6 @@ const completionSpec: Fig.Spec = {
         "Set the maximum number of channels to try to guess the channel layout",
     },
     {
-      name: "-absf",
-      description: "Deprecated",
-      deprecated: true,
-      args: { name: "audio bitstream_filters" },
-    },
-    {
       name: "-apre",
       description: "Set the audio options to the indicated preset",
       args: { name: "preset" },
@@ -1013,6 +1091,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "-fix_sub_duration",
       description: "Fix subtitles duration",
+    },
+    {
+      name: "-fix_sub_duration_heartbeat",
+      description:
+        "Set this video output stream to be a heartbeat stream for fix_sub_duration, according to which subtitles should be split at random access points",
     },
     {
       name: "-canvas_size",

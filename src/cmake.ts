@@ -120,6 +120,28 @@ const completion: Fig.Spec = {
       ],
     },
     {
+      name: "--workflow",
+      description: "Run a workflow preset",
+      options: [
+        {
+          name: "--preset",
+          description: "Workflow preset to execute",
+          args: {
+            name: "preset",
+          },
+        },
+        {
+          name: "--list-presets",
+          description: "List available workflow presets",
+        },
+        {
+          name: "--fresh",
+          description:
+            "Configure a fresh build tree, removing any existing cache file",
+        },
+      ],
+    },
+    {
       name: "--open",
       description:
         "Open the generated project in the associated application. This is only supported by some generators",
@@ -623,12 +645,19 @@ const completion: Fig.Spec = {
       },
     },
     {
-      name: "toolchain",
+      name: "--toolchain",
       description:
         "Specify the cross compiling toolchain file, equivalent to setting CMAKE_TOOLCHAIN_FILE variable",
       args: {
         name: "path-to-file",
         template: "filepaths",
+      },
+    },
+    {
+      name: "--project-file",
+      description: "Specify an alternate project file name",
+      args: {
+        name: "project-file-name",
       },
     },
     {
@@ -820,6 +849,11 @@ const completion: Fig.Spec = {
         isOptional: true,
         suggestions: ["configure", "build", "test", "all"],
       },
+    },
+    {
+      name: "--fresh",
+      description:
+        "Configure a fresh build tree, removing any existing cache file",
     },
   ],
   args: {

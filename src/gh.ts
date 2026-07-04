@@ -226,7 +226,7 @@ const ghOptions: Record<string, Fig.Option> = {
     },
   },
   confirm: {
-    name: ["-y", "--confirm"],
+    name: ["-y", "--yes"],
     description: "Skip the confirmation prompt",
   },
   all: {
@@ -320,7 +320,92 @@ const completionSpec: Fig.Spec = {
         },
       ],
     },
-    { name: "api", description: "Make an authenticated GitHub API request" },
+    {
+      name: "api",
+      description: "Make an authenticated GitHub API request",
+      args: { name: "endpoint" },
+      options: [
+        {
+          name: "--cache",
+          description: 'Cache the response, e.g. "3600s", "60m", "1h"',
+          args: { name: "duration" },
+        },
+        {
+          name: ["-F", "--field"],
+          description:
+            'Add a typed parameter in key=value format (use "@<path>" or "@-" to read value from file or stdin)',
+          args: { name: "key=value" },
+        },
+        {
+          name: ["-H", "--header"],
+          description: "Add a HTTP request header in key:value format",
+          args: { name: "key:value" },
+        },
+        {
+          name: "--hostname",
+          description:
+            'The GitHub hostname for the request (default "github.com")',
+          args: { name: "string" },
+        },
+        {
+          name: ["-i", "--include"],
+          description:
+            "Include HTTP response status line and headers in the output",
+        },
+        {
+          name: "--input",
+          description:
+            'The file to use as body for the HTTP request (use "-" to read from standard input)',
+          args: { name: "file", template: "filepaths" },
+        },
+        {
+          name: ["-q", "--jq"],
+          description:
+            "Query to select values from the response using jq syntax",
+          args: { name: "string" },
+        },
+        {
+          name: ["-X", "--method"],
+          description: "The HTTP method for the request",
+          args: { name: "string" },
+        },
+        {
+          name: "--paginate",
+          description:
+            "Make additional HTTP requests to fetch all pages of results",
+        },
+        {
+          name: ["-p", "--preview"],
+          description:
+            "Opt into GitHub API previews (names should omit '-preview')",
+          args: { name: "strings" },
+        },
+        {
+          name: ["-f", "--raw-field"],
+          description: "Add a string parameter in key=value format",
+          args: { name: "key=value" },
+        },
+        {
+          name: "--silent",
+          description: "Do not print the response body",
+        },
+        {
+          name: "--slurp",
+          description:
+            'Use with "--paginate" to return an array of all pages of either JSON arrays or objects',
+        },
+        {
+          name: ["-t", "--template"],
+          description:
+            'Format JSON output using a Go template; see "gh help formatting"',
+          args: { name: "string" },
+        },
+        {
+          name: "--verbose",
+          description: "Include full HTTP request and response in the output",
+        },
+      ],
+    },
     {
       name: "auth",
       description: "Login, logout, and refresh your authentication",
@@ -407,6 +492,41 @@ const completionSpec: Fig.Spec = {
               name: "--with-token",
               description: "Read token from standard input",
               args: { name: "token" },
+            },
+          ],
+        },
+        {
+          name: "switch",
+          description: "Switch the active account for a GitHub host",
+          options: [
+            {
+              name: ["-h", "--hostname"],
+              description:
+                "The hostname of the GitHub instance to switch account for",
+              args: { name: "hostname" },
+            },
+            {
+              name: ["-u", "--user"],
+              description: "The account to switch to",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "token",
+          description:
+            "Print the authentication token gh uses for a hostname and account",
+          options: [
+            {
+              name: ["-h", "--hostname"],
+              description:
+                "The hostname of the GitHub instance authenticated with",
+              args: { name: "hostname" },
+            },
+            {
+              name: ["-u", "--user"],
+              description: "The account to output the token for",
+              args: { name: "string" },
             },
           ],
         },
@@ -850,6 +970,45 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
+          name: "develop",
+          description: "Manage linked branches for an issue",
+          args: { name: "issue", description: "Number or URL" },
+          options: [
+            {
+              name: ["-R", "--repo"],
+              insertValue: "-R '{cursor}'",
+              description:
+                "Select another repository using the [HOST/]OWNER/REPO format",
+              args: { name: "repo" },
+            },
+            {
+              name: ["-b", "--base"],
+              description:
+                "Name of the remote branch you want to make your new branch from",
+              args: { name: "string" },
+            },
+            {
+              name: "--branch-repo",
+              description:
+                "Name or URL of the repository where you want to create your new branch",
+              args: { name: "string" },
+            },
+            {
+              name: ["-c", "--checkout"],
+              description: "Checkout the branch after creating it",
+            },
+            {
+              name: ["-l", "--list"],
+              description: "List linked branches for the issue",
+            },
+            {
+              name: ["-n", "--name"],
+              description: "Name of the branch to create",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
           name: "edit",
           description: "Edit an issue",
           args: { name: "issue", description: "Number or URL" },
@@ -993,6 +1152,40 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
+          name: "lock",
+          description: "Lock issue conversation",
+          args: { name: "issue", description: "Number or URL" },
+          options: [
+            {
+              name: ["-R", "--repo"],
+              insertValue: "-R '{cursor}'",
+              description:
+                "Select another repository using the [HOST/]OWNER/REPO format",
+              args: { name: "repo" },
+            },
+            {
+              name: ["-r", "--reason"],
+              description:
+                "Optional reason for locking conversation: {off_topic, resolved, spam, too_heated}",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "pin",
+          description: "Pin an issue to a repository",
+          args: { name: "issue", description: "Number or URL" },
+          options: [
+            {
+              name: ["-R", "--repo"],
+              insertValue: "-R '{cursor}'",
+              description:
+                "Select another repository using the [HOST/]OWNER/REPO format",
+              args: { name: "repo" },
+            },
+          ],
+        },
+        {
           name: "reopen",
           description: "Reopen issue",
           options: [
@@ -1040,6 +1233,34 @@ const completionSpec: Fig.Spec = {
             { name: "issue", description: "Number or URL" },
             { name: "destination-repo" },
           ],
+          options: [
+            {
+              name: ["-R", "--repo"],
+              insertValue: "-R '{cursor}'",
+              description:
+                "Select another repository using the [HOST/]OWNER/REPO format",
+              args: { name: "repo" },
+            },
+          ],
+        },
+        {
+          name: "unlock",
+          description: "Unlock issue conversation",
+          args: { name: "issue", description: "Number or URL" },
+          options: [
+            {
+              name: ["-R", "--repo"],
+              insertValue: "-R '{cursor}'",
+              description:
+                "Select another repository using the [HOST/]OWNER/REPO format",
+              args: { name: "repo" },
+            },
+          ],
+        },
+        {
+          name: "unpin",
+          description: "Unpin an issue from a repository",
+          args: { name: "issue", description: "Number or URL" },
           options: [
             {
               name: ["-R", "--repo"],
@@ -1428,6 +1649,22 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
+          name: "lock",
+          description: "Lock pull request conversation",
+          args: {
+            name: "number | url | branch",
+            generators: ghGenerators.listPR,
+          },
+          options: [
+            {
+              name: ["-r", "--reason"],
+              description:
+                "Optional reason for locking conversation: {off_topic, resolved, spam, too_heated}",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
           name: "merge",
           description: "Merge a pull request",
           args: {
@@ -1471,6 +1708,35 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "revert",
+          description: "Revert a pull request",
+          args: {
+            name: "number | url | branch",
+            generators: ghGenerators.listPR,
+          },
+          options: [
+            {
+              name: ["-b", "--body"],
+              description: "Body for the revert pull request",
+              args: { name: "string" },
+            },
+            {
+              name: ["-F", "--body-file"],
+              description: "Read body text from file",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: ["-d", "--draft"],
+              description: "Mark revert pull request as a draft",
+            },
+            {
+              name: ["-t", "--title"],
+              description: "Title for the revert pull request",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
           name: "review",
           description: "Add a review to a pull request",
           args: {
@@ -1501,6 +1767,31 @@ const completionSpec: Fig.Spec = {
           description: "Show status of relevant pull requests",
         },
         {
+          name: "unlock",
+          description: "Unlock pull request conversation",
+          args: {
+            name: "number | url",
+            generators: ghGenerators.listPR,
+          },
+        },
+        {
+          name: "update-branch",
+          description:
+            "Update a pull request branch with latest changes of the base branch",
+          args: {
+            name: "number | url | branch",
+            isOptional: true,
+            generators: ghGenerators.listPR,
+          },
+          options: [
+            {
+              name: "--rebase",
+              description:
+                "Update PR branch by rebasing on top of latest base branch",
+            },
+          ],
+        },
+        {
           name: "view",
           description: "View a pull request",
           args: {
@@ -1520,7 +1811,337 @@ const completionSpec: Fig.Spec = {
         },
       ],
     },
-    { name: "release", description: "Manage GitHub releases" },
+    {
+      name: "release",
+      description: "Manage GitHub releases",
+      options: [
+        {
+          name: ["-R", "--repo"],
+          description:
+            "Select another repository using the [HOST/]OWNER/REPO format",
+          args: { name: "repo" },
+        },
+      ],
+      subcommands: [
+        {
+          name: "create",
+          description: "Create a new release",
+          args: [
+            { name: "tag", isOptional: true },
+            { name: "files", isOptional: true, isVariadic: true },
+          ],
+          options: [
+            {
+              name: "--discussion-category",
+              description: "Start a discussion in the specified category",
+              args: { name: "string" },
+            },
+            {
+              name: ["-d", "--draft"],
+              description:
+                "Save the release as a draft instead of publishing it",
+            },
+            {
+              name: "--fail-on-no-commits",
+              description:
+                "Fail if there are no commits since the last release (no impact on the first release)",
+            },
+            {
+              name: "--generate-notes",
+              description:
+                "Automatically generate title and notes for the release via GitHub Release Notes API",
+            },
+            {
+              name: "--latest",
+              description: 'Mark this release as "Latest"',
+            },
+            {
+              name: ["-n", "--notes"],
+              description: "Release notes",
+              args: { name: "string" },
+            },
+            {
+              name: ["-F", "--notes-file"],
+              description: "Read release notes from file",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: "--notes-from-tag",
+              description:
+                "Fetch notes from the tag annotation or message of commit associated with tag",
+            },
+            {
+              name: "--notes-start-tag",
+              description:
+                "Tag to use as the starting point for generating release notes",
+              args: { name: "string" },
+            },
+            {
+              name: ["-p", "--prerelease"],
+              description: "Mark the release as a prerelease",
+            },
+            {
+              name: "--target",
+              description:
+                "Target branch or full commit SHA (default main branch)",
+              args: { name: "branch" },
+            },
+            {
+              name: ["-t", "--title"],
+              description: "Release title",
+              args: { name: "string" },
+            },
+            {
+              name: "--verify-tag",
+              description:
+                "Abort in case the git tag doesn't already exist in the remote repository",
+            },
+          ],
+        },
+        {
+          name: "delete",
+          description: "Delete a release",
+          args: { name: "tag" },
+          options: [
+            {
+              name: "--cleanup-tag",
+              description:
+                "Delete the specified tag in addition to its release",
+            },
+            ghOptions.confirm,
+          ],
+        },
+        {
+          name: "delete-asset",
+          description: "Delete an asset from a release",
+          args: [{ name: "tag" }, { name: "asset-name" }],
+          options: [ghOptions.confirm],
+        },
+        {
+          name: "download",
+          description: "Download release assets",
+          args: { name: "tag", isOptional: true },
+          options: [
+            {
+              name: ["-A", "--archive"],
+              description:
+                "Download the source code archive in the specified format (zip or tar.gz)",
+              args: { name: "format", suggestions: ["zip", "tar.gz"] },
+            },
+            {
+              name: "--clobber",
+              description: "Overwrite existing files of the same name",
+            },
+            {
+              name: ["-D", "--dir"],
+              description: 'The directory to download files into (default ".")',
+              args: { name: "directory", template: "folders" },
+            },
+            {
+              name: ["-O", "--output"],
+              description:
+                'The file to write a single asset to (use "-" to write to standard output)',
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: ["-p", "--pattern"],
+              description: "Download only assets that match a glob pattern",
+              args: { name: "string" },
+            },
+            {
+              name: "--skip-existing",
+              description: "Skip downloading when files of the same name exist",
+            },
+          ],
+        },
+        {
+          name: "edit",
+          description: "Edit a release",
+          args: { name: "tag" },
+          options: [
+            {
+              name: "--discussion-category",
+              description:
+                "Start a discussion in the specified category when publishing a draft",
+              args: { name: "string" },
+            },
+            {
+              name: "--draft",
+              description:
+                "Save the release as a draft instead of publishing it",
+            },
+            {
+              name: "--latest",
+              description: 'Explicitly mark the release as "Latest"',
+            },
+            {
+              name: ["-n", "--notes"],
+              description: "Release notes",
+              args: { name: "string" },
+            },
+            {
+              name: ["-F", "--notes-file"],
+              description: "Read release notes from file",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: "--prerelease",
+              description: "Mark the release as a prerelease",
+            },
+            {
+              name: "--tag",
+              description: "The name of the tag",
+              args: { name: "string" },
+            },
+            {
+              name: "--target",
+              description:
+                "Target branch or full commit SHA (default main branch)",
+              args: { name: "branch" },
+            },
+            {
+              name: ["-t", "--title"],
+              description: "Release title",
+              args: { name: "string" },
+            },
+            {
+              name: "--verify-tag",
+              description:
+                "Abort in case the git tag doesn't already exist in the remote repository",
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List releases in a repository",
+          options: [
+            {
+              name: "--exclude-drafts",
+              description: "Exclude draft releases",
+            },
+            {
+              name: "--exclude-pre-releases",
+              description: "Exclude pre-releases",
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description: "Maximum number of items to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: ["-O", "--order"],
+              description: "Order of releases returned",
+              args: {
+                name: "string",
+                suggestions: ["asc", "desc"],
+                default: "desc",
+              },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "upload",
+          description: "Upload assets to a release",
+          args: [{ name: "tag" }, { name: "files", isVariadic: true }],
+          options: [
+            {
+              name: "--clobber",
+              description:
+                "Delete and re-upload existing assets of the same name",
+            },
+          ],
+        },
+        {
+          name: "verify",
+          description: "Verify the attestation for a release",
+          args: { name: "tag", isOptional: true },
+          options: [
+            {
+              name: "--format",
+              description: "Output format: {json}",
+              args: { name: "string" },
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "verify-asset",
+          description: "Verify that a given asset originated from a release",
+          args: [{ name: "tag", isOptional: true }, { name: "file-path" }],
+          options: [
+            {
+              name: "--format",
+              description: "Output format: {json}",
+              args: { name: "string" },
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "view",
+          description: "View information about a release",
+          args: { name: "tag", isOptional: true },
+          options: [
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+            {
+              name: ["-w", "--web"],
+              description: "Open the release in the browser",
+            },
+          ],
+        },
+      ],
+    },
     {
       name: "repo",
       description: "Work with GitHub repositories",
@@ -1536,6 +2157,67 @@ const completionSpec: Fig.Spec = {
             isOptional: true,
           },
           options: [ghOptions.confirm],
+        },
+        {
+          name: "autolink",
+          description: "Manage autolink references",
+          subcommands: [
+            {
+              name: "create",
+              description: "Create a new autolink reference",
+              args: [{ name: "keyPrefix" }, { name: "urlTemplate" }],
+              options: [
+                {
+                  name: ["-R", "--repo"],
+                  description:
+                    "Select another repository using the [HOST/]OWNER/REPO format",
+                  args: { name: "repo" },
+                },
+                {
+                  name: "--numeric",
+                  description: "Mark autolink as alphanumeric",
+                },
+              ],
+            },
+            {
+              name: "delete",
+              description: "Delete an autolink reference",
+              args: { name: "id" },
+              options: [
+                {
+                  name: ["-R", "--repo"],
+                  description:
+                    "Select another repository using the [HOST/]OWNER/REPO format",
+                  args: { name: "repo" },
+                },
+              ],
+            },
+            {
+              name: "list",
+              description: "List autolink references for a GitHub repository",
+              options: [
+                {
+                  name: ["-R", "--repo"],
+                  description:
+                    "Select another repository using the [HOST/]OWNER/REPO format",
+                  args: { name: "repo" },
+                },
+              ],
+            },
+            {
+              name: "view",
+              description: "View an autolink reference",
+              args: { name: "id" },
+              options: [
+                {
+                  name: ["-R", "--repo"],
+                  description:
+                    "Select another repository using the [HOST/]OWNER/REPO format",
+                  args: { name: "repo" },
+                },
+              ],
+            },
+          ],
         },
         {
           name: "clone",
@@ -1884,6 +2566,36 @@ Additional 'git clone' flags can be passed in by listing them after '--'`,
           ],
         },
         {
+          name: "gitignore",
+          description: "List and view available repository gitignore templates",
+          subcommands: [
+            {
+              name: "list",
+              description: "List available repository gitignore templates",
+            },
+            {
+              name: "view",
+              description: "View an available repository gitignore template",
+              args: { name: "template" },
+            },
+          ],
+        },
+        {
+          name: "license",
+          description: "Explore repository licenses",
+          subcommands: [
+            {
+              name: "list",
+              description: "List common repository licenses",
+            },
+            {
+              name: "view",
+              description: "View a specific repository license",
+              args: { name: "license" },
+            },
+          ],
+        },
+        {
           name: "list",
           description: `List repositories owned by user or organization.
 For more information about output formatting flags, see 'gh help formatting'`,
@@ -2035,6 +2747,17 @@ This can be overridden with the '--source' flag`,
           ],
         },
         {
+          name: "unarchive",
+          description:
+            "Unarchive a GitHub repository. With no argument, unarchives the current repository",
+          args: {
+            name: "repository",
+            generators: ghGenerators.listRepositories,
+            isOptional: true,
+          },
+          options: [ghOptions.confirm],
+        },
+        {
           name: "view",
           description: `Display the description and the README of a GitHub repository.
 With no argument, the repository for the current directory is displayed.
@@ -2091,6 +2814,28 @@ For more information about output formatting flags, see 'gh help formatting'`,
       description: "View details about workflow runs",
       options: [ghOptions.all],
       subcommands: [
+        {
+          name: "cancel",
+          description: "Cancel a workflow run",
+          args: {
+            name: "run-id",
+            isOptional: true,
+          },
+          options: [
+            {
+              name: "--force",
+              description: "Force cancel a workflow run",
+            },
+          ],
+        },
+        {
+          name: "delete",
+          description: "Delete a workflow run",
+          args: {
+            name: "run-id",
+            isOptional: true,
+          },
+        },
         {
           name: "download",
           description: "Download artifacts generated by a workflow run",
@@ -3210,6 +3955,772 @@ For more information about output formatting flags, see 'gh help formatting'`,
             {
               name: "--undo",
               description: "Unarchive a project item",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "attestation",
+      description: "Work with artifact attestations",
+      subcommands: [
+        {
+          name: "download",
+          description: "Download an artifact's attestations for offline use",
+          args: { name: "file-path | oci://<image-uri>" },
+          options: [
+            {
+              name: ["-d", "--digest-alg"],
+              description:
+                "The algorithm used to compute a digest of the artifact",
+              args: {
+                name: "string",
+                suggestions: ["sha256", "sha512"],
+                default: "sha256",
+              },
+            },
+            {
+              name: "--hostname",
+              description: "Configure host to use",
+              args: { name: "string" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description:
+                "Maximum number of attestations to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: ["-o", "--owner"],
+              description: "GitHub organization to scope attestation lookup by",
+              args: { name: "string" },
+            },
+            {
+              name: "--predicate-type",
+              description: "Filter attestations by provided predicate type",
+              args: { name: "string" },
+            },
+            {
+              name: ["-R", "--repo"],
+              description: "Repository name in the format <owner>/<repo>",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "trusted-root",
+          description:
+            "Output trusted_root.jsonl contents, likely for offline verification",
+          options: [
+            {
+              name: "--hostname",
+              description: "Configure host to use",
+              args: { name: "string" },
+            },
+            {
+              name: "--tuf-root",
+              description: "Path to the TUF root.json file on disk",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: "--tuf-url",
+              description: "URL to the TUF repository mirror",
+              args: { name: "string" },
+            },
+            {
+              name: "--verify-only",
+              description: "Don't output trusted_root.jsonl contents",
+            },
+          ],
+        },
+        {
+          name: "verify",
+          description: "Verify an artifact's integrity using attestations",
+          args: { name: "file-path | oci://<image-uri>" },
+          options: [
+            {
+              name: ["-b", "--bundle"],
+              description:
+                "Path to bundle on disk, either a single bundle in a JSON file or a JSON lines file with multiple bundles",
+              args: { name: "string" },
+            },
+            {
+              name: "--bundle-from-oci",
+              description:
+                "When verifying an OCI image, fetch the attestation bundle from the OCI registry instead of from GitHub",
+            },
+            {
+              name: "--cert-identity",
+              description:
+                "Enforce that the certificate's SubjectAlternativeName matches the provided value exactly",
+              args: { name: "string" },
+            },
+            {
+              name: ["-i", "--cert-identity-regex"],
+              description:
+                "Enforce that the certificate's SubjectAlternativeName matches the provided regex",
+              args: { name: "string" },
+            },
+            {
+              name: "--cert-oidc-issuer",
+              description:
+                "Enforce that the issuer of the OIDC token matches the provided value",
+              args: { name: "string" },
+            },
+            {
+              name: "--custom-trusted-root",
+              description:
+                "Path to a trusted_root.jsonl file; likely for offline verification",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: "--deny-self-hosted-runners",
+              description:
+                "Fail verification for attestations generated on self-hosted runners",
+            },
+            {
+              name: ["-d", "--digest-alg"],
+              description:
+                "The algorithm used to compute a digest of the artifact",
+              args: {
+                name: "string",
+                suggestions: ["sha256", "sha512"],
+                default: "sha256",
+              },
+            },
+            {
+              name: "--format",
+              description: "Output format: {json}",
+              args: { name: "string" },
+            },
+            {
+              name: "--hostname",
+              description: "Configure host to use",
+              args: { name: "string" },
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description:
+                "Maximum number of attestations to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: "--no-public-good",
+              description:
+                "Do not verify attestations signed with Sigstore public good instance",
+            },
+            {
+              name: ["-o", "--owner"],
+              description: "GitHub organization to scope attestation lookup by",
+              args: { name: "string" },
+            },
+            {
+              name: "--predicate-type",
+              description:
+                "Enforce that verified attestations' predicate type matches the provided value",
+              args: { name: "string" },
+            },
+            {
+              name: ["-R", "--repo"],
+              description: "Repository name in the format <owner>/<repo>",
+              args: { name: "string" },
+            },
+            {
+              name: "--signer-repo",
+              description:
+                "Enforce that the workflow that signed the attestation's repository matches the provided value (<owner>/<repo>)",
+              args: { name: "string" },
+            },
+            {
+              name: "--signer-workflow",
+              description:
+                "Enforce that the workflow that signed the attestation matches the provided value",
+              args: { name: "string" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "cache",
+      description: "Manage GitHub Actions caches",
+      options: [
+        {
+          name: ["-R", "--repo"],
+          description:
+            "Select another repository using the [HOST/]OWNER/REPO format",
+          args: { name: "repo" },
+        },
+      ],
+      subcommands: [
+        {
+          name: "delete",
+          description: "Delete GitHub Actions caches",
+          args: { name: "cache-id | cache-key", isOptional: true },
+          options: [
+            {
+              name: ["-a", "--all"],
+              description:
+                "Delete all caches, can be used with --ref to delete all caches for a specific ref",
+            },
+            {
+              name: ["-r", "--ref"],
+              description:
+                "Delete by cache key and ref, formatted as refs/heads/<branch name> or refs/pull/<number>/merge",
+              args: { name: "string" },
+            },
+            {
+              name: "--succeed-on-no-caches",
+              description:
+                "Return exit code 0 if no caches found. Must be used in conjunction with --all",
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List GitHub Actions caches",
+          options: [
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-k", "--key"],
+              description: "Filter by cache key prefix",
+              args: { name: "string" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description: "Maximum number of caches to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: ["-O", "--order"],
+              description: "Order of caches returned",
+              args: {
+                name: "string",
+                suggestions: ["asc", "desc"],
+                default: "desc",
+              },
+            },
+            {
+              name: ["-r", "--ref"],
+              description:
+                "Filter by ref, formatted as refs/heads/<branch name> or refs/pull/<number>/merge",
+              args: { name: "string" },
+            },
+            {
+              name: ["-S", "--sort"],
+              description: "Sort fetched caches",
+              args: {
+                name: "string",
+                suggestions: [
+                  "created_at",
+                  "last_accessed_at",
+                  "size_in_bytes",
+                ],
+                default: "last_accessed_at",
+              },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "label",
+      description: "Manage labels",
+      options: [
+        {
+          name: ["-R", "--repo"],
+          description:
+            "Select another repository using the [HOST/]OWNER/REPO format",
+          args: { name: "repo" },
+        },
+      ],
+      subcommands: [
+        {
+          name: "clone",
+          description: "Clones labels from one repository to another",
+          args: { name: "source-repository" },
+          options: [
+            {
+              name: ["-f", "--force"],
+              description: "Overwrite labels in the destination repository",
+            },
+          ],
+        },
+        {
+          name: "create",
+          description: "Create a new label",
+          args: { name: "name" },
+          options: [
+            {
+              name: ["-c", "--color"],
+              description: "Color of the label",
+              args: { name: "string" },
+            },
+            {
+              name: ["-d", "--description"],
+              description: "Description of the label",
+              args: { name: "string" },
+            },
+            {
+              name: ["-f", "--force"],
+              description:
+                "Update the label color and description if label already exists",
+            },
+          ],
+        },
+        {
+          name: "delete",
+          description: "Delete a label from a repository",
+          args: { name: "name" },
+          options: [
+            {
+              name: "--yes",
+              description: "Confirm deletion without prompting",
+            },
+          ],
+        },
+        {
+          name: "edit",
+          description: "Edit a label",
+          args: { name: "name" },
+          options: [
+            {
+              name: ["-c", "--color"],
+              description: "Color of the label",
+              args: { name: "string" },
+            },
+            {
+              name: ["-d", "--description"],
+              description: "Description of the label",
+              args: { name: "string" },
+            },
+            {
+              name: ["-n", "--name"],
+              description: "New name of the label",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List labels in a repository",
+          options: [
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description: "Maximum number of labels to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: "--order",
+              description: "Order of labels returned",
+              args: {
+                name: "string",
+                suggestions: ["asc", "desc"],
+                default: "asc",
+              },
+            },
+            {
+              name: ["-S", "--search"],
+              description: "Search label names and descriptions",
+              args: { name: "string" },
+            },
+            {
+              name: "--sort",
+              description: "Sort fetched labels",
+              args: {
+                name: "string",
+                suggestions: ["created", "name"],
+                default: "created",
+              },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+            {
+              name: ["-w", "--web"],
+              description: "List labels in the web browser",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "licenses",
+      description: "View third-party license information",
+    },
+    {
+      name: "org",
+      description: "Manage organizations",
+      subcommands: [
+        {
+          name: "list",
+          description: "List organizations for the authenticated user",
+          options: [
+            {
+              name: ["-L", "--limit"],
+              description:
+                "Maximum number of organizations to list (default 30)",
+              args: { name: "int" },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "ruleset",
+      description: "View info about repo rulesets",
+      options: [
+        {
+          name: ["-R", "--repo"],
+          description:
+            "Select another repository using the [HOST/]OWNER/REPO format",
+          args: { name: "repo" },
+        },
+      ],
+      subcommands: [
+        {
+          name: "check",
+          description: "View rules that would apply to a given branch",
+          args: { name: "branch", isOptional: true },
+          options: [
+            {
+              name: "--default",
+              description: "Check rules on default branch",
+            },
+            {
+              name: ["-w", "--web"],
+              description: "Open the branch rules page in a web browser",
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List rulesets for a repository or organization",
+          options: [
+            {
+              name: ["-L", "--limit"],
+              description: "Maximum number of rulesets to list (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: ["-o", "--org"],
+              description:
+                "List organization-wide rulesets for the provided organization",
+              args: { name: "string" },
+            },
+            {
+              name: ["-p", "--parents"],
+              description:
+                "Whether to include rulesets configured at higher levels that also apply (default true)",
+            },
+            {
+              name: ["-w", "--web"],
+              description: "Open the list of rulesets in the web browser",
+            },
+          ],
+        },
+        {
+          name: "view",
+          description: "View information about a ruleset",
+          args: { name: "ruleset-id", isOptional: true },
+          options: [
+            {
+              name: ["-o", "--org"],
+              description:
+                "Organization name if the provided ID is an organization-level ruleset",
+              args: { name: "string" },
+            },
+            {
+              name: ["-p", "--parents"],
+              description:
+                "Whether to include rulesets configured at higher levels that also apply (default true)",
+            },
+            {
+              name: ["-w", "--web"],
+              description: "Open the ruleset in the browser",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "search",
+      description: "Search for repositories, issues, and pull requests",
+      subcommands: [
+        {
+          name: "code",
+          description: "Search within code",
+          args: { name: "query", isOptional: true },
+        },
+        {
+          name: "commits",
+          description: "Search for commits",
+          args: { name: "query", isOptional: true },
+        },
+        {
+          name: "issues",
+          description: "Search for issues",
+          args: { name: "query", isOptional: true },
+        },
+        {
+          name: "prs",
+          description: "Search for pull requests",
+          args: { name: "query", isOptional: true },
+        },
+        {
+          name: "repos",
+          description: "Search for repositories",
+          args: { name: "query", isOptional: true },
+          options: [
+            {
+              name: "--archived",
+              description:
+                "Filter based on the repository archived state: {true|false}",
+            },
+            {
+              name: "--language",
+              description: "Filter based on the coding language",
+              args: { name: "string" },
+            },
+            {
+              name: "--license",
+              description: "Filter based on license type",
+              args: { name: "strings" },
+            },
+            {
+              name: ["-L", "--limit"],
+              description:
+                "Maximum number of repositories to fetch (default 30)",
+              args: { name: "int" },
+            },
+            {
+              name: "--owner",
+              description: "Filter on owner",
+              args: { name: "strings" },
+            },
+            {
+              name: "--sort",
+              description: "Sort fetched repositories",
+              args: {
+                name: "string",
+                suggestions: [
+                  "forks",
+                  "help-wanted-issues",
+                  "stars",
+                  "updated",
+                ],
+              },
+            },
+            {
+              name: "--stars",
+              description: "Filter on number of stars",
+              args: { name: "number" },
+            },
+            {
+              name: "--topic",
+              description: "Filter on topic",
+              args: { name: "strings" },
+            },
+            {
+              name: ["-w", "--web"],
+              description: "Open the search query in the web browser",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "status",
+      description:
+        "Print information about relevant issues, pull requests, and notifications across repositories",
+      options: [
+        {
+          name: ["-e", "--exclude"],
+          description:
+            "Comma separated list of repos to exclude in owner/name format",
+          args: { name: "strings" },
+        },
+        {
+          name: ["-o", "--org"],
+          description: "Report status within an organization",
+          args: { name: "string" },
+        },
+      ],
+    },
+    {
+      name: "variable",
+      description: "Manage GitHub Actions variables",
+      options: [
+        {
+          name: ["-R", "--repo"],
+          description:
+            "Select another repository using the [HOST/]OWNER/REPO format",
+          args: { name: "repo" },
+        },
+      ],
+      subcommands: [
+        {
+          name: "delete",
+          description: "Delete variables",
+          args: { name: "variable-name" },
+          options: [
+            {
+              name: ["-e", "--env"],
+              description: "Delete a variable for an environment",
+              args: { name: "string" },
+            },
+            {
+              name: ["-o", "--org"],
+              description: "Delete a variable for an organization",
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "get",
+          description: "Get variables",
+          args: { name: "variable-name" },
+          options: [
+            {
+              name: ["-e", "--env"],
+              description: "Get a variable for an environment",
+              args: { name: "string" },
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-o", "--org"],
+              description: "Get a variable for an organization",
+              args: { name: "string" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "list",
+          description: "List variables",
+          options: [
+            {
+              name: ["-e", "--env"],
+              description: "List variables for an environment",
+              args: { name: "string" },
+            },
+            {
+              name: ["-q", "--jq"],
+              description: "Filter JSON output using a jq expression",
+              args: { name: "expression" },
+            },
+            {
+              name: "--json",
+              description: "Output JSON with the specified fields",
+              args: { name: "fields" },
+            },
+            {
+              name: ["-o", "--org"],
+              description: "List variables for an organization",
+              args: { name: "string" },
+            },
+            {
+              name: ["-t", "--template"],
+              description:
+                'Format JSON output using a Go template; see "gh help formatting"',
+              args: { name: "string" },
+            },
+          ],
+        },
+        {
+          name: "set",
+          description: "Create or update variables",
+          args: { name: "variable-name" },
+          options: [
+            {
+              name: ["-b", "--body"],
+              description:
+                "The value for the variable (reads from standard input if not specified)",
+              args: { name: "string" },
+            },
+            {
+              name: ["-e", "--env"],
+              description: "Set deployment environment variable",
+              args: { name: "environment" },
+            },
+            {
+              name: ["-f", "--env-file"],
+              description:
+                "Load variable names and values from a dotenv-formatted file",
+              args: { name: "file", template: "filepaths" },
+            },
+            {
+              name: ["-o", "--org"],
+              description: "Set organization variable",
+              args: { name: "organization" },
+            },
+            {
+              name: ["-r", "--repos"],
+              description:
+                "List of repositories that can access an organization variable",
+              args: { name: "repositories" },
+            },
+            {
+              name: ["-v", "--visibility"],
+              description: "Set visibility for an organization variable",
+              args: {
+                name: "string",
+                suggestions: ["all", "private", "selected"],
+                default: "private",
+              },
             },
           ],
         },

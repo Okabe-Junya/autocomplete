@@ -792,6 +792,10 @@ const completionSpec: (toolchain?: boolean) => Fig.Spec = (
           },
         },
         {
+          name: "--keep-going",
+          description: "Do not abort the build as soon as there is an error",
+        },
+        {
           name: "--bin",
           description: "Build only the specified binary",
           isRepeatable: true,
@@ -870,10 +874,10 @@ const completionSpec: (toolchain?: boolean) => Fig.Spec = (
           },
         },
         {
-          name: "--out-dir",
+          name: "--artifact-dir",
           description: "Copy final artifacts to this directory (unstable)",
           args: {
-            name: "out-dir",
+            name: "artifact-dir",
           },
         },
         {
@@ -970,10 +974,6 @@ const completionSpec: (toolchain?: boolean) => Fig.Spec = (
         {
           name: "--ignore-rust-version",
           description: "Ignore `rust-version` specification in packages",
-        },
-        {
-          name: "--build-plan",
-          description: "Output the build plan in JSON (unstable)",
         },
         {
           name: "--unit-graph",
@@ -2228,6 +2228,86 @@ const completionSpec: (toolchain?: boolean) => Fig.Spec = (
           description: "Run without accessing the network",
         },
       ],
+    },
+    {
+      name: "info",
+      icon: "📦",
+      description: "Display information about a package",
+      options: [
+        {
+          name: "--index",
+          description: "Registry index URL to search packages in",
+          args: {
+            name: "index",
+          },
+        },
+        {
+          name: "--registry",
+          description: "Registry to search packages in",
+          args: {
+            name: "registry",
+          },
+        },
+        {
+          name: "--color",
+          description: "Coloring: auto, always, never",
+          args: {
+            name: "color",
+            suggestions: ["auto", "always", "never"],
+          },
+        },
+        {
+          name: "--config",
+          description: "Override a configuration value",
+          isRepeatable: true,
+          args: {
+            name: "config",
+            generators: configGenerator,
+          },
+        },
+        {
+          name: "-Z",
+          description:
+            "Unstable (nightly-only) flags to Cargo, see 'cargo -Z help' for details",
+          isRepeatable: true,
+          args: {
+            name: "unstable-features",
+          },
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Do not print cargo log messages",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-v", "--verbose"],
+          description: "Use verbose output (-vv very verbose/build.rs output)",
+          isRepeatable: true,
+        },
+        {
+          name: "--frozen",
+          description: "Require Cargo.lock and cache are up to date",
+        },
+        {
+          name: "--locked",
+          description: "Require Cargo.lock is up to date",
+        },
+        {
+          name: "--offline",
+          description: "Run without accessing the network",
+        },
+      ],
+      args: {
+        name: "SPEC",
+        description: "Package to inspect",
+        generators: searchGenerator,
+        filterStrategy: "fuzzy",
+        debounce: true,
+        suggestCurrentToken: true,
+      },
     },
     {
       name: "init",
@@ -3783,6 +3863,10 @@ const completionSpec: (toolchain?: boolean) => Fig.Spec = (
           args: {
             name: "jobs",
           },
+        },
+        {
+          name: "--keep-going",
+          description: "Do not abort the build as soon as there is an error",
         },
         {
           name: "--profile",

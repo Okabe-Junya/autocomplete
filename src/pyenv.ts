@@ -38,6 +38,16 @@ const completionSpec: Fig.Spec = {
     {
       name: "commands",
       description: "Lists all available pyenv commands",
+      options: [
+        {
+          name: "--sh",
+          description: "List only shell commands",
+        },
+        {
+          name: "--no-sh",
+          description: "List only non-shell commands",
+        },
+      ],
     },
     {
       name: "local",
@@ -45,10 +55,16 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "python version",
         isVariadic: true,
+        generators: globalList,
       },
       options: [
         {
+          name: ["-f", "--force"],
+          description: "Do not verify that the versions being set exist",
+        },
+        {
           name: "--unset",
+          description: "Remove the local application-specific Python version",
         },
       ],
     },
@@ -57,6 +73,7 @@ const completionSpec: Fig.Spec = {
       description: "Sets the global version of Python to be used in all shells",
       args: {
         name: "python version",
+        isVariadic: true,
         generators: globalList,
       },
     },
@@ -65,10 +82,14 @@ const completionSpec: Fig.Spec = {
       description: "Sets a shell-specific Python version",
       args: {
         name: "python version",
+        isVariadic: true,
+        generators: globalList,
       },
       options: [
         {
           name: "--unset",
+          description:
+            "Restore the environment to the state before the first `pyenv shell` call",
         },
       ],
     },
@@ -111,13 +132,19 @@ const completionSpec: Fig.Spec = {
           name: ["-g", "--debug"],
           description: "Build a debug version",
         },
+        {
+          name: "--version",
+          description: "Show version of python-build",
+        },
       ],
     },
     {
       name: "uninstall",
-      description: "Performs a deployment (default)",
+      description: "Uninstall Python versions",
       args: {
         name: "version",
+        isVariadic: true,
+        generators: globalList,
       },
       options: [
         {
@@ -129,12 +156,19 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "rehash",
-      description: "Performs a deployment (default)",
+      description: "Rehash pyenv shims (run this after installing executables)",
     },
     {
       name: "version",
       description:
         "Displays the currently active Python version, along with information on how it was set",
+      options: [
+        {
+          name: "--bare",
+          description:
+            "Show just the version name. An alias to `pyenv version-name'",
+        },
+      ],
     },
     {
       name: "versions",
@@ -149,6 +183,10 @@ const completionSpec: Fig.Spec = {
           name: "--skip-aliases",
           description: "Skip printing aliases",
         },
+        {
+          name: "--skip-envs",
+          description: "Skip virtual environments (under <version>/envs)",
+        },
       ],
     },
     {
@@ -158,6 +196,12 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "command",
       },
+      options: [
+        {
+          name: "--nosystem",
+          description: "Do not search for the command in the system PATH",
+        },
+      ],
     },
     {
       name: "whence",
@@ -165,6 +209,165 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "command",
       },
+      options: [
+        {
+          name: "--path",
+          description: "List full paths of the executable, not just versions",
+        },
+      ],
+    },
+    {
+      name: "completions",
+      description: "Lists completions for a given pyenv command",
+      priority: 30,
+      args: {
+        name: "command",
+        isVariadic: true,
+        isOptional: true,
+      },
+    },
+    {
+      name: "exec",
+      description: "Runs an executable with the selected Python version",
+      args: {
+        name: "command",
+        isCommand: true,
+      },
+    },
+    {
+      name: "help",
+      description: "Display help for a command",
+      args: {
+        name: "command",
+        isOptional: true,
+      },
+      options: [
+        {
+          name: "--usage",
+          description: "Show only the usage instructions for the command",
+        },
+      ],
+    },
+    {
+      name: "hooks",
+      description: "List hook scripts for a given pyenv command",
+      args: {
+        name: "command",
+      },
+    },
+    {
+      name: "init",
+      description: "Configure the shell environment for pyenv",
+      args: {
+        name: "shell",
+        isOptional: true,
+      },
+      options: [
+        {
+          name: "-",
+          description: "Output the shell initialization script to be eval'd",
+        },
+        {
+          name: "--path",
+          description: "Output only the PATH modifications",
+        },
+        {
+          name: "--no-push-path",
+          description: "Don't prepend the shims directory to PATH",
+        },
+        {
+          name: "--no-rehash",
+          description: "Don't run `pyenv rehash' as part of initialization",
+        },
+        {
+          name: "--install",
+          description: "Automatically install shell completions",
+        },
+        {
+          name: "--detect-shell",
+          description: "Detect the current shell for initialization",
+        },
+      ],
+    },
+    {
+      name: "latest",
+      description:
+        "Print the latest installed or known version with the given prefix",
+      args: {
+        name: "prefix",
+      },
+      options: [
+        {
+          name: ["-k", "--known"],
+          description: "Select from all known versions instead of installed",
+        },
+      ],
+    },
+    {
+      name: "prefix",
+      description: "Display prefixes for Python versions",
+      args: {
+        name: "version",
+        isVariadic: true,
+        isOptional: true,
+        generators: globalList,
+      },
+    },
+    {
+      name: "root",
+      description:
+        "Display the root directory where versions and shims are kept",
+    },
+    {
+      name: "shims",
+      description: "List existing pyenv shims",
+      options: [
+        {
+          name: "--short",
+          description: "List only the shim names, without the full path",
+        },
+      ],
+    },
+    {
+      name: "version-file",
+      description: "Detect the file that sets the current pyenv version",
+      args: {
+        name: "dir",
+        template: "folders",
+        isOptional: true,
+      },
+    },
+    {
+      name: "version-file-read",
+      description: "Read a version from a pyenv version file",
+      priority: 30,
+      args: {
+        name: "file",
+        template: "filepaths",
+      },
+    },
+    {
+      name: "version-file-write",
+      description: "Write versions to a pyenv version file",
+      priority: 30,
+      args: {
+        name: "file",
+        template: "filepaths",
+      },
+      options: [
+        {
+          name: ["-f", "--force"],
+          description: "Don't verify that the versions exist",
+        },
+      ],
+    },
+    {
+      name: "version-name",
+      description: "Show the current Python version",
+    },
+    {
+      name: "version-origin",
+      description: "Explain how the current Python version is set",
     },
   ],
 };

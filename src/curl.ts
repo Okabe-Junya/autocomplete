@@ -127,6 +127,10 @@ const completionSpec: Fig.Spec = {
       args: { name: "file", template: "filepaths" },
     },
     {
+      name: ["-Z", "--parallel"],
+      description: "Perform transfers in parallel",
+    },
+    {
       name: ["-#", "--progress-bar"],
       description: "Display transfer progress as a bar",
     },
@@ -252,7 +256,13 @@ const completionSpec: Fig.Spec = {
       args: { name: "file", template: "filepaths" },
     },
     { name: "--anyauth", description: "Pick any authentication method" },
+    {
+      name: "--aws-sigv4",
+      description: "AWS V4 signature auth",
+      args: { name: "provider1[:prvdr2[:reg[:srv]]]" },
+    },
     { name: "--basic", description: "Use HTTP Basic Authentication" },
+    { name: "--ca-native", description: "Load CA certs from the OS" },
     {
       name: "--cacert",
       description: "CA certificate to verify peer against",
@@ -296,11 +306,21 @@ const completionSpec: Fig.Spec = {
       name: "--create-dirs",
       description: "Create necessary local directory hierarchy",
     },
+    {
+      name: "--create-file-mode",
+      description: "File mode for created files",
+      args: { name: "mode" },
+    },
     { name: "--crlf", description: "Convert LF to CRLF in upload" },
     {
       name: "--crlfile",
       description: "Get a CRL list in PEM format from the given file",
       args: { name: "file", template: "filepaths" },
+    },
+    {
+      name: "--curves",
+      description: "(EC) TLS key exchange algorithms to request",
+      args: { name: "list" },
     },
     {
       name: "--data-ascii",
@@ -355,6 +375,14 @@ const completionSpec: Fig.Spec = {
       args: { name: "addresses" },
     },
     {
+      name: "--doh-cert-status",
+      description: "Verify the DoH server cert status OCSP-staple",
+    },
+    {
+      name: "--doh-insecure",
+      description: "Allow insecure DoH server connections",
+    },
+    {
       name: "--doh-url",
       description: "Resolve host names over DOH",
       args: { name: "URL" },
@@ -395,6 +423,10 @@ const completionSpec: Fig.Spec = {
         "On HTTP errors, return an error and also output any HTML response",
     },
     { name: "--false-start", description: "Enable TLS False Start" },
+    {
+      name: "--form-escape",
+      description: "Escape form fields using backslash",
+    },
     {
       name: "--form-string",
       description: "Specify multipart MIME data",
@@ -442,6 +474,11 @@ const completionSpec: Fig.Spec = {
       args: { name: "milliseconds" },
     },
     {
+      name: "--haproxy-clientip",
+      description: "Set address in HAProxy PROXY protocol header",
+      args: { name: "ip" },
+    },
+    {
       name: "--haproxy-protocol",
       description: "Send HAProxy PROXY protocol v1 header",
     },
@@ -450,6 +487,16 @@ const completionSpec: Fig.Spec = {
       description: "Acceptable MD5 hash of the host public key",
       args: { name: "md5" },
     },
+    {
+      name: "--hostpubsha256",
+      description: "Acceptable SHA256 hash of the host public key",
+      args: { name: "sha256" },
+    },
+    {
+      name: "--hsts",
+      description: "Enable HSTS with this cache file",
+      args: { name: "filename", template: "filepaths" },
+    },
     { name: "--http0.9", description: "Allow HTTP 0.9 responses" },
     { name: "--http1.1", description: "Use HTTP 1.1" },
     { name: "--http2", description: "Use HTTP 2" },
@@ -457,6 +504,8 @@ const completionSpec: Fig.Spec = {
       name: "--http2-prior-knowledge",
       description: "Use HTTP 2 without HTTP/1.1 Upgrade",
     },
+    { name: "--http3", description: "Use HTTP v3" },
+    { name: "--http3-only", description: "Use HTTP v3 only" },
     {
       name: "--ignore-content-length",
       description: "Ignore the size of the remote resource",
@@ -465,6 +514,16 @@ const completionSpec: Fig.Spec = {
       name: "--interface",
       description: "Use network INTERFACE (or address)",
       args: { name: "name" },
+    },
+    {
+      name: "--ipfs-gateway",
+      description: "Gateway for IPFS",
+      args: { name: "URL" },
+    },
+    {
+      name: "--json",
+      description: "HTTP POST JSON",
+      args: { name: "data" },
     },
     {
       name: "--keepalive-time",
@@ -529,6 +588,10 @@ const completionSpec: Fig.Spec = {
       args: { name: "address" },
     },
     {
+      name: "--mail-rcpt-allowfails",
+      description: "Allow RCPT TO command to fail for some recipients",
+    },
+    {
       name: "--max-filesize",
       description: "Maximum file size to download",
       args: { name: "bytes" },
@@ -554,10 +617,18 @@ const completionSpec: Fig.Spec = {
     { name: "--netrc-optional", description: "Use either .netrc or URL" },
     { name: "--no-alpn", description: "Disable the ALPN TLS extension" },
     {
+      name: "--no-clobber",
+      description: "Do not overwrite files that already exist",
+    },
+    {
       name: "--no-keepalive",
       description: "Disable TCP keepalive on the connection",
     },
     { name: "--no-npn", description: "Disable the NPN TLS extension" },
+    {
+      name: "--no-progress-meter",
+      description: "Do not show the progress meter",
+    },
     { name: "--no-sessionid", description: "Disable SSL session-ID reusing" },
     {
       name: "--noproxy",
@@ -573,6 +644,20 @@ const completionSpec: Fig.Spec = {
       name: "--oauth2-bearer",
       description: "OAuth 2 Bearer Token",
       args: { name: "token" },
+    },
+    {
+      name: "--output-dir",
+      description: "Directory to save files in",
+      args: { name: "dir", template: "folders" },
+    },
+    {
+      name: "--parallel-immediate",
+      description: "Do not wait for multiplexing (with --parallel)",
+    },
+    {
+      name: "--parallel-max",
+      description: "Maximum concurrency for parallel transfers",
+      args: { name: "num" },
     },
     {
       name: "--pass",
@@ -628,6 +713,10 @@ const completionSpec: Fig.Spec = {
       description: "Use Basic authentication on the proxy",
     },
     {
+      name: "--proxy-ca-native",
+      description: "Load CA certs from the OS to verify the proxy",
+    },
+    {
       name: "--proxy-cacert",
       description: "CA certificate to verify peer against for proxy",
       args: { name: "file", template: "filepaths" },
@@ -673,6 +762,10 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--proxy-http2",
+      description: "Use HTTP/2 with HTTPS proxy",
+    },
+    {
       name: "--proxy-insecure",
       description: "Do HTTPS proxy connections without verifying the proxy",
     },
@@ -714,6 +807,10 @@ const completionSpec: Fig.Spec = {
       description: "Allow security flaw for interop for HTTPS proxy",
     },
     {
+      name: "--proxy-ssl-auto-client-cert",
+      description: "Auto client certificate for proxy (Schannel)",
+    },
+    {
       name: "--proxy-tls13-ciphers",
       description: "List> TLS 1.3 proxy cipher suites",
       args: { name: "ciphersuite" },
@@ -749,10 +846,19 @@ const completionSpec: Fig.Spec = {
       description: "File for reading random data from",
       args: { name: "file", template: "filepaths" },
     },
+    {
+      name: "--rate",
+      description: "Request rate for serial transfers",
+      args: { name: "max request rate" },
+    },
     { name: "--raw", description: 'Do HTTP "raw"; no transfer decoding' },
     {
       name: "--remote-name-all",
       description: "Use the remote file name for all URLs",
+    },
+    {
+      name: "--remove-on-error",
+      description: "Remove output file on errors",
     },
     {
       name: "--request-target",
@@ -769,6 +875,10 @@ const completionSpec: Fig.Spec = {
       args: { name: "num" },
     },
     {
+      name: "--retry-all-errors",
+      description: "Retry all errors (with --retry)",
+    },
+    {
       name: "--retry-connrefused",
       description: "Retry on connection refused (use with --retry)",
     },
@@ -781,6 +891,11 @@ const completionSpec: Fig.Spec = {
       name: "--retry-max-time",
       description: "Retry only within this period",
       args: { name: "seconds" },
+    },
+    {
+      name: "--sasl-authzid",
+      description: "Identity for SASL PLAIN authentication",
+      args: { name: "identity" },
     },
     {
       name: "--sasl-ir",
@@ -842,6 +957,10 @@ const completionSpec: Fig.Spec = {
       description: "Disable cert revocation checks (Schannel)",
     },
     { name: "--ssl-reqd", description: "Require SSL/TLS" },
+    {
+      name: "--ssl-revoke-best-effort",
+      description: "Ignore missing cert revocation checks (best effort)",
+    },
     { name: "--stderr", description: "Where to redirect stderr" },
     {
       name: "--styled-output",
@@ -895,6 +1014,15 @@ const completionSpec: Fig.Spec = {
       args: { name: "file", template: "filepaths" },
     },
     {
+      name: "--trace-config",
+      description: "Details to log in trace/verbose output",
+      args: { name: "string" },
+    },
+    {
+      name: "--trace-ids",
+      description: "Transfer and connection ids in verbose output",
+    },
+    {
       name: "--trace-time",
       description: "Add time stamps to trace/verbose output",
     },
@@ -904,6 +1032,16 @@ const completionSpec: Fig.Spec = {
       args: { name: "path" },
     },
     { name: "--url", description: "URL to work with", args: { name: "url" } },
+    {
+      name: "--url-query",
+      description: "Add a URL query part",
+      args: { name: "data" },
+    },
+    {
+      name: "--variable",
+      description: "Set variable",
+      args: { name: "[%]name=text/@file" },
+    },
     {
       name: "--xattr",
       description: "Store metadata in extended file attributes",

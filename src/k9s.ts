@@ -19,6 +19,52 @@ const completionSpec: Fig.Spec = {
     "K9s is a terminal based UI to interact with your Kubernetes clusters",
   subcommands: [
     {
+      name: "completion",
+      description: "Generate the autocompletion script for the specified shell",
+      subcommands: [
+        {
+          name: "bash",
+          description: "Generate the autocompletion script for bash",
+          options: [
+            {
+              name: "--no-descriptions",
+              description: "Disable completion descriptions",
+            },
+          ],
+        },
+        {
+          name: "fish",
+          description: "Generate the autocompletion script for fish",
+          options: [
+            {
+              name: "--no-descriptions",
+              description: "Disable completion descriptions",
+            },
+          ],
+        },
+        {
+          name: "powershell",
+          description: "Generate the autocompletion script for powershell",
+          options: [
+            {
+              name: "--no-descriptions",
+              description: "Disable completion descriptions",
+            },
+          ],
+        },
+        {
+          name: "zsh",
+          description: "Generate the autocompletion script for zsh",
+          options: [
+            {
+              name: "--no-descriptions",
+              description: "Disable completion descriptions",
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "help",
       description: "Help about any command",
       args: { name: "command", isOptional: true, template: "help" },
@@ -79,12 +125,29 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--client-certificate",
+      description: "Path to a client certificate file for TLS",
+      args: {
+        name: "string",
+        description: "The path to a client certificate file",
+        template: "filepaths",
+      },
+    },
+    {
       name: "--client-key",
       description: "Path to a client key file for TLS",
       args: {
         name: "string",
         description: "The path to a client key file",
         template: "filepaths",
+      },
+    },
+    {
+      name: "--cluster",
+      description: "The name of the kubeconfig cluster to use",
+      args: {
+        name: "string",
+        description: "The name of the kubeconfig cluster",
       },
     },
     {
@@ -120,6 +183,11 @@ const completionSpec: Fig.Spec = {
       name: "--insecure-skip-tls-verify",
       description:
         "If true, the server's caCertFile will not be checked for validity",
+    },
+    {
+      name: "--invert",
+      description:
+        "Invert skin (dark to light, light to dark), preserving colors",
     },
     {
       name: "--kubeconfig",
@@ -172,10 +240,9 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: ["-r", "--refresh"],
-      description:
-        "Specify the default refresh rate as an integer (sec) (default 2)",
+      description: "Specify the default refresh rate as a float (sec)",
       args: {
-        name: "int",
+        name: "float32",
         description: "The refresh rate (sec)",
         default: "2",
       },
@@ -196,6 +263,10 @@ const completionSpec: Fig.Spec = {
         name: "string",
         description: "The path to a dir for a screen dumps",
       },
+    },
+    {
+      name: "--splashless",
+      description: "Turn K9s splash screen off",
     },
     {
       name: "--token",

@@ -16,6 +16,18 @@ const completionSpec: Fig.Spec = {
   },
   options: [
     {
+      name: "--",
+      description: "Treat no subsequent arguments as options",
+    },
+    {
+      name: "-A",
+      description: 'Run ".archive ARGS" and exit',
+      args: {
+        name: "ARGS",
+        isVariadic: true,
+      },
+    },
+    {
       name: "-append",
       description: "Append the database to the end of the file",
     },
@@ -30,6 +42,10 @@ const completionSpec: Fig.Spec = {
     {
       name: "-batch",
       description: "Force batch I/O",
+    },
+    {
+      name: "-box",
+      description: "Set output mode to 'box'",
     },
     {
       name: "-column",
@@ -47,8 +63,20 @@ const completionSpec: Fig.Spec = {
       description: "Set output mode to 'csv'",
     },
     {
+      name: "-deserialize",
+      description: "Open the database using sqlite3_deserialize()",
+    },
+    {
       name: "-echo",
-      description: "Print commands before execution",
+      description: "Print inputs before execution",
+    },
+    {
+      name: "-escape",
+      description: "Set ctrl-char escape mode",
+      args: {
+        name: "T",
+        suggestions: ["symbol", "ascii", "off"],
+      },
     },
     {
       name: "-init",
@@ -71,12 +99,30 @@ const completionSpec: Fig.Spec = {
       description: "Show help message",
     },
     {
+      name: "-hexkey",
+      description: "Hexadecimal encryption key",
+      args: {
+        name: "KEY",
+      },
+    },
+    {
       name: "-html",
       description: "Set output mode to HTML",
     },
     {
       name: "-interactive",
       description: "Force interactive I/O",
+    },
+    {
+      name: "-key",
+      description: "Raw encryption key",
+      args: {
+        name: "KEY",
+      },
+    },
+    {
+      name: "-json",
+      description: "Set output mode to 'json'",
     },
     {
       name: "-line",
@@ -97,6 +143,17 @@ const completionSpec: Fig.Spec = {
           name: "N",
         },
       ],
+    },
+    {
+      name: "-markdown",
+      description: "Set output mode to 'markdown'",
+    },
+    {
+      name: "-maxsize",
+      description: "Maximum size for a --deserialize database",
+      args: {
+        name: "N",
+      },
     },
     {
       name: "-memtrace",
@@ -122,6 +179,17 @@ const completionSpec: Fig.Spec = {
       description: "Refuse to open symbolic links to database files",
     },
     {
+      name: "-nonce",
+      description: "Set the safe-mode escape nonce",
+      args: {
+        name: "STRING",
+      },
+    },
+    {
+      name: "-no-rowid-in-view",
+      description: "Disable rowid-in-view using sqlite3_config()",
+    },
+    {
       name: "-nullvalue",
       description: "Set text string for NULL values",
       args: {
@@ -142,12 +210,20 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "-pcachetrace",
+      description: "Trace all page cache operations",
+    },
+    {
       name: "-quote",
       description: "Set output mode to 'quote'",
     },
     {
       name: "-readonly",
       description: "Open the database read-only",
+    },
+    {
+      name: "-safe",
+      description: "Enable safe-mode",
     },
     {
       name: "-separator",
@@ -162,6 +238,25 @@ const completionSpec: Fig.Spec = {
       description: "Print memory stats before each finalize",
     },
     {
+      name: "-textkey",
+      description: "Text to be hashed into the encryption key",
+      args: {
+        name: "PASSPHRASE",
+      },
+    },
+    {
+      name: "-table",
+      description: "Set output mode to 'table'",
+    },
+    {
+      name: "-tabs",
+      description: "Set output mode to 'tabs'",
+    },
+    {
+      name: "-unsafe-testing",
+      description: "Allow unsafe commands and modes for testing",
+    },
+    {
       name: "-version",
       description: "Show SQLite version",
     },
@@ -171,6 +266,14 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "NAME",
       },
+    },
+    {
+      name: "-vfstrace",
+      description: "Enable tracing of all VFS calls",
+    },
+    {
+      name: "-zip",
+      description: "Open the file as a ZIP Archive",
     },
   ],
 };

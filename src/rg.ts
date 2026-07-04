@@ -173,6 +173,22 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--field-context-separator",
+      description:
+        "Sets the field context separator used when printing contextual lines",
+      args: {
+        name: "Separator",
+      },
+    },
+    {
+      name: "--field-match-separator",
+      description:
+        "Sets the field match separator used when printing matching lines",
+      args: {
+        name: "Separator",
+      },
+    },
+    {
       name: ["-f", "--file"],
       description:
         "Searches for patterns from the given file, with one pattern per line",
@@ -186,6 +202,21 @@ const completionSpec: Fig.Spec = {
       name: "--files",
       description:
         "Prints each file that would be searched without actually performing the search",
+    },
+    {
+      name: "--generate",
+      description:
+        "Generates a special kind of output identified by KIND and then quits without searching",
+      args: {
+        name: "KIND",
+        suggestions: [
+          "man",
+          "complete-bash",
+          "complete-zsh",
+          "complete-fish",
+          "complete-powershell",
+        ],
+      },
     },
     {
       name: ["-l", "--files-with-matches"],
@@ -226,6 +257,24 @@ const completionSpec: Fig.Spec = {
     {
       name: "--hidden",
       description: "Searches hidden files and directories",
+    },
+    {
+      name: "--hostname-bin",
+      description: "Controls how ripgrep determines this system's hostname",
+      args: {
+        name: "COMMAND",
+      },
+    },
+    {
+      name: "--hyperlink-format",
+      description: "Sets the format of hyperlinks to use when printing results",
+      args: {
+        name: "FORMAT",
+      },
+    },
+    {
+      name: ["-i", "--ignore-case"],
+      description: "Searches case insensitively",
     },
     {
       name: "--iglob",
@@ -301,7 +350,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--max-depth",
+      name: ["-d", "--max-depth", "--maxdepth"],
       description:
         "Limits the depth of directory traversal to NUM levels beyond the paths given",
       args: {
@@ -322,7 +371,7 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "-mmap",
+      name: "--mmap",
       description: "Searches using memory maps when possible",
     },
     {
@@ -354,7 +403,7 @@ const completionSpec: Fig.Spec = {
       description: "Don't respect .ignore files",
     },
     {
-      name: "--no-ignore-excluded",
+      name: "--no-ignore-exclude",
       description:
         "Don't respect ignore files that are manually configured for the repository",
     },
@@ -389,7 +438,7 @@ const completionSpec: Fig.Spec = {
         "Suppresses all error messages related to opening and reading files",
     },
     {
-      name: "--no-map",
+      name: "--no-mmap",
       description: "Never use memory maps, even when they might be faster",
     },
     {
@@ -431,7 +480,7 @@ const completionSpec: Fig.Spec = {
         "Prints only the matched (non-empty) parts of a matching line, with each such part on a separate output line",
     },
     {
-      name: "--passthru",
+      name: ["--passthru", "--passthrough"],
       description: "Prints both matching and non-matching lines",
     },
     {
@@ -513,6 +562,11 @@ const completionSpec: Fig.Spec = {
       name: ["-S", "--smart-case"],
       description:
         "Searches case insensitively if the pattern is all lowercase",
+    },
+    {
+      name: "--stop-on-nonmatch",
+      description:
+        "Stops reading a file once a non-matching line is found after a matching line",
     },
     {
       name: "--sort",
