@@ -25,7 +25,7 @@ const commonOptions: Fig.Option[] = [
 
 const platformGenerator: Fig.Generator = {
   script: ["cat", "package.json"],
-  postProcess: function (out: string) {
+  postProcess: (out: string) => {
     const suggestions = [];
     try {
       if (out.trim() == "") {

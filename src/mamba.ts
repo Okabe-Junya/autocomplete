@@ -42,7 +42,7 @@ const getMambaEnvs: Fig.Generator = {
   cache: {
     strategy: "stale-while-revalidate",
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     const lines = out.split("\n");
     const availableEnvs: Fig.Suggestion[] = [];
     // Skip first 2 lines as they are just headers for the output
@@ -66,7 +66,7 @@ const getInstalledPackages: Fig.Generator = {
   cache: {
     strategy: "stale-while-revalidate",
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     let installedPackages: Array<Fig.Suggestion> = [];
     try {
       const parsed: Array<Package> = JSON.parse(out);

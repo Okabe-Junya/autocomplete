@@ -15,7 +15,7 @@ const bazelBuildFiles: Fig.Generator = {
   //     visibility = ["//main:__pkg__"],
   // )
 
-  postProcess: function (out) {
+  postProcess: (out) => {
     const lines = out.split("\n");
     // return lines
     const targets = [];

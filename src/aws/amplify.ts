@@ -210,64 +210,59 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listEnvironmentNames: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-backend-environments",
         ["--app-id"],
         "backendEnvironments",
         "environmentName"
-      );
-    },
+      ),
   },
   listEnvironmentArns: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-backend-environments",
         ["--app-id"],
         "backendEnvironments",
         "backendEnvironmentArn"
-      );
-    },
+      ),
   },
   listBranchNames: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-branches",
         ["--app-id"],
         "branches",
         "branchName"
-      );
-    },
+      ),
   },
   listFrameworkForApp: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-branches",
         ["--app-id"],
         "branches",
         "framework"
-      );
-    },
+      ),
   },
   listBuildSpecForApp: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-branches",
         ["--app-id"],
         "branches",
         "buildSpec"
-      );
-    },
+      ),
   },
   listIamRoleArns: {
     script: ["aws", "iam", "list-roles"],
@@ -276,28 +271,26 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listDomainNames: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-domain-associations",
         ["--app-id"],
         "domainAssociations",
         "domainName"
-      );
-    },
+      ),
   },
   listJobIds: {
-    custom: async function (tokens, executeShellCommand) {
-      return customGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      customGenerator(
         tokens,
         executeShellCommand,
         "list-jobs",
         ["--app-id", "--branch-name"],
         "jobSummaries",
         "jobId"
-      );
-    },
+      ),
   },
   listWebhookIds: {
     script: ["aws", "amplify", "list-webhooks"],

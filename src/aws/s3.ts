@@ -298,7 +298,7 @@ const generators: Record<string, Fig.Generator> = {
   // just bucket names
   listBuckets: {
     script: ["aws", "s3", "ls", "--page-size", "1000"],
-    postProcess: function (out, context) {
+    postProcess: (out, context) => {
       try {
         return out.split("\n").map((line) => {
           const parts = line.split(/\s+/);
@@ -324,7 +324,7 @@ const generators: Record<string, Fig.Generator> = {
     // --page-size does not affect the number of items returned,
     // just chunks request so it won't timeout
     script: ["aws", "kms", "list-keys", "--page-size", "100"],
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         const list = JSON.parse(out)["Keys"];
         return list.map((item) => ({

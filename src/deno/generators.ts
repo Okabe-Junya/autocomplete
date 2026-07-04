@@ -686,7 +686,7 @@ export const generateInstalledDenoScripts: Fig.Generator = {
 
 // Our transpilation causes this to become `new RegExp` which we don't want to
 // run on every invocation of the function
-const httpsRe = /^(https?:\/\/.*\.(?:m?[jt]sx?))(?:\?.*)?(?:\#.*)?$/;
+const httpsRe = /^(https?:\/\/.*\.(?:m?[jt]sx?))(?:\?.*)?(?:#.*)?$/;
 
 const clipboardTests: ((str: string) => string | boolean)[] = [
   // HTTPS test

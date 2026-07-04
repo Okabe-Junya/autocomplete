@@ -4,7 +4,7 @@ export const getAppGenerator: Fig.Generator = {
     strategy: "stale-while-revalidate",
   },
   scriptTimeout: 15000,
-  postProcess: function (out) {
+  postProcess: (out) => {
     try {
       return JSON.parse(out).map((app) => {
         return {

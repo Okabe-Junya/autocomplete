@@ -1,6 +1,6 @@
 const getInstalledPackages: Fig.Generator = {
   script: ["conda", "list"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     const lines = out.split("\n");
     const installedPackages = [];
     for (let i = 3; i < lines.length; i++) {
@@ -45,7 +45,7 @@ const getCondaEnvironments: Fig.Generator = {
     ttl: 10000,
     strategy: "stale-while-revalidate",
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     const lines = out.split("\n");
     const installedPackages: Fig.Suggestion[] = [];
     for (let i = 2; i < lines.length; i++) {
@@ -61,7 +61,7 @@ const getCondaEnvironments: Fig.Generator = {
 
 const getCondaConfigs: Fig.Generator = {
   script: ["conda", "config", "--show"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     const lines = out.split("\n");
     const configs: Fig.Suggestion[] = [];
     for (let i = 2; i < lines.length; i++) {

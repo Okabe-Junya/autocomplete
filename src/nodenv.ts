@@ -1,22 +1,18 @@
 const installVersionsGenerator: Fig.Generator = {
   script: ["nodenv", "install", "--list-all"],
-  postProcess: function (out) {
-    return out.split("\n").map((name) => ({ name: name.trim(), icon: "⬢" }));
-  },
+  postProcess: (out) =>
+    out.split("\n").map((name) => ({ name: name.trim(), icon: "⬢" })),
 };
 
 const installedVersionsGenerator: Fig.Generator = {
   script: ["nodenv", "versions", "--bare"],
-  postProcess: function (out) {
-    return out.split("\n").map((name) => ({ name: name.trim(), icon: "⬢" }));
-  },
+  postProcess: (out) =>
+    out.split("\n").map((name) => ({ name: name.trim(), icon: "⬢" })),
 };
 
 const commandsGenerator: Fig.Generator = {
   script: ["nodenv", "commands"],
-  postProcess: function (out) {
-    return out.split("\n").map((name) => ({ name: name.trim() }));
-  },
+  postProcess: (out) => out.split("\n").map((name) => ({ name: name.trim() })),
 };
 
 const versionArg = (generator?: Fig.Generator, required = false): Fig.Arg => ({

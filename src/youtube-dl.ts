@@ -7,7 +7,7 @@ const youtubeDlGenerators: Record<string, Fig.Generator> = {
       ...context.filter((token) => token.includes("youtube.")),
     ],
 
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         return JSON.parse(out)["entries"].map((video, index) => {
           return {
@@ -26,10 +26,8 @@ const youtubeDlGenerators: Record<string, Fig.Generator> = {
 
   listClipboard: {
     script: ["pbpaste"],
-    postProcess: function (out) {
-      const regex = new RegExp(
-        "^(https?://)?(www.)?(youtube.com|youtu.?be)/.+$"
-      );
+    postProcess: (out) => {
+      const regex = /^(https?:\/\/)?(www.)?(youtube.com|youtu.?be)\/.+$/;
       try {
         if (regex.test(out))
           return [

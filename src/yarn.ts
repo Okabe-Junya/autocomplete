@@ -108,7 +108,7 @@ const allDependenciesGenerator: Fig.Generator = {
 
 const configList: Fig.Generator = {
   script: ["yarn", "config", "list"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     if (out.trim() == "") {
       return [];
     }
@@ -120,7 +120,7 @@ const configList: Fig.Generator = {
       // TODO: fix hacky code
       // reason: JSON parse was not working without double quotes
       output = output
-        .replace(/\'/gi, '"')
+        .replace(/'/gi, '"')
         .replace("lastUpdateCheck", '"lastUpdateCheck"')
         .replace("registry", '"lastUpdateCheck"');
       const configObject = JSON.parse(output);
@@ -139,7 +139,7 @@ export const dependenciesGenerator: Fig.Generator = {
     "-c",
     "until [[ -f package.json ]] || [[ $PWD = '/' ]]; do cd ..; done; cat package.json",
   ],
-  postProcess: function (out, context = []) {
+  postProcess: (out, context = []) => {
     if (out.trim() === "") {
       return [];
     }
@@ -350,7 +350,7 @@ const commonOptions: Fig.Option[] = [
 ];
 
 export const createCLIsGenerator: Fig.Generator = {
-  script: function (context) {
+  script: (context) => {
     if (context[context.length - 1] === "") return undefined;
     const searchTerm = "create-" + context[context.length - 1];
     return [
@@ -364,7 +364,7 @@ export const createCLIsGenerator: Fig.Generator = {
   cache: {
     ttl: 100 * 24 * 60 * 60 * 3, // 3 days
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     try {
       return JSON.parse(out).results.map(
         (item: { package: { name: string; description: string } }) =>
@@ -1566,7 +1566,7 @@ const completionSpec: Fig.Spec = {
                     ttl: 60_000, // 60s
                   },
                   script: ["cat", `${location}/package.json`],
-                  postProcess: function (out: string) {
+                  postProcess: (out: string) => {
                     if (out.trim() == "") {
                       return [];
                     }

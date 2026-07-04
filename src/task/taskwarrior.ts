@@ -36,8 +36,7 @@ const buildProjectSuggestions = (tasks) => {
     .filter((task) => task.status !== "completed")
     .reduce((acc, task) => {
       return (
-        acc[task.project] ? ++acc[task.project] : (acc[task.project] = 1),
-        acc
+        acc[task.project] ? ++acc[task.project] : (acc[task.project] = 1), acc
       );
     }, {});
 
@@ -104,9 +103,8 @@ const buildTagSuggestions = (tasks) => {
   const tags = [
     ...new Set(
       tasks
-        .filter((task) => task.hasOwnProperty("tags"))
-        .map((task) => task.tags)
-        .flat()
+        .filter((task) => Object.hasOwn(task, "tags"))
+        .flatMap((task) => task.tags)
     ),
   ];
 
@@ -124,9 +122,8 @@ const buildUnTagSuggestions = (tasks) => {
   const tags = [
     ...new Set(
       tasks
-        .filter((task) => task.hasOwnProperty("tags"))
-        .map((task) => task.tags)
-        .flat()
+        .filter((task) => Object.hasOwn(task, "tags"))
+        .flatMap((task) => task.tags)
     ),
   ];
 

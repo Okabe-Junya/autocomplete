@@ -9,7 +9,7 @@ const getPackages: Fig.Generator = {
 
 const getBranches: Fig.Generator = {
   script: ["git", "branch", "--no-color"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     if (out.startsWith("fatal:")) {
       return [];
     }

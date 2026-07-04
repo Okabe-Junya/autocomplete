@@ -4,7 +4,7 @@ const postProcessAWS: Fig.Generator["postProcess"] = (out) => {
   }
   return out.split(",").map((instance) => {
     return {
-      name: instance.replace(/[\[\]'"]+/g, "").trim(),
+      name: instance.replace(/[[\]'"]+/g, "").trim(),
       icon: "fig://icon?type=aws",
       description: "Instance",
     };

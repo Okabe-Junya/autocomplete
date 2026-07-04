@@ -466,7 +466,7 @@ const scriptOptions = (script: ScriptFields) => {
           name: param.name,
         };
         break;
-      case "Selector":
+      case "Selector": {
         let generators: Fig.Generator[] = [];
         if (param?.selector?.generators) {
           generators = param?.selector?.generators
@@ -482,6 +482,7 @@ const scriptOptions = (script: ScriptFields) => {
           generators,
         };
         break;
+      }
       case "Path":
         option.args = {
           name: param.name,

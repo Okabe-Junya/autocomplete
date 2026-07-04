@@ -1,6 +1,6 @@
 const dependenciesGenerator: Fig.Generator = {
   script: ["cat", "import_map.json"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     if (out) {
       try {
         const deps = JSON.parse(out);
@@ -25,7 +25,7 @@ const dependenciesGenerator: Fig.Generator = {
 };
 const scriptsGenerator: Fig.Generator = {
   script: ["cat", "run.json"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     if (out) {
       try {
         const scriptsObj = JSON.parse(out);

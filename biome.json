@@ -1,0 +1,74 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "maxSize": 8388608,
+    "includes": [
+      "src/**/*.ts",
+      "*.json",
+      "*.cjs",
+      "*.mjs",
+      "*.js",
+      "!build",
+      "!node_modules"
+    ]
+  },
+  "assist": {
+    "enabled": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "complexity": {
+        "noCommaOperator": "off",
+        "useIndexOf": "off",
+        "useLiteralKeys": "off",
+        "useOptionalChain": "off"
+      },
+      "correctness": {
+        "noConstantCondition": "off",
+        "noInnerDeclarations": "off",
+        "noUnusedFunctionParameters": "off",
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off",
+        "useParseIntRadix": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off"
+      },
+      "style": {
+        "useTemplate": "off"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "off",
+        "noControlCharactersInRegex": "off",
+        "noDoubleEquals": "off",
+        "noGlobalIsFinite": "off",
+        "noGlobalIsNan": "off",
+        "noImplicitAnyLet": "off",
+        "noSparseArray": "off",
+        "noTemplateCurlyInString": "off",
+        "useIterableCallbackReturn": "off"
+      }
+    }
+  }
+}

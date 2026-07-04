@@ -43,14 +43,13 @@ const completionSpec: Fig.Spec = {
       args: {
         generators: {
           template: "filepaths",
-          filterTemplateSuggestions: function (suggestions) {
-            return suggestions.filter((suggestion) => {
+          filterTemplateSuggestions: (suggestions) =>
+            suggestions.filter((suggestion) => {
               return (
                 // suggestion.name.endsWith(".php") ||
                 suggestion.name.indexOf(".") === -1
               );
-            });
-          },
+            }),
         },
       },
     };

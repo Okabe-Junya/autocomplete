@@ -209,7 +209,7 @@ const featuresGenerator: Fig.Generator = {
 };
 
 const makeTasksGenerator: Fig.Generator = {
-  custom: async function (tokens, executeCommand) {
+  custom: async (tokens, executeCommand) => {
     let makefileLocation = "Makefile.toml";
 
     const makefileFlagIdx = tokens.findIndex((param) => param === "--makefile");
