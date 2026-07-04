@@ -7,10 +7,1179 @@ import {
   generateUrlScript,
 } from "./deno/generators";
 
+// Deno 2 permission flags (shared by runtime subcommands like serve/watch)
+const permissionOptions: Fig.Option[] = [
+  {
+    name: ["-A", "--allow-all"],
+    description: "Allow all permissions",
+  },
+  {
+    name: ["-R", "--allow-read"],
+    description: "Allow file system read access",
+    args: {
+      name: "path",
+      isVariadic: true,
+      isOptional: true,
+      template: "filepaths",
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: ["-W", "--allow-write"],
+    description: "Allow file system write access",
+    args: {
+      name: "path",
+      isVariadic: true,
+      isOptional: true,
+      template: "filepaths",
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: ["-N", "--allow-net"],
+    description: "Allow network access",
+    args: {
+      name: "ip_or_hostname",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: ["-E", "--allow-env"],
+    description: "Allow access to environment variables",
+    args: {
+      name: "variable_name",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: ["-S", "--allow-sys"],
+    description: "Allow access to OS information",
+    args: {
+      name: "api_name",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--allow-run",
+    description: "Allow running subprocesses",
+    args: {
+      name: "program_name",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--allow-ffi",
+    description: "Allow loading dynamic libraries",
+    args: {
+      name: "path",
+      isVariadic: true,
+      isOptional: true,
+      template: "filepaths",
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: ["-I", "--allow-import"],
+    description: "Allow importing from remote hosts",
+    args: {
+      name: "ip_or_hostname",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--allow-scripts",
+    description: "Allow running npm lifecycle scripts for the given packages",
+    args: {
+      name: "package",
+      isVariadic: true,
+      isOptional: true,
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--no-prompt",
+    description: "Always throw if required permission wasn't passed",
+  },
+];
+
+// Deno 2 lockfile flags (shared by dependency-management subcommands)
+const lockOptions: Fig.Option[] = [
+  {
+    name: "--frozen",
+    description: "Error out if lockfile is out of date",
+    args: {
+      name: "boolean",
+      isOptional: true,
+      suggestions: ["true", "false"],
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--lock",
+    description: "Check the specified lock file",
+    args: {
+      name: "file",
+      isOptional: true,
+      template: "filepaths",
+    },
+  },
+  {
+    name: "--no-lock",
+    description: "Disable auto discovery of the lock file",
+  },
+];
+
+// Deno 2 type-checking flags
+const checkOptions: Fig.Option[] = [
+  {
+    name: "--check",
+    description: "Set type-checking behavior (pass --check=all for remote too)",
+    exclusiveOn: ["--no-check"],
+    args: {
+      name: "check-type",
+      isOptional: true,
+      suggestions: ["all"],
+    },
+    requiresSeparator: true,
+  },
+  {
+    name: "--no-check",
+    description: "Skip type-checking modules",
+    args: {
+      name: "no-check-type",
+      isOptional: true,
+      suggestions: ["remote"],
+    },
+    requiresSeparator: true,
+  },
+];
+
 const completion: Fig.Spec = {
   name: "deno",
   description: "A modern JavaScript and TypeScript runtime",
   subcommands: [
+    {
+      name: "serve",
+      description: "Run a server",
+      options: [
+        {
+          name: "--host",
+          description: "The TCP address to serve on, defaulting to 0.0.0.0",
+          args: { name: "host", isOptional: true },
+        },
+        {
+          name: "--port",
+          description:
+            "The TCP port to serve on. Pass 0 to pick a random free port",
+          args: { name: "port", isOptional: true },
+        },
+        {
+          name: "--open",
+          description:
+            "Open the browser on the address that the server runs on",
+        },
+        {
+          name: "--parallel",
+          description: "Run multiple server workers in parallel",
+        },
+        {
+          name: ["-c", "--config"],
+          description: "Specify the configuration file",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--no-config",
+          description: "Disable automatic loading of the configuration file",
+          exclusiveOn: ["-c", "--config"],
+        },
+        {
+          name: "--import-map",
+          description: "Load import map file",
+          args: { name: "import-map", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: ["-r", "--reload"],
+          description: "Reload source code cache (recompile TypeScript)",
+          args: {
+            name: "reload",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--node-modules-dir",
+          description:
+            "Select the node_modules directory mode for npm packages",
+          args: {
+            name: "mode",
+            isOptional: true,
+            suggestions: ["auto", "manual", "none"],
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--seed",
+          description: "Set the random number generator seed",
+          args: { name: "seed", isOptional: true },
+        },
+        {
+          name: "--location",
+          description: "Value of 'globalThis.location' used by some web APIs",
+          args: { name: "location", isOptional: true },
+        },
+        {
+          name: "--v8-flags",
+          description: "Set V8 command line options",
+          args: { name: "v8-flags", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-npm",
+          description: "Do not resolve npm modules",
+        },
+        {
+          name: "--no-remote",
+          description: "Do not resolve remote modules",
+        },
+        {
+          name: "--cached-only",
+          description: "Require that remote dependencies are already cached",
+        },
+        {
+          name: "--inspect",
+          description:
+            "Activate inspector on host:port (default: 127.0.0.1:9229)",
+          args: { name: "inspect", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--inspect-brk",
+          description:
+            "Activate inspector on host:port and break at start of user script",
+          args: { name: "inspect-brk", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--inspect-wait",
+          description:
+            "Activate inspector and wait for debugger before running user code",
+          args: { name: "inspect-wait", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--watch",
+          description:
+            "Watch for file changes and restart process automatically",
+          args: {
+            name: "files",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--watch-hmr",
+          description: "Watch for file changes and hot-replace modules",
+          args: {
+            name: "files",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--watch-exclude",
+          description: "Exclude provided files/patterns from watch mode",
+          args: {
+            name: "files",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-clear-screen",
+          description: "Do not clear terminal screen when under watch mode",
+        },
+        ...checkOptions,
+        ...lockOptions,
+        ...permissionOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: "--unstable",
+          description: "Enable unstable features and APIs",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "script_arg",
+        isVariadic: true,
+        isScript: true,
+        generators: [{ template: "filepaths" }, generateUrlScript],
+      },
+      parserDirectives: {
+        optionsMustPrecedeArguments: true,
+      },
+    },
+    {
+      name: "watch",
+      description:
+        "Run a program, watching for changes and hot-replacing modules",
+      options: [
+        {
+          name: ["-c", "--config"],
+          description: "Specify the configuration file",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--no-config",
+          description: "Disable automatic loading of the configuration file",
+          exclusiveOn: ["-c", "--config"],
+        },
+        {
+          name: "--import-map",
+          description: "Load import map file",
+          args: { name: "import-map", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: ["-r", "--reload"],
+          description: "Reload source code cache (recompile TypeScript)",
+          args: {
+            name: "reload",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--node-modules-dir",
+          description:
+            "Select the node_modules directory mode for npm packages",
+          args: {
+            name: "mode",
+            isOptional: true,
+            suggestions: ["auto", "manual", "none"],
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--seed",
+          description: "Set the random number generator seed",
+          args: { name: "seed", isOptional: true },
+        },
+        {
+          name: "--location",
+          description: "Value of 'globalThis.location' used by some web APIs",
+          args: { name: "location", isOptional: true },
+        },
+        {
+          name: "--v8-flags",
+          description: "Set V8 command line options",
+          args: { name: "v8-flags", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-npm",
+          description: "Do not resolve npm modules",
+        },
+        {
+          name: "--no-remote",
+          description: "Do not resolve remote modules",
+        },
+        {
+          name: "--cached-only",
+          description: "Require that remote dependencies are already cached",
+        },
+        {
+          name: "--inspect",
+          description:
+            "Activate inspector on host:port (default: 127.0.0.1:9229)",
+          args: { name: "inspect", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--inspect-brk",
+          description:
+            "Activate inspector on host:port and break at start of user script",
+          args: { name: "inspect-brk", isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--watch-hmr",
+          description: "Watch for file changes and hot-replace modules",
+          args: {
+            name: "files",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--watch-exclude",
+          description: "Exclude provided files/patterns from watch mode",
+          args: {
+            name: "files",
+            isVariadic: true,
+            isOptional: true,
+            template: "filepaths",
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-clear-screen",
+          description: "Do not clear terminal screen when under watch mode",
+        },
+        ...checkOptions,
+        ...lockOptions,
+        ...permissionOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: "--unstable",
+          description: "Enable unstable features and APIs",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "script_arg",
+        isVariadic: true,
+        isScript: true,
+        generators: [{ template: "filepaths" }, generateUrlScript],
+      },
+      parserDirectives: {
+        optionsMustPrecedeArguments: true,
+      },
+    },
+    {
+      name: "add",
+      description: "Add dependencies",
+      options: [
+        {
+          name: ["-I", "--allow-import"],
+          description: "Allow importing from remote hosts",
+          args: { name: "ip_or_hostname", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--allow-scripts",
+          description: "Allow running npm lifecycle scripts for given packages",
+          args: { name: "package", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: ["-D", "--dev"],
+          description: "Add the package as a dev dependency",
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--jsr",
+          description: "Assume unprefixed package names are jsr packages",
+        },
+        {
+          name: "--npm",
+          description:
+            "Assume unprefixed package names are npm packages (default)",
+        },
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        {
+          name: "--package-json",
+          description:
+            "Force using package.json for dependency management instead of deno.json",
+        },
+        {
+          name: "--save-exact",
+          description: "Save exact version without the caret (^)",
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "packages",
+        isVariadic: true,
+        isOptional: true,
+        description: "List of packages to add",
+      },
+    },
+    {
+      name: "remove",
+      description: "Remove dependencies from the configuration file",
+      options: [
+        {
+          name: ["-g", "--global"],
+          description: "Remove globally installed package or module",
+        },
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        {
+          name: "--package-json",
+          description:
+            "Force using package.json for dependency management instead of deno.json",
+        },
+        {
+          name: "--root",
+          description: "Installation root",
+          args: { name: "root", isOptional: true, template: "folders" },
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "packages",
+        isVariadic: true,
+        isOptional: true,
+        description: "List of packages to remove",
+      },
+    },
+    {
+      name: "outdated",
+      description: "Find and update outdated dependencies",
+      options: [
+        {
+          name: "--compatible",
+          description:
+            "Only consider versions that satisfy semver requirements",
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: ["-i", "--interactive"],
+          description: "Interactively select which dependencies to update",
+        },
+        {
+          name: "--latest",
+          description: "Consider the latest version, regardless of semver",
+        },
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        {
+          name: ["-r", "--recursive"],
+          description: "Include all workspace members",
+        },
+        {
+          name: ["-u", "--update"],
+          description: "Update dependency versions",
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "filters",
+        isVariadic: true,
+        isOptional: true,
+      },
+    },
+    {
+      name: "list",
+      description: "List the dependencies declared in deno.json / package.json",
+      options: [
+        {
+          name: "--depth",
+          description: "Maximum depth of the dependency tree to display",
+          args: { name: "depth", isOptional: true },
+        },
+        {
+          name: "--dev",
+          description: "Only list development dependencies",
+        },
+        {
+          name: "--prod",
+          description: "Only list production dependencies",
+        },
+        {
+          name: ["-r", "--recursive"],
+          description: "Include all workspace members",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "filters",
+        isVariadic: true,
+        isOptional: true,
+      },
+    },
+    {
+      name: "why",
+      description: "Show why a package is installed",
+      options: [
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "package",
+        description: "The package name (and optional version) to explain",
+      },
+    },
+    {
+      name: "link",
+      description: "Link a local JSR package into the current project",
+      options: [
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "paths",
+        isVariadic: true,
+        isOptional: true,
+        template: "folders",
+        description: "Paths to local package directories to link",
+      },
+    },
+    {
+      name: "unlink",
+      description: "Remove a linked local package from the current project",
+      options: [
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        ...lockOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "names_or_paths",
+        isVariadic: true,
+        isOptional: true,
+        description: "Linked package names or paths to remove",
+      },
+    },
+    {
+      name: "ci",
+      description:
+        "Install dependencies in a clean, reproducible way for CI environments",
+      options: [
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--prod",
+          description: "Only install production dependencies",
+        },
+        {
+          name: "--skip-types",
+          description: "Exclude @types/* packages from installation",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+    },
+    {
+      name: "approve-scripts",
+      description: "Approve npm lifecycle scripts for installed dependencies",
+      options: [
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "packages",
+        isVariadic: true,
+        isOptional: true,
+        description: "Packages to approve (npm specifiers)",
+      },
+    },
+    {
+      name: "bump-version",
+      description: "Update version in the configuration file",
+      options: [
+        {
+          name: "--base",
+          description: "Git ref to compare against (conventional-commits mode)",
+          args: { name: "ref", isOptional: true },
+        },
+        {
+          name: ["-c", "--config"],
+          description: "Explicit path to the manifest file to bump",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--dry-run",
+          description: "Print the planned changes without writing any files",
+        },
+        {
+          name: "--import-map",
+          description:
+            "Path to the import map to rewrite jsr: version constraints",
+          args: { name: "path", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--no-workspace",
+          description:
+            "Disable workspace mode and only bump the config in current directory",
+        },
+        {
+          name: "--release-notes",
+          description: "Path to the release notes file to prepend",
+          args: { name: "path", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--start",
+          description: "Git ref to start from (conventional-commits mode)",
+          args: { name: "ref", isOptional: true },
+        },
+        {
+          name: ["-w", "--workspace"],
+          description: "Bump every package in the workspace",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "increment",
+        isOptional: true,
+        suggestions: [
+          "major",
+          "minor",
+          "patch",
+          "premajor",
+          "preminor",
+          "prepatch",
+          "prerelease",
+        ],
+      },
+    },
+    {
+      name: "publish",
+      description:
+        "Publish the current directory's package or workspace to JSR",
+      options: [
+        {
+          name: ["-c", "--config"],
+          description: "Specify the configuration file",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--no-config",
+          description: "Disable automatic loading of the configuration file",
+          exclusiveOn: ["-c", "--config"],
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--allow-dirty",
+          description:
+            "Allow publishing if the repository has uncommitted changes",
+        },
+        {
+          name: "--allow-slow-types",
+          description: "Allow publishing with slow types",
+        },
+        {
+          name: "--dry-run",
+          description: "Perform all checks and validations without uploading",
+        },
+        {
+          name: "--no-provenance",
+          description: "Disable provenance attestation",
+        },
+        {
+          name: "--set-version",
+          description: "Set version for a package to be published",
+          args: { name: "version", isOptional: true },
+        },
+        {
+          name: "--token",
+          description: "The API token to use when publishing",
+          args: { name: "token", isOptional: true },
+        },
+        ...checkOptions,
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+    },
+    {
+      name: "pack",
+      description: "Create an npm-compatible tarball from a Deno project",
+      options: [
+        {
+          name: "--allow-dirty",
+          description:
+            "Allow packing if the repository has uncommitted changes",
+        },
+        {
+          name: "--allow-slow-types",
+          description: "Skip fast-check type extraction; omit .d.ts files",
+        },
+        {
+          name: ["-c", "--config"],
+          description: "Specify the configuration file",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--no-config",
+          description: "Disable automatic loading of the configuration file",
+          exclusiveOn: ["-c", "--config"],
+        },
+        {
+          name: "--dry-run",
+          description: "Show what would be packed without creating the tarball",
+        },
+        {
+          name: "--env-file",
+          description: "Load environment variables from local file",
+          args: { name: "file", isOptional: true, template: "filepaths" },
+          requiresSeparator: true,
+        },
+        {
+          name: "--ignore",
+          description: "Ignore files matching these patterns",
+          args: { name: "ignore", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-source-maps",
+          description: "Don't include source maps in the output",
+        },
+        {
+          name: ["-o", "--output"],
+          description: "Output file path (defaults to <name>-<version>.tgz)",
+          args: { name: "output", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--set-version",
+          description: "Override the version in the tarball",
+          args: { name: "version", isOptional: true },
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "files",
+        isVariadic: true,
+        isOptional: true,
+        template: "filepaths",
+      },
+    },
+    {
+      name: "clean",
+      description: "Remove the cache directory ($DENO_DIR)",
+      options: [
+        {
+          name: "--dry-run",
+          description:
+            "Show what would be removed without performing any actions",
+        },
+        {
+          name: ["-e", "--except"],
+          description: "Retain cache data needed by the given files",
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+      args: {
+        name: "except-paths",
+        isVariadic: true,
+        isOptional: true,
+        template: "filepaths",
+      },
+    },
+    {
+      name: "jupyter",
+      description: "Deno kernel for Jupyter notebooks",
+      options: [
+        {
+          name: "--conn",
+          description: "Path to JSON file describing connection parameters",
+          args: { name: "conn", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: ["-d", "--display"],
+          description: "Set a display name for the kernel",
+          args: { name: "display", isOptional: true },
+        },
+        {
+          name: "--force",
+          description:
+            "Force installation of a kernel, overwriting existing spec",
+        },
+        {
+          name: "--install",
+          description: "Install a kernelspec",
+        },
+        {
+          name: "--kernel",
+          description: "Start the kernel",
+        },
+        {
+          name: ["-n", "--name"],
+          description: "Set a name for the kernel",
+          args: { name: "name", isOptional: true },
+        },
+        {
+          name: ["-h", "--help"],
+          description: "Print help information",
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress diagnostic output",
+        },
+      ],
+    },
+    {
+      name: "deploy",
+      description: "Manage and publish applications with Deno Deploy",
+      options: [
+        {
+          name: ["-h", "--help"],
+          description: "Show this help",
+        },
+        {
+          name: ["-V", "--version"],
+          description: "Show the version number for this program",
+        },
+        {
+          name: "--token",
+          description: "Auth token to use",
+          args: { name: "token", isOptional: true },
+        },
+        {
+          name: "--config",
+          description: "Path for the config file",
+          args: { name: "config", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: "--ignore",
+          description: "Ignore particular source files",
+          args: { name: "path", isOptional: true, template: "filepaths" },
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Suppress non-essential output",
+        },
+        {
+          name: ["-j", "--json"],
+          description: "Emit JSON on stdout instead of human-readable output",
+        },
+        {
+          name: ["-y", "--non-interactive"],
+          description: "Fail fast instead of prompting",
+        },
+        {
+          name: "--org",
+          description: "The name of the organization",
+          args: { name: "name", isOptional: true },
+        },
+        {
+          name: "--app",
+          description: "The name of the application",
+          args: { name: "name", isOptional: true },
+        },
+        {
+          name: "--prod",
+          description: "Deploy directly to production",
+        },
+        {
+          name: "--allow-node-modules",
+          description:
+            "Allow node_modules directory to be included when uploading",
+        },
+        {
+          name: "--no-wait",
+          description: "Skip waiting for the build to complete",
+        },
+      ],
+      subcommands: [
+        {
+          name: "create",
+          description: "Create a new application",
+          args: { name: "root-path", isOptional: true, template: "folders" },
+        },
+        { name: "env", description: "Modify environment variables" },
+        { name: "database", description: "Manage databases" },
+        { name: "apps", description: "Manage applications" },
+        { name: "orgs", description: "List organizations" },
+        { name: "deployments", description: "Manage deployments (revisions)" },
+        { name: "logs", description: "Stream logs from an application" },
+        {
+          name: "setup-aws",
+          description: "Setup cloud connections for AWS",
+          args: { name: "contexts", isOptional: true },
+        },
+        {
+          name: "setup-gcp",
+          description: "Setup cloud connections for GCP",
+          args: { name: "contexts", isOptional: true },
+        },
+        {
+          name: "switch",
+          description: "Switch between organizations and applications",
+        },
+        {
+          name: "logout",
+          description: "Revoke the Deno Deploy token if one is present",
+        },
+        {
+          name: "whoami",
+          description: "Verify the current Deno Deploy token",
+        },
+        { name: "sandbox", description: "Interact with sandboxes" },
+      ],
+      args: {
+        name: "root-path",
+        isOptional: true,
+        template: "folders",
+      },
+    },
     {
       name: "bench",
       description: "Run benchmarks",
@@ -294,6 +1463,7 @@ const completion: Fig.Spec = {
     {
       name: "bundle",
       description: "Bundle module and dependencies into single file",
+      hidden: true,
       options: [
         {
           name: "--import-map",
@@ -636,8 +1806,7 @@ const completion: Fig.Spec = {
     },
     {
       name: "compile",
-      description:
-        "UNSTABLE: Compile the script into a self contained executable",
+      description: "Compile the script into a self contained executable",
       options: [
         {
           name: "--import-map",
@@ -825,11 +1994,28 @@ const completion: Fig.Spec = {
             isOptional: true,
             suggestions: [
               "x86_64-unknown-linux-gnu",
+              "aarch64-unknown-linux-gnu",
               "x86_64-pc-windows-msvc",
               "x86_64-apple-darwin",
               "aarch64-apple-darwin",
             ],
           },
+        },
+        {
+          name: ["-I", "--allow-import"],
+          description: "Allow importing from remote hosts",
+          args: { name: "ip_or_hostname", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--frozen",
+          description: "Error out if lockfile is out of date",
+          args: {
+            name: "boolean",
+            isOptional: true,
+            suggestions: ["true", "false"],
+          },
+          requiresSeparator: true,
         },
         {
           name: ["-L", "--log-level"],
@@ -910,6 +2096,7 @@ const completion: Fig.Spec = {
     {
       name: "completions",
       description: "Generate shell completions",
+      hidden: true,
       options: [
         {
           name: ["-L", "--log-level"],
@@ -1539,7 +2726,8 @@ const completion: Fig.Spec = {
     },
     {
       name: "install",
-      description: "Install script as an executable",
+      description:
+        "Install dependencies in the local project or globally to a bin directory",
       options: [
         {
           name: "--import-map",
@@ -1807,6 +2995,67 @@ const completion: Fig.Spec = {
           description: "Forcefully overwrite existing installation",
         },
         {
+          name: ["-g", "--global"],
+          description:
+            "Install a package or script as a globally available executable",
+        },
+        {
+          name: ["-e", "--entrypoint"],
+          description: "Install dependents of the specified entrypoint(s)",
+        },
+        {
+          name: ["-D", "--dev"],
+          description: "Add the package as a dev dependency",
+        },
+        {
+          name: "--compile",
+          description: "Install the script as a compiled executable",
+        },
+        {
+          name: ["-I", "--allow-import"],
+          description: "Allow importing from remote hosts",
+          args: { name: "ip_or_hostname", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--allow-scripts",
+          description: "Allow running npm lifecycle scripts for given packages",
+          args: { name: "package", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--jsr",
+          description: "Assume unprefixed package names are jsr packages",
+        },
+        {
+          name: "--npm",
+          description:
+            "Assume unprefixed package names are npm packages (default)",
+        },
+        {
+          name: "--lockfile-only",
+          description: "Install only updating the lockfile",
+        },
+        {
+          name: "--package-json",
+          description:
+            "Force using package.json for dependency management instead of deno.json",
+        },
+        {
+          name: "--save-exact",
+          description: "Save exact version without the caret (^)",
+        },
+        {
+          name: "--frozen",
+          description: "Error out if lockfile is out of date",
+          args: {
+            name: "boolean",
+            isOptional: true,
+            suggestions: ["true", "false"],
+          },
+          requiresSeparator: true,
+        },
+        {
           name: ["-h", "--help"],
           description: "Print help information",
         },
@@ -1873,6 +3122,7 @@ const completion: Fig.Spec = {
     {
       name: "lsp",
       description: "Start the language server",
+      hidden: true,
       options: [
         {
           name: ["-L", "--log-level"],
@@ -2209,7 +3459,7 @@ const completion: Fig.Spec = {
     },
     {
       name: "run",
-      description: "Run a JavaScript or TypeScript program",
+      description: "Run a JavaScript or TypeScript program, or a task",
       options: [
         {
           name: "--import-map",
@@ -2417,6 +3667,32 @@ const completion: Fig.Spec = {
             },
           },
           requiresSeparator: true,
+        },
+        {
+          name: ["-I", "--allow-import"],
+          description: "Allow importing from remote hosts",
+          args: { name: "ip_or_hostname", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--allow-scripts",
+          description: "Allow running npm lifecycle scripts for given packages",
+          args: { name: "package", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--frozen",
+          description: "Error out if lockfile is out of date",
+          args: {
+            name: "boolean",
+            isOptional: true,
+            suggestions: ["true", "false"],
+          },
+          requiresSeparator: true,
+        },
+        {
+          name: "--no-npm",
+          description: "Do not resolve npm modules",
         },
         {
           name: ["-L", "--log-level"],
@@ -2899,6 +4175,22 @@ const completion: Fig.Spec = {
           exclusiveOn: ["-j", "--jobs"],
         },
         {
+          name: ["-I", "--allow-import"],
+          description: "Allow importing from remote hosts",
+          args: { name: "ip_or_hostname", isVariadic: true, isOptional: true },
+          requiresSeparator: true,
+        },
+        {
+          name: "--frozen",
+          description: "Error out if lockfile is out of date",
+          args: {
+            name: "boolean",
+            isOptional: true,
+            suggestions: ["true", "false"],
+          },
+          requiresSeparator: true,
+        },
+        {
           name: "--watch",
           description: "Watch for file changes and restart automatically",
           exclusiveOn: ["--no-run", "--coverage"],
@@ -2938,6 +4230,7 @@ const completion: Fig.Spec = {
     {
       name: "types",
       description: "Print runtime TypeScript declarations",
+      hidden: true,
       options: [
         {
           name: ["-L", "--log-level"],
@@ -3029,105 +4322,6 @@ const completion: Fig.Spec = {
           description: "Suppress diagnostic output",
         },
       ],
-    },
-    {
-      name: "vendor",
-      description: "Vendor remote modules into a local directory",
-      options: [
-        {
-          name: "--output",
-          description: "The directory to output the vendored modules to",
-          args: {
-            name: "output",
-            isOptional: true,
-            template: "folders",
-          },
-        },
-        {
-          name: ["-c", "--config"],
-          description: "Specify the configuration file",
-          args: {
-            name: "config",
-            isOptional: true,
-            template: "filepaths",
-          },
-        },
-        {
-          name: "--import-map",
-          description: "Load import map file",
-          args: {
-            name: "import-map",
-            isOptional: true,
-            template: "filepaths",
-          },
-        },
-        {
-          name: "--lock",
-          description: "Check the specified lock file",
-          args: {
-            name: "lock",
-            isOptional: true,
-            template: "filepaths",
-          },
-        },
-        {
-          name: ["-r", "--reload"],
-          description: "Reload source code cache (recompile TypeScript)",
-          args: {
-            name: "reload",
-            isVariadic: true,
-            isOptional: true,
-            template: "filepaths",
-          },
-          requiresSeparator: true,
-        },
-        {
-          name: "--cert",
-          description: "Load certificate authority from PEM encoded file",
-          args: {
-            name: "cert",
-            isOptional: true,
-            template: "filepaths",
-          },
-        },
-        {
-          name: ["-L", "--log-level"],
-          description: "Set log level",
-          hidden: true,
-          args: {
-            name: "log-level",
-            isOptional: true,
-            suggestions: ["debug", "info"],
-          },
-        },
-        {
-          name: ["-f", "--force"],
-          description:
-            "Forcefully overwrite conflicting files in existing output directory",
-        },
-        {
-          name: "--no-config",
-          description: "Disable automatic loading of the configuration file",
-          exclusiveOn: ["-c", "--config"],
-        },
-        {
-          name: ["-h", "--help"],
-          description: "Print help information",
-        },
-        {
-          name: "--unstable",
-          description: "Enable unstable features and APIs",
-        },
-        {
-          name: ["-q", "--quiet"],
-          description: "Suppress diagnostic output",
-        },
-      ],
-      args: {
-        name: "specifiers",
-        isVariadic: true,
-        template: "filepaths",
-      },
     },
     {
       name: "help",
