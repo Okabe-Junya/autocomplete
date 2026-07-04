@@ -15,8 +15,10 @@ Completion specs for hundreds of CLI tools, originally built by
 ## 🔄 How specs reach the shell
 
 Kiro CLI (ex Amazon Q Developer CLI) normally loads compiled specs from a CDN
-(`specs.q.us-east-1.amazonaws.com`) that mirrors the frozen upstream repo. This
-fork bypasses the CDN for local use:
+(`specs.q.us-east-1.amazonaws.com`) that mirrors the frozen upstream repo; the
+rendering engine is open source at
+[aws/amazon-q-developer-cli-autocomplete](https://github.com/aws/amazon-q-developer-cli-autocomplete).
+This fork bypasses the CDN for local use:
 
 ```bash
 # Build all specs and sync them to ~/.fig/autocomplete/build/
@@ -56,20 +58,7 @@ for the `Fig.Spec` type definitions.
   suggestions are preserved.
 - Changes land via PRs with squash merge; CI runs lint and typecheck.
 
-## 🙏 Credits
-
-This project is entirely built on the work of the original
-[Fig](https://fig.io) team (later Amazon Q Developer CLI /
-[aws/amazon-q-developer-cli](https://github.com/aws/amazon-q-developer-cli))
-and the withfig community. The engine that renders these specs remains open
-source at
-[aws/amazon-q-developer-cli-autocomplete](https://github.com/aws/amazon-q-developer-cli-autocomplete).
-
 ## ✨ Contributors
-
-All original contributors to
-[withfig/autocomplete](https://github.com/withfig/autocomplete/graphs/contributors) —
-thank you.
 
 <a href="https://github.com/withfig/autocomplete/graphs/contributors">
   <img alt="Grid of profile icons of the 400+ contributors" src="https://contrib.rocks/image?repo=withfig/autocomplete" />
