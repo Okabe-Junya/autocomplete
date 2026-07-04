@@ -45,11 +45,24 @@ const completionSpec: Fig.Spec = {
       exclusiveOn: ["--no-options"],
       args: { name: "file", template: "filepaths" },
     },
-    { name: ["-a", "--armour"], description: "Create ASCII armored output" },
+    {
+      name: ["-a", "--armor", "--armour"],
+      description: "Create ASCII armored output",
+    },
     {
       name: ["-o", "--output"],
       description: "Write output to file",
       args: { name: "file", template: "filepaths" },
+    },
+    {
+      name: "--log-file",
+      description: "Write server mode logs to file",
+      args: { name: "file", template: "filepaths" },
+    },
+    {
+      name: "--group",
+      description: "Set up email aliases",
+      args: { name: "spec" },
     },
     {
       name: ["-u", "--local-user"],
@@ -101,8 +114,8 @@ const completionSpec: Fig.Spec = {
     },
     { name: ["-q", "--quiet"], description: "Try to be as quiet as possible" },
     {
-      name: "-Z",
-      description: "Set compression level to n",
+      name: "-z",
+      description: "Set compression level to n (0 disables)",
       args: {
         name: "n",
         default: "6",
@@ -150,6 +163,23 @@ const completionSpec: Fig.Spec = {
       description: "Disables the automatic retrieving of keys",
     },
     {
+      name: "--auto-key-locate",
+      description: "Use mechanisms to locate keys by mail address",
+      args: { name: "mechanisms" },
+    },
+    {
+      name: "--auto-key-import",
+      description: "Import missing key from a signature",
+    },
+    {
+      name: "--include-key-block",
+      description: "Include the public key in signatures",
+    },
+    {
+      name: "--disable-dirmngr",
+      description: "Disable all access to the dirmngr",
+    },
+    {
       name: "--honor-http-proxy",
       description: "Try to access the keyserver over the proxy",
     },
@@ -193,15 +223,6 @@ const completionSpec: Fig.Spec = {
       exclusiveOn: ["--options"],
     },
     {
-      name: "--load-extension",
-      description: "Load an extension module",
-      args: {
-        name: "name",
-        description:
-          'If name does not contain a slash it is searched in "/usr/local/lib/gnupg"',
-      },
-    },
-    {
       name: "--debug",
       description: "Set debugging flags",
       args: { name: "flags" },
@@ -242,7 +263,7 @@ const completionSpec: Fig.Spec = {
       description: "Force to write the version string",
     },
     {
-      name: ["-N", "--notation-data"],
+      name: ["-N", "--set-notation"],
       description:
         "Put the name value pair into the signature as notation data",
       args: { name: "name=value" },
@@ -376,10 +397,6 @@ const completionSpec: Fig.Spec = {
       args: { name: "n", default: "0" },
     },
     {
-      name: "--rfc1991",
-      description: "Try to be more RFC1991 (PGP 2.x) compliant",
-    },
-    {
       name: "--openpgp",
       description: "Reset all packet, cipher and digest options to OpenPGP",
     },
@@ -464,10 +481,6 @@ const completionSpec: Fig.Spec = {
     { name: "--no-literal", description: "This is not for normal use" },
     { name: "--set-filesize", description: "This is not for normal use" },
     {
-      name: "--emulate-md-encode-bug",
-      description: "Enables workaround to check faulty signatures",
-    },
-    {
       name: "--show-session-key",
       description: "Display the session key used for one message",
     },
@@ -487,7 +500,10 @@ const completionSpec: Fig.Spec = {
   ],
   subcommands: [
     { name: ["-s", "--sign"], description: "Make a signature" },
-    { name: "--clearsign", description: "Make a clear text signature" },
+    {
+      name: ["--clear-sign", "--clearsign"],
+      description: "Make a clear text signature",
+    },
     { name: ["-b", "--detach-sign"], description: "Make a detached signature" },
     { name: ["-e", "--encrypt"], description: "Encrypt data" },
     {
@@ -538,7 +554,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: ["--list-keys", "--list-public-keys"],
+      name: ["-k", "--list-keys", "--list-public-keys"],
       description:
         "List all keys from public keyrings, or just the ones given on the command line",
       args: {
@@ -548,7 +564,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--list-secret-keys",
+      name: ["-K", "--list-secret-keys"],
       description:
         "List all keys from secret keyrings, or just the ones given on the command line",
       args: {
@@ -558,7 +574,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--list-sigs",
+      name: ["--list-signatures", "--list-sigs"],
       description: "Same as --list-keys, but the signatures are listed too",
       args: {
         name: "names",
@@ -567,7 +583,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--check-sigs",
+      name: ["--check-signatures", "--check-sigs"],
       description: "Same as --list-sigs, but the signatures are verified",
       args: {
         name: "names",
@@ -588,7 +604,34 @@ const completionSpec: Fig.Spec = {
       name: "--list-packets",
       description: "List only the sequence of packets",
     },
-    { name: "--gen-key", description: "Generate a new key pair" },
+    {
+      name: ["--generate-key", "--gen-key"],
+      description: "Generate a new key pair",
+    },
+    {
+      name: "--quick-generate-key",
+      description: "Quickly generate a new key pair",
+      args: { name: "user-id" },
+    },
+    {
+      name: "--full-generate-key",
+      description: "Full featured key pair generation",
+    },
+    {
+      name: "--quick-add-uid",
+      description: "Quickly add a new user-id",
+      args: [{ name: "user-id" }, { name: "new-user-id" }],
+    },
+    {
+      name: "--quick-revoke-uid",
+      description: "Quickly revoke a user-id",
+      args: [{ name: "user-id" }, { name: "revoke-user-id" }],
+    },
+    {
+      name: "--quick-set-expire",
+      description: "Quickly set a new expiration date",
+      args: [{ name: "user-id" }, { name: "expire" }],
+    },
     {
       name: "--edit-key",
       description:
@@ -607,24 +650,49 @@ const completionSpec: Fig.Spec = {
       args: { name: "name" },
     },
     {
+      name: "--quick-sign-key",
+      description: "Quickly sign a key",
+      args: { name: "fingerprint" },
+    },
+    {
+      name: "--quick-lsign-key",
+      description: "Quickly sign a key locally",
+      args: { name: "fingerprint" },
+    },
+    {
+      name: "--quick-tsign-key",
+      description: "Quickly sign a key with a trust signature",
+      args: { name: "fingerprint" },
+    },
+    {
+      name: "--quick-revoke-sig",
+      description: "Quickly revoke a key signature",
+      args: { name: "fingerprint" },
+    },
+    {
       name: "--trusted-key",
       description:
         "Assume that the specified key is as trustworthy as one of your own secret keys",
       args: { name: "long key ID" },
     },
     {
-      name: "--delete-key",
+      name: ["--delete-keys", "--delete-key"],
       description: "Remove key from the public keyring",
       args: { name: "name" },
     },
     {
-      name: "--delete-secret-key",
+      name: ["--delete-secret-keys", "--delete-secret-key"],
       description: "Remove key from the secret and public keyring",
       args: { name: "name" },
     },
     {
-      name: "--gen-revoke",
+      name: ["--generate-revocation", "--gen-revoke"],
       description: "Generate a revocation certificate for the complete key",
+    },
+    {
+      name: ["--change-passphrase", "--passwd"],
+      description: "Change a passphrase",
+      args: { name: "user-id" },
     },
     {
       name: "--export",
@@ -639,16 +707,6 @@ const completionSpec: Fig.Spec = {
     {
       name: "--send-keys",
       description: "Same as --export but sends the keys to a keyserver",
-      args: {
-        name: "names",
-        isOptional: true,
-        isVariadic: true,
-      },
-    },
-    {
-      name: "--export-all",
-      description:
-        "Same as --export, but also exports keys which are not compatible to OpenPGP",
       args: {
         name: "names",
         isOptional: true,
@@ -694,13 +752,22 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "--recv-keys",
+      name: ["--receive-keys", "--recv-keys"],
       description:
         "Import the keys with the given key IDs from a HKP keyserver",
       args: {
         name: "key IDs",
         isVariadic: true,
       },
+    },
+    {
+      name: "--search-keys",
+      description: "Search for keys on a keyserver",
+      args: { name: "names", isVariadic: true },
+    },
+    {
+      name: "--refresh-keys",
+      description: "Update all keys from a keyserver",
     },
     {
       name: "--export-ownertrust",
@@ -760,6 +827,34 @@ const completionSpec: Fig.Spec = {
           isOptional: true,
           isVariadic: true,
         },
+      ],
+    },
+    { name: "--card-status", description: "Print the card status" },
+    {
+      name: "--edit-card",
+      description: "Change data on a card",
+    },
+    {
+      name: "--change-pin",
+      description: "Change a card's PIN",
+    },
+    {
+      name: "--update-trustdb",
+      description: "Update the trust database",
+    },
+    {
+      name: "--server",
+      description: "Run in server mode",
+    },
+    {
+      name: "--tofu-policy",
+      description: "Set the TOFU policy for a key",
+      args: [
+        {
+          name: "policy",
+          suggestions: ["auto", "good", "unknown", "bad", "ask"],
+        },
+        { name: "key", isVariadic: true },
       ],
     },
     { name: "--version", description: "Print version information" },

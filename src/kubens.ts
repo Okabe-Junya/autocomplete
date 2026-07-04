@@ -21,6 +21,19 @@ const completionSpec: Fig.Spec = {
       name: ["--current", "-c"],
       description: "Show current namespace",
     },
+    {
+      name: ["--force", "-f"],
+      description:
+        "Force change the active namespace of current context, even if it doesn't exist",
+    },
+    {
+      name: ["--unset", "-u"],
+      description: "Unset the namespace choice (set to 'default')",
+    },
+    {
+      name: ["--version", "-V"],
+      description: "Show version",
+    },
   ],
   args: {
     name: "namespace",

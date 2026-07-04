@@ -23,7 +23,7 @@ const completionSpec: Fig.Spec = {
   description: "Kubernetes IN Docker - local clusters for testing Kubernetes",
   subcommands: [
     {
-      name: "Build",
+      name: "build",
       description: "Build one of [node-image]",
       subcommands: [
         {
@@ -57,15 +57,6 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
-              name: "--kube-root",
-              description: "Path to the Kubernetes source directory",
-              args: {
-                name: "path",
-                description: "Path to the Kubernetes source directory",
-              },
-              deprecated: true,
-            },
-            {
               name: "--type",
               description: "Type of node image to build",
               args: {
@@ -88,18 +79,21 @@ const completionSpec: Fig.Spec = {
             {
               name: "--config",
               description: "Path to a kind config file",
+              args: { name: "config", template: "filepaths" },
             },
             {
               name: "--image",
               description: "Node docker image to use for booting the cluster",
+              args: { name: "image" },
             },
             {
               name: "--kubeconfig",
               description:
                 "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+              args: { name: "kubeconfig", template: "filepaths" },
             },
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
             },
             {
@@ -110,6 +104,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--wait",
               description: "Wait for control-plane node to be ready",
+              args: { name: "duration", default: "0s" },
             },
           ],
         },
@@ -128,6 +123,10 @@ const completionSpec: Fig.Spec = {
           description: "Output shell completions for fish",
         },
         {
+          name: "powershell",
+          description: "Output shell completions for powershell",
+        },
+        {
           name: "zsh",
           description: "Output shell completions for zsh",
         },
@@ -142,13 +141,19 @@ const completionSpec: Fig.Spec = {
           description: "Delete Cluster",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
                 generators: ClusterGenerator,
               },
               priority: 100,
+            },
+            {
+              name: "--kubeconfig",
+              description:
+                "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+              args: { name: "kubeconfig", template: "filepaths" },
             },
           ],
         },
@@ -179,17 +184,23 @@ const completionSpec: Fig.Spec = {
           description: "Exports a cluster's kubeconfig",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
+              args: {
+                name: "cluster name",
+                generators: ClusterGenerator,
+              },
+              priority: 100,
             },
             {
               name: "--internal",
-              description: "Use internal address instead of externalt",
+              description: "Use internal address instead of external",
             },
             {
               name: "--kubeconfig",
               description:
                 "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+              args: { name: "kubeconfig", template: "filepaths" },
             },
           ],
         },
@@ -198,7 +209,7 @@ const completionSpec: Fig.Spec = {
           description: "Exports logs to a tempdir or [output-dir] if specified",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
@@ -223,7 +234,7 @@ const completionSpec: Fig.Spec = {
           description: "Prints cluster kubeconfig",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
@@ -242,12 +253,13 @@ const completionSpec: Fig.Spec = {
           description: "Lists existing kind nodes by their name",
           options: [
             {
-              name: ["-A", "--all"],
-              description: "List all nodes",
+              name: ["-A", "--all-clusters"],
+              description:
+                "List all nodes across all cluster contexts, ignoring the current context even if specified with --name",
               priority: 50,
             },
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
@@ -260,6 +272,11 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "help",
+      description: "Help about any command",
+      args: { name: "command", isOptional: true, template: "help" },
+    },
+    {
       name: "load",
       description: "Loads images into node from an archive or image on host",
       subcommands: [
@@ -269,7 +286,7 @@ const completionSpec: Fig.Spec = {
             "Loads docker images from host into all or specified nodes by name",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
@@ -292,7 +309,7 @@ const completionSpec: Fig.Spec = {
             "Loads docker images from archive into all or specified nodes by name",
           options: [
             {
-              name: "--name",
+              name: ["-n", "--name"],
               description: "Cluster name",
               args: {
                 name: "cluster name",
@@ -334,6 +351,10 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "int",
       },
+    },
+    {
+      name: "--version",
+      description: "Version for kind",
     },
   ],
 };

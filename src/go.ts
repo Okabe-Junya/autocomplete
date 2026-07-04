@@ -42,6 +42,15 @@ const buildModeSuggestions: Fig.Suggestion[] = [
 
 const resolutionAndExecutionOptions: Fig.Option[] = [
   {
+    name: "-C",
+    description:
+      "Change to dir before running the command. If used, this flag must be the first one in the command line",
+    args: {
+      name: "dir",
+      template: "folders",
+    },
+  },
+  {
     name: "-n",
     description: "Print the commands but do not run them",
   },
@@ -88,15 +97,74 @@ const globalOptions: Fig.Option[] = [
   {
     name: "-race",
     description: `Enable data race detection.
-Supported only on linux/amd64, freebsd/amd64, darwin/amd64, windows/amd64,
-linux/ppc64le and linux/arm64 (only for 48-bit VMA)`,
+Supported only on darwin/amd64, darwin/arm64, freebsd/amd64, linux/amd64,
+linux/arm64 (only for 48-bit VMA), linux/ppc64le, linux/riscv64 and
+windows/amd64`,
   },
   {
     name: "-msan",
     description: `Enable interoperation with memory sanitizer.
-Supported only on linux/amd64, linux/arm64
+Supported only on linux/amd64, linux/arm64, linux/loong64, freebsd/amd64
 and only with Clang/LLVM as the host C compiler.
-On linux/arm64, pie build mode will be used`,
+PIE build mode will be used on all platforms except linux/amd64`,
+  },
+  {
+    name: "-asan",
+    description: `Enable interoperation with address sanitizer.
+Supported only on linux/arm64, linux/amd64, linux/loong64`,
+  },
+  {
+    name: "-cover",
+    description: "Enable code coverage instrumentation",
+  },
+  {
+    name: "-covermode",
+    description: "Set the mode for coverage analysis",
+    args: {
+      name: "mode",
+      suggestions: [
+        { name: "set", description: "Bool: does this statement run?" },
+        {
+          name: "count",
+          description: "Int: how many times does this statement run?",
+        },
+        {
+          name: "atomic",
+          description: "Count, but correct in multithreaded tests",
+        },
+      ],
+    },
+  },
+  {
+    name: "-coverpkg",
+    description:
+      "Apply coverage analysis to each package whose import path matches the patterns",
+    args: {
+      name: "pattern1,pattern2,pattern3",
+    },
+  },
+  {
+    name: "-json",
+    description: "Emit build output in JSON suitable for automated processing",
+  },
+  {
+    name: "-pgo",
+    description:
+      "Specify the file path of a profile for profile-guided optimization (PGO)",
+    args: {
+      name: "file",
+      template: "filepaths",
+      suggestions: ["auto", "off"],
+    },
+  },
+  {
+    name: "-buildvcs",
+    description: "Whether to stamp binaries with version control information",
+    args: {
+      name: "value",
+      isOptional: true,
+      suggestions: ["true", "false", "auto"],
+    },
   },
   {
     name: "-work",
@@ -252,11 +320,6 @@ const completionSpec: Fig.Spec = {
             template: ["filepaths", "folders"],
           },
         },
-        {
-          name: "-i",
-          description:
-            "Install the packages that are dependencies of the target",
-        },
       ],
       args: packagesArg,
     },
@@ -287,6 +350,11 @@ const completionSpec: Fig.Spec = {
           description:
             "Remove the entire module download cache, including unpacked source code of versioned dependencies",
         },
+        {
+          name: "-fuzzcache",
+          description:
+            "Remove files stored in the go build cache for fuzz testing",
+        },
       ],
     },
     {
@@ -305,6 +373,10 @@ const completionSpec: Fig.Spec = {
           name: "-cmd",
           description:
             "Treat a command (package main) like a regular package. Otherwise package main's exported symbols are hidden when showing the package's top-level documentation",
+        },
+        {
+          name: "-http",
+          description: "Serve HTML docs over HTTP",
         },
         {
           name: "-short",
@@ -423,13 +495,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "-insecure",
-          description: "Permit fetching from insecure origins",
+          name: "-tool",
+          description:
+            "Add a matching tool line to go.mod for each listed package",
         },
         {
-          name: "-d",
-          description:
-            "Only update go.mod and download source code needed to build packages",
+          name: "-x",
+          description: "Print commands as they are executed",
         },
       ],
       args: {
@@ -503,6 +575,10 @@ const completionSpec: Fig.Spec = {
         {
           name: "-retracted",
           description: "Eport information about retracted module versions",
+        },
+        {
+          name: "-json",
+          description: "Print the package in JSON format",
         },
       ],
       args: {
@@ -659,6 +735,33 @@ const completionSpec: Fig.Spec = {
               name: "-v",
               description: "Print information about removed modules",
             },
+            {
+              name: "-x",
+              description: "Print the commands download executes",
+            },
+            {
+              name: "-diff",
+              description:
+                "Print the necessary go.mod and go.sum changes as a unified diff instead of modifying them",
+            },
+            {
+              name: "-go",
+              requiresSeparator: true,
+              description:
+                "Update the 'go' directive in the go.mod file to the given version",
+              args: {
+                name: "version",
+              },
+            },
+            {
+              name: "-compat",
+              requiresSeparator: true,
+              description:
+                "Preserve any additional checksums needed for the given major Go release to load the module graph",
+              args: {
+                name: "version",
+              },
+            },
           ],
         },
         {
@@ -674,6 +777,15 @@ const completionSpec: Fig.Spec = {
             {
               name: "-v",
               description: "Print information about removed modules",
+            },
+            {
+              name: "-o",
+              description:
+                "Create the vendor directory at the given path instead of 'vendor'",
+              args: {
+                name: "outdir",
+                template: "folders",
+              },
             },
           ],
         },
@@ -841,10 +953,6 @@ const completionSpec: Fig.Spec = {
           args: {},
         },
         {
-          name: "-i",
-          description: "Install packages that are dependencies of the test",
-        },
-        {
           name: "-json",
           description: "Convert test output to JSON suitable",
         },
@@ -855,6 +963,227 @@ const completionSpec: Fig.Spec = {
             name: "file",
             template: "filepaths",
           },
+        },
+        {
+          name: "-bench",
+          description:
+            "Run only those benchmarks matching a regular expression",
+          args: {
+            name: "regexp",
+          },
+        },
+        {
+          name: "-benchtime",
+          description: "Run enough iterations of each benchmark to take t",
+          args: {
+            name: "t",
+          },
+        },
+        {
+          name: "-count",
+          description: "Run each test, benchmark, and fuzz seed n times",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "-cover",
+          description: "Enable coverage analysis",
+        },
+        {
+          name: "-coverprofile",
+          description:
+            "Write a coverage profile to the file after all tests have passed",
+          args: {
+            name: "cover.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-cpu",
+          description:
+            "Specify a list of GOMAXPROCS values for which the tests should be executed",
+          args: {
+            name: "1,2,4",
+          },
+        },
+        {
+          name: "-failfast",
+          description: "Do not start new tests after the first test failure",
+        },
+        {
+          name: "-fullpath",
+          description: "Show full file names in the error messages",
+        },
+        {
+          name: "-fuzz",
+          description: "Run the fuzz test matching the regular expression",
+          args: {
+            name: "regexp",
+          },
+        },
+        {
+          name: "-fuzztime",
+          description:
+            "Run enough iterations of the fuzz target during fuzzing to take t",
+          args: {
+            name: "t",
+          },
+        },
+        {
+          name: "-fuzzminimizetime",
+          description:
+            "Run enough iterations of the fuzz target during each minimization attempt to take t",
+          args: {
+            name: "t",
+          },
+        },
+        {
+          name: "-list",
+          description:
+            "List tests, benchmarks, fuzz tests, or examples matching the regular expression",
+          args: {
+            name: "regexp",
+          },
+        },
+        {
+          name: "-outputdir",
+          description:
+            "Place output files from profiling and test artifacts in the specified directory",
+          args: {
+            name: "directory",
+            template: "folders",
+          },
+        },
+        {
+          name: "-parallel",
+          description:
+            "Allow parallel execution of test functions that call t.Parallel",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "-run",
+          description:
+            "Run only those tests, examples, and fuzz tests matching the regular expression",
+          args: {
+            name: "regexp",
+          },
+        },
+        {
+          name: "-short",
+          description: "Tell long-running tests to shorten their run time",
+        },
+        {
+          name: "-shuffle",
+          description: "Randomize the execution order of tests and benchmarks",
+          args: {
+            name: "off,on,N",
+          },
+        },
+        {
+          name: "-skip",
+          description:
+            "Run only those tests, examples, fuzz tests, and benchmarks that do not match the regular expression",
+          args: {
+            name: "regexp",
+          },
+        },
+        {
+          name: "-timeout",
+          description: "If a test binary runs longer than duration d, panic",
+          args: {
+            name: "d",
+          },
+        },
+        {
+          name: "-v",
+          description: "Verbose output: log all tests as they are run",
+        },
+        {
+          name: "-vet",
+          description: "Configure the invocation of 'go vet' during 'go test'",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "-benchmem",
+          description: "Print memory allocation statistics for benchmarks",
+        },
+        {
+          name: "-blockprofile",
+          description:
+            "Write a goroutine blocking profile to the specified file when all tests are complete",
+          args: {
+            name: "block.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-blockprofilerate",
+          description:
+            "Control the detail provided in goroutine blocking profiles",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "-cpuprofile",
+          description:
+            "Write a CPU profile to the specified file before exiting",
+          args: {
+            name: "cpu.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-memprofile",
+          description:
+            "Write an allocation profile to the file after all tests have passed",
+          args: {
+            name: "mem.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-memprofilerate",
+          description: "Enable more precise memory allocation profiles",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "-mutexprofile",
+          description:
+            "Write a mutex contention profile to the specified file when all tests are complete",
+          args: {
+            name: "mutex.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-mutexprofilefraction",
+          description:
+            "Sample 1 in n stack traces of goroutines holding a contended mutex",
+          args: {
+            name: "n",
+          },
+        },
+        {
+          name: "-trace",
+          description:
+            "Write an execution trace to the specified file before exiting",
+          args: {
+            name: "trace.out",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "-artifacts",
+          description:
+            "Save test artifacts in the directory specified by -outputdir",
         },
       ],
     },
@@ -877,6 +1206,28 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "telemetry",
+      description: "Manage telemetry data and settings",
+      args: {
+        name: "mode",
+        isOptional: true,
+        suggestions: [
+          {
+            name: "off",
+            description: "Disable telemetry collection and uploading",
+          },
+          {
+            name: "local",
+            description: "Collect telemetry data locally without uploading",
+          },
+          {
+            name: "on",
+            description: "Enable telemetry collection and uploading",
+          },
+        ],
+      },
+    },
+    {
       name: "version",
       description: "Print Go version",
       options: [
@@ -888,6 +1239,11 @@ const completionSpec: Fig.Spec = {
         {
           name: "-v",
           description: "Report unrecognized files",
+        },
+        {
+          name: "-json",
+          description:
+            "Similar to -m but outputs the runtime/debug.BuildInfo in JSON format",
         },
       ],
       args: {
@@ -908,6 +1264,27 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "tool",
           },
+        },
+        {
+          name: "-c",
+          description: "Display offending line with this many lines of context",
+          args: {
+            name: "int",
+          },
+        },
+        {
+          name: "-json",
+          description: "Emit JSON output",
+        },
+        {
+          name: "-fix",
+          description:
+            "Instead of printing each diagnostic, apply its first fix (if any)",
+        },
+        {
+          name: "-diff",
+          description:
+            "Instead of applying each fix, print the patch as a unified diff",
         },
       ],
       args: {

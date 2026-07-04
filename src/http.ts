@@ -51,6 +51,14 @@ multipart/form-data request`,
         "Specify a custom boundary string for multipart/form-data requests. Has effect only together with --form",
     },
     {
+      name: "--raw",
+      args: {
+        name: "RAW",
+      },
+      description:
+        "Pass raw request data without extra processing, as opposed to the structured request items syntax",
+    },
+    {
       name: ["--compress", "-x"],
       description:
         "Content compressed (encoded) with Deflate algorithm. The Content-Encoding header is set to deflate",
@@ -77,29 +85,44 @@ and formatting (default for terminal output), "colors", or "format"`,
           "autumn",
           "borland",
           "bw",
+          "coffee",
           "colorful",
           "default",
+          "dracula",
           "emacs",
           "friendly",
+          "friendly_grayscale",
           "fruity",
+          "github-dark",
+          "gruvbox-dark",
+          "gruvbox-light",
           "igor",
           "inkpot",
+          "lightbulb",
+          "lilypond",
           "lovelace",
           "manni",
+          "material",
           "monokai",
           "murphy",
           "native",
+          "nord",
+          "nord-darker",
+          "one-dark",
           "paraiso-dark",
           "paraiso-light",
           "pastie",
           "perldoc",
+          "pie",
+          "pie-dark",
+          "pie-light",
           "rainbow_dash",
           "rrt",
           "sas",
           "solarized",
           "solarized-dark",
           "solarized-light",
-          "stata",
+          "staroffice",
           "stata-dark",
           "stata-light",
           "tango",
@@ -107,6 +130,7 @@ and formatting (default for terminal output), "colors", or "format"`,
           "vim",
           "vs",
           "xcode",
+          "zenburn",
         ],
         default: "auto",
       },
@@ -122,6 +146,22 @@ and formatting (default for terminal output), "colors", or "format"`,
       exclusiveOn: ["--unsorted"],
     },
     {
+      name: "--response-charset",
+      args: {
+        name: "ENCODING",
+      },
+      description:
+        "Override the response encoding for terminal display purposes",
+    },
+    {
+      name: "--response-mime",
+      args: {
+        name: "MIME_TYPE",
+      },
+      description:
+        "Override the response mime type for coloring and formatting for the terminal",
+    },
+    {
       name: "--format-options",
       args: {
         name: "FORMAT_OPTIONS",
@@ -130,6 +170,8 @@ and formatting (default for terminal output), "colors", or "format"`,
           "json.format:true",
           "json.indent:4",
           "json.sort_keys:true",
+          "xml.format:true",
+          "xml.indent:2",
         ],
       },
       isRepeatable: true,
@@ -144,6 +186,7 @@ and formatting (default for terminal output), "colors", or "format"`,
           { name: "B", description: "Request body" },
           { name: "h", description: "Response headers" },
           { name: "b", description: "Response body" },
+          { name: "m", description: "Response metadata" },
         ],
         default: "hb",
       },
@@ -154,14 +197,21 @@ and formatting (default for terminal output), "colors", or "format"`,
       description: "Print only the response headers. Shortcut for --print=h",
     },
     {
+      name: ["--meta", "-m"],
+      description: "Print only the response metadata. Shortcut for --print=m",
+    },
+    {
       name: ["--body", "-b"],
       description: "Print only the response body. Shortcut for --print=b",
     },
     {
       name: ["--verbose", "-v"],
-      description: `Verbose output. Print the whole request as well as the response. Also print
-any intermediary requests/responses (such as redirects).
-It's a shortcut for: --all --print=BHbh`,
+      description: `Verbose output. For the level one (with single -v/--verbose), print the
+whole request as well as the response. Also print any intermediary
+requests/responses (such as redirects). For the second level and higher,
+print these as well as the response metadata.
+Level one is a shortcut for: --all --print=BHbh
+Level two is a shortcut for: --all --print=BHbhm`,
     },
     {
       name: "--all",
@@ -169,23 +219,6 @@ It's a shortcut for: --all --print=BHbh`,
 any intermediary requests/responses as well. Intermediary requests include
 followed redirects (with --follow), the first unauthorized request when
 Digest auth is used (--auth=digest), etc`,
-    },
-    {
-      name: ["--history-print", "-P"],
-      args: {
-        name: "WHAT",
-        suggestions: [
-          { name: "H", description: "Request headers" },
-          { name: "B", description: "Request body" },
-          { name: "h", description: "Response headers" },
-          { name: "b", description: "Response body" },
-        ],
-        default: "hb",
-      },
-      description: `The same as --print, -p but applies only to intermediary requests/responses
-(such as redirects) when their inclusion is enabled with --all. If this
-options is not specified, then they are formatted the same way as the final
-response`,
     },
     {
       name: ["--stream", "-S"],
@@ -215,7 +248,8 @@ in a file. The filename is guessed unless specified with --output
     },
     {
       name: ["--quiet", "-q"],
-      description: `Do not print to stdout or stderr.
+      description: `Do not print to stdout or stderr, except for errors and warnings when
+provided once. Provide twice to suppress warnings as well.
 stdout is still redirected if --output is specified.
 Flag doesn't affect behaviour of download beyond not printing to terminal`,
     },
@@ -252,6 +286,7 @@ requests`,
         suggestions: [
           { name: "basic", description: "Basic HTTP auth" },
           { name: "digest", description: "Digest HTTP auth" },
+          { name: "bearer", description: "Bearer HTTP auth" },
         ],
       },
       description:
@@ -363,12 +398,24 @@ specify --cert-key separately`,
         "The private key to use with SSL. Only needed if --cert is given and the certificate file does not contain the private key",
     },
     {
+      name: "--cert-key-pass",
+      args: {
+        name: "CERT_KEY_PASS",
+      },
+      description:
+        "The passphrase to be used with the given private key. Only needed if --cert-key is given and the key file requires a passphrase",
+    },
+    {
       name: ["--ignore-stdin", "-I"],
       description: "Do not attempt to read stdin",
     },
     {
       name: "--help",
       description: "Show the help message and exit",
+    },
+    {
+      name: "--manual",
+      description: "Show the full manual",
     },
     {
       name: "--version",

@@ -39,6 +39,7 @@ const flagsOption: Fig.Option = {
     suggestions: [
       "active-pane",
       "ignore-size",
+      "no-detach-on-destroy",
       "no-output",
       "pause-after",
       "read-only",
@@ -63,6 +64,10 @@ const completionSpec: Fig.Spec = {
           name: "-x",
           description:
             "Send SIGHUP to the parent process and detach the client",
+        },
+        {
+          name: "-r",
+          description: "Alias for -f read-only,ignore-size",
         },
         flagsOption,
         {
@@ -380,6 +385,19 @@ const completionSpec: Fig.Spec = {
       description: "Remove and clear history for a pane",
     },
     {
+      name: ["clearphist", "clear-prompt-history"],
+      description: "Clear status prompt history",
+      options: [
+        {
+          name: "-T",
+          description: "The prompt type to clear history for",
+          args: {
+            name: "prompt-type",
+          },
+        },
+      ],
+    },
+    {
       name: "clock-mode",
       description: "Enter clock mode",
     },
@@ -491,6 +509,37 @@ const completionSpec: Fig.Spec = {
           name: "-s",
           description: "The source pane",
           args: panesArg,
+        },
+        {
+          name: "-t",
+          description: "The target pane",
+          args: panesArg,
+        },
+      ],
+    },
+    {
+      name: "customize-mode",
+      description: "Put a pane into customize mode",
+      args: {
+        name: "template",
+        isOptional: true,
+      },
+      options: [
+        {
+          name: "-N",
+          description: "Start without the preview",
+        },
+        {
+          name: "-Z",
+          description: "Zoom the pane",
+        },
+        formatOption,
+        {
+          name: "-f",
+          description: "Specify an initial filter",
+          args: {
+            name: "filter",
+          },
         },
         {
           name: "-t",
@@ -671,6 +720,122 @@ const completionSpec: Fig.Spec = {
           name: "-t",
           description: "The target client",
           args: clientsArg,
+        },
+      ],
+    },
+    {
+      name: ["popup", "display-popup"],
+      description: "Display a popup running a shell command on a client",
+      args: {
+        name: "shell-command",
+        description: "The shell command to run in the popup",
+        isOptional: true,
+        isVariadic: true,
+      },
+      options: [
+        {
+          name: "-B",
+          description: "Do not surround the popup with a border",
+        },
+        {
+          name: "-C",
+          description: "Close any popup already open on the client",
+        },
+        {
+          name: "-E",
+          description:
+            "Close the popup automatically when the shell command exits",
+        },
+        {
+          name: "-k",
+          description: "Allow any key to dismiss the popup",
+        },
+        {
+          name: "-N",
+          description: "Disable any previously specified -E or -k option",
+        },
+        {
+          name: "-b",
+          description: "The type of characters used for drawing popup borders",
+          args: {
+            name: "border-lines",
+          },
+        },
+        {
+          name: "-c",
+          description: "The target client",
+          args: clientsArg,
+        },
+        {
+          name: "-d",
+          description: "The start directory for the popup",
+          args: {
+            name: "start-directory",
+            description: "The start directory",
+            template: "folders",
+          },
+        },
+        {
+          name: "-e",
+          description: "Set environment variables",
+          args: {
+            name: "environment",
+            description: "Environment variables with the form VARIABLE=VALUE",
+          },
+        },
+        {
+          name: "-h",
+          description: "The height of the popup",
+          args: {
+            name: "height",
+          },
+        },
+        {
+          name: "-s",
+          description: "Set the style for the popup",
+          args: {
+            name: "style",
+          },
+        },
+        {
+          name: "-S",
+          description: "Set the style for the popup border",
+          args: {
+            name: "border-style",
+          },
+        },
+        {
+          name: "-t",
+          description: "The target pane",
+          args: panesArg,
+        },
+        {
+          name: "-T",
+          description: "A format for the popup title",
+          args: {
+            name: "title",
+          },
+        },
+        {
+          name: "-w",
+          description: "The width of the popup",
+          args: {
+            name: "width",
+          },
+        },
+        {
+          name: "-x",
+          description: "The x position of the popup",
+          args: {
+            name: "position",
+          },
+        },
+        {
+          name: "-y",
+          description: "The y position of the popup",
+          args: {
+            name: "position",
+          },
         },
       ],
     },
@@ -1057,6 +1222,152 @@ const completionSpec: Fig.Spec = {
           description: "The destination window",
           args: windowsArg,
         },
+      ],
+    },
+    {
+      name: ["newp", "new-pane"],
+      description: "Create a new pane by splitting a pane",
+      args: {
+        name: "shell-command",
+        description: "A shell command to run when creating the pane",
+        isOptional: true,
+      },
+      options: [
+        {
+          name: "-b",
+          description:
+            "Create the new pane to the left of or above target-pane",
+        },
+        {
+          name: "-d",
+          description: "The new pane does not become the current pane",
+        },
+        {
+          name: "-f",
+          description:
+            "Create a new pane spanning the full window height with -h or width with -v",
+        },
+        {
+          name: "-h",
+          description: "Set the pane take full height",
+        },
+        {
+          name: "-I",
+          description: "Create an empty pane and forward stdin to it",
+        },
+        {
+          name: "-k",
+          description:
+            "Keep the pane open after the shell command exits and wait for a key press",
+        },
+        {
+          name: "-P",
+          description: "Print information about the new pane",
+        },
+        {
+          name: "-v",
+          description: "Set the pane take full width",
+        },
+        {
+          name: "-Z",
+          description: "Zoom if the window is not zoomed",
+        },
+        {
+          name: "-c",
+          description: "Specify a start directory for the pane",
+          args: {
+            name: "start-directory",
+            description: "The start directory",
+            template: "folders",
+          },
+        },
+        {
+          name: "-e",
+          description: "Set environment variables",
+          args: {
+            name: "environment",
+            description: "Environment variables with the form VARIABLE=VALUE",
+          },
+        },
+        {
+          name: "-l",
+          description:
+            "Set the size in columns (horizontal split) or rows (vertical split)",
+          args: {
+            name: "size",
+          },
+        },
+        {
+          name: "-m",
+          description:
+            "Like -k but also set remain-on-exit-format to this message",
+          args: {
+            name: "message",
+          },
+        },
+        {
+          name: "-p",
+          description:
+            "The size of the new pane as a percentage of the available space",
+          args: {
+            name: "percentage",
+          },
+        },
+        {
+          name: "-s",
+          description: "Set the style for the pane content",
+          args: {
+            name: "style",
+          },
+        },
+        {
+          name: "-S",
+          description: "Set the border style when the pane is active",
+          args: {
+            name: "active-border-style",
+          },
+        },
+        {
+          name: "-R",
+          description: "Set the border style when the pane is inactive",
+          args: {
+            name: "inactive-border-style",
+          },
+        },
+        {
+          name: "-x",
+          description: "The width of the new pane",
+          args: {
+            name: "width",
+          },
+        },
+        {
+          name: "-y",
+          description: "The height of the new pane",
+          args: {
+            name: "height",
+          },
+        },
+        {
+          name: "-X",
+          description: "The x position of the new pane",
+          args: {
+            name: "x-position",
+          },
+        },
+        {
+          name: "-Y",
+          description: "The y position of the new pane",
+          args: {
+            name: "y-position",
+          },
+        },
+        {
+          name: "-t",
+          description: "The target pane",
+          args: panesArg,
+        },
+        formatOption,
       ],
     },
     {
@@ -1738,8 +2049,39 @@ const completionSpec: Fig.Spec = {
       description: "Send the prefix key to a window",
     },
     {
-      name: ["info", "server-info"],
-      description: "Show every session, window, pane, etc",
+      name: "server-access",
+      description: "Change the access or read/write permission of a user",
+      args: {
+        name: "user",
+        isOptional: true,
+      },
+      options: [
+        {
+          name: "-a",
+          description: "Give access to the specified user",
+        },
+        {
+          name: "-d",
+          description: "Revoke access for the specified user",
+        },
+        {
+          name: "-l",
+          description: "List current access permissions",
+        },
+        {
+          name: "-r",
+          description: "Make the user's clients read-only",
+        },
+        {
+          name: "-w",
+          description: "Make the user's clients writable",
+        },
+        {
+          name: "-t",
+          description: "The target pane",
+          args: panesArg,
+        },
+      ],
     },
     {
       name: ["setb", "set-buffer"],
@@ -1835,6 +2177,19 @@ const completionSpec: Fig.Spec = {
       description: "Show session options",
     },
     {
+      name: ["showphist", "show-prompt-history"],
+      description: "Display status prompt history",
+      options: [
+        {
+          name: "-T",
+          description: "The prompt type to show history for",
+          args: {
+            name: "prompt-type",
+          },
+        },
+      ],
+    },
+    {
       name: ["showw", "show-winsow-options"],
       description: "Show window options",
     },
@@ -1879,6 +2234,10 @@ const completionSpec: Fig.Spec = {
             "Create the new pane to the left of or above target-pane",
         },
         {
+          name: "-d",
+          description: "The new pane does not become the current pane",
+        },
+        {
           name: "-f",
           description:
             "Create a new pane spanning the full window height with -h or width with -v",
@@ -1890,6 +2249,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "-I",
           description: "Create an empty pane and forward stdin to it",
+        },
+        {
+          name: "-k",
+          description:
+            "Keep the pane open after the shell command exits and wait for a key press",
+        },
+        {
+          name: "-P",
+          description: "Print information about the new pane",
         },
         {
           name: "-v",
@@ -1922,6 +2290,43 @@ const completionSpec: Fig.Spec = {
             "Set the size in columns (horizontal split) or rows (vertical split)",
           args: {
             name: "size",
+          },
+        },
+        {
+          name: "-m",
+          description:
+            "Like -k but also set remain-on-exit-format to this message",
+          args: {
+            name: "message",
+          },
+        },
+        {
+          name: "-p",
+          description:
+            "The size of the new pane as a percentage of the available space",
+          args: {
+            name: "percentage",
+          },
+        },
+        {
+          name: "-s",
+          description: "Set the style for the pane content",
+          args: {
+            name: "style",
+          },
+        },
+        {
+          name: "-S",
+          description: "Set the border style when the pane is active",
+          args: {
+            name: "active-border-style",
+          },
+        },
+        {
+          name: "-R",
+          description: "Set the border style when the pane is inactive",
+          args: {
+            name: "inactive-border-style",
           },
         },
         {

@@ -24,6 +24,14 @@ const completionSpec: Fig.Spec = {
       description: "Execute <cmd> after config and first file",
     },
     {
+      name: "-l",
+      args: [
+        { name: "script", template: "filepaths" },
+        { name: "args", isOptional: true, isVariadic: true },
+      ],
+      description: "Execute Lua <script> (with optional args)",
+    },
+    {
       name: "-b",
       description: "Binary mode",
     },
@@ -108,8 +116,24 @@ const completionSpec: Fig.Spec = {
       description: "Print version information",
     },
     {
+      name: "-V",
+      args: {
+        name: "N[file]",
+        isOptional: true,
+      },
+      description: "Verbose [level][file]",
+    },
+    {
+      name: "--",
+      description: "Only file names after this",
+    },
+    {
       name: "--api-info",
       description: "Write msgpack-encoded API metadata to stdout",
+    },
+    {
+      name: "--clean",
+      description: "Factory defaults (skip user config and plugins, shada)",
     },
     {
       name: "--embed",
@@ -135,7 +159,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "--server",
       args: { name: "address" },
-      description: "Specify RPC server to send commands to",
+      description: "Connect to this Nvim server",
     },
     {
       name: "--startuptime",

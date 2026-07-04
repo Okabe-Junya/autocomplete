@@ -26,6 +26,10 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--no-function-bar",
+      description: "Hide the function bar",
+    },
+    {
       name: ["--highlight-changes", "-H"],
       description: "Highlight new and old processes",
       args: {
@@ -40,6 +44,17 @@ const completionSpec: Fig.Spec = {
       description: "Disable the mouse",
     },
     {
+      name: "--no-meters",
+      description: "Hide meters",
+    },
+    {
+      name: ["--max-iterations", "-n"],
+      description: "Exit htop after NUMBER iterations/frame updates",
+      args: {
+        name: "NUMBER",
+      },
+    },
+    {
       name: ["--pid", "-p"],
       description: "Show only the given PIDs",
       args: {
@@ -48,8 +63,13 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--readonly",
+      description: "Disable all system and process changing features",
+    },
+    {
       name: ["--sort-key", "-s"],
-      description: "Sort by COLUMN in list view",
+      description:
+        "Sort by COLUMN in list view (try --sort-key=help for a list)",
       args: {
         name: "column",
       },

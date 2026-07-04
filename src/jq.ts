@@ -1,7 +1,20 @@
 const sharedOptions: Fig.Option[] = [
   {
-    name: "--version",
+    name: ["-V", "--version"],
     description: "Output the jq version and exit with zero",
+  },
+  {
+    name: "--build-configuration",
+    description: "Output the build configuration of jq and exit with zero",
+  },
+  {
+    name: ["-h", "--help"],
+    description: "Output the jq help and exit with zero",
+  },
+  {
+    name: "--",
+    description:
+      "Terminates argument processing; remaining arguments are not interpreted as options",
   },
   {
     name: "--seq",
@@ -12,6 +25,11 @@ const sharedOptions: Fig.Option[] = [
     name: "--stream",
     description:
       "Parse the input in streaming fashion, outputting arrays of path and leaf values",
+  },
+  {
+    name: "--stream-errors",
+    description:
+      "Implies --stream and report invalid JSON inputs as array values where the first element is the error and the second is a path",
   },
   {
     name: ["--slurp", "-s"],
@@ -74,6 +92,11 @@ const sharedOptions: Fig.Option[] = [
       "If the filter's result is a string then it will be written directly to standard output rather than being formatted as a JSON string with quotes",
   },
   {
+    name: "--raw-output0",
+    description:
+      "Like -r but jq will print NUL instead of newline after each output",
+  },
+  {
     name: ["--join-output", "-j"],
     description: "Like -r but jq won't print a newline after each output",
   },
@@ -86,7 +109,7 @@ const sharedOptions: Fig.Option[] = [
     },
   },
   {
-    name: "-L",
+    name: ["-L", "--library-path"],
     description: "Prepend directory to the search list for modules",
     args: {
       name: "directory",
@@ -97,6 +120,11 @@ const sharedOptions: Fig.Option[] = [
     name: ["-e", "--exit-status"],
     description:
       "Sets the exit status of jq to 0 if the last output values was neither false nor null, 1 if the last output value was either false or null, or 4 if no valid result was ever produced",
+  },
+  {
+    name: ["-b", "--binary"],
+    description:
+      "Windows users using WSL, MSYS2, or Cygwin should use this option with a native jq.exe to avoid LFs being turned into CRLFs",
   },
   {
     name: "--arg",

@@ -69,6 +69,27 @@ const completionSpec: Fig.Spec = {
             "Rebuild the charts/ directory based on the Chart.lock file",
           options: [
             {
+              name: "--ca-file",
+              description:
+                "Verify certificates of HTTPS-enabled servers using this CA bundle",
+              args: { name: "ca-file", template: "filepaths" },
+            },
+            {
+              name: "--cert-file",
+              description:
+                "Identify HTTPS client using this SSL certificate file",
+              args: { name: "cert-file", template: "filepaths" },
+            },
+            {
+              name: "--insecure-skip-tls-verify",
+              description: "Skip tls certificate checks for the chart download",
+            },
+            {
+              name: "--key-file",
+              description: "Identify HTTPS client using this SSL key file",
+              args: { name: "key-file", template: "filepaths" },
+            },
+            {
               name: "--keyring",
               description: "Keyring containing public keys",
               args: {
@@ -78,8 +99,25 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
+              name: "--password",
+              description:
+                "Chart repository password where to locate the requested chart",
+              args: { name: "password" },
+            },
+            {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
+            },
+            {
               name: "--skip-refresh",
               description: "Do not refresh the local repository cache",
+            },
+            {
+              name: "--username",
+              description:
+                "Chart repository username where to locate the requested chart",
+              args: { name: "username" },
             },
             {
               name: "--verify",
@@ -103,6 +141,27 @@ const completionSpec: Fig.Spec = {
           description: "Update charts/ based on the contents of Chart.yaml",
           options: [
             {
+              name: "--ca-file",
+              description:
+                "Verify certificates of HTTPS-enabled servers using this CA bundle",
+              args: { name: "ca-file", template: "filepaths" },
+            },
+            {
+              name: "--cert-file",
+              description:
+                "Identify HTTPS client using this SSL certificate file",
+              args: { name: "cert-file", template: "filepaths" },
+            },
+            {
+              name: "--insecure-skip-tls-verify",
+              description: "Skip tls certificate checks for the chart download",
+            },
+            {
+              name: "--key-file",
+              description: "Identify HTTPS client using this SSL key file",
+              args: { name: "key-file", template: "filepaths" },
+            },
+            {
               name: "--keyring",
               description: "Keyring containing public keys",
               args: {
@@ -112,8 +171,25 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
+              name: "--password",
+              description:
+                "Chart repository password where to locate the requested chart",
+              args: { name: "password" },
+            },
+            {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
+            },
+            {
               name: "--skip-refresh",
               description: "Do not refresh the local repository cache",
+            },
+            {
+              name: "--username",
+              description:
+                "Chart repository username where to locate the requested chart",
+              args: { name: "username" },
             },
             {
               name: "--verify",
@@ -163,6 +239,23 @@ const completionSpec: Fig.Spec = {
             {
               name: "--revision",
               description: "Get the named release with revision",
+              args: { name: "revision", default: "0" },
+            },
+          ],
+        },
+        {
+          name: "metadata",
+          description: "Fetch metadata for a given release",
+          options: [
+            {
+              name: ["--output", "-o"],
+              description:
+                "Prints the output in the specified format. Allowed values: table, json, yaml",
+              args: { name: "output", default: "table" },
+            },
+            {
+              name: "--revision",
+              description: "Specify release revision",
               args: { name: "revision", default: "0" },
             },
           ],
@@ -223,11 +316,6 @@ const completionSpec: Fig.Spec = {
       description: "Install a chart",
       options: [
         {
-          name: "--atomic",
-          description:
-            "If set, the installation process deletes the installation on failure. The --wait flag will be set automatically if --atomic is used",
-        },
-        {
           name: "--ca-file",
           description:
             "Verify certificates of HTTPS-enabled servers using this CA bundle",
@@ -262,10 +350,42 @@ const completionSpec: Fig.Spec = {
           description:
             "If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema",
         },
-        { name: "--dry-run", description: "Simulate an install" },
+        {
+          name: "--dry-run",
+          description:
+            "Simulates the operation without persisting changes. '--dry-run=client' simulates the operation client-side only and avoids cluster connections. '--dry-run=server' simulates the operation on the server, requiring cluster connectivity",
+          args: {
+            name: "dry-run",
+            suggestions: ["none", "client", "server"],
+            default: "none",
+          },
+        },
+        {
+          name: "--enable-dns",
+          description: "Enable DNS lookups when rendering templates",
+        },
+        {
+          name: "--force-conflicts",
+          description:
+            "If set server-side apply will force changes against conflicts",
+        },
+        {
+          name: "--force-replace",
+          description: "Force resource updates by replacement",
+        },
         {
           name: ["--generate-name", "-g"],
           description: "Generate the name (and omit the NAME parameter)",
+        },
+        {
+          name: "--hide-notes",
+          description:
+            "If set, do not show notes in install output. Does not affect presence in chart metadata",
+        },
+        {
+          name: "--hide-secret",
+          description:
+            "Hide Kubernetes Secrets when also using the --dry-run flag",
         },
         {
           name: "--insecure-skip-tls-verify",
@@ -284,6 +404,12 @@ const completionSpec: Fig.Spec = {
             template: "filepaths",
             default: "~/.gnupg/pubring.gpg",
           },
+        },
+        {
+          name: ["--labels", "-l"],
+          description:
+            "Labels that would be added to release metadata. Should be divided by comma",
+          args: { name: "labels" },
         },
         {
           name: "--name-template",
@@ -311,9 +437,13 @@ const completionSpec: Fig.Spec = {
           args: { name: "password" },
         },
         {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart download",
+        },
+        {
           name: "--post-renderer",
           description:
-            "The path to an executable to be used for post rendering. If it exists in $PATH, the binary will be used, otherwise it will try to look for the executable at the given path",
+            "The name of a postrenderer type plugin to be used for post rendering. If it exists, the plugin will be used",
           args: { name: "post-renderer" },
         },
         {
@@ -339,6 +469,15 @@ const completionSpec: Fig.Spec = {
           args: { name: "repo" },
         },
         {
+          name: "--rollback-on-failure",
+          description:
+            'If set, Helm will rollback (uninstall) the installation upon failure. The --wait flag will be default to "watcher" if --rollback-on-failure is set',
+        },
+        {
+          name: "--server-side",
+          description: "Object updates run in the server instead of the client",
+        },
+        {
           name: "--set",
           description:
             "Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
@@ -353,6 +492,19 @@ const completionSpec: Fig.Spec = {
           args: { name: "set-file", template: "filepaths" },
         },
         {
+          name: "--set-json",
+          description:
+            'Set JSON values on the command line (can specify multiple or separate values with commas: key1=jsonval1,key2=jsonval2 or using json format: {"key1": jsonval1, "key2": "jsonval2"})',
+          isRepeatable: true,
+          args: { name: "set-json" },
+        },
+        {
+          name: "--set-literal",
+          description: "Set a literal STRING value on the command line",
+          isRepeatable: true,
+          args: { name: "set-literal" },
+        },
+        {
           name: "--set-string",
           description:
             "Set STRING values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
@@ -363,6 +515,15 @@ const completionSpec: Fig.Spec = {
           name: "--skip-crds",
           description:
             "If set, no CRDs will be installed. By default, CRDs are installed if not already present",
+        },
+        {
+          name: "--skip-schema-validation",
+          description: "If set, disables JSON schema validation",
+        },
+        {
+          name: "--take-ownership",
+          description:
+            "If set, install will ignore the check for helm annotations and take ownership of the existing resources",
         },
         {
           name: "--timeout",
@@ -393,7 +554,8 @@ const completionSpec: Fig.Spec = {
         {
           name: "--wait",
           description:
-            "If set, will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful. It will wait for as long as --timeout",
+            "If specified, will wait until all resources are in the expected state before marking the operation as successful. It will wait for as long as --timeout. Valid inputs are 'watcher' and 'legacy'",
+          args: { name: "wait", suggestions: ["watcher", "legacy"] },
         },
         {
           name: "--wait-for-jobs",
@@ -406,6 +568,12 @@ const completionSpec: Fig.Spec = {
       name: "lint",
       description: "Examine a chart for possible issues",
       options: [
+        {
+          name: "--kube-version",
+          description:
+            "Kubernetes version used for capabilities and deprecation checks",
+          args: { name: "kube-version" },
+        },
         { name: "--quiet", description: "Print only warnings and errors" },
         {
           name: "--set",
@@ -422,11 +590,28 @@ const completionSpec: Fig.Spec = {
           args: { name: "set-file", template: "filepaths" },
         },
         {
+          name: "--set-json",
+          description:
+            'Set JSON values on the command line (can specify multiple or separate values with commas: key1=jsonval1,key2=jsonval2 or using json format: {"key1": jsonval1, "key2": "jsonval2"})',
+          isRepeatable: true,
+          args: { name: "set-json" },
+        },
+        {
+          name: "--set-literal",
+          description: "Set a literal STRING value on the command line",
+          isRepeatable: true,
+          args: { name: "set-literal" },
+        },
+        {
           name: "--set-string",
           description:
             "Set STRING values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
           isRepeatable: true,
           args: { name: "set-string" },
+        },
+        {
+          name: "--skip-schema-validation",
+          description: "If set, disables JSON schema validation",
         },
         { name: "--strict", description: "Fail on lint warnings" },
         {
@@ -532,6 +717,17 @@ const completionSpec: Fig.Spec = {
           args: { name: "app-version" },
         },
         {
+          name: "--ca-file",
+          description:
+            "Verify certificates of HTTPS-enabled servers using this CA bundle",
+          args: { name: "ca-file", template: "filepaths" },
+        },
+        {
+          name: "--cert-file",
+          description: "Identify HTTPS client using this SSL certificate file",
+          args: { name: "cert-file", template: "filepaths" },
+        },
+        {
           name: ["--dependency-update", "-u"],
           description:
             'Update dependencies from "Chart.yaml" to dir "charts/" before packaging',
@@ -542,10 +738,19 @@ const completionSpec: Fig.Spec = {
           args: { name: "destination", default: "." },
         },
         {
+          name: "--insecure-skip-tls-verify",
+          description: "Skip tls certificate checks for the chart download",
+        },
+        {
           name: "--key",
           description:
             "Name of the key to use when signing. Used if --sign is true",
           args: { name: "key" },
+        },
+        {
+          name: "--key-file",
+          description: "Identify HTTPS client using this SSL key file",
+          args: { name: "key-file", template: "filepaths" },
         },
         {
           name: "--keyring",
@@ -563,8 +768,24 @@ const completionSpec: Fig.Spec = {
           args: { name: "passphrase-file", template: "filepaths" },
         },
         {
+          name: "--password",
+          description:
+            "Chart repository password where to locate the requested chart",
+          args: { name: "password" },
+        },
+        {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart download",
+        },
+        {
           name: "--sign",
           description: "Use a PGP private key to sign this package",
+        },
+        {
+          name: "--username",
+          description:
+            "Chart repository username where to locate the requested chart",
+          args: { name: "username" },
         },
         {
           name: "--version",
@@ -575,12 +796,62 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "plugin",
-      description: "Install, list, or uninstall Helm plugins",
+      description: "Manage client-side Helm plugins",
       subcommands: [
         {
-          name: ["add", "install"],
-          description: "Install one or more Helm plugins",
+          name: ["install", "add"],
+          description: "Install a Helm plugin",
           options: [
+            {
+              name: "--ca-file",
+              description:
+                "Verify certificates of HTTPS-enabled servers using this CA bundle",
+              args: { name: "ca-file", template: "filepaths" },
+            },
+            {
+              name: "--cert-file",
+              description:
+                "Identify registry client using this SSL certificate file",
+              args: { name: "cert-file", template: "filepaths" },
+            },
+            {
+              name: "--insecure-skip-tls-verify",
+              description:
+                "Skip tls certificate checks for the plugin download",
+            },
+            {
+              name: "--key-file",
+              description: "Identify registry client using this SSL key file",
+              args: { name: "key-file", template: "filepaths" },
+            },
+            {
+              name: "--keyring",
+              description: "Location of public keys used for verification",
+              args: {
+                name: "keyring",
+                template: "filepaths",
+                default: "~/.gnupg/pubring.gpg",
+              },
+            },
+            {
+              name: "--password",
+              description: "Registry password",
+              args: { name: "password" },
+            },
+            {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the plugin download",
+            },
+            {
+              name: "--username",
+              description: "Registry username",
+              args: { name: "username" },
+            },
+            {
+              name: "--verify",
+              description: "Verify the plugin signature before installing",
+            },
             {
               name: "--version",
               description:
@@ -589,14 +860,76 @@ const completionSpec: Fig.Spec = {
             },
           ],
         },
-        { name: ["ls", "list"], description: "List installed Helm plugins" },
         {
-          name: ["rm", "remove", "uninstall"],
+          name: ["ls", "list"],
+          description: "List installed Helm plugins",
+          options: [
+            {
+              name: "--type",
+              description: "Plugin type",
+              args: { name: "type" },
+            },
+          ],
+        },
+        {
+          name: "package",
+          description: "Package a plugin directory into a plugin archive",
+          options: [
+            {
+              name: ["--destination", "-d"],
+              description: "Location to write the plugin tarball",
+              args: { name: "destination", default: "." },
+            },
+            {
+              name: "--key",
+              description:
+                "Name of the key to use when signing. Used if --sign is true",
+              args: { name: "key" },
+            },
+            {
+              name: "--keyring",
+              description: "Location of a public keyring",
+              args: {
+                name: "keyring",
+                template: "filepaths",
+                default: "~/.gnupg/pubring.gpg",
+              },
+            },
+            {
+              name: "--passphrase-file",
+              description:
+                'Location of a file which contains the passphrase for the signing key. Use "-" to read from stdin',
+              args: { name: "passphrase-file", template: "filepaths" },
+            },
+            {
+              name: "--sign",
+              description: "Use a PGP private key to sign this plugin",
+            },
+          ],
+        },
+        {
+          name: ["uninstall", "rm", "remove"],
           description: "Uninstall one or more Helm plugins",
         },
         {
-          name: ["up", "update"],
+          name: ["update", "up"],
           description: "Update one or more Helm plugins",
+        },
+        {
+          name: "verify",
+          description:
+            "Verify that a plugin at the given path has been signed and is valid",
+          options: [
+            {
+              name: "--keyring",
+              description: "Keyring containing public keys",
+              args: {
+                name: "keyring",
+                template: "filepaths",
+                default: "~/.gnupg/pubring.gpg",
+              },
+            },
+          ],
         },
       ],
     },
@@ -656,6 +989,10 @@ const completionSpec: Fig.Spec = {
           args: { name: "password" },
         },
         {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart download",
+        },
+        {
           name: "--prov",
           description:
             "Fetch the provenance file, but don't perform verification",
@@ -692,7 +1029,49 @@ const completionSpec: Fig.Spec = {
         },
       ],
     },
-    { name: "push", description: "Push a chart to remote" },
+    {
+      name: "push",
+      description: "Push a chart to remote",
+      options: [
+        {
+          name: "--ca-file",
+          description:
+            "Verify certificates of HTTPS-enabled servers using this CA bundle",
+          args: { name: "ca-file", template: "filepaths" },
+        },
+        {
+          name: "--cert-file",
+          description:
+            "Identify registry client using this SSL certificate file",
+          args: { name: "cert-file", template: "filepaths" },
+        },
+        {
+          name: "--insecure-skip-tls-verify",
+          description: "Skip tls certificate checks for the chart upload",
+        },
+        {
+          name: "--key-file",
+          description: "Identify registry client using this SSL key file",
+          args: { name: "key-file", template: "filepaths" },
+        },
+        {
+          name: "--password",
+          description:
+            "Chart repository password where to locate the requested chart",
+          args: { name: "password" },
+        },
+        {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart upload",
+        },
+        {
+          name: "--username",
+          description:
+            "Chart repository username where to locate the requested chart",
+          args: { name: "username" },
+        },
+      ],
+    },
     {
       name: "registry",
       description: "Login to or logout from a registry",
@@ -702,8 +1081,25 @@ const completionSpec: Fig.Spec = {
           description: "Login to a registry",
           options: [
             {
+              name: "--ca-file",
+              description:
+                "Verify certificates of HTTPS-enabled servers using this CA bundle",
+              args: { name: "ca-file", template: "filepaths" },
+            },
+            {
+              name: "--cert-file",
+              description:
+                "Identify registry client using this SSL certificate file",
+              args: { name: "cert-file", template: "filepaths" },
+            },
+            {
               name: "--insecure",
               description: "Allow connections to TLS registry without certs",
+            },
+            {
+              name: "--key-file",
+              description: "Identify registry client using this SSL key file",
+              args: { name: "key-file", template: "filepaths" },
             },
             {
               name: ["--password", "-p"],
@@ -713,6 +1109,10 @@ const completionSpec: Fig.Spec = {
             {
               name: "--password-stdin",
               description: "Read password or identity token from stdin",
+            },
+            {
+              name: "--plain-http",
+              description: "Use insecure HTTP connections for the chart upload",
             },
             {
               name: ["--username", "-u"],
@@ -763,11 +1163,6 @@ const completionSpec: Fig.Spec = {
               args: { name: "key-file", template: "filepaths" },
             },
             {
-              name: "--no-update",
-              description:
-                "Ignored. Formerly, it would disabled forced updates. It is deprecated by force-update",
-            },
-            {
               name: "--pass-credentials",
               description: "Pass credentials to all domains",
             },
@@ -781,6 +1176,12 @@ const completionSpec: Fig.Spec = {
               description: "Read chart repository password from stdin",
             },
             {
+              name: "--timeout",
+              description:
+                "Time to wait for the index file download to complete",
+              args: { name: "timeout", default: "2m0s" },
+            },
+            {
               name: "--username",
               description: "Chart repository username",
               args: { name: "username" },
@@ -792,6 +1193,7 @@ const completionSpec: Fig.Spec = {
           description:
             "Generate an index file given a directory containing packaged charts",
           options: [
+            { name: "--json", description: "Output in JSON format" },
             {
               name: "--merge",
               description: "Merge the generated index into the given index",
@@ -826,8 +1228,10 @@ const completionSpec: Fig.Spec = {
             "Update information of available charts locally from chart repositories",
           options: [
             {
-              name: "--fail-on-repo-update-fail",
-              description: "Update fails if any of the repository updates fail",
+              name: "--timeout",
+              description:
+                "Time to wait for the index file download to complete",
+              args: { name: "timeout", default: "2m0s" },
             },
           ],
         },
@@ -842,11 +1246,24 @@ const completionSpec: Fig.Spec = {
           description:
             "Allow deletion of new resources created in this rollback when rollback fails",
         },
-        { name: "--dry-run", description: "Simulate a rollback" },
         {
-          name: "--force",
+          name: "--dry-run",
           description:
-            "Force resource update through delete/recreate if needed",
+            "Simulates the operation without persisting changes. '--dry-run=client' simulates the operation client-side only and avoids cluster connections. '--dry-run=server' simulates the operation on the server, requiring cluster connectivity",
+          args: {
+            name: "dry-run",
+            suggestions: ["none", "client", "server"],
+            default: "none",
+          },
+        },
+        {
+          name: "--force-conflicts",
+          description:
+            "If set server-side apply will force changes against conflicts",
+        },
+        {
+          name: "--force-replace",
+          description: "Force resource updates by replacement",
         },
         {
           name: "--history-max",
@@ -859,8 +1276,14 @@ const completionSpec: Fig.Spec = {
           description: "Prevent hooks from running during rollback",
         },
         {
-          name: "--recreate-pods",
-          description: "Performs pods restart for the resource if applicable",
+          name: "--server-side",
+          description:
+            'Must be "true", "false" or "auto". Object updates run in the server instead of the client ("auto" defaults the value from the previous chart release\'s method)',
+          args: {
+            name: "server-side",
+            suggestions: ["true", "false", "auto"],
+            default: "auto",
+          },
         },
         {
           name: "--timeout",
@@ -871,7 +1294,8 @@ const completionSpec: Fig.Spec = {
         {
           name: "--wait",
           description:
-            "If set, will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful. It will wait for as long as --timeout",
+            "If specified, will wait until all resources are in the expected state before marking the operation as successful. It will wait for as long as --timeout. Valid inputs are 'watcher' and 'legacy'",
+          args: { name: "wait", suggestions: ["watcher", "legacy"] },
         },
         {
           name: "--wait-for-jobs",
@@ -880,7 +1304,6 @@ const completionSpec: Fig.Spec = {
         },
       ],
     },
-    { name: "s3", description: "Manage chart repositories on Amazon S3" },
     {
       name: "search",
       description: "Search for a keyword in charts",
@@ -894,6 +1317,10 @@ const completionSpec: Fig.Spec = {
               name: "--endpoint",
               description: "Hub instance to query for charts",
               args: { name: "endpoint", default: "https://hub.helm.sh" },
+            },
+            {
+              name: "--fail-on-no-result",
+              description: "Search fails if no results are found",
             },
             {
               name: "--list-repo-url",
@@ -920,6 +1347,10 @@ const completionSpec: Fig.Spec = {
               name: "--devel",
               description:
                 "Use development versions (alpha, beta, and release candidate releases), too. Equivalent to version '>0.0.0-0'. If --version is set, this is ignored",
+            },
+            {
+              name: "--fail-on-no-result",
+              description: "Search fails if no results are found",
             },
             {
               name: "--max-col-width",
@@ -1006,6 +1437,11 @@ const completionSpec: Fig.Spec = {
               args: { name: "password" },
             },
             {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
+            },
+            {
               name: "--repo",
               description:
                 "Chart repository url where to locate the requested chart",
@@ -1057,7 +1493,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--key-file",
               description: "Identify HTTPS client using this SSL key file",
-              args: { name: "key-file" },
+              args: { name: "key-file", template: "filepaths" },
             },
             {
               name: "--keyring",
@@ -1077,6 +1513,11 @@ const completionSpec: Fig.Spec = {
               description:
                 "Chart repository password where to locate the requested chart",
               args: { name: "password" },
+            },
+            {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
             },
             {
               name: "--repo",
@@ -1152,6 +1593,11 @@ const completionSpec: Fig.Spec = {
               args: { name: "password" },
             },
             {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
+            },
+            {
               name: "--repo",
               description:
                 "Chart repository url where to locate the requested chart",
@@ -1203,13 +1649,14 @@ const completionSpec: Fig.Spec = {
             {
               name: "--key-file",
               description: "Identify HTTPS client using this SSL key file",
-              args: { name: "key-file" },
+              args: { name: "key-file", template: "filepaths" },
             },
             {
               name: "--keyring",
               description: "Location of public keys used for verification",
               args: {
                 name: "keyring",
+                template: "filepaths",
                 default: "~/.gnupg/pubring.gpg",
               },
             },
@@ -1222,6 +1669,11 @@ const completionSpec: Fig.Spec = {
               description:
                 "Chart repository password where to locate the requested chart",
               args: { name: "password" },
+            },
+            {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
             },
             {
               name: "--repo",
@@ -1302,6 +1754,11 @@ const completionSpec: Fig.Spec = {
               args: { name: "password" },
             },
             {
+              name: "--plain-http",
+              description:
+                "Use insecure HTTP connections for the chart download",
+            },
+            {
               name: "--repo",
               description:
                 "Chart repository url where to locate the requested chart",
@@ -1343,11 +1800,6 @@ const completionSpec: Fig.Spec = {
             "If set, display the status of the named release with revision",
           args: { name: "revision", default: "0" },
         },
-        {
-          name: "--show-desc",
-          description:
-            "If set, display the description message of the named release",
-        },
       ],
     },
     {
@@ -1360,11 +1812,6 @@ const completionSpec: Fig.Spec = {
             "Kubernetes api versions used for Capabilities.APIVersions",
           isRepeatable: true,
           args: { name: "api-versions" },
-        },
-        {
-          name: "--atomic",
-          description:
-            "If set, the installation process deletes the installation on failure. The --wait flag will be set automatically if --atomic is used",
         },
         {
           name: "--ca-file",
@@ -1401,10 +1848,37 @@ const completionSpec: Fig.Spec = {
           description:
             "If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema",
         },
-        { name: "--dry-run", description: "Simulate an install" },
+        {
+          name: "--dry-run",
+          description:
+            "Simulates the operation either client-side or server-side. '--dry-run=client' simulates the operation client-side only and avoids cluster connections. '--dry-run=server' simulates/validates the operation on the server, requiring cluster connectivity",
+          args: {
+            name: "dry-run",
+            suggestions: ["client", "server"],
+            default: "client",
+          },
+        },
+        {
+          name: "--enable-dns",
+          description: "Enable DNS lookups when rendering templates",
+        },
+        {
+          name: "--force-conflicts",
+          description:
+            "If set server-side apply will force changes against conflicts",
+        },
+        {
+          name: "--force-replace",
+          description: "Force resource updates by replacement",
+        },
         {
           name: ["--generate-name", "-g"],
           description: "Generate the name (and omit the NAME parameter)",
+        },
+        {
+          name: "--hide-notes",
+          description:
+            "If set, do not show notes in install output. Does not affect presence in chart metadata",
         },
         {
           name: "--include-crds",
@@ -1438,6 +1912,12 @@ const completionSpec: Fig.Spec = {
           args: { name: "kube-version" },
         },
         {
+          name: ["--labels", "-l"],
+          description:
+            "Labels that would be added to release metadata. Should be divided by comma",
+          args: { name: "labels" },
+        },
+        {
           name: "--name-template",
           description: "Specify template used to name the release",
           args: { name: "name-template" },
@@ -1463,9 +1943,13 @@ const completionSpec: Fig.Spec = {
           args: { name: "password" },
         },
         {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart download",
+        },
+        {
           name: "--post-renderer",
           description:
-            "The path to an executable to be used for post rendering. If it exists in $PATH, the binary will be used, otherwise it will try to look for the executable at the given path",
+            "The name of a postrenderer type plugin to be used for post rendering. If it exists, the plugin will be used",
           args: { name: "post-renderer" },
         },
         {
@@ -1495,6 +1979,15 @@ const completionSpec: Fig.Spec = {
           args: { name: "repo" },
         },
         {
+          name: "--rollback-on-failure",
+          description:
+            'If set, Helm will rollback (uninstall) the installation upon failure. The --wait flag will be default to "watcher" if --rollback-on-failure is set',
+        },
+        {
+          name: "--server-side",
+          description: "Object updates run in the server instead of the client",
+        },
+        {
           name: "--set",
           description:
             "Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
@@ -1507,6 +2000,19 @@ const completionSpec: Fig.Spec = {
             "Set values from respective files specified via the command line (can specify multiple or separate values with commas: key1=path1,key2=path2)",
           isRepeatable: true,
           args: { name: "set-file", template: "filepaths" },
+        },
+        {
+          name: "--set-json",
+          description:
+            'Set JSON values on the command line (can specify multiple or separate values with commas: key1=jsonval1,key2=jsonval2 or using json format: {"key1": jsonval1, "key2": "jsonval2"})',
+          isRepeatable: true,
+          args: { name: "set-json" },
+        },
+        {
+          name: "--set-literal",
+          description: "Set a literal STRING value on the command line",
+          isRepeatable: true,
+          args: { name: "set-literal" },
         },
         {
           name: "--set-string",
@@ -1527,8 +2033,17 @@ const completionSpec: Fig.Spec = {
             "If set, no CRDs will be installed. By default, CRDs are installed if not already present",
         },
         {
+          name: "--skip-schema-validation",
+          description: "If set, disables JSON schema validation",
+        },
+        {
           name: "--skip-tests",
           description: "Skip tests from templated output",
+        },
+        {
+          name: "--take-ownership",
+          description:
+            "If set, install will ignore the check for helm annotations and take ownership of the existing resources",
         },
         {
           name: "--timeout",
@@ -1541,11 +2056,6 @@ const completionSpec: Fig.Spec = {
           description:
             "Chart repository username where to locate the requested chart",
           args: { name: "username" },
-        },
-        {
-          name: "--validate",
-          description:
-            "Validate your manifests against the Kubernetes cluster you are currently pointing at. This is the same validation performed on an install",
         },
         {
           name: ["--values", "-f"],
@@ -1564,7 +2074,8 @@ const completionSpec: Fig.Spec = {
         {
           name: "--wait",
           description:
-            "If set, will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful. It will wait for as long as --timeout",
+            "If specified, will wait until all resources are in the expected state before marking the operation as successful. It will wait for as long as --timeout. Valid inputs are 'watcher' and 'legacy'",
+          args: { name: "wait", suggestions: ["watcher", "legacy"] },
         },
         {
           name: "--wait-for-jobs",
@@ -1602,11 +2113,25 @@ const completionSpec: Fig.Spec = {
       description: "Uninstall a release",
       options: [
         {
+          name: "--cascade",
+          description:
+            'Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents. Defaults to background',
+          args: {
+            name: "cascade",
+            suggestions: ["background", "orphan", "foreground"],
+            default: "background",
+          },
+        },
+        {
           name: "--description",
           description: "Add a custom description",
           args: { name: "description" },
         },
         { name: "--dry-run", description: "Simulate a uninstall" },
+        {
+          name: "--ignore-not-found",
+          description: 'Treat "release not found" as a successful uninstall',
+        },
         {
           name: "--keep-history",
           description:
@@ -1625,20 +2150,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--wait",
           description:
-            "If set, will wait until all the resources are deleted before returning. It will wait for as long as --timeout",
+            "If specified, will wait until all resources are in the expected state before marking the operation as successful. It will wait for as long as --timeout. Valid inputs are 'watcher' and 'legacy'",
+          args: { name: "wait", suggestions: ["watcher", "legacy"] },
         },
       ],
     },
-    { name: "unittest", description: "Unittest for helm charts" },
     {
       name: "upgrade",
       description: "Upgrade a release",
       options: [
-        {
-          name: "--atomic",
-          description:
-            "If set, upgrade process rolls back changes made in case of failed upgrade. The --wait flag will be set automatically if --atomic is used",
-        },
         {
           name: "--ca-file",
           description:
@@ -1680,10 +2200,38 @@ const completionSpec: Fig.Spec = {
           description:
             "If set, the upgrade process will not validate rendered templates against the Kubernetes OpenAPI Schema",
         },
-        { name: "--dry-run", description: "Simulate an upgrade" },
         {
-          name: "--force",
-          description: "Force resource updates through a replacement strategy",
+          name: "--dry-run",
+          description:
+            "Simulates the operation without persisting changes. '--dry-run=client' simulates the operation client-side only and avoids cluster connections. '--dry-run=server' simulates the operation on the server, requiring cluster connectivity",
+          args: {
+            name: "dry-run",
+            suggestions: ["none", "client", "server"],
+            default: "none",
+          },
+        },
+        {
+          name: "--enable-dns",
+          description: "Enable DNS lookups when rendering templates",
+        },
+        {
+          name: "--force-conflicts",
+          description:
+            "If set server-side apply will force changes against conflicts",
+        },
+        {
+          name: "--force-replace",
+          description: "Force resource updates by replacement",
+        },
+        {
+          name: "--hide-notes",
+          description:
+            "If set, do not show notes in upgrade output. Does not affect presence in chart metadata",
+        },
+        {
+          name: "--hide-secret",
+          description:
+            "Hide Kubernetes Secrets when also using the --dry-run flag",
         },
         {
           name: "--history-max",
@@ -1714,6 +2262,12 @@ const completionSpec: Fig.Spec = {
             default: "~/.gnupg/pubring.gpg",
           },
         },
+        {
+          name: ["--labels", "-l"],
+          description:
+            "Labels that would be added to release metadata. Should be separated by comma. Original release labels will be merged with upgrade labels. You can unset label using null",
+          args: { name: "labels" },
+        },
         { name: "--no-hooks", description: "Disable pre/post upgrade hooks" },
         {
           name: ["--output", "-o"],
@@ -1732,9 +2286,13 @@ const completionSpec: Fig.Spec = {
           args: { name: "password" },
         },
         {
+          name: "--plain-http",
+          description: "Use insecure HTTP connections for the chart download",
+        },
+        {
           name: "--post-renderer",
           description:
-            "The path to an executable to be used for post rendering. If it exists in $PATH, the binary will be used, otherwise it will try to look for the executable at the given path",
+            "The name of a postrenderer type plugin to be used for post rendering. If it exists, the plugin will be used",
           args: { name: "post-renderer" },
         },
         {
@@ -1743,11 +2301,6 @@ const completionSpec: Fig.Spec = {
             "An argument to the post-renderer (can specify multiple)",
           isRepeatable: true,
           args: { name: "post-renderer-args" },
-        },
-        {
-          name: "--recreate-pods",
-          description: "Performs pods restart for the resource if applicable",
-          hidden: true,
         },
         {
           name: "--render-subchart-notes",
@@ -1760,6 +2313,11 @@ const completionSpec: Fig.Spec = {
           args: { name: "repo" },
         },
         {
+          name: "--reset-then-reuse-values",
+          description:
+            "When upgrading, reset the values to the ones built into the chart, apply the last release's values and merge in any overrides from the command line via --set and -f. If '--reset-values' or '--reuse-values' is specified, this is ignored",
+        },
+        {
           name: "--reset-values",
           description:
             "When upgrading, reset the values to the ones built into the chart",
@@ -1768,6 +2326,21 @@ const completionSpec: Fig.Spec = {
           name: "--reuse-values",
           description:
             "When upgrading, reuse the last release's values and merge in any overrides from the command line via --set and -f. If '--reset-values' is specified, this is ignored",
+        },
+        {
+          name: "--rollback-on-failure",
+          description:
+            'If set, Helm will rollback the upgrade to previous success release upon failure. The --wait flag will be defaulted to "watcher" if --rollback-on-failure is set',
+        },
+        {
+          name: "--server-side",
+          description:
+            'Must be "true", "false" or "auto". Object updates run in the server instead of the client ("auto" defaults the value from the previous chart release\'s method)',
+          args: {
+            name: "server-side",
+            suggestions: ["true", "false", "auto"],
+            default: "auto",
+          },
         },
         {
           name: "--set",
@@ -1784,6 +2357,19 @@ const completionSpec: Fig.Spec = {
           args: { name: "set-file", template: "filepaths" },
         },
         {
+          name: "--set-json",
+          description:
+            'Set JSON values on the command line (can specify multiple or separate values with commas: key1=jsonval1,key2=jsonval2 or using json format: {"key1": jsonval1, "key2": "jsonval2"})',
+          isRepeatable: true,
+          args: { name: "set-json" },
+        },
+        {
+          name: "--set-literal",
+          description: "Set a literal STRING value on the command line",
+          isRepeatable: true,
+          args: { name: "set-literal" },
+        },
+        {
           name: "--set-string",
           description:
             "Set STRING values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
@@ -1794,6 +2380,15 @@ const completionSpec: Fig.Spec = {
           name: "--skip-crds",
           description:
             "If set, no CRDs will be installed when an upgrade is performed with install flag enabled. By default, CRDs are installed if not already present, when an upgrade is performed with install flag enabled",
+        },
+        {
+          name: "--skip-schema-validation",
+          description: "If set, disables JSON schema validation",
+        },
+        {
+          name: "--take-ownership",
+          description:
+            "If set, upgrade will ignore the check for helm annotations and take ownership of the existing resources",
         },
         {
           name: "--timeout",
@@ -1824,7 +2419,8 @@ const completionSpec: Fig.Spec = {
         {
           name: "--wait",
           description:
-            "If set, will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful. It will wait for as long as --timeout",
+            "If specified, will wait until all resources are in the expected state before marking the operation as successful. It will wait for as long as --timeout. Valid inputs are 'watcher' and 'legacy'",
+          args: { name: "wait", suggestions: ["watcher", "legacy"] },
         },
         {
           name: "--wait-for-jobs",
@@ -1851,13 +2447,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "version",
-      description: "Print the client version information",
+      description: "Print the helm version information",
       options: [
-        {
-          name: ["--client", "-c"],
-          description: "Display client version information",
-          hidden: true,
-        },
         { name: "--short", description: "Print the version number" },
         {
           name: "--template",
@@ -1934,6 +2525,10 @@ const completionSpec: Fig.Spec = {
               description: "Download the manifest for a named release",
             },
             {
+              name: "metadata",
+              description: "Fetch metadata for a given release",
+            },
+            {
               name: "notes",
               description: "Download the notes for a named release",
             },
@@ -1959,23 +2554,32 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "plugin",
-          description: "Install, list, or uninstall Helm plugins",
+          description: "Manage client-side Helm plugins",
           subcommands: [
             {
-              name: ["add", "install"],
-              description: "Install one or more Helm plugins",
+              name: ["install", "add"],
+              description: "Install a Helm plugin",
             },
             {
               name: ["ls", "list"],
               description: "List installed Helm plugins",
             },
             {
-              name: ["rm", "remove", "uninstall"],
+              name: "package",
+              description: "Package a plugin directory into a plugin archive",
+            },
+            {
+              name: ["uninstall", "rm", "remove"],
               description: "Uninstall one or more Helm plugins",
             },
             {
-              name: ["up", "update"],
+              name: ["update", "up"],
               description: "Update one or more Helm plugins",
+            },
+            {
+              name: "verify",
+              description:
+                "Verify that a plugin at the given path has been signed and is valid",
             },
           ],
         },
@@ -2024,10 +2628,6 @@ const completionSpec: Fig.Spec = {
           description: "Roll back a release to a previous revision",
         },
         {
-          name: "s3",
-          description: "Manage chart repositories on Amazon S3",
-        },
-        {
           name: "search",
           description: "Search for a keyword in charts",
           subcommands: [
@@ -2072,7 +2672,6 @@ const completionSpec: Fig.Spec = {
           name: ["del", "delete", "un", "uninstall"],
           description: "Uninstall a release",
         },
-        { name: "unittest", description: "Unittest for helm charts" },
         {
           name: "upgrade",
           description: "Upgrade a release",
@@ -2084,30 +2683,48 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "version",
-          description: "Print the client version information",
+          description: "Print the helm version information",
         },
       ],
     },
   ],
   options: [
     {
-      name: "--add-dir-header",
-      description:
-        "If true, adds the file directory to the header of the log messages",
-      isPersistent: true,
-      hidden: true,
-    },
-    {
-      name: "--alsologtostderr",
-      description: "Log to standard error as well as files",
-      isPersistent: true,
-      hidden: true,
-    },
-    {
       name: "--burst-limit",
       description: "Client-side default throttling limit",
       isPersistent: true,
       args: { name: "burst-limit", default: "100" },
+    },
+    {
+      name: "--color",
+      description: "Use colored output",
+      isPersistent: true,
+      args: {
+        name: "color",
+        suggestions: ["never", "auto", "always"],
+        default: "auto",
+      },
+    },
+    {
+      name: "--colour",
+      description: "Use colored output",
+      isPersistent: true,
+      args: {
+        name: "colour",
+        suggestions: ["never", "auto", "always"],
+        default: "auto",
+      },
+    },
+    {
+      name: "--content-cache",
+      description:
+        "Path to the directory containing cached content (e.g. charts)",
+      isPersistent: true,
+      args: {
+        name: "content-cache",
+        template: "filepaths",
+        default: "~/Library/Caches/helm/content",
+      },
     },
     {
       name: "--debug",
@@ -2173,52 +2790,17 @@ const completionSpec: Fig.Spec = {
       args: { name: "kubeconfig", template: "filepaths" },
     },
     {
-      name: "--log-backtrace-at",
-      description: "When logging hits line file:N, emit a stack trace",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "log-backtrace-at", default: ":0" },
-    },
-    {
-      name: "--log-dir",
-      description: "If non-empty, write log files in this directory",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "log-dir", template: "filepaths" },
-    },
-    {
-      name: "--log-file",
-      description: "If non-empty, use this log file",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "log-file", template: "filepaths" },
-    },
-    {
-      name: "--log-file-max-size",
-      description:
-        "Defines the maximum size a log file can grow to. Unit is megabytes. If the value is 0, the maximum file size is unlimited",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "log-file-max-size", default: "1800" },
-    },
-    {
-      name: "--logtostderr",
-      description: "Log to standard error instead of files",
-      isPersistent: true,
-      hidden: true,
-    },
-    {
       name: ["--namespace", "-n"],
       description: "Namespace scope for this request",
       isPersistent: true,
       args: { name: "namespace" },
     },
     {
-      name: "--one-output",
+      name: "--qps",
       description:
-        "If true, only write logs to their native severity level (vs also writing to each lower severity level)",
+        "Queries per second used when communicating with the Kubernetes API, not including bursting",
       isPersistent: true,
-      hidden: true,
+      args: { name: "qps" },
     },
     {
       name: "--registry-config",
@@ -2232,7 +2814,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "--repository-cache",
-      description: "Path to the file containing cached repository indexes",
+      description: "Path to the directory containing cached repository indexes",
       isPersistent: true,
       args: {
         name: "repository-cache",
@@ -2249,40 +2831,6 @@ const completionSpec: Fig.Spec = {
         template: "filepaths",
         default: "~/Library/Preferences/helm/repositories.yaml",
       },
-    },
-    {
-      name: "--skip-headers",
-      description: "If true, avoid header prefixes in the log messages",
-      isPersistent: true,
-      hidden: true,
-    },
-    {
-      name: "--skip-log-headers",
-      description: "If true, avoid headers when opening log files",
-      isPersistent: true,
-      hidden: true,
-    },
-    {
-      name: "--stderrthreshold",
-      description: "Logs at or above this threshold go to stderr",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "stderrthreshold", default: "2" },
-    },
-    {
-      name: ["--v", "-v"],
-      description: "Number for the log level verbosity",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "v", default: "0" },
-    },
-    {
-      name: "--vmodule",
-      description:
-        "Comma-separated list of pattern=N settings for file-filtered logging",
-      isPersistent: true,
-      hidden: true,
-      args: { name: "vmodule" },
     },
     { name: ["--help", "-h"], description: "Display help", isPersistent: true },
   ],

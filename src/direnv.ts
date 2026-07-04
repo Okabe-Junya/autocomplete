@@ -30,12 +30,30 @@ const dotenvFilepathsGenerator = filepaths({
 /*
  *  Reusable suggestions
  */
-const shellSuggestions: Partial<Fig.Suggestion>[] = [
+const interactiveShellNames = [
   "bash",
   "zsh",
   "fish",
   "tcsh",
   "elvish",
+  "murex",
+  "pwsh",
+];
+
+const shellSuggestions: Partial<Fig.Suggestion>[] = interactiveShellNames.map(
+  (shell) => ({
+    name: shell,
+    icon: "🐚",
+  })
+);
+
+const exportShellSuggestions: Partial<Fig.Suggestion>[] = [
+  ...interactiveShellNames,
+  "gzenv",
+  "json",
+  "gha",
+  "vim",
+  "systemd",
 ].map((shell) => ({
   name: shell,
   icon: "🐚",
@@ -70,7 +88,7 @@ const completionSpec: Fig.Spec = {
   description: "Unclutter your .profile",
   subcommands: [
     {
-      name: "allow",
+      name: ["allow", "permit", "grant"],
       description: "Grants direnv to load the given .envrc",
       isDangerous: true,
       args: {
@@ -80,7 +98,7 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
-      name: "deny",
+      name: ["deny", "block", "disallow", "revoke"],
       description: "Revokes the authorization of a given .envrc",
       isDangerous: true,
       args: {
@@ -193,7 +211,7 @@ const completionSpec: Fig.Spec = {
       args: [
         {
           name: "SHELL",
-          suggestions: shellSuggestions,
+          suggestions: exportShellSuggestions,
           isOptional: true,
         },
         {
@@ -210,7 +228,7 @@ const completionSpec: Fig.Spec = {
       args: [
         {
           name: "SHELL",
-          suggestions: shellSuggestions,
+          suggestions: exportShellSuggestions,
           isOptional: true,
         },
         {
@@ -228,7 +246,7 @@ const completionSpec: Fig.Spec = {
       priority: PRIORITY_BOTTOM_THRESHOLD,
       args: {
         name: "SHELL",
-        suggestions: shellSuggestions,
+        suggestions: exportShellSuggestions,
       },
     },
     {
@@ -238,7 +256,7 @@ const completionSpec: Fig.Spec = {
       args: [
         {
           name: "SHELL",
-          suggestions: shellSuggestions,
+          suggestions: exportShellSuggestions,
         },
         {
           name: "PATH",
@@ -255,7 +273,7 @@ const completionSpec: Fig.Spec = {
       args: [
         {
           name: "SHELL",
-          suggestions: shellSuggestions,
+          suggestions: exportShellSuggestions,
         },
         {
           name: "DIR",
@@ -270,9 +288,20 @@ const completionSpec: Fig.Spec = {
       priority: PRIORITY_BOTTOM_THRESHOLD,
       args: {
         name: "SHELL",
-        suggestions: shellSuggestions,
+        suggestions: exportShellSuggestions,
         isOptional: true,
       },
+    },
+    {
+      name: "watch-print",
+      description: "Prints the watched paths",
+      priority: PRIORITY_BOTTOM_THRESHOLD,
+      options: [
+        {
+          name: "--null",
+          description: "Separate printed paths with a null character",
+        },
+      ],
     },
     {
       name: "current",
@@ -282,6 +311,24 @@ const completionSpec: Fig.Spec = {
       args: {
         name: "PATH",
         template: "filepaths",
+      },
+    },
+    {
+      name: "log",
+      description: "Logs a given message",
+      priority: PRIORITY_BOTTOM_THRESHOLD,
+      options: [
+        {
+          name: "--status",
+          exclusiveOn: ["--error"],
+        },
+        {
+          name: "--error",
+          exclusiveOn: ["--status"],
+        },
+      ],
+      args: {
+        name: "message",
       },
     },
   ],

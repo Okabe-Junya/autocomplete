@@ -30,12 +30,16 @@ const completionSpec: Fig.Spec = {
       isPersistent: true,
     },
     {
-      name: ["-l", "--local"],
-      description: "Show local files only; no network (TUI-mode only)",
+      name: ["-l", "--line-numbers"],
+      description: "Show line numbers (TUI-mode only)",
     },
     {
       name: ["-p", "--pager"],
       description: "Display with pager",
+    },
+    {
+      name: ["-n", "--preserve-new-lines"],
+      description: "Preserve newlines in the output",
     },
     {
       name: ["-s", "--style"],
@@ -47,16 +51,42 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: ["-t", "--tui"],
+      description: "Display with tui",
+    },
+    {
       name: ["-v", "--version"],
       description: "Version for glow",
     },
     {
       name: ["-w", "--width"],
       args: { name: "column" },
-      description: "Word-wrap at width",
+      description: "Word-wrap at width (set to 0 to disable)",
     },
   ],
   subcommands: [
+    {
+      name: "completion",
+      description: "Generate the autocompletion script for the specified shell",
+      subcommands: [
+        {
+          name: "bash",
+          description: "Generate the autocompletion script for bash",
+        },
+        {
+          name: "fish",
+          description: "Generate the autocompletion script for fish",
+        },
+        {
+          name: "powershell",
+          description: "Generate the autocompletion script for powershell",
+        },
+        {
+          name: "zsh",
+          description: "Generate the autocompletion script for zsh",
+        },
+      ],
+    },
     {
       name: "config",
       description: "Edit the glow config file",
@@ -69,25 +99,6 @@ const completionSpec: Fig.Spec = {
         template: "help",
         isOptional: true,
       },
-    },
-    {
-      name: "stash",
-      description: "Manage your stash of markdown files",
-      args: {
-        name: "path",
-        isOptional: true,
-        generators: filepaths({
-          extensions: ["md"],
-        }),
-      },
-      options: [
-        {
-          name: ["-m", "--memo"],
-          description: "Memo/note for stashing",
-          args: { name: "note" },
-          insertValue: "--memo '{cursor}'",
-        },
-      ],
     },
   ],
 };
