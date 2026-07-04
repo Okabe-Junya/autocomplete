@@ -29,42 +29,11 @@
     "lint": "eslint '**/*.ts' && npx prettier --check '**/*.ts' --parser typescript",
     "lint:fix": "eslint '**/*.ts' --fix && npx prettier --write '**/*.ts' --parser typescript",
     "test": "tsc --noEmit && echo 'All specs passed validation. You are ready to push!'",
-    "prepare": "husky",
     "sync-local": "./scripts/sync-local-specs.sh --no-pull"
-  },
-  "fig": {
-    "dev": {
-      "description": "Watching and compile .ts files in ./src",
-      "icon": "fig://template?badge=🛠",
-      "priority": 100
-    },
-    "create-spec": {
-      "description": "Create a new completion spec"
-    },
-    "build": {
-      "description": "Compile all files in /src"
-    },
-    "lint": {
-      "description": "Check for linting issues"
-    },
-    "lint:fix": {
-      "description": "Fix linting issues"
-    },
-    "test": {
-      "description": "Typecheck all .ts files in /src"
-    },
-    "prepare": {
-      "description": "Install husky"
-    }
   },
   "prettier": {
     "trailingComma": "es5",
     "printWidth": 80
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix"
-    ]
   },
   "files": [
     "build/**/*.js",
@@ -75,9 +44,9 @@
     "icons/*.svg"
   ],
   "author": "",
-  "license": "ISC",
-  "bugs": "https://github.com/withfig/autocomplete/issues",
-  "repository": "https://github.com/withfig/autocomplete",
+  "license": "MIT",
+  "bugs": "https://github.com/Okabe-Junya/autocomplete/issues",
+  "repository": "https://github.com/Okabe-Junya/autocomplete",
   "devDependencies": {
     "@fig/eslint-config-autocomplete": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -86,8 +55,6 @@
     "@withfig/autocomplete-types": "^1.31.0",
     "eslint": "^8.57.1",
     "eslint-plugin-compat": "4.2.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
     "prettier": "^3.9.4",
     "typescript": "~5.5.4"
   },
