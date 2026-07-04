@@ -5,7 +5,7 @@ const examplesGenerator: Fig.Generator = {
   postProcess: (output) => {
     return output
       .split("\n")
-      .filter((example) => example.includes("github.com"))
+      .filter((example) => /\bhttps:\/\/github\.com\//.test(example))
       .map((example) => {
         return { name: example.split(":")[0].trim() };
       });
