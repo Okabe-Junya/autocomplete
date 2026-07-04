@@ -1,0 +1,72 @@
+# release-drafter configuration.
+# Copied from the owner's cft repo conventions and adapted to this fork's
+# branch naming (Okabe-Junya/{type}/{description}) and dependabot PRs.
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+
+# Bump rules: a PR labeled release/major|minor|patch drives the next version.
+# Default to a patch bump when no explicit label is present.
+version-resolver:
+  major:
+    labels:
+      - "release/major"
+  minor:
+    labels:
+      - "release/minor"
+  patch:
+    labels:
+      - "release/patch"
+  default: patch
+
+categories:
+  - title: "🚀 Features"
+    labels:
+      - "enhancement"
+  - title: "🐛 Fixes"
+    labels:
+      - "bug"
+  - title: "📝 Documentation"
+    labels:
+      - "documentation"
+  - title: "⬆️ Dependencies"
+    labels:
+      - "dependencies"
+  - title: "🧰 Maintenance"
+    labels:
+      - "chore"
+
+change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
+change-title-escapes: '\<*_&'
+
+template: |
+  ## Changes
+
+  $CHANGES
+
+# Automatically label PRs so the version-resolver and categories work without
+# manual triage. Order matters: the first matching rule wins per label.
+autolabeler:
+  - label: "release/major"
+    title:
+      - '/^\w+(\(.+\))?!:/'
+    body:
+      - "/BREAKING CHANGE/"
+  - label: "release/minor"
+    branch:
+      - '/\/feature\//'
+  - label: "release/patch"
+    branch:
+      - '/\/(fix|docs|refactor|perf|test|chore)\//'
+      - '/^dependabot\//'
+  - label: "enhancement"
+    branch:
+      - '/\/feature\//'
+  - label: "bug"
+    branch:
+      - '/\/fix\//'
+  - label: "documentation"
+    branch:
+      - '/\/docs\//'
+  - label: "chore"
+    branch:
+      - '/\/(refactor|perf|test|chore)\//'
