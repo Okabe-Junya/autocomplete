@@ -448,11 +448,6 @@ const showRulesOption: Fig.Option = {
   description: "Only show rules",
 };
 
-const showTriggerInstancesOption: Fig.Option = {
-  name: "--show-trigger-instances",
-  description: "Only show trigger instances",
-};
-
 const hideNoopTriggersOption: Fig.Option = {
   name: ["-n", "--hide-noop-triggers"],
   description: "Hide noop trigger instances",
@@ -564,11 +559,6 @@ const nameArgVariadic: Fig.Arg = {
   isVariadic: true,
 };
 
-const valueArg: Fig.Arg = {
-  name: "value",
-  description: "Value",
-};
-
 const valueArgOptional: Fig.Arg = {
   name: "value",
   description: "Value",
@@ -605,11 +595,6 @@ const packArgVariadic: Fig.Arg = {
 const queryArg: Fig.Arg = {
   name: "query",
   description: "Query",
-};
-
-const urlArg: Fig.Arg = {
-  name: "url",
-  description: "URL",
 };
 
 const urlArgVariadic: Fig.Arg = {

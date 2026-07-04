@@ -42,11 +42,6 @@ const deviceId = {
   },
 };
 
-const version = {
-  name: "--version",
-  description: "Reports the version of this tool",
-};
-
 const suppressAnalytics = {
   name: "--suppress-analytics",
   description: "Suppress analytics reporting when this command runs",
@@ -163,16 +158,6 @@ const testAssets = [
   },
 ];
 
-const uninstallOnly = [
-  {
-    name: "--uninstall-only",
-    description: "Uninstall the app if already on the device. Skip install",
-  },
-  {
-    name: "--no-uninstall-only",
-  },
-];
-
 const useDeferredLoading = [
   {
     name: "--use-deferred-loading",
@@ -205,16 +190,6 @@ const requiredResourceAttributes = [
   },
   {
     name: "--no-required-resource-attributes",
-  },
-];
-
-const startPaused = [
-  {
-    name: "--start-paused",
-    description: "Start in a paused mode and wait for a debugger to connect",
-  },
-  {
-    name: "--no-start-paused",
   },
 ];
 
@@ -281,17 +256,6 @@ const useTestFonts = [
   },
   {
     name: "--no-use-test-fonts",
-  },
-];
-
-const hot = [
-  {
-    name: "--hot",
-    description:
-      'Run with support for hot reloading. Only available for debug mode. Not available with "--trace-startup"',
-  },
-  {
-    name: "--no-hot",
   },
 ];
 

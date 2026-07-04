@@ -509,41 +509,6 @@ const vaultMonitorOptions: Fig.Option[] = [
   },
 ];
 
-const vaultAuditEnableOptions: Fig.Option[] = [
-  {
-    name: "-description",
-    description:
-      "Human-friendly description for the purpose of this audit device",
-    requiresSeparator: true,
-    args: {
-      name: "string",
-    },
-    priority: 38,
-  },
-  {
-    name: "-local",
-    description:
-      "Mark the audit device as a local-only device. Local devices are not replicated or removed by replication. The default is false",
-    requiresSeparator: true,
-    args: {
-      name: "string",
-      suggestions: ["false", "true"],
-      default: "false",
-    },
-    priority: 38,
-  },
-  {
-    name: "-path",
-    description:
-      "Place where the audit device will be accessible. This must be unique across all audit devices. This defaults to the 'type' of the audit device",
-    requiresSeparator: true,
-    args: {
-      name: "string",
-    },
-    priority: 38,
-  },
-];
-
 const vaultVersionOptions: Fig.Option[] = [
   {
     name: "-versions",
@@ -911,42 +876,6 @@ const vaultOperatorConsulOptions: Fig.Option[] = [
       name: "string",
       suggestions: ["vault"],
       default: "vault",
-    },
-  },
-];
-
-const vaultOperatorAutoUnsealOptions: Fig.Option[] = [
-  {
-    name: "-recovery-pgp-keys",
-    description:
-      "Behaves like -pgp-keys, but for the recovery key shares. This is only used in Auto Unseal mode",
-    requiresSeparator: true,
-    args: {
-      name: "pgp_key",
-      suggestions: ["keybase:user1", "/path/to/pgp/key"],
-      template: "filepaths",
-    },
-  },
-  {
-    name: "-recovery-shares",
-    description:
-      "Number of key shares to split the recovery key into. This is only used in auto-unseal mode. The default is 5",
-    requiresSeparator: true,
-    args: {
-      name: "int",
-      suggestions: ["5"],
-      default: "5",
-    },
-  },
-  {
-    name: "-recovery-threshold",
-    description:
-      "Number of key shares required to reconstruct the recovery key. This is only used in Auto Unseal mode. The default is 3",
-    requiresSeparator: true,
-    args: {
-      name: "int",
-      suggestions: ["3"],
-      default: "3",
     },
   },
 ];
