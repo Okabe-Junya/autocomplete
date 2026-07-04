@@ -15,25 +15,14 @@
     "node": ">=20",
     "pnpm": ">=9"
   },
-  "browserslist": [
-    "safari >= 15",
-    "last 2 chrome versions",
-    "last 2 edge versions",
-    "last 2 firefox versions",
-    "maintained node versions"
-  ],
   "scripts": {
     "dev": "npx @withfig/autocomplete-tools dev",
     "create-spec": "npx @withfig/autocomplete-tools create-spec",
     "build": "npx @withfig/autocomplete-tools compile",
-    "lint": "eslint '**/*.ts' && npx prettier --check '**/*.ts' --parser typescript",
-    "lint:fix": "eslint '**/*.ts' --fix && npx prettier --write '**/*.ts' --parser typescript",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
     "test": "tsc --noEmit && echo 'All specs passed validation. You are ready to push!'",
     "sync-local": "./scripts/sync-local-specs.sh --no-pull"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "printWidth": 80
   },
   "files": [
     "build/**/*.js",
@@ -48,14 +37,9 @@
   "bugs": "https://github.com/Okabe-Junya/autocomplete/issues",
   "repository": "https://github.com/Okabe-Junya/autocomplete",
   "devDependencies": {
-    "@fig/eslint-config-autocomplete": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@biomejs/biome": "^2.5.2",
     "@withfig/autocomplete-tools": "^2.11.0",
     "@withfig/autocomplete-types": "^1.31.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-compat": "4.2.0",
-    "prettier": "^3.9.4",
     "typescript": "~5.5.4"
   },
   "dependencies": {
