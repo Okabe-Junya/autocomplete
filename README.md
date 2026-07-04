@@ -37,11 +37,7 @@ ln -sfn "$(brew --prefix)/opt/autocomplete-specs/share/autocomplete-specs/build"
 ```
 
 The link target is stable across versions, so specs update on every
-`brew upgrade` with no further steps. Releases are published automatically by
-[`.github/workflows/release.yml`](.github/workflows/release.yml) on every
-`master` push that touches `src/`, and the formula in
-[Okabe-Junya/homebrew-tap](https://github.com/Okabe-Junya/homebrew-tap) is
-bumped automatically (requires the `HOMEBREW_TAP_GITHUB_TOKEN` secret).
+`brew upgrade` with no further steps.
 
 ## 🛠 Development
 
