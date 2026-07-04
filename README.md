@@ -11,25 +11,30 @@ Completion specs for hundreds of CLI tools, originally built by
 > by [Kiro CLI](https://kiro.dev/docs/cli/) through the legacy Fig path
 > `~/.fig/autocomplete/build/` (see
 > [kirodotdev/Kiro#4445](https://github.com/kirodotdev/Kiro/issues/4445)).
+> Specs are distributed via Homebrew
+> (`brew install okabe-junya/tap/autocomplete-specs`).
 
 ## 🔄 How specs reach the shell
 
-Kiro CLI (ex Amazon Q Developer CLI) normally loads compiled specs from a CDN
-(`specs.q.us-east-1.amazonaws.com`) that mirrors the frozen upstream repo; the
-rendering engine is open source at
-[aws/amazon-q-developer-cli-autocomplete](https://github.com/aws/amazon-q-developer-cli-autocomplete).
-This fork bypasses the CDN for local use:
+Kiro CLI defaults to compiled specs served from a CDN
+(`specs.q.us-east-1.amazonaws.com`) that mirrors the frozen upstream repo; this
+fork bypasses that CDN and installs specs locally via Homebrew.
 
 ```bash
-# Build all specs and sync them to ~/.fig/autocomplete/build/
-scripts/sync-local-specs.sh
-
-# Same, but skip `git pull` (e.g. when testing a working branch)
-pnpm run sync-local
+brew tap okabe-junya/tap
 ```
 
-A `launchd` agent (`com.okabe-junya.autocomplete-sync`) runs the sync daily at
-12:00 so merged changes appear in the terminal without manual steps.
+```bash
+brew install okabe-junya/tap/autocomplete-specs
+```
+
+The formula's `post_install` symlinks `~/.fig/autocomplete/build` ->
+`$(brew --prefix)/opt/autocomplete-specs/share/autocomplete-specs/build`, so
+specs update on every `brew upgrade`. Releases are published automatically by
+[`.github/workflows/release.yml`](.github/workflows/release.yml) on every
+`master` push that touches `src/`, and the formula in
+[Okabe-Junya/homebrew-tap](https://github.com/Okabe-Junya/homebrew-tap) is
+bumped automatically (requires the `HOMEBREW_TAP_GITHUB_TOKEN` secret).
 
 ## 🛠 Development
 
@@ -49,19 +54,10 @@ the toolchain and
 [@withfig/autocomplete-types](https://github.com/withfig/autocomplete-types)
 for the `Fig.Spec` type definitions.
 
-### Maintenance policy
-
-- Specs are updated against **locally installed CLI versions** (stable/GA
-  surface only; alpha/experimental flags are skipped).
-- Conventions: descriptions without trailing periods, boolean flags carry no
-  `args`, enum values become `args.suggestions`, generator-based dynamic
-  suggestions are preserved.
-- Changes land via PRs with squash merge; CI runs lint and typecheck.
-
 ## ✨ Contributors
 
-<a href="https://github.com/withfig/autocomplete/graphs/contributors">
-  <img alt="Grid of profile icons of the 400+ contributors" src="https://contrib.rocks/image?repo=withfig/autocomplete" />
+<a href="https://github.com/Okabe-Junya/autocomplete/graphs/contributors">
+  <img alt="Grid of profile icons of the 400+ contributors" src="https://contrib.rocks/image?repo=Okabe-Junya/autocomplete" />
 </a>
 
 ## 📄 License
