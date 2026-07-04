@@ -2,7 +2,7 @@ import { filepaths } from "@fig/autocomplete-generators";
 
 const runningAppsGenerator: Fig.Generator = {
   script: ["dapr", "list", "-A", "-o", "json"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     try {
       const appList = JSON.parse(out);
       return appList.map((app) => {

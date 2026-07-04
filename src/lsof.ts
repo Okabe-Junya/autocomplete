@@ -245,7 +245,7 @@ const completionSpec: Fig.Spec = {
         generators: [
           {
             script: ["echo"],
-            postProcess: function () {
+            postProcess: () => {
               const startParams = ["4", "6"];
               return startParams.map((param) => ({
                 name: param,
@@ -254,7 +254,7 @@ const completionSpec: Fig.Spec = {
           },
           {
             script: ["echo"],
-            postProcess: function (out, tokens) {
+            postProcess: (out, tokens) => {
               const startParams = ["tcp", "udp", "TCP", "UDP"];
               const token =
                 tokens[1].match(/^(-i[46])/) ||
@@ -268,7 +268,7 @@ const completionSpec: Fig.Spec = {
           },
           {
             script: ["ifconfig"],
-            postProcess: function (out, tokens) {
+            postProcess: (out, tokens) => {
               const ips = out
                 .split("\n")
                 .filter((line) => line.match(/inet\b/))
@@ -292,7 +292,7 @@ const completionSpec: Fig.Spec = {
           },
           {
             script: ["echo"],
-            postProcess: function (out, tokens) {
+            postProcess: (out, tokens) => {
               const colonParams = ["http", "https", "who", "time"];
               let token = ":";
               if (tokens[1].match(":[^:]*")) {

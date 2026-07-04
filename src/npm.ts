@@ -157,7 +157,7 @@ const workspaceGenerator: Fig.Generator = {
 /** Generator that lists package.json dependencies */
 export const dependenciesGenerator: Fig.Generator = {
   trigger: (newToken) => newToken === "-g" || newToken === "--global",
-  custom: async function (tokens, executeShellCommand) {
+  custom: async (tokens, executeShellCommand) => {
     if (!tokens.includes("-g") && !tokens.includes("--global")) {
       const { stdout: npmPrefix } = await executeShellCommand({
         command: "npm",
@@ -214,7 +214,7 @@ export const npmScriptsGenerator: Fig.Generator = {
     "-c",
     "until [[ -f package.json ]] || [[ $PWD = '/' ]]; do cd ..; done; cat package.json",
   ],
-  postProcess: function (out, [npmClient]) {
+  postProcess: (out, [npmClient]) => {
     if (out.trim() == "") {
       return [];
     }

@@ -8,7 +8,7 @@ const planList: Fig.Generator = {
     return output.split("\n").map((plan) => {
       return {
         name: plan,
-        description: `Run plan \"${plan}\"`,
+        description: `Run plan "${plan}"`,
         icon: "✈️",
         priority: 77,
       };
@@ -34,7 +34,7 @@ const completionSpec: Fig.Spec = {
       subcommands: stdout.split("\n").map((plan) => {
         return {
           name: plan,
-          description: `Run plan \"${plan}\"`,
+          description: `Run plan "${plan}"`,
           icon: "✈️",
           priority: 77,
           options: [

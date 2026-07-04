@@ -23,7 +23,7 @@ const versionArg: Fig.Arg = {
   ],
   generators: {
     script: ["n", "lsr", "--all"],
-    postProcess: function (out) {
+    postProcess: (out) => {
       const set = new Set<string>();
       const versions = out.split("\n").slice(1);
       for (const version of versions) {

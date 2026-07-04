@@ -5,7 +5,7 @@ const destinationGenerator: Fig.Generator = {
     strategy: "stale-while-revalidate",
     ttl: 30,
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     try {
       return JSON.parse(out).map((destination: string) => ({
         name: destination,

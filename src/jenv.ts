@@ -17,21 +17,20 @@ const programGenerator: Fig.Generator = {
 };
 const generateAllShims: Fig.Generator = {
   script: ["jenv", "shims", "--short"],
-  postProcess: function (out) {
-    return out
+  postProcess: (out) =>
+    out
       .split("\n")
       .filter((line) => line && line.trim() !== "")
       .map((command) => ({
         name: command,
         icon: "fig://icon?type=command",
         priority: 51,
-      }));
-  },
+      })),
 };
 const generateAllCommands: Fig.Generator = {
   script: ["jenv", "commands"],
-  postProcess: function (out) {
-    return out
+  postProcess: (out) =>
+    out
       .split("\n")
       .filter(
         (line) => line && line.trim() !== "" && line.trim() !== "--version"
@@ -40,13 +39,12 @@ const generateAllCommands: Fig.Generator = {
         name: command,
         icon: "fig://icon?type=command",
         priority: 51,
-      }));
-  },
+      })),
 };
 const generateAllPlugins: Fig.Generator = {
   script: ["jenv", "plugins"],
-  postProcess: function (out) {
-    return out
+  postProcess: (out) =>
+    out
       .split("\n")
       .filter((line) => line && line.trim() !== "" && line.trim())
       .map((command) => ({
@@ -54,13 +52,12 @@ const generateAllPlugins: Fig.Generator = {
         description: "Enable " + command + " plugin",
         icon: "fig://icon?type=command",
         priority: 51,
-      }));
-  },
+      })),
 };
 const generateJEnvVersions: Fig.Generator = {
   script: ["jenv", "versions", "--bare"],
-  postProcess: function (out) {
-    return out
+  postProcess: (out) =>
+    out
       .split("\n")
       .filter((line) => line && line.trim() !== "" && line.trim())
       .map((command) => ({
@@ -68,8 +65,7 @@ const generateJEnvVersions: Fig.Generator = {
         description: "Java Version " + command,
         icon: "☕️",
         priority: 51,
-      }));
-  },
+      })),
 };
 
 const completionSpec: Fig.Spec = {

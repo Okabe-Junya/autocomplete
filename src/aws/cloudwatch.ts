@@ -235,7 +235,7 @@ const listDimensionTypes = async (
     const metrics = JSON.parse(stdout)[parentKey];
     // traverse JSON & compose key-value style suggestion
     return metrics
-      .map((metric) => {
+      .flatMap((metric) => {
         return metric[childKey].map((dimension) => {
           const composite = `Name=${dimension.Name},Value=${dimension.Value}`;
           return {
@@ -245,7 +245,6 @@ const listDimensionTypes = async (
           };
         });
       })
-      .flat()
       .filter(uniqueNames);
   } catch (e) {
     console.log(e);
@@ -412,52 +411,48 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listMetricsForNamespace: {
-    custom: async function (tokens, executeShellCommand) {
-      return listCustomGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      listCustomGenerator(
         tokens,
         executeShellCommand,
         "list-metrics",
         ["--namespace"],
         "Metrics",
         "MetricName"
-      );
-    },
+      ),
   },
   listMetricDimensions: {
-    custom: async function (tokens, executeShellCommand) {
-      return listDimensionTypes(
+    custom: async (tokens, executeShellCommand) =>
+      listDimensionTypes(
         tokens,
         executeShellCommand,
         "list-metrics",
         "--namespace",
         "Metrics",
         "Dimensions"
-      );
-    },
+      ),
   },
   listAdDimensions: {
-    custom: async function (tokens, executeShellCommand) {
-      return listDimensionTypes(
+    custom: async (tokens, executeShellCommand) =>
+      listDimensionTypes(
         tokens,
         executeShellCommand,
         "describe-anomaly-detectors",
         "--namespace",
         "AnomalyDetectors",
         "Dimensions"
-      );
-    },
+      ),
   },
   listAssociatedStats: {
-    custom: async function (tokens, executeShellCommand) {
-      return listCustomGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      listCustomGenerator(
         tokens,
         executeShellCommand,
         "describe-anomaly-detectors",
         ["--namespace", "--metric-name"],
         "AnomalyDetectors",
         "Stat"
-      );
-    },
+      ),
   },
   listDashboards: {
     script: ["aws", "cloudwatch", "list-dashboards"],
@@ -493,7 +488,7 @@ const generators: Record<string, Fig.Generator> = {
     // AWS is dumb, and firehose cli works totally different than other CLIs.
     // First we need to get a list of stream names, then we have to describe each
     // individually, to get an ARN
-    custom: async function (tokens, executeShellCommand) {
+    custom: async (tokens, executeShellCommand) => {
       // get list of stream names
       const result = await getResultList(
         tokens,

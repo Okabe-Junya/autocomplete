@@ -36,10 +36,10 @@ interface ComposerListOutput {
   commands: ComposerCommand[];
 }
 
-const PACKAGE_REGEXP = new RegExp("^.*/.*$");
+const PACKAGE_REGEXP = /^.*\/.*$/;
 
 const searchGenerator: Fig.Generator = {
-  script: function (context) {
+  script: (context) => {
     if (context[context.length - 1] === "") return undefined;
     const searchTerm = context[context.length - 1];
     return [
@@ -50,7 +50,7 @@ const searchGenerator: Fig.Generator = {
       `https://packagist.org/search.json?q=${searchTerm}&per_page=20`,
     ];
   },
-  postProcess: function (out) {
+  postProcess: (out) => {
     try {
       return JSON.parse(out).results.map(
         (item) =>
@@ -69,7 +69,7 @@ const searchGenerator: Fig.Generator = {
 // generate package list from composer.json file
 const packagesGenerator: Fig.Generator = {
   script: ["cat", "composer.json"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     if (out.trim() == "") {
       return [];
     }

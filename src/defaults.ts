@@ -2,13 +2,12 @@ const domain: Fig.Arg = {
   name: "domain",
   generators: {
     script: ["defaults", "domains"],
-    postProcess: function (out) {
-      return out.split(",").map((domain) => {
+    postProcess: (out) =>
+      out.split(",").map((domain) => {
         return {
           name: domain.trim(),
         };
-      });
-    },
+      }),
   },
   suggestions: [
     {

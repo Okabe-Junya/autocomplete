@@ -11,7 +11,7 @@ const filterMessages = (out: string): string => {
 
 const searchBranches: Fig.Generator = {
   script: ["git", "branch", "--no-color"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     const output = filterMessages(out);
 
     if (output.startsWith("fatal:")) {
@@ -46,7 +46,7 @@ const searchBranches: Fig.Generator = {
 
 const generatorInstalledPackages: Fig.Generator = {
   script: ["pnpm", "ls"],
-  postProcess: function (out) {
+  postProcess: (out) => {
     /**
      * out
      * @example

@@ -88,7 +88,7 @@ const generators: Record<string, Fig.Generator> = {
       "--page-size",
       "100",
     ],
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         const list = JSON.parse(out)["SecretList"];
         return list.map((item) => ({
@@ -107,7 +107,7 @@ const generators: Record<string, Fig.Generator> = {
     // --page-size does not affect the number of items returned,
     // just chunks request so it won't timeout
     script: ["aws", "kms", "list-keys", "--page-size", "100"],
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         const list = JSON.parse(out)["Keys"];
         return list.map((item) => ({
@@ -158,7 +158,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   getReplicaRegionsGenerator: {
     script: ["aws", "kms", "list-keys", "--page-size", "100"],
-    postProcess: function (out, tokens) {
+    postProcess: (out, tokens) => {
       try {
         const list = JSON.parse(out)["Keys"];
         return list.flatMap((secret) => {
@@ -179,7 +179,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   getLambdasGenerator: {
     script: ["aws", "lambda", "list-functions", "--page-size", "100"],
-    postProcess: function (out, tokens) {
+    postProcess: (out, tokens) => {
       try {
         const list = JSON.parse(out)["Functions"];
         return list.map((item) => ({
@@ -195,7 +195,7 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   getVersionIdGenerator: {
-    custom: async function (tokens, executeShellCommand) {
+    custom: async (tokens, executeShellCommand) => {
       try {
         // secret-id value
         const idx = tokens.indexOf("--secret-id");
@@ -219,7 +219,7 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   getVersionStageGenerator: {
-    custom: async function (tokens, executeShellCommand) {
+    custom: async (tokens, executeShellCommand) => {
       try {
         // secret-id value
         const idx = tokens.indexOf("--secret-id");
@@ -243,7 +243,7 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listTagKeys: {
-    custom: async function (tokens, executeShellCommand) {
+    custom: async (tokens, executeShellCommand) => {
       try {
         // secret-id value
         const idx = tokens.indexOf("--secret-id");

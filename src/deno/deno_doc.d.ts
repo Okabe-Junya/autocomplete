@@ -281,7 +281,12 @@ export interface JsDocTagBase {
 
 export interface JsDocTagOnly extends JsDocTagBase {
   kind:
-    "constructor" | "module" | "public" | "private" | "protected" | "readonly";
+    | "constructor"
+    | "module"
+    | "public"
+    | "private"
+    | "protected"
+    | "readonly";
 }
 
 export interface JsDocTagDoc extends JsDocTagBase {
@@ -333,7 +338,11 @@ export interface LiteralCallSignatureDef {
 }
 
 export type LiteralDefKind =
-  "number" | "string" | "template" | "boolean" | "bigInt";
+  | "number"
+  | "string"
+  | "template"
+  | "boolean"
+  | "bigInt";
 
 export type LiteralDef =
   | LiteralDefNumber
@@ -410,7 +419,9 @@ export interface NamespaceDef {
 }
 
 export type ObjectPatPropDef =
-  ObjectPatPropAssignDef | ObjectPatPropKeyValueDef | ObjectPatPropRestDef;
+  | ObjectPatPropAssignDef
+  | ObjectPatPropKeyValueDef
+  | ObjectPatPropRestDef;
 
 export interface ObjectPatPropAssignDef {
   kind: "assign";

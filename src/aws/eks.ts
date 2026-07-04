@@ -195,7 +195,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   listKmsKeys: {
     script: ["aws", "kms", "list-keys"],
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         const list = JSON.parse(out)["Keys"];
         return list.map((key) => {
@@ -211,15 +211,14 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listAddonsForCluster: {
-    custom: async function (tokens, executeShellCommand) {
-      return listCustomGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      listCustomGenerator(
         tokens,
         executeShellCommand,
         "list-addons",
         ["--cluster-name"],
         "addons"
-      );
-    },
+      ),
   },
   listAddons: {
     script: ["aws", "eks", "describe-addon-versions"],
@@ -230,16 +229,14 @@ const generators: Record<string, Fig.Generator> = {
     postProcess: (out) => {
       try {
         const addons = JSON.parse(out)["addons"];
-        return addons
-          .map((addon) => {
-            return addon["addonVersions"].map((version) => {
-              return {
-                name: version["addonVersion"],
-                icon: "fig://icon?type=aws",
-              };
-            });
-          })
-          .flat();
+        return addons.flatMap((addon) => {
+          return addon["addonVersions"].map((version) => {
+            return {
+              name: version["addonVersion"],
+              icon: "fig://icon?type=aws",
+            };
+          });
+        });
       } catch (e) {
         console.log(e);
       }
@@ -290,26 +287,24 @@ const generators: Record<string, Fig.Generator> = {
     },
   },
   listFargateProfilesForCluster: {
-    custom: async function (tokens, executeShellCommand) {
-      return listCustomGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      listCustomGenerator(
         tokens,
         executeShellCommand,
         "list-fargate-profiles",
         ["--cluster-name"],
         "fargateProfileNames"
-      );
-    },
+      ),
   },
   listNodeGroupsForCluster: {
-    custom: async function (tokens, executeShellCommand) {
-      return listCustomGenerator(
+    custom: async (tokens, executeShellCommand) =>
+      listCustomGenerator(
         tokens,
         executeShellCommand,
         "list-nodegroups",
         ["--cluster-name"],
         "nodegroups"
-      );
-    },
+      ),
   },
 };
 const completionSpec: Fig.Spec = {

@@ -385,7 +385,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   getAccountId: {
     script: ["aws", "sts", "get-caller-identity"],
-    postProcess: function (out) {
+    postProcess: (out) => {
       try {
         const accountId = JSON.parse(out)["Account"];
         return [{ name: accountId }];
@@ -397,9 +397,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   listTypeArns: {
     script: ["aws", "cloudformation", "list-types"],
-    postProcess: function (out) {
-      return postPrecessGenerator(out, "TypeSummaries", "TypeArn");
-    },
+    postProcess: (out) => postPrecessGenerator(out, "TypeSummaries", "TypeArn"),
   },
   listTypeVersionsByTypeName: {
     custom: async (tokens, executeShellCommand) => {
@@ -457,13 +455,11 @@ const generators: Record<string, Fig.Generator> = {
   },
   listExportNames: {
     script: ["aws", "cloudformation", "list-exports"],
-    postProcess: function (out) {
-      return postPrecessGenerator(out, "Exports", "Name");
-    },
+    postProcess: (out) => postPrecessGenerator(out, "Exports", "Name"),
   },
   listBuckets: {
     script: ["aws", "s3", "ls", "--page-size", "1000"],
-    postProcess: function (out, tokens) {
+    postProcess: (out, tokens) => {
       try {
         return out.split("\n").map((line) => {
           const parts = line.split(/\s+/);
@@ -483,9 +479,7 @@ const generators: Record<string, Fig.Generator> = {
   },
   listKmsKeys: {
     script: ["aws", "kms", "list-keys", "--page-size", "100"],
-    postProcess: function (out) {
-      return postPrecessGenerator(out, "Keys", "KeyId");
-    },
+    postProcess: (out) => postPrecessGenerator(out, "Keys", "KeyId"),
   },
 };
 const completionSpec: Fig.Spec = {
