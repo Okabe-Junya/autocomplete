@@ -365,6 +365,23 @@ const runOptions: Fig.Option[] = [
     name: "--no-project",
     description: "Avoid discovering the project or workspace",
   },
+  {
+    name: "--no-default-groups",
+    description: "Ignore the default dependency groups",
+  },
+  {
+    name: "--exact",
+    description: "Perform an exact sync, removing extraneous packages",
+  },
+  {
+    name: "--active",
+    description:
+      "Prefer the active virtual environment over the project's virtual environment",
+  },
+  {
+    name: "--gui-script",
+    description: "Run the given path as a Python GUI script",
+  },
 ];
 
 //    init
@@ -523,6 +540,29 @@ const addOptions: Fig.Option[] = [
     description:
       "Add the dependency to the specified Python script, rather than to a project",
     args: { name: "SCRIPT" },
+  },
+  {
+    name: ["-m", "--marker"],
+    description: "Apply this marker to all added packages",
+    args: { name: "MARKER" },
+  },
+  {
+    name: "--bounds",
+    description:
+      "The kind of version specifier to use when adding dependencies",
+    args: {
+      name: "BOUNDS",
+      suggestions: ["lower", "major", "minor", "exact"],
+    },
+  },
+  {
+    name: "--workspace",
+    description: "Add the dependency as a workspace member",
+  },
+  {
+    name: "--active",
+    description:
+      "Prefer the active virtual environment over the project's virtual environment",
   },
 ];
 
@@ -691,6 +731,30 @@ const syncOptions: Fig.Option[] = [
     args: {
       name: "PACKAGE",
     },
+  },
+  {
+    name: "--no-default-groups",
+    description: "Ignore the default dependency groups",
+  },
+  {
+    name: "--active",
+    description: "Sync dependencies to the active virtual environment",
+  },
+  {
+    name: "--dry-run",
+    description:
+      "Perform a dry run, without writing the lockfile or modifying the project environment",
+  },
+  {
+    name: "--check",
+    description:
+      "Check if the Python environment is synchronized with the project",
+  },
+  {
+    name: "--script",
+    description:
+      "Sync the environment for a Python script, rather than the current project",
+    args: { name: "SCRIPT" },
   },
 ];
 
@@ -1061,6 +1125,20 @@ const toolSubcommands: Fig.Subcommand[] = [
         name: "--isolated",
         description: "Install the tool in an isolated virtual environment",
       },
+      {
+        name: "--force",
+        description: "Force installation of the tool",
+      },
+      {
+        name: ["-c", "--constraints"],
+        description: "Constrain versions using the given requirements files",
+        args: { name: "CONSTRAINTS" },
+      },
+      {
+        name: "--overrides",
+        description: "Override versions using the given requirements files",
+        args: { name: "OVERRIDES" },
+      },
     ],
   },
   {
@@ -1171,6 +1249,16 @@ const pythonSubcommands: Fig.Subcommand[] = [
         name: "--default",
         description: "Use as the default Python version",
       },
+      {
+        name: "--no-bin",
+        description:
+          "Do not install a Python executable into the `bin` directory",
+      },
+      {
+        name: ["-i", "--install-dir"],
+        description: "The directory to store the Python installation in",
+        args: { name: "INSTALL_DIR" },
+      },
     ],
   },
   {
@@ -1243,11 +1331,12 @@ const pipSubcommands: Fig.Subcommand[] = [
   {
     name: "compile",
     description:
-      "Compile a `requirements.in` file to a `requirements.txt` file",
+      "Compile a `requirements.in` file to a `requirements.txt` or `pylock.toml` file",
   },
   {
     name: "sync",
-    description: "Sync an environment with a `requirements.txt` file",
+    description:
+      "Sync an environment with a `requirements.txt` or `pylock.toml` file",
     args: {
       name: "REQUIREMENTS",
       description: "The path to the requirements file",
@@ -1525,7 +1614,364 @@ const selfSubcommands: Fig.Subcommand[] = [
   },
 ];
 
+// auth
+const authKeyringOption: Fig.Option = {
+  name: "--keyring-provider",
+  description: "The keyring provider to use for storage of credentials",
+  args: {
+    name: "KEYRING_PROVIDER",
+    suggestions: ["disabled", "subprocess"],
+  },
+};
+
+const authSubcommands: Fig.Subcommand[] = [
+  {
+    name: "login",
+    description: "Login to a service",
+    args: {
+      name: "SERVICE",
+      description: "The domain or URL of the service to log into",
+    },
+    options: [
+      {
+        name: ["-u", "--username"],
+        description: "The username to use for the service",
+        args: { name: "USERNAME" },
+      },
+      {
+        name: "--password",
+        description: "The password to use for the service",
+        args: { name: "PASSWORD" },
+      },
+      {
+        name: ["-t", "--token"],
+        description: "The token to use for the service",
+        args: { name: "TOKEN" },
+      },
+      authKeyringOption,
+    ],
+  },
+  {
+    name: "logout",
+    description: "Logout of a service",
+    args: {
+      name: "SERVICE",
+      description: "The domain or URL of the service to logout from",
+    },
+    options: [
+      {
+        name: ["-u", "--username"],
+        description: "The username to logout",
+        args: { name: "USERNAME" },
+      },
+      authKeyringOption,
+    ],
+  },
+  {
+    name: "token",
+    description: "Show the authentication token for a service",
+    args: {
+      name: "SERVICE",
+      description: "The domain or URL of the service to lookup",
+    },
+    options: [
+      {
+        name: ["-u", "--username"],
+        description: "The username to lookup",
+        args: { name: "USERNAME" },
+      },
+      authKeyringOption,
+    ],
+  },
+  {
+    name: "dir",
+    description: "Show the path to the uv credentials directory",
+    args: {
+      name: "SERVICE",
+      description: "The domain or URL of the service to lookup",
+      isOptional: true,
+    },
+  },
+];
+
+// format
+const formatOptions: Fig.Option[] = [
+  {
+    name: "--check",
+    description: "Check if files are formatted without applying changes",
+  },
+  {
+    name: "--diff",
+    description: "Show a diff of formatting changes without applying them",
+  },
+  {
+    name: "--version",
+    description: "The version of Ruff to use for formatting",
+    args: { name: "VERSION" },
+  },
+  {
+    name: "--exclude-newer",
+    description:
+      "Limit candidate Ruff versions to those released prior to the given date",
+    args: { name: "EXCLUDE_NEWER" },
+  },
+  {
+    name: "--no-project",
+    description: "Avoid discovering a project or workspace",
+  },
+];
+
+// check
+const checkOptions: Fig.Option[] = [
+  {
+    name: "--script",
+    description:
+      "Run checks for the specified PEP 723 Python script, rather than the current project",
+    args: { name: "SCRIPT" },
+  },
+  {
+    name: "--extra",
+    description: "Include optional dependencies from the specified extra name",
+    args: { name: "EXTRA" },
+  },
+  {
+    name: "--all-extras",
+    description: "Include all optional dependencies",
+  },
+  {
+    name: "--no-extra",
+    description:
+      "Exclude the specified optional dependencies, if `--all-extras` is supplied",
+    args: { name: "NO_EXTRA" },
+  },
+  {
+    name: "--no-dev",
+    description: "Disable the development dependency group",
+  },
+  {
+    name: "--only-dev",
+    description: "Only include the development dependency group",
+  },
+  {
+    name: "--group",
+    description: "Include dependencies from the specified dependency group",
+    args: { name: "GROUP" },
+  },
+  {
+    name: "--no-group",
+    description: "Disable the specified dependency group",
+    args: { name: "NO_GROUP" },
+  },
+  {
+    name: "--no-default-groups",
+    description: "Ignore the default dependency groups",
+  },
+  {
+    name: "--only-group",
+    description:
+      "Only include dependencies from the specified dependency group",
+    args: { name: "ONLY_GROUP" },
+  },
+  {
+    name: "--all-groups",
+    description: "Include dependencies from all dependency groups",
+  },
+  {
+    name: "--locked",
+    description: "Assert that the `uv.lock` will remain unchanged",
+  },
+  {
+    name: "--frozen",
+    description: "Sync without updating the `uv.lock` file",
+  },
+  {
+    name: "--no-sync",
+    description: "Avoid syncing the virtual environment",
+  },
+  {
+    name: "--isolated",
+    description: "Run checks without mutating project state",
+  },
+  {
+    name: ["-p", "--python"],
+    description: "The Python interpreter to use for the project environment",
+    args: { name: "PYTHON" },
+  },
+  {
+    name: "--ty-version",
+    description: "The version of ty to use for type checking",
+    args: { name: "TY_VERSION" },
+  },
+  {
+    name: "--no-project",
+    description: "Avoid discovering a project or workspace",
+  },
+];
+
+// audit
+const auditOptions: Fig.Option[] = [
+  {
+    name: "--no-extra",
+    description: "Don't audit the specified optional dependencies",
+    args: { name: "NO_EXTRA" },
+  },
+  {
+    name: "--no-dev",
+    description: "Don't audit the development dependency group",
+  },
+  {
+    name: "--no-group",
+    description: "Don't audit the specified dependency group",
+    args: { name: "NO_GROUP" },
+  },
+  {
+    name: "--no-default-groups",
+    description: "Don't audit the default dependency groups",
+  },
+  {
+    name: "--only-group",
+    description: "Only audit dependencies from the specified dependency group",
+    args: { name: "ONLY_GROUP" },
+  },
+  {
+    name: "--only-dev",
+    description: "Only audit the development dependency group",
+  },
+  {
+    name: "--locked",
+    description: "Assert that the `uv.lock` will remain unchanged",
+  },
+  {
+    name: "--frozen",
+    description: "Audit the requirements without locking the project",
+  },
+  {
+    name: "--output-format",
+    description: "Select the output format",
+    args: {
+      name: "OUTPUT_FORMAT",
+      default: "text",
+      suggestions: ["text", "json", "sarif"],
+    },
+  },
+  {
+    name: "--script",
+    description:
+      "Audit the specified PEP 723 Python script, rather than the current project",
+    args: { name: "SCRIPT" },
+  },
+  {
+    name: "--python-version",
+    description: "The Python version to use when auditing",
+    args: { name: "PYTHON_VERSION" },
+  },
+  {
+    name: "--python-platform",
+    description: "The platform to use when auditing",
+    args: { name: "PYTHON_PLATFORM" },
+  },
+  {
+    name: "--ignore",
+    description: "Ignore a vulnerability by ID",
+    args: { name: "IGNORE" },
+  },
+  {
+    name: "--ignore-until-fixed",
+    description:
+      "Ignore a vulnerability by ID, but only while no fix is available",
+    args: { name: "IGNORE_UNTIL_FIXED" },
+  },
+  {
+    name: "--service-format",
+    description: "The service format to use for vulnerability lookups",
+    args: {
+      name: "SERVICE_FORMAT",
+      default: "osv",
+      suggestions: ["osv"],
+    },
+  },
+  {
+    name: "--service-url",
+    description: "The URL to vulnerability service API endpoint",
+    args: { name: "SERVICE_URL" },
+  },
+];
+
+// workspace
+const workspaceSubcommands: Fig.Subcommand[] = [
+  {
+    name: "metadata",
+    description: "View metadata about the current workspace",
+    options: [
+      {
+        name: "--script",
+        description:
+          "View metadata for the specified PEP 723 Python script, rather than the current workspace",
+        args: { name: "SCRIPT" },
+      },
+      {
+        name: "--locked",
+        description: "Check if the lockfile is up-to-date",
+      },
+      {
+        name: "--frozen",
+        description:
+          "Assert that a `uv.lock` exists without checking if it is up-to-date",
+      },
+      {
+        name: "--dry-run",
+        description: "Perform a dry run, without writing the lockfile",
+      },
+      {
+        name: "--sync",
+        description:
+          "Sync the environment to include module ownership metadata in the output",
+      },
+    ],
+  },
+  {
+    name: "dir",
+    description: "Display the path of a workspace member",
+    options: [
+      {
+        name: "--package",
+        description: "Display the path to a specific package in the workspace",
+        args: { name: "PACKAGE" },
+      },
+    ],
+  },
+  {
+    name: "list",
+    description: "List the members of a workspace",
+    options: [
+      {
+        name: "--paths",
+        description: "Show paths instead of names",
+      },
+      {
+        name: "--scripts",
+        description:
+          "List all standalone scripts with inline metadata in the workspace",
+      },
+    ],
+  },
+];
+
 const subcommands: Fig.Subcommand[] = [
+  {
+    name: "auth",
+    description: "Manage authentication",
+    subcommands: authSubcommands,
+    options: [
+      ...cacheOptions.filter(
+        (option) =>
+          option.name === "--cache-dir" || option.name === "--no-cache"
+      ),
+      ...pythonOptions.filter(
+        (option) => option.name === "--no-python-downloads"
+      ),
+    ],
+  },
   {
     name: "run",
     description: "Run a command or script",
@@ -1625,6 +2071,50 @@ const subcommands: Fig.Subcommand[] = [
       ...installerOptions.filter((option) => option.name === "--link-mode"),
       ...pythonOptions,
       ...cacheOptions,
+      ...cacheOptions.filter(
+        (option) =>
+          option.name === "--cache-dir" || option.name === "--no-cache"
+      ),
+    ],
+  },
+  {
+    name: "format",
+    description: "Format Python code in the project",
+    args: {
+      name: "EXTRA_ARGS",
+      description: "Additional arguments to pass to Ruff",
+      isVariadic: true,
+      isOptional: true,
+    },
+    options: [
+      ...formatOptions,
+      ...cacheOptions.filter(
+        (option) =>
+          option.name === "--cache-dir" || option.name === "--no-cache"
+      ),
+    ],
+  },
+  {
+    name: "check",
+    description: "Run checks on the project",
+    options: [
+      ...checkOptions,
+      ...indexOptions,
+      ...resolverOptions,
+      ...installerOptions,
+      ...buildOptions,
+      ...cacheOptions,
+    ],
+  },
+  {
+    name: "audit",
+    description: "Audit the project's dependencies",
+    options: [
+      ...auditOptions,
+      ...buildOptions,
+      ...indexOptions,
+      ...resolverOptions,
+      ...installerOptions.filter((option) => option.name === "--link-mode"),
       ...cacheOptions.filter(
         (option) =>
           option.name === "--cache-dir" || option.name === "--no-cache"
@@ -1736,6 +2226,20 @@ const subcommands: Fig.Subcommand[] = [
     ],
   },
   {
+    name: "workspace",
+    description: "Inspect uv workspaces",
+    subcommands: workspaceSubcommands,
+    options: [
+      ...cacheOptions.filter(
+        (option) =>
+          option.name === "--cache-dir" || option.name === "--no-cache"
+      ),
+      ...pythonOptions.filter(
+        (option) => option.name === "--no-python-downloads"
+      ),
+    ],
+  },
+  {
     name: "cache",
     description: "Manage uv's cache",
     subcommands: cacheSubcommands,
@@ -1769,15 +2273,71 @@ const subcommands: Fig.Subcommand[] = [
   },
   {
     name: "version",
-    description: "Display uv's version",
+    description: "Read or update the project's version",
+    args: {
+      name: "VALUE",
+      description: "Set the project version to this value",
+      isOptional: true,
+    },
     options: [
       {
+        name: "--bump",
+        description: "Update the project version using the given semantics",
+        args: {
+          name: "BUMP",
+          suggestions: [
+            "major",
+            "minor",
+            "patch",
+            "stable",
+            "alpha",
+            "beta",
+            "rc",
+            "post",
+            "dev",
+          ],
+        },
+      },
+      {
+        name: "--dry-run",
+        description: "Don't write a new version to the `pyproject.toml`",
+      },
+      {
+        name: "--short",
+        description: "Only show the version",
+      },
+      {
         name: "--output-format",
-        description: "The output format to use",
+        description: "The format of the output",
         args: {
           name: "OUTPUT_FORMAT",
+          default: "text",
           suggestions: ["text", "json"],
         },
+      },
+      {
+        name: "--no-sync",
+        description:
+          "Avoid syncing the virtual environment after re-locking the project",
+      },
+      {
+        name: "--active",
+        description:
+          "Prefer the active virtual environment over the project's virtual environment",
+      },
+      {
+        name: "--locked",
+        description: "Assert that the `uv.lock` will remain unchanged",
+      },
+      {
+        name: "--frozen",
+        description: "Update the version without re-locking the project",
+      },
+      {
+        name: "--package",
+        description:
+          "Update the version of a specific package in the workspace",
+        args: { name: "PACKAGE" },
       },
       ...cacheOptions.filter(
         (option) =>
@@ -1823,12 +2383,19 @@ const globalOptions: Fig.Option[] = [
     isPersistent: true,
   },
   {
-    name: "--native-tls",
+    name: "--system-certs",
     description:
       "Whether to load TLS certificates from the platform's native certificate store",
-    args: {
-      name: "BOOL",
-    },
+    isPersistent: true,
+  },
+  {
+    name: "--managed-python",
+    description: "Require use of uv-managed Python versions",
+    isPersistent: true,
+  },
+  {
+    name: "--no-managed-python",
+    description: "Disable use of uv-managed Python versions",
     isPersistent: true,
   },
   {
