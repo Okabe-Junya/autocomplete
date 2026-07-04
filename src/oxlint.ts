@@ -1,5 +1,3 @@
-import { filepaths } from "@fig/autocomplete-generators";
-
 const CATEGORY_EMOJI = "📦";
 const LINT_RULE_EMOJI = "🚨";
 

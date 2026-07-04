@@ -1,9 +1,3 @@
-const shortFormatArg: Fig.Arg = {
-  name: "-f",
-  suggestions: ["rich", "plain", "md"],
-  default: "rich",
-};
-
 const fullFormatArg: Fig.Arg = {
   name: "-f",
   suggestions: [

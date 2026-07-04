@@ -1,10 +1,3 @@
-const testsGenerator: Fig.Generator = {
-  custom: async (tokens, executeShellCommand) => {
-    // TODO: load the list of test files specified in testDir on playwright.config file
-    return [] as Fig.Suggestion[];
-  },
-};
-
 const browserSuggestions: Fig.Suggestion[] = [
   {
     name: "chromium",

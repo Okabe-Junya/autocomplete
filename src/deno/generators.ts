@@ -624,7 +624,7 @@ async function getDenoConfig(
     jsonString = stdout;
   } else {
     // Move backwards through the directory heirarchy until we find a config file (or hit the root)
-    const { stdout } = await executeShellCommand({
+    await executeShellCommand({
       command: "bash",
       args: [
         "-c",
