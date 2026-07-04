@@ -21,8 +21,7 @@
     "build": "npx @withfig/autocomplete-tools compile",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "test": "tsc --noEmit && echo 'All specs passed validation. You are ready to push!'",
-    "sync-local": "./scripts/sync-local-specs.sh --no-pull"
+    "test": "tsc --noEmit && echo 'All specs passed validation. You are ready to push!'"
   },
   "files": [
     "build/**/*.js",
