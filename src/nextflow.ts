@@ -6,7 +6,7 @@ const sessionid: Fig.Generator = {
     }
     return output.split("\n").map((sessionid) => {
       return {
-        name: sessionid.replace("*", "").trim(),
+        name: sessionid.replaceAll("*", "").trim(),
         description: "Session ID",
       };
     });
@@ -20,7 +20,10 @@ const runname: Fig.Generator = {
       return [];
     }
     return output.split("\n").map((runname) => {
-      return { name: runname.replace("*", "").trim(), description: "Run name" };
+      return {
+        name: runname.replaceAll("*", "").trim(),
+        description: "Run name",
+      };
     });
   },
 };
@@ -37,7 +40,7 @@ const projectname: Fig.Generator = {
     }
     return output.split("\n").map((projectname) => {
       return {
-        name: projectname.replace("*", "").trim(),
+        name: projectname.replaceAll("*", "").trim(),
         description: "Project name",
       };
     });
@@ -52,7 +55,7 @@ const dockerimage: Fig.Generator = {
     }
     return output.split("\n").map((dockerimage) => {
       return {
-        name: dockerimage.replace("*", "").trim(),
+        name: dockerimage.replaceAll("*", "").trim(),
         description: "Docker image",
       };
     });
@@ -71,7 +74,7 @@ const secretname: Fig.Generator = {
     }
     return output.split("\n").map((secretname) => {
       return {
-        name: secretname.replace("*", "").trim(),
+        name: secretname.replaceAll("*", "").trim(),
         description: "Secret name",
       };
     });
