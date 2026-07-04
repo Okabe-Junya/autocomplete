@@ -26,7 +26,7 @@ const postProcessRemoteBranches: Fig.Generator["postProcess"] = (out) => {
         }
         // Current branch
         return {
-          name: elm.replace("*", "").trim(),
+          name: elm.replaceAll("*", "").trim(),
           description: "Current branch",
           priority: 100,
           icon: "⭐️",
