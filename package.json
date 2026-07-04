@@ -29,7 +29,8 @@
     "lint": "eslint '**/*.ts' && npx prettier --check '**/*.ts' --parser typescript",
     "lint:fix": "eslint '**/*.ts' --fix && npx prettier --write '**/*.ts' --parser typescript",
     "test": "tsc --noEmit && echo 'All specs passed validation. You are ready to push!'",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "sync-local": "./scripts/sync-local-specs.sh --no-pull"
   },
   "fig": {
     "dev": {
@@ -83,19 +84,18 @@
     "@typescript-eslint/parser": "^7.18.0",
     "@withfig/autocomplete-tools": "^2.11.0",
     "@withfig/autocomplete-types": "^1.31.0",
-    "danger": "^11.3.1",
     "eslint": "^8.57.1",
     "eslint-plugin-compat": "4.2.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.3.0",
-    "prettier": "^3.4.2",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.9.4",
     "typescript": "~5.5.4"
   },
   "dependencies": {
     "@fig/autocomplete-generators": "^2.4.0",
     "@fig/autocomplete-helpers": "^1.0.7",
-    "semver": "^7.6.3",
-    "strip-json-comments": "^5.0.1",
-    "yaml": "^2.7.0"
+    "semver": "^7.8.5",
+    "strip-json-comments": "^5.0.3",
+    "yaml": "^2.9.0"
   }
 }

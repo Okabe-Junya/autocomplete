@@ -2,12 +2,21 @@
 [![Badge: Documentation](https://img.shields.io/badge/documentation-black)](https://fig.io/docs/)
 [![Badge: contributors](https://img.shields.io/github/contributors/withfig/autocomplete)](#Contributors)
 
+> [!NOTE]
+> **This is a personally maintained fork of [withfig/autocomplete](https://github.com/withfig/autocomplete).**
+> Upstream has been inactive since 2025-05, so completion specs here are updated
+> independently and consumed locally by Kiro CLI via the legacy Fig path
+> `~/.fig/autocomplete/build/` (see [kirodotdev/Kiro#4445](https://github.com/kirodotdev/Kiro/issues/4445)).
+> Run `scripts/sync-local-specs.sh` (or `pnpm run sync-local`) to build and deploy
+> specs to that path. Upstream-specific infrastructure (CLA, Danger, publish
+> workflows, etc.) has been removed. Original README follows.
+
 **[Amazon Q Developer CLI](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-getting-started-installing.html)**
 adds IDE-style completions for hundreds of popular CLIs like `git`, `npm`,
 `docker`, and `aws`. Start typing, and Amazon Q populates contextually relevant
 subcommands, options and arguments.
 
-> Amazon Q Developer CLI, formerly known as [Fig](https://fig.io), is open source. See [aws/amazon-q-developer-cli]( https://github.com/aws/amazon-q-developer-cli) to learn more.
+> Amazon Q Developer CLI, formerly known as [Fig](https://fig.io), is open source. See [aws/amazon-q-developer-cli](https://github.com/aws/amazon-q-developer-cli) to learn more.
 
 ## ⚡️ Installation
 
