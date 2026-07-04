@@ -19,6 +19,13 @@ const completionSpec: Fig.Spec = {
       },
     },
     {
+      name: "--check-cfg",
+      description: "Provide list of expected cfgs for checking",
+      args: {
+        name: "Spec",
+      },
+    },
+    {
       name: "-L",
       description: "Adds a directory to the library search path",
       args: [
@@ -131,7 +138,7 @@ const completionSpec: Fig.Spec = {
       description: "Specify the edition to use",
       args: {
         name: "edition",
-        suggestions: ["2015", "2018", "2021"],
+        suggestions: ["2015", "2018", "2021", "2024", "future"],
       },
     },
     {
@@ -170,6 +177,10 @@ const completionSpec: Fig.Spec = {
             name: "mir",
             description:
               "Generates a file containing rustc's mid-level intermediate representation",
+          },
+          {
+            name: "thin-link-bitcode",
+            description: "Generates the ThinLTO summary as unanalyzed bitcode",
           },
         ],
       },
@@ -217,6 +228,57 @@ const completionSpec: Fig.Spec = {
             name: "native-static-libs",
             description:
               "This may be used when creating a staticlib crate type",
+          },
+          {
+            name: "all-target-specs-json",
+            description: "Print the JSON specs of all known targets",
+          },
+          {
+            name: "backend-has-zstd",
+            description: "Whether the LLVM backend supports zstd compression",
+          },
+          {
+            name: "calling-conventions",
+            description: "List of supported calling conventions",
+          },
+          {
+            name: "check-cfg",
+            description: "List of expected cfgs for checking",
+          },
+          {
+            name: "crate-root-lint-levels",
+            description: "The lint levels set for the crate root",
+          },
+          {
+            name: "deployment-target",
+            description:
+              "The minimum deployment target for the current target (Apple targets only)",
+          },
+          {
+            name: "host-tuple",
+            description: "The target-tuple string of the host compiler",
+          },
+          {
+            name: "link-args",
+            description:
+              "The linker arguments used to link the final executable",
+          },
+          {
+            name: "split-debuginfo",
+            description:
+              "List of supported split-debuginfo values for the current target",
+          },
+          {
+            name: "stack-protector-strategies",
+            description: "List of supported stack-protector strategies",
+          },
+          {
+            name: "supported-crate-types",
+            description: "List of supported crate types for the current target",
+          },
+          {
+            name: "target-spec-json-schema",
+            description: "The JSON schema of the target spec",
           },
         ],
       },
@@ -266,6 +328,13 @@ const completionSpec: Fig.Spec = {
       description: "Sets lint warnings",
       args: {
         name: "OPT",
+      },
+    },
+    {
+      name: "--force-warn",
+      description: "Set lint force-warn",
+      args: {
+        name: "LINT",
       },
     },
     {

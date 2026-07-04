@@ -7,6 +7,11 @@ const completionSpec: Fig.Spec = {
       description: "Builds the current project",
       options: [
         {
+          name: "--auto-snapshot",
+          description:
+            "Automatically sets --snapshot if the repository is dirty",
+        },
+        {
           name: "--clean",
           description: "Remove the dist folder before building",
         },
@@ -171,6 +176,11 @@ const completionSpec: Fig.Spec = {
             template: ["filepaths"],
           },
         },
+        {
+          name: ["--language", "-l"],
+          description: "Which language will be used (go)",
+          args: { name: "language", default: "go" },
+        },
       ],
     },
     {
@@ -194,6 +204,11 @@ const completionSpec: Fig.Spec = {
             "Automatically sets --snapshot if the repository is dirty",
         },
         { name: "--clean", description: "Removes the dist folder" },
+        {
+          name: "--draft",
+          description:
+            "Whether to set the release to draft. Overrides release.draft in the configuration file",
+        },
         {
           name: ["--config", "-f"],
           description: "Load configuration from file",
@@ -257,7 +272,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--skip",
           description:
-            "Skip the given options (valid options are announce, aur, before, chocolatey, docker, homebrew, ko, nfpm, nix, publish, sbom, scoop, sign, snapcraft, validate, winget)",
+            "Skip the given options (valid options are announce, archive, aur, aur-source, before, chocolatey, docker, flatpak, homebrew, ko, makeself, mcp, nfpm, nix, notarize, publish, sbom, scoop, sign, snapcraft, srpm, validate, winget)",
           isRepeatable: true,
           args: { name: "skip" },
         },
