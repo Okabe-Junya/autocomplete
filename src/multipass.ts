@@ -296,7 +296,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cloud-init",
           description:
-            "Path to a user-data cloud-init configuration, or '-' for" +
+            "Path to a user-data cloud-init configuration, or '-' for " +
             "stdin",
           args: {
             name: "file",

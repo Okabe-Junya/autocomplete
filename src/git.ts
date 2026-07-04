@@ -52,7 +52,9 @@ interface PostProcessBranchesOptions {
 }
 
 const postProcessBranches =
-  (options: PostProcessBranchesOptions = {}): Fig.Generator["postProcess"] =>
+  (
+    options: PostProcessBranchesOptions = {}
+  ): ((out: string) => Fig.Suggestion[]) =>
   (out) => {
     const { insertWithoutRemotes = false } = options;
 
@@ -271,8 +273,7 @@ export const gitGenerators: Record<string, Fig.Generator> = {
                 "--sort=-committerdate",
               ],
             })
-          ).stdout,
-          tokens
+          ).stdout
         );
       } else {
         return pp?.(
@@ -286,8 +287,7 @@ export const gitGenerators: Record<string, Fig.Generator> = {
                 "--sort=-committerdate",
               ],
             })
-          ).stdout,
-          tokens
+          ).stdout
         );
       }
     },
