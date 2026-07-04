@@ -3,18 +3,33 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 100
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 100
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
     groups:
-      typescript-eslint:
-        patterns:
-          - "@typescript-eslint/*"
-      fig:
+      # Fig/withfig toolchain moves together (spec types must match the compiler)
+      fig-toolchain:
         patterns:
           - "@fig/*"
           - "@withfig/*"
+      # Low-risk dev tooling with frequent releases; review as one PR
+      dev-tooling:
+        patterns:
+          - "@biomejs/*"
+          - "typescript"
