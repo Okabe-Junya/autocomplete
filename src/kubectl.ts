@@ -132,6 +132,38 @@ const sharedArgs: Record<string, Fig.Arg> = {
       },
     },
   },
+  listUsers: {
+    name: "User",
+    generators: {
+      script: function (context) {
+        const index = context.indexOf("--kubeconfig");
+        if (index !== -1) {
+          return [
+            "kubectl",
+            "config",
+            `--kubeconfig=${context[index + 1]}`,
+            "get-users",
+          ];
+        }
+        return ["kubectl", "config", "get-users"];
+      },
+      postProcess: function (out) {
+        if (
+          sharedPostProcessChecks.connectedToCluster(out) ||
+          sharedPostProcessChecks.generalError(out)
+        ) {
+          return [];
+        }
+        return out
+          .split("\n")
+          .filter((line) => line !== "NAME")
+          .map((line) => ({
+            name: line,
+            icon: "fig://icon?type=kubernetes",
+          }));
+      },
+    },
+  },
   typeOrTypeSlashName: {
     name: "TYPE | TYPE/NAME",
     generators: {
@@ -230,18 +262,20 @@ const sharedOpts: Record<string, Fig.Option> = {
   output: {
     name: ["-o", "--output"],
     description:
-      "Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file",
+      "Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file, kyaml)",
     args: {
       name: "Output Format",
       suggestions: [
         "json",
         "yaml",
+        "kyaml",
         "name",
         "go-template",
         "go-template-file",
         "template",
         "templatefile",
         "jsonpath",
+        "jsonpath-as-json",
         "jsonpath-file",
       ],
     },
@@ -293,7 +327,7 @@ const sharedOpts: Record<string, Fig.Option> = {
   selector: {
     name: ["-l", "--selector"],
     description:
-      "Selector (label query) to filter on, not including uninitialized ones, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)",
+      "Selector (label query) to filter on, supports '=', '==', '!=', 'in', 'notin'.(e.g. -l key1=value1,key2=value2,key3 in (value3)). Matching objects must satisfy all of the specified label constraints",
     args: {},
   },
   template: {
@@ -308,11 +342,6 @@ const sharedOpts: Record<string, Fig.Option> = {
     description:
       "If true, allow annotations to be overwritten, otherwise reject annotation updates that overwrite existing annotations",
   },
-  record: {
-    name: "--record",
-    description:
-      "Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists",
-  },
 };
 
 const sharedOptsArray = Object.values(sharedOpts);
@@ -321,72 +350,6 @@ const completionSpec: Fig.Spec = {
   name: "kubectl",
   description: "",
   subcommands: [
-    {
-      name: "alpha",
-      description:
-        "These commands correspond to alpha features that are not enabled in Kubernetes clusters by default",
-      subcommands: [
-        {
-          name: "debug",
-          description: "Tools for debugging Kubernetes resources",
-          options: [
-            {
-              name: "--arguments-only",
-              description:
-                "If specified, everything after -- will be passed to the new container as Args instead of Command",
-              args: {},
-            },
-            {
-              name: "--attach",
-              description:
-                "If true, wait for the Pod to start running, and then attach to the Pod as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true",
-              args: {},
-            },
-            {
-              name: "--container",
-              description: "Container name to use for debug container",
-              args: {},
-            },
-            {
-              name: "--env",
-              description: "Environment variables to set in the container",
-              args: {},
-            },
-            {
-              name: "--image",
-              description: "Container image to use for debug container",
-              args: {},
-            },
-            {
-              name: "--image-pull-policy",
-              description: "The image pull policy for the container",
-              args: {},
-            },
-            {
-              name: "--quiet",
-              description: "If true, suppress prompt messages",
-              args: {},
-            },
-            {
-              name: ["-i", "--stdin"],
-              description:
-                "Keep stdin open on the container(s) in the pod, even if nothing is attached",
-              args: {},
-            },
-            {
-              name: "--target",
-              description: "Target processes in this container name",
-              args: {},
-            },
-            {
-              name: ["-t", "--tty"],
-              description: "Allocated a TTY for each container in the pod",
-              args: {},
-            },
-          ],
-        },
-      ],
-    },
     {
       name: "annotate",
       description: "Update the annotations on one or more resources",
@@ -399,7 +362,27 @@ const completionSpec: Fig.Spec = {
           isVariadic: true,
         },
       ],
-      options: sharedOptsArray,
+      options: [
+        ...sharedOptsArray,
+        {
+          name: ["-A", "--all-namespaces"],
+          description: "If true, check the specified action in all namespaces",
+        },
+        {
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
+        {
+          name: "--list",
+          description: "If true, display the annotations for a given resource",
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+      ],
     },
     {
       name: "api-resources",
@@ -409,6 +392,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--api-group",
           description: "Limit to resources in the specified API group",
+          args: {},
+        },
+        {
+          name: "--categories",
+          description:
+            "Limit to resources that belong to the specified categories",
           args: {},
         },
         {
@@ -438,6 +427,11 @@ const completionSpec: Fig.Spec = {
           description: "Limit to resources that support the specified verbs",
           args: {},
         },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
       ],
     },
     {
@@ -449,11 +443,25 @@ const completionSpec: Fig.Spec = {
       name: "apply",
       description:
         "Apply a configuration to a resource by filename or stdin. The resource name must be specified. This resource will be created if it doesn't exist yet. To use 'apply', always create the resource initially with either 'apply' or 'create --save-config'",
-      options: sharedOptsArray.concat([
+      options: [
+        sharedOpts.filename,
+        sharedOpts.kustomize,
+        sharedOpts.output,
+        sharedOpts.dryRun,
+        sharedOpts.allResources,
+        sharedOpts.allowMissingTemplateKeys,
+        sharedOpts.recursive,
+        sharedOpts.selector,
+        sharedOpts.template,
         {
           name: "--cascade",
+          requiresSeparator: true,
           description:
-            "If true, cascade the deletion of the resources managed by this resource (e.g. Pods created by a ReplicationController). Default true",
+            'Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background',
+          args: {
+            name: "Strategy",
+            suggestions: ["background", "orphan", "foreground"],
+          },
         },
         {
           name: "--field-manager",
@@ -496,10 +504,10 @@ const completionSpec: Fig.Spec = {
             "Automatically delete resource objects, including the uninitialized ones, that do not appear in the configs and are created by either apply or create --save-config. Should be used with either -l or --all",
         },
         {
-          name: "--prune-whitelist",
+          name: "--prune-allowlist",
           requiresSeparator: true,
           description:
-            "Overwrite the default whitelist with <group/version/kind> for --prune",
+            "Overwrite the default allowlist with <group/version/kind> for --prune",
           args: {
             name: "group/version/kind",
           },
@@ -508,6 +516,18 @@ const completionSpec: Fig.Spec = {
           name: "--server-side",
           description:
             "If true, apply runs in the server instead of the client",
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--subresource",
+          requiresSeparator: true,
+          description:
+            "If specified, apply will operate on the subresource of the requested object. Only allowed when using --server-side",
+          args: {},
         },
         {
           name: "--timeout",
@@ -520,15 +540,19 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--validate",
+          requiresSeparator: true,
           description:
-            "If true, use a schema to validate the input before sending it",
+            'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+          args: {
+            suggestions: ["strict", "warn", "ignore", "true", "false"],
+          },
         },
         {
           name: "--wait",
           description:
             "If true, wait for resources to be gone before returning. This waits for finalizers",
         },
-      ]),
+      ],
       subcommands: [
         {
           name: "edit-last-applied",
@@ -543,7 +567,6 @@ const completionSpec: Fig.Spec = {
             sharedOpts.filename,
             sharedOpts.kustomize,
             sharedOpts.output,
-            sharedOpts.record,
             sharedOpts.recursive,
             sharedOpts.template,
             {
@@ -553,13 +576,23 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--field-manager",
+              requiresSeparator: true,
               description: "Name of the manager used to track field ownership",
               args: {},
             },
             {
-              name: "--show-manged-fields",
+              name: "--show-managed-fields",
               description:
                 "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
+              name: "--validate",
+              requiresSeparator: true,
+              description:
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -569,11 +602,12 @@ const completionSpec: Fig.Spec = {
             "Set the latest last-applied-configuration annotations by setting it to match the contents of a file. This results in the last-applied-configuration being updated as though 'kubectl apply -f<file> ' was run, without updating any other parts of the object",
           options: [
             sharedOpts.allowMissingTemplateKeys,
+            sharedOpts.dryRun,
             sharedOpts.filename,
             sharedOpts.output,
             sharedOpts.template,
             {
-              name: "--show-manged-fields",
+              name: "--show-managed-fields",
               description:
                 "If true, keep the managedFields when printing objects in JSON or YAML format",
             },
@@ -596,7 +630,14 @@ const completionSpec: Fig.Spec = {
             sharedOpts.allResources,
             sharedOpts.filename,
             sharedOpts.kustomize,
-            sharedOpts.output,
+            {
+              name: ["-o", "--output"],
+              description: "Output format. Must be one of (yaml, json)",
+              args: {
+                name: "Output Format",
+                suggestions: ["yaml", "json"],
+              },
+            },
             sharedOpts.recursive,
             sharedOpts.selector,
           ],
@@ -612,8 +653,13 @@ const completionSpec: Fig.Spec = {
         {
           name: ["-c", "--container"],
           description:
-            "Container name. If omitted, the first container in the pod will be chosen",
+            "Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen",
           args: sharedArgs.listContainersFromPod,
+        },
+        {
+          name: "--detach-keys",
+          description: "Override the key sequence for detaching a container",
+          args: {},
         },
         {
           name: "--pod-running-timeout",
@@ -621,6 +667,10 @@ const completionSpec: Fig.Spec = {
           description:
             "The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running",
           args: {},
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Only print output from the remote session",
         },
         {
           name: ["-i", "--stdin"],
@@ -725,27 +775,33 @@ const completionSpec: Fig.Spec = {
       options: [
         sharedOpts.allowMissingTemplateKeys,
         sharedOpts.output,
-        sharedOpts.record,
         sharedOpts.recursive,
         sharedOpts.dryRun,
         sharedOpts.filename,
         sharedOpts.kustomize,
         sharedOpts.template,
         {
-          name: "--cpu-percent",
+          name: "--cpu",
           requiresSeparator: true,
           description:
-            "The target average CPU utilization (represented as a percent of requested CPU) over all the pods. If it's not specified or negative, a default autoscaling policy will be used",
-          args: {
-            name: "INT (Percent)",
-          },
+            'Target CPU utilization over all the pods. When specified as a percentage (e.g. "70%") it will target average utilization; when specified as a quantity (e.g. "500m") it will target average value',
+          args: {},
         },
         {
-          name: "--generator",
-          requiresSeparator: true,
-          description:
-            "The name of the API generator to use. Currently there is only 1 generator",
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
           args: {},
+        },
+        {
+          name: "--memory",
+          description:
+            'Target memory utilization over all the pods. When specified as a percentage it will target average utilization; when specified as a quantity (e.g. "200Mi", "1Gi") it will target average value',
+          args: {},
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
         {
           name: "--max",
@@ -826,12 +882,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "cluster-info",
       description:
-        "Display addresses of the master and services with label kubernetes.io/cluster-service=true To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'",
+        "Display addresses of the control plane and services with label kubernetes.io/cluster-service=true. To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'",
       subcommands: [
         {
           name: "dump",
           description:
-            "Dumps cluster info out suitable for debugging and diagnosing cluster problems.  By default, dumps everything to stdout. You can optionally specify a directory with --output-directory.  If you specify a directory, kubernetes will build a set of files in that directory.  By default only dumps things in the 'kube-system' namespace, but you can switch to a different namespace with the --namespaces flag, or specify --all-namespaces to dump all namespaces",
+            "Dumps cluster info out suitable for debugging and diagnosing cluster problems.  By default, dumps everything to stdout. You can optionally specify a directory with --output-directory.  If you specify a directory, kubernetes will build a set of files in that directory.  By default, only dumps things in the current namespace and 'kube-system' namespace, but you can switch to a different namespace with the --namespaces flag, or specify --all-namespaces to dump all namespaces",
           options: [
             sharedOpts.allowMissingTemplateKeys,
             sharedOpts.output,
@@ -876,7 +932,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "completion",
       description:
-        "Output shell completion code for the specified shell (bash or zsh). The shell code must be evaluated to provide interactive completion of kubectl commands.  This can be done by sourcing it from the .bash_profile",
+        "Output shell completion code for the specified shell (bash, zsh, fish, or powershell). The shell code must be evaluated to provide interactive completion of kubectl commands.  This can be done by sourcing it from the .bash_profile",
+      args: {
+        name: "SHELL",
+        suggestions: ["bash", "zsh", "fish", "powershell"],
+      },
     },
     {
       name: "config",
@@ -908,6 +968,11 @@ const completionSpec: Fig.Spec = {
           args: sharedArgs.listKubeConfContexts,
         },
         {
+          name: "delete-user",
+          description: "Delete the specified user from the kubeconfig",
+          args: sharedArgs.listUsers,
+        },
+        {
           name: "get-clusters",
           description: "Display clusters defined in the kubeconfig",
         },
@@ -916,12 +981,15 @@ const completionSpec: Fig.Spec = {
           description: "Displays one or many contexts from the kubeconfig file",
           args: { ...sharedArgs.listKubeConfContexts, isOptional: true },
           options: [
-            sharedOpts.output,
+            {
+              name: ["-o", "--output"],
+              description: "Output format. One of: (name)",
+              args: { name: "Output Format", suggestions: ["name"] },
+            },
             {
               name: "--no-headers",
               description:
                 "When using the default or custom-column output format, don't print headers (default print headers)",
-              args: {},
             },
           ],
         },
@@ -955,7 +1023,6 @@ const completionSpec: Fig.Spec = {
               name: "--set-raw-bytes",
               description:
                 "When writing a []byte PROPERTY_VALUE, write the given string directly without base64 decoding",
-              args: {},
             },
           ],
         },
@@ -1000,6 +1067,12 @@ const completionSpec: Fig.Spec = {
                 name: "TLS Server Name",
               },
             },
+            {
+              name: "--proxy-url",
+              requiresSeparator: true,
+              description: "Proxy-url for the cluster entry in kubeconfig",
+              args: { name: "Proxy URL" },
+            },
           ],
         },
         {
@@ -1026,7 +1099,7 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
-              name: "--namespace",
+              name: ["-n", "--namespace"],
               requiresSeparator: true,
               args: {
                 name: "namespace",
@@ -1136,6 +1209,18 @@ const completionSpec: Fig.Spec = {
                 name: "key=value",
               },
             },
+            {
+              name: "--exec-interactive-mode",
+              requiresSeparator: true,
+              description:
+                "InteractiveMode of the exec credentials plugin for the user entry in kubeconfig",
+              args: { name: "Interactive Mode" },
+            },
+            {
+              name: "--exec-provide-cluster-info",
+              description:
+                "ProvideClusterInfo of the exec credentials plugin for the user entry in kubeconfig",
+            },
           ],
         },
         {
@@ -1186,36 +1271,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "convert",
-      description:
-        "Convert config files between different API versions. Both YAML and JSON formats are accepted",
-      options: [
-        sharedOpts.allowMissingTemplateKeys,
-        sharedOpts.filename,
-        sharedOpts.kustomize,
-        sharedOpts.output,
-        sharedOpts.recursive,
-        sharedOpts.template,
-        {
-          name: "--local",
-          description:
-            "If true, convert will NOT try to contact api-server but run locally",
-        },
-        {
-          name: "--output-version",
-          requiresSeparator: true,
-          description:
-            "Output the formatted object with the given group version (for ex: 'extensions/v1beta1')",
-          args: {},
-        },
-        {
-          name: "--validate",
-          description:
-            "If true, use a schema to validate the input before sending it",
-        },
-      ],
-    },
-    {
       name: "cordon",
       description: "Mark node as unschedulable",
       args: sharedArgs.listNodes,
@@ -1237,6 +1292,11 @@ const completionSpec: Fig.Spec = {
           name: "--no-preserve",
           description:
             "The copied file/directory's ownership and permissions will not be preserved in the container",
+        },
+        {
+          name: "--retries",
+          description:
+            "Set number of retries to complete a copy operation from a container. Specify 0 to disable or any negative value for infinite retrying. The default is 0 (no retry)",
           args: {},
         },
       ],
@@ -1253,15 +1313,27 @@ const completionSpec: Fig.Spec = {
         sharedOpts.recursive,
         sharedOpts.selector,
         sharedOpts.template,
-        sharedOpts.record,
         {
           name: "--edit",
           description: "Edit the API resource before creating",
         },
         {
           name: "--raw",
+          requiresSeparator: true,
           description:
-            "Raw URI to POST to the server.  Uses the transport specified by the kubeconfig file",
+            "Raw URI to POST to the server, using the transport specified by the kubeconfig file",
+          args: { name: "URI" },
+        },
+        {
+          name: "--field-manager",
+          requiresSeparator: true,
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
         {
           name: "--save-config",
@@ -1270,8 +1342,12 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--validate",
+          requiresSeparator: true,
           description:
-            "If true, use a schema to validate the input before sending it",
+            'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+          args: {
+            suggestions: ["strict", "warn", "ignore", "true", "false"],
+          },
         },
         {
           name: "--windows-line-endings",
@@ -1291,6 +1367,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--aggregation-rule",
               requiresSeparator: true,
@@ -1323,8 +1410,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
             {
               name: "--verb",
@@ -1359,6 +1450,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--clusterrole",
               requiresSeparator: true,
@@ -1395,8 +1497,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1412,6 +1518,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--append-hash",
               description: "Append a hash of the configmap to its name",
@@ -1450,8 +1567,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1466,6 +1587,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--image",
               requiresSeparator: true,
@@ -1498,8 +1630,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1515,12 +1651,36 @@ const completionSpec: Fig.Spec = {
             sharedOpts.output,
             sharedOpts.template,
             {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
               name: "--image",
               requiresSeparator: true,
-              description: "Image name to run",
+              description:
+                "Image names to run. A deployment can have multiple images set for multi-container pod",
               args: {
                 name: "Image",
               },
+            },
+            {
+              name: "--port",
+              requiresSeparator: true,
+              description: "The containerPort that this deployment exposes",
+              args: { name: "Port (INT)" },
+            },
+            {
+              name: ["-r", "--replicas"],
+              requiresSeparator: true,
+              description: "Number of replicas to create (default 1)",
+              args: { name: "INT" },
             },
             {
               name: "--save-config",
@@ -1529,8 +1689,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1590,8 +1754,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1612,6 +1780,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--from",
               requiresSeparator: true,
@@ -1645,8 +1824,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1662,14 +1845,29 @@ const completionSpec: Fig.Spec = {
             sharedOpts.output,
             sharedOpts.template,
             {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
               name: "--save-config",
               description:
                 "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1685,7 +1883,24 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
-            sharedOpts.selector,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
+              name: "--selector",
+              requiresSeparator: true,
+              description:
+                "A label selector to use for this budget; only equality-based selector requirements are supported",
+              args: {},
+            },
             {
               name: "--max-unavailable",
               description:
@@ -1709,8 +1924,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1726,6 +1945,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--description",
               requiresSeparator: true,
@@ -1755,8 +1985,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
             {
               name: "--value",
@@ -1787,6 +2021,11 @@ const completionSpec: Fig.Spec = {
               args: {},
             },
             {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
               name: "--hard",
               description:
                 "A comma-delimited set of resource=quantity pairs that define a hard limit",
@@ -1809,8 +2048,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1825,6 +2068,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--resource",
               requiresSeparator: true,
@@ -1845,8 +2099,12 @@ const completionSpec: Fig.Spec = {
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
             {
               name: "--verb",
@@ -1872,6 +2130,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.dryRun,
             sharedOpts.output,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--clusterrole",
               requiresSeparator: true,
@@ -1911,16 +2180,21 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
-              name: "--username",
+              name: "--user",
               requiresSeparator: true,
+              description: "Usernames to bind to the role",
               args: {
                 name: "Username",
               },
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
         },
@@ -1939,6 +2213,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--append-hash",
                   description: "Append a hash of the secret to its name",
@@ -1991,8 +2277,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2008,6 +2298,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--append-hash",
                   description: "Append a hash of the secret to its name",
@@ -2052,8 +2354,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2069,6 +2375,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--append-hash",
                   description: "Append a hash of the secret to its name",
@@ -2097,8 +2415,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2119,6 +2441,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--clusterip",
                   requiresSeparator: true,
@@ -2145,8 +2479,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2162,6 +2500,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--external-name",
                   description: "External name of service",
@@ -2185,8 +2535,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2203,6 +2557,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.output,
                 sharedOpts.template,
                 {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
+                {
                   name: "--save-config",
                   description:
                     "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
@@ -2218,8 +2584,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2234,6 +2604,18 @@ const completionSpec: Fig.Spec = {
                 sharedOpts.dryRun,
                 sharedOpts.output,
                 sharedOpts.template,
+                {
+                  name: "--field-manager",
+                  requiresSeparator: true,
+                  description:
+                    "Name of the manager used to track field ownership",
+                  args: {},
+                },
+                {
+                  name: "--show-managed-fields",
+                  description:
+                    "If true, keep the managedFields when printing objects in JSON or YAML format",
+                },
                 {
                   name: "--node-port",
                   description:
@@ -2258,8 +2640,12 @@ const completionSpec: Fig.Spec = {
                 },
                 {
                   name: "--validate",
+                  requiresSeparator: true,
                   description:
-                    "If true, use a schema to validate the input before sending it",
+                    'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+                  args: {
+                    suggestions: ["strict", "warn", "ignore", "true", "false"],
+                  },
                 },
               ],
             },
@@ -2277,16 +2663,231 @@ const completionSpec: Fig.Spec = {
             sharedOpts.output,
             sharedOpts.template,
             {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+            {
               name: "--save-config",
               description:
                 "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
             },
             {
               name: "--validate",
+              requiresSeparator: true,
               description:
-                "If true, use a schema to validate the input before sending it",
+                'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+              args: {
+                suggestions: ["strict", "warn", "ignore", "true", "false"],
+              },
             },
           ],
+        },
+        {
+          name: "token",
+          description: "Request a service account token",
+          args: {
+            name: "SERVICE_ACCOUNT_NAME",
+          },
+          options: [
+            sharedOpts.allowMissingTemplateKeys,
+            sharedOpts.output,
+            sharedOpts.template,
+            {
+              name: "--audience",
+              requiresSeparator: true,
+              description:
+                "Audience of the requested token; if unset, defaults to requesting a token for use with the Kubernetes API server. May be repeated to request a token valid for multiple audiences",
+              args: {},
+            },
+            {
+              name: "--bound-object-kind",
+              requiresSeparator: true,
+              description:
+                "Kind of an object to bind the token to (Node, Pod, Secret); if set, --bound-object-name must be provided",
+              args: {
+                suggestions: ["Node", "Pod", "Secret"],
+              },
+            },
+            {
+              name: "--bound-object-name",
+              requiresSeparator: true,
+              description:
+                "Name of an object to bind the token to; the token will expire when the object is deleted. Requires --bound-object-kind",
+              args: {},
+            },
+            {
+              name: "--bound-object-uid",
+              requiresSeparator: true,
+              description:
+                "UID of an object to bind the token to; requires --bound-object-kind and --bound-object-name",
+              args: {},
+            },
+            {
+              name: "--duration",
+              requiresSeparator: true,
+              description:
+                "Requested lifetime of the issued token; if not set or 0, the lifetime is determined by the server automatically",
+              args: { name: "Duration" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "debug",
+      description:
+        "Debug cluster resources using interactive debugging containers",
+      args: [
+        sharedArgs.typeOrTypeSlashName,
+        sharedArgs.resourceSuggestionsFromResourceType,
+        {
+          name: "COMMAND",
+          isCommand: true,
+          isOptional: true,
+        },
+      ],
+      options: [
+        sharedOpts.filename,
+        {
+          name: "--arguments-only",
+          description:
+            "If specified, everything after -- will be passed to the new container as Args instead of Command",
+        },
+        {
+          name: "--attach",
+          description:
+            "If true, wait for the container to start running, and then attach as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true",
+        },
+        {
+          name: ["-c", "--container"],
+          description: "Container name to use for debug container",
+          args: {},
+        },
+        {
+          name: "--copy-to",
+          description: "Create a copy of the target Pod with this name",
+          args: {},
+        },
+        {
+          name: "--custom",
+          description:
+            "Path to a JSON or YAML file containing a partial container spec to customize built-in debug profiles",
+          args: {
+            name: "File",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "--env",
+          description: "Environment variables to set in the container",
+          args: {},
+        },
+        {
+          name: "--image",
+          description: "Container image to use for debug container",
+          args: {},
+        },
+        {
+          name: "--image-pull-policy",
+          description:
+            "The image pull policy for the container. If left empty, this value will not be specified by the client and defaulted by the server",
+          args: {},
+        },
+        {
+          name: "--keep-annotations",
+          description:
+            "If true, keep the original pod annotations.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--keep-init-containers",
+          description:
+            "Run the init containers for the pod. Defaults to true.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--keep-labels",
+          description:
+            "If true, keep the original pod labels.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--keep-liveness",
+          description:
+            "If true, keep the original pod liveness probes.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--keep-readiness",
+          description:
+            "If true, keep the original pod readiness probes.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--keep-startup",
+          description:
+            "If true, keep the original startup probes.(This flag only works when used with '--copy-to')",
+        },
+        {
+          name: "--profile",
+          description:
+            'Options are "general", "baseline", "restricted", "netadmin" or "sysadmin". Defaults to "general"',
+          args: {
+            name: "Profile",
+            suggestions: [
+              "general",
+              "baseline",
+              "restricted",
+              "netadmin",
+              "sysadmin",
+            ],
+          },
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "If true, suppress informational messages",
+        },
+        {
+          name: "--replace",
+          description: "When used with '--copy-to', delete the original Pod",
+        },
+        {
+          name: "--same-node",
+          description:
+            "When used with '--copy-to', schedule the copy of target Pod on the same node",
+        },
+        {
+          name: "--set-image",
+          description:
+            "When used with '--copy-to', a list of name=image pairs for changing container images, similar to how 'kubectl set image' works",
+          args: {},
+        },
+        {
+          name: "--share-processes",
+          description:
+            "When used with '--copy-to', enable process namespace sharing in the copy",
+        },
+        {
+          name: ["-i", "--stdin"],
+          description:
+            "Keep stdin open on the container(s) in the pod, even if nothing is attached",
+        },
+        {
+          name: "--target",
+          description:
+            "When using an ephemeral container, target processes in this container name",
+          args: {},
+        },
+        {
+          name: ["-t", "--tty"],
+          description: "Allocate a TTY for the debugging container",
         },
       ],
     },
@@ -2302,7 +2903,6 @@ const completionSpec: Fig.Spec = {
         sharedOpts.dryRun,
         sharedOpts.filename,
         sharedOpts.kustomize,
-        sharedOpts.output,
         sharedOpts.recursive,
         sharedOpts.selector,
         sharedOpts.allResources,
@@ -2314,8 +2914,13 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--cascade",
+          requiresSeparator: true,
           description:
-            "If true, cascade the deletion of the resources managed by this resource (e.g. Pods created by a ReplicationController).  Default true",
+            'Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background',
+          args: {
+            name: "Strategy",
+            suggestions: ["background", "orphan", "foreground"],
+          },
         },
         {
           name: "--force",
@@ -2336,9 +2941,21 @@ const completionSpec: Fig.Spec = {
             'Treat "resource not found" as a successful delete. Defaults to "true" when --all is specified',
         },
         {
+          name: ["-i", "--interactive"],
+          description: "If true, delete resource only when user confirms",
+        },
+        {
           name: "--now",
           description:
             "If true, resources are signaled for immediate shutdown (same as --grace-period=1)",
+        },
+        {
+          name: ["-o", "--output"],
+          description:
+            'Output mode. Use "-o name" for shorter output (resource/name)',
+          args: {
+            suggestions: ["name"],
+          },
         },
         {
           name: "--raw",
@@ -2378,9 +2995,16 @@ const completionSpec: Fig.Spec = {
             "If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace",
         },
         {
+          name: "--chunk-size",
+          requiresSeparator: true,
+          description:
+            "Return large lists in chunks rather than all at once. Pass 0 to disable",
+          args: {},
+        },
+        {
           name: "--show-events",
           description:
-            "If true, display events related to the described object",
+            "If true, display events related to the described object. Defaults to true for a single object, false for multiple objects and prefix matching",
         },
       ],
     },
@@ -2392,6 +3016,14 @@ const completionSpec: Fig.Spec = {
         sharedOpts.filename,
         sharedOpts.kustomize,
         sharedOpts.recursive,
+        sharedOpts.selector,
+        {
+          name: "--concurrency",
+          requiresSeparator: true,
+          description:
+            "Number of objects to process in parallel when diffing against the live version. Larger number = faster, but more memory, I/O and CPU over that shorter period of time",
+          args: {},
+        },
         {
           name: "--field-manager",
           description: "Name of the manager used to track field ownership",
@@ -2405,9 +3037,31 @@ const completionSpec: Fig.Spec = {
             "If true, server-side apply will force the changes against conflicts",
         },
         {
+          name: "--prune",
+          description:
+            "Include resources that would be deleted by pruning. Can be used with -l and default shows all resources would be pruned",
+        },
+        {
+          name: "--prune-allowlist",
+          requiresSeparator: true,
+          description:
+            "Overwrite the default allowlist with <group/version/kind> for --prune",
+          args: {
+            name: "group/version/kind",
+          },
+        },
+        {
           name: "--server-side",
           description:
             "If true, apply runs in the server instead of the client",
+        },
+        {
+          name: "--show-managed-fields",
+          description: "If true, include managed fields in the diff",
+        },
+        {
+          name: "--show-secrets",
+          description: "If true, do not mask secret values in the diff",
         },
       ],
     },
@@ -2419,7 +3073,13 @@ const completionSpec: Fig.Spec = {
         sharedOpts.dryRun,
         sharedOpts.selector,
         {
-          name: "--delete-local-data",
+          name: "--chunk-size",
+          description:
+            "Return large lists in chunks rather than all at once. Pass 0 to disable",
+          args: {},
+        },
+        {
+          name: "--delete-emptydir-data",
           description:
             "Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained)",
         },
@@ -2483,7 +3143,12 @@ const completionSpec: Fig.Spec = {
         sharedOpts.recursive,
         sharedOpts.allowMissingTemplateKeys,
         sharedOpts.template,
-        sharedOpts.record,
+        {
+          name: "--field-manager",
+          requiresSeparator: true,
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
         {
           name: "--output-patch",
           description: "Output the patch if the resource is edited",
@@ -2495,13 +3160,75 @@ const completionSpec: Fig.Spec = {
             "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
         },
         {
-          name: "--validate",
+          name: "--show-managed-fields",
           description:
-            "If true, use a schema to validate the input before sending it",
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--subresource",
+          requiresSeparator: true,
+          description:
+            "If specified, edit will operate on the subresource of the requested object",
+          args: {},
+        },
+        {
+          name: "--validate",
+          requiresSeparator: true,
+          description:
+            'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+          args: {
+            suggestions: ["strict", "warn", "ignore", "true", "false"],
+          },
         },
         {
           name: "--windows-line-endings",
           description: "Defaults to the line ending native to your platform",
+        },
+      ],
+    },
+    {
+      name: "events",
+      description: "Display events",
+      options: [
+        sharedOpts.allowMissingTemplateKeys,
+        sharedOpts.output,
+        sharedOpts.template,
+        {
+          name: ["-A", "--all-namespaces"],
+          description:
+            "If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace",
+        },
+        {
+          name: "--chunk-size",
+          description:
+            "Return large lists in chunks rather than all at once. Pass 0 to disable",
+          args: {},
+        },
+        {
+          name: "--for",
+          description:
+            "Filter events to only those pertaining to the specified resource",
+          args: sharedArgs.typeOrTypeSlashName,
+        },
+        {
+          name: "--no-headers",
+          description:
+            "When using the default output format, don't print headers",
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--types",
+          description: "Output only events of given types",
+          args: {},
+        },
+        {
+          name: ["-w", "--watch"],
+          description:
+            "After listing the requested events, watch for more events",
         },
       ],
     },
@@ -2520,7 +3247,7 @@ const completionSpec: Fig.Spec = {
         {
           name: ["-c", "--container"],
           description:
-            "Container name. If omitted, the first container in the pod will be chosen",
+            "Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen",
           args: sharedArgs.listContainersFromPod,
         },
         {
@@ -2528,6 +3255,10 @@ const completionSpec: Fig.Spec = {
           description:
             "The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running",
           args: {},
+        },
+        {
+          name: ["-q", "--quiet"],
+          description: "Only print output from the remote session",
         },
         {
           name: ["-i", "--stdin"],
@@ -2550,7 +3281,16 @@ const completionSpec: Fig.Spec = {
           args: {},
         },
         {
-          name: "--recursive",
+          name: ["-o", "--output"],
+          requiresSeparator: true,
+          description:
+            "Format in which to render the schema (plaintext, plaintext-openapiv2)",
+          args: {
+            suggestions: ["plaintext", "plaintext-openapiv2"],
+          },
+        },
+        {
+          name: ["-R", "--recursive"],
           description:
             "Print the fields of fields (Currently only 1 level deep)",
         },
@@ -2569,7 +3309,6 @@ const completionSpec: Fig.Spec = {
         sharedOpts.filename,
         sharedOpts.kustomize,
         sharedOpts.output,
-        sharedOpts.record,
         sharedOpts.recursive,
         sharedOpts.selector,
         sharedOpts.template,
@@ -2588,10 +3327,8 @@ const completionSpec: Fig.Spec = {
           args: {},
         },
         {
-          name: "--generator",
-          requiresSeparator: true,
-          description:
-            "The name of the API generator to use. There are 2 generators: 'service/v1' and 'service/v2'. The only difference between them is that service port in v1 is named 'default', while it is left unnamed in v2. Default is 'service/v2'",
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
           args: {},
         },
         {
@@ -2619,6 +3356,14 @@ const completionSpec: Fig.Spec = {
           description:
             "An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field",
           args: {},
+        },
+        {
+          name: "--override-type",
+          description:
+            "The method used to override the generated object: json, merge, or strategic",
+          args: {
+            suggestions: ["json", "merge", "strategic"],
+          },
         },
         {
           name: "--port",
@@ -2669,6 +3414,11 @@ const completionSpec: Fig.Spec = {
             ],
           },
         },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
       ],
     },
     {
@@ -2683,7 +3433,30 @@ const completionSpec: Fig.Spec = {
         sharedOpts.fieldSelector,
         sharedOpts.filename,
         sharedOpts.kustomize,
-        sharedOpts.output,
+        {
+          name: ["-o", "--output"],
+          description:
+            "Output format. One of: (json, yaml, kyaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file, custom-columns, custom-columns-file, wide)",
+          args: {
+            name: "Output Format",
+            suggestions: [
+              "json",
+              "yaml",
+              "kyaml",
+              "name",
+              "go-template",
+              "go-template-file",
+              "template",
+              "templatefile",
+              "jsonpath",
+              "jsonpath-as-json",
+              "jsonpath-file",
+              "custom-columns",
+              "custom-columns-file",
+              "wide",
+            ],
+          },
+        },
         sharedOpts.recursive,
         sharedOpts.selector,
         sharedOpts.template,
@@ -2696,13 +3469,13 @@ const completionSpec: Fig.Spec = {
           name: "--chunk-size",
           requiresSeparator: true,
           description:
-            "Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future",
+            "Return large lists in chunks rather than all at once. Pass 0 to disable",
           args: {},
         },
         {
           name: "--ignore-not-found",
           description:
-            "If the requested object does not exist the command will return exit code 0",
+            "If set to true, suppresses NotFound error for specific objects that do not exist. Using this flag with commands that query for collections of resources has no effect when no resources are found",
         },
         {
           name: ["-L", "--label-columns"],
@@ -2742,10 +3515,22 @@ const completionSpec: Fig.Spec = {
             "When printing, show all labels as the last column (default hide labels column)",
         },
         {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
           name: "--sort-by",
           requiresSeparator: true,
           description:
             "If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string",
+          args: {},
+        },
+        {
+          name: "--subresource",
+          requiresSeparator: true,
+          description:
+            "If specified, gets the subresource of the requested object",
           args: {},
         },
         {
@@ -2769,18 +3554,26 @@ const completionSpec: Fig.Spec = {
         template: "folders",
       },
       options: [
-        sharedOpts.output,
         {
-          name: "--allow-id-changes",
-          description: "Enable changes to a resourceId",
+          name: ["-o", "--output"],
+          description: "If specified, write output to this path",
+          args: {
+            name: "Path",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "--as-current-user",
+          description:
+            "Use the uid and gid of the command executor to run the function in the container",
         },
         {
           name: "--enable-alpha-plugins",
           description: "Enable kustomize plugins",
         },
         {
-          name: "--enable-managedby-label",
-          description: "Enable adding app.kubernetes.io/managed-by",
+          name: "--enable-helm",
+          description: "Enable use of the Helm chart inflator generator",
         },
         {
           name: ["--env", "-e"],
@@ -2790,6 +3583,31 @@ const completionSpec: Fig.Spec = {
           args: {
             template: "filepaths",
           },
+        },
+        {
+          name: "--helm-api-versions",
+          description:
+            "Kubernetes api versions used by Helm for Capabilities.APIVersions",
+          requiresSeparator: true,
+          args: {},
+        },
+        {
+          name: "--helm-command",
+          description: "Helm command (path to executable)",
+          requiresSeparator: true,
+          args: {},
+        },
+        {
+          name: "--helm-debug",
+          description:
+            "Enable debug output from the Helm chart inflator generator",
+        },
+        {
+          name: "--helm-kube-version",
+          description:
+            "Kubernetes version used by Helm for Capabilities.KubeVersion",
+          requiresSeparator: true,
+          args: {},
         },
         {
           name: "--load-restrictor",
@@ -2814,12 +3632,6 @@ const completionSpec: Fig.Spec = {
           requiresSeparator: true,
           args: {},
         },
-        {
-          name: "--reorder",
-          description:
-            "Reorder the resources just before output. Use 'legacy' to apply a legacy reordering (Namespaces first, Webhooks last, etc). Use 'none' to suppress a final reordering",
-          requiresSeparator: true,
-        },
       ],
     },
     {
@@ -2837,7 +3649,6 @@ const completionSpec: Fig.Spec = {
         sharedOpts.kustomize,
         sharedOpts.local,
         sharedOpts.output,
-        sharedOpts.record,
         sharedOpts.recursive,
         sharedOpts.selector,
         sharedOpts.template,
@@ -2848,6 +3659,15 @@ const completionSpec: Fig.Spec = {
             "Select all resources, including uninitialized ones, in the namespace of the specified resource types",
         },
         {
+          name: ["-A", "--all-namespaces"],
+          description: "If true, check the specified action in all namespaces",
+        },
+        {
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
+        {
           name: "--list",
           description: "If true, display the labels for a given resource",
         },
@@ -2855,6 +3675,11 @@ const completionSpec: Fig.Spec = {
           name: "--overwrite",
           description:
             "If true, allow labels to be overwritten, otherwise reject label updates that overwrite existing labels",
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
       ],
     },
@@ -2871,6 +3696,10 @@ const completionSpec: Fig.Spec = {
         {
           name: "--all-containers",
           description: "Get all containers' logs in the pod(s)",
+        },
+        {
+          name: "--all-pods",
+          description: "Get logs from all pod(s). Sets prefix to true",
         },
         {
           name: ["-c", "--container"],
@@ -2963,12 +3792,38 @@ const completionSpec: Fig.Spec = {
         sharedOpts.kustomize,
         sharedOpts.local,
         sharedOpts.output,
-        sharedOpts.record,
         sharedOpts.recursive,
         sharedOpts.template,
         {
+          name: "--field-manager",
+          requiresSeparator: true,
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
+        {
           name: ["-p", "--patch"],
           description: "The patch to be applied to the resource JSON file",
+          args: {},
+        },
+        {
+          name: "--patch-file",
+          description:
+            "A file containing a patch to be applied to the resource",
+          args: {
+            name: "File",
+            template: "filepaths",
+          },
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--subresource",
+          requiresSeparator: true,
+          description:
+            "If specified, patch will operate on the subresource of the requested object",
           args: {},
         },
         {
@@ -2985,6 +3840,19 @@ const completionSpec: Fig.Spec = {
     {
       name: "plugin",
       description: "Provides utilities for interacting with plugins",
+      subcommands: [
+        {
+          name: "list",
+          description: "List all visible plugin executables on a user's PATH",
+          options: [
+            {
+              name: "--name-only",
+              description:
+                "If true, display only the binary name of each plugin, rather than its full path",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "port-forward",
@@ -3025,6 +3893,11 @@ const completionSpec: Fig.Spec = {
           description:
             "Regular expression for hosts that the proxy should accept",
           args: {},
+        },
+        {
+          name: "--append-server-path",
+          description:
+            "If true, enables automatic path appending of the kube context server path to each request",
         },
         {
           name: "--accept-paths",
@@ -3117,8 +3990,19 @@ const completionSpec: Fig.Spec = {
         sharedOpts.template,
         {
           name: "--cascade",
+          requiresSeparator: true,
           description:
-            "If true, cascade the deletion of the resources managed by this resource (e.g. Pods created by a ReplicationController).  Default true",
+            'Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background',
+          args: {
+            name: "Strategy",
+            suggestions: ["background", "orphan", "foreground"],
+          },
+        },
+        {
+          name: "--field-manager",
+          requiresSeparator: true,
+          description: "Name of the manager used to track field ownership",
+          args: {},
         },
         {
           name: "--force",
@@ -3145,6 +4029,18 @@ const completionSpec: Fig.Spec = {
             "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
         },
         {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--subresource",
+          requiresSeparator: true,
+          description:
+            "If specified, replace will operate on the subresource of the requested object",
+          args: {},
+        },
+        {
           name: "--timeout",
           requiresSeparator: true,
           description:
@@ -3153,8 +4049,12 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--validate",
+          requiresSeparator: true,
           description:
-            "If true, use a schema to validate the input before sending it",
+            'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+          args: {
+            suggestions: ["strict", "warn", "ignore", "true", "false"],
+          },
         },
         {
           name: "--wait",
@@ -3178,6 +4078,7 @@ const completionSpec: Fig.Spec = {
             sharedOpts.kustomize,
             sharedOpts.output,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.template,
             {
               name: "--revision",
@@ -3186,6 +4087,11 @@ const completionSpec: Fig.Spec = {
                 "See the details, including podTemplate of the revision specified",
               // Generator for revisions of resource specified in args
               args: {},
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
             },
           ],
         },
@@ -3199,7 +4105,19 @@ const completionSpec: Fig.Spec = {
             sharedOpts.kustomize,
             sharedOpts.output,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
           ],
         },
         {
@@ -3212,7 +4130,19 @@ const completionSpec: Fig.Spec = {
             sharedOpts.kustomize,
             sharedOpts.output,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
           ],
         },
         {
@@ -3225,7 +4155,19 @@ const completionSpec: Fig.Spec = {
             sharedOpts.kustomize,
             sharedOpts.output,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
           ],
         },
         {
@@ -3236,6 +4178,7 @@ const completionSpec: Fig.Spec = {
             sharedOpts.filename,
             sharedOpts.kustomize,
             sharedOpts.recursive,
+            sharedOpts.selector,
             {
               name: "--revision",
               requiresSeparator: true,
@@ -3264,19 +4207,22 @@ const completionSpec: Fig.Spec = {
             sharedOpts.allowMissingTemplateKeys,
             sharedOpts.filename,
             sharedOpts.kustomize,
+            sharedOpts.output,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.dryRun,
+            sharedOpts.template,
             {
-              name: "--to_revision",
+              name: "--to-revision",
               requiresSeparator: true,
+              description:
+                "The revision to rollback to. Default to 0 (last revision)",
               args: {},
             },
             {
-              name: "--timeout",
-              requiresSeparator: true,
+              name: "--show-managed-fields",
               description:
-                "The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",
-              args: {},
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
             },
           ],
         },
@@ -3295,7 +4241,6 @@ const completionSpec: Fig.Spec = {
         sharedOpts.kustomize,
         sharedOpts.recursive,
         sharedOpts.output,
-        sharedOpts.record,
         sharedOpts.template,
         {
           name: "--annotations",
@@ -3322,6 +4267,11 @@ const completionSpec: Fig.Spec = {
             "If true and extra arguments are present, use them as the 'command' field in the container, rather than the 'args' field which is the default",
         },
         {
+          name: "--detach-keys",
+          description: "Override the key sequence for detaching a container",
+          args: {},
+        },
+        {
           name: "--env",
           requiresSeparator: true,
           description: "Environment variables to set in the container",
@@ -3330,7 +4280,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expose",
           description:
-            "If true, service is created for the container(s) which are run",
+            "If true, create a ClusterIP service associated with the pod. Requires `--port`",
+        },
+        {
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
+          args: {},
         },
         {
           name: "--force",
@@ -3342,13 +4297,6 @@ const completionSpec: Fig.Spec = {
           requiresSeparator: true,
           description:
             "Period of time in seconds given to the resource to terminate gracefully. Ignored if negative. Set to 1 for immediate shutdown. Can only be set to 0 when --force is true (force deletion)",
-          args: {},
-        },
-        {
-          name: "--hostport",
-          requiresSeparator: true,
-          description:
-            "The host port mapping for the container port. To demonstrate a single-machine container",
           args: {},
         },
         {
@@ -3377,18 +4325,19 @@ const completionSpec: Fig.Spec = {
             "If the pod is started in interactive mode or with stdin, leave stdin open after the first attach completes. By default, stdin will be closed after the first attach completes",
         },
         {
-          name: "--limits",
-          requiresSeparator: true,
-          description:
-            "The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that server side components may assign limits depending on the server configuration, such as limit ranges",
-          args: {},
-        },
-        {
           name: "--overrides",
           requiresSeparator: true,
           description:
             "An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field",
           args: {},
+        },
+        {
+          name: "--override-type",
+          description:
+            "The method used to override the generated object: json, merge, or strategic",
+          args: {
+            suggestions: ["json", "merge", "strategic"],
+          },
         },
         {
           name: "--pod-running-timeout",
@@ -3404,21 +4353,18 @@ const completionSpec: Fig.Spec = {
           args: {},
         },
         {
-          name: "--quiet",
-          description: "If true, suppress prompt messages",
+          name: "--privileged",
+          description: "If true, run the container in privileged mode",
         },
         {
-          name: "--requests",
-          requiresSeparator: true,
-          description:
-            "The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges",
-          args: {},
+          name: ["-q", "--quiet"],
+          description: "If true, suppress prompt messages",
         },
         {
           name: "--restart",
           requiresSeparator: true,
           description:
-            "The restart policy for this Pod.  Legal values [Always, OnFailure, Never].  If set to 'Always' a deployment is created, if set to 'OnFailure' a job is created, if set to 'Never', a regular pod is created. For the latter two --replicas must be 1.  Default 'Always', for CronJobs `Never`",
+            "The restart policy for this Pod. Legal values [Always, OnFailure, Never]",
           args: {
             suggestions: ["Always", "OnFailure", "Never"],
           },
@@ -3426,7 +4372,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rm",
           description:
-            "If true, delete resources created in this command for attached containers",
+            "If true, delete the pod after it exits. Only valid when attaching to the container, e.g. with '--attach' or with '-i/--stdin'",
         },
         {
           name: "--save-config",
@@ -3434,10 +4380,9 @@ const completionSpec: Fig.Spec = {
             "If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future",
         },
         {
-          name: "--serviceaccount",
-          requiresSeparator: true,
-          description: "Service account to set in the pod spec",
-          args: {},
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
         {
           name: ["-i", "--stdin"],
@@ -3476,7 +4421,6 @@ const completionSpec: Fig.Spec = {
         sharedOpts.kustomize,
         sharedOpts.output,
         sharedOpts.recursive,
-        sharedOpts.record,
         sharedOpts.resourceVersion,
         sharedOpts.selector,
         sharedOpts.template,
@@ -3498,6 +4442,11 @@ const completionSpec: Fig.Spec = {
           requiresSeparator: true,
           description: "The new desired number of replicas. Required",
           args: {},
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
         {
           name: "--timeout",
@@ -3532,6 +4481,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.recursive,
             sharedOpts.selector,
             sharedOpts.template,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
@@ -3610,7 +4570,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.recursive,
             sharedOpts.selector,
             sharedOpts.template,
-            sharedOpts.record,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
@@ -3636,7 +4606,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.recursive,
             sharedOpts.selector,
             sharedOpts.template,
-            sharedOpts.record,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
@@ -3686,13 +4666,22 @@ const completionSpec: Fig.Spec = {
             sharedOpts.local,
             sharedOpts.recursive,
             sharedOpts.template,
-            sharedOpts.record,
             sharedOpts.resourceVersion,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
                 "Select all resources in the namespace of the specified resource types",
-              args: {},
             },
           ],
         },
@@ -3712,7 +4701,17 @@ const completionSpec: Fig.Spec = {
             sharedOpts.local,
             sharedOpts.recursive,
             sharedOpts.template,
-            sharedOpts.record,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
@@ -3737,8 +4736,19 @@ const completionSpec: Fig.Spec = {
             sharedOpts.output,
             sharedOpts.local,
             sharedOpts.recursive,
+            sharedOpts.selector,
             sharedOpts.template,
-            sharedOpts.record,
+            {
+              name: "--field-manager",
+              requiresSeparator: true,
+              description: "Name of the manager used to track field ownership",
+              args: { name: "Field Manager" },
+            },
+            {
+              name: "--show-managed-fields",
+              description:
+                "If true, keep the managedFields when printing objects in JSON or YAML format",
+            },
             {
               name: "--all",
               description:
@@ -3775,20 +4785,123 @@ const completionSpec: Fig.Spec = {
           description: "Select all nodes in the cluster",
         },
         {
+          name: "--field-manager",
+          description: "Name of the manager used to track field ownership",
+          args: {},
+        },
+        {
           name: "--overwrite",
           description:
             "If true, allow taints to be overwritten, otherwise reject taint updates that overwrite existing taints",
         },
         {
-          name: "--validate",
+          name: "--show-managed-fields",
           description:
-            "If true, use a schema to validate the input before sending it",
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
+        },
+        {
+          name: "--validate",
+          requiresSeparator: true,
+          description:
+            'Must be one of: strict (or true), warn, ignore (or false). "true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not. "warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise. "false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields',
+          args: {
+            suggestions: ["strict", "warn", "ignore", "true", "false"],
+          },
         },
       ],
     },
     {
       name: "top",
       description: "Display Resource (CPU/Memory/Storage) usage",
+      subcommands: [
+        {
+          name: ["node", "nodes", "no"],
+          description: "Display resource (CPU/memory) usage of nodes",
+          args: {
+            ...sharedArgs.listNodes,
+            isOptional: true,
+          },
+          options: [
+            sharedOpts.selector,
+            {
+              name: "--no-headers",
+              description: "If present, print output without headers",
+            },
+            {
+              name: "--show-capacity",
+              description:
+                "Print node resources based on Capacity instead of Allocatable(default) of the nodes",
+            },
+            {
+              name: "--show-swap",
+              description: "Print node resources related to swap memory",
+            },
+            {
+              name: "--sort-by",
+              requiresSeparator: true,
+              description:
+                "If non-empty, sort nodes list using specified field. The field can be either 'cpu' or 'memory'",
+              args: {
+                name: "Field",
+                suggestions: ["cpu", "memory"],
+              },
+            },
+            {
+              name: "--use-protocol-buffers",
+              description:
+                "Enables using protocol-buffers to access Metrics API",
+            },
+          ],
+        },
+        {
+          name: ["pod", "pods", "po"],
+          description: "Display resource (CPU/memory) usage of pods",
+          args: {
+            ...sharedArgs.runningPodsArg,
+            isOptional: true,
+          },
+          options: [
+            sharedOpts.selector,
+            sharedOpts.fieldSelector,
+            {
+              name: ["-A", "--all-namespaces"],
+              description:
+                "If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace",
+            },
+            {
+              name: "--containers",
+              description: "If present, print usage of containers within a pod",
+            },
+            {
+              name: "--no-headers",
+              description: "If present, print output without headers",
+            },
+            {
+              name: "--show-swap",
+              description: "Print pod resources related to swap memory",
+            },
+            {
+              name: "--sort-by",
+              requiresSeparator: true,
+              description:
+                "If non-empty, sort pods list using specified field. The field can be either 'cpu' or 'memory'",
+              args: {
+                name: "Field",
+                suggestions: ["cpu", "memory"],
+              },
+            },
+            {
+              name: "--sum",
+              description: "Print the sum of the resource usage",
+            },
+            {
+              name: "--use-protocol-buffers",
+              description:
+                "Enables using protocol-buffers to access Metrics API",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "uncordon",
@@ -3801,7 +4914,15 @@ const completionSpec: Fig.Spec = {
       description:
         "Print the client and server version information for the current context",
       options: [
-        sharedOpts.output,
+        {
+          name: ["-o", "--output"],
+          requiresSeparator: true,
+          description: "One of 'yaml' or 'json'",
+          args: {
+            name: "Output Format",
+            suggestions: ["yaml", "json"],
+          },
+        },
         {
           name: "--client",
           description:
@@ -3811,8 +4932,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "wait",
-      description:
-        "Experimental: Wait for a specific condition on one or many resources",
+      description: "Wait for a specific condition on one or many resources",
       // TODO: Args
       args: {},
       options: [
@@ -3841,6 +4961,11 @@ const completionSpec: Fig.Spec = {
           description:
             "The condition to wait on: [delete|condition=condition-name]",
           args: {},
+        },
+        {
+          name: "--show-managed-fields",
+          description:
+            "If true, keep the managedFields when printing objects in JSON or YAML format",
         },
         {
           name: "--timeout",
