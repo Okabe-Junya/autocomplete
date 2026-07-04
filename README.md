@@ -28,9 +28,16 @@ brew tap okabe-junya/tap
 brew install okabe-junya/tap/autocomplete-specs
 ```
 
-The formula's `post_install` symlinks `~/.fig/autocomplete/build` ->
-`$(brew --prefix)/opt/autocomplete-specs/share/autocomplete-specs/build`, so
-specs update on every `brew upgrade`. Releases are published automatically by
+Then create a one-time symlink (Homebrew sandboxes `post_install` with a
+redirected `HOME`, so the formula cannot do this itself):
+
+```bash
+mkdir -p ~/.fig/autocomplete
+ln -sfn "$(brew --prefix)/opt/autocomplete-specs/share/autocomplete-specs/build" ~/.fig/autocomplete/build
+```
+
+The link target is stable across versions, so specs update on every
+`brew upgrade` with no further steps. Releases are published automatically by
 [`.github/workflows/release.yml`](.github/workflows/release.yml) on every
 `master` push that touches `src/`, and the formula in
 [Okabe-Junya/homebrew-tap](https://github.com/Okabe-Junya/homebrew-tap) is
