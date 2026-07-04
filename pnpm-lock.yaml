@@ -34,8 +34,8 @@ importers:
         specifier: ^1.31.0
         version: 1.31.0
       typescript:
-        specifier: ~5.5.4
-        version: 5.5.4
+        specifier: ~5.9.3
+        version: 5.9.3
 
 packages:
 
@@ -598,8 +598,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -813,7 +813,7 @@ snapshots:
     dependencies:
       prettier: 3.9.4
       ts-morph: 22.0.0
-      typescript: 5.5.4
+      typescript: 5.9.3
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -851,7 +851,7 @@ snapshots:
       module-from-string: 3.3.1
       prettier: 3.9.4
       semver: 7.8.5
-      typescript: 5.5.4
+      typescript: 5.9.3
 
   '@withfig/autocomplete-types@1.31.0': {}
 
@@ -1042,6 +1042,6 @@ snapshots:
 
   typescript@4.9.5: {}
 
-  typescript@5.5.4: {}
+  typescript@5.9.3: {}
 
   yaml@2.9.0: {}
