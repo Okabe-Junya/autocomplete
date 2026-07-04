@@ -14,7 +14,7 @@ interface PostProcessQuery {
 }
 
 const postProcessQuery =
-  (options: PostProcessQuery): Fig.Generator["postProcess"] =>
+  (options: PostProcessQuery): ((out: string) => Fig.Suggestion[]) =>
   (out) => {
     const { attributeKey } = options;
     const values = new Set<string>();
@@ -57,8 +57,7 @@ const dscacheutilGenerators: Record<string, Fig.Generator> = {
             command: "dscacheutil",
             args: ["-q", category],
           })
-        ).stdout,
-        tokens
+        ).stdout
       );
     },
   },

@@ -19,7 +19,7 @@ const sharedPostProcessChecks = {
   },
 };
 
-const sharedPostProcess: Fig.Generator["postProcess"] = (out) => {
+const sharedPostProcess = (out: string): Fig.Suggestion[] => {
   if (
     sharedPostProcessChecks.connectedToCluster(out) ||
     sharedPostProcessChecks.generalError(out)
@@ -1804,8 +1804,8 @@ const completionSpec: Fig.Spec = {
                 name: "Cronjob",
                 generators: {
                   script: () => scripts.typeWithoutName("cronjob"),
-                  postProcess: (out, tokens) => {
-                    return sharedPostProcess(out, tokens).map((item) => ({
+                  postProcess: (out) => {
+                    return sharedPostProcess(out).map((item) => ({
                       ...item,
                       name: `cronjob/${item.name}`,
                     })) as Fig.Suggestion[];

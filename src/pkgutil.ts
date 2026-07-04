@@ -3,7 +3,9 @@ interface PostProcessPkgFilenames {
 }
 
 const postProcessPkgFilenames =
-  (options: PostProcessPkgFilenames = {}): Fig.Generator["postProcess"] =>
+  (
+    options: PostProcessPkgFilenames = {}
+  ): ((out: string) => Fig.Suggestion[]) =>
   (out) => {
     const { pathPrefix = "" } = options;
     const names = new Set<string>();
@@ -67,8 +69,7 @@ export const pkgutilGenerators: Record<string, Fig.Generator> = {
             command: "pkgutil",
             args: ["--files", pkgId],
           })
-        ).stdout,
-        tokens
+        ).stdout
       );
     },
     trigger: "/",
