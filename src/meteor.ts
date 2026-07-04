@@ -5,7 +5,11 @@ const examplesGenerator: Fig.Generator = {
   postProcess: (output) => {
     return output
       .split("\n")
-      .filter((example) => example.includes("github.com"))
+      .filter((example) =>
+        example
+          .split(/\s+/)
+          .some((word) => /^(https?:\/\/)?github\.com\//.test(word))
+      )
       .map((example) => {
         return { name: example.split(":")[0].trim() };
       });

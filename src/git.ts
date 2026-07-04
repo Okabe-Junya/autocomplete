@@ -307,18 +307,24 @@ export const gitGenerators: Record<string, Fig.Generator> = {
           return dict;
         }, {});
 
+      // Extract the host from a remote URL, handling https://, ssh://, and
+      // scp-like `git@host:` forms.
+      const getRemoteHost = (url: string): string => {
+        const match = url.match(
+          /^(?:[a-z][\w+.-]*:\/\/)?(?:[^/@]+@)?([^/:]+)/i
+        );
+        return match ? match[1].toLowerCase() : "";
+      };
+
       return Object.keys(remoteURLs).map((remote) => {
         const url = remoteURLs[remote];
+        const host = getRemoteHost(url);
         let icon = "box";
-        if (url.includes("github.com")) {
+        if (host === "github.com" || host.endsWith(".github.com")) {
           icon = "github";
-        }
-
-        if (url.includes("gitlab.com")) {
+        } else if (host === "gitlab.com" || host.endsWith(".gitlab.com")) {
           icon = "gitlab";
-        }
-
-        if (url.includes("heroku.com")) {
+        } else if (host === "heroku.com" || host.endsWith(".heroku.com")) {
           icon = "heroku";
         }
         return {
