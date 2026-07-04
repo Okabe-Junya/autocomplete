@@ -91,21 +91,27 @@ const completionSpec: Fig.Spec = {
       description: "Adds a new dependency to pyproject.toml",
       options: [
         ...globalOptions,
-        { name: "--group", description: "The group to add the dependency to" },
         {
-          name: "--dev",
-          description:
-            "Add as a development dependency. (Deprecated) Use --group=dev instead",
+          name: ["-G", "--group"],
+          description: "The group to add the dependency to",
         },
         {
-          name: "--editable",
+          name: ["-D", "--dev"],
+          description:
+            "Add as a development dependency (shortcut for '-G dev')",
+        },
+        {
+          name: ["-e", "--editable"],
           description: "Add vcs/path dependencies as editable",
         },
         {
-          name: "--extras",
+          name: ["-E", "--extras"],
           description: "Extras to activate for the dependency",
         },
-        { name: "--optional", description: "Add as an optional dependency" },
+        {
+          name: "--optional",
+          description: "Add as an optional dependency to an extra",
+        },
         {
           name: "--python",
           description:
@@ -114,6 +120,11 @@ const completionSpec: Fig.Spec = {
         {
           name: "--platform",
           description: "Platforms for which the dependency must be installed",
+        },
+        {
+          name: "--markers",
+          description:
+            "Environment markers which describe when the dependency should be installed",
         },
         {
           name: "--source",
@@ -221,6 +232,12 @@ const completionSpec: Fig.Spec = {
           ],
           args: { name: "package", description: "The packages to resolve" },
         },
+        {
+          name: "tags",
+          description:
+            "Shows compatible tags for your project's current active environment",
+          options: [...globalOptions],
+        },
       ],
     },
     {
@@ -228,6 +245,11 @@ const completionSpec: Fig.Spec = {
       description:
         "The env command regroups sub commands to interact with the virtualenvs associated with a specific project",
       subcommands: [
+        {
+          name: "activate",
+          description: "Print the command to activate a virtual environment",
+          options: [...globalOptions],
+        },
         {
           name: "info",
           description: "Displays information about the current environment",
@@ -321,14 +343,9 @@ const completionSpec: Fig.Spec = {
           description: "The only dependency groups to include",
         },
         {
-          name: "--no-dev",
-          description:
-            "Do not install the development dependencies. (Deprecated)",
-        },
-        {
           name: "--sync",
           description:
-            "Synchronize the environment with the locked packages and the specified groups",
+            "Synchronize the environment with the locked packages and the specified groups. (Deprecated) Use poetry sync instead",
         },
         {
           name: "--no-root",
@@ -345,15 +362,14 @@ const completionSpec: Fig.Spec = {
             "Output the operations but do not execute anything (implicitly enables --verbose)",
         },
         {
-          name: "--remove-untracked",
-          description:
-            "Removes packages not present in the lock file. (Deprecated)",
-        },
-        {
-          name: "--extras",
+          name: ["-E", "--extras"],
           description: "Extra sets of dependencies to install",
         },
         { name: "--all-extras", description: "Install all extra dependencies" },
+        {
+          name: "--all-groups",
+          description: "Install dependencies from all groups",
+        },
         { name: "--only-root", description: "Exclude all dependencies" },
         {
           name: "--compile",
@@ -427,6 +443,92 @@ const completionSpec: Fig.Spec = {
           name: "--skip-existing",
           description:
             "Ignore errors from files already existing in the repository",
+        },
+      ],
+    },
+    {
+      name: "python",
+      description:
+        "The python namespace regroups sub commands to manage Python versions used by Poetry",
+      subcommands: [
+        {
+          name: "install",
+          description:
+            "Install the specified Python version from the Python Standalone Builds project. (experimental feature)",
+          options: [
+            ...globalOptions,
+            {
+              name: ["-c", "--clean"],
+              description: "Clean up installation if check fails",
+            },
+            {
+              name: ["-t", "--free-threaded"],
+              description: "Use free-threaded version if available",
+            },
+            {
+              name: ["-i", "--implementation"],
+              description: "Python implementation to use. (cpython, pypy)",
+            },
+            {
+              name: ["-r", "--reinstall"],
+              description: "Reinstall if installation already exists",
+            },
+          ],
+          args: {
+            name: "python",
+            description: "The python version to install",
+          },
+        },
+        {
+          name: "list",
+          description:
+            "Shows Python versions available for this environment. (experimental feature)",
+          options: [
+            ...globalOptions,
+            {
+              name: ["-a", "--all"],
+              description:
+                "List all versions, including those available for download",
+            },
+            {
+              name: ["-t", "--free-threaded"],
+              description: "List only free-threaded Python versions",
+            },
+            {
+              name: ["-i", "--implementation"],
+              description: "Python implementation to search for",
+            },
+            {
+              name: ["-m", "--managed"],
+              description: "List only Poetry managed Python versions",
+            },
+          ],
+          args: {
+            name: "version",
+            description: "Python version to search for",
+            isOptional: true,
+          },
+        },
+        {
+          name: "remove",
+          description:
+            "Remove the specified Python version if managed by Poetry. (experimental feature)",
+          options: [
+            ...globalOptions,
+            {
+              name: ["-t", "--free-threaded"],
+              description: "Use free-threaded version if available",
+            },
+            {
+              name: ["-i", "--implementation"],
+              description: "Python implementation to use. (cpython, pypy)",
+            },
+          ],
+          args: {
+            name: "python",
+            description: "The python version to remove",
+            isVariadic: true,
+          },
         },
       ],
     },
@@ -570,6 +672,27 @@ const completionSpec: Fig.Spec = {
             },
           ],
           args: { name: "package", description: "The package to inspect" },
+          subcommands: [
+            {
+              name: "plugins",
+              description:
+                "Shows information about the currently installed plugins",
+              options: [...globalOptions],
+            },
+          ],
+        },
+        {
+          name: "sync",
+          description:
+            "Sync poetry's own environment according to the locked packages (incl. addons) required by this poetry installation",
+          options: [
+            ...globalOptions,
+            {
+              name: "--dry-run",
+              description:
+                "Output the operations but do not execute anything (implicitly enables --verbose)",
+            },
+          ],
         },
         {
           name: "update",
@@ -589,11 +712,6 @@ const completionSpec: Fig.Spec = {
           args: { name: "version", description: "The version to update to" },
         },
       ],
-    },
-    {
-      name: "shell",
-      description: "Spawns a shell within the virtual environment",
-      options: [...globalOptions],
     },
     {
       name: "show",
@@ -692,6 +810,50 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "sync",
+      description: "Update the project's environment according to the lockfile",
+      options: [
+        ...globalOptions,
+        { name: "--without", description: "The dependency groups to ignore" },
+        {
+          name: "--with",
+          description: "The optional dependency groups to include",
+        },
+        {
+          name: "--only",
+          description: "The only dependency groups to include",
+        },
+        {
+          name: "--no-root",
+          description: "Do not install the root package (the current project)",
+        },
+        {
+          name: "--no-directory",
+          description:
+            "Do not install any directory path dependencies; useful to install dependencies without source code, e.g. for caching of Docker layers)",
+        },
+        {
+          name: "--dry-run",
+          description:
+            "Output the operations but do not execute anything (implicitly enables --verbose)",
+        },
+        {
+          name: ["-E", "--extras"],
+          description: "Extra sets of dependencies to install",
+        },
+        { name: "--all-extras", description: "Install all extra dependencies" },
+        {
+          name: "--all-groups",
+          description: "Install dependencies from all groups",
+        },
+        { name: "--only-root", description: "Exclude all dependencies" },
+        {
+          name: "--compile",
+          description: "Compile Python source files to bytecode",
+        },
+      ],
+    },
+    {
       name: "update",
       description:
         "Update the dependencies as according to the pyproject.toml file",
@@ -707,9 +869,9 @@ const completionSpec: Fig.Spec = {
           description: "The only dependency groups to include",
         },
         {
-          name: "--no-dev",
+          name: "--sync",
           description:
-            "Do not update the development dependencies. (Deprecated)",
+            "Synchronize the environment with the locked packages and the specified groups",
         },
         {
           name: "--dry-run",
