@@ -575,6 +575,173 @@ const dependencyOptions: Fig.Option[] = [
   },
 ];
 
+/** Shared flags for the newer package-registry subcommands (outdated, publish, patch, info) */
+const packageDetailOptions: Fig.Option[] = [
+  {
+    name: ["-c", "--config"],
+    args: { name: "path", template: "filepaths", isOptional: true },
+    description: "Specify path to config file (bunfig.toml)",
+  },
+  {
+    name: ["-y", "--yarn"],
+    description: "Write a yarn.lock file (yarn v1)",
+  },
+  {
+    name: ["-p", "--production"],
+    description: "Don't install devDependencies",
+  },
+  {
+    name: "--no-save",
+    description: "Don't update package.json or save a lockfile",
+  },
+  {
+    name: "--save",
+    description: "Save to package.json (true by default)",
+  },
+  {
+    name: "--ca",
+    args: { name: "val" },
+    description: "Provide a Certificate Authority signing certificate",
+  },
+  {
+    name: "--cafile",
+    args: { name: "path", template: "filepaths" },
+    description: "The same as `--ca`, but is a file path to the certificate",
+  },
+  {
+    name: "--dry-run",
+    description: "Perform a dry run without making changes",
+  },
+  {
+    name: "--frozen-lockfile",
+    description: "Disallow changes to lockfile",
+  },
+  {
+    name: ["-f", "--force"],
+    description:
+      "Always request the latest versions from the registry & reinstall all dependencies",
+  },
+  {
+    name: "--cache-dir",
+    args: { name: "path", template: "folders" },
+    description: "Store & load cached data from a specific directory path",
+  },
+  {
+    name: "--no-cache",
+    description: "Ignore manifest cache entirely",
+  },
+  {
+    name: "--silent",
+    description: "Don't log anything",
+  },
+  {
+    name: "--quiet",
+    description: "Only show tarball name when packing",
+  },
+  {
+    name: "--verbose",
+    description: "Excessively verbose logging",
+  },
+  {
+    name: "--no-progress",
+    description: "Disable the progress bar",
+  },
+  {
+    name: "--no-summary",
+    description: "Don't print a summary",
+  },
+  {
+    name: "--no-verify",
+    description: "Skip verifying integrity of newly downloaded packages",
+  },
+  {
+    name: "--ignore-scripts",
+    description:
+      "Skip lifecycle scripts in the project's package.json (dependency scripts are never run)",
+  },
+  {
+    name: "--trust",
+    description:
+      "Add to trustedDependencies in the project's package.json and install the package(s)",
+  },
+  {
+    name: ["-g", "--global"],
+    description: "Install globally",
+  },
+  {
+    name: "--cwd",
+    args: { name: "path", template: "folders" },
+    description: "Set a specific cwd",
+  },
+  {
+    name: "--backend",
+    args: {
+      name: "syscall",
+      suggestions: ["clonefile", "hardlink", "symlink", "copyfile"],
+    },
+    description:
+      'Platform-specific optimizations for installing dependencies. Possible values: "clonefile" (default), "hardlink", "symlink", "copyfile"',
+  },
+  {
+    name: "--registry",
+    args: { name: "url" },
+    description:
+      "Use a specific registry by default, overriding .npmrc, bunfig.toml and environment variables",
+  },
+  {
+    name: "--concurrent-scripts",
+    args: { name: "number" },
+    description:
+      "Maximum number of concurrent jobs for lifecycle scripts (default: 2x CPU cores)",
+  },
+  {
+    name: "--network-concurrency",
+    args: { name: "number" },
+    description: "Maximum number of concurrent network requests (default 48)",
+  },
+  {
+    name: "--save-text-lockfile",
+    description: "Save a text-based lockfile",
+  },
+  {
+    name: "--omit",
+    args: { name: "val", suggestions: ["dev", "optional", "peer"] },
+    description:
+      "Exclude 'dev', 'optional', or 'peer' dependencies from install",
+  },
+  {
+    name: "--lockfile-only",
+    description: "Generate a lockfile without installing dependencies",
+  },
+  {
+    name: "--linker",
+    args: { name: "val", suggestions: ["isolated", "hoisted"] },
+    description: 'Linker strategy (one of "isolated" or "hoisted")',
+  },
+  {
+    name: "--minimum-release-age",
+    args: { name: "seconds" },
+    description:
+      "Only install packages published at least N seconds ago (security feature)",
+  },
+  {
+    name: "--cpu",
+    args: { name: "arch" },
+    description:
+      "Override CPU architecture for optional dependencies (e.g., x64, arm64, * for all)",
+  },
+  {
+    name: "--os",
+    args: { name: "os" },
+    description:
+      "Override operating system for optional dependencies (e.g., linux, darwin, * for all)",
+  },
+  {
+    name: ["-h", "--help"],
+    description: "Print this help menu",
+  },
+];
+
 /** Generate the globally linked packages stored in $BUN_INSTALL directory */
 const bunLinksGenerator: Fig.Generator = {
   script: [
@@ -715,6 +882,16 @@ const spec: Fig.Spec = {
       },
     },
     {
+      name: "exec",
+      icon,
+      description: "Run a shell script directly with Bun",
+      args: {
+        name: "script",
+        description:
+          'Shell script to execute, e.g. bun exec "echo hi" (escape it when run from a shell)',
+      },
+    },
+    {
       name: ["i", "install"],
       icon: "📦",
       description: "Install dependencies for a package.json",
@@ -774,6 +951,57 @@ const spec: Fig.Spec = {
       },
     },
     {
+      name: "audit",
+      icon: "📦",
+      description: "Check installed packages for vulnerabilities",
+      options: [
+        {
+          name: "--json",
+          description: "Output in JSON format",
+        },
+        {
+          name: "--audit-level",
+          args: {
+            name: "level",
+            suggestions: ["low", "moderate", "high", "critical"],
+          },
+          description:
+            "Only print advisories with severity greater than or equal to <level>",
+        },
+        {
+          name: "--ignore",
+          args: { name: "cve-id", isVariadic: true },
+          description: "Ignore specific CVE IDs from audit",
+        },
+      ],
+    },
+    {
+      name: "outdated",
+      icon: "📦",
+      description: "Display latest versions of outdated dependencies",
+      options: [
+        ...packageDetailOptions,
+        {
+          name: ["-F", "--filter"],
+          args: { name: "pattern" },
+          description:
+            "Display outdated dependencies for each matching workspace",
+        },
+        {
+          name: ["-r", "--recursive"],
+          description: "Check outdated packages in all workspaces",
+        },
+      ],
+      args: {
+        name: "package",
+        isOptional: true,
+        isVariadic: true,
+        filterStrategy: "fuzzy",
+        generators: dependenciesGenerator,
+        description: "Filter outdated dependencies by name pattern",
+      },
+    },
+    {
       name: "link",
       icon: "📦",
       description:
@@ -798,6 +1026,77 @@ const spec: Fig.Spec = {
       icon: "📦",
       description: "Unlink this package from the global package registry",
       // Unliking a package by name is not yet implemented. Use bunLinksGenerator once it is implemented.
+    },
+    {
+      name: "publish",
+      icon: "📦",
+      description: "Publish a package to the npm registry",
+      options: [
+        ...packageDetailOptions,
+        {
+          name: "--access",
+          args: { name: "level", suggestions: ["public", "restricted"] },
+          description: "Set access level for scoped packages",
+        },
+        {
+          name: "--tag",
+          args: { name: "tag" },
+          description: 'Tag the release. Default is "latest"',
+        },
+        {
+          name: "--otp",
+          args: { name: "password" },
+          description: "Provide a one-time password for authentication",
+        },
+        {
+          name: "--auth-type",
+          args: { name: "val" },
+          description:
+            "Specify the type of one-time password authentication (default is 'web')",
+        },
+        {
+          name: "--gzip-level",
+          args: { name: "level" },
+          description:
+            "Specify a custom compression level for gzip. Default is 9",
+        },
+        {
+          name: "--tolerate-republish",
+          description:
+            "Don't exit with code 1 when republishing over an existing version number",
+        },
+      ],
+      args: {
+        name: "dist",
+        isOptional: true,
+        template: "filepaths",
+        description: "Pre-existing package tarball to publish",
+      },
+    },
+    {
+      name: "patch",
+      icon: "📦",
+      description: "Prepare a package for patching",
+      options: [
+        ...packageDetailOptions,
+        {
+          name: "--commit",
+          description: "Install a package containing modifications in `dir`",
+        },
+        {
+          name: "--patches-dir",
+          args: { name: "path", template: "folders" },
+          description:
+            "The directory to put the patch file in (only if --commit is used)",
+        },
+      ],
+      args: {
+        name: "package",
+        filterStrategy: "fuzzy",
+        generators: dependenciesGenerator,
+        description:
+          "Package to patch (or its node_modules path when using --commit)",
+      },
     },
     {
       name: "upgrade",
@@ -879,6 +1178,56 @@ const spec: Fig.Spec = {
       ],
     },
     {
+      name: "info",
+      icon: "📦",
+      description: "Display package metadata from the registry",
+      options: [
+        ...packageDetailOptions,
+        {
+          name: "--json",
+          description: "Output in JSON format",
+        },
+      ],
+      args: [
+        {
+          name: "package",
+          debounce: true,
+          generators: npmSearchGenerator,
+          filterStrategy: "fuzzy",
+          description: "Package name, optionally with @version",
+        },
+        {
+          name: "property",
+          isOptional: true,
+          description: "Specific property to display, e.g. version",
+        },
+      ],
+    },
+    {
+      name: "why",
+      icon: "📦",
+      description: "Explain why a package is installed",
+      options: [
+        {
+          name: "--top",
+          description:
+            "Show only the top dependency tree instead of nested ones",
+        },
+        {
+          name: "--depth",
+          args: { name: "number" },
+          description: "Maximum depth of the dependency tree to display",
+        },
+      ],
+      args: {
+        name: "package",
+        filterStrategy: "fuzzy",
+        generators: dependenciesGenerator,
+        description:
+          "Package name to explain (supports glob patterns like '@org/*')",
+      },
+    },
+    {
       name: "completions",
       icon,
       description: "Install shell completions",
@@ -915,6 +1264,25 @@ const spec: Fig.Spec = {
           description: "Answer yes to all prompts",
         },
       ],
+    },
+    {
+      name: "feedback",
+      icon,
+      description: "Provide feedback to the Bun team",
+      options: [
+        {
+          name: ["-e", "--email"],
+          args: { name: "email" },
+          description: "Set the email address used for this submission",
+        },
+      ],
+      args: {
+        name: "text-or-files",
+        isOptional: true,
+        isVariadic: true,
+        template: "filepaths",
+        description: "Feedback text, or files to attach",
+      },
     },
   ],
 };
