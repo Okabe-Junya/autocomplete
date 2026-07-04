@@ -16,26 +16,20 @@ class AutocompleteSpecs < Formula
   license "MIT"
 
   def install
-    pkgshare.install "build"
-  end
-
-  def post_install
-    fig_dir = File.expand_path("~/.fig/autocomplete")
-    target = File.join(fig_dir, "build")
-    FileUtils.mkdir_p(fig_dir)
-    if File.directory?(target) && !File.symlink?(target)
-      backup = "#{target}.backup-#{Time.now.strftime("%Y%m%d%H%M%S")}"
-      FileUtils.mv(target, backup)
-      opoo "Existing #{target} moved to #{backup}"
-    end
-    FileUtils.ln_sf(opt_pkgshare/"build", target)
+    # The tarball's single top-level "build/" directory is stripped by
+    # Homebrew's staging, so the specs land directly in the buildpath.
+    (pkgshare/"build").install Dir["*"]
   end
 
   def caveats
+    # post_install cannot create this symlink: Homebrew sandboxes it with a
+    # redirected HOME, so writes to "~" silently land in a throwaway dir.
     <<~EOS
-      Completion specs are symlinked for Kiro CLI:
-        ~/.fig/autocomplete/build -> #{opt_pkgshare}/build
-      They update automatically on \\\`brew upgrade\\\`.
+      To let Kiro CLI load these specs, create a one-time symlink
+      (move any existing real directory aside first):
+        mkdir -p ~/.fig/autocomplete
+        ln -sfn #{opt_pkgshare}/build ~/.fig/autocomplete/build
+      The link target is stable, so future \\\`brew upgrade\\\`s apply automatically.
     EOS
   end
 
