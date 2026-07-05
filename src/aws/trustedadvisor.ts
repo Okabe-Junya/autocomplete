@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "trustedadvisor",
   description: "TrustedAdvisor Public API",
@@ -5,7 +6,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "batch-update-recommendation-resource-exclusion",
       description:
-        "Update one or more exclusion status for a list of recommendation resources",
+        "Update one or more exclusion statuses for a list of recommendation resources. This API supports up to 25 unique recommendation resource ARNs per request. This API currently doesn't support prioritized recommendation resources. This API updates global recommendations, eliminating the need to call the API in each AWS Region. After submitting an exclusion update, note that it might take a few minutes for the changes to be reflected in the system",
       options: [
         {
           name: "--recommendation-resource-exclusions",
@@ -37,7 +38,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-organization-recommendation",
       description:
-        "Get a specific recommendation within an AWS Organizations organization. This API supports only prioritized recommendations",
+        "Get a specific recommendation within an AWS Organizations organization. This API supports only prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
           name: "--organization-recommendation-identifier",
@@ -67,11 +68,20 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-recommendation",
-      description: "Get a specific Recommendation",
+      description:
+        "Get a specific Recommendation. This API provides global recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
           name: "--recommendation-identifier",
           description: "The Recommendation identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "The ISO 639-1 code for the language that you want your recommendations to appear in",
           args: {
             name: "string",
           },
@@ -97,38 +107,9 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-checks",
-      description: "List a filterable set of Checks",
+      description:
+        "List a filterable set of Checks. This API provides global recommendations, eliminating the need to call the API in each AWS Region",
       options: [
-        {
-          name: "--aws-service",
-          description: "The aws service associated with the check",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--language",
-          description:
-            "The ISO 639-1 code for the language that you want your checks to appear in",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--pillar",
           description: "The pillar of the check",
@@ -137,8 +118,23 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--aws-service",
+          description: "The aws service associated with the check",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--source",
           description: "The source of the check",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "The ISO 639-1 code for the language that you want your checks to appear in",
           args: {
             name: "string",
           },
@@ -189,34 +185,19 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-organization-recommendation-accounts",
       description:
-        "Lists the accounts that own the resources for an organization aggregate recommendation. This API only supports prioritized recommendations",
+        "Lists the accounts that own the resources for an organization aggregate recommendation. This API only supports prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
+        {
+          name: "--organization-recommendation-identifier",
+          description: "The Recommendation identifier",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--affected-account-id",
           description:
             "An account affected by this organization recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--organization-recommendation-identifier",
-          description: "The Recommendation identifier",
           args: {
             name: "string",
           },
@@ -267,12 +248,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-organization-recommendation-resources",
       description:
-        "List Resources of a Recommendation within an Organization. This API only supports prioritized recommendations",
+        "List Resources of a Recommendation within an Organization. This API only supports prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
-          name: "--affected-account-id",
-          description:
-            "An account affected by this organization recommendation",
+          name: "--status",
+          description: "The status of the resource",
           args: {
             name: "string",
           },
@@ -285,16 +265,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--region-code",
+          description: "The AWS Region code of the resource",
           args: {
             name: "string",
           },
@@ -308,15 +280,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--region-code",
-          description: "The AWS Region code of the resource",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--status",
-          description: "The status of the resource",
+          name: "--affected-account-id",
+          description:
+            "An account affected by this organization recommendation",
           args: {
             name: "string",
           },
@@ -367,61 +333,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-organization-recommendations",
       description:
-        "List a filterable set of Recommendations within an Organization. This API only supports prioritized recommendations",
+        "List a filterable set of Recommendations within an Organization. This API only supports prioritized recommendations and provides global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
-          name: "--after-last-updated-at",
-          description: "After the last update of the Recommendation",
-          args: {
-            name: "timestamp",
-          },
-        },
-        {
-          name: "--aws-service",
-          description: "The aws service associated with the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--before-last-updated-at",
-          description: "Before the last update of the Recommendation",
-          args: {
-            name: "timestamp",
-          },
-        },
-        {
-          name: "--check-identifier",
-          description: "The check identifier of the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--pillar",
-          description: "The pillar of the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--source",
-          description: "The source of the Recommendation",
+          name: "--type",
+          description: "The type of the Recommendation",
           args: {
             name: "string",
           },
@@ -434,10 +350,45 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--type",
-          description: "The type of the Recommendation",
+          name: "--pillar",
+          description: "The pillar of the Recommendation",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--aws-service",
+          description: "The aws service associated with the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source",
+          description: "The source of the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--check-identifier",
+          description: "The check identifier of the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--after-last-updated-at",
+          description: "After the last update of the Recommendation",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--before-last-updated-at",
+          description: "Before the last update of the Recommendation",
+          args: {
+            name: "timestamp",
           },
         },
         {
@@ -485,33 +436,19 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-recommendation-resources",
-      description: "List Resources of a Recommendation",
+      description:
+        "List Resources of a Recommendation. This API provides global recommendations, eliminating the need to call the API in each AWS Region",
       options: [
+        {
+          name: "--status",
+          description: "The status of the resource",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--exclusion-status",
           description: "The exclusion status of the resource",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--recommendation-identifier",
-          description: "The Recommendation identifier",
           args: {
             name: "string",
           },
@@ -524,8 +461,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--status",
-          description: "The status of the resource",
+          name: "--recommendation-identifier",
+          description: "The Recommendation identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "The ISO 639-1 code for the language that you want your recommendations to appear in",
           args: {
             name: "string",
           },
@@ -575,61 +520,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-recommendations",
-      description: "List a filterable set of Recommendations",
+      description:
+        "List a filterable set of Recommendations. This API provides global recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
-          name: "--after-last-updated-at",
-          description: "After the last update of the Recommendation",
-          args: {
-            name: "timestamp",
-          },
-        },
-        {
-          name: "--aws-service",
-          description: "The aws service associated with the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--before-last-updated-at",
-          description: "Before the last update of the Recommendation",
-          args: {
-            name: "timestamp",
-          },
-        },
-        {
-          name: "--check-identifier",
-          description: "The check identifier of the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--pillar",
-          description: "The pillar of the Recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--source",
-          description: "The source of the Recommendation",
+          name: "--type",
+          description: "The type of the Recommendation",
           args: {
             name: "string",
           },
@@ -642,8 +538,51 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--type",
-          description: "The type of the Recommendation",
+          name: "--pillar",
+          description: "The pillar of the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-service",
+          description: "The aws service associated with the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source",
+          description: "The source of the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--check-identifier",
+          description: "The check identifier of the Recommendation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--after-last-updated-at",
+          description: "After the last update of the Recommendation",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--before-last-updated-at",
+          description: "Before the last update of the Recommendation",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "The ISO 639-1 code for the language that you want your recommendations to appear in",
           args: {
             name: "string",
           },
@@ -694,19 +633,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-organization-recommendation-lifecycle",
       description:
-        "Update the lifecycle of a Recommendation within an Organization. This API only supports prioritized recommendations",
+        "Update the lifecycle of a Recommendation within an Organization. This API only supports prioritized recommendations and updates global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
           name: "--lifecycle-stage",
           description: "The new lifecycle stage",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--organization-recommendation-identifier",
-          description:
-            "The Recommendation identifier for AWS Trusted Advisor Priority recommendations",
           args: {
             name: "string",
           },
@@ -721,6 +652,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--update-reason-code",
           description: "Reason code for the lifecycle state change",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--organization-recommendation-identifier",
+          description:
+            "The Recommendation identifier for AWS Trusted Advisor Priority recommendations",
           args: {
             name: "string",
           },
@@ -747,19 +686,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-recommendation-lifecycle",
       description:
-        "Update the lifecyle of a Recommendation. This API only supports prioritized recommendations",
+        "Update the lifecyle of a Recommendation. This API only supports prioritized recommendations and updates global priority recommendations, eliminating the need to call the API in each AWS Region",
       options: [
         {
           name: "--lifecycle-stage",
           description: "The new lifecycle stage",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--recommendation-identifier",
-          description:
-            "The Recommendation identifier for AWS Trusted Advisor Priority recommendations",
           args: {
             name: "string",
           },
@@ -774,6 +705,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--update-reason-code",
           description: "Reason code for the lifecycle state change",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--recommendation-identifier",
+          description:
+            "The Recommendation identifier for AWS Trusted Advisor Priority recommendations",
           args: {
             name: "string",
           },

@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "deploy",
   description:
-    "CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances running in your own facility, serverless Lambda functions, or applications in an Amazon ECS service. You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, updated applications in an Amazon ECS service, code, web and configuration files, executables, packages, scripts, multimedia files, and so on. CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to make changes to your existing code before you can use CodeDeploy. CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your applications, without many of the risks associated with error-prone manual deployments.  CodeDeploy Components  Use the information in this guide to help you work with the following CodeDeploy components:    Application: A name that uniquely identifies the application you want to deploy. CodeDeploy uses this name, which functions as a container, to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment.    Deployment group: A set of individual instances, CodeDeploy Lambda deployment configuration settings, or an Amazon ECS service and network details. A Lambda deployment group specifies how to route traffic to a new version of a Lambda function. An Amazon ECS deployment group specifies the service created in Amazon ECS to deploy, a load balancer, and a listener to reroute production traffic to an updated containerized application. An Amazon EC2/On-premises deployment group contains individually tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment groups can specify optional trigger, alarm, and rollback settings.    Deployment configuration: A set of deployment rules and deployment success and failure conditions used by CodeDeploy during a deployment.    Deployment: The process and the components used when updating a Lambda function, a containerized application in an Amazon ECS service, or of installing content on one or more instances.     Application revisions: For an Lambda deployment, this is an AppSpec file that specifies the Lambda function to be updated and one or more functions to validate deployment lifecycle events. For an Amazon ECS deployment, this is an AppSpec file that specifies the Amazon ECS task definition, container, and port where production traffic is rerouted. For an EC2/On-premises deployment, this is an archive file that contains source content\u2014source code, webpages, executable files, and deployment scripts\u2014along with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub, a revision is uniquely identified by its commit ID.   This guide also contains information to help you get details about the instances in your deployments, to make on-premises instances available for CodeDeploy deployments, to get details about a Lambda function deployment, and to get details about Amazon ECS service deployments.  CodeDeploy Information Resources     CodeDeploy User Guide     CodeDeploy API Reference Guide     CLI Reference for CodeDeploy     CodeDeploy Developer Forum",
+    "CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances running in your own facility, serverless Lambda functions, or applications in an Amazon ECS service. You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, updated applications in an Amazon ECS service, code, web and configuration files, executables, packages, scripts, multimedia files, and so on. CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to make changes to your existing code before you can use CodeDeploy. CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your applications, without many of the risks associated with error-prone manual deployments.  CodeDeploy Components  Use the information in this guide to help you work with the following CodeDeploy components:    Application: A name that uniquely identifies the application you want to deploy. CodeDeploy uses this name, which functions as a container, to ensure the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment.    Deployment group: A set of individual instances, CodeDeploy Lambda deployment configuration settings, or an Amazon ECS service and network details. A Lambda deployment group specifies how to route traffic to a new version of a Lambda function. An Amazon ECS deployment group specifies the service created in Amazon ECS to deploy, a load balancer, and a listener to reroute production traffic to an updated containerized application. An Amazon EC2/On-premises deployment group contains individually tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment groups can specify optional trigger, alarm, and rollback settings.    Deployment configuration: A set of deployment rules and deployment success and failure conditions used by CodeDeploy during a deployment.    Deployment: The process and the components used when updating a Lambda function, a containerized application in an Amazon ECS service, or of installing content on one or more instances.     Application revisions: For an Lambda deployment, this is an AppSpec file that specifies the Lambda function to be updated and one or more functions to validate deployment lifecycle events. For an Amazon ECS deployment, this is an AppSpec file that specifies the Amazon ECS task definition, container, and port where production traffic is rerouted. For an EC2/On-premises deployment, this is an archive file that contains source content—source code, webpages, executable files, and deployment scripts—along with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub, a revision is uniquely identified by its commit ID.   This guide also contains information to help you get details about the instances in your deployments, to make on-premises instances available for CodeDeploy deployments, to get details about a Lambda function deployment, and to get details about Amazon ECS service deployments.  CodeDeploy Information Resources     CodeDeploy User Guide     CodeDeploy API Reference Guide     CLI Reference for CodeDeploy     CodeDeploy Developer Forum",
   subcommands: [
     {
       name: "add-tags-to-on-premises-instances",
@@ -477,16 +478,12 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--s3-location",
-          description:
-            "Information about the location of the application revision in Amazon S3. You must specify the bucket, the key, and bundleType. Optionally, you can also specify an eTag and version",
           args: {
             name: "structure",
           },
         },
         {
           name: "--github-location",
-          description:
-            "Information about the location of the application revision in GitHub. You must specify the repository and commit ID that references the application revision. For the repository, use the format GitHub-account/repository-name or GitHub-org/repository-name. For the commit ID, use the SHA1 Git commit reference",
           args: {
             name: "structure",
           },
@@ -731,14 +728,6 @@ const completionSpec: Fig.Spec = {
             "This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see Integrating CodeDeploy with Amazon EC2 Auto Scaling in the CodeDeploy User Guide. Set terminationHookEnabled to true to have CodeDeploy install a termination hook into your Auto Scaling group when you create a deployment group. When this hook is installed, CodeDeploy will perform termination deployments. For information about termination deployments, see Enabling termination deployments during Auto Scaling scale-in events in the CodeDeploy User Guide. For more information about Auto Scaling scale-in events, see the Scale in topic in the Amazon EC2 Auto Scaling User Guide",
         },
         {
-          name: "--ec-2-tag-set",
-          description:
-            "Information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -922,6 +911,20 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "deregister",
+      options: [
+        {
+          name: "--instance-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--no-delete-iam-user",
+        },
+      ],
+    },
+    {
       name: "deregister-on-premises-instance",
       description: "Deregisters an on-premises instance",
       options: [
@@ -1004,16 +1007,12 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--s3-location",
-          description:
-            "Information about the location of the application revision in Amazon S3. You must specify the bucket, the key, and bundleType. Optionally, you can also specify an eTag and version",
           args: {
             name: "structure",
           },
         },
         {
           name: "--github-location",
-          description:
-            "Information about the location of the application revision in GitHub. You must specify the repository and commit ID that references the application revision. For the repository, use the format GitHub-account/repository-name or GitHub-org/repository-name. For the commit ID, use the SHA1 Git commit reference",
           args: {
             name: "structure",
           },
@@ -1040,7 +1039,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-deployment",
       description:
-        "Gets information about a deployment.   The content property of the appSpecContent object in the returned revision is always null. Use GetApplicationRevision and the sha256 property of the returned appSpecContent object to get the content of the deployment\u2019s AppSpec file",
+        "Gets information about a deployment.   The content property of the appSpecContent object in the returned revision is always null. Use GetApplicationRevision and the sha256 property of the returned appSpecContent object to get the content of the deployment’s AppSpec file",
       options: [
         {
           name: "--deployment-id",
@@ -1245,6 +1244,26 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "install",
+      options: [
+        {
+          name: "--config-file",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--override-config",
+        },
+        {
+          name: "--agent-installer",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "list-application-revisions",
       description: "Lists information about revisions for an application",
       options: [
@@ -1297,30 +1316,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous ListApplicationRevisions call. It can be used to return the next set of applications in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s-3-bucket",
-          description:
-            "An Amazon S3 bucket name to limit the search for revisions.   If set to null, all of the user's buckets are searched",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s-3-key-prefix",
-          description:
-            "A key prefix for the set of Amazon S3 objects to limit the search for revisions",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1340,6 +1335,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1361,13 +1364,53 @@ const completionSpec: Fig.Spec = {
         "Lists the applications registered with the user or Amazon Web Services account",
       options: [
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-deployment-configs",
+      description:
+        "Lists the deployment configurations with the user or Amazon Web Services account",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -1393,49 +1436,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--generate-cli-skeleton",
+          name: "--page-size",
           description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-deployment-configs",
-      description:
-        "Lists the deployment configurations with the user or Amazon Web Services account",
-      options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous ListDeploymentConfigs call. It can be used to return the next set of deployment configurations in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1465,14 +1468,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1497,6 +1492,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -1515,14 +1518,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--deployment-id",
           description: "The unique ID of a deployment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list",
           args: {
             name: "string",
           },
@@ -1568,6 +1563,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -1586,14 +1589,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--deployment-id",
           description: "The unique ID of a deployment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token identifier returned from the previous ListDeploymentTargets call. It can be used to return the next set of deployment targets in the list",
           args: {
             name: "string",
           },
@@ -1626,6 +1621,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1687,13 +1690,52 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-git-hub-account-token-names",
+      description: "Lists the names of stored connections to GitHub accounts",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -1719,48 +1761,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--generate-cli-skeleton",
+          name: "--page-size",
           description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-git-hub-account-token-names",
-      description: "Lists the names of stored connections to GitHub accounts",
-      options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous ListGitHubAccountTokenNames call. It can be used to return the next set of names in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1798,14 +1801,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1825,6 +1820,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1881,6 +1884,41 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "push",
+      options: [
+        {
+          name: "--application-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--s3-location",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ignore-hidden-files",
+        },
+        {
+          name: "--no-ignore-hidden-files",
+        },
+        {
+          name: "--source",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "put-lifecycle-event-hook-execution-status",
       description:
         "Sets the result of a Lambda validation function. The function validates lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available lifecycle hooks are BeforeAllowTraffic and AfterAllowTraffic. For Amazon ECS deployments, the available lifecycle hooks are BeforeInstall, AfterInstall, AfterAllowTestTraffic, BeforeAllowTraffic, and AfterAllowTraffic. Lambda validation functions return Succeeded or Failed. For more information, see AppSpec 'hooks' Section for an Lambda Deployment  and AppSpec 'hooks' Section for an Amazon ECS Deployment",
@@ -1929,6 +1967,29 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "register",
+      options: [
+        {
+          name: "--instance-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--iam-user-arn",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "register-application-revision",
       description:
         "Registers with CodeDeploy a revision for the specified application",
@@ -1958,16 +2019,12 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--s3-location",
-          description:
-            "Information about the location of the application revision in Amazon S3. You must specify the bucket, the key, and bundleType. Optionally, you can also specify an eTag and version",
           args: {
             name: "structure",
           },
         },
         {
           name: "--github-location",
-          description:
-            "Information about the location of the application revision in GitHub. You must specify the repository and commit ID that references the application revision. For the repository, use the format GitHub-account/repository-name or GitHub-org/repository-name. For the commit ID, use the SHA1 Git commit reference",
           args: {
             name: "structure",
           },
@@ -2189,6 +2246,9 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "uninstall",
     },
     {
       name: "untag-resource",
@@ -2425,14 +2485,6 @@ const completionSpec: Fig.Spec = {
             "This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see Integrating CodeDeploy with Amazon EC2 Auto Scaling in the CodeDeploy User Guide. Set terminationHookEnabled to true to have CodeDeploy install a termination hook into your Auto Scaling group when you update a deployment group. When this hook is installed, CodeDeploy will perform termination deployments. For information about termination deployments, see Enabling termination deployments during Auto Scaling scale-in events in the CodeDeploy User Guide. For more information about Auto Scaling scale-in events, see the Scale in topic in the Amazon EC2 Auto Scaling User Guide",
         },
         {
-          name: "--ec-2-tag-set",
-          description:
-            "Information about groups of tags applied to on-premises instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2450,135 +2502,6 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
-    },
-    {
-      name: "push",
-      description:
-        "Bundles and uploads to Amazon Simple Storage Service (Amazon S3) an application revision, which is a zip archive file that contains deployable content and an accompanying Application Specification file (AppSpec file). If the upload is successful, a message is returned that describes how to call the create-deployment command to deploy the application revision from Amazon S3 to target Amazon Elastic Compute Cloud (Amazon EC2) instances",
-      options: [
-        {
-          name: "--application-name",
-          description:
-            "Required. The name of the AWS CodeDeploy application to be associated with the application revision",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-location",
-          description:
-            "Required. Information about the location of the application revision to be uploaded to Amazon S3. You must specify both a bucket and a key that represent the Amazon S3 bucket name and the object key name. Content will be zipped before uploading. Use the format s3:///",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ignore-hidden-files",
-          description:
-            "Optional. Set the --ignore-hidden-files flag to not bundle and upload hidden files to Amazon S3; otherwise, set the --no-ignore-hidden-files flag (the default) to bundle and upload hidden files to Amazon S3",
-        },
-        {
-          name: "--no-ignore-hidden-files",
-        },
-        {
-          name: "--source",
-          description:
-            "Optional. The location of the deployable content and the accompanying AppSpec file on the development machine to be zipped and uploaded to Amazon S3. If not specified, the current directory is used",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--description",
-          description:
-            "Optional. A comment that summarizes the application revision. If not specified, the default string \"Uploaded by AWS CLI 'time' UTC\" is used, where 'time' is the current system time in Coordinated Universal Time (UTC)",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "register",
-      description:
-        "Creates an IAM user for the on-premises instance, if not provided, and saves the user's credentials to an on-premises instance configuration file; registers the on-premises instance with AWS CodeDeploy; and optionally adds tags to the on-premises instance",
-      options: [
-        {
-          name: "--instance-name",
-          description: "Required. The name of the on-premises instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--tags",
-          description:
-            "Optional. The list of key/value pairs to tag the on-premises instance",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--iam-user-arn",
-          description:
-            "Optional. The IAM user associated with the on-premises instance",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "deregister",
-      description:
-        "Removes any tags from the on-premises instance; deregisters the on-premises instance from AWS CodeDeploy; and, unless requested otherwise, deletes the IAM user for the on-premises instance",
-      options: [
-        {
-          name: "--instance-name",
-          description: "Required. The name of the on-premises instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--no-delete-iam-user",
-          description:
-            "Optional. Do not delete the IAM user for the registered on-premises instance",
-        },
-      ],
-    },
-    {
-      name: "install",
-      description:
-        "Configures and installs the AWS CodeDeploy Agent on the on-premises instance",
-      options: [
-        {
-          name: "--config-file",
-          description:
-            "Required. The path to the on-premises instance configuration file",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--override-config",
-          description:
-            "Optional. Overrides the on-premises instance configuration file",
-        },
-        {
-          name: "--agent-installer",
-          description: "Optional. The AWS CodeDeploy Agent installer file",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "uninstall",
-      description:
-        "Uninstalls the AWS CodeDeploy Agent from the on-premises instance",
     },
     {
       name: "wait",

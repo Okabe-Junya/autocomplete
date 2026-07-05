@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "s3control",
   description:
@@ -83,7 +84,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--permission",
           description:
-            "The type of access that you are granting to your S3 data, which can be set to one of the following values:    READ \u2013 Grant read-only access to the S3 data.    WRITE \u2013 Grant write-only access to the S3 data.    READWRITE \u2013 Grant both read and write access to the S3 data",
+            "The type of access that you are granting to your S3 data, which can be set to one of the following values:    READ – Grant read-only access to the S3 data.    WRITE – Grant write-only access to the S3 data.    READWRITE – Grant both read and write access to the S3 data",
           args: {
             name: "string",
           },
@@ -238,7 +239,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-access-point",
       description:
-        "This operation is not supported by directory buckets.  Creates an access point and associates it with the specified bucket. For more information, see Managing Data Access with Amazon S3 Access Points in the Amazon S3 User Guide.   S3 on Outposts only supports VPC-style access points.  For more information, see  Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points in the Amazon S3 User Guide.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section.  The following actions are related to CreateAccessPoint:    GetAccessPoint     DeleteAccessPoint     ListAccessPoints",
+        "Creates an access point and associates it to a specified bucket. For more information, see Managing access to shared datasets with access points or Managing access to shared datasets in directory buckets with access points in the Amazon S3 User Guide. To create an access point and attach it to a volume on an Amazon FSx file system, see CreateAndAttachS3AccessPoint in the Amazon FSx API Reference.   S3 on Outposts only supports VPC-style access points.  For more information, see  Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points in the Amazon S3 User Guide.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section.  The following actions are related to CreateAccessPoint:    GetAccessPoint     DeleteAccessPoint     ListAccessPoints     ListAccessPointsForDirectoryBuckets",
       options: [
         {
           name: "--account-id",
@@ -250,7 +251,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--name",
-          description: "The name you want to assign to this access point",
+          description:
+            "The name you want to assign to this access point. For directory buckets, the access point name must consist of a base name that you provide and suffix that includes the ZoneID (Amazon Web Services Availability Zone or Local Zone) of your bucket location, followed by --xa-s3. For more information, see Managing access to shared datasets in directory buckets with access points in the Amazon S3 User Guide",
           args: {
             name: "string",
           },
@@ -285,6 +287,22 @@ const completionSpec: Fig.Spec = {
             "The Amazon Web Services account ID associated with the S3 bucket associated with this access point. For same account access point when your bucket and access point belong to the same account owner, the BucketAccountId is not required. For cross-account access point when your bucket and access point are not in the same account, the BucketAccountId is required",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--scope",
+          description:
+            "For directory buckets, you can filter access control to specific prefixes, API operations, or a combination of both. For more information, see Managing access to shared datasets in directory buckets with access points in the Amazon S3 User Guide.  Scope is only supported for access points attached to directory buckets",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "An array of tags that you can apply to an access point. Tags are key-value pairs of metadata used to control access to your access points. For more information about tags, see Using tags with Amazon S3. For information about tagging access points, see Using tags for attribute-based access control (ABAC)",
+          args: {
+            name: "list",
           },
         },
         {
@@ -623,7 +641,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-storage-lens-group",
       description:
-        "Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags, object size, object age, or a combination of these filters. For each Storage Lens group that you\u2019ve created, you can also optionally add Amazon Web Services resource tags. For more information about S3 Storage Lens groups, see Working with S3 Storage Lens groups. To use this operation, you must have the permission to perform the s3:CreateStorageLensGroup action. If you\u2019re trying to create a Storage Lens group with Amazon Web Services resource tags, you must also have permission to perform the s3:TagResource action. For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about Storage Lens groups errors, see List of Amazon S3 Storage Lens error codes",
+        "Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags, object size, object age, or a combination of these filters. For each Storage Lens group that you’ve created, you can also optionally add Amazon Web Services resource tags. For more information about S3 Storage Lens groups, see Working with S3 Storage Lens groups. To use this operation, you must have the permission to perform the s3:CreateStorageLensGroup action. If you’re trying to create a Storage Lens group with Amazon Web Services resource tags, you must also have permission to perform the s3:TagResource action. For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about Storage Lens groups errors, see List of Amazon S3 Storage Lens error codes",
       options: [
         {
           name: "--account-id",
@@ -814,7 +832,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-access-point",
       description:
-        "This operation is not supported by directory buckets.  Deletes the specified access point. All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to DeleteAccessPoint:    CreateAccessPoint     GetAccessPoint     ListAccessPoints",
+        "Deletes the specified access point. All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to DeleteAccessPoint:    CreateAccessPoint     GetAccessPoint     ListAccessPoints",
       options: [
         {
           name: "--account-id",
@@ -893,7 +911,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-access-point-policy",
       description:
-        "This operation is not supported by directory buckets.  Deletes the access point policy for the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to DeleteAccessPointPolicy:    PutAccessPointPolicy     GetAccessPointPolicy",
+        "Deletes the access point policy for the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to DeleteAccessPointPolicy:    PutAccessPointPolicy     GetAccessPointPolicy",
       options: [
         {
           name: "--account-id",
@@ -947,6 +965,46 @@ const completionSpec: Fig.Spec = {
           name: "--name",
           description:
             "The name of the Object Lambda Access Point you want to delete the policy for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-access-point-scope",
+      description:
+        "Deletes an existing access point scope for a directory bucket.  When you delete the scope of an access point, all prefixes and permissions are deleted.  To use this operation, you must have the permission to perform the s3express:DeleteAccessPointScope action. For information about REST API errors, see REST error responses",
+      options: [
+        {
+          name: "--account-id",
+          description:
+            "The Amazon Web Services account ID that owns the access point with the scope that you want to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the access point with the scope that you want to delete",
           args: {
             name: "string",
           },
@@ -1259,7 +1317,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-public-access-block",
       description:
-        "This operation is not supported by directory buckets.  Removes the PublicAccessBlock configuration for an Amazon Web Services account. For more information, see  Using Amazon S3 block public access. Related actions include:    GetPublicAccessBlock     PutPublicAccessBlock",
+        "This operation is not supported by directory buckets.  Removes the PublicAccessBlock configuration for an Amazon Web Services account. This operation might be restricted when the account is managed by organization-level Block Public Access policies. You’ll get an Access Denied (403) error when the account is managed by organization-level Block Public Access policies. Organization-level policies override account-level settings, preventing direct account-level modifications. For more information, see  Using Amazon S3 block public access. Related actions include:    GetPublicAccessBlock     PutPublicAccessBlock",
       options: [
         {
           name: "--account-id",
@@ -1703,7 +1761,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-access-point",
       description:
-        "This operation is not supported by directory buckets.  Returns configuration information about the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to GetAccessPoint:    CreateAccessPoint     DeleteAccessPoint     ListAccessPoints",
+        "Returns configuration information about the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to GetAccessPoint:    CreateAccessPoint     DeleteAccessPoint     ListAccessPoints",
       options: [
         {
           name: "--account-id",
@@ -1822,7 +1880,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-access-point-policy",
       description:
-        "This operation is not supported by directory buckets.  Returns the access point policy associated with the specified access point. The following actions are related to GetAccessPointPolicy:    PutAccessPointPolicy     DeleteAccessPointPolicy",
+        "Returns the access point policy associated with the specified access point. The following actions are related to GetAccessPointPolicy:    PutAccessPointPolicy     DeleteAccessPointPolicy",
       options: [
         {
           name: "--account-id",
@@ -1954,6 +2012,46 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description: "The name of the Object Lambda Access Point",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-access-point-scope",
+      description:
+        "Returns the access point scope for a directory bucket. To use this operation, you must have the permission to perform the s3express:GetAccessPointScope action. For information about REST API errors, see REST error responses",
+      options: [
+        {
+          name: "--account-id",
+          description:
+            "The Amazon Web Services account ID that owns the access point with the scope that you want to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the access point with the scope you want to retrieve",
           args: {
             name: "string",
           },
@@ -2241,7 +2339,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--permission",
           description:
-            "The type of permission granted to your S3 data, which can be set to one of the following values:    READ \u2013 Grant read-only access to the S3 data.    WRITE \u2013 Grant write-only access to the S3 data.    READWRITE \u2013 Grant both read and write access to the S3 data",
+            "The type of permission granted to your S3 data, which can be set to one of the following values:    READ – Grant read-only access to the S3 data.    WRITE – Grant write-only access to the S3 data.    READWRITE – Grant both read and write access to the S3 data",
           args: {
             name: "string",
           },
@@ -2257,7 +2355,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--privilege",
           description:
-            "The scope of the temporary access credential that S3 Access Grants vends to the grantee or client application.     Default \u2013 The scope of the returned temporary access token is the scope of the grant that is closest to the target scope.    Minimal \u2013 The scope of the returned temporary access token is the same as the requested target scope as long as the requested scope is the same as or a subset of the grant scope",
+            "The scope of the temporary access credential that S3 Access Grants vends to the grantee or client application.     Default – The scope of the returned temporary access token is the scope of the grant that is closest to the target scope.    Minimal – The scope of the returned temporary access token is the same as the requested target scope as long as the requested scope is the same as or a subset of the grant scope",
           args: {
             name: "string",
           },
@@ -2266,6 +2364,14 @@ const completionSpec: Fig.Spec = {
           name: "--target-type",
           description:
             "The type of Target. The only possible value is Object. Pass this value if the target data that you would like to access is a path to an object. Do not pass this value if the target data is a bucket or a bucket and a prefix",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--audit-context",
+          description:
+            "The context to identify the job or query associated with the credential request. This information will be displayed in CloudTrail log in your account",
           args: {
             name: "string",
           },
@@ -2491,7 +2597,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-public-access-block",
       description:
-        "This operation is not supported by directory buckets.  Retrieves the PublicAccessBlock configuration for an Amazon Web Services account. For more information, see  Using Amazon S3 block public access. Related actions include:    DeletePublicAccessBlock     PutPublicAccessBlock",
+        "This operation is not supported by directory buckets.  Retrieves the PublicAccessBlock configuration for an Amazon Web Services account. This operation returns the effective account-level configuration, which may inherit from organization-level policies. For more information, see  Using Amazon S3 block public access. Related actions include:    DeletePublicAccessBlock     PutPublicAccessBlock",
       options: [
         {
           name: "--account-id",
@@ -2684,7 +2790,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--permission",
           description:
-            "The type of permission granted to your S3 data, which can be set to one of the following values:    READ \u2013 Grant read-only access to the S3 data.    WRITE \u2013 Grant write-only access to the S3 data.    READWRITE \u2013 Grant both read and write access to the S3 data",
+            "The type of permission granted to your S3 data, which can be set to one of the following values:    READ – Grant read-only access to the S3 data.    WRITE – Grant write-only access to the S3 data.    READWRITE – Grant both read and write access to the S3 data",
           args: {
             name: "string",
           },
@@ -2831,7 +2937,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-access-points",
       description:
-        "This operation is not supported by directory buckets.  Returns a list of the access points that are owned by the current account that's associated with the specified bucket. You can retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or the number specified in maxResults, whichever is less), the response will include a continuation token that you can use to list the additional access points.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to ListAccessPoints:    CreateAccessPoint     DeleteAccessPoint     GetAccessPoint",
+        "This operation is not supported by directory buckets.  Returns a list of the access points. You can retrieve up to 1,000 access points per call. If the call returns more than 1,000 access points (or the number specified in maxResults, whichever is less), the response will include a continuation token that you can use to list the additional access points. Returns only access points attached to S3 buckets by default. To return all access points specify DataSourceType as ALL.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to ListAccessPoints:    CreateAccessPoint     DeleteAccessPoint     GetAccessPoint",
       options: [
         {
           name: "--account-id",
@@ -2866,11 +2972,91 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--data-source-id",
+          description:
+            "The unique identifier for the data source of the access point",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-source-type",
+          description:
+            "The type of the data source that the access point is attached to. Returns only access points attached to S3 buckets by default. To return all access points specify DataSourceType as ALL",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-access-points-for-directory-buckets",
+      description:
+        "Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket. To list access points for general purpose buckets, see ListAccesspoints. To use this operation, you must have the permission to perform the s3express:ListAccessPointsForDirectoryBuckets action. For information about REST API errors, see REST error responses",
+      options: [
+        {
+          name: "--account-id",
+          description:
+            "The Amazon Web Services account ID that owns the access points",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--directory-bucket",
+          description:
+            "The name of the directory bucket associated with the access points you want to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -2895,22 +3081,6 @@ const completionSpec: Fig.Spec = {
             "The account ID for the account that owns the specified Object Lambda Access Point",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If the list has more access points than can be returned in one call to this API, this field contains a continuation token that you can provide in subsequent calls to this API to retrieve additional access points",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of access points that you want to include in the list. The response may contain fewer access points but will never contain more. If there are more than this number of access points, then the response will include a continuation token in the NextToken field that you can use to retrieve the next page of access points",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2975,22 +3145,6 @@ const completionSpec: Fig.Spec = {
             "The S3 path of the data that you would like to access. Must start with s3://. You can optionally pass only the beginning characters of a path, and S3 Access Grants will search for all applicable grants for the path fragment",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token to request the next page of results. Pass this value into a subsequent List Caller Access Grants request in order to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of access grants that you would like returned in the List Caller Access Grants response. If the results include the pagination token NextToken, make another call using the NextToken to determine if there are more results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3281,7 +3435,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-tags-for-resource",
       description:
-        "This operation allows you to list all the Amazon Web Services resource tags for a specified resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.   Permissions  You must have the s3:ListTagsForResource permission to use this operation.     This operation is only supported for S3 Storage Lens groups and for S3 Access Grants. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.   For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
+        "This operation allows you to list all of the tags for a specified resource. Each tag is a label consisting of a key and value. Tags can help you organize, track costs for, and control access to resources.   This operation is only supported for the following Amazon S3 resources:    General purpose buckets     Access Points for directory buckets     Access Points for general purpose buckets     Directory buckets     S3 Storage Lens groups     S3 Access Grants instances, registered locations, and grants.     Permissions  For general purpose buckets, access points for general purpose buckets, Storage Lens groups, and S3 Access Grants, you must have the s3:ListTagsForResource permission to use this operation.   Directory bucket permissions  For directory buckets, you must have the s3express:ListTagsForResource permission to use this operation. For more information about directory buckets policies and permissions, see Identity and Access Management (IAM) for S3 Express One Zone in the Amazon S3 User Guide.  HTTP Host header syntax   Directory buckets  - The HTTP Host header syntax is s3express-control.region.amazonaws.com.   For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
       options: [
         {
           name: "--account-id",
@@ -3294,7 +3448,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the S3 resource that you want to list the tags for. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant",
+            "The Amazon Resource Name (ARN) of the S3 resource that you want to list tags for. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant",
           args: {
             name: "string",
           },
@@ -3415,7 +3569,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-access-point-policy",
       description:
-        "This operation is not supported by directory buckets.  Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to PutAccessPointPolicy:    GetAccessPointPolicy     DeleteAccessPointPolicy",
+        "Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.  All Amazon S3 on Outposts REST API requests for this action require an additional parameter of x-amz-outpost-id to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the x-amz-outpost-id derived by using the access point ARN, see the Examples section. The following actions are related to PutAccessPointPolicy:    GetAccessPointPolicy     DeleteAccessPointPolicy",
       options: [
         {
           name: "--account-id",
@@ -3436,7 +3590,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--policy",
           description:
-            "The policy that you want to apply to the specified access point. For more information about access point policies, see Managing data access with Amazon S3 access points in the Amazon S3 User Guide",
+            "The policy that you want to apply to the specified access point. For more information about access point policies, see Managing data access with Amazon S3 access points or Managing access to shared datasets in directory buckets with access points in the Amazon S3 User Guide",
           args: {
             name: "string",
           },
@@ -3485,6 +3639,54 @@ const completionSpec: Fig.Spec = {
           description: "Object Lambda Access Point resource policy document",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-access-point-scope",
+      description:
+        "Creates or replaces the access point scope for a directory bucket. You can use the access point scope to restrict access to specific prefixes, API operations, or a combination of both.  You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes in size.  To use this operation, you must have the permission to perform the s3express:PutAccessPointScope action. For information about REST API errors, see REST error responses",
+      options: [
+        {
+          name: "--account-id",
+          description:
+            "The Amazon Web Services account ID that owns the access point with scope that you want to create or replace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the access point with the scope that you want to create or replace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--scope",
+          description:
+            "Object prefixes, API operations, or a combination of both",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -3858,7 +4060,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-public-access-block",
       description:
-        "This operation is not supported by directory buckets.  Creates or modifies the PublicAccessBlock configuration for an Amazon Web Services account. For this operation, users must have the s3:PutAccountPublicAccessBlock permission. For more information, see  Using Amazon S3 block public access. Related actions include:    GetPublicAccessBlock     DeletePublicAccessBlock",
+        "This operation is not supported by directory buckets.  Creates or modifies the PublicAccessBlock configuration for an Amazon Web Services account. This operation may be restricted when the account is managed by organization-level Block Public Access policies. You might get an Access Denied (403) error when the account is managed by organization-level Block Public Access policies. Organization-level policies override account-level settings, preventing direct account-level modifications. For this operation, users must have the s3:PutAccountPublicAccessBlock permission. For more information, see  Using Amazon S3 block public access. Related actions include:    GetPublicAccessBlock     DeletePublicAccessBlock",
       options: [
         {
           name: "--public-access-block-configuration",
@@ -3997,7 +4199,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "submit-multi-region-access-point-routes",
       description:
-        "This operation is not supported by directory buckets.  Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the routing status for the specified Regions from active to passive, or from passive to active. A value of 0 indicates a passive status, which means that traffic won't be routed to the specified Region. A value of 100 indicates an active status, which means that traffic will be routed to the specified Region. At least one Region must be active at all times. When the routing configuration is changed, any in-progress operations (uploads, copies, deletes, and so on) to formerly active Regions will continue to run to their final completion state (success or failure). The routing configurations of any Regions that aren\u2019t specified remain unchanged.  Updated routing configurations might not be immediately applied. It can take up to 2 minutes for your changes to take effect.  To submit routing control changes and failover requests, use the Amazon S3 failover control infrastructure endpoints in these five Amazon Web Services Regions:    us-east-1     us-west-2     ap-southeast-2     ap-northeast-1     eu-west-1",
+        "This operation is not supported by directory buckets.  Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the routing status for the specified Regions from active to passive, or from passive to active. A value of 0 indicates a passive status, which means that traffic won't be routed to the specified Region. A value of 100 indicates an active status, which means that traffic will be routed to the specified Region. At least one Region must be active at all times. When the routing configuration is changed, any in-progress operations (uploads, copies, deletes, and so on) to formerly active Regions will continue to run to their final completion state (success or failure). The routing configurations of any Regions that aren’t specified remain unchanged.  Updated routing configurations might not be immediately applied. It can take up to 2 minutes for your changes to take effect.  To submit routing control changes and failover requests, use the Amazon S3 failover control infrastructure endpoints in these five Amazon Web Services Regions:    us-east-1     us-west-2     ap-southeast-2     ap-northeast-1     eu-west-1",
       options: [
         {
           name: "--account-id",
@@ -4044,7 +4246,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Creates a new Amazon Web Services resource tag or updates an existing resource tag. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. You can add up to 50 Amazon Web Services resource tags for each S3 resource.   This operation is only supported for S3 Storage Lens groups and for S3 Access Grants. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.    Permissions  You must have the s3:TagResource permission to use this operation.    For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
+        "Creates a new user-defined tag or updates an existing tag. Each tag is a label consisting of a key and value that is applied to your resource. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 Amazon Web Services resource tags for each S3 resource.   This operation is only supported for the following Amazon S3 resource:    General purpose buckets     Access Points for directory buckets     Access Points for general purpose buckets     Directory buckets     S3 Storage Lens groups     S3 Access Grants instances, registered locations, or grants.     Permissions  For general purpose buckets, access points for general purpose buckets, Storage Lens groups, and S3 Access Grants, you must have the s3:TagResource permission to use this operation.   Directory bucket permissions  For directory buckets, you must have the s3express:TagResource permission to use this operation. For more information about directory buckets policies and permissions, see Identity and Access Management (IAM) for S3 Express One Zone in the Amazon S3 User Guide.  HTTP Host header syntax   Directory buckets  - The HTTP Host header syntax is s3express-control.region.amazonaws.com.   For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
       options: [
         {
           name: "--account-id",
@@ -4057,7 +4259,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant",
+            "The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant",
           args: {
             name: "string",
           },
@@ -4092,7 +4294,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "This operation removes the specified Amazon Web Services resource tags from an S3 resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.   This operation is only supported for S3 Storage Lens groups and for S3 Access Grants. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.    Permissions  You must have the s3:UntagResource permission to use this operation.    For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
+        "This operation removes the specified user-defined tags from an S3 resource. You can pass one or more tag keys.   This operation is only supported for the following Amazon S3 resources:    General purpose buckets     Access Points for directory buckets     Access Points for general purpose buckets     Directory buckets     S3 Storage Lens groups     S3 Access Grants instances, registered locations, and grants.     Permissions  For general purpose buckets, access points for general purpose buckets, Storage Lens groups, and S3 Access Grants, you must have the s3:UntagResource permission to use this operation.   Directory bucket permissions  For directory buckets, you must have the s3express:UntagResource permission to use this operation. For more information about directory buckets policies and permissions, see Identity and Access Management (IAM) for S3 Express One Zone in the Amazon S3 User Guide.  HTTP Host header syntax   Directory buckets  - The HTTP Host header syntax is s3express-control.region.amazonaws.com.   For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes",
       options: [
         {
           name: "--account-id",
@@ -4105,7 +4307,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the S3 resource that you're trying to remove the tags from",
+            "The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant",
           args: {
             name: "string",
           },

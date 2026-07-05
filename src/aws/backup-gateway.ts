@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "backup-gateway",
   description:
@@ -287,7 +288,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-hypervisor-property-mappings",
       description:
-        "This action retrieves the property mappings for the specified hypervisor. A hypervisor property mapping displays the relationship of entity properties available from the on-premises hypervisor to the properties available in Amazon Web Services",
+        "This action retrieves the property mappings for the specified hypervisor. A hypervisor property mapping displays the relationship of entity properties available from the hypervisor to the properties available in Amazon Web Services",
       options: [
         {
           name: "--hypervisor-arn",
@@ -351,6 +352,13 @@ const completionSpec: Fig.Spec = {
       description: "Connect to a hypervisor by importing its configuration",
       options: [
         {
+          name: "--name",
+          description: "The name of the hypervisor",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--host",
           description:
             "The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN)",
@@ -359,15 +367,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--kms-key-arn",
-          description: "The Key Management Service for the hypervisor",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--name",
-          description: "The name of the hypervisor",
+          name: "--username",
+          description: "The username for the hypervisor",
           args: {
             name: "string",
           },
@@ -380,17 +381,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--kms-key-arn",
+          description: "The Key Management Service for the hypervisor",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--tags",
           description: "The tags of the hypervisor configuration to import",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--username",
-          description: "The username for the hypervisor",
-          args: {
-            name: "string",
           },
         },
         {
@@ -417,21 +418,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists backup gateways owned by an Amazon Web Services account in an Amazon Web Services Region. The returned list is ordered by gateway Amazon Resource Name (ARN)",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of gateways to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The next item following a partial list of returned resources. For example, if a request is made to return MaxResults number of resources, NextToken allows you to return more items in your list starting at the location pointed to by the next token",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -479,21 +465,6 @@ const completionSpec: Fig.Spec = {
       name: "list-hypervisors",
       description: "Lists your hypervisors",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of hypervisors to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The next item following a partial list of returned resources. For example, if a request is made to return maxResults number of resources, NextToken allows you to return more items in your list starting at the location pointed to by the next token",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -582,21 +553,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of virtual machines to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The next item following a partial list of returned resources. For example, if a request is made to return maxResults number of resources, NextToken allows you to return more items in your list starting at the location pointed to by the next token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -645,19 +601,19 @@ const completionSpec: Fig.Spec = {
         "This action sets the bandwidth rate limit schedule for a specified gateway. By default, gateways do not have a bandwidth rate limit schedule, which means no bandwidth rate limiting is in effect. Use this to initiate a gateway's bandwidth rate limit schedule",
       options: [
         {
-          name: "--bandwidth-rate-limit-intervals",
-          description:
-            "An array containing bandwidth rate limit schedule intervals for a gateway. When no bandwidth rate limit intervals have been scheduled, the array is empty",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--gateway-arn",
           description:
             "The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways  operation to return a list of gateways for your account and Amazon Web Services Region",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--bandwidth-rate-limit-intervals",
+          description:
+            "An array containing bandwidth rate limit schedule intervals for a gateway. When no bandwidth rate limit intervals have been scheduled, the array is empty",
+          args: {
+            name: "list",
           },
         },
         {
@@ -682,7 +638,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-hypervisor-property-mappings",
       description:
-        "This action sets the property mappings for the specified hypervisor. A hypervisor property mapping displays the relationship of entity properties available from the on-premises hypervisor to the properties available in Amazon Web Services",
+        "This action sets the property mappings for the specified hypervisor. A hypervisor property mapping displays the relationship of entity properties available from the hypervisor to the properties available in Amazon Web Services",
       options: [
         {
           name: "--hypervisor-arn",
@@ -692,18 +648,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--vmware-to-aws-tag-mappings",
+          description:
+            "This action requests the mappings of VMware tags to the Amazon Web Services tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--iam-role-arn",
           description: "The Amazon Resource Name (ARN) of the IAM role",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--vmware-to-aws-tag-mappings",
-          description:
-            "This action requests the mappings of on-premises VMware tags to the Amazon Web Services tags",
-          args: {
-            name: "list",
           },
         },
         {
@@ -730,21 +686,6 @@ const completionSpec: Fig.Spec = {
       description: "Set the maintenance start time for a gateway",
       options: [
         {
-          name: "--day-of-month",
-          description:
-            "The day of the month start maintenance on a gateway. Valid values range from Sunday to Saturday",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--day-of-week",
-          description: "The day of the week to start maintenance on a gateway",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--gateway-arn",
           description:
             "The Amazon Resource Name (ARN) for the gateway, used to specify its maintenance start time",
@@ -763,6 +704,21 @@ const completionSpec: Fig.Spec = {
           name: "--minute-of-hour",
           description:
             "The minute of the hour to start maintenance on a gateway",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--day-of-week",
+          description: "The day of the week to start maintenance on a gateway",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--day-of-month",
+          description:
+            "The day of the month start maintenance on a gateway. Valid values range from Sunday to Saturday",
           args: {
             name: "integer",
           },
@@ -876,15 +832,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--password",
-          description: "The password for the hypervisor",
+          name: "--username",
+          description: "The username for the hypervisor",
           args: {
             name: "string",
           },
         },
         {
-          name: "--username",
-          description: "The username for the hypervisor",
+          name: "--password",
+          description: "The password for the hypervisor",
           args: {
             name: "string",
           },
@@ -1023,14 +979,6 @@ const completionSpec: Fig.Spec = {
         "Updates a hypervisor metadata, including its host, username, and password. Specify which hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your request",
       options: [
         {
-          name: "--host",
-          description:
-            "The updated host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--hypervisor-arn",
           description:
             "The Amazon Resource Name (ARN) of the hypervisor to update",
@@ -1039,16 +987,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--log-group-arn",
+          name: "--host",
           description:
-            "The Amazon Resource Name (ARN) of the group of gateways within the requested log",
+            "The updated host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN)",
           args: {
             name: "string",
           },
         },
         {
-          name: "--name",
-          description: "The updated name for the hypervisor",
+          name: "--username",
+          description: "The updated username for the hypervisor",
           args: {
             name: "string",
           },
@@ -1061,8 +1009,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--username",
-          description: "The updated username for the hypervisor",
+          name: "--name",
+          description: "The updated name for the hypervisor",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--log-group-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the group of gateways within the requested log",
           args: {
             name: "string",
           },

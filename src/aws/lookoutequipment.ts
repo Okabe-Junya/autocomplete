@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "lookoutequipment",
   description:
@@ -474,7 +475,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--retraining-frequency",
           description:
-            "This parameter uses the ISO 8601 standard to set the frequency at which you want retraining to occur in terms of Years, Months, and/or Days (note: other parameters like Time are not currently supported). The minimum value is 30 days (P30D) and the maximum value is 1 year (P1Y). For example, the following values are valid:   P3M15D \u2013 Every 3 months and 15 days   P2M \u2013 Every 2 months   P150D \u2013 Every 150 days",
+            "This parameter uses the ISO 8601 standard to set the frequency at which you want retraining to occur in terms of Years, Months, and/or Days (note: other parameters like Time are not currently supported). The minimum value is 30 days (P30D) and the maximum value is 1 year (P1Y). For example, the following values are valid:   P3M15D – Every 3 months and 15 days   P2M – Every 2 months   P150D – Every 150 days",
           args: {
             name: "string",
           },
@@ -1174,7 +1175,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--inference-data-import-strategy",
           description:
-            "Indicates how to import the accumulated inference data when a model version is imported. The possible values are as follows:   NO_IMPORT \u2013 Don't import the data.   ADD_WHEN_EMPTY \u2013 Only import the data from the source model if there is no existing data in the target model.   OVERWRITE \u2013 Import the data from the source model and overwrite the existing data in the target model",
+            "Indicates how to import the accumulated inference data when a model version is imported. The possible values are as follows:   NO_IMPORT – Don't import the data.   ADD_WHEN_EMPTY – Only import the data from the source model if there is no existing data in the target model.   OVERWRITE – Import the data from the source model and overwrite the existing data in the target model",
           args: {
             name: "string",
           },
@@ -2459,7 +2460,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--retraining-frequency",
           description:
-            "This parameter uses the ISO 8601 standard to set the frequency at which you want retraining to occur in terms of Years, Months, and/or Days (note: other parameters like Time are not currently supported). The minimum value is 30 days (P30D) and the maximum value is 1 year (P1Y). For example, the following values are valid:   P3M15D \u2013 Every 3 months and 15 days   P2M \u2013 Every 2 months   P150D \u2013 Every 150 days",
+            "This parameter uses the ISO 8601 standard to set the frequency at which you want retraining to occur in terms of Years, Months, and/or Days (note: other parameters like Time are not currently supported). The minimum value is 30 days (P30D) and the maximum value is 1 year (P1Y). For example, the following values are valid:   P3M15D – Every 3 months and 15 days   P2M – Every 2 months   P150D – Every 150 days",
           args: {
             name: "string",
           },

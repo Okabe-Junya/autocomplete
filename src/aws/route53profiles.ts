@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "route53profiles",
   description:
@@ -363,22 +364,6 @@ const completionSpec: Fig.Spec = {
         "Lists all the VPCs that the specified Route 53 Profile is associated with",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that you want to return for this request. If more objects are available, in the response, a NextToken value, which you can use in a subsequent call to get the next batch of objects, is provided.  If you don't specify a value for MaxResults, up to 100 objects are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "For the first call to this list request, omit this value.  When you request a list of objects, at most the number of objects specified by MaxResults is returned. If more objects are available for retrieval, a NextToken value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--profile-id",
           description: "ID of the Profile",
           args: {
@@ -440,22 +425,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all the resource associations for the specified Route 53 Profile",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that you want to return for this request. If more objects are available, in the response, a NextToken value, which you can use in a subsequent call to get the next batch of objects, is provided.  If you don't specify a value for MaxResults, up to 100 objects are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "For the first call to this list request, omit this value.  When you request a list of objects, at most the number of objects specified by MaxResults is returned. If more objects are available for retrieval, a NextToken value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--profile-id",
           description: "The ID of the Profile",
@@ -519,22 +488,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all the Route 53 Profiles associated with your Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that you want to return for this request. If more objects are available, in the response, a NextToken value, which you can use in a subsequent call to get the next batch of objects, is provided.  If you don't specify a value for MaxResults, up to 100 objects are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "For the first call to this list request, omit this value.  When you request a list of objects, at most the number of objects specified by MaxResults is returned. If more objects are available for retrieval, a NextToken value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

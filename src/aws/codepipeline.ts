@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codepipeline",
   description:
@@ -466,7 +467,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--category",
           description:
-            "Defines what kind of action can be taken in the stage. The following are the valid values:    Source     Build     Test     Deploy     Approval     Invoke",
+            "Defines what kind of action can be taken in the stage. The following are the valid values:    Source     Build     Test     Deploy     Approval     Invoke     Compute",
           args: {
             name: "string",
           },
@@ -718,22 +719,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Action execution history is retained for up to 12 months, based on action execution start times. Default value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that was returned from the previous ListActionExecutions call, which can be used to return the next set of action executions in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -790,14 +775,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--region-filter",
           description: "The Region to filter on for the list of action types",
           args: {
@@ -818,6 +795,82 @@ const completionSpec: Fig.Spec = {
             "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-deploy-action-execution-targets",
+      description: "Lists the targets for the deploy action",
+      options: [
+        {
+          name: "--pipeline-name",
+          description: "The name of the pipeline with the deploy action",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-execution-id",
+          description: "The execution ID for the deploy action",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description: "Filters the targets for a specified deploy action",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -853,26 +906,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filter",
           description: "The pipeline execution to filter on",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that was returned from the previous ListPipelineExecutions call, which can be used to return the next set of pipeline executions in the list",
-          args: {
-            name: "string",
           },
         },
         {
@@ -923,22 +960,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Gets a summary of all of the pipelines associated with your account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of pipelines to return in a single call. To retrieve the remaining pipelines, make another call with the returned nextToken value. The minimum value you can specify is 1. The maximum accepted value is 1000",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1004,22 +1025,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that was returned from the previous ListRuleExecutions call, which can be used to return the next set of rule executions in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1064,7 +1069,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-rule-types",
-      description: "Lists the rules for the condition",
+      description:
+        "Lists the rules for the condition. For more information about conditions, see Stage conditions and How do stage conditions work?.For more information about rules, see the CodePipeline rule reference",
       options: [
         {
           name: "--rule-owner-filter",
@@ -1110,22 +1116,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) of the resource to get tags for",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that was returned from the previous API call, which would be used to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1177,22 +1167,6 @@ const completionSpec: Fig.Spec = {
         "Gets a listing of all the webhooks in this Amazon Web Services Region for this account. The output lists all webhooks and includes the webhook URL and ARN and the configuration for each webhook.  If a secret token was provided, it will be redacted in the response",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1237,7 +1211,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "override-stage-condition",
-      description: "Used to override a stage condition",
+      description:
+        "Used to override a stage condition. For more information about conditions, see Stage conditions and How do stage conditions work?",
       options: [
         {
           name: "--pipeline-name",
@@ -1466,7 +1441,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--token",
           description:
-            "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState action. It is used to validate that the approval request corresponding to this token is still valid.  For a pipeline where the execution mode is set to PARALLEL, the token required to approve/reject approval request as detailed above is not available. Instead, use the externalExecutionId from the GetPipelineState action as the token in the approval request",
+            "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState action. It is used to validate that the approval request corresponding to this token is still valid.  For a pipeline where the execution mode is set to PARALLEL, the token required to approve/reject an approval request as detailed above is not available. Instead, use the externalExecutionId in the response output from the ListActionExecutions action as the token in the approval request",
           args: {
             name: "string",
           },

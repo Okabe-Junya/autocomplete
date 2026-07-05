@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "directconnect",
   description:
@@ -409,12 +410,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-mac-sec-key",
       description:
-        "Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an Direct Connect dedicated connection. You must supply either the secretARN, or the CKN/CAK (ckn and cak) pair in the request. For information about MAC Security (MACsec) key considerations, see MACsec pre-shared CKN/CAK key considerations  in the Direct Connect User Guide",
+        "Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with a Direct Connect connection. You must supply either the secretARN, or the CKN/CAK (ckn and cak) pair in the request. For information about MAC Security (MACsec) key considerations, see MACsec pre-shared CKN/CAK key considerations  in the Direct Connect User Guide",
       options: [
         {
           name: "--connection-id",
           description:
-            "The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx). You can use DescribeConnections or DescribeLags to retrieve connection ID",
+            "The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx). You can use DescribeConnections, DescribeInterconnects, or DescribeLags to retrieve connection ID",
           args: {
             name: "string",
           },
@@ -422,7 +423,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--secret-arn",
           description:
-            "The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection. You can use DescribeConnections or DescribeLags to retrieve the MAC Security (MACsec) secret key. If you use this request parameter, you do not use the ckn and cak request parameters",
+            "The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the connection. You can use DescribeConnections or DescribeLags to retrieve the MAC Security (MACsec) secret key. If you use this request parameter, you do not use the ckn and cak request parameters",
           args: {
             name: "string",
           },
@@ -430,7 +431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ckn",
           description:
-            "The MAC Security (MACsec) CKN to associate with the dedicated connection. You can create the CKN/CAK pair using an industry standard tool.  The valid values are 64 hexadecimal characters (0-9, A-E). If you use this request parameter, you must use the cak request parameter and not use the secretARN request parameter",
+            "The MAC Security (MACsec) CKN to associate with the connection. You can create the CKN/CAK pair using an industry standard tool.  The valid values are 64 hexadecimal characters (0-9, A-E). If you use this request parameter, you must use the cak request parameter and not use the secretARN request parameter",
           args: {
             name: "string",
           },
@@ -438,7 +439,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cak",
           description:
-            "The MAC Security (MACsec) CAK to associate with the dedicated connection. You can create the CKN/CAK pair using an industry standard tool.  The valid values are 64 hexadecimal characters (0-9, A-E). If you use this request parameter, you must use the ckn request parameter and not use the secretARN request parameter",
+            "The MAC Security (MACsec) CAK to associate with the connection. You can create the CKN/CAK pair using an industry standard tool.  The valid values are 64 hexadecimal characters (0-9, A-E). If you use this request parameter, you must use the ckn request parameter and not use the secretARN request parameter",
           args: {
             name: "string",
           },
@@ -765,12 +766,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--request-mac-sec",
           description:
-            "Indicates whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see MACsec prerequisties in the Direct Connect User Guide",
+            "Indicates whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see MAC Security in Direct Connect in the Direct Connect User Guide",
         },
         {
           name: "--no-request-mac-sec",
           description:
-            "Indicates whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see MACsec prerequisties in the Direct Connect User Guide",
+            "Indicates whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see MAC Security in Direct Connect in the Direct Connect User Guide",
         },
         {
           name: "--cli-input-json",
@@ -801,6 +802,13 @@ const completionSpec: Fig.Spec = {
           description: "The name of the Direct Connect gateway",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The key-value pair tags associated with the request",
+          args: {
+            name: "list",
           },
         },
         {
@@ -995,6 +1003,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--request-mac-sec",
+          description:
+            "Indicates whether you want the interconnect to support MAC Security (MACsec)",
+        },
+        {
+          name: "--no-request-mac-sec",
+          description:
+            "Indicates whether you want the interconnect to support MAC Security (MACsec)",
         },
         {
           name: "--cli-input-json",
@@ -1239,9 +1257,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asn",
           description:
-            "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration",
+            "The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use asnLong instead.   You can use asnLong or asn, but not both. We recommend using asnLong as it supports a greater pool of numbers.    If you provide a value in the same API call for both asn and asnLong, the API will only accept the value for asnLong.    If you enter a 4-byte ASN for the asn parameter, the API returns an error.    If you are using a 2-byte ASN, the API response will include the 2-byte value for both the asn and asnLong fields",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--asn-long",
+          description:
+            "The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration.  Note the following limitations when using asnLong:   You can use asnLong or asn, but not both. We recommend using asnLong as it supports a greater pool of numbers.     asnLong accepts any valid ASN value, regardless if it's 2-byte or 4-byte.    When using a 4-byte asnLong, the API response returns 0 for the legacy asn attribute since 4-byte ASN values exceed the maximum supported value of 2,147,483,647.   If you are using a 2-byte ASN, the API response will include the 2-byte value for both the asn and asnLong fields.   If you provide a value in the same API call for both asn and asnLong, the API will only accept the value for asnLong",
+          args: {
+            name: "long",
           },
         },
         {
@@ -1567,6 +1593,21 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "The token for the next page of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1703,7 +1744,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-direct-connect-gateway-associations",
       description:
-        "Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:   A Direct Connect gateway The response contains all virtual private gateways and transit gateways associated with the Direct Connect gateway.   A virtual private gateway The response contains the Direct Connect gateway.   A transit gateway The response contains the Direct Connect gateway.   A Direct Connect gateway and a virtual private gateway The response contains the association between the Direct Connect gateway and virtual private gateway.   A Direct Connect gateway and a transit gateway The response contains the association between the Direct Connect gateway and transit gateway",
+        "Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:   A Direct Connect gateway The response contains all virtual private gateways and transit gateways associated with the Direct Connect gateway.   A virtual private gateway The response contains the Direct Connect gateway.   A transit gateway The response contains the Direct Connect gateway.   A Direct Connect gateway and a virtual private gateway The response contains the association between the Direct Connect gateway and virtual private gateway.   A Direct Connect gateway and a transit gateway The response contains the association between the Direct Connect gateway and transit gateway.   A Direct Connect gateway and a virtual private gateway The response contains the association between the Direct Connect gateway and virtual private gateway.   A Direct Connect gateway association to a Cloud WAN core network The response contains the Cloud WAN core network ID that the Direct Connect gateway is associated to",
       options: [
         {
           name: "--association-id",
@@ -1722,22 +1763,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--direct-connect-gateway-id",
           description: "The ID of the Direct Connect gateway",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token provided in the previous call to retrieve the next page",
           args: {
             name: "string",
           },
@@ -1813,22 +1838,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token provided in the previous call to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1884,22 +1893,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token provided in the previous call to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1950,6 +1943,21 @@ const completionSpec: Fig.Spec = {
         {
           name: "--connection-id",
           description: "The ID of the interconnect or LAG",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2033,6 +2041,21 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "The token for the next page of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2059,6 +2082,21 @@ const completionSpec: Fig.Spec = {
         {
           name: "--lag-id",
           description: "The ID of the LAG",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2249,7 +2287,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-virtual-interfaces",
       description:
-        "Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned. A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network",
+        "Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned. A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.   If you're using an asn, the response includes the ASN value in both the asn and asnLong fields.   If you're using asnLong, the response returns a value of 0 (zero) for the asn attribute because it exceeds the highest ASN value of 2,147,483,647 that it can support",
       options: [
         {
           name: "--connection-id",
@@ -2261,6 +2299,21 @@ const completionSpec: Fig.Spec = {
         {
           name: "--virtual-interface-id",
           description: "The ID of the virtual interface",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2325,12 +2378,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-mac-sec-key",
       description:
-        "Removes the association between a MAC Security (MACsec) security key and an Direct Connect dedicated connection",
+        "Removes the association between a MAC Security (MACsec) security key and a Direct Connect connection",
       options: [
         {
           name: "--connection-id",
           description:
-            "The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx). You can use DescribeConnections or DescribeLags to retrieve connection ID",
+            "The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx). You can use DescribeConnections, DescribeInterconnects, or DescribeLags to retrieve connection ID",
           args: {
             name: "string",
           },
@@ -2585,12 +2638,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-connection",
       description:
-        "Updates the Direct Connect dedicated connection configuration. You can update the following parameters for a connection:   The connection name   The connection's MAC Security (MACsec) encryption mode",
+        "Updates the Direct Connect connection configuration. You can update the following parameters for a connection:   The connection name   The connection's MAC Security (MACsec) encryption mode",
       options: [
         {
           name: "--connection-id",
           description:
-            "The ID of the dedicated connection. You can use DescribeConnections to retrieve the connection ID",
+            "The ID of the connection. You can use DescribeConnections to retrieve the connection ID",
           args: {
             name: "string",
           },
@@ -2798,6 +2851,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--virtual-interface-name",
           description: "The name of the virtual private interface",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--rate-limit",
+          description:
+            "The rate limit (bandwidth allocation) to apply to the virtual interface. Use this to update the bandwidth allocation on an existing virtual interface",
           args: {
             name: "string",
           },

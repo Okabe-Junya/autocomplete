@@ -1,12 +1,13 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codestar-notifications",
   description:
-    "This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API to work with the following objects: Notification rules, by calling the following:     CreateNotificationRule, which creates a notification rule for a resource in your account.     DeleteNotificationRule, which deletes a notification rule.     DescribeNotificationRule, which provides information about a notification rule.     ListNotificationRules, which lists the notification rules associated with your account.     UpdateNotificationRule, which changes the name, events, or targets associated with a notification rule.     Subscribe, which subscribes a target to a notification rule.     Unsubscribe, which removes a target from a notification rule.    Targets, by calling the following:     DeleteTarget, which removes a notification rule target from a notification rule.     ListTargets, which lists the targets associated with a notification rule.    Events, by calling the following:     ListEventTypes, which lists the event types you can include in a notification rule.    Tags, by calling the following:     ListTagsForResource, which lists the tags already associated with a notification rule in your account.     TagResource, which associates a tag you provide with a notification rule in your account.     UntagResource, which removes a tag from a notification rule in your account.     For information about how to use AWS CodeStar Notifications, see the Amazon Web Services Developer Tools Console User Guide",
+    "This CodeStar Notifications API Reference provides descriptions and usage examples of the operations and data types for the CodeStar Notifications API. You can use the CodeStar Notifications API to work with the following objects: Notification rules, by calling the following:     CreateNotificationRule, which creates a notification rule for a resource in your account.     DeleteNotificationRule, which deletes a notification rule.     DescribeNotificationRule, which provides information about a notification rule.     ListNotificationRules, which lists the notification rules associated with your account.     UpdateNotificationRule, which changes the name, events, or targets associated with a notification rule.     Subscribe, which subscribes a target to a notification rule.     Unsubscribe, which removes a target from a notification rule.    Targets, by calling the following:     DeleteTarget, which removes a notification rule target from a notification rule.     ListTargets, which lists the targets associated with a notification rule.    Events, by calling the following:     ListEventTypes, which lists the event types you can include in a notification rule.    Tags, by calling the following:     ListTagsForResource, which lists the tags already associated with a notification rule in your account.     TagResource, which associates a tag you provide with a notification rule in your account.     UntagResource, which removes a tag from a notification rule in your account.     For information about how to use CodeStar Notifications, see the Amazon Web Services Developer Tools Console User Guide",
   subcommands: [
     {
       name: "create-notification-rule",
       description:
-        "Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive them",
+        "Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive them",
       options: [
         {
           name: "--name",
@@ -35,7 +36,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--targets",
           description:
-            "A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and Chatbot clients to associate with the notification rule",
+            "A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and Amazon Q Developer in chat applications clients to associate with the notification rule",
           args: {
             name: "list",
           },
@@ -43,7 +44,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--detail-type",
           description:
-            "The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created",
+            "The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information provided by CodeStar Notifications and/or the service for the resource for which the notification is created",
           args: {
             name: "string",
           },
@@ -129,7 +130,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-address",
           description:
-            "The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to delete",
+            "The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client to delete",
           args: {
             name: "string",
           },
@@ -137,12 +138,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--force-unsubscribe-all",
           description:
-            "A Boolean value that can be used to delete all associations with this Chatbot topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your Amazon Web Services account are deleted",
+            "A Boolean value that can be used to delete all associations with this Amazon Q Developer in chat applications topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your Amazon Web Services account are deleted",
         },
         {
           name: "--no-force-unsubscribe-all",
           description:
-            "A Boolean value that can be used to delete all associations with this Chatbot topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your Amazon Web Services account are deleted",
+            "A Boolean value that can be used to delete all associations with this Amazon Q Developer in chat applications topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your Amazon Web Services account are deleted",
         },
         {
           name: "--cli-input-json",
@@ -208,22 +209,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of results that can be returned is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -277,22 +262,6 @@ const completionSpec: Fig.Spec = {
             "The filters to use to return information by service or resource type. For valid values, see ListNotificationRulesFilter.  A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -384,22 +353,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -445,7 +398,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "subscribe",
       description:
-        "Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the associated target can receive notifications when the events described in the rule are triggered",
+        "Creates an association between a notification rule and an Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client so that the associated target can receive notifications when the events described in the rule are triggered",
       options: [
         {
           name: "--arn",
@@ -458,7 +411,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target",
           description:
-            "Information about the Chatbot topics or Chatbot clients associated with a notification rule",
+            "Information about the Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients associated with a notification rule",
           args: {
             name: "structure",
           },
@@ -532,7 +485,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "unsubscribe",
       description:
-        "Removes an association between a notification rule and an Chatbot topic so that subscribers to that topic stop receiving notifications when the events described in the rule are triggered",
+        "Removes an association between a notification rule and an Amazon Q Developer in chat applications topic so that subscribers to that topic stop receiving notifications when the events described in the rule are triggered",
       options: [
         {
           name: "--arn",
@@ -545,7 +498,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-address",
           description:
-            "The ARN of the Chatbot topic to unsubscribe from the notification rule",
+            "The ARN of the Amazon Q Developer in chat applications topic to unsubscribe from the notification rule",
           args: {
             name: "string",
           },
@@ -655,7 +608,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--detail-type",
           description:
-            "The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created",
+            "The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information provided by CodeStar Notifications and/or the service for the resource for which the notification is created",
           args: {
             name: "string",
           },

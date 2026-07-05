@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ssm",
   description:
-    "Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure end-to-end management solution for hybrid cloud environments that enables safe and secure operations at scale. This reference is intended to be used with the Amazon Web Services Systems Manager User Guide. To get started, see Setting up Amazon Web Services Systems Manager.  Related resources    For information about each of the capabilities that comprise Systems Manager, see Systems Manager capabilities in the Amazon Web Services Systems Manager User Guide.   For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the  Systems Manager Automation runbook reference .   For information about AppConfig, a capability of Systems Manager, see the  AppConfig User Guide  and the  AppConfig API Reference .   For information about Incident Manager, a capability of Systems Manager, see the  Systems Manager Incident Manager User Guide  and the  Systems Manager Incident Manager API Reference",
+    "Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure end-to-end management solution for hybrid cloud environments that enables safe and secure operations at scale. This reference is intended to be used with the Amazon Web Services Systems Manager User Guide. To get started, see Setting up Amazon Web Services Systems Manager.  Related resources    For information about each of the tools that comprise Systems Manager, see Using Systems Manager tools in the Amazon Web Services Systems Manager User Guide.   For details about predefined runbooks for Automation, a tool in Amazon Web Services Systems Manager, see the  Systems Manager Automation Runbook Reference .   For information about AppConfig, a tool in Systems Manager, see the  AppConfig User Guide  and the  AppConfig API Reference .   For information about Incident Manager, a tool in Systems Manager, see the  Systems Manager Incident Manager User Guide  and the  Systems Manager Incident Manager API Reference ",
   subcommands: [
     {
       name: "add-tags-to-resource",
@@ -54,7 +55,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-ops-item-related-item",
       description:
-        "Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of Amazon Web Services Systems Manager",
+        "Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are tools in Amazon Web Services Systems Manager",
       options: [
         {
           name: "--ops-item-id",
@@ -180,7 +181,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-activation",
       description:
-        "Generates an activation code and activation ID you can use to register your on-premises servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and ID when installing SSM Agent on machines in your hybrid environment. For more information about requirements for managing on-premises machines using Systems Manager, see Using Amazon Web Services Systems Manager in hybrid and multicloud environments in the Amazon Web Services Systems Manager User Guide.   Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are configured for Systems Manager are all called managed nodes",
+        "Generates an activation code and activation ID you can use to register your on-premises servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with Systems Manager makes it possible to manage them using Systems Manager tools. You use the activation code and ID when installing SSM Agent on machines in your hybrid environment. For more information about requirements for managing on-premises machines using Systems Manager, see Using Amazon Web Services Systems Manager in hybrid and multicloud environments in the Amazon Web Services Systems Manager User Guide.   Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are configured for Systems Manager are all called managed nodes",
       options: [
         {
           name: "--description",
@@ -259,7 +260,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-association",
       description:
-        "A State Manager association defines the state that you want to maintain on your managed nodes. For example, an association can specify that anti-virus software must be installed and running on your managed nodes, or that certain ports must be closed. For static targets, the association specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an Amazon Web Services resource group or an Amazon Web Services autoscaling group, State Manager, a capability of Amazon Web Services Systems Manager applies the configuration when new managed nodes are added to the group. The association also specifies actions to take when applying the configuration. For example, an association for anti-virus software might run once a day. If the software isn't installed, then State Manager installs it. If the software is installed, but the service isn't running, then the association might instruct State Manager to start the service",
+        "A State Manager association defines the state that you want to maintain on your managed nodes. For example, an association can specify that anti-virus software must be installed and running on your managed nodes, or that certain ports must be closed. For static targets, the association specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an Amazon Web Services resource group or an Amazon Web Services autoscaling group, State Manager, a tool in Amazon Web Services Systems Manager applies the configuration when new managed nodes are added to the group. The association also specifies actions to take when applying the configuration. For example, an association for anti-virus software might run once a day. If the software isn't installed, then State Manager installs it. If the software is installed, but the service isn't running, then the association might instruct State Manager to start the service",
       options: [
         {
           name: "--name",
@@ -327,7 +328,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--automation-target-parameter-name",
           description:
-            "Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of Amazon Web Services Systems Manager",
+            "Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in Amazon Web Services Systems Manager",
           args: {
             name: "string",
           },
@@ -366,17 +367,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--apply-only-at-cron-interval",
           description:
-            "By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter isn't supported for rate expressions",
+            "By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified and when target changes are detected. Specify true for ApplyOnlyAtCronIntervalif you want the association to run only according to the schedule you specified. For more information, see Understanding when associations are applied to resources and >About target updates with Automation runbooks in the Amazon Web Services Systems Manager User Guide. This parameter isn't supported for rate expressions",
         },
         {
           name: "--no-apply-only-at-cron-interval",
           description:
-            "By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter isn't supported for rate expressions",
+            "By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified and when target changes are detected. Specify true for ApplyOnlyAtCronIntervalif you want the association to run only according to the schedule you specified. For more information, see Understanding when associations are applied to resources and >About target updates with Automation runbooks in the Amazon Web Services Systems Manager User Guide. This parameter isn't supported for rate expressions",
         },
         {
           name: "--calendar-names",
           description:
-            "The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to gate your associations under. The associations only run when that change calendar is open. For more information, see Amazon Web Services Systems Manager Change Calendar",
+            "The names of Amazon Resource Names (ARNs) of the Change Calendar type documents you want to gate your associations under. The associations only run when that change calendar is open. For more information, see Amazon Web Services Systems Manager Change Calendar in the Amazon Web Services Systems Manager User Guide",
           args: {
             name: "list",
           },
@@ -384,7 +385,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-locations",
           description:
-            "A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the association. Use this action to create an association in multiple Regions and multiple accounts",
+            "A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the association. Use this action to create an association in multiple Regions and multiple accounts.  The IncludeChildOrganizationUnits parameter is not supported by State Manager",
           args: {
             name: "list",
           },
@@ -430,6 +431,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--association-dispatch-assume-role",
+          description:
+            "A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified,  service-linked role for Systems Manager will be used by default.   It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf. Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -458,6 +467,14 @@ const completionSpec: Fig.Spec = {
           description: "One or more associations",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--association-dispatch-assume-role",
+          description:
+            "A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified,  service-linked role for Systems Manager will be used by default.   It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf. Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly",
+          args: {
+            name: "string",
           },
         },
         {
@@ -718,7 +735,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ops-item-type",
           description:
-            "The type of OpsItem to create. Systems Manager supports the following types of OpsItems:    /aws/issue  This type of OpsItem is used for default OpsItems created by OpsCenter.     /aws/changerequest  This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change requests.     /aws/insight  This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate OpsItems",
+            "The type of OpsItem to create. Systems Manager supports the following types of OpsItems:    /aws/issue  This type of OpsItem is used for default OpsItems created by OpsCenter.     /aws/insight  This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate OpsItems.     /aws/changerequest  This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change requests.   Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see Amazon Web Services Systems Manager Change Manager availability change",
           args: {
             name: "string",
           },
@@ -971,7 +988,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rejected-patches-action",
           description:
-            "The action for Patch Manager to take on patches included in the RejectedPackages list.  ALLOW_AS_DEPENDENCY   Linux and macOS: A package in the rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as INSTALLED_OTHER. This is the default action if no option is specified.  Windows Server: Windows Server doesn't support the concept of package dependencies. If a package in the rejected patches list and already installed on the node, its status is reported as INSTALLED_OTHER. Any package not already installed on the node is skipped. This is the default action if no option is specified.  BLOCK   All OSs: Packages in the rejected patches list, and packages that include them as dependencies, aren't installed by Patch Manager under any circumstances. If a package was installed before it was added to the rejected patches list, or is installed outside of Patch Manager afterward, it's considered noncompliant with the patch baseline and its status is reported as INSTALLED_REJECTED",
+            "The action for Patch Manager to take on patches included in the RejectedPackages list.  ALLOW_AS_DEPENDENCY   Linux and macOS: A package in the rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as INSTALLED_OTHER. This is the default action if no option is specified.  Windows Server: Windows Server doesn't support the concept of package dependencies. If a package in the rejected patches list and already installed on the node, its status is reported as INSTALLED_OTHER. Any package not already installed on the node is skipped. This is the default action if no option is specified.  BLOCK   All OSs: Packages in the rejected patches list, and packages that include them as dependencies, aren't installed by Patch Manager under any circumstances.  State value assignment for patch compliance:   If a package was installed before it was added to the rejected patches list, or is installed outside of Patch Manager afterward, it's considered noncompliant with the patch baseline and its status is reported as INSTALLED_REJECTED.   If an update attempts to install a dependency package that is now rejected by the baseline, when previous versions of the package were not rejected, the package being updated is reported as MISSING for SCAN operations and as FAILED for INSTALL operations",
           args: {
             name: "string",
           },
@@ -989,6 +1006,14 @@ const completionSpec: Fig.Spec = {
             "Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--available-security-updates-compliance-status",
+          description:
+            "Indicates the status you want to assign to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline. Example scenario: Security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed. Supported for Windows Server managed nodes only",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1545,7 +1570,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "deregister-managed-instance",
       description:
-        "Removes the server or virtual machine from the list of registered servers. You can reregister the node again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first",
+        "Removes the server or virtual machine from the list of registered servers. If you want to reregister an on-premises server, edge device, or VM, you must use a different Activation Code and Activation ID than used to register the machine previously. The Activation Code and Activation ID must not have already been used on the maximum number of activations specified when they were created. For more information, see Deregistering managed nodes in a hybrid and multicloud environment in the Amazon Web Services Systems Manager User Guide",
       options: [
         {
           name: "--instance-id",
@@ -1713,22 +1738,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1853,22 +1862,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1932,22 +1925,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2001,22 +1978,6 @@ const completionSpec: Fig.Spec = {
             "Filters used to limit the scope of executions that are requested",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2081,22 +2042,6 @@ const completionSpec: Fig.Spec = {
             "One or more filters to limit the number of step executions returned by the request",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2166,21 +2111,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of patches to return (per page)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2230,7 +2160,8 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--name",
-          description: "The name of the SSM document",
+          description:
+            "The name of the SSM document.  If you're calling a shared SSM document from a different Amazon Web Services account, Name is the full Amazon Resource Name (ARN) of the document",
           args: {
             name: "string",
           },
@@ -2338,22 +2269,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2410,21 +2325,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of patches to return (per page)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2475,22 +2375,6 @@ const completionSpec: Fig.Spec = {
           name: "--instance-id",
           description:
             "The managed node IDs for which you want association status information",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
           args: {
             name: "string",
           },
@@ -2560,22 +2444,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results. The default value is 10 items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2629,22 +2497,6 @@ const completionSpec: Fig.Spec = {
             "The ID of the managed node for which patch state information should be retrieved",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of managed nodes to return (per page)",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2712,21 +2564,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of patches to return (per page)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2788,21 +2625,6 @@ const completionSpec: Fig.Spec = {
             "Each element in the array is a structure containing a key-value pair. Supported keys for DescribeInstancePatchesinclude the following:     Classification   Sample values: Security | SecurityUpdates      KBId   Sample values: KB4480056 | java-1.7.0-openjdk.x86_64      Severity   Sample values: Important | Medium | Low      State   Sample values: Installed | InstalledOther | InstalledPendingReboot  For lists of all State values, see Patch compliance state values in the Amazon Web Services Systems Manager User Guide",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of patches to return (per page)",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2868,22 +2690,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for the call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token provided by a previous request to use to return the next set of properties",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2936,22 +2742,6 @@ const completionSpec: Fig.Spec = {
             "Specify the delete inventory ID for which you want information. This ID was returned by the DeleteInventory operation",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3027,22 +2817,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3107,22 +2881,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3184,22 +2942,6 @@ const completionSpec: Fig.Spec = {
             "Each entry in the array is a structure containing:   Key. A string between 1 and 128 characters. Supported keys include ExecutedBefore and ExecutedAfter.   Values. An array of strings, each between 1 and 256 characters. Supported values are date/time strings in a valid ISO 8601 date/time format, such as 2024-11-04T05:00:00Z",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3283,22 +3025,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3359,22 +3085,6 @@ const completionSpec: Fig.Spec = {
             "Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId, and OwnerInformation",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3442,22 +3152,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3511,22 +3205,6 @@ const completionSpec: Fig.Spec = {
             "Optional filters used to narrow down the scope of the returned maintenance windows. Supported filter keys are Name and Enabled. For example, Name=MyMaintenanceWindow and Enabled=True",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3594,22 +3272,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3666,22 +3328,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3727,7 +3373,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-parameters",
       description:
-        "Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable the Shared option. Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results.  If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, DescribeParameters retrieves whatever the original key alias was referencing",
+        "Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable the Shared option. Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results. Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error.  If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, DescribeParameters retrieves whatever the original key alias was referencing",
       options: [
         {
           name: "--filters",
@@ -3742,22 +3388,6 @@ const completionSpec: Fig.Spec = {
           description: "Filters to limit the request results",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3824,22 +3454,6 @@ const completionSpec: Fig.Spec = {
             "Each element in the array is a structure containing a key-value pair. Supported keys for DescribePatchBaselines include the following:     NAME_PREFIX   Sample values: AWS- | My-      OWNER   Sample values: AWS | Self      OPERATING_SYSTEM   Sample values: AMAZON_LINUX | SUSE | WINDOWS",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of patch baselines to return (per page)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3923,27 +3537,11 @@ const completionSpec: Fig.Spec = {
         "Lists all patch groups that have been registered with patch baselines",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of patch groups to return (per page)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             "Each element in the array is a structure containing a key-value pair. Supported keys for DescribePatchGroups include the following:     NAME_PREFIX   Sample values: AWS- | My-.     OPERATING_SYSTEM   Sample values: AMAZON_LINUX | SUSE | WINDOWS",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4018,22 +3616,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4085,22 +3667,6 @@ const completionSpec: Fig.Spec = {
           name: "--state",
           description:
             'The session status to retrieve a list of sessions for. For example, "Active"',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
           args: {
             name: "string",
           },
@@ -4159,7 +3725,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-ops-item-related-item",
       description:
-        "Deletes the association between an OpsItem and a related item. For example, this API operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of Amazon Web Services Systems Manager",
+        "Deletes the association between an OpsItem and a related item. For example, this API operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a tool in Amazon Web Services Systems Manager",
       options: [
         {
           name: "--ops-item-id",
@@ -4173,6 +3739,37 @@ const completionSpec: Fig.Spec = {
           name: "--association-id",
           description:
             "The ID of the association for which you want to delete an association between the OpsItem and a related item",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-access-token",
+      description:
+        "Returns a credentials set to be used with just-in-time node access",
+      options: [
+        {
+          name: "--access-request-id",
+          description: "The ID of a just-in-time node access request",
           args: {
             name: "string",
           },
@@ -4231,12 +3828,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-calendar-state",
       description:
-        "Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If you specify a time, GetCalendarState returns the state of the calendar at that specific time, and returns the next time that the change calendar state will transition. If you don't specify a time, GetCalendarState uses the current time. Change Calendar entries have two possible states: OPEN or CLOSED. If you specify more than one calendar in a request, the command returns the status of OPEN only if all calendars in the request are open. If one or more calendars in the request are closed, the status returned is CLOSED. For more information about Change Calendar, a capability of Amazon Web Services Systems Manager, see Amazon Web Services Systems Manager Change Calendar in the Amazon Web Services Systems Manager User Guide",
+        "Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If you specify a time, GetCalendarState returns the state of the calendar at that specific time, and returns the next time that the change calendar state will transition. If you don't specify a time, GetCalendarState uses the current time. Change Calendar entries have two possible states: OPEN or CLOSED. If you specify more than one calendar in a request, the command returns the status of OPEN only if all calendars in the request are open. If one or more calendars in the request are closed, the status returned is CLOSED. For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see Amazon Web Services Systems Manager Change Calendar in the Amazon Web Services Systems Manager User Guide",
       options: [
         {
           name: "--calendar-names",
           description:
-            "The names or Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that represent the calendar entries for which you want to get the state",
+            "The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that represent the calendar entries for which you want to get the state",
           args: {
             name: "list",
           },
@@ -4382,7 +3979,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-deployable-patch-snapshot-for-instance",
       description:
-        "Retrieves the current snapshot for the patch baseline the managed node uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document (SSM document).  If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or command. For example, run the command using the AWS-RunShellScript document or the AWS-RunPowerShellScript document",
+        "Retrieves the current snapshot for the patch baseline the managed node uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document (SSM document).  If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or command. For example, run the command using the AWS-RunShellScript document or the AWS-RunPowerShellScript document",
       options: [
         {
           name: "--instance-id",
@@ -4407,6 +4004,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "structure",
           },
+        },
+        {
+          name: "--use-s3-dual-stack-endpoint",
+          description:
+            "Specifies whether to use S3 dualstack endpoints for the patch snapshot download URL. Set to true to receive a presigned URL that supports both IPv4 and IPv6 connectivity. Set to false to use standard IPv4-only endpoints. Default is false. This parameter is required for managed nodes in IPv6-only environments",
+        },
+        {
+          name: "--no-use-s3-dual-stack-endpoint",
+          description:
+            "Specifies whether to use S3 dualstack endpoints for the patch snapshot download URL. Set to true to receive a presigned URL that supports both IPv4 and IPv6 connectivity. Set to false to use standard IPv4-only endpoints. Default is false. This parameter is required for managed nodes in IPv6-only environments",
         },
         {
           name: "--cli-input-json",
@@ -4541,22 +4148,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4609,22 +4200,6 @@ const completionSpec: Fig.Spec = {
           description: "The type of inventory item to return",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -5001,22 +4576,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5062,7 +4621,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-parameter",
       description:
-        "Get information about a single parameter by specifying the parameter name.  To get information about more than one parameter at a time, use the GetParameters operation",
+        "Get information about a single parameter by specifying the parameter name. Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error.  To get information about more than one parameter at a time, use the GetParameters operation",
       options: [
         {
           name: "--name",
@@ -5104,7 +4663,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-parameter-history",
       description:
-        "Retrieves the history of all changes to a parameter.  If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, GetParameterHistory retrieves whatever the original key alias was referencing",
+        "Retrieves the history of all changes to a parameter. Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error.  If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, GetParameterHistory retrieves whatever the original key alias was referencing",
       options: [
         {
           name: "--name",
@@ -5123,22 +4682,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-with-decryption",
           description:
             "Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types",
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--cli-input-json",
@@ -5186,7 +4729,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-parameters",
       description:
-        "Get information about one or more parameters by specifying multiple parameter names.  To get information about a single parameter, you can use the GetParameter operation instead",
+        "Get information about one or more parameters by specifying multiple parameter names.  To get information about a single parameter, you can use the GetParameter operation instead.  Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error",
       options: [
         {
           name: "--names",
@@ -5228,7 +4771,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-parameters-by-path",
       description:
-        "Retrieve information about one or more parameters in a specific hierarchy.  Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results",
+        "Retrieve information about one or more parameters under a specified level in a hierarchy.  Request results are returned on a best-effort basis. If you specify MaxResults in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of MaxResults. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a NextToken. You can specify the NextToken in a subsequent call to get the next set of results. Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error",
       options: [
         {
           name: "--path",
@@ -5265,22 +4808,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-with-decryption",
           description:
             "Retrieve all parameters in a hierarchy with their value decrypted",
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--cli-input-json",
@@ -5409,22 +4936,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5502,7 +5013,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "label-parameter-version",
       description:
-        "A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and increments the version number by one. A label can help you remember the purpose of a parameter when there are multiple versions.  Parameter labels have the following requirements and restrictions.   A version of a parameter can have a maximum of 10 labels.   You can't attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can't attach Production to version 2.   You can move a label from one version of a parameter to another.   You can't create a label when you create a new parameter. You must attach a label to a specific version of a parameter.   If you no longer want to use a parameter label, then you can either delete it or move it to a different version of a parameter.   A label can have a maximum of 100 characters.   Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).   Labels can't begin with a number, \"aws\" or \"ssm\" (not case sensitive). If a label fails to meet these requirements, then the label isn't associated with a parameter and the system displays it in the list of InvalidLabels",
+        "A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and increments the version number by one. A label can help you remember the purpose of a parameter when there are multiple versions.  Parameter labels have the following requirements and restrictions.   A version of a parameter can have a maximum of 10 labels.   You can't attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can't attach Production to version 2.   You can move a label from one version of a parameter to another.   You can't create a label when you create a new parameter. You must attach a label to a specific version of a parameter.   If you no longer want to use a parameter label, then you can either delete it or move it to a different version of a parameter.   A label can have a maximum of 100 characters.   Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).   Labels can't begin with a number, \"aws\" or \"ssm\" (not case sensitive). If a label fails to meet these requirements, then the label isn't associated with a parameter and the system displays it in the list of InvalidLabels.   Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error",
       options: [
         {
           name: "--name",
@@ -5561,22 +5072,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5622,7 +5117,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-associations",
       description:
-        "Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You can limit the results to a specific State Manager association document or managed node by specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager",
+        "Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You can limit the results to a specific State Manager association document or managed node by specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager",
       options: [
         {
           name: "--association-filter-list",
@@ -5630,22 +5125,6 @@ const completionSpec: Fig.Spec = {
             "One or more filters. Use a filter to return a more specific list of results.  Filtering associations using the InstanceID attribute only returns legacy associations created using the InstanceID attribute. Associations targeting the managed node that are part of the Target Attributes ResourceGroup or Tags aren't returned",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -5707,22 +5186,6 @@ const completionSpec: Fig.Spec = {
           name: "--instance-id",
           description:
             "(Optional) The command execution details for a specific managed node ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "(Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "(Optional) The token for the next set of items to return. (You received this token from a previous call.)",
           args: {
             name: "string",
           },
@@ -5810,22 +5273,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "(Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "(Optional) The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filters",
           description:
             "(Optional) One or more filters. Use a filter to return a more specific list of results",
@@ -5906,22 +5353,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5978,22 +5409,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6039,7 +5454,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-document-metadata-history",
       description:
-        "Information about approval reviews for a version of a change template in Change Manager",
+        "Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see Amazon Web Services Systems Manager Change Manager availability change.  Information about approval reviews for a version of a change template in Change Manager",
       options: [
         {
           name: "--name",
@@ -6111,22 +5526,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6187,22 +5586,6 @@ const completionSpec: Fig.Spec = {
             "One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include Owner, Name, PlatformTypes, DocumentType, and TargetType. For example, to return documents you own use Key=Owner,Values=Self. To specify a custom key-value pair, use the format Key=tag:tagName,Values=valueName.  This API operation only supports filtering documents by using a single tag key and one or more tag values. For example: Key=tag:tagName,Values=valueName1,valueName2",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6319,7 +5702,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-name",
           description:
-            "The name of the resource data sync to retrieve information about. Required for cross-account/cross-Region configurations. Optional for single account/single-Region configurations",
+            "The name of the Amazon Web Services managed resource data sync to retrieve information about. For cross-account/cross-Region configurations, this parameter is required, and the name of the supported resource data sync is AWS-QuickSetup-ManagedNode. For single account/single-Region configurations, the parameter is not required",
           args: {
             name: "string",
           },
@@ -6330,22 +5713,6 @@ const completionSpec: Fig.Spec = {
             "One or more filters. Use a filter to return a more specific list of managed nodes",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6399,7 +5766,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-name",
           description:
-            "The name of the resource data sync to retrieve information about. Required for cross-account/cross-Region configuration. Optional for single account/single-Region configurations",
+            "The name of the Amazon Web Services managed resource data sync to retrieve information about. For cross-account/cross-Region configurations, this parameter is required, and the name of the supported resource data sync is AWS-QuickSetup-ManagedNode. For single account/single-Region configurations, the parameter is not required",
           args: {
             name: "string",
           },
@@ -6418,22 +5785,6 @@ const completionSpec: Fig.Spec = {
             "Specify one or more aggregators to return a count of managed nodes that match that expression. For example, a count of managed nodes by operating system",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.) The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6493,22 +5844,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6554,7 +5889,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-ops-item-related-items",
       description:
-        "Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a capability of Amazon Web Services Systems Manager",
+        "Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a tool in Amazon Web Services Systems Manager",
       options: [
         {
           name: "--ops-item-id",
@@ -6570,22 +5905,6 @@ const completionSpec: Fig.Spec = {
             "One or more OpsItem filters. Use a filter to return a more specific list of results",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6645,22 +5964,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6717,22 +6020,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6786,22 +6073,6 @@ const completionSpec: Fig.Spec = {
             "View a list of resource data syncs according to the sync type. Specify SyncToDestination to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify SyncFromSource to view resource data syncs from Organizations or from multiple Amazon Web Services Regions",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6909,7 +6180,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-ids-to-add",
           description:
-            "The Amazon Web Services users that should have access to the document. The account IDs can either be a group of account IDs or All",
+            "The Amazon Web Services users that should have access to the document. The account IDs can either be a group of account IDs or All. You must specify a value for this parameter or the AccountIdsToRemove parameter",
           args: {
             name: "list",
           },
@@ -6917,7 +6188,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-ids-to-remove",
           description:
-            "The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user can either be a group of account IDs or All. This action has a higher priority than AccountIdsToAdd. If you specify an ID to add and the same ID to remove, the system removes access to the document",
+            "The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user can either be a group of account IDs or All. This action has a higher priority than AccountIdsToAdd. If you specify an ID to add and the same ID to remove, the system removes access to the document. You must specify a value for this parameter or the AccountIdsToAdd parameter",
           args: {
             name: "list",
           },
@@ -6952,7 +6223,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-compliance-items",
       description:
-        "Registers a compliance type and other compliance details on a designated resource. This operation lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request. ComplianceType can be one of the following:   ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.   ExecutionType: Specify patch, association, or Custom:string.   ExecutionTime. The time the patch, association, or custom compliance item was applied to the managed node.   Id: The patch, association, or custom compliance ID.   Title: A title.   Status: The status of the compliance item. For example, approved for patches, or Failed for associations.   Severity: A patch severity. For example, Critical.   DocumentName: An SSM document name. For example, AWS-RunPatchBaseline.   DocumentVersion: An SSM document version number. For example, 4.   Classification: A patch classification. For example, security updates.   PatchBaselineId: A patch baseline ID.   PatchSeverity: A patch severity. For example, Critical.   PatchState: A patch state. For example, InstancesWithFailedPatches.   PatchGroup: The name of a patch group.   InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'",
+        "Registers a compliance type and other compliance details on a designated resource. This operation lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request. ComplianceType can be one of the following:   ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.   ExecutionType: Specify patch, association, or Custom:string.   ExecutionTime. The time the patch, association, or custom compliance item was applied to the managed node.  For State Manager associations, this represents the time when compliance status was captured by the Systems Manager service during its internal compliance aggregation workflow, not necessarily when the association was executed on the managed node. State Manager updates compliance information for all associations on an instance whenever any association executes, which may result in multiple associations showing the same execution time.    Id: The patch, association, or custom compliance ID.   Title: A title.   Status: The status of the compliance item. For example, approved for patches, or Failed for associations.   Severity: A patch severity. For example, Critical.   DocumentName: An SSM document name. For example, AWS-RunPatchBaseline.   DocumentVersion: An SSM document version number. For example, 4.   Classification: A patch classification. For example, security updates.   PatchBaselineId: A patch baseline ID.   PatchSeverity: A patch severity. For example, Critical.   PatchState: A patch state. For example, InstancesWithFailedPatches.   PatchGroup: The name of a patch group.   InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'",
       options: [
         {
           name: "--resource-id",
@@ -7071,12 +6342,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "put-parameter",
-      description: "Add a parameter to the system",
+      description: "Create or update a parameter in Parameter Store",
       options: [
         {
           name: "--name",
           description:
-            'The fully qualified name of the parameter that you want to add to the system.  You can\'t enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.  The fully qualified name includes the complete hierarchy of the parameter path and name. For parameters in a hierarchy, you must include a leading forward slash character (/) when you create or reference a parameter. For example: /Dev/DBServer/MySQL/db-string13  Naming Constraints:   Parameter names are case sensitive.   A parameter name must be unique within an Amazon Web Services Region   A parameter name can\'t be prefixed with "aws" or "ssm" (case-insensitive).   Parameter names can include only the following symbols and letters: a-zA-Z0-9_.-  In addition, the slash character ( / ) is used to delineate hierarchies in parameter names. For example: /Dev/Production/East/Project-ABC/MyParameter    A parameter name can\'t include spaces.   Parameter hierarchies are limited to a maximum depth of fifteen levels.   For additional information about valid values for parameter names, see Creating Systems Manager parameters in the Amazon Web Services Systems Manager User Guide.  The maximum length constraint of 2048 characters listed below includes 1037 characters reserved for internal use by Systems Manager. The maximum length for a parameter name that you create is 1011 characters. This includes the characters in the ARN that precede the name you specify, such as arn:aws:ssm:us-east-2:111122223333:parameter/',
+            'The fully qualified name of the parameter that you want to create or update.  You can\'t enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.  The fully qualified name includes the complete hierarchy of the parameter path and name. For parameters in a hierarchy, you must include a leading forward slash character (/) when you create or reference a parameter. For example: /Dev/DBServer/MySQL/db-string13  Naming Constraints:   Parameter names are case sensitive.   A parameter name must be unique within an Amazon Web Services Region   A parameter name can\'t be prefixed with "aws" or "ssm" (case-insensitive).   Parameter names can include only the following symbols and letters: a-zA-Z0-9_.-  In addition, the slash character ( / ) is used to delineate hierarchies in parameter names. For example: /Dev/Production/East/Project-ABC/MyParameter    Parameter names can\'t contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error.   Parameter hierarchies are limited to a maximum depth of fifteen levels.   For additional information about valid values for parameter names, see Creating Systems Manager parameters in the Amazon Web Services Systems Manager User Guide.  The reported maximum length of 2048 characters for a parameter name includes 1037 characters that are reserved for internal use by Systems Manager. The maximum length for a parameter name that you specify is 1011 characters. This count of 1011 characters includes the characters in the ARN that precede the name you specify. This ARN length will vary depending on your partition and Region. For example, the following 45 characters count toward the 1011 character maximum for a parameter created in the US East (Ohio) Region: arn:aws:ssm:us-east-2:111122223333:parameter/',
           args: {
             name: "string",
           },
@@ -7092,7 +6363,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--value",
           description:
-            "The parameter value that you want to add to the system. Standard parameters have a value limit of 4 KB. Advanced parameters have a value limit of 8 KB.  Parameters can't be referenced or nested in the values of other parameters. You can't include {{}} or {{ssm:parameter-name}} in a parameter value",
+            "The parameter value that you want to add to the system. Standard parameters have a value limit of 4 KB. Advanced parameters have a value limit of 8 KB.  Parameters can't be referenced or nested in the values of other parameters. You can't include values wrapped in double brackets {{}} or {{ssm:parameter-name}} in a parameter value",
           args: {
             name: "string",
           },
@@ -7100,7 +6371,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "The type of parameter that you want to add to the system.   SecureString isn't currently supported for CloudFormation templates.  Items in a StringList must be separated by a comma (,). You can't use other punctuation or special character to escape items in the list. If you have a parameter value that requires a comma, then use the String data type.  Specifying a parameter type isn't required when updating a parameter. You must specify a parameter type when creating a parameter",
+            "The type of parameter that you want to create.   SecureString isn't currently supported for CloudFormation templates.  Items in a StringList must be separated by a comma (,). You can't use other punctuation or special character to escape items in the list. If you have a parameter value that requires a comma, then use the String data type.  Specifying a parameter type isn't required when updating a parameter. You must specify a parameter type when creating a parameter",
           args: {
             name: "string",
           },
@@ -7108,7 +6379,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--key-id",
           description:
-            "The Key Management Service (KMS) ID that you want to use to encrypt a parameter. Use a custom key for better security. Required for parameters that use the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your Amazon Web Services account which is not as secure as using a custom key.   To use a custom KMS key, choose the SecureString data type with the Key ID parameter",
+            "The Key Management Service (KMS) ID that you want to use to encrypt a parameter. Use a custom key for better security. Required for parameters that use the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your Amazon Web Services account, which is not as secure as using a custom key.   To use a custom KMS key, choose the SecureString data type with the Key ID parameter",
           args: {
             name: "string",
           },
@@ -7150,7 +6421,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--policies",
           description:
-            "One or more policies to apply to a parameter. This operation takes a JSON array. Parameter Store, a capability of Amazon Web Services Systems Manager supports the following policy types: Expiration: This policy deletes the parameter after it expires. When you create the policy, you specify the expiration date. You can update the expiration date and time by updating the policy. Updating the parameter doesn't affect the expiration date and time. When the expiration time is reached, Parameter Store deletes the parameter. ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events that notifies you about the expiration. By using this policy, you can receive notification before or after the expiration time is reached, in units of days or hours. NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter hasn't been modified for a specified period of time. This policy type is useful when, for example, a secret needs to be changed within a period of time, but it hasn't been changed. All existing policies are preserved until you send new policies or an empty policy. For more information about parameter policies, see Assigning parameter policies",
+            "One or more policies to apply to a parameter. This operation takes a JSON array. Parameter Store, a tool in Amazon Web Services Systems Manager supports the following policy types: Expiration: This policy deletes the parameter after it expires. When you create the policy, you specify the expiration date. You can update the expiration date and time by updating the policy. Updating the parameter doesn't affect the expiration date and time. When the expiration time is reached, Parameter Store deletes the parameter. ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events that notifies you about the expiration. By using this policy, you can receive notification before or after the expiration time is reached, in units of days or hours. NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter hasn't been modified for a specified period of time. This policy type is useful when, for example, a secret needs to be changed within a period of time, but it hasn't been changed. All existing policies are preserved until you send new policies or an empty policy. For more information about parameter policies, see Assigning parameter policies",
           args: {
             name: "string",
           },
@@ -7819,7 +7090,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cloud-watch-output-config",
           description:
-            "Enables Amazon Web Services Systems Manager to send Run Command output to Amazon CloudWatch Logs. Run Command is a capability of Amazon Web Services Systems Manager",
+            "Enables Amazon Web Services Systems Manager to send Run Command output to Amazon CloudWatch Logs. Run Command is a tool in Amazon Web Services Systems Manager",
           args: {
             name: "structure",
           },
@@ -7829,6 +7100,52 @@ const completionSpec: Fig.Spec = {
           description: "The CloudWatch alarm you want to apply to your command",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-access-request",
+      description: "Starts the workflow for just-in-time node access sessions",
+      options: [
+        {
+          name: "--reason",
+          description:
+            "A brief description explaining why you are requesting access to the node",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--targets",
+          description: "The node you are requesting access to",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Key-value pairs of metadata you want to assign to the access request",
+          args: {
+            name: "list",
           },
         },
         {
@@ -7977,7 +7294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key-value pairs:    Key=environment,Value=test     Key=OS,Value=Windows     To add tags to an existing automation, use the AddTagsToResource operation",
+            "Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key-value pairs:    Key=environment,Value=test     Key=OS,Value=Windows     The Array Members maximum value is reported as 1000. This number includes capacity reserved for internal operations. When calling the StartAutomationExecution action, you can specify a maximum of 5 tags. You can, however, use the AddTagsToResource action to add up to a total of 50 tags to an existing automation configuration",
           args: {
             name: "list",
           },
@@ -8020,7 +7337,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-change-request-execution",
       description:
-        "Creates a change request for Change Manager. The Automation runbooks specified in the change request run only after all required approvals for the change request have been received",
+        "Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see Amazon Web Services Systems Manager Change Manager availability change.  Creates a change request for Change Manager. The Automation runbooks specified in the change request run only after all required approvals for the change request have been received",
       options: [
         {
           name: "--scheduled-time",
@@ -8091,7 +7408,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "Optional metadata that you assign to a resource. You can specify a maximum of five tags for a change request. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a change request to identify an environment or target Amazon Web Services Region. In this case, you could specify the following key-value pairs:    Key=Environment,Value=Production     Key=Region,Value=us-east-2",
+            "Optional metadata that you assign to a resource. You can specify a maximum of five tags for a change request. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a change request to identify an environment or target Amazon Web Services Region. In this case, you could specify the following key-value pairs:    Key=Environment,Value=Production     Key=Region,Value=us-east-2     The Array Members maximum value is reported as 1000. This number includes capacity reserved for internal operations. When calling the StartChangeRequestExecution action, you can specify a maximum of 5 tags. You can, however, use the AddTagsToResource action to add up to a total of 50 tags to an existing change request configuration",
           args: {
             name: "list",
           },
@@ -8210,7 +7527,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--parameters",
           description:
-            "The values you want to specify for the parameters defined in the Session document",
+            "The values you want to specify for the parameters defined in the Session document. For more information about these parameters, see Create a Session Manager preferences document in the Amazon Web Services Systems Manager User Guide",
           args: {
             name: "map",
           },
@@ -8305,7 +7622,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "unlabel-parameter-version",
-      description: "Remove a label or labels from a parameter",
+      description:
+        "Remove a label or labels from a parameter. Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a ValidationException error",
       options: [
         {
           name: "--name",
@@ -8365,7 +7683,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--parameters",
           description:
-            "The parameters you want to update for the association. If you create a parameter using Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using {{ssm:parameter-name}}",
+            "The parameters you want to update for the association. If you create a parameter using Parameter Store, a tool in Amazon Web Services Systems Manager, you can reference the parameter using {{ssm:parameter-name}}",
           args: {
             name: "map",
           },
@@ -8427,7 +7745,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--automation-target-parameter-name",
           description:
-            "Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of Amazon Web Services Systems Manager",
+            "Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in Amazon Web Services Systems Manager",
           args: {
             name: "string",
           },
@@ -8458,7 +7776,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-compliance",
           description:
-            "The mode for generating association compliance. You can specify AUTO or MANUAL. In AUTO mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is COMPLIANT. If the association execution doesn't run successfully, the association is NON-COMPLIANT. In MANUAL mode, you must specify the AssociationId as a parameter for the PutComplianceItems API operation. In this case, compliance data isn't managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the PutComplianceItems API operation. By default, all associations use AUTO mode",
+            "The mode for generating association compliance. You can specify AUTO or MANUAL. In AUTO mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is COMPLIANT. If the association execution doesn't run successfully, the association is NON-COMPLIANT. In MANUAL mode, you must specify the AssociationId as a parameter for the PutComplianceItems API operation. In this case, compliance data isn't managed by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by your direct call to the PutComplianceItems API operation. By default, all associations use AUTO mode",
           args: {
             name: "string",
           },
@@ -8466,17 +7784,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--apply-only-at-cron-interval",
           description:
-            "By default, when you update an association, the system runs it immediately after it is updated and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you update it. This parameter isn't supported for rate expressions. If you chose this option when you created an association and later you edit that association or you make changes to the SSM document on which that association is based (by using the Documents page in the console), State Manager applies the association at the next specified cron interval. For example, if you chose the Latest version of an SSM document when you created an association and you edit the association by choosing a different document version on the Documents page, State Manager applies the association at the next specified cron interval if you previously selected this option. If this option wasn't selected, State Manager immediately runs the association. You can reset this option. To do so, specify the no-apply-only-at-cron-interval parameter when you update the association from the command line. This parameter forces the association to run immediately after updating it and according to the interval specified",
+            "By default, when you update an association, the system runs it immediately after it is updated and then according to the schedule you specified. Specify true for ApplyOnlyAtCronInterval if you want the association to run only according to the schedule you specified. If you chose this option when you created an association and later you edit that association or you make changes to the Automation runbook or SSM document on which that association is based, State Manager applies the association at the next specified cron interval. For example, if you chose the Latest version of an SSM document when you created an association and you edit the association by choosing a different document version on the Documents page, State Manager applies the association at the next specified cron interval if you previously set ApplyOnlyAtCronInterval to true. If this option wasn't selected, State Manager immediately runs the association. For more information, see Understanding when associations are applied to resources and About target updates with Automation runbooks in the Amazon Web Services Systems Manager User Guide. This parameter isn't supported for rate expressions. You can reset this parameter. To do so, specify the no-apply-only-at-cron-interval parameter when you update the association from the command line. This parameter forces the association to run immediately after updating it and according to the interval specified",
         },
         {
           name: "--no-apply-only-at-cron-interval",
           description:
-            "By default, when you update an association, the system runs it immediately after it is updated and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you update it. This parameter isn't supported for rate expressions. If you chose this option when you created an association and later you edit that association or you make changes to the SSM document on which that association is based (by using the Documents page in the console), State Manager applies the association at the next specified cron interval. For example, if you chose the Latest version of an SSM document when you created an association and you edit the association by choosing a different document version on the Documents page, State Manager applies the association at the next specified cron interval if you previously selected this option. If this option wasn't selected, State Manager immediately runs the association. You can reset this option. To do so, specify the no-apply-only-at-cron-interval parameter when you update the association from the command line. This parameter forces the association to run immediately after updating it and according to the interval specified",
+            "By default, when you update an association, the system runs it immediately after it is updated and then according to the schedule you specified. Specify true for ApplyOnlyAtCronInterval if you want the association to run only according to the schedule you specified. If you chose this option when you created an association and later you edit that association or you make changes to the Automation runbook or SSM document on which that association is based, State Manager applies the association at the next specified cron interval. For example, if you chose the Latest version of an SSM document when you created an association and you edit the association by choosing a different document version on the Documents page, State Manager applies the association at the next specified cron interval if you previously set ApplyOnlyAtCronInterval to true. If this option wasn't selected, State Manager immediately runs the association. For more information, see Understanding when associations are applied to resources and About target updates with Automation runbooks in the Amazon Web Services Systems Manager User Guide. This parameter isn't supported for rate expressions. You can reset this parameter. To do so, specify the no-apply-only-at-cron-interval parameter when you update the association from the command line. This parameter forces the association to run immediately after updating it and according to the interval specified",
         },
         {
           name: "--calendar-names",
           description:
-            "The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to gate your associations under. The associations only run when that change calendar is open. For more information, see Amazon Web Services Systems Manager Change Calendar",
+            "The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to gate your associations under. The associations only run when that change calendar is open. For more information, see Amazon Web Services Systems Manager Change Calendar in the Amazon Web Services Systems Manager User Guide",
           args: {
             name: "list",
           },
@@ -8484,7 +7802,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-locations",
           description:
-            "A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the association. Use this action to update an association in multiple Regions and multiple accounts",
+            "A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the association. Use this action to update an association in multiple Regions and multiple accounts.  The IncludeChildOrganizationUnits parameter is not supported by State Manager",
           args: {
             name: "list",
           },
@@ -8519,6 +7837,14 @@ const completionSpec: Fig.Spec = {
             "The details for the CloudWatch alarm you want to apply to an automation or command",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--association-dispatch-assume-role",
+          description:
+            "A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified,  service-linked role for Systems Manager will be used by default.   It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf. Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly",
+          args: {
+            name: "string",
           },
         },
         {
@@ -8712,7 +8038,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-document-metadata",
       description:
-        "Updates information related to approval reviews for a specific version of a change template in Change Manager",
+        "Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see Amazon Web Services Systems Manager Change Manager availability change.  Updates information related to approval reviews for a specific version of a change template in Change Manager",
       options: [
         {
           name: "--name",
@@ -9418,7 +8744,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rejected-patches-action",
           description:
-            "The action for Patch Manager to take on patches included in the RejectedPackages list.  ALLOW_AS_DEPENDENCY   Linux and macOS: A package in the rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as INSTALLED_OTHER. This is the default action if no option is specified.  Windows Server: Windows Server doesn't support the concept of package dependencies. If a package in the rejected patches list and already installed on the node, its status is reported as INSTALLED_OTHER. Any package not already installed on the node is skipped. This is the default action if no option is specified.  BLOCK   All OSs: Packages in the rejected patches list, and packages that include them as dependencies, aren't installed by Patch Manager under any circumstances. If a package was installed before it was added to the rejected patches list, or is installed outside of Patch Manager afterward, it's considered noncompliant with the patch baseline and its status is reported as INSTALLED_REJECTED",
+            "The action for Patch Manager to take on patches included in the RejectedPackages list.  ALLOW_AS_DEPENDENCY   Linux and macOS: A package in the rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as INSTALLED_OTHER. This is the default action if no option is specified.  Windows Server: Windows Server doesn't support the concept of package dependencies. If a package in the rejected patches list and already installed on the node, its status is reported as INSTALLED_OTHER. Any package not already installed on the node is skipped. This is the default action if no option is specified.  BLOCK   All OSs: Packages in the rejected patches list, and packages that include them as dependencies, aren't installed by Patch Manager under any circumstances.  State value assignment for patch compliance:   If a package was installed before it was added to the rejected patches list, or is installed outside of Patch Manager afterward, it's considered noncompliant with the patch baseline and its status is reported as INSTALLED_REJECTED.   If an update attempts to install a dependency package that is now rejected by the baseline, when previous versions of the package were not rejected, the package being updated is reported as MISSING for SCAN operations and as FAILED for INSTALL operations",
           args: {
             name: "string",
           },
@@ -9436,6 +8762,14 @@ const completionSpec: Fig.Spec = {
             "Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--available-security-updates-compliance-status",
+          description:
+            "Indicates the status to be assigned to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline. Example scenario: Security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed. Supported for Windows Server managed nodes only",
+          args: {
+            name: "string",
           },
         },
         {

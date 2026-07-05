@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "networkmanager",
   description:
@@ -263,6 +264,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--routing-policy-label",
+          description:
+            "The routing policy label to apply to the Connect attachment for traffic routing decisions",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--options",
           description: "Options for creating an attachment",
           args: {
@@ -521,6 +530,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-core-network-prefix-list-association",
+      description:
+        "Creates an association between a core network and a prefix list for routing control",
+      options: [
+        {
+          name: "--core-network-id",
+          description:
+            "The ID of the core network to associate with the prefix list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--prefix-list-arn",
+          description:
+            "The ARN of the prefix list to associate with the core network",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--prefix-list-alias",
+          description: "An optional alias for the prefix list association",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-device",
       description:
         "Creates a new device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console",
@@ -640,6 +704,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--routing-policy-label",
+          description:
+            "The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--edge-locations",
           description:
             "One or more core network edge locations that the Direct Connect gateway attachment is associated with",
@@ -657,7 +729,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--client-token",
-          description: "Client token",
+          description: "client token",
           args: {
             name: "string",
           },
@@ -868,6 +940,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--routing-policy-label",
+          description:
+            "The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--tags",
           description: "The tags associated with the request",
           args: {
@@ -971,6 +1051,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--routing-policy-label",
+          description:
+            "The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--tags",
           description: "The list of key-value tags associated with the request",
           args: {
@@ -1034,6 +1122,14 @@ const completionSpec: Fig.Spec = {
           description: "Options for the VPC attachment",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--routing-policy-label",
+          description:
+            "The routing policy label to apply to the VPC attachment for traffic routing decisions",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1214,6 +1310,46 @@ const completionSpec: Fig.Spec = {
           description: "The version ID of the deleted policy",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-core-network-prefix-list-association",
+      description:
+        "Deletes an association between a core network and a prefix list",
+      options: [
+        {
+          name: "--core-network-id",
+          description:
+            "The ID of the core network from which to delete the prefix list association",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--prefix-list-arn",
+          description:
+            "The ARN of the prefix list to disassociate from the core network",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1493,20 +1629,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1712,7 +1834,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "execute-core-network-change-set",
       description:
-        "Executes a change set on your core network. Deploys changes globally based on the policy submitted",
+        "Executes a change set on your core network. Deploys changes globally based on the policy submitted.",
       options: [
         {
           name: "--core-network-id",
@@ -1828,20 +1950,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1906,20 +2014,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--device-id",
           description: "The ID of the device",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2017,20 +2111,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2090,20 +2170,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the policy version",
           args: {
             name: "integer",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2215,20 +2281,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2293,20 +2345,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--site-id",
           description: "The ID of the site",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2413,20 +2451,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2510,20 +2534,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2582,20 +2592,6 @@ const completionSpec: Fig.Spec = {
           name: "--resource-type",
           description:
             "The resource type. The following are the supported resource types for Direct Connect:    dxcon     dx-gateway     dx-vif    The following are the supported resource types for Network Manager:    attachment     connect-peer     connection     core-network     device     link     peering     site    The following are the supported resource types for Amazon VPC:    customer-gateway     transit-gateway     transit-gateway-attachment     transit-gateway-connect-peer     transit-gateway-route-table     vpn-connection",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -2699,20 +2695,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2806,20 +2788,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description: "The ARN of the resource",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -3019,20 +2987,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3192,20 +3146,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3266,20 +3206,6 @@ const completionSpec: Fig.Spec = {
             "One or more transit gateway Connect peer Amazon Resource Names (ARNs)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3373,20 +3299,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is 10",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3494,6 +3406,70 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-attachment-routing-policy-associations",
+      description:
+        "Lists the routing policy associations for attachments in a core network",
+      options: [
+        {
+          name: "--core-network-id",
+          description:
+            "The ID of the core network to list attachment routing policy associations for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-id",
+          description:
+            "The ID of a specific attachment to filter the routing policy associations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-attachments",
       description: "Returns a list of core network attachments",
       options: [
@@ -3521,20 +3497,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--state",
           description: "The state of the attachment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -3601,20 +3563,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3669,17 +3617,176 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
-          description: "The token for the next page of results",
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
           args: {
             name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-core-network-prefix-list-associations",
+      description: "Lists the prefix list associations for a core network",
+      options: [
+        {
+          name: "--core-network-id",
+          description:
+            "The ID of the core network to list prefix list associations for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--prefix-list-arn",
+          description:
+            "The ARN of a specific prefix list to filter the associations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-core-network-routing-information",
+      description:
+        "Lists routing information for a core network, including routes and their attributes",
+      options: [
+        {
+          name: "--core-network-id",
+          description:
+            "The ID of the core network to retrieve routing information for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--segment-name",
+          description:
+            "The name of the segment to filter routing information by",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--edge-location",
+          description: "The edge location to filter routing information by",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-hop-filters",
+          description: "Filters to apply based on next hop information",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--local-preference-matches",
+          description:
+            "Local preference values to match when filtering routing information",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--exact-as-path-matches",
+          description:
+            "Exact AS path values to match when filtering routing information",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--med-matches",
+          description:
+            "Multi-Exit Discriminator (MED) values to match when filtering routing information",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--community-matches",
+          description:
+            "BGP community values to match when filtering routing information",
+          args: {
+            name: "list",
           },
         },
         {
@@ -3729,20 +3836,6 @@ const completionSpec: Fig.Spec = {
       name: "list-core-networks",
       description: "Returns a list of owned and shared core networks",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3857,20 +3950,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3944,6 +4023,60 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-attachment-routing-policy-label",
+      description:
+        "Applies a routing policy label to an attachment for traffic routing decisions",
+      options: [
+        {
+          name: "--core-network-id",
+          description: "The ID of the core network containing the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-id",
+          description:
+            "The ID of the attachment to apply the routing policy label to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--routing-policy-label",
+          description: "The routing policy label to apply to the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "put-core-network-policy",
       description:
         "Creates a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and the submitted policy",
@@ -3964,7 +4097,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--description",
-          description: "A core network policy description",
+          description: "a core network policy description",
           args: {
             name: "string",
           },
@@ -4084,6 +4217,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attachment-id",
           description: "The ID of the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "remove-attachment-routing-policy-label",
+      description: "Removes a routing policy label from an attachment",
+      options: [
+        {
+          name: "--core-network-id",
+          description: "The ID of the core network containing the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-id",
+          description:
+            "The ID of the attachment to remove the routing policy label from",
           args: {
             name: "string",
           },
@@ -4530,7 +4701,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--edge-locations",
           description:
-            "One or more edge locations to update for the Direct Connect gateway attachment. The updated array of edge locations overwrites the previous array of locations. EdgeLocations is only used for Direct Connect gateway attachments. Do",
+            "One or more edge locations to update for the Direct Connect gateway attachment. The updated array of edge locations overwrites the previous array of locations. EdgeLocations is only used for Direct Connect gateway attachments",
           args: {
             name: "list",
           },

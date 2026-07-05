@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "neptune-graph",
   description:
@@ -107,7 +108,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--graph-name",
           description:
-            "A name for the new Neptune Analytics graph to be created. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens",
+            "A name for the new Neptune Analytics graph to be created. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed",
           args: {
             name: "string",
           },
@@ -157,17 +158,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--deletion-protection",
           description:
-            "Indicates whether or not to enable deletion protection on the graph. The graph can\u2019t be deleted when deletion protection is enabled. (true or false)",
+            "Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (true or false)",
         },
         {
           name: "--no-deletion-protection",
           description:
-            "Indicates whether or not to enable deletion protection on the graph. The graph can\u2019t be deleted when deletion protection is enabled. (true or false)",
+            "Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (true or false)",
         },
         {
           name: "--provisioned-memory",
           description:
-            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128",
+            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16",
           args: {
             name: "integer",
           },
@@ -205,7 +206,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-name",
           description:
-            "The snapshot name. For example: my-snapshot-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens",
+            "The snapshot name. For example: my-snapshot-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed",
           args: {
             name: "string",
           },
@@ -245,7 +246,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--graph-name",
           description:
-            "A name for the new Neptune Analytics graph to be created. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens",
+            "A name for the new Neptune Analytics graph to be created. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed",
           args: {
             name: "string",
           },
@@ -295,12 +296,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--deletion-protection",
           description:
-            "Indicates whether or not to enable deletion protection on the graph. The graph can\u2019t be deleted when deletion protection is enabled. (true or false)",
+            "Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (true or false)",
         },
         {
           name: "--no-deletion-protection",
           description:
-            "Indicates whether or not to enable deletion protection on the graph. The graph can\u2019t be deleted when deletion protection is enabled. (true or false)",
+            "Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (true or false)",
         },
         {
           name: "--import-options",
@@ -313,7 +314,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-provisioned-memory",
           description:
-            "The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account.  If both the minimum and maximum values are specified, the max of the min-provisioned-memory and max-provisioned memory is used to create the graph. If neither value is specified 128 m-NCUs are used",
+            "The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account.  If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used",
           args: {
             name: "integer",
           },
@@ -321,7 +322,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--min-provisioned-memory",
           description:
-            "The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 128",
+            "The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16",
           args: {
             name: "integer",
           },
@@ -397,7 +398,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-private-graph-endpoint",
       description:
-        "Create a private graph endpoint to allow private access from to the graph from within a VPC. You can attach security groups to the private graph endpoint.  VPC endpoint charges apply",
+        "Create a private graph endpoint to allow private access to the graph from within a VPC. You can attach security groups to the private graph endpoint.  VPC endpoint charges apply",
       options: [
         {
           name: "--graph-identifier",
@@ -492,7 +493,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-graph-snapshot",
-      description: "Deletes the specifed graph snapshot",
+      description: "Deletes the specified graph snapshot",
       options: [
         {
           name: "--snapshot-identifier",
@@ -617,14 +618,11 @@ const completionSpec: Fig.Spec = {
             name: "integer",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-export-task",
@@ -865,17 +863,10 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a list of export tasks",
       options: [
         {
-          name: "--next-token",
-          description: "Pagination token used to paginate input",
+          name: "--graph-identifier",
+          description: "The unique identifier of the Neptune Analytics graph",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of export tasks to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -934,22 +925,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "Pagination token used to paginate output. When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of records to return in the command's output. If the total number of records available is more than the value specified, nextToken is provided in the command's output. To resume pagination, provide the nextToken output value in the nextToken argument of a subsequent command. Do not use the nextToken response element directly outside of the Amazon CLI",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -997,22 +972,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists available Neptune Analytics graphs",
       options: [
         {
-          name: "--next-token",
-          description:
-            "Pagination token used to paginate output. When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of records to return in the command's output. If the total number of records available is more than the value specified, nextToken is provided in the command's output. To resume pagination, provide the nextToken output value in the nextToken argument of a subsequent command. Do not use the nextToken response element directly outside of the Amazon CLI",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1059,22 +1018,6 @@ const completionSpec: Fig.Spec = {
       name: "list-import-tasks",
       description: "Lists import tasks",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "Pagination token used to paginate output. When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of records to return in the command's output. If the total number of records available is more than the value specified, nextToken is provided in the command's output. To resume pagination, provide the nextToken output value in the nextToken argument of a subsequent command. Do not use the nextToken response element directly outside of the Amazon CLI",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1128,22 +1071,6 @@ const completionSpec: Fig.Spec = {
           description: "The unique identifier of the Neptune Analytics graph",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Pagination token used to paginate output. When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of records to return in the command's output. If the total number of records available is more than the value specified, nextToken is provided in the command's output. To resume pagination, provide the nextToken output value in the nextToken argument of a subsequent command. Do not use the nextToken response element directly outside of the Amazon CLI",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1317,7 +1244,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--graph-name",
           description:
-            "A name for the new Neptune Analytics graph to be created from the snapshot. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens",
+            "A name for the new Neptune Analytics graph to be created from the snapshot. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed",
           args: {
             name: "string",
           },
@@ -1325,7 +1252,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--provisioned-memory",
           description:
-            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128",
+            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16",
           args: {
             name: "integer",
           },
@@ -1467,6 +1394,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-graph",
+      description: "Starts the specific graph",
+      options: [
+        {
+          name: "--graph-identifier",
+          description: "The unique identifier of the Neptune Analytics graph",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-import-task",
       description:
         "Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state",
@@ -1499,7 +1456,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--format",
           description:
-            "Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identies the openCypher load format",
+            "Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format",
           args: {
             name: "string",
           },
@@ -1554,6 +1511,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "stop-graph",
+      description: "Stops the specific graph",
+      options: [
+        {
+          name: "--graph-identifier",
+          description: "The unique identifier of the Neptune Analytics graph",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "tag-resource",
       description: "Adds tags to the specified resource",
       options: [
@@ -1567,7 +1554,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            'The tags to be assigned to the Neptune Analytics resource. The tags are metadata that are specified as a list of key-value pairs:  Key (string) \u00a0 \u2013 \u00a0 A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length. It can\'t be prefixed with aws: and can only contain the set of Unicode characters specified by this Java regular expression: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").  Value (string) \u00a0 \u2013 \u00a0 A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length. It can\'t be prefixed with aws: and can only contain the set of Unicode characters specified by this Java regular expression: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$")',
+            'The tags to be assigned to the Neptune Analytics resource. The tags are metadata that are specified as a list of key-value pairs:  Key (string)   –   A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length. It can\'t be prefixed with aws: and can only contain the set of Unicode characters specified by this Java regular expression: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").  Value (string)   –   A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length. It can\'t be prefixed with aws: and can only contain the set of Unicode characters specified by this Java regular expression: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$")',
           args: {
             name: "map",
           },
@@ -1653,7 +1640,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--provisioned-memory",
           description:
-            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128",
+            "The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16",
           args: {
             name: "integer",
           },
@@ -1857,6 +1844,38 @@ const completionSpec: Fig.Spec = {
             {
               name: "--snapshot-identifier",
               description: "The ID of the snapshot to retrieve",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "graph-stopped",
+          description:
+            "Wait until Graph is Stopped It will poll every 20 seconds until a successful state has been reached. This will exit with a return code of 255 after 90 failed checks",
+          options: [
+            {
+              name: "--graph-identifier",
+              description:
+                "The unique identifier of the Neptune Analytics graph",
               args: {
                 name: "string",
               },

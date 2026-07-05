@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "docdb-elastic",
   description:
@@ -478,22 +479,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of elastic cluster snapshot results to receive in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond this token, up to the value specified by max-results. If there is no more data in the responce, the nextToken will not be returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--snapshot-type",
           description:
             "The type of cluster snapshots to be returned. You can specify one of the following values:    automated - Return all cluster snapshots that Amazon DocumentDB has automatically created for your Amazon Web Services account.    manual - Return all cluster snapshots that you have manually created for your Amazon Web Services account",
@@ -550,22 +535,6 @@ const completionSpec: Fig.Spec = {
         "Returns information about provisioned Amazon DocumentDB elastic clusters",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of elastic cluster snapshot results to receive in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond this token, up to the value specified by max-results. If there is no more data in the responce, the nextToken will not be returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -613,22 +582,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves a list of all maintenance actions that are pending",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response. If more records exist than the specified maxResults value, a pagination token (marker) is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by maxResults",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

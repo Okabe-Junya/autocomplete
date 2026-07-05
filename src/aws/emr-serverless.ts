@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "emr-serverless",
   description:
-    'Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running analytics applications using the latest open source frameworks such as Apache Spark and Apache Hive. With Amazon EMR Serverless, you don\u2019t have to configure, optimize, secure, or operate clusters to run applications with these frameworks. The API reference to Amazon EMR Serverless is emr-serverless. The emr-serverless prefix is used in the following scenarios:    It is the prefix in the CLI commands for Amazon EMR Serverless. For example, aws emr-serverless start-job-run.   It is the prefix before IAM policy actions for Amazon EMR Serverless. For example, "Action": ["emr-serverless:StartJobRun"]. For more information, see Policy actions for Amazon EMR Serverless.   It is the prefix used in Amazon EMR Serverless service endpoints. For example, emr-serverless.us-east-2.amazonaws.com',
+    'Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running analytics applications using the latest open source frameworks such as Apache Spark and Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize, secure, or operate clusters to run applications with these frameworks. The API reference to Amazon EMR Serverless is emr-serverless. The emr-serverless prefix is used in the following scenarios:    It is the prefix in the CLI commands for Amazon EMR Serverless. For example, aws emr-serverless start-job-run.   It is the prefix before IAM policy actions for Amazon EMR Serverless. For example, "Action": ["emr-serverless:StartJobRun"]. For more information, see Policy actions for Amazon EMR Serverless.   It is the prefix used in Amazon EMR Serverless service endpoints. For example, emr-serverless.us-east-2.amazonaws.com',
   subcommands: [
     {
       name: "cancel-job-run",
@@ -20,6 +21,14 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the job run to cancel",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--shutdown-grace-period-in-seconds",
+          description:
+            "The duration in seconds to wait before forcefully terminating the job after cancellation is requested",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -161,6 +170,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--disk-encryption-configuration",
+          description:
+            "The configuration object that allows encrypting local disks",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--interactive-configuration",
           description:
             "The interactive configuration object that enables the interactive use cases to use when running an application",
@@ -172,6 +189,22 @@ const completionSpec: Fig.Spec = {
           name: "--scheduler-configuration",
           description:
             "The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--identity-center-configuration",
+          description:
+            "The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--job-level-cost-allocation-configuration",
+          description:
+            "The configuration object that enables job level cost allocation",
           args: {
             name: "structure",
           },
@@ -285,6 +318,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--access-system-profile-logs",
+          description:
+            "Allows access to system profile logs for Lake Formation-enabled jobs. Default is false",
+        },
+        {
+          name: "--no-access-system-profile-logs",
+          description:
+            "Allows access to system profile logs for Lake Formation-enabled jobs. Default is false",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -350,23 +393,130 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-applications",
-      description: "Lists applications based on a set of parameters",
+      name: "get-resource-dashboard",
+      description:
+        "Returns a URL that you can use to access the application UIs for a specified resource, such as a session. For resources in a running state, the application UI is a live user interface such as the Spark web UI. For terminated resources, the application UI is a persistent application user interface such as the Spark History Server.  The URL is valid for one hour after you generate it. To access the application UI after that hour elapses, you must invoke the API again to generate a new URL",
       options: [
         {
-          name: "--next-token",
-          description: "The token for the next set of application results",
+          name: "--application-id",
+          description: "The ID of the application that the resource belongs to",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of applications that can be listed",
+          name: "--resource-id",
+          description: "The ID of the resource",
           args: {
-            name: "integer",
+            name: "string",
           },
         },
+        {
+          name: "--resource-type",
+          description:
+            "The type of resource to access the dashboard for. Currently, only Session is supported",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session",
+      description: "Displays detailed information about a session",
+      options: [
+        {
+          name: "--application-id",
+          description: "The ID of the application that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session-endpoint",
+      description:
+        "Returns the session endpoint URL and a time-limited authentication token for the specified session. Use the endpoint and token to connect a client to the session. Call this operation again when the authentication token expires to obtain a new token",
+      options: [
+        {
+          name: "--application-id",
+          description: "The ID of the application that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-applications",
+      description: "Lists applications based on a set of parameters",
+      options: [
         {
           name: "--states",
           description:
@@ -437,20 +587,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The token for the next set of job run attempt results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of job run attempts to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -506,20 +642,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The token for the next set of job run results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of job runs that can be listed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--created-at-after",
           description:
             "The lower bound of the option to filter by creation date and time",
@@ -548,6 +670,85 @@ const completionSpec: Fig.Spec = {
           description: "The mode of the job runs to list",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-sessions",
+      description:
+        "Lists sessions for the specified application. You can filter sessions by state and creation time",
+      options: [
+        {
+          name: "--application-id",
+          description: "The ID of the application to list sessions for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--states",
+          description:
+            "An optional filter for session states. Note that if this filter contains multiple states, the resulting list will be grouped by the state",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--created-at-after",
+          description:
+            "The lower bound of the option to filter by creation date and time",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--created-at-before",
+          description:
+            "The upper bound of the option to filter by creation date and time",
+          args: {
+            name: "timestamp",
           },
         },
         {
@@ -682,6 +883,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--execution-iam-policy",
+          description:
+            "You can pass an optional IAM policy. The resulting job IAM role permissions will be an intersection of this policy and the policy associated with your job execution role",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--job-driver",
           description: "The job driver for the job run",
           args: {
@@ -730,6 +939,84 @@ const completionSpec: Fig.Spec = {
           description: "The retry policy when job run starts",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-session",
+      description:
+        "Creates and starts a new session on the specified application. The application must be in the STARTED state or have AutoStart enabled, and have interactive sessions enabled. This operation is supported for EMR release 7.13.0 and later",
+      options: [
+        {
+          name: "--application-id",
+          description:
+            "The ID of the application on which to start the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token, the server returns the successful response without performing the operation again",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--execution-role-arn",
+          description:
+            "The execution role ARN for the session. Amazon EMR Serverless uses this role to access Amazon Web Services resources on your behalf during session execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration-overrides",
+          description:
+            "The configuration overrides for the session. Only runtime configuration overrides are supported",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags to assign to the session",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--idle-timeout-minutes",
+          description:
+            "The idle timeout in minutes for the session. After the session remains idle for this duration, Amazon EMR Serverless automatically terminates it",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--name",
+          description: "The optional name for the session",
+          args: {
+            name: "string",
           },
         },
         {
@@ -801,6 +1088,44 @@ const completionSpec: Fig.Spec = {
             "The tags to add to the resource. A tag is an array of key-value pairs",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "terminate-session",
+      description:
+        "Terminates the specified session. After you terminate a session, it enters the TERMINATING state and then the TERMINATED state. You can still access the Spark History Server for a terminated session through the GetResourceDashboard operation",
+      options: [
+        {
+          name: "--application-id",
+          description: "The ID of the application that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session to terminate",
+          args: {
+            name: "string",
           },
         },
         {
@@ -975,9 +1300,33 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--disk-encryption-configuration",
+          description:
+            "The configuration object that allows encrypting local disks",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--scheduler-configuration",
           description:
             "The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--identity-center-configuration",
+          description:
+            "Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--job-level-cost-allocation-configuration",
+          description:
+            "The configuration object that enables job level cost allocation",
           args: {
             name: "structure",
           },

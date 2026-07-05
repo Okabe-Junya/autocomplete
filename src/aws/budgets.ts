@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "budgets",
   description:
@@ -6,7 +7,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-budget",
       description:
-        "Creates a budget and, if included, notifications and subscribers.   Only one of BudgetLimit or PlannedBudgetLimits can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the BudgetLimit syntax. For PlannedBudgetLimits, see the Examples section",
+        "Creates a budget and, if included, notifications and subscribers.   Only one of BudgetLimit or PlannedBudgetLimits can be present in the syntax at one time. Use the syntax that matches your use case. The Request Syntax section shows the BudgetLimit syntax. For PlannedBudgetLimits, see the Examples section. Similarly, only one set of filter and metric selections can be present in the syntax at one time. Either FilterExpression and Metrics or CostFilters and CostTypes, not both or a different combination. We recommend using FilterExpression and Metrics as they provide more flexible and powerful filtering capabilities. The Request Syntax section shows the FilterExpression/Metrics syntax",
       options: [
         {
           name: "--account-id",
@@ -71,7 +72,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -320,7 +321,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -474,6 +475,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--show-filter-expression",
+          description:
+            "Specifies whether the response includes the filter expression associated with the budget. By showing the filter expression, you can see detailed filtering logic applied to the budget, such as Amazon Web Services services or tags that are being tracked",
+        },
+        {
+          name: "--no-show-filter-expression",
+          description:
+            "Specifies whether the response includes the filter expression associated with the budget. By showing the filter expression, you can see detailed filtering logic applied to the budget, such as Amazon Web Services services or tags that are being tracked",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -506,7 +517,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -552,7 +563,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -571,21 +582,6 @@ const completionSpec: Fig.Spec = {
             "The period of time that's covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An integer that represents how many entries a paginated response contains. The maximum is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
-          args: {
-            name: "string",
           },
         },
         {
@@ -638,21 +634,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-id",
           description: "The account ID of the user. It's a 12-digit number",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An integer that represents how many entries a paginated response contains. The maximum is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
           args: {
             name: "string",
           },
@@ -714,22 +695,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An integer that represents how many entries a paginated response contains. The maximum is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -785,21 +751,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-id",
           description: "The account ID of the user. It's a 12-digit number",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An integer that represents how many budgets a paginated response contains. The default is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
           args: {
             name: "string",
           },
@@ -862,7 +813,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -873,21 +824,6 @@ const completionSpec: Fig.Spec = {
             "Retrieves how often the budget went into an ALARM state for the specified time period",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An integer that represents how many entries a paginated response contains. The maximum is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
-          args: {
-            name: "string",
           },
         },
         {
@@ -947,20 +883,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
+          name: "--show-filter-expression",
           description:
-            "An integer that represents how many budgets a paginated response contains. The default is 100",
-          args: {
-            name: "integer",
-          },
+            "Specifies whether the response includes the filter expression associated with the budgets. By showing the filter expression, you can see detailed filtering logic applied to the budgets, such as Amazon Web Services services or tags that are being tracked",
         },
         {
-          name: "--next-token",
+          name: "--no-show-filter-expression",
           description:
-            "The pagination token that you include in your request to indicate the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
+            "Specifies whether the response includes the filter expression associated with the budgets. By showing the filter expression, you can see detailed filtering logic applied to the budgets, such as Amazon Web Services services or tags that are being tracked",
         },
         {
           name: "--cli-input-json",
@@ -1021,22 +951,6 @@ const completionSpec: Fig.Spec = {
           name: "--budget-name",
           description:
             "The name of the budget whose notifications you want descriptions of",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An optional integer that represents how many entries a paginated response contains",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that you include in your request to indicate the next set of results that you want to retrieve",
           args: {
             name: "string",
           },
@@ -1113,22 +1027,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "An optional integer that represents how many entries a paginated response contains",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that you include in your request to indicate the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1185,7 +1083,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },
@@ -1333,7 +1231,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-budget",
       description:
-        "Updates a budget. You can change every part of a budget except for the budgetName and the calculatedSpend. When you modify a budget, the calculatedSpend drops to zero until Amazon Web Services has new usage data to use for forecasting.  Only one of BudgetLimit or PlannedBudgetLimits can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the BudgetLimit syntax. For PlannedBudgetLimits, see the Examples section",
+        "Updates a budget. You can change every part of a budget except for the budgetName and the calculatedSpend. When you modify a budget, the calculatedSpend drops to zero until Amazon Web Services has new usage data to use for forecasting.  Only one of BudgetLimit or PlannedBudgetLimits can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the BudgetLimit syntax. For PlannedBudgetLimits, see the Examples section. Similarly, only one set of filter and metric selections can be present in the syntax at one time. Either FilterExpression and Metrics or CostFilters and CostTypes, not both or a different combination. We recommend using FilterExpression and Metrics as they provide more flexible and powerful filtering capabilities. The Request Syntax section shows the FilterExpression/Metrics syntax",
       options: [
         {
           name: "--account-id",
@@ -1383,7 +1281,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-name",
           description:
-            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed',
+            'A string that represents the budget name. The ":" and "\\" characters, and the "/action/" substring, aren\'t allowed. Budget names are validated for content. Names that contain phone numbers, URLs, or email addresses combined with certain terms may be rejected',
           args: {
             name: "string",
           },

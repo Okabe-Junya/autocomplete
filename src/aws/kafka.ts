@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "kafka",
   description: "The operations for managing an Amazon MSK cluster",
@@ -42,12 +43,59 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-disassociate-scram-secret",
+      description:
+        "Disassociates one or more Scram Secrets from an Amazon MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the cluster to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--secret-arn-list",
+          description: "List of AWS Secrets Manager secret ARNs",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-cluster",
       description: "Creates a new MSK cluster",
       options: [
         {
           name: "--broker-node-group-info",
           description: "Information about the broker nodes in the cluster",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--rebalancing",
+          description:
+            "Specifies if intelligent rebalancing should be turned on for the new MSK Provisioned cluster with Express brokers. By default, intelligent rebalancing status is ACTIVE for all new clusters",
           args: {
             name: "structure",
           },
@@ -304,6 +352,73 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--log-delivery",
+          description:
+            "Configuration for delivering replicator logs to customer destinations",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-topic",
+      description: "Creates a topic in the specified MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-name",
+          description: "The name of the topic to create",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--partition-count",
+          description: "The number of partitions for the topic",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--replication-factor",
+          description: "The replication factor for the topic",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--configs",
+          description: "Topic configurations encoded as a Base64 string",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -528,6 +643,44 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-topic",
+      description: "Deletes a topic in the specified MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-name",
+          description: "The name of the topic to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-vpc-connection",
       description: "Deletes a MSK VPC connection",
       options: [
@@ -560,38 +713,6 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-cluster",
-      description:
-        "Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request",
-      options: [
-        {
-          name: "--cluster-arn",
-          description:
-            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "describe-cluster-v2",
       description:
         "Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request",
       options: [
@@ -662,6 +783,38 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-operation-arn",
           description: "ARN of the cluster operation to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-cluster-v2",
+      description:
+        "Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
           args: {
             name: "string",
           },
@@ -788,6 +941,108 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-topic",
+      description: "Returns topic details of this topic on a MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-name",
+          description:
+            "The Kafka topic name that uniquely identifies the topic",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-topic-partitions",
+      description: "Returns partition details of this topic on a MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-name",
+          description:
+            "The Kafka topic name that uniquely identifies the topic",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-vpc-connection",
       description: "Returns a description of this MSK VPC connection",
       options: [
@@ -819,45 +1074,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "batch-disassociate-scram-secret",
-      description:
-        "Disassociates one or more Scram Secrets from an Amazon MSK cluster",
-      options: [
-        {
-          name: "--cluster-arn",
-          description:
-            "The Amazon Resource Name (ARN) of the cluster to be updated",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--secret-arn-list",
-          description: "List of AWS Secrets Manager secret ARNs",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
       name: "get-bootstrap-brokers",
       description:
         "A list of brokers that a client application can use to bootstrap. This list doesn't necessarily include all of the brokers in the cluster. The following Python 3.6 example shows how you can use the Amazon Resource Name (ARN) of a cluster to get its bootstrap brokers. If you don't know the ARN of your cluster, you can use the ListClusters operation to get the ARNs of all the clusters in this account and Region",
@@ -866,37 +1082,6 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-arn",
           description:
             "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "get-compatible-kafka-versions",
-      description:
-        "Gets the Apache Kafka versions to which you can update the MSK cluster",
-      options: [
-        {
-          name: "--cluster-arn",
-          description: "The Amazon Resource Name (ARN) of the cluster check",
           args: {
             name: "string",
           },
@@ -952,6 +1137,91 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-compatible-kafka-versions",
+      description:
+        "Gets the Apache Kafka versions to which you can update the MSK cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the cluster check",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-client-vpc-connections",
+      description: "Returns a list of all the VPC connections in this Region",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-cluster-operations",
       description:
         "Returns a list of all the operations that have been performed on the specified MSK cluster",
@@ -960,22 +1230,6 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-arn",
           description:
             "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
           args: {
             name: "string",
           },
@@ -1037,20 +1291,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maxResults of the query",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The nextToken of the query",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1102,22 +1342,6 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-name-filter",
           description:
             "Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
           args: {
             name: "string",
           },
@@ -1186,22 +1410,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1258,22 +1466,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1322,22 +1514,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of all the MSK configurations in this Region",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1384,22 +1560,6 @@ const completionSpec: Fig.Spec = {
       name: "list-kafka-versions",
       description: "Returns a list of Apache Kafka versions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1456,22 +1616,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1518,22 +1662,6 @@ const completionSpec: Fig.Spec = {
       name: "list-replicators",
       description: "Lists the replicators",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--replicator-name-filter",
           description: "Returns replicators starting with given name",
@@ -1592,20 +1720,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-arn",
           description: "The arn of the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maxResults of the query",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The nextToken of the query",
           args: {
             name: "string",
           },
@@ -1686,28 +1800,20 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-client-vpc-connections",
-      description: "Returns a list of all the VPC connections in this Region",
+      name: "list-topics",
+      description: "List topics in a MSK cluster",
       options: [
         {
           name: "--cluster-arn",
-          description: "The Amazon Resource Name (ARN) of the cluster",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
+          name: "--topic-name-filter",
+          description: "Returns topics starting with given name",
           args: {
             name: "string",
           },
@@ -1760,22 +1866,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of all the VPC connections in this Region",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1805,43 +1895,6 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "reject-client-vpc-connection",
-      description: "Returns empty response",
-      options: [
-        {
-          name: "--cluster-arn",
-          description: "The Amazon Resource Name (ARN) of the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--vpc-connection-arn",
-          description: "The VPC connection ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1916,6 +1969,43 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-arn",
           description:
             "The Amazon Resource Name (ARN) of the cluster to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "reject-client-vpc-connection",
+      description: "Returns empty response",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--vpc-connection-arn",
+          description: "The VPC connection ARN",
           args: {
             name: "string",
           },
@@ -2065,53 +2155,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-broker-type",
-      description: "Updates EC2 instance type",
-      options: [
-        {
-          name: "--cluster-arn",
-          description:
-            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--current-version",
-          description:
-            "The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--target-instance-type",
-          description:
-            "The Amazon MSK broker type that you want all of the brokers in this cluster to be",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
       name: "update-broker-storage",
       description: "Updates the EBS storage associated with MSK brokers",
       options: [
@@ -2159,72 +2202,29 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-configuration",
-      description: "Updates an MSK configuration",
-      options: [
-        {
-          name: "--arn",
-          description: "The Amazon Resource Name (ARN) of the configuration",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--description",
-          description: "The description of the configuration revision",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--server-properties",
-          description:
-            "Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. \n               When using the AWS Management Console, the SDK, or the AWS CLI, the contents of server.properties can be in plaintext",
-          args: {
-            name: "blob",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "update-connectivity",
-      description: "Updates the cluster's connectivity configuration",
+      name: "update-broker-type",
+      description: "Updates EC2 instance type",
       options: [
         {
           name: "--cluster-arn",
-          description: "The Amazon Resource Name (ARN) of the configuration",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--connectivity-info",
-          description: "Information about the broker access configuration",
-          args: {
-            name: "structure",
           },
         },
         {
           name: "--current-version",
           description:
-            "The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version",
+            "The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-instance-type",
+          description:
+            "The Amazon MSK broker type that you want all of the brokers in this cluster to be",
           args: {
             name: "string",
           },
@@ -2349,6 +2349,103 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-configuration",
+      description: "Updates an MSK configuration",
+      options: [
+        {
+          name: "--arn",
+          description: "The Amazon Resource Name (ARN) of the configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the configuration revision",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--server-properties",
+          description:
+            "Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. \n               When using the AWS Management Console, the SDK, or the AWS CLI, the contents of server.properties can be in plaintext",
+          args: {
+            name: "blob",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-connectivity",
+      description: "Updates the cluster's connectivity configuration",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--connectivity-info",
+          description: "Information about the broker access configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--current-version",
+          description:
+            "The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--zookeeper-access",
+          description: "Access control settings for zookeeper",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-monitoring",
       description:
         "Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus",
@@ -2410,6 +2507,52 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-rebalancing",
+      description:
+        "Use this resource to update the intelligent rebalancing status of an Amazon MSK Provisioned cluster with Express brokers",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--current-version",
+          description: "The current version of the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--rebalancing",
+          description:
+            "Specifies if intelligent rebalancing should be turned on for your cluster. The default intelligent rebalancing status is ACTIVE for all new MSK Provisioned clusters that you create with Express brokers",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-replication-info",
       description: "Updates replication info of a replicator",
       options: [
@@ -2443,6 +2586,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--source-kafka-cluster-id",
+          description: "The ID of the source Kafka cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--target-kafka-cluster-arn",
           description: "The ARN of the target Kafka cluster",
           args: {
@@ -2450,8 +2600,23 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--target-kafka-cluster-id",
+          description: "The ID of the target Kafka cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--topic-replication",
           description: "Updated topic replication information",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--log-delivery",
+          description:
+            "Configuration for delivering replicator logs to customer destinations",
           args: {
             name: "structure",
           },
@@ -2566,7 +2731,60 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--volume-size-gb",
-          description: "Size of the EBS volume to update",
+          description: "size of the EBS volume to update",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-topic",
+      description: "Updates the configuration of the specified topic",
+      options: [
+        {
+          name: "--cluster-arn",
+          description:
+            "The Amazon Resource Name (ARN) that uniquely identifies the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-name",
+          description: "The name of the topic to update configuration for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configs",
+          description:
+            "The new topic configurations encoded as a Base64 string",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--partition-count",
+          description: "The new total number of partitions for the topic",
           args: {
             name: "integer",
           },

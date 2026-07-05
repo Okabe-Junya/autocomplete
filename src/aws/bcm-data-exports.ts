@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "bcm-data-exports",
   description:
@@ -78,16 +79,16 @@ const completionSpec: Fig.Spec = {
       description: "Exports data based on the source data update",
       options: [
         {
-          name: "--execution-id",
-          description: "The ID for this specific execution",
+          name: "--export-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Export object that generated this specific execution",
           args: {
             name: "string",
           },
         },
         {
-          name: "--export-arn",
-          description:
-            "The Amazon Resource Name (ARN) of the Export object that generated this specific execution",
+          name: "--execution-id",
+          description: "The ID for this specific execution",
           args: {
             name: "string",
           },
@@ -192,21 +193,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that are returned for the request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -253,21 +239,6 @@ const completionSpec: Fig.Spec = {
       name: "list-exports",
       description: "Lists all data export definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that are returned for the request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -316,21 +287,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists all available tables in data exports",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that are returned for the request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -378,6 +334,13 @@ const completionSpec: Fig.Spec = {
       description: "List tags associated with an existing data export",
       options: [
         {
+          name: "--resource-arn",
+          description: "The unique identifier for the resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--max-results",
           description:
             "The maximum number of objects that are returned for the request",
@@ -388,13 +351,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--resource-arn",
-          description: "The unique identifier for the resource",
           args: {
             name: "string",
           },
@@ -500,17 +456,17 @@ const completionSpec: Fig.Spec = {
         "Updates an existing data export by overwriting all export parameters. All export parameters must be provided in the UpdateExport request",
       options: [
         {
-          name: "--export",
-          description: "The name and query details for the export",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--export-arn",
           description: "The Amazon Resource Name (ARN) for this export",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--export",
+          description: "The name and query details for the export",
+          args: {
+            name: "structure",
           },
         },
         {

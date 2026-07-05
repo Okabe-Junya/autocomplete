@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "outposts",
   description:
@@ -79,6 +80,20 @@ const completionSpec: Fig.Spec = {
           name: "--outpost-identifier",
           description:
             "The ID or the Amazon Resource Name (ARN) of the Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--quote-identifier",
+          description: "The ID of the quote to use for the order",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--quote-option-identifier",
+          description: "The ID of the quote option to use for the order",
           args: {
             name: "string",
           },
@@ -197,6 +212,136 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-quote",
+      description:
+        "Creates a quote for an Outpost. A quote provides pricing and configuration options based on the requested capacity. You can optionally associate the quote with an existing Outpost or create a standalone quote by specifying only the country code and requested capacities",
+      options: [
+        {
+          name: "--outpost-identifier",
+          description:
+            "The ID or ARN of the Outpost to associate with the quote. If not specified, the quote is created without an Outpost association",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--country-code",
+          description: "The country code for the Outpost site location",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--requested-capacities",
+          description:
+            "The capacity requirements for the quote. Each entry specifies a capacity type (such as Amazon EC2), the unit, and the quantity. For Amazon EC2, the quantity is the number of additional instances to add to the Outpost. For Amazon EBS and Amazon S3, the quantity is the total desired end-state capacity of the Outpost",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-constraints",
+          description:
+            "The physical constraints for the quote, such as maximum number of racks, maximum power draw per rack, or maximum weight per rack",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-payment-options",
+          description:
+            "The payment options to include in the quote pricing. If not specified, all available payment options are returned",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-payment-terms",
+          description:
+            "The payment terms to include in the quote pricing. If not specified, all available payment terms are returned",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description for the quote",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-renewal",
+      description: "Creates a renewal contract for the specified Outpost",
+      options: [
+        {
+          name: "--payment-option",
+          description: "The payment option",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--payment-term",
+          description: "The payment term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--outpost-identifier",
+          description: "The ID or ARN of the Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-site",
       description: "Creates a site for an Outpost",
       options: [
@@ -279,6 +424,36 @@ const completionSpec: Fig.Spec = {
         {
           name: "--outpost-id",
           description: "The ID or ARN of the Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-quote",
+      description: "Deletes the specified quote",
+      options: [
+        {
+          name: "--quote-identifier",
+          description: "The ID of the quote",
           args: {
             name: "string",
           },
@@ -492,6 +667,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-outpost-billing-information",
+      description:
+        "Gets current and historical billing information about the specified Outpost",
+      options: [
+        {
+          name: "--outpost-identifier",
+          description: "The ID or ARN of the Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-outpost-instance-types",
       description: "Gets the instance types for the specified Outpost",
       options: [
@@ -500,20 +730,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID or ARN of the Outpost",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -579,15 +795,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
+          name: "--asset-id",
+          description:
+            "The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration",
           args: {
             name: "string",
           },
@@ -622,6 +832,67 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-quote",
+      description: "Gets information about the specified quote",
+      options: [
+        {
+          name: "--quote-identifier",
+          description: "The ID of the quote",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-renewal-pricing",
+      description:
+        "Gets all available renewal pricing options for the specified Outpost",
+      options: [
+        {
+          name: "--outpost-identifier",
+          description: "The ID or ARN of the Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -743,20 +1014,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -820,22 +1077,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--status-filter",
           description: "Filters the results by state",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--asset-type-filter",
+          description:
+            "Filters the results by asset type.   COMPUTE - Server asset used for customer compute    STORAGE - Server asset used by storage services    POWERSHELF - Powershelf assets    SWITCH - Switch assets    NETWORKING - Asset managed by Amazon Web Services for networking purposes",
           args: {
             name: "list",
           },
@@ -904,20 +1155,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -968,20 +1205,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--outpost-identifier-filter",
           description: "Filters the results by an Outpost ID or an Outpost ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
           args: {
             name: "string",
           },
@@ -1042,20 +1265,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the items in the catalog. Use filters to return specific results. If you specify multiple filters, the results include only the resources that match all of the specified filters. For a filter where you can specify multiple values, the results include items that match any of the values that you specify for the filter",
       options: [
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--item-class-filter",
           description: "Filters the results by item class",
@@ -1121,6 +1330,62 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-orderable-instance-types",
+      description:
+        "Lists the instance types that can be ordered for an Outpost. You can filter the results by Outpost generation",
+      options: [
+        {
+          name: "--outpost-generation-filter",
+          description:
+            "Filters the results by Outpost generation. Specify GENERATION_1 for first-generation rack deployments or GENERATION_2 for second-generation rack deployments",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-orders",
       description:
         "Lists the Outpost orders for your Amazon Web Services account",
@@ -1131,20 +1396,6 @@ const completionSpec: Fig.Spec = {
             "The ID or the Amazon Resource Name (ARN) of the Outpost",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1195,20 +1446,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the Outposts for your Amazon Web Services account. Use filters to return specific results. If you specify multiple filters, the results include only the resources that match all of the specified filters. For a filter where you can specify multiple values, the results include items that match any of the values that you specify for the filter",
       options: [
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum page size",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--life-cycle-status-filter",
           description: "Filters the results by the lifecycle status",
@@ -1275,24 +1512,57 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-sites",
-      description:
-        "Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results. Use filters to return specific results. If you specify multiple filters, the results include only the resources that match all of the specified filters. For a filter where you can specify multiple values, the results include items that match any of the values that you specify for the filter",
+      name: "list-quotes",
+      description: "Lists the quotes for your Amazon Web Services account",
       options: [
         {
-          name: "--next-token",
-          description: "The pagination token",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum page size",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-sites",
+      description:
+        "Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results. Use filters to return specific results. If you specify multiple filters, the results include only the resources that match all of the specified filters. For a filter where you can specify multiple values, the results include items that match any of the values that you specify for the filter",
+      options: [
         {
           name: "--operating-address-country-code-filter",
           description: "Filters the results by country code",
@@ -1390,7 +1660,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-capacity-task",
       description:
-        "Starts the specified capacity task. You can have one active capacity task per order or Outpost",
+        "Starts the specified capacity task. You can have one active capacity task for each order and each Outpost",
       options: [
         {
           name: "--outpost-identifier",
@@ -1404,6 +1674,14 @@ const completionSpec: Fig.Spec = {
           name: "--order-id",
           description:
             "The ID of the Amazon Web Services Outposts order associated with the specified capacity task",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--asset-id",
+          description:
+            "The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration",
           args: {
             name: "string",
           },
@@ -1493,6 +1771,48 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "integer",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-outpost-decommission",
+      description:
+        "Starts the decommission process to return the Outposts racks or servers",
+      options: [
+        {
+          name: "--outpost-identifier",
+          description:
+            "The ID or ARN of the Outpost that you want to decommission",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--validate-only",
+          description:
+            "Validates the request without starting the decommission process",
+        },
+        {
+          name: "--no-validate-only",
+          description:
+            "Validates the request without starting the decommission process",
         },
         {
           name: "--cli-input-json",
@@ -1615,6 +1935,89 @@ const completionSpec: Fig.Spec = {
         {
           name: "--supported-hardware-type",
           description: "The type of hardware for this Outpost",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-quote",
+      description:
+        "Updates the specified quote. You can modify the requested capacities, constraints, payment options, payment terms, or Outpost association",
+      options: [
+        {
+          name: "--quote-identifier",
+          description: "The ID of the quote",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--outpost-identifier",
+          description:
+            "The ID or ARN of the Outpost to associate with the quote. Specify an empty string to remove the Outpost association",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--country-code",
+          description: "The country code for the Outpost site location",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--requested-capacities",
+          description: "The updated capacity requirements for the quote",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-constraints",
+          description: "The updated physical constraints for the quote",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-payment-options",
+          description:
+            "The updated payment options to include in the quote pricing",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--requested-payment-terms",
+          description:
+            "The updated payment terms to include in the quote pricing",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description for the quote",
           args: {
             name: "string",
           },
@@ -1765,7 +2168,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--power-connector",
           description:
-            "The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between PowerPhase and PowerConnector.    Single-phase AC feed    L6-30P \u2013 (common in US); 30A; single phase    IEC309 (blue) \u2013 P+N+E, 6hr; 32 A; single phase     Three-phase AC feed    AH530P7W (red) \u2013 3P+N+E, 7hr; 30A; three phase    AH532P6W (red) \u2013 3P+N+E, 6hr; 32A; three phase",
+            "The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between PowerPhase and PowerConnector.    Single-phase AC feed    L6-30P – (common in US); 30A; single phase    IEC309 (blue) – P+N+E, 6hr; 32 A; single phase     Three-phase AC feed    AH530P7W (red) – 3P+N+E, 7hr; 30A; three phase    AH532P6W (red) – 3P+N+E, 6hr; 32A; three phase    CS8365C – (common in US); 3P+E, 50A; three phase",
           args: {
             name: "string",
           },

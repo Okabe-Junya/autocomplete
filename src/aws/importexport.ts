@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "importexport",
   description:
@@ -201,30 +202,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--street-1",
-          description:
-            "Specifies the first part of the street address for the return address, for example 1234 Main Street",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--street-2",
-          description:
-            "Specifies the optional second part of the street address for the return address, for example Suite 100",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--street-3",
-          description:
-            "Specifies the optional third part of the street address for the return address, for example c/o Jane Doe",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -286,22 +263,6 @@ const completionSpec: Fig.Spec = {
       description:
         "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1",
       options: [
-        {
-          name: "--max-jobs",
-          description:
-            "Sets the maximum number of jobs returned in the response. If there are additional jobs that were not returned because MaxJobs was exceeded, the response contains <IsTruncated>true</IsTruncated>. To return the additional jobs, see Marker",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "Specifies the JOBID to start after when listing the jobs created with your account. AWS Import/Export lists your jobs in reverse chronological order. See MaxJobs",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--api-version",
           description: "Specifies the version of the client tool",

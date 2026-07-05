@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "frauddetector",
   description:
@@ -1636,7 +1637,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-event-prediction",
       description:
-        "Evaluates an event against a detector version. If a version ID is not provided, the detector\u2019s (ACTIVE) version is used",
+        "Evaluates an event against a detector version. If a version ID is not provided, the detector’s (ACTIVE) version is used",
       options: [
         {
           name: "--detector-id",
@@ -1686,7 +1687,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-variables",
           description:
-            "Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.  You must provide at least one eventVariable  To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:  For Amazon Fraud Detector trained models:  If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) with calculated default mean/medians for numeric variables and with special values for categorical variables.  For imported SageMaker models:  If a null value is provided explicitly for a variable, the model and rules will use \u201cnull\u201d as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules will use the default value that is provided for the variable",
+            "Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.  You must provide at least one eventVariable  To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:  For Amazon Fraud Detector trained models:  If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) with calculated default mean/medians for numeric variables and with special values for categorical variables.  For imported SageMaker models:  If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules will use the default value that is provided for the variable",
           args: {
             name: "map",
           },
@@ -2282,7 +2283,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-event-predictions",
       description:
-        'Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. If filter is not specified, the most recent prediction is returned. For example, the following filter lists all past predictions for xyz event type - { "eventType":{ "value": "xyz" }\u201d }   This is a paginated API. If you provide a null maxResults, this action will retrieve a maximum of 10 records per page. If you provide a maxResults, the value must be between 50 and 100. To get the next page results, provide the nextToken from the response as part of your request. A null nextToken fetches the records from the beginning',
+        'Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. If filter is not specified, the most recent prediction is returned. For example, the following filter lists all past predictions for xyz event type - { "eventType":{ "value": "xyz" }” }   This is a paginated API. If you provide a null maxResults, this action will retrieve a maximum of 10 records per page. If you provide a maxResults, the value must be between 50 and 100. To get the next page results, provide the nextToken from the response as part of your request. A null nextToken fetches the records from the beginning',
       options: [
         {
           name: "--event-id",
@@ -2622,8 +2623,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--model-endpoint-status",
-          description:
-            "The model endpoint\u2019s status in Amazon Fraud Detector",
+          description: "The model endpoint’s status in Amazon Fraud Detector",
           args: {
             name: "string",
           },
@@ -3050,7 +3050,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-detector-version-status",
       description:
-        "Updates the detector version\u2019s status. You can perform the following promotions or demotions using UpdateDetectorVersionStatus: DRAFT to ACTIVE, ACTIVE to INACTIVE, and INACTIVE to ACTIVE",
+        "Updates the detector version’s status. You can perform the following promotions or demotions using UpdateDetectorVersionStatus: DRAFT to ACTIVE, ACTIVE to INACTIVE, and INACTIVE to ACTIVE",
       options: [
         {
           name: "--detector-id",

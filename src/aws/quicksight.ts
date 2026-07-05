@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "quicksight",
   description:
-    "Amazon QuickSight API Reference Amazon QuickSight is a fully managed, serverless business intelligence service for the Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your organization. This API reference contains documentation for a programming interface that you can use to manage Amazon QuickSight",
+    "Amazon Quick API Reference Amazon Quick Sight is a fully managed, serverless business intelligence service for the Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your organization. This API reference contains documentation for a programming interface that you can use to manage Amazon Quick Sight",
   subcommands: [
     {
       name: "batch-create-topic-reviewed-answer",
@@ -26,6 +27,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--answers",
           description: "The definition of the Answers to be created",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-delete-knowledge-base",
+      description: "Deletes one or more knowledge bases",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--knowledge-base-ids",
+          description: "A list of knowledge base identifiers to delete",
           args: {
             name: "list",
           },
@@ -142,12 +181,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-account-customization",
       description:
-        "Creates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, you can add a custom default theme by using the CreateAccountCustomization or UpdateAccountCustomization API operation. To further customize Amazon QuickSight by removing Amazon QuickSight sample assets and videos for all new users, see Customizing Amazon QuickSight in the Amazon QuickSight User Guide.  You can create customizations for your Amazon Web Services account or, if you specify a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace always override customizations that apply to an Amazon Web Services account. To find out which customizations apply, use the DescribeAccountCustomization API operation. Before you use the CreateAccountCustomization API operation to add a theme as the namespace default, make sure that you first share the theme with the namespace. If you don't share it with the namespace, the theme isn't visible to your users even if you make it the default theme. To check if the theme is shared, view the current permissions by using the  DescribeThemePermissions  API operation. To share the theme, grant permissions by using the  UpdateThemePermissions  API operation",
+        "Creates Amazon Quick Sight customizations. Currently, you can add a custom default theme by using the CreateAccountCustomization or UpdateAccountCustomization API operation. To further customize Amazon Quick Sight by removing Amazon Quick Sight sample assets and videos for all new users, see Customizing Quick Sight in the Amazon Quick Sight User Guide.  You can create customizations for your Amazon Web Services account or, if you specify a namespace, for a Quick Sight namespace instead. Customizations that apply to a namespace always override customizations that apply to an Amazon Web Services account. To find out which customizations apply, use the DescribeAccountCustomization API operation. Before you use the CreateAccountCustomization API operation to add a theme as the namespace default, make sure that you first share the theme with the namespace. If you don't share it with the namespace, the theme isn't visible to your users even if you make it the default theme. To check if the theme is shared, view the current permissions by using the  DescribeThemePermissions  API operation. To share the theme, grant permissions by using the  UpdateThemePermissions  API operation",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for",
+            "The ID for the Amazon Web Services account that you want to customize Quick Sight for",
           args: {
             name: "string",
           },
@@ -155,7 +194,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that you want to add customizations to",
+            "The Quick Sight namespace that you want to add customizations to",
           args: {
             name: "string",
           },
@@ -163,7 +202,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-customization",
           description:
-            'The Amazon QuickSight customizations you\'re adding in the current Amazon Web Services Region. You can add these to an Amazon Web Services account and a QuickSight namespace.  For example, you can add a default theme by setting AccountCustomization to the midnight theme: "AccountCustomization": { "DefaultTheme": "arn:aws:quicksight::aws:theme/MIDNIGHT" }. Or, you can add a custom theme by specifying "AccountCustomization": { "DefaultTheme": "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639" }',
+            'The Quick Sight customizations you\'re adding. You can add these to an Amazon Web Services account and a QuickSight namespace.  For example, you can add a default theme by setting AccountCustomization to the midnight theme: "AccountCustomization": { "DefaultTheme": "arn:aws:quicksight::aws:theme/MIDNIGHT" }. Or, you can add a custom theme by specifying "AccountCustomization": { "DefaultTheme": "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639" }',
           args: {
             name: "structure",
           },
@@ -198,12 +237,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-account-subscription",
       description:
-        "Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q. The Amazon Web Services Region for the account is derived from what is configured in the CLI or SDK. Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see Sign up for Amazon Web Services in the Amazon QuickSight User Guide. The person who signs up for Amazon QuickSight needs to have the correct Identity and Access Management (IAM) permissions. For more information, see IAM Policy Examples for Amazon QuickSight in the Amazon QuickSight User Guide. If your IAM policy includes both the Subscribe and CreateAccountSubscription actions, make sure that both actions are set to Allow. If either action is set to Deny, the Deny action prevails and your API call fails. You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to Amazon QuickSight, see Passing IAM roles to Amazon QuickSight in the Amazon QuickSight User Guide. You can't set default resource access on the new account from the Amazon QuickSight API. Instead, add default resource access from the Amazon QuickSight console. For more information about setting default resource access to Amazon Web Services services, see Setting default resource access to Amazon Web Services services in the Amazon QuickSight User Guide",
+        "Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q. The Amazon Web Services Region for the account is derived from what is configured in the CLI or SDK. Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see Sign up for Amazon Web Services in the Amazon Quick Sight User Guide. The person who signs up for Amazon Quick Sight needs to have the correct Identity and Access Management (IAM) permissions. For more information, see IAM Policy Examples for Amazon Quick Sight in the Amazon Quick Sight User Guide. If your IAM policy includes both the Subscribe and CreateAccountSubscription actions, make sure that both actions are set to Allow. If either action is set to Deny, the Deny action prevails and your API call fails. You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to Amazon Quick Sight, see Passing IAM roles to Amazon Quick Sight in the Amazon Quick Sight User Guide. You can't set default resource access on the new account from the Amazon Quick Sight API. Instead, add default resource access from the Amazon Quick Sight console. For more information about setting default resource access to Amazon Web Services services, see Setting default resource access to Amazon Web Services services in the Amazon Quick Sight User Guide",
       options: [
         {
           name: "--edition",
           description:
-            "The edition of Amazon QuickSight that you want your account to have. Currently, you can choose from ENTERPRISE or ENTERPRISE_AND_Q. If you choose ENTERPRISE_AND_Q, the following parameters are required:    FirstName     LastName     EmailAddress     ContactNumber",
+            "The edition of Amazon Quick Sight that you want your account to have. Currently, you can choose from ENTERPRISE or ENTERPRISE_AND_Q. If you choose ENTERPRISE_AND_Q, the following parameters are required:    FirstName     LastName     EmailAddress     ContactNumber",
           args: {
             name: "string",
           },
@@ -211,7 +250,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authentication-method",
           description:
-            "The method that you want to use to authenticate your Amazon QuickSight account. If you choose ACTIVE_DIRECTORY, provide an ActiveDirectoryName and an AdminGroup associated with your Active Directory. If you choose IAM_IDENTITY_CENTER, provide an AdminGroup associated with your IAM Identity Center account",
+            "The method that you want to use to authenticate your Quick Sight account. If you choose ACTIVE_DIRECTORY, provide an ActiveDirectoryName and an AdminGroup associated with your Active Directory. If you choose IAM_IDENTITY_CENTER, provide an AdminGroup associated with your IAM Identity Center account",
           args: {
             name: "string",
           },
@@ -219,7 +258,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The Amazon Web Services account ID of the account that you're using to create your Amazon QuickSight account",
+            "The Amazon Web Services account ID of the account that you're using to create your Quick Sight account",
           args: {
             name: "string",
           },
@@ -227,7 +266,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-name",
           description:
-            "The name of your Amazon QuickSight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change AccountName value after the Amazon QuickSight account is created",
+            "The name of your Amazon Quick Sight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change AccountName value after the Amazon Quick Sight account is created",
           args: {
             name: "string",
           },
@@ -235,7 +274,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--notification-email",
           description:
-            "The email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription",
+            "The email address that you want Quick Sight to send notifications to regarding your Quick Sight account or Quick Sight subscription",
           args: {
             name: "string",
           },
@@ -243,7 +282,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--active-directory-name",
           description:
-            "The name of your Active Directory. This field is required if ACTIVE_DIRECTORY is the selected authentication method of the new Amazon QuickSight account",
+            "The name of your Active Directory. This field is required if ACTIVE_DIRECTORY is the selected authentication method of the new Quick Sight account",
           args: {
             name: "string",
           },
@@ -251,7 +290,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--realm",
           description:
-            "The realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if ACTIVE_DIRECTORY is the selected authentication method of the new Amazon QuickSight account",
+            "The realm of the Active Directory that is associated with your Quick Sight account. This field is required if ACTIVE_DIRECTORY is the selected authentication method of the new Quick Sight account",
           args: {
             name: "string",
           },
@@ -259,7 +298,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--directory-id",
           description:
-            "The ID of the Active Directory that is associated with your Amazon QuickSight account",
+            "The ID of the Active Directory that is associated with your Quick Sight account",
           args: {
             name: "string",
           },
@@ -267,7 +306,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--admin-group",
           description:
-            "The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the AdminProGroup field is required if ACTIVE_DIRECTORY or IAM_IDENTITY_CENTER is the selected authentication method of the new Amazon QuickSight account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the AdminProGroup field is required if ACTIVE_DIRECTORY or IAM_IDENTITY_CENTER is the selected authentication method of the new Quick Sight account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -275,7 +314,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--author-group",
           description:
-            "The author group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The author group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -283,7 +322,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--reader-group",
           description:
-            "The reader group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The reader group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -291,7 +330,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--admin-pro-group",
           description:
-            "The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the AdminGroup field is required if ACTIVE_DIRECTORY or IAM_IDENTITY_CENTER is the selected authentication method of the new Amazon QuickSight account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the AdminGroup field is required if ACTIVE_DIRECTORY or IAM_IDENTITY_CENTER is the selected authentication method of the new Quick Sight account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -299,7 +338,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--author-pro-group",
           description:
-            "The author pro group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The author pro group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -307,7 +346,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--reader-pro-group",
           description:
-            "The reader pro group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon QuickSight, see Using IAM Identity Center with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see Using Active Directory with Amazon QuickSight Enterprise Edition in the Amazon QuickSight User Guide",
+            "The reader pro group associated with your Active Directory or IAM Identity Center account. For more information about using IAM Identity Center in Amazon Quick Sight, see Using IAM Identity Center with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see Using Active Directory with Amazon Quick Sight Enterprise Edition in the Amazon Quick Sight User Guide",
           args: {
             name: "list",
           },
@@ -315,7 +354,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--first-name",
           description:
-            "The first name of the author of the Amazon QuickSight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon QuickSight account",
+            "The first name of the author of the Amazon Quick Sight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -323,7 +362,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--last-name",
           description:
-            "The last name of the author of the Amazon QuickSight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon QuickSight account",
+            "The last name of the author of the Amazon Quick Sight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -331,7 +370,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--email-address",
           description:
-            "The email address of the author of the Amazon QuickSight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon QuickSight account",
+            "The email address of the author of the Amazon Quick Sight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -339,7 +378,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-number",
           description:
-            "A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon QuickSight account",
+            "A 10-digit phone number for the author of the Amazon Quick Sight account to use for future communications. This field is required if ENTERPPRISE_AND_Q is the selected edition of the new Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -372,9 +411,208 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-action-connector",
+      description:
+        "Creates an action connector that enables Amazon Quick Sight to connect to external services and perform actions. Action connectors support various authentication methods and can be configured with specific actions from supported connector types like Amazon S3, Salesforce, JIRA",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID associated with the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "A unique identifier for the action connector. This ID must be unique within the Amazon Web Services account. The ActionConnectorId must not start with the prefix quicksuite-",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "A descriptive name for the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description: "The type of action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--authentication-config",
+          description:
+            "The authentication configuration for connecting to the external service. This includes the authentication type, base URL, and authentication metadata such as client credentials or API keys",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--description",
+          description: "An optional description of the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--permissions",
+          description:
+            "The permissions configuration that defines which users, groups, or namespaces can access this action connector and what operations they can perform",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--vpc-connection-arn",
+          description:
+            "The ARN of the VPC connection to use for secure connectivity to the external service",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "A list of tags to apply to the action connector for resource management and organization",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-agent",
+      description: "Creates an agent in Amazon QuickSight",
+      options: [
+        {
+          name: "--spaces",
+          description:
+            "The Amazon Resource Names (ARNs) of the spaces to attach to the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--action-connectors",
+          description:
+            "The Amazon Resource Names (ARNs) of the action connectors to attach to the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--agent-id",
+          description: "A unique identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description of the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--icon-id",
+          description: "The icon identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starter-prompts",
+          description:
+            "A list of starter prompts that are displayed to users when they begin interacting with the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--welcome-message",
+          description:
+            "The welcome message that is displayed when a user starts a conversation with the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--agent-lifecycle",
+          description:
+            "The lifecycle state of the agent. Valid values are PREVIEW and PUBLISHED",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-prompt-input",
+          description: "The custom prompt configuration for the agent",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-analysis",
       description:
-        "Creates an analysis in Amazon QuickSight. Analyses can be created either from a template or from an AnalysisDefinition",
+        "Creates an analysis in Amazon Quick Sight. Analyses can be created either from a template or from an AnalysisDefinition",
       options: [
         {
           name: "--aws-account-id",
@@ -395,7 +633,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "A descriptive name for the analysis that you're creating. This name displays for the analysis in the Amazon QuickSight console",
+            "A descriptive name for the analysis that you're creating. This name displays for the analysis in the Amazon Quick Sight console",
           args: {
             name: "string",
           },
@@ -427,7 +665,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--theme-arn",
           description:
-            "The ARN for the theme to apply to the analysis that you're creating. To see the theme in the Amazon QuickSight console, make sure that you have access to it",
+            "The ARN for the theme to apply to the analysis that you're creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to it",
           args: {
             name: "string",
           },
@@ -459,7 +697,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--folder-arns",
           description:
-            "When you create the analysis, Amazon QuickSight adds the analysis to these folders",
+            "When you create the analysis, Amazon Quick Sight adds the analysis to these folders",
           args: {
             name: "list",
           },
@@ -485,7 +723,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-brand",
-      description: "Creates an Amazon QuickSight brand",
+      description: "Creates an Quick Sight brand",
       options: [
         {
           name: "--aws-account-id",
@@ -497,7 +735,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -594,7 +832,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-dashboard",
       description:
-        "Creates a dashboard from either a template or directly with a DashboardDefinition. To first create a template, see the  CreateTemplate  API operation. A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different Amazon Web Services account",
+        "Creates a dashboard from either a template or directly with a DashboardDefinition. To first create a template, see the  CreateTemplate  API operation. A dashboard is an entity in Amazon Quick Sight that identifies Amazon Quick Sight reports, created from analyses. You can share Amazon Quick Sight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different Amazon Web Services account",
       options: [
         {
           name: "--aws-account-id",
@@ -637,7 +875,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-entity",
           description:
-            "The entity that you are using as a source when you create the dashboard. In SourceEntity, you specify the type of object you're using as source. You can only create a dashboard from a template, so you use a SourceTemplate entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the  CreateTemplate  API operation. For SourceTemplate, specify the Amazon Resource Name (ARN) of the source template. The SourceTemplateARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.  Either a SourceEntity or a Definition must be provided in order for the request to be valid",
+            "The entity that you are using as a source when you create the dashboard. In SourceEntity, you specify the type of object you're using as source. You can only create a dashboard from a template, so you use a SourceTemplate entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the  CreateTemplate  API operation. For SourceTemplate, specify the Amazon Resource Name (ARN) of the source template. The SourceTemplateARN can contain any Amazon Web Services account and any Amazon Quick Sight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.  Either a SourceEntity or a Definition must be provided in order for the request to be valid",
           args: {
             name: "structure",
           },
@@ -661,7 +899,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--dashboard-publish-options",
           description:
-            "Options for publishing the dashboard when you create it:    AvailabilityStatus for AdHocFilteringOption - This status can be either ENABLED or DISABLED. When this is set to DISABLED, Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is ENABLED by default.     AvailabilityStatus for ExportToCSVOption - This status can be either ENABLED or DISABLED. The visual option to export data to .CSV format isn't enabled when this is set to DISABLED. This option is ENABLED by default.     VisibilityState for SheetControlsOption - This visibility state can be either COLLAPSED or EXPANDED. This option is COLLAPSED by default",
+            "Options for publishing the dashboard when you create it:    AvailabilityStatus for AdHocFilteringOption - This status can be either ENABLED or DISABLED. When this is set to DISABLED, Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is ENABLED by default.     AvailabilityStatus for ExportToCSVOption - This status can be either ENABLED or DISABLED. The visual option to export data to .CSV format isn't enabled when this is set to DISABLED. This option is ENABLED by default.     VisibilityState for SheetControlsOption - This visibility state can be either COLLAPSED or EXPANDED. This option is COLLAPSED by default.     AvailabilityStatus for QuickSuiteActionsOption - This status can be either ENABLED or DISABLED. Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to DISABLED. This option is DISABLED by default.    AvailabilityStatus for ExecutiveSummaryOption - This status can be either ENABLED or DISABLED. The option to build an executive summary is disabled when this is set to DISABLED. This option is ENABLED by default.    AvailabilityStatus for DataStoriesSharingOption - This status can be either ENABLED or DISABLED. The option to share a data story is disabled when this is set to DISABLED. This option is ENABLED by default",
           args: {
             name: "structure",
           },
@@ -693,7 +931,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--folder-arns",
           description:
-            "When you create the dashboard, Amazon QuickSight adds the dashboard to these folders",
+            "When you create the dashboard, Amazon Quick Sight adds the dashboard to these folders",
           args: {
             name: "list",
           },
@@ -771,7 +1009,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--logical-table-map",
           description:
-            "Configures the combination and transformation of the data from the physical tables",
+            "Configures the combination and transformation of the data from the physical tables. This parameter is used with the legacy data preparation experience",
           args: {
             name: "map",
           },
@@ -787,7 +1025,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--column-groups",
           description:
-            "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported",
+            "Groupings of columns that work together in certain Amazon Quick Sight features. Currently, only geospatial hierarchy is supported",
           args: {
             name: "list",
           },
@@ -810,7 +1048,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--row-level-permission-data-set",
           description:
-            "The row-level security configuration for the data that you want to create",
+            "The row-level security configuration for the data that you want to create. This parameter is used with the legacy data preparation experience",
           args: {
             name: "structure",
           },
@@ -818,7 +1056,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--row-level-permission-tag-configuration",
           description:
-            "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only",
+            "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. This parameter is used with the legacy data preparation experience",
           args: {
             name: "structure",
           },
@@ -826,7 +1064,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--column-level-permission-rules",
           description:
-            "A set of one or more definitions of a  ColumnLevelPermissionRule",
+            "A set of one or more definitions of a  ColumnLevelPermissionRule ",
           args: {
             name: "list",
           },
@@ -857,9 +1095,41 @@ const completionSpec: Fig.Spec = {
         {
           name: "--folder-arns",
           description:
-            "When you create the dataset, Amazon QuickSight adds the dataset to these folders",
+            "When you create the dataset, Amazon Quick Sight adds the dataset to these folders",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--performance-configuration",
+          description:
+            "The configuration for the performance optimization of the dataset that contains a UniqueKey configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--use-as",
+          description:
+            "The usage of the dataset. RLS_RULES must be specified for RLS permission datasets",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-prep-configuration",
+          description:
+            "The data preparation configuration for the dataset. This configuration defines the source tables, transformation steps, and destination tables used to prepare the data. Required when using the new data preparation experience",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--semantic-model-configuration",
+          description:
+            "The semantic model configuration for the dataset. This configuration defines how the prepared data is structured for an analysis, including table mappings and row-level security configurations. Required when using the new data preparation experience",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -918,7 +1188,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-source-parameters",
           description:
-            "The parameters that Amazon QuickSight uses to connect to your underlying source",
+            "The parameters that Amazon Quick Sight uses to connect to your underlying source",
           args: {
             name: "structure",
           },
@@ -926,7 +1196,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--credentials",
           description:
-            "The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported",
+            "The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported",
           args: {
             name: "structure",
           },
@@ -941,7 +1211,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--vpc-connection-properties",
           description:
-            "Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source",
+            "Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source",
           args: {
             name: "structure",
           },
@@ -949,7 +1219,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ssl-properties",
           description:
-            "Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source",
+            "Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source",
           args: {
             name: "structure",
           },
@@ -965,9 +1235,79 @@ const completionSpec: Fig.Spec = {
         {
           name: "--folder-arns",
           description:
-            "When you create the data source, Amazon QuickSight adds the data source to these folders",
+            "When you create the data source, Amazon Quick Sight adds the data source to these folders",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-flow",
+      description:
+        "Creates a new flow in the specified Amazon Web Services account. Creates both a DRAFT and PUBLISHED (auto-published) version. This operation is idempotent. Supply a ClientToken to safely retry without creating duplicate resources",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account where you want to create the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The display name for the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description for the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-definition",
+          description:
+            "The definition of the flow, specifying the steps and configurations. This is the flow definition in Quick Flow's internal format. The format is subject to change.  Always derive or depend on the flow definition from the DescribeFlow operation to ensure you are working with the latest format",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--permissions",
+          description:
+            "Initial permissions for the flow. If omitted, the flow is created without any permissions",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1129,7 +1469,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-group",
       description:
-        "Use the CreateGroup operation to create a group in Amazon QuickSight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact Amazon Web Services Support. The permissions resource is arn:aws:quicksight:<your-region>:<relevant-aws-account-id>:group/default/<group-name> . The response is a group object",
+        "Use the CreateGroup operation to create a group in Quick Sight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact Amazon Web Services Support. The permissions resource is arn:aws:quicksight:<your-region>:<relevant-aws-account-id>:group/default/<group-name> . The response is a group object",
       options: [
         {
           name: "--group-name",
@@ -1148,7 +1488,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -1182,7 +1522,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-group-membership",
       description:
-        "Adds an Amazon QuickSight user to an Amazon QuickSight group",
+        "Adds an Amazon Quick Sight user to an Amazon Quick Sight group",
       options: [
         {
           name: "--member-name",
@@ -1202,7 +1542,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -1236,12 +1576,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-iam-policy-assignment",
       description:
-        "Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name (ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight. Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces, use assignment names that are unique",
+        "Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name (ARN). This policy assignment is attached to the specified groups or users of Amazon Quick Sight. Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces, use assignment names that are unique",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or groups",
+            "The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon Quick Sight users or groups",
           args: {
             name: "string",
           },
@@ -1265,7 +1605,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--policy-arn",
           description:
-            "The ARN for the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment",
+            "The ARN for the IAM policy to apply to the Amazon Quick Sight users and groups specified in this assignment",
           args: {
             name: "string",
           },
@@ -1273,7 +1613,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identities",
           description:
-            "The Amazon QuickSight users, groups, or both that you want to assign the policy to",
+            "The Amazon Quick Sight users, groups, or both that you want to assign the policy to",
           args: {
             name: "map",
           },
@@ -1359,12 +1699,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-namespace",
       description:
-        "(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight. A namespace allows you to isolate the Amazon QuickSight users and groups that are registered for that namespace. Users that access the namespace can share assets only with other users or groups in the same namespace. They can't see users and groups in other namespaces. You can create a namespace after your Amazon Web Services account is subscribed to Amazon QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with Amazon Web Services Support",
+        "(Enterprise edition only) Creates a new namespace for you to use with Amazon Quick Sight. A namespace allows you to isolate the Quick Sight users and groups that are registered for that namespace. Users that access the namespace can share assets only with other users or groups in the same namespace. They can't see users and groups in other namespaces. You can create a namespace after your Amazon Web Services account is subscribed to Quick Sight. The namespace must be unique within the Amazon Web Services account. By default, there is a limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with Amazon Web Services Support",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in",
+            "The ID for the Amazon Web Services account that you want to create the Quick Sight namespace in",
           args: {
             name: "string",
           },
@@ -1389,6 +1729,122 @@ const completionSpec: Fig.Spec = {
           name: "--tags",
           description:
             "The tags that you want to associate with the namespace that you're creating",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-o-auth-client-application",
+      description: "Creates an OAuthClientApplication",
+      options: [
+        {
+          name: "--aws-account-id",
+          description: "The Amazon Web Services account ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-client-application-id",
+          description:
+            "An ID for the OAuthClientApplication that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The display name for the OAuthClientApplication",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-client-authentication-type",
+          description:
+            "The authentication type to use for the OAuthClientApplication. This determines the OAuth 2.0 grant flow that is used when the data source connects to the identity provider. Valid values are TOKEN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-id",
+          description:
+            "The client ID of the OAuth application that is registered with the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-secret",
+          description:
+            "The client secret of the OAuth application that is registered with the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-token-endpoint-url",
+          description:
+            "The token endpoint URL of the identity provider that is used to obtain access tokens",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-authorization-endpoint-url",
+          description:
+            "The authorization endpoint URL of the identity provider that is used to obtain authorization codes",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-scopes",
+          description:
+            "The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-source-type",
+          description:
+            "The type of data source that the OAuthClientApplication is used with. Valid values are SNOWFLAKE",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-provider-vpc-connection-properties",
+          description: "VPC connection properties",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Contains a map of the key-value pairs for the resource tag or tags assigned to the OAuthClientApplication",
           args: {
             name: "list",
           },
@@ -1460,7 +1916,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-role-membership",
       description:
-        "Use CreateRoleMembership to add an existing Amazon QuickSight group to an existing role",
+        "Use CreateRoleMembership to add an existing Quick Sight group to an existing role",
       options: [
         {
           name: "--member-name",
@@ -1472,7 +1928,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -1511,14 +1967,68 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-template",
+      name: "create-space",
       description:
-        "Creates a template either from a TemplateDefinition or from an existing Amazon QuickSight analysis or template. You can use the resulting template to create additional dashboards, templates, or analyses. A template is an entity in Amazon QuickSight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template",
+        "Creates a new Amazon QuickSight space. A space is a collection of resources that can be used to organize and manage QuickSight assets",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description:
+            "The ID of the space. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "A display name for the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description of the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-template",
+      description:
+        "Creates a template either from a TemplateDefinition or from an existing Quick Sight analysis or template. You can use the resulting template to create additional dashboards, templates, or analyses. A template is an entity in Quick Sight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -1549,7 +2059,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-entity",
           description:
-            "The entity that you are using as a source when you create the template. In SourceEntity, you specify the type of object you're using as source: SourceTemplate for a template or SourceAnalysis for an analysis. Both of these require an Amazon Resource Name (ARN). For SourceTemplate, specify the ARN of the source template. For SourceAnalysis, specify the ARN of the source analysis. The SourceTemplate ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate or SourceAnalysis to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.  Either a SourceEntity or a Definition must be provided in order for the request to be valid",
+            "The entity that you are using as a source when you create the template. In SourceEntity, you specify the type of object you're using as source: SourceTemplate for a template or SourceAnalysis for an analysis. Both of these require an Amazon Resource Name (ARN). For SourceTemplate, specify the ARN of the source template. For SourceAnalysis, specify the ARN of the source analysis. The SourceTemplate ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate or SourceAnalysis to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.  Either a SourceEntity or a Definition must be provided in order for the request to be valid",
           args: {
             name: "structure",
           },
@@ -1627,7 +2137,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--alias-name",
           description:
-            "The name that you want to give to the template alias that you're creating. Don't start the alias name with the $ character. Alias names that start with $ are reserved by Amazon QuickSight",
+            "The name that you want to give to the template alias that you're creating. Don't start the alias name with the $ character. Alias names that start with $ are reserved by Quick Sight",
           args: {
             name: "string",
           },
@@ -1661,7 +2171,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-theme",
       description:
-        "Creates a theme. A theme is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see Using Themes in Amazon QuickSight in the Amazon QuickSight User Guide",
+        "Creates a theme. A theme is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see Using Themes in Amazon Quick Sight in the Amazon Quick Sight User Guide",
       options: [
         {
           name: "--aws-account-id",
@@ -1689,7 +2199,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--base-theme-id",
           description:
-            "The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis",
+            "The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis",
           args: {
             name: "string",
           },
@@ -1767,7 +2277,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--alias-name",
           description:
-            "The name that you want to give to the theme alias that you are creating. The alias name can't begin with a $. Alias names that start with $ are reserved by Amazon QuickSight",
+            "The name that you want to give to the theme alias that you are creating. The alias name can't begin with a $. Alias names that start with $ are reserved by Amazon Quick Sight",
           args: {
             name: "string",
           },
@@ -1839,6 +2349,13 @@ const completionSpec: Fig.Spec = {
             "The Folder ARN of the folder that you want the topic to reside in",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--custom-instructions",
+          description: "Custom instructions for the topic",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2004,14 +2521,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-account-customization",
-      description:
-        "Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified Amazon Web Services account and Amazon QuickSight namespace",
+      name: "delete-account-custom-permission",
+      description: "Unapplies a custom permissions profile from an account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in this Amazon Web Services Region",
+            "The ID of the Amazon Web Services account from which you want to unapply the custom permissions profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-account-customization",
+      description:
+        "This API permanently deletes all Quick Sight customizations for the specified Amazon Web Services account and namespace. When you delete account customizations:   All customizations are removed including themes, branding, and visual settings   This action cannot be undone through the API   Users will see default Quick Sight styling after customizations are deleted    Before proceeding: Ensure you have backups of any custom themes or branding elements you may want to recreate.  Deletes all Amazon Quick Sight customizations for the specified Amazon Web Services account and Quick Sight namespace",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID for the Amazon Web Services account that you want to delete Quick Sight customizations from",
           args: {
             name: "string",
           },
@@ -2019,7 +2567,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that you're deleting the customizations from",
+            "The Quick Sight namespace that you're deleting the customizations from",
           args: {
             name: "string",
           },
@@ -2046,7 +2594,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-account-subscription",
       description:
-        "Use the DeleteAccountSubscription operation to delete an Amazon QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to True. To change this setting and delete your account, call the UpdateAccountSettings API and set the value of the TerminationProtectionEnabled parameter to False, then make another call to the DeleteAccountSubscription API",
+        "Deleting your Quick Sight account subscription has permanent, irreversible consequences across all Amazon Web Services regions:   Global deletion – Running this operation from any single region will delete your Quick Sight account and all data in every Amazon Web Services region where you have Quick Sight resources.   Complete data loss – All dashboards, analyses, datasets, data sources, and custom visuals will be permanently deleted across all regions.   Embedded content failure – All embedded dashboards and visuals in your applications will immediately stop working and display errors to end users.   Shared resources removed – All shared dashboards, folders, and resources will become inaccessible to other users and external recipients.   User access terminated – All Quick Sight users in your account will lose access immediately, including authors, readers, and administrators.    No recovery possible – Once deleted, your Quick Sight account and all associated data cannot be restored.   Consider exporting critical dashboards and data before proceeding with account deletion.  Use the DeleteAccountSubscription operation to delete an Quick Sight account. This operation will result in an error message if you have configured your account termination protection settings to True. To change this setting and delete your account, call the UpdateAccountSettings API and set the value of the TerminationProtectionEnabled parameter to False, then make another call to the DeleteAccountSubscription API",
       options: [
         {
           name: "--aws-account-id",
@@ -2076,9 +2624,87 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-action-connector",
+      description:
+        "Hard deletes an action connector, making it unrecoverable. This operation removes the connector and all its associated configurations. Any resources currently using this action connector will no longer be able to perform actions through it",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID that contains the action connector to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "The unique identifier of the action connector to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-agent",
+      description: "Deletes an agent",
+      options: [
+        {
+          name: "--agent-id",
+          description: "The unique identifier for the agent to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-analysis",
       description:
-        "Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during which you can restore the analysis. If you don't specify a recovery window value, the operation defaults to 30 days. Amazon QuickSight attaches a DeletionTime stamp to the response that specifies the end of the recovery window. At the end of the recovery window, Amazon QuickSight deletes the analysis permanently. At any time before recovery window ends, you can use the RestoreAnalysis API operation to remove the DeletionTime stamp and cancel the deletion of the analysis. The analysis remains visible in the API until it's deleted, so you can describe it but you can't make a template from it. An analysis that's scheduled for deletion isn't accessible in the Amazon QuickSight console. To access it in the console, restore it. Deleting an analysis doesn't delete the dashboards that you publish from it",
+        "Deletes an analysis from Amazon Quick Sight. You can optionally include a recovery window during which you can restore the analysis. If you don't specify a recovery window value, the operation defaults to 30 days. Amazon Quick Sight attaches a DeletionTime stamp to the response that specifies the end of the recovery window. At the end of the recovery window, Amazon Quick Sight deletes the analysis permanently. At any time before recovery window ends, you can use the RestoreAnalysis API operation to remove the DeletionTime stamp and cancel the deletion of the analysis. The analysis remains visible in the API until it's deleted, so you can describe it but you can't make a template from it. An analysis that's scheduled for deletion isn't accessible in the Amazon Quick Sight console. To access it in the console, restore it. Deleting an analysis doesn't delete the dashboards that you publish from it",
       options: [
         {
           name: "--aws-account-id",
@@ -2098,7 +2724,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--recovery-window-in-days",
           description:
-            "A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. You can't use this parameter with the ForceDeleteWithoutRecovery option in the same API call. The default value is 30",
+            "A value that specifies the number of days that Amazon Quick Sight waits before it deletes the analysis. You can't use this parameter with the ForceDeleteWithoutRecovery option in the same API call. The default value is 30",
           args: {
             name: "long",
           },
@@ -2134,7 +2760,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-brand",
-      description: "Deletes an Amazon QuickSight brand",
+      description:
+        "This API permanently deletes the specified Quick Sight brand. When you delete a brand:   The brand and all its associated branding elements are permanently removed   Any applications or dashboards using this brand will revert to default styling   This action cannot be undone through the API    Before proceeding: Verify that the brand is no longer needed and consider the impact on any applications currently using this brand.  Deletes an Quick Sight brand",
       options: [
         {
           name: "--aws-account-id",
@@ -2146,7 +2773,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -2300,7 +2927,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-set-id",
           description:
-            "The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
+            "The ID for the dataset that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
           args: {
             name: "string",
           },
@@ -2403,12 +3030,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-default-q-business-application",
       description:
-        "Deletes a linked Amazon Q Business application from an Amazon QuickSight account",
+        "Deletes a linked Amazon Q Business application from an Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon QuickSight account that you want to disconnect from a Amazon Q Business application",
+            "The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business application",
           args: {
             name: "string",
           },
@@ -2416,7 +3043,46 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter",
+            "The Quick Sight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-flow",
+      description:
+        "Permanently deletes a flow from the specified Amazon Web Services account. This operation cannot be undone",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow that you are deleting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the flow to delete",
           args: {
             name: "string",
           },
@@ -2534,7 +3200,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-group",
-      description: "Removes a user group from Amazon QuickSight",
+      description: "Removes a user group from Amazon Quick Sight",
       options: [
         {
           name: "--group-name",
@@ -2546,7 +3212,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -2601,7 +3267,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -2681,7 +3347,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-identity-propagation-config",
       description:
-        "Deletes all access scopes and authorized targets that are associated with a service from the Amazon QuickSight IAM Identity Center application. This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center",
+        "Deletes all access scopes and authorized targets that are associated with a service from the Quick Sight IAM Identity Center application. This operation is only supported for Quick Sight accounts that use IAM Identity Center",
       options: [
         {
           name: "--aws-account-id",
@@ -2719,6 +3385,44 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-knowledge-base",
+      description: "Deletes a knowledge base",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--knowledge-base-id",
+          description: "The unique identifier for the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-namespace",
       description:
         "Deletes a namespace and the users and groups that are associated with the namespace. This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not deleted. To delete these assets, you use the API operations for the relevant asset",
@@ -2726,7 +3430,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from",
+            "The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from",
           args: {
             name: "string",
           },
@@ -2734,6 +3438,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description: "The namespace that you want to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-o-auth-client-application",
+      description: "Deletes an OAuthClientApplication",
+      options: [
+        {
+          name: "--aws-account-id",
+          description: "The Amazon Web Services account ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-client-application-id",
+          description:
+            "The ID of the OAuthClientApplication that you want to delete",
           args: {
             name: "string",
           },
@@ -2815,7 +3557,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -2867,7 +3609,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -2875,6 +3617,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description: "The namespace that contains the role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-space",
+      description: "Deletes an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description: "The ID of the space that you want to delete",
           args: {
             name: "string",
           },
@@ -3171,7 +3951,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-user",
       description:
-        "Deletes the Amazon QuickSight user that is associated with the identity of the IAM user or role that's making the call. The IAM user isn't deleted as a result of this call",
+        "Deletes the Amazon Quick Sight user that is associated with the identity of the IAM user or role that's making the call. The IAM user isn't deleted as a result of this call",
       options: [
         {
           name: "--user-name",
@@ -3183,7 +3963,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -3229,7 +4009,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -3347,14 +4127,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "describe-account-customization",
+      name: "describe-account-custom-permission",
       description:
-        "Describes the customizations associated with the provided Amazon Web Services account and Amazon Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which customizations to apply by running this API operation with the Resolved flag included.  To determine what customizations display when you run this command, it can help to visualize the relationship of the entities involved.     Amazon Web Services account - The Amazon Web Services account exists at the top of the hierarchy. It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use as your home Region. That's where your free SPICE capacity is located. You can use Amazon QuickSight in any supported Amazon Web Services Region.     Amazon Web Services Region - In each Amazon Web Services Region where you sign in to Amazon QuickSight at least once, Amazon QuickSight acts as a separate instance of the same service. If you have a user directory, it resides in us-east-1, which is the US East (N. Virginia). Generally speaking, these users have access to Amazon QuickSight in any Amazon Web Services Region, unless they are constrained to a namespace.  To run the command in a different Amazon Web Services Region, you change your Region settings. If you're using the CLI, you can use one of the following options:   Use command line options.    Use named profiles.    Run aws configure to change your default Amazon Web Services Region. Use Enter to key the same settings for your keys. For more information, see Configuring the CLI.      Namespace - A QuickSight namespace is a partition that contains users and assets (data sources, datasets, dashboards, and so on). To access assets that are in a specific namespace, users and groups must also be part of the same namespace. People who share a namespace are completely isolated from users and assets in other namespaces, even if they are in the same Amazon Web Services account and Amazon Web Services Region.    Applied customizations - Within an Amazon Web Services Region, a set of Amazon QuickSight customizations can apply to an Amazon Web Services account or to a namespace. Settings that you apply to a namespace override settings that you apply to an Amazon Web Services account. All settings are isolated to a single Amazon Web Services Region. To apply them in other Amazon Web Services Regions, run the CreateAccountCustomization command in each Amazon Web Services Region where you want to apply the same customizations",
+        "Describes the custom permissions profile that is applied to an account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations for",
+            "The ID of the Amazon Web Services account for which you want to describe the applied custom permissions profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-account-customization",
+      description:
+        "Describes the customizations associated with the provided Amazon Web Services account and Amazon Quick Sight namespace. The Quick Sight console evaluates which customizations to apply by running this API operation with the Resolved flag included.  To determine what customizations display when you run this command, it can help to visualize the relationship of the entities involved.     Amazon Web Services account - The Amazon Web Services account exists at the top of the hierarchy. It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you subscribe to Quick Sight, you choose one Amazon Web Services Region to use as your home Region. That's where your free SPICE capacity is located. You can use Quick Sight in any supported Amazon Web Services Region.     Amazon Web Services Region - You can sign in to Quick Sight in any Amazon Web Services Region. If you have a user directory, it resides in us-east-1, which is US East (N. Virginia). Generally speaking, these users have access to Quick Sight in any Amazon Web Services Region, unless they are constrained to a namespace.  To run the command in a different Amazon Web Services Region, you change your Region settings. If you're using the CLI, you can use one of the following options:   Use command line options.    Use named profiles.    Run aws configure to change your default Amazon Web Services Region. Use Enter to key the same settings for your keys. For more information, see Configuring the CLI.      Namespace - A Quick Sight namespace is a partition that contains users and assets (data sources, datasets, dashboards, and so on). To access assets that are in a specific namespace, users and groups must also be part of the same namespace. People who share a namespace are completely isolated from users and assets in other namespaces, even if they are in the same Amazon Web Services account and Amazon Web Services Region.    Applied customizations - Quick Sight customizations can apply to an Amazon Web Services account or to a namespace. Settings that you apply to a namespace override settings that you apply to an Amazon Web Services account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID for the Amazon Web Services account that you want to describe Quick Sight customizations for",
           args: {
             name: "string",
           },
@@ -3362,7 +4174,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations for",
+            "The Quick Sight namespace that you want to describe Quick Sight customizations for",
           args: {
             name: "string",
           },
@@ -3370,12 +4182,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resolved",
           description:
-            "The Resolved flag works with the other parameters to determine which view of Amazon QuickSight customizations is returned. You can add this flag to your command to use the same view that Amazon QuickSight uses to identify which customizations to apply to the console. Omit this flag, or set it to no-resolved, to reveal customizations that are configured at different levels",
+            "The Resolved flag works with the other parameters to determine which view of Quick Sight customizations is returned. You can add this flag to your command to use the same view that Quick Sight uses to identify which customizations to apply to the console. Omit this flag, or set it to no-resolved, to reveal customizations that are configured at different levels",
         },
         {
           name: "--no-resolved",
           description:
-            "The Resolved flag works with the other parameters to determine which view of Amazon QuickSight customizations is returned. You can add this flag to your command to use the same view that Amazon QuickSight uses to identify which customizations to apply to the console. Omit this flag, or set it to no-resolved, to reveal customizations that are configured at different levels",
+            "The Resolved flag works with the other parameters to determine which view of Quick Sight customizations is returned. You can add this flag to your command to use the same view that Quick Sight uses to identify which customizations to apply to the console. Omit this flag, or set it to no-resolved, to reveal customizations that are configured at different levels",
         },
         {
           name: "--cli-input-json",
@@ -3399,7 +4211,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-account-settings",
       description:
-        "Describes the settings that were used when your Amazon QuickSight subscription was first created in this Amazon Web Services account",
+        "Describes the settings that were used when your Quick Sight subscription was first created in this Amazon Web Services account",
       options: [
         {
           name: "--aws-account-id",
@@ -3431,12 +4243,168 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-account-subscription",
       description:
-        "Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an AccountInfo object that includes an account's name, subscription status, authentication type, edition, and notification email address",
+        "Use the DescribeAccountSubscription operation to receive a description of an Quick Sight account's subscription. A successful API call returns an AccountInfo object that includes an account's name, subscription status, authentication type, edition, and notification email address",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The Amazon Web Services account ID associated with your Amazon QuickSight account",
+            "The Amazon Web Services account ID associated with your Quick Sight account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-action-connector",
+      description:
+        "Retrieves detailed information about an action connector, including its configuration, authentication settings, enabled actions, and current status",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID that contains the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "The unique identifier of the action connector to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-action-connector-permissions",
+      description:
+        "Retrieves the permissions configuration for an action connector, showing which users, groups, and namespaces have access and what operations they can perform",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID that contains the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "The unique identifier of the action connector whose permissions you want to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-agent",
+      description: "Describes an agent",
+      options: [
+        {
+          name: "--agent-id",
+          description: "The unique identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-agent-permissions",
+      description: "Describes the resource permissions for an agent",
+      options: [
+        {
+          name: "--agent-id",
+          description: "The unique identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
           args: {
             name: "string",
           },
@@ -3659,6 +4627,80 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-automation-job",
+      description:
+        "Retrieves the status and details of a specified automation job, including its status and outputs",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the automation job",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--automation-group-id",
+          description:
+            "The ID of the automation group that contains the automation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--automation-id",
+          description: "The ID of the automation that the job belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--include-input-payload",
+          description:
+            "A Boolean value that indicates whether to include the input payload in the response. If set to true, the input payload will be included. If set to false, the input payload will be returned as null",
+        },
+        {
+          name: "--no-include-input-payload",
+          description:
+            "A Boolean value that indicates whether to include the input payload in the response. If set to true, the input payload will be included. If set to false, the input payload will be returned as null",
+        },
+        {
+          name: "--include-output-payload",
+          description:
+            "A Boolean value that indicates whether to include the output payload in the response. If set to true, the output payload will be included. If set to false, the output payload will be returned as null",
+        },
+        {
+          name: "--no-include-output-payload",
+          description:
+            "A Boolean value that indicates whether to include the output payload in the response. If set to true, the output payload will be included. If set to false, the output payload will be returned as null",
+        },
+        {
+          name: "--job-id",
+          description: "The ID of the automation job to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-brand",
       description: "Describes a brand",
       options: [
@@ -3672,7 +4714,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -3749,7 +4791,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -3959,7 +5001,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-dashboard-snapshot-job",
       description:
-        "Describes an existing snapshot job. Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see JobStatus",
+        "Describes an existing snapshot job. Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see JobStatus.  Registered user support  This API can be called as before to get status of a job started by the same Quick Sight user.  Possible error scenarios  Request will fail with an Access Denied error in the following scenarios:   The credentials have expired.   Job has been started by a different user.   Impersonated Quick Sight user doesn't have access to the specified dashboard in the job",
       options: [
         {
           name: "--aws-account-id",
@@ -4007,7 +5049,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-dashboard-snapshot-job-result",
       description:
-        "Describes the result of an existing snapshot job that has finished running. A finished snapshot job will return a COMPLETED or FAILED status when you poll the job with a DescribeDashboardSnapshotJob API call. If the job has not finished running, this operation returns a message that says Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal state",
+        "Describes the result of an existing snapshot job that has finished running. A finished snapshot job will return a COMPLETED or FAILED status when you poll the job with a DescribeDashboardSnapshotJob API call. If the job has not finished running, this operation returns a message that says Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal state..  Registered user support  This API can be called as before to get the result of a job started by the same Quick Sight user. The result for the user will be returned in RegisteredUsers response attribute. The attribute will contain a list with at most one object in it.  Possible error scenarios  The request fails with an Access Denied error in the following scenarios:   The credentials have expired.   The job was started by a different user.   The registered user doesn't have access to the specified dashboard.   The request succeeds but the job fails in the following scenarios:    DASHBOARD_ACCESS_DENIED - The registered user lost access to the dashboard.    CAPABILITY_RESTRICTED - The registered user is restricted from exporting data in all selected formats.   The request succeeds but the response contains an error code in the following scenarios:    CAPABILITY_RESTRICTED - The registered user is restricted from exporting data in some selected formats.    RLS_CHANGED - Row-level security settings have changed. Re-run the job with current settings.    CLS_CHANGED - Column-level security settings have changed. Re-run the job with current settings.    DATASET_DELETED - The dataset has been deleted. Verify the dataset exists before re-running the job",
       options: [
         {
           name: "--aws-account-id",
@@ -4098,7 +5140,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-set-id",
           description:
-            "The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
+            "The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
           args: {
             name: "string",
           },
@@ -4137,7 +5179,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-set-id",
           description:
-            "The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
+            "The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account",
           args: {
             name: "string",
           },
@@ -4277,12 +5319,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-default-q-business-application",
       description:
-        "Describes a Amazon Q Business application that is linked to an Amazon QuickSight account",
+        "Describes a Amazon Q Business application that is linked to an Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon QuickSight account that is linked to the Amazon Q Business application that you want described",
+            "The ID of the Quick Sight account that is linked to the Amazon Q Business application that you want described",
           args: {
             name: "string",
           },
@@ -4290,7 +5332,54 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter",
+            "The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-flow",
+      description:
+        "Returns the full details of a flow for the latest version of the requested publish state",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow that you are describing",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--publish-state",
+          description:
+            "The publish state of the flow version to describe. Valid values are DRAFT, PUBLISHED, or PENDING_APPROVAL",
           args: {
             name: "string",
           },
@@ -4380,21 +5469,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A pagination token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4466,21 +5540,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A pagination token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4526,7 +5585,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-group",
       description:
-        "Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN)",
+        "Returns an Amazon Quick Sight group's description and Amazon Resource Name (ARN)",
       options: [
         {
           name: "--group-name",
@@ -4538,7 +5597,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -4591,7 +5650,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -4747,7 +5806,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-key-registration",
       description:
-        "Describes all customer managed key registrations in a Amazon QuickSight account",
+        "Describes all customer managed key registrations in a Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -4787,13 +5846,89 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-knowledge-base",
+      description: "Describes a knowledge base",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--knowledge-base-id",
+          description: "The unique identifier for the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-knowledge-base-permissions",
+      description: "Describes the resource permissions for a knowledge base",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--knowledge-base-id",
+          description: "The unique identifier for the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-namespace",
       description: "Describes the current namespace",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe",
+            "The ID for the Amazon Web Services account that contains the Quick Sight namespace that you want to describe",
           args: {
             name: "string",
           },
@@ -4801,6 +5936,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description: "The namespace that you want to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-o-auth-client-application",
+      description: "Describes an OAuthClientApplication",
+      options: [
+        {
+          name: "--aws-account-id",
+          description: "The Amazon Web Services account ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-client-application-id",
+          description:
+            "The ID of the OAuthClientApplication that you want to describe",
           args: {
             name: "string",
           },
@@ -4858,12 +6031,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-quick-sight-q-search-configuration",
       description:
-        "Describes the state of a Amazon QuickSight Q Search configuration",
+        "Describes the state of a Quick Sight Q Search configuration",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon Web Services account that contains the Amazon QuickSight Q Search configuration that the user wants described",
+            "The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that the user wants described",
           args: {
             name: "string",
           },
@@ -4946,7 +6119,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -4954,6 +6127,131 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description: "The namespace that contains the role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-self-upgrade-configuration",
+      description:
+        "Describes the self-upgrade configuration for a Quick account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          description:
+            "The Quick namespace that you want to describe the Quick self-upgrade configuration for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-space",
+      description: "Describes an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description: "The ID of the space that you want to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-contributors",
+          description:
+            "The maximum number of contributors to include in the response",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-space-permissions",
+      description: "Describes the permissions for an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description:
+            "The ID of the space that you want to describe permissions for",
           args: {
             name: "string",
           },
@@ -5490,7 +6788,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -5564,7 +6862,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "generate-embed-url-for-anonymous-user",
       description:
-        "Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   For more information, see Embedded Analytics in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal",
+        "Generates an embed URL that you can use to embed an Amazon Quick dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon Quick.   For more information, see Embedded Analytics in the Amazon Quick User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon Quick Developer Portal",
       options: [
         {
           name: "--aws-account-id",
@@ -5585,7 +6883,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that the anonymous user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to default",
+            "The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If you are not using an Amazon Quick custom namespace, set this to default",
           args: {
             name: "string",
           },
@@ -5593,7 +6891,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--session-tags",
           description:
-            "The session tags used for row-level security. Before you use this parameter, make sure that you have configured the relevant datasets using the DataSet$RowLevelPermissionTagConfiguration parameter so that session tags can be used to provide row-level security. These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see Using Row-Level Security (RLS) with Tagsin the Amazon QuickSight User Guide",
+            "Session tags are user-specified strings that identify a session in your application. You can use these tags to implement row-level security (RLS) controls. Before you use the SessionTags parameter, make sure that you have configured the relevant datasets using the DataSet$RowLevelPermissionTagConfiguration parameter so that session tags can be used to provide row-level security. When using SessionTags in GenerateEmbedUrlForAnonymousUser,   Treat SessionTags as security credentials. Do not expose SessionTags to end users or client-side code.   Implement server-side controls. Ensure that SessionTags are set exclusively by your trusted backend services, not by parameters that end users can modify.   Protect SessionTags from enumeration. Ensure that users in one tenant cannot discover or guess sessionTag values belonging to other tenants.   Review your architecture. If downstream customers or partners are allowed to call the GenerateEmbedUrlForAnonymousUser API directly, evaluate whether those parties could specify sessionTag values for tenants they should not access.   Besides, these are not the tags used for the Amazon Web Services resource tagging feature. For more information, see Using Row-Level Security (RLS) with Tags in the Amazon Quick User Guide",
           args: {
             name: "list",
           },
@@ -5601,7 +6899,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authorized-resource-arns",
           description:
-            "The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose Dashboard embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. If you want to make changes to the theme of your embedded content, pass a list of theme ARNs that the anonymous users need access to. Currently, you can pass up to 25 theme ARNs in each API call",
+            "The Amazon Resource Names (ARNs) for the Quick Sight resources that the user is authorized to access during the lifetime of the session. If you choose Dashboard embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. If you want to make changes to the theme of your embedded content, pass a list of theme ARNs that the anonymous users need access to. Currently, you can pass up to 25 theme ARNs in each API call",
           args: {
             name: "list",
           },
@@ -5617,7 +6915,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-domains",
           description:
-            "The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call. To include all subdomains under a specific domain to the allow list, use *. For example, https://*.sapp.amazon.com includes all subdomains under https://sapp.amazon.com",
+            "The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call. To include all subdomains under a specific domain to the allow list, use *. For example, https://*.sapp.amazon.com includes all subdomains under https://sapp.amazon.com",
           args: {
             name: "list",
           },
@@ -5644,7 +6942,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "generate-embed-url-for-registered-user",
       description:
-        "Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account. Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   For more information, see Embedded Analytics in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal",
+        "Generates an embed URL that you can use to embed an Amazon Quick experience in your website. This action can be used for any type of user registered in an Amazon Quick account. Before you use this action, make sure that you have configured the relevant Amazon Quick resource and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon Quick.   For more information, see Embedded Analytics in the Amazon Quick User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon Quick Developer Portal",
       options: [
         {
           name: "--aws-account-id",
@@ -5672,7 +6970,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--experience-configuration",
           description:
-            "The experience that you want to embed. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, the Amazon QuickSight Generative Q&A experience, or the entire Amazon QuickSight console",
+            "The experience that you want to embed. For registered users, you can embed Quick dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar, the Amazon Quick Sight Generative Q&A experience, or the entire Amazon Quick Sight console",
           args: {
             name: "structure",
           },
@@ -5680,7 +6978,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-domains",
           description:
-            "The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call. To include all subdomains under a specific domain to the allow list, use *. For example, https://*.sapp.amazon.com includes all subdomains under https://sapp.amazon.com",
+            "The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call. To include all subdomains under a specific domain to the allow list, use *. For example, https://*.sapp.amazon.com includes all subdomains under https://sapp.amazon.com",
           args: {
             name: "list",
           },
@@ -5707,7 +7005,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "generate-embed-url-for-registered-user-with-identity",
       description:
-        "Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user that is registered in an Amazon QuickSight account that uses IAM Identity Center for authentication. This API requires identity-enhanced IAM Role sessions for the authenticated user that the API call is being made for. This API uses trusted identity propagation to ensure that an end user is authenticated and receives the embed URL that is specific to that user. The IAM Identity Center application that the user has logged into needs to have trusted Identity Propagation enabled for Amazon QuickSight with the scope value set to quicksight:read. Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions",
+        "Generates an embed URL that you can use to embed an Amazon Quick Sight experience in your website. This action can be used for any type of user that is registered in an Amazon Quick Sight account that uses IAM Identity Center for authentication. This API requires identity-enhanced IAM Role sessions for the authenticated user that the API call is being made for. This API uses trusted identity propagation to ensure that an end user is authenticated and receives the embed URL that is specific to that user. The IAM Identity Center application that the user has logged into needs to have trusted Identity Propagation enabled for Amazon Quick Sight with the scope value set to quicksight:read. Before you use this action, make sure that you have configured the relevant Amazon Quick Sight resource and permissions",
       options: [
         {
           name: "--aws-account-id",
@@ -5726,7 +7024,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--experience-configuration",
           description:
-            "The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.  Exactly one of the experience configurations is required. You can choose Dashboard or QuickSightConsole. You cannot choose more than one experience configuration",
+            "The type of experience you want to embed. For registered users, you can embed Quick dashboards or the Amazon Quick Sight console.  Exactly one of the experience configurations is required. You can choose Dashboard or QuickSightConsole. You cannot choose more than one experience configuration",
           args: {
             name: "structure",
           },
@@ -5761,7 +7059,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-dashboard-embed-url",
       description:
-        "Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions.  Currently, you can use GetDashboardEmbedURL only from the server, not from the user's browser. The following rules apply to the generated URL:   They must be used together.   They can be used one time only.   They are valid for 5 minutes after you run this command.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional SessionLifetimeInMinutes parameter to customize session duration.   For more information, see Embedding Analytics Using GetDashboardEmbedUrl in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal",
+        "Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon Quick Sight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions.  Currently, you can use GetDashboardEmbedURL only from the server, not from the user's browser. The following rules apply to the generated URL:   They must be used together.   They can be used one time only.   They are valid for 5 minutes after you run this command.   You are charged only when the URL is used or there is interaction with Quick.   The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional SessionLifetimeInMinutes parameter to customize session duration.   For more information, see Embedding Analytics Using GetDashboardEmbedUrl in the Amazon Quick User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon Quick Developer Portal",
       options: [
         {
           name: "--aws-account-id",
@@ -5818,17 +7116,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--state-persistence-enabled",
           description:
-            "Adds persistence of state for the user session in an embedded dashboard. Persistence applies to the sheet and the parameter settings. These are control settings that the dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is set to TRUE, the settings are the same when the subscriber reopens the same dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is set to FALSE, the state of the user session is not persisted. The default is FALSE",
+            "Adds persistence of state for the user session in an embedded dashboard. Persistence applies to the sheet and the parameter settings. These are control settings that the dashboard subscriber (Amazon Quick Sight reader) chooses while viewing the dashboard. If this is set to TRUE, the settings are the same when the subscriber reopens the same dashboard URL. The state is stored in Amazon Quick Sight, not in a browser cookie. If this is set to FALSE, the state of the user session is not persisted. The default is FALSE",
         },
         {
           name: "--no-state-persistence-enabled",
           description:
-            "Adds persistence of state for the user session in an embedded dashboard. Persistence applies to the sheet and the parameter settings. These are control settings that the dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is set to TRUE, the settings are the same when the subscriber reopens the same dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is set to FALSE, the state of the user session is not persisted. The default is FALSE",
+            "Adds persistence of state for the user session in an embedded dashboard. Persistence applies to the sheet and the parameter settings. These are control settings that the dashboard subscriber (Amazon Quick Sight reader) chooses while viewing the dashboard. If this is set to TRUE, the settings are the same when the subscriber reopens the same dashboard URL. The state is stored in Amazon Quick Sight, not in a browser cookie. If this is set to FALSE, the state of the user session is not persisted. The default is FALSE",
         },
         {
           name: "--user-arn",
           description:
-            "The Amazon QuickSight user's Amazon Resource Name (ARN), for use with QUICKSIGHT identity type. You can use this for any Amazon QuickSight users in your account (readers, authors, or admins) authenticated as one of the following:   Active Directory (AD) users or group members   Invited nonfederated users   IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation.   Omit this parameter for users in the third group \u2013 IAM users and IAM role-based sessions",
+            "The Amazon Quick user's Amazon Resource Name (ARN), for use with QUICKSIGHT identity type. You can use this for any Amazon Quick users in your account (readers, authors, or admins) authenticated as one of the following:   Active Directory (AD) users or group members   Invited nonfederated users   IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation.   Omit this parameter for users in the third group – IAM users and IAM role-based sessions",
           args: {
             name: "string",
           },
@@ -5836,7 +7134,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that contains the dashboard IDs in this request. If you're not using a custom namespace, set Namespace = default",
+            "The Amazon Quick Sight namespace that contains the dashboard IDs in this request. If you're not using a custom namespace, set Namespace = default",
           args: {
             name: "string",
           },
@@ -5844,7 +7142,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-dashboard-ids",
           description:
-            'A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the IdentityType parameter must be set to ANONYMOUS because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set "--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS", the session can access all three dashboards',
+            'A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the IdentityType parameter must be set to ANONYMOUS because other identity types authenticate as Quick or IAM users. For example, if you set "--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS", the session can access all three dashboards',
           args: {
             name: "list",
           },
@@ -5869,14 +7167,155 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-session-embed-url",
+      name: "get-flow-metadata",
       description:
-        "Generates a session URL and authorization code that you can use to embed the Amazon Amazon QuickSight console in your web server code. Use GetSessionEmbedUrl where you want to provide an authoring portal that allows users to create data sources, datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight console need belong to the author or admin security cohort. If you want to restrict permissions to some of these features, add a custom permissions profile to the user with the  UpdateUser  API operation. Use  RegisterUser  API operation to add a new user with a custom permission profile attached. For more information, see the following sections in the Amazon QuickSight User Guide:    Embedding Analytics     Customizing Access to the Amazon QuickSight Console",
+        "Retrieves the metadata of a flow, not including its definition specifying the steps",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription",
+            "The ID of the Amazon Web Services account that contains the flow that you are getting metadata for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-flow-permissions",
+      description: "Get permissions for a flow",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow that you are getting permissions for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description:
+            "The unique identifier of the flow to get permissions from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-identity-context",
+      description:
+        "Retrieves the identity context for a Quick Sight user in a specified namespace, allowing you to obtain identity tokens that can be used with identity-enhanced IAM role sessions to call identity-aware APIs. Currently, you can call the following APIs with identity-enhanced Credentials    StartDashboardSnapshotJob     DescribeDashboardSnapshotJob     DescribeDashboardSnapshotJobResult     Supported Authentication Methods  This API supports Quick Sight native users, IAM federated users, and Active Directory users. For Quick Sight users authenticated by Amazon Web Services Identity Center, see Identity Center documentation on identity-enhanced IAM role sessions.  Supported Regions  The GetIdentityContext API works only in regions that support at least one of these identity types:   Amazon Quick Sight native identity   IAM federated identity   Active Directory   To use this API successfully, call it in the same region where your user's identity resides. For example, if your user's identity is in us-east-1, make the API call in us-east-1. For more information about managing identities in Amazon Quick Sight, see Identity and access management in Amazon Quick Sight in the Amazon Quick Sight User Guide.  Getting Identity-Enhanced Credentials  To obtain identity-enhanced credentials, follow these steps:   Call the GetIdentityContext API to retrieve an identity token for the specified user.   Use the identity token with the STS AssumeRole API to obtain identity-enhanced IAM role session credentials.    Usage with STS AssumeRole  The identity token returned by this API should be used with the STS AssumeRole API to obtain credentials for an identity-enhanced IAM role session. When calling AssumeRole, include the identity token in the ProvidedContexts parameter with ProviderArn set to arn:aws:iam::aws:contextProvider/QuickSight and ContextAssertion set to the identity token received from this API. The assumed role must allow the sts:SetContext action in addition to sts:AssumeRole in its trust relationship policy. The trust policy should include both actions for the principal that will be assuming the role",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID for the Amazon Web Services account that the user whose identity context you want to retrieve is in. Currently, you use the ID for the Amazon Web Services account that contains your Quick Sight account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--user-identifier",
+          description:
+            "The identifier for the user whose identity context you want to retrieve",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--namespace",
+          description:
+            "The namespace of the user that you want to get identity context for. This parameter is required when the UserIdentifier is specified using Email or UserName",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-expires-at",
+          description: "The timestamp at which the session will expire",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--context-region",
+          description:
+            "The region in which the context is to be used. Use this parameter to obtain an identity context for cross-region use. The specified region must meet the following conditions:   The region must be in the same Amazon Web Services partition as the region you are calling from. Cross-partition requests are not supported. For example, you cannot specify a region in the aws-cn partition when calling from a region in the aws partition.   It must be a valid Amazon QuickSight supported region.   The calling customer account must be enabled in the specified context region.   This parameter is not supported when calling from an opt-in region",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session-embed-url",
+      description:
+        "Generates a session URL and authorization code that you can use to embed the Amazon Amazon Quick Sight console in your web server code. Use GetSessionEmbedUrl where you want to provide an authoring portal that allows users to create data sources, datasets, analyses, and dashboards. The users who access an embedded Amazon Quick Sight console need belong to the author or admin security cohort. If you want to restrict permissions to some of these features, add a custom permissions profile to the user with the  UpdateUser  API operation. Use  RegisterUser  API operation to add a new user with a custom permission profile attached. For more information, see the following sections in the Amazon Quick User Guide:    Embedding Analytics     Customizing Access to the Amazon Quick Console",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID for the Amazon Web Services account associated with your Amazon Quick Sight subscription",
           args: {
             name: "string",
           },
@@ -5884,7 +7323,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--entry-point",
           description:
-            "The URL you use to access the embedded session. The entry point URL is constrained to the following paths:    /start     /start/analyses     /start/dashboards     /start/favorites     /dashboards/DashboardId  - where DashboardId is the actual ID key from the Amazon QuickSight console URL of the dashboard    /analyses/AnalysisId  - where AnalysisId is the actual ID key from the Amazon QuickSight console URL of the analysis",
+            "The URL you use to access the embedded session. The entry point URL is constrained to the following paths:    /start     /start/analyses     /start/dashboards     /start/favorites     /dashboards/DashboardId  - where DashboardId is the actual ID key from the Amazon Quick Sight console URL of the dashboard    /analyses/AnalysisId  - where AnalysisId is the actual ID key from the Amazon Quick Sight console URL of the analysis",
           args: {
             name: "string",
           },
@@ -5900,7 +7339,109 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-arn",
           description:
-            "The Amazon QuickSight user's Amazon Resource Name (ARN), for use with QUICKSIGHT identity type. You can use this for any type of Amazon QuickSight users in your account (readers, authors, or admins). They need to be authenticated as one of the following:   Active Directory (AD) users or group members   Invited nonfederated users   IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation   Omit this parameter for users in the third group, IAM users and IAM role-based sessions",
+            "The Amazon Quick user's Amazon Resource Name (ARN), for use with QUICKSIGHT identity type. You can use this for any type of Amazon Quick users in your account (readers, authors, or admins). They need to be authenticated as one of the following:   Active Directory (AD) users or group members   Invited nonfederated users   IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation   Omit this parameter for users in the third group, IAM users and IAM role-based sessions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-action-connectors",
+      description:
+        "Lists all action connectors in the specified Amazon Web Services account. Returns summary information for each connector including its name, type, creation time, and status",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID for which to list action connectors",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-agents",
+      description: "Lists all agents in an Amazon QuickSight account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agents",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, or null if there are no more results",
           args: {
             name: "string",
           },
@@ -5927,7 +7468,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-analyses",
       description:
-        "Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account",
+        "Lists Amazon Quick Sight analyses that exist in the specified Amazon Web Services account",
       options: [
         {
           name: "--aws-account-id",
@@ -5935,21 +7476,6 @@ const completionSpec: Fig.Spec = {
             "The ID of the Amazon Web Services account that contains the analyses",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6009,22 +7535,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6081,22 +7591,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6141,28 +7635,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-brands",
-      description: "Lists all brands in an Amazon QuickSight account",
+      description: "Lists all brands in an Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
           description:
             "The ID of the Amazon Web Services account that owns the brands that you want to list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned in a single request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
           args: {
             name: "string",
           },
@@ -6223,21 +7701,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6283,7 +7746,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-dashboard-versions",
       description:
-        "Lists all the versions of the dashboards in the Amazon QuickSight subscription",
+        "Lists all the versions of the dashboards in the Amazon Quick Sight subscription",
       options: [
         {
           name: "--aws-account-id",
@@ -6298,22 +7761,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID for the dashboard",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6372,22 +7819,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6440,22 +7871,6 @@ const completionSpec: Fig.Spec = {
           description: "The Amazon Web Services account ID",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6514,19 +7929,58 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results, or null if there are no more results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to be returned per request",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-flows",
+      description: "Lists flows in an Amazon Web Services account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow list that you are getting",
+          args: {
+            name: "string",
           },
         },
         {
@@ -6593,22 +8047,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6661,22 +8099,6 @@ const completionSpec: Fig.Spec = {
             "The ID for the Amazon Web Services account that contains the folder",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6743,22 +8165,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6814,25 +8220,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return from this request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -6890,29 +8280,14 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-groups",
-      description: "Lists all user groups in Amazon QuickSight",
+      description: "Lists all user groups in Amazon Quick Sight",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6968,7 +8343,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-iam-policy-assignments",
       description:
-        "Lists the IAM policy assignments in the current Amazon QuickSight account",
+        "Lists the IAM policy assignments in the current Amazon Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -6990,22 +8365,6 @@ const completionSpec: Fig.Spec = {
           description: "The namespace for the assignments",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7072,22 +8431,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--namespace",
           description: "The namespace of the assignment",
           args: {
@@ -7140,7 +8483,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-identity-propagation-configs",
       description:
-        "Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access. This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center",
+        "Lists all services and authorized targets that the Quick Sight IAM Identity Center application can access. This operation is only supported for Quick Sight accounts that use IAM Identity Center",
       options: [
         {
           name: "--aws-account-id",
@@ -7186,19 +8529,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-ingestions",
-      description: "Lists the history of SPICE ingestions for a dataset",
+      description:
+        "Lists the history of SPICE ingestions for a dataset. Limited to 5 TPS per user and 25 TPS per account",
       options: [
         {
           name: "--data-set-id",
           description: "The ID of the dataset used in the ingestion",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
           args: {
             name: "string",
           },
@@ -7211,11 +8547,58 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "The maximum number of results to be returned per request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-knowledge-bases",
+      description: "Lists all knowledge bases in an Amazon QuickSight account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
           },
         },
         {
@@ -7269,24 +8652,64 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list",
+            "The ID for the Amazon Web Services account that contains the Quick Sight namespaces that you want to list",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous ListNameSpaces API call if there is more data that can be returned. To receive the data, make another ListNamespaces API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a ListNamespaces API call with an expired token, you will receive a HTTP 400 InvalidNextTokenException error",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-o-auth-client-applications",
+      description:
+        "Lists all OAuthClientApplications in the current Amazon Web Services Region that belong to this Amazon Web Services account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description: "The Amazon Web Services account ID",
+          args: {
+            name: "string",
           },
         },
         {
@@ -7382,24 +8805,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -7441,6 +8849,145 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-self-upgrades",
+      description: "Lists all self-upgrade requests for a Quick account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the self-upgrade requests",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          description: "The Quick namespace for the self-upgrade requests",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, or null if there are no more results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-space-resources",
+      description: "Lists the resources in an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description:
+            "The ID of the space that you want to list resources for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-spaces",
+      description:
+        "Lists all Amazon QuickSight spaces in an Amazon Web Services account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the spaces",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, or null if there are no more results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -7505,22 +9052,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7566,7 +9097,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-template-versions",
       description:
-        "Lists all the versions of the templates in the current Amazon QuickSight account",
+        "Lists all the versions of the templates in the current Amazon Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -7581,22 +9112,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID for the template",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7645,7 +9160,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-templates",
       description:
-        "Lists all the templates in the current Amazon QuickSight account",
+        "Lists all the templates in the current Amazon Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -7653,22 +9168,6 @@ const completionSpec: Fig.Spec = {
             "The ID of the Amazon Web Services account that contains the templates that you're listing",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7789,22 +9288,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7861,25 +9344,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--type",
           description:
-            "The type of themes that you want to list. Valid options include the following:    ALL (default)- Display all existing themes.    CUSTOM - Display only the themes created by people using Amazon QuickSight.    QUICKSIGHT - Display only the starting themes defined by Amazon QuickSight",
+            "The type of themes that you want to list. Valid options include the following:    ALL (default)- Display all existing themes.    CUSTOM - Display only the themes created by people using Amazon Quick Sight.    QUICKSIGHT - Display only the starting themes defined by Quick Sight",
           args: {
             name: "string",
           },
@@ -8055,12 +9522,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-user-groups",
       description:
-        "Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of",
+        "Lists the Amazon Quick Sight groups that an Amazon Quick Sight user is a member of",
       options: [
         {
           name: "--user-name",
           description:
-            "The Amazon QuickSight user name that you want to list group memberships for",
+            "The Amazon Quick Sight user name that you want to list group memberships for",
           args: {
             name: "string",
           },
@@ -8068,7 +9535,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -8079,22 +9546,6 @@ const completionSpec: Fig.Spec = {
             "The namespace. Currently, you should set this to default",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return from this request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8143,30 +9594,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-users",
       description:
-        "Returns a list of all of the Amazon QuickSight users belonging to this account",
+        "Returns a list of all of the Amazon Quick Sight users belonging to this account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return from this request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8207,6 +9642,83 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-users-index-capacity",
+      description: "Lists per-user index capacity consumption for an account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the index capacity data",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          description:
+            "The namespace to scope the user search to. Required when the userNameOrEmail filter is present",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "Filters to apply. Only one filter is supported per request. The userNameOrEmail and totalCapacityBytes filters are mutually exclusive",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--sort-by",
+          description: "The field to sort results by",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort-order",
+          description:
+            "The sort order for results. Defaults to DESC if not specified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return per page",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, received from a previous call",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -8271,7 +9783,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "predict-qa-results",
       description:
-        "Predicts existing visuals or generates new visuals to answer a given query",
+        "Predicts existing visuals or generates new visuals to answer a given query. This API uses trusted identity propagation to ensure that an end user is authenticated and receives the embed URL that is specific to that user. The IAM Identity Center application that the user has logged into needs to have trusted Identity Propagation enabled for Quick with the scope value set to quicksight:read. Before you use this action, make sure that you have configured the relevant Quick resource and permissions. We recommend enabling the QSearchStatus API to unlock the full potential of PredictQnA. When QSearchStatus is enabled, it first checks the specified dashboard for any existing visuals that match the question. If no matching visuals are found, PredictQnA uses generative Q&A to provide an answer. To update the QSearchStatus, see UpdateQuickSightQSearchConfiguration",
       options: [
         {
           name: "--aws-account-id",
@@ -8378,12 +9890,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-user",
       description:
-        "Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Amazon QuickSight API, Amazon QuickSight generates a registration URL. The user accesses this registration URL to create their account. Amazon QuickSight doesn't send a registration email to users who are registered from the Amazon QuickSight API. If you want new users to receive a registration email, then add those users in the Amazon QuickSight console. For more information on registering a new user in the Amazon QuickSight console, see  Inviting users to access Amazon QuickSight",
+        "Creates an Amazon Quick Sight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Quick Sight API, Quick Sight generates a registration URL. The user accesses this registration URL to create their account. Quick Sight doesn't send a registration email to users who are registered from the Quick Sight API. If you want new users to receive a registration email, then add those users in the Quick Sight console. For more information on registering a new user in the Quick Sight console, see  Inviting users to access Quick Sight",
       options: [
         {
           name: "--identity-type",
           description:
-            "The identity type that your Amazon QuickSight account uses to manage the identity of users",
+            "The identity type that your Quick Sight account uses to manage the identity of users",
           args: {
             name: "string",
           },
@@ -8399,7 +9911,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-role",
           description:
-            "The Amazon QuickSight role for the user. The user role can be one of the following:    READER: A user who has read-only access to dashboards.    AUTHOR: A user who can create data sources, datasets, analyses, and dashboards.    ADMIN: A user who is an author, who can also manage Amazon QuickSight settings.    READER_PRO: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.    AUTHOR_PRO: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.    ADMIN_PRO: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.    RESTRICTED_READER: This role isn't currently available for use.    RESTRICTED_AUTHOR: This role isn't currently available for use",
+            "The Amazon Quick Sight role for the user. The user role can be one of the following:    READER: A user who has read-only access to dashboards.    AUTHOR: A user who can create data sources, datasets, analyses, and dashboards.    ADMIN: A user who is an author, who can also manage Amazon Quick Sight settings.    READER_PRO: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.    AUTHOR_PRO: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.    ADMIN_PRO: Admin Pros are Author Pros who can also manage Amazon Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.    RESTRICTED_READER: This role isn't currently available for use.    RESTRICTED_AUTHOR: This role isn't currently available for use",
           args: {
             name: "string",
           },
@@ -8407,7 +9919,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-arn",
           description:
-            "The ARN of the IAM user or role that you are registering with Amazon QuickSight",
+            "The ARN of the IAM user or role that you are registering with Amazon Quick Sight",
           args: {
             name: "string",
           },
@@ -8415,7 +9927,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--session-name",
           description:
-            "You need to use this parameter only when you register one or more users using an assumed IAM role. You don't need to provide the session name for other scenarios, for example when you are registering an IAM user or an Amazon QuickSight user. You can register multiple users using the same IAM role if each user has a different session name. For more information on assuming IAM roles, see  assume-role  in the CLI Reference",
+            "You need to use this parameter only when you register one or more users using an assumed IAM role. You don't need to provide the session name for other scenarios, for example when you are registering an IAM user or an Amazon Quick Sight user. You can register multiple users using the same IAM role if each user has a different session name. For more information on assuming IAM roles, see  assume-role  in the CLI Reference",
           args: {
             name: "string",
           },
@@ -8423,7 +9935,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -8439,7 +9951,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-name",
           description:
-            "The Amazon QuickSight user name that you want to create for the user you are registering",
+            "The Amazon Quick Sight user name that you want to create for the user you are registering",
           args: {
             name: "string",
           },
@@ -8447,7 +9959,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-permissions-name",
           description:
-            "(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:   Create and update data sources   Create and update datasets   Create and update email reports   Subscribe to email reports   To add custom permissions to an existing user, use  UpdateUser  instead. A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the Amazon QuickSight console. Then, you use the RegisterUser API operation to assign the named set of permissions to a Amazon QuickSight user.  Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning Amazon QuickSight users to one of the default security cohorts in Amazon QuickSight (admin, author, reader, admin pro, author pro, reader pro). This feature is available only to Amazon QuickSight Enterprise edition subscriptions",
+            "(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:   Create and update data sources   Create and update datasets   Create and update email reports   Subscribe to email reports   To add custom permissions to an existing user, use  UpdateUser  instead. A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the Quick Sight console. Then, you use the RegisterUser API operation to assign the named set of permissions to a Quick Sight user.  Quick Sight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning Quick Sight users to one of the default security cohorts in Quick Sight (admin, author, reader, admin pro, author pro, reader pro). This feature is available only to Quick Sight Enterprise edition subscriptions",
           args: {
             name: "string",
           },
@@ -8455,7 +9967,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--external-login-federation-provider-type",
           description:
-            'The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.    COGNITO: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the COGNITO provider type, don\u2019t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.    CUSTOM_OIDC: Custom OpenID Connect (OIDC) provider. When choosing CUSTOM_OIDC type, use the CustomFederationProviderUrl parameter to provide the custom OIDC provider URL',
+            'The type of supported external login provider that provides identity to let a user federate into Amazon Quick Sight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.    COGNITO: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the COGNITO provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.    CUSTOM_OIDC: Custom OpenID Connect (OIDC) provider. When choosing CUSTOM_OIDC type, use the CustomFederationProviderUrl parameter to provide the custom OIDC provider URL',
           args: {
             name: "string",
           },
@@ -8463,7 +9975,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-federation-provider-url",
           description:
-            "The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should only be used when ExternalLoginFederationProviderType parameter is set to CUSTOM_OIDC",
+            "The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. This parameter should only be used when ExternalLoginFederationProviderType parameter is set to CUSTOM_OIDC",
           args: {
             name: "string",
           },
@@ -8551,6 +10063,123 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "search-action-connectors",
+      description:
+        "Searches for action connectors in the specified Amazon Web Services account using filters. You can search by connector name, type, or user permissions",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID in which to search for action connectors",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "The search filters to apply. You can filter by connector name, type, or user permissions. Maximum of one filter is supported",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-agents",
+      description: "Searches for agents based on specified filters",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agents",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description: "The filters to apply when searching agents",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, or null if there are no more results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "search-analyses",
       description:
         "Searches for analyses that belong to the user specified in the filter.  This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes",
@@ -8569,21 +10198,6 @@ const completionSpec: Fig.Spec = {
             "The structure for the search filters that you want to apply to your search",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8651,22 +10265,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8726,22 +10324,6 @@ const completionSpec: Fig.Spec = {
           description: "The filters to apply to the search",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8807,19 +10389,66 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "A pagination token that can be used in a subsequent request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to be returned per request",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-flows",
+      description: "Search for the flows in an Amazon Web Services account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account where you are searching for flows from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "The filters applied to the search when searching for flows in the Amazon Web Services account",
+          args: {
+            name: "list",
           },
         },
         {
@@ -8886,22 +10515,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8947,30 +10560,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-groups",
       description:
-        "Use the SearchGroups operation to search groups in a specified Amazon QuickSight namespace using the supplied filters",
+        "Use the SearchGroups operation to search groups in a specified Quick Sight namespace using the supplied filters",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token that can be used in a subsequent request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return from this request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9032,9 +10629,132 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-topics",
+      name: "search-knowledge-bases",
       description:
-        "Searches for any Q topic that exists in an Amazon QuickSight account",
+        "Searches for a subset of knowledge bases based on specified filters",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description: "The filters to apply when searching knowledge bases",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--sort-by",
+          description: "The sort configuration for the search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-spaces",
+      description:
+        "Searches for Amazon QuickSight spaces that match the specified filters",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the spaces",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results, or null if there are no more results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--filters",
+          description: "The filters to apply to the search",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-topics",
+      description: "Searches for any Q topic that exists in an Quick account",
       options: [
         {
           name: "--aws-account-id",
@@ -9050,22 +10770,6 @@ const completionSpec: Fig.Spec = {
             "The filters that you want to use to search for the topic",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9114,7 +10818,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-asset-bundle-export-job",
       description:
-        "Starts an Asset Bundle export job. An Asset Bundle export job exports specified Amazon QuickSight assets. You can also choose to export any asset dependencies in the same job. Export jobs run asynchronously and can be polled with a DescribeAssetBundleExportJob API call. When a job is successfully completed, a download URL that contains the exported assets is returned. The URL is valid for 5 minutes and can be refreshed with a DescribeAssetBundleExportJob API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently. The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported",
+        "Starts an Asset Bundle export job. An Asset Bundle export job exports specified Amazon Quick Sight assets. You can also choose to export any asset dependencies in the same job. Export jobs run asynchronously and can be polled with a DescribeAssetBundleExportJob API call. When a job is successfully completed, a download URL that contains the exported assets is returned. The URL is valid for 5 minutes and can be refreshed with a DescribeAssetBundleExportJob API call. Each Amazon Quick Sight account can run up to 5 export jobs concurrently. The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported",
       options: [
         {
           name: "--aws-account-id",
@@ -9233,7 +10937,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-asset-bundle-import-job",
       description:
-        'Starts an Asset Bundle import job. An Asset Bundle import job imports specified Amazon QuickSight assets into an Amazon QuickSight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your Amazon QuickSight account. Each Amazon QuickSight account can run up to 5 import jobs concurrently. The API caller must have the necessary "create", "describe", and "update" permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported',
+        'Starts an Asset Bundle import job. An Asset Bundle import job imports specified Amazon Quick Sight assets into an Amazon Quick Sight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your Amazon Quick Sight account. Each Amazon Quick Sight account can run up to 5 import jobs concurrently. The API caller must have the necessary "create", "describe", and "update" permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported',
       options: [
         {
           name: "--aws-account-id",
@@ -9254,7 +10958,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asset-bundle-import-source",
           description:
-            "The source of the asset bundle zip file that contains the data that you want to import. The file must be in QUICKSIGHT_JSON format. To specify a local file use --asset-bundle-import-source-bytes instead",
+            "The source of the asset bundle zip file that contains the data that you want to import. The file must be in QUICKSIGHT_JSON format",
           args: {
             name: "structure",
           },
@@ -9270,7 +10974,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--failure-action",
           description:
-            "The failure action for the import job. If you choose ROLLBACK, failed import jobs will attempt to undo any asset changes caused by the failed job. If you choose DO_NOTHING, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state",
+            "The failure action for the import job. If you choose ROLLBACK, failed import jobs will attempt to undo any asset changes caused by the failed job. If you choose DO_NOTHING, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon Quick Sight account in an inconsistent state",
           args: {
             name: "string",
           },
@@ -9301,8 +11005,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--asset-bundle-import-source-bytes",
-          description:
-            "The content of the asset bundle to be uploaded. To specify the content of a local file use the fileb:// prefix. Example: fileb://asset-bundle.zip",
           args: {
             name: "blob",
           },
@@ -9327,9 +11029,64 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-automation-job",
+      description:
+        "Starts a new job for a specified automation. The job runs the automation with the provided input payload",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the automation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--automation-group-id",
+          description:
+            "The ID of the automation group that contains the automation to run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--automation-id",
+          description: "The ID of the automation to run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--input-payload",
+          description:
+            "The input payload for the automation job, provided as a JSON string",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-dashboard-snapshot-job",
       description:
-        "Starts an asynchronous job that generates a snapshot of a dashboard's output. You can request one or several of the following format configurations in each API call.   1 Paginated PDF   1 Excel workbook that includes up to 5 table or pivot table visuals   5 CSVs from table or pivot table visuals   The status of a submitted job can be polled with the DescribeDashboardSnapshotJob API. When you call the DescribeDashboardSnapshotJob API, check the JobStatus field in the response. Once the job reaches a COMPLETED or FAILED status, use the DescribeDashboardSnapshotJobResult API to obtain the URLs for the generated files. If the job fails, the DescribeDashboardSnapshotJobResult API returns detailed information about the error that occurred.  StartDashboardSnapshotJob API throttling  Amazon QuickSight utilizes API throttling to create a more consistent user experience within a time span for customers when they call the StartDashboardSnapshotJob. By default, 12 jobs can run simlutaneously in one Amazon Web Services account and users can submit up 10 API requests per second before an account is throttled. If an overwhelming number of API requests are made by the same user in a short period of time, Amazon QuickSight throttles the API calls to maintin an optimal experience and reliability for all Amazon QuickSight users.  Common throttling scenarios  The following list provides information about the most commin throttling scenarios that can occur.    A large number of SnapshotExport API jobs are running simultaneously on an Amazon Web Services account. When a new StartDashboardSnapshotJob is created and there are already 12 jobs with the RUNNING status, the new job request fails and returns a LimitExceededException error. Wait for a current job to comlpete before you resubmit the new job.    A large number of API requests are submitted on an Amazon Web Services account. When a user makes more than 10 API calls to the Amazon QuickSight API in one second, a ThrottlingException is returned.   If your use case requires a higher throttling limit, contact your account admin or Amazon Web ServicesSupport to explore options to tailor a more optimal expereince for your account.  Best practices to handle throttling  If your use case projects high levels of API traffic, try to reduce the degree of frequency and parallelism of API calls as much as you can to avoid throttling. You can also perform a timing test to calculate an estimate for the total processing time of your projected load that stays within the throttling limits of the Amazon QuickSight APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the amount of time it takes to proccess all 12 jobs. Once you obtain the result, multiply the duration by 9, for example (12 minutes * 9 = 108 minutes). Use the new result to determine the latest time at which the jobs need to be started to meet your target deadline. The time that it takes to process a job can be impacted by the following factors:   The dataset type (Direct Query or SPICE).   The size of the dataset.   The complexity of the calculated fields that are used in the dashboard.   The number of visuals that are on a sheet.   The types of visuals that are on the sheet.   The number of formats and snapshots that are requested in the job configuration.   The size of the generated snapshots",
+        "Starts an asynchronous job that generates a snapshot of a dashboard's output. You can request one or several of the following format configurations in each API call.   1 PDF   1 Excel workbook that includes up to 5 table or pivot table visuals   5 CSVs from table or pivot table visuals    Exporting CSV, Excel, or Pixel Perfect PDF reports requires Pixel Perfect Report Add-on.  The status of a submitted job can be polled with the DescribeDashboardSnapshotJob API. When you call the DescribeDashboardSnapshotJob API, check the JobStatus field in the response. Once the job reaches a COMPLETED or FAILED status, use the DescribeDashboardSnapshotJobResult API to obtain the URLs for the generated files. If the job fails, the DescribeDashboardSnapshotJobResult API returns detailed information about the error that occurred.  StartDashboardSnapshotJob API throttling  Quick Sight utilizes API throttling to create a more consistent user experience within a time span for customers when they call the StartDashboardSnapshotJob. By default, 12 jobs can run simlutaneously in one Amazon Web Services account and users can submit up 10 API requests per second before an account is throttled. If an overwhelming number of API requests are made by the same user in a short period of time, Quick Sight throttles the API calls to maintin an optimal experience and reliability for all Quick Sight users.  Common throttling scenarios  The following list provides information about the most commin throttling scenarios that can occur.    A large number of SnapshotExport API jobs are running simultaneously on an Amazon Web Services account. When a new StartDashboardSnapshotJob is created and there are already 12 jobs with the RUNNING status, the new job request fails and returns a LimitExceededException error. Wait for a current job to comlpete before you resubmit the new job.    A large number of API requests are submitted on an Amazon Web Services account. When a user makes more than 10 API calls to the Quick Sight API in one second, a ThrottlingException is returned.   If your use case requires a higher throttling limit, contact your account admin or Amazon Web ServicesSupport to explore options to tailor a more optimal expereince for your account.  Best practices to handle throttling  If your use case projects high levels of API traffic, try to reduce the degree of frequency and parallelism of API calls as much as you can to avoid throttling. You can also perform a timing test to calculate an estimate for the total processing time of your projected load that stays within the throttling limits of the Quick Sight APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the amount of time it takes to proccess all 12 jobs. Once you obtain the result, multiply the duration by 9, for example (12 minutes * 9 = 108 minutes). Use the new result to determine the latest time at which the jobs need to be started to meet your target deadline. The time that it takes to process a job can be impacted by the following factors:   The dataset type (Direct Query or SPICE).   The size of the dataset.   The complexity of the calculated fields that are used in the dashboard.   The number of visuals that are on a sheet.   The types of visuals that are on the sheet.   The number of formats and snapshots that are requested in the job configuration.   The size of the generated snapshots.    Registered user support  You can generate snapshots for registered Quick Sight users by using the Snapshot Job APIs with identity-enhanced IAM role session credentials. This approach allows you to create snapshots on behalf of specific Quick Sight users while respecting their row-level security (RLS), column-level security (CLS), dynamic default parameters and dashboard parameter/filter settings. To generate snapshots for registered Quick Sight users, you need to:   Obtain identity-enhanced IAM role session credentials from Amazon Web Services Security Token Service (STS).   Use these credentials to call the Snapshot Job APIs.   Identity-enhanced credentials are credentials that contain information about the end user (e.g., registered Quick Sight user). If your Quick Sight users are backed by Amazon Web Services Identity Center, then you need to set up a trusted token issuer. Then, getting identity-enhanced IAM credentials for a Quick Sight user will look like the following:   Authenticate user with your OIDC compliant Identity Provider. You should get auth tokens back.   Use the OIDC API, CreateTokenWithIAM, to exchange auth tokens to IAM tokens. One of the resulted tokens will be identity token.   Call STS AssumeRole API as you normally would, but provide an extra ProvidedContexts parameter in the API request. The list of contexts must have a single trusted context assertion. The ProviderArn should be arn:aws:iam::aws:contextProvider/IdentityCenter while ContextAssertion will be the identity token you received in response from CreateTokenWithIAM   For more details, see IdC documentation on Identity-enhanced IAM role sessions. To obtain Identity-enhanced credentials for Quick Sight native users, IAM federated users, or Active Directory users, follow the steps below:   Call Quick Sight GetIdentityContext API to get identity token.   Call STS AssumeRole API as you normally would, but provide extra ProvidedContexts parameter in the API request. The list of contexts must have a single trusted context assertion. The ProviderArn should be arn:aws:iam::aws:contextProvider/QuickSight while ContextAssertion will be the identity token you received in response from GetIdentityContext   After obtaining the identity-enhanced IAM role session credentials, you can use them to start a job, describe the job and describe job result. You can use the same credentials as long as they haven't expired. All API requests made with these credentials are considered to be made by the impersonated Quick Sight user.  When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.   Possible error scenarios  The request fails with an Access Denied error in the following scenarios:   The credentials have expired.   The impersonated Quick Sight user doesn't have access to the specified dashboard.   The impersonated Quick Sight user is restricted from exporting data in the selected formats. For more information about export restrictions, see Customizing access to Amazon Quick Sight capabilities",
       options: [
         {
           name: "--aws-account-id",
@@ -9358,7 +11115,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-configuration",
           description:
-            "A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon QuickSight",
+            "A structure that contains information about the users that the dashboard snapshot is generated for. The users can be either anonymous users or registered users. Anonymous users cannot be used together with registered users.  When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid",
           args: {
             name: "structure",
           },
@@ -9393,7 +11150,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-dashboard-snapshot-job-schedule",
       description:
-        "Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email.  Only one job can run simultaneously in a given schedule. Repeated requests are skipped with a 202 HTTP status code. For more information, see Scheduling and sending Amazon QuickSight reports by email and Configuring email report settings for a Amazon QuickSight dashboard in the Amazon QuickSight User Guide",
+        "Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email.  Only one job can run simultaneously in a given schedule. Repeated requests are skipped with a 202 HTTP status code. For more information, see Scheduling and sending Amazon Quick Sight reports by email and Configuring email report settings for a Amazon Quick Sight dashboard in the Amazon Quick Sight User Guide",
       options: [
         {
           name: "--aws-account-id",
@@ -9414,7 +11171,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--schedule-id",
           description:
-            "The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon QuickSight console in the Schedules pane of the dashboard that the schedule is configured for",
+            "The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon Quick Sight console in the Schedules pane of the dashboard that the schedule is configured for",
           args: {
             name: "string",
           },
@@ -9441,7 +11198,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight resource.  Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values. You can use the TagResource operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data set, data source, dashboard, template, topic, and user.  Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for the following:   Tags are used to track costs for users in Amazon QuickSight. You can't tag other resources that Amazon QuickSight costs are based on, such as storage capacoty (SPICE), session usage, alert consumption, or reporting units.   Amazon QuickSight doesn't currently support the tag editor for Resource Groups",
+        "Assigns one or more tags (key-value pairs) to the specified Amazon Quick Sight resource.  Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values. You can use the TagResource operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. You can associate as many as 50 tags with a resource. Amazon Quick Sight supports tagging on data set, data source, dashboard, template, topic, and user.  Tagging for Amazon Quick Sight works in a similar way to tagging for other Amazon Web Services services, except for the following:   Tags are used to track costs for users in Amazon Quick Sight. You can't tag other resources that Amazon Quick Sight costs are based on, such as storage capacoty (SPICE), session usage, alert consumption, or reporting units.   Amazon Quick Sight doesn't currently support the tag editor for Resource Groups",
       options: [
         {
           name: "--resource-arn",
@@ -9518,14 +11275,53 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-account-custom-permission",
+      description: "Applies a custom permissions profile to an account",
+      options: [
+        {
+          name: "--custom-permissions-name",
+          description:
+            "The name of the custom permissions profile that you want to apply to an account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account for which you want to apply a custom permissions profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-account-customization",
       description:
-        "Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme. You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a Amazon QuickSight namespace instead. Customizations that apply to a namespace override customizations that apply to an Amazon Web Services account. To find out which customizations apply, use the DescribeAccountCustomization API operation",
+        "Updates Amazon Quick Sight customizations. Currently, the only customization that you can use is a theme. You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a Quick Sight namespace instead. Customizations that apply to a namespace override customizations that apply to an Amazon Web Services account. To find out which customizations apply, use the DescribeAccountCustomization API operation",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations for",
+            "The ID for the Amazon Web Services account that you want to update Quick Sight customizations for",
           args: {
             name: "string",
           },
@@ -9533,15 +11329,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The namespace that you want to update Amazon QuickSight customizations for",
+            "The namespace that you want to update Quick Sight customizations for",
           args: {
             name: "string",
           },
         },
         {
           name: "--account-customization",
-          description:
-            "The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region",
+          description: "The Quick Sight customizations you're updating",
           args: {
             name: "structure",
           },
@@ -9568,12 +11363,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-account-settings",
       description:
-        "Updates the Amazon QuickSight settings in your Amazon Web Services account",
+        "Updates the Amazon Quick Sight settings in your Amazon Web Services account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to list",
+            "The ID for the Amazon Web Services account that contains the Quick Sight settings that you want to list",
           args: {
             name: "string",
           },
@@ -9581,7 +11376,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--default-namespace",
           description:
-            "The default namespace for this Amazon Web Services account. Currently, the default is default. IAM users that register for the first time with Amazon QuickSight provide an email address that becomes associated with the default namespace",
+            "The default namespace for this Amazon Web Services account. Currently, the default is default. IAM users that register for the first time with Amazon Quick Sight provide an email address that becomes associated with the default namespace",
           args: {
             name: "string",
           },
@@ -9589,7 +11384,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--notification-email",
           description:
-            "The email address that you want Amazon QuickSight to send notifications to regarding your Amazon Web Services account or Amazon QuickSight subscription",
+            "The email address that you want Quick Sight to send notifications to regarding your Amazon Web Services account or Quick Sight subscription",
           args: {
             name: "string",
           },
@@ -9597,12 +11392,306 @@ const completionSpec: Fig.Spec = {
         {
           name: "--termination-protection-enabled",
           description:
-            "A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A True value doesn't allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. A False value will allow the account to be deleted",
+            "A boolean value that determines whether or not an Quick Sight account can be deleted. A True value doesn't allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. A False value will allow the account to be deleted",
         },
         {
           name: "--no-termination-protection-enabled",
           description:
-            "A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A True value doesn't allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. A False value will allow the account to be deleted",
+            "A boolean value that determines whether or not an Quick Sight account can be deleted. A True value doesn't allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. A False value will allow the account to be deleted",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-action-connector",
+      description:
+        "Updates an existing action connector with new configuration details, authentication settings, or enabled actions. You can modify the connector's name, description, authentication configuration, and which actions are enabled. For more information, https://docs.aws.amazon.com/quicksuite/latest/userguide/quick-action-auth.html",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID that contains the action connector to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "The unique identifier of the action connector to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The new name for the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--authentication-config",
+          description:
+            "The updated authentication configuration for connecting to the external service",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--description",
+          description: "The updated description of the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--vpc-connection-arn",
+          description:
+            "The updated ARN of the VPC connection to use for secure connectivity",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-action-connector-permissions",
+      description:
+        "Updates the permissions for an action connector by granting or revoking access for specific users and groups. You can control who can view, use, or manage the action connector",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID that contains the action connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-connector-id",
+          description:
+            "The unique identifier of the action connector whose permissions you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grant-permissions",
+          description:
+            "The permissions to grant to users and groups for this action connector",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--revoke-permissions",
+          description:
+            "The permissions to revoke from users and groups for this action connector",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-agent",
+      description: "Updates an existing agent",
+      options: [
+        {
+          name: "--agent-id",
+          description: "The unique identifier for the agent to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description of the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--icon-id",
+          description: "The icon identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starter-prompts",
+          description:
+            "A list of starter prompts that are displayed to users when they begin interacting with the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--welcome-message",
+          description:
+            "The welcome message that is displayed when a user starts a conversation with the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-prompt-input",
+          description: "The custom prompt configuration for the agent",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--spaces-to-add",
+          description:
+            "The Amazon Resource Names (ARNs) of the spaces to attach to the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--spaces-to-remove",
+          description:
+            "The Amazon Resource Names (ARNs) of the spaces to detach from the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--action-connectors-to-add",
+          description:
+            "The Amazon Resource Names (ARNs) of the action connectors to attach to the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--action-connectors-to-remove",
+          description:
+            "The Amazon Resource Names (ARNs) of the action connectors to detach from the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-agent-permissions",
+      description: "Updates the resource permissions for an agent",
+      options: [
+        {
+          name: "--agent-id",
+          description: "The unique identifier for the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grant-permissions",
+          description:
+            "The resource permissions that you want to grant on the agent",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--revoke-permissions",
+          description:
+            "The resource permissions that you want to revoke from the agent",
+          args: {
+            name: "list",
+          },
         },
         {
           name: "--cli-input-json",
@@ -9625,7 +11714,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-analysis",
-      description: "Updates an analysis in Amazon QuickSight",
+      description: "Updates an analysis in Amazon Quick Sight",
       options: [
         {
           name: "--aws-account-id",
@@ -9646,7 +11735,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "A descriptive name for the analysis that you're updating. This name displays for the analysis in the Amazon QuickSight console",
+            "A descriptive name for the analysis that you're updating. This name displays for the analysis in the Amazon Quick Sight console",
           args: {
             name: "string",
           },
@@ -9670,7 +11759,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--theme-arn",
           description:
-            "The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're creating. To see the theme in the Amazon QuickSight console, make sure that you have access to it",
+            "The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to it",
           args: {
             name: "string",
           },
@@ -9768,7 +11857,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-application-with-token-exchange-grant",
       description:
-        "Updates an Amazon QuickSight application with a token exchange grant. This operation only supports Amazon QuickSight applications that are registered with IAM Identity Center",
+        "Updates an Quick application with a token exchange grant. This operation only supports Quick applications that are registered with IAM Identity Center",
       options: [
         {
           name: "--aws-account-id",
@@ -9780,7 +11869,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--namespace",
-          description: "The namespace of the Amazon QuickSight application",
+          description: "The namespace of the Quick application",
           args: {
             name: "string",
           },
@@ -9818,7 +11907,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -9901,7 +11990,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--brand-id",
-          description: "The ID of the Amazon QuickSight brand",
+          description: "The ID of the Quick brand",
           args: {
             name: "string",
           },
@@ -10009,7 +12098,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-entity",
           description:
-            "The entity that you are using as a source when you update the dashboard. In SourceEntity, you specify the type of object you're using as source. You can only update a dashboard from a template, so you use a SourceTemplate entity. If you need to update a dashboard from an analysis, first convert the analysis to a template by using the  CreateTemplate  API operation. For SourceTemplate, specify the Amazon Resource Name (ARN) of the source template. The SourceTemplate ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder",
+            "The entity that you are using as a source when you update the dashboard. In SourceEntity, you specify the type of object you're using as source. You can only update a dashboard from a template, so you use a SourceTemplate entity. If you need to update a dashboard from an analysis, first convert the analysis to a template by using the  CreateTemplate  API operation. For SourceTemplate, specify the Amazon Resource Name (ARN) of the source template. The SourceTemplate ARN can contain any Amazon Web Services account and any Amazon Quick Sight-supported Amazon Web Services Region.  Use the DataSetReferences entity within SourceTemplate to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder",
           args: {
             name: "structure",
           },
@@ -10033,7 +12122,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--dashboard-publish-options",
           description:
-            "Options for publishing the dashboard when you create it:    AvailabilityStatus for AdHocFilteringOption - This status can be either ENABLED or DISABLED. When this is set to DISABLED, Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is ENABLED by default.     AvailabilityStatus for ExportToCSVOption - This status can be either ENABLED or DISABLED. The visual option to export data to .CSV format isn't enabled when this is set to DISABLED. This option is ENABLED by default.     VisibilityState for SheetControlsOption - This visibility state can be either COLLAPSED or EXPANDED. This option is COLLAPSED by default",
+            "Options for publishing the dashboard when you create it:    AvailabilityStatus for AdHocFilteringOption - This status can be either ENABLED or DISABLED. When this is set to DISABLED, Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is ENABLED by default.     AvailabilityStatus for ExportToCSVOption - This status can be either ENABLED or DISABLED. The visual option to export data to .CSV format isn't enabled when this is set to DISABLED. This option is ENABLED by default.     VisibilityState for SheetControlsOption - This visibility state can be either COLLAPSED or EXPANDED. This option is COLLAPSED by default.     AvailabilityStatus for QuickSuiteActionsOption - This status can be either ENABLED or DISABLED. Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to DISABLED. This option is DISABLED by default.    AvailabilityStatus for ExecutiveSummaryOption - This status can be either ENABLED or DISABLED. The option to build an executive summary is disabled when this is set to DISABLED. This option is ENABLED by default.    AvailabilityStatus for DataStoriesSharingOption - This status can be either ENABLED or DISABLED. The option to share a data story is disabled when this is set to DISABLED. This option is ENABLED by default",
           args: {
             name: "structure",
           },
@@ -10103,7 +12192,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--link-entities",
           description:
-            "List of analysis Amazon Resource Names (ARNs) to be linked to the dashboard",
+            "list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard",
           args: {
             name: "list",
           },
@@ -10319,7 +12408,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--logical-table-map",
           description:
-            "Configures the combination and transformation of the data from the physical tables",
+            "Configures the combination and transformation of the data from the physical tables. This parameter is used with the legacy data preparation experience",
           args: {
             name: "map",
           },
@@ -10335,7 +12424,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--column-groups",
           description:
-            "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported",
+            "Groupings of columns that work together in certain Amazon Quick Sight features. Currently, only geospatial hierarchy is supported",
           args: {
             name: "list",
           },
@@ -10351,7 +12440,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--row-level-permission-data-set",
           description:
-            "The row-level security configuration for the data you want to create",
+            "The row-level security configuration for the data you want to create. This parameter is used with the legacy data preparation experience",
           args: {
             name: "structure",
           },
@@ -10359,7 +12448,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--row-level-permission-tag-configuration",
           description:
-            "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only",
+            "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. This parameter is used with the legacy data preparation experience",
           args: {
             name: "structure",
           },
@@ -10367,7 +12456,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--column-level-permission-rules",
           description:
-            "A set of one or more definitions of a  ColumnLevelPermissionRule",
+            "A set of one or more definitions of a  ColumnLevelPermissionRule ",
           args: {
             name: "list",
           },
@@ -10385,6 +12474,30 @@ const completionSpec: Fig.Spec = {
           description: "The parameter declarations of the dataset",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--performance-configuration",
+          description:
+            "The configuration for the performance optimization of the dataset that contains a UniqueKey configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--data-prep-configuration",
+          description:
+            "The data preparation configuration for the dataset. This configuration defines the source tables, transformation steps, and destination tables used to prepare the data. Required when using the new data preparation experience",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--semantic-model-configuration",
+          description:
+            "The semantic model configuration for the dataset. This configuration defines how the prepared data is structured for an analysis, including table mappings and row-level security configurations. Required when using the new data preparation experience",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -10490,7 +12603,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-source-parameters",
           description:
-            "The parameters that Amazon QuickSight uses to connect to your underlying source",
+            "The parameters that Amazon Quick Sight uses to connect to your underlying source",
           args: {
             name: "structure",
           },
@@ -10498,7 +12611,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--credentials",
           description:
-            "The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported",
+            "The credentials that Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported",
           args: {
             name: "structure",
           },
@@ -10506,7 +12619,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--vpc-connection-properties",
           description:
-            "Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source",
+            "Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source",
           args: {
             name: "structure",
           },
@@ -10514,7 +12627,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ssl-properties",
           description:
-            "Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source",
+            "Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source",
           args: {
             name: "structure",
           },
@@ -10595,12 +12708,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-default-q-business-application",
       description:
-        "Updates a Amazon Q Business application that is linked to a Amazon QuickSight account",
+        "Updates a Amazon Q Business application that is linked to a Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon QuickSight account that is connected to the Amazon Q Business application that you want to update",
+            "The ID of the Quick Sight account that is connected to the Amazon Q Business application that you want to update",
           args: {
             name: "string",
           },
@@ -10608,7 +12721,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The Amazon QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter",
+            "The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter",
           args: {
             name: "string",
           },
@@ -10619,6 +12732,130 @@ const completionSpec: Fig.Spec = {
             "The ID of the Amazon Q Business application that you want to update",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-flow",
+      description:
+        "Updates an existing flow. Supply only the fields you want to change. Updates both DRAFT and PUBLISHED versions. When FlowDefinition is provided, all existing steps are replaced with the new definition",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow that you are updating",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the flow to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "Updated display name for the flow. Omit to preserve the existing name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "Updated description for the flow. Omit to preserve the existing description",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-definition",
+          description:
+            "The definition of the flow, specifying the steps and configurations. This is the flow definition in Quick Flow's internal format. The format is subject to change. When provided, all existing steps are replaced. Omit to preserve the existing definition.  Always derive or depend on the flow definition from the DescribeFlow operation to ensure you are working with the latest format",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-flow-permissions",
+      description: "Updates permissions against principals on a flow",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the flow you are updating permissions against",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description:
+            "The unique identifier of the flow to update permissions for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grant-permissions",
+          description: "The permissions that you want to grant on this flow",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--revoke-permissions",
+          description: "The permissions that you want to revoke from this flow",
+          args: {
+            name: "list",
           },
         },
         {
@@ -10760,7 +12997,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -10830,7 +13067,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--policy-arn",
           description:
-            "The ARN for the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment",
+            "The ARN for the IAM policy to apply to the Amazon Quick Sight users and groups specified in this assignment",
           args: {
             name: "string",
           },
@@ -10838,7 +13075,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identities",
           description:
-            "The Amazon QuickSight users, groups, or both that you want to assign the policy to",
+            "The Amazon Quick Sight users, groups, or both that you want to assign the policy to",
           args: {
             name: "map",
           },
@@ -10865,7 +13102,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-identity-propagation-config",
       description:
-        "Adds or updates services and authorized targets to configure what the Amazon QuickSight IAM Identity Center application can access. This operation is only supported for Amazon QuickSight accounts using IAM Identity Center",
+        "Adds or updates services and authorized targets to configure what the Quick Sight IAM Identity Center application can access. This operation is only supported for Quick Sight accounts using IAM Identity Center",
       options: [
         {
           name: "--aws-account-id",
@@ -10976,8 +13213,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-key-registration",
-      description:
-        "Updates a customer managed key in a Amazon QuickSight account",
+      description: "Updates a customer managed key in a Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -10990,7 +13226,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--key-registration",
           description:
-            "A list of RegisteredCustomerManagedKey objects to be updated to the Amazon QuickSight account",
+            "A list of RegisteredCustomerManagedKey objects to be updated to the Quick Sight account",
           args: {
             name: "list",
           },
@@ -11015,14 +13251,168 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-public-sharing-settings",
-      description:
-        "Use the UpdatePublicSharingSettings operation to turn on or turn off the public sharing settings of an Amazon QuickSight dashboard. To use this operation, turn on session capacity pricing for your Amazon QuickSight account. Before you can turn on public sharing on your account, make sure to give public sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon QuickSight, see Using Amazon QuickSight with IAM in the Amazon QuickSight User Guide",
+      name: "update-knowledge-base-permissions",
+      description: "Updates the resource permissions for a knowledge base",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The Amazon Web Services account ID associated with your Amazon QuickSight subscription",
+            "The ID of the Amazon Web Services account that contains the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--knowledge-base-id",
+          description: "The unique identifier for the knowledge base",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grant-permissions",
+          description:
+            "The resource permissions that you want to grant on the knowledge base",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--revoke-permissions",
+          description:
+            "The resource permissions that you want to revoke from the knowledge base",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-o-auth-client-application",
+      description: "Updates an OAuthClientApplication",
+      options: [
+        {
+          name: "--aws-account-id",
+          description: "The Amazon Web Services account ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-client-application-id",
+          description:
+            "The ID of the OAuthClientApplication that you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The display name for the OAuthClientApplication",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-id",
+          description:
+            "The client ID of the OAuth application that is registered with the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-secret",
+          description:
+            "The client secret of the OAuth application that is registered with the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-token-endpoint-url",
+          description:
+            "The token endpoint URL of the identity provider that is used to obtain access tokens",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-authorization-endpoint-url",
+          description:
+            "The authorization endpoint URL of the identity provider that is used to obtain authorization codes",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--o-auth-scopes",
+          description:
+            "The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-source-type",
+          description:
+            "The type of data source that the OAuthClientApplication is used with. Valid values are SNOWFLAKE",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-provider-vpc-connection-properties",
+          description: "VPC connection properties",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-public-sharing-settings",
+      description:
+        "This API controls public sharing settings for your entire Quick Sight account, affecting data security and access. When you enable public sharing:   Dashboards can be shared publicly   This setting affects your entire Amazon Web Services account and all Quick Sight users    Before proceeding: Ensure you understand the security implications and have proper IAM permissions configured.  Use the UpdatePublicSharingSettings operation to turn on or turn off the public sharing settings of an Amazon Quick Sight dashboard. To use this operation, turn on session capacity pricing for your Amazon Quick Sight account. Before you can turn on public sharing on your account, make sure to give public sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon Quick Sight, see Using Quick with IAM in the Amazon Quick Sight User Guide",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The Amazon Web Services account ID associated with your Amazon Quick Sight subscription",
           args: {
             name: "string",
           },
@@ -11030,12 +13420,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--public-sharing-enabled",
           description:
-            "A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account",
+            "A Boolean value that indicates whether public sharing is turned on for an Quick account",
         },
         {
           name: "--no-public-sharing-enabled",
           description:
-            "A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account",
+            "A Boolean value that indicates whether public sharing is turned on for an Quick account",
         },
         {
           name: "--cli-input-json",
@@ -11071,7 +13461,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--personalization-mode",
           description:
-            "An option to allow Amazon QuickSight to customize data stories with user specific metadata, specifically location and job information, in your IAM Identity Center instance",
+            "An option to allow Amazon Quick Sight to customize data stories with user specific metadata, specifically location and job information, in your IAM Identity Center instance",
           args: {
             name: "string",
           },
@@ -11097,13 +13487,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-quick-sight-q-search-configuration",
-      description:
-        "Updates the state of a Amazon QuickSight Q Search configuration",
+      description: "Updates the state of a Quick Sight Q Search configuration",
       options: [
         {
           name: "--aws-account-id",
           description:
-            "The ID of the Amazon Web Services account that contains the Amazon QuickSight Q Search configuration that you want to update",
+            "The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that you want to update",
           args: {
             name: "string",
           },
@@ -11111,7 +13500,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--q-search-status",
           description:
-            "The status of the Amazon QuickSight Q Search configuration that the user wants to update",
+            "The status of the Quick Sight Q Search configuration that the user wants to update",
           args: {
             name: "string",
           },
@@ -11202,7 +13591,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -11235,9 +13624,268 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-self-upgrade",
+      description:
+        "Updates a self-upgrade request for a Quick user by approving, denying, or verifying the request",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the self-upgrade request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          description: "The Quick namespace for the self-upgrade request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--upgrade-request-id",
+          description: "The ID of the self-upgrade request to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action",
+          description:
+            "The action to perform on the self-upgrade request. Valid values are APPROVE, DENY, or VERIFY",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-self-upgrade-configuration",
+      description: "Updates the self-upgrade configuration for a Quick account",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          description:
+            "The Quick namespace that you want to update the Quick self-upgrade configuration for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--self-upgrade-status",
+          description:
+            "The self-upgrade status that you want to set for the Quick account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-space",
+      description: "Updates the metadata of an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description: "The ID of the space that you want to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "A new display name for the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A new description for the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-space-permissions",
+      description: "Updates the permissions for an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description:
+            "The ID of the space that you want to update permissions for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grant-permissions",
+          description: "The permissions that you want to grant on the space",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--revoke-permissions",
+          description: "The permissions that you want to revoke from the space",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-space-resources",
+      description: "Adds or removes resources from an Amazon QuickSight space",
+      options: [
+        {
+          name: "--aws-account-id",
+          description:
+            "The ID of the Amazon Web Services account that contains the space",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--space-id",
+          description:
+            "The ID of the space that you want to update resources for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--add-resources",
+          description: "A list of resources to add to the space",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--remove-resources",
+          description: "A list of resources to remove from the space",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-spice-capacity-configuration",
       description:
-        "Updates the SPICE capacity configuration for a Amazon QuickSight account",
+        "Updates the SPICE capacity configuration for a Quick Sight account",
       options: [
         {
           name: "--aws-account-id",
@@ -11277,7 +13925,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-template",
       description:
-        "Updates a template from an existing Amazon QuickSight analysis or another template",
+        "Updates a template from an existing Amazon Quick Sight analysis or another template",
       options: [
         {
           name: "--aws-account-id",
@@ -11297,7 +13945,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-entity",
           description:
-            "The entity that you are using as a source when you update the template. In SourceEntity, you specify the type of object you're using as source: SourceTemplate for a template or SourceAnalysis for an analysis. Both of these require an Amazon Resource Name (ARN). For SourceTemplate, specify the ARN of the source template. For SourceAnalysis, specify the ARN of the source analysis. The SourceTemplate ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;.  Use the DataSetReferences entity within SourceTemplate or SourceAnalysis to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder",
+            "The entity that you are using as a source when you update the template. In SourceEntity, you specify the type of object you're using as source: SourceTemplate for a template or SourceAnalysis for an analysis. Both of these require an Amazon Resource Name (ARN). For SourceTemplate, specify the ARN of the source template. For SourceAnalysis, specify the ARN of the source analysis. The SourceTemplate ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region;.  Use the DataSetReferences entity within SourceTemplate or SourceAnalysis to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder",
           args: {
             name: "structure",
           },
@@ -11488,7 +14136,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--base-theme-id",
           description:
-            "The theme ID, defined by Amazon QuickSight, that a custom theme inherits from. All themes initially inherit from a default Amazon QuickSight theme",
+            "The theme ID, defined by Amazon Quick Sight, that a custom theme inherits from. All themes initially inherit from a default Quick Sight theme",
           args: {
             name: "string",
           },
@@ -11664,6 +14312,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--custom-instructions",
+          description: "Custom instructions for the topic",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -11792,12 +14447,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-user",
-      description: "Updates an Amazon QuickSight user",
+      description: "Updates an Amazon Quick Sight user",
       options: [
         {
           name: "--user-name",
           description:
-            "The Amazon QuickSight user name that you want to update",
+            "The Amazon Quick Sight user name that you want to update",
           args: {
             name: "string",
           },
@@ -11805,7 +14460,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-account-id",
           description:
-            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon QuickSight account",
+            "The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account",
           args: {
             name: "string",
           },
@@ -11828,7 +14483,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--role",
           description:
-            "The Amazon QuickSight role of the user. The role can be one of the following default security cohorts:    READER: A user who has read-only access to dashboards.    AUTHOR: A user who can create data sources, datasets, analyses, and dashboards.    ADMIN: A user who is an author, who can also manage Amazon QuickSight settings.    READER_PRO: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.    AUTHOR_PRO: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.    ADMIN_PRO: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.   The name of the Amazon QuickSight role is invisible to the user except for the console screens dealing with permissions",
+            "The Amazon Quick Sight role of the user. The role can be one of the following default security cohorts:    READER: A user who has read-only access to dashboards.    AUTHOR: A user who can create data sources, datasets, analyses, and dashboards.    ADMIN: A user who is an author, who can also manage Amazon Quick Sight settings.    READER_PRO: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.    AUTHOR_PRO: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.    ADMIN_PRO: Admin Pros are Author Pros who can also manage Amazon Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.   The name of the Quick Sight role is invisible to the user except for the console screens dealing with permissions",
           args: {
             name: "string",
           },
@@ -11836,7 +14491,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-permissions-name",
           description:
-            "(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:   Create and update data sources   Create and update datasets   Create and update email reports   Subscribe to email reports   A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the Amazon QuickSight console. Then, you use the RegisterUser API operation to assign the named set of permissions to a Amazon QuickSight user.  Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning Amazon QuickSight users to one of the default security cohorts in Amazon QuickSight (admin, author, reader). This feature is available only to Amazon QuickSight Enterprise edition subscriptions",
+            "(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user. Customized permissions allows you to control a user's access by restricting access the following operations:   Create and update data sources   Create and update datasets   Create and update email reports   Subscribe to email reports   A set of custom permissions includes any combination of these restrictions. Currently, you need to create the profile names for custom permission sets by using the Quick Sight console. Then, you use the RegisterUser API operation to assign the named set of permissions to a Quick Sight user.  Quick Sight custom permissions are applied through IAM policies. Therefore, they override the permissions typically granted by assigning Quick Sight users to one of the default security cohorts in Quick Sight (admin, author, reader). This feature is available only to Quick Sight Enterprise edition subscriptions",
           args: {
             name: "string",
           },
@@ -11854,7 +14509,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--external-login-federation-provider-type",
           description:
-            'The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.    COGNITO: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the COGNITO provider type, don\u2019t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.    CUSTOM_OIDC: Custom OpenID Connect (OIDC) provider. When choosing CUSTOM_OIDC type, use the CustomFederationProviderUrl parameter to provide the custom OIDC provider URL.    NONE: This clears all the previously saved external login information for a user. Use the  DescribeUser  API operation to check the external login information',
+            'The type of supported external login provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.    COGNITO: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the COGNITO provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.    CUSTOM_OIDC: Custom OpenID Connect (OIDC) provider. When choosing CUSTOM_OIDC type, use the CustomFederationProviderUrl parameter to provide the custom OIDC provider URL.    NONE: This clears all the previously saved external login information for a user. Use the  DescribeUser  API operation to check the external login information',
           args: {
             name: "string",
           },
@@ -11862,7 +14517,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-federation-provider-url",
           description:
-            "The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should only be used when ExternalLoginFederationProviderType parameter is set to CUSTOM_OIDC",
+            "The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. This parameter should only be used when ExternalLoginFederationProviderType parameter is set to CUSTOM_OIDC",
           args: {
             name: "string",
           },

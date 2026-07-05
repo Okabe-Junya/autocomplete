@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "route53-recovery-cluster",
   description:
@@ -46,22 +47,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) of the control panel of the routing controls to list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of routing controls objects that you want to return with this call. The default value is 500",
-          args: {
-            name: "integer",
           },
         },
         {

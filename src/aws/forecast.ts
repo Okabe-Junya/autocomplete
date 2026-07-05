@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "forecast",
   description:
@@ -372,7 +373,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-explainability",
       description:
-        "Explainability is only available for Forecasts and Predictors generated from an AutoPredictor (CreateAutoPredictor)  Creates an Amazon Forecast Explainability. Explainability helps you better understand how the attributes in your datasets impact forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative impact of each attribute and determine whether they increase or decrease forecast values. To enable Forecast Explainability, your predictor must include at least one of the following: related time series, item metadata, or additional datasets like Holidays and the Weather Index. CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive aggregated Impact scores for all time series and time points in your datasets, provide a Predictor ARN. To receive Impact scores for specific time series and time points, provide a Forecast ARN.  CreateExplainability with a Predictor ARN   You can only have one Explainability resource per predictor. If you already enabled ExplainPredictor in CreateAutoPredictor, that predictor already has an Explainability resource.  The following parameters are required when providing a Predictor ARN:    ExplainabilityName - A unique name for the Explainability.    ResourceArn - The Arn of the predictor.    TimePointGranularity - Must be set to \u201cALL\u201d.    TimeSeriesGranularity - Must be set to \u201cALL\u201d.   Do not specify a value for the following parameters:    DataSource - Only valid when TimeSeriesGranularity is \u201cSPECIFIC\u201d.    Schema - Only valid when TimeSeriesGranularity is \u201cSPECIFIC\u201d.    StartDateTime - Only valid when TimePointGranularity is \u201cSPECIFIC\u201d.    EndDateTime - Only valid when TimePointGranularity is \u201cSPECIFIC\u201d.    CreateExplainability with a Forecast ARN   You can specify a maximum of 50 time series and 500 time points.  The following parameters are required when providing a Predictor ARN:    ExplainabilityName - A unique name for the Explainability.    ResourceArn - The Arn of the forecast.    TimePointGranularity - Either \u201cALL\u201d or \u201cSPECIFIC\u201d.    TimeSeriesGranularity - Either \u201cALL\u201d or \u201cSPECIFIC\u201d.   If you set TimeSeriesGranularity to \u201cSPECIFIC\u201d, you must also provide the following:    DataSource - The S3 location of the CSV file specifying your time series.    Schema - The Schema defines the attributes and attribute types listed in the Data Source.   If you set TimePointGranularity to \u201cSPECIFIC\u201d, you must also provide the following:    StartDateTime - The first timestamp in the range of time points.    EndDateTime - The last timestamp in the range of time points",
+        "Explainability is only available for Forecasts and Predictors generated from an AutoPredictor (CreateAutoPredictor)  Creates an Amazon Forecast Explainability. Explainability helps you better understand how the attributes in your datasets impact forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative impact of each attribute and determine whether they increase or decrease forecast values. To enable Forecast Explainability, your predictor must include at least one of the following: related time series, item metadata, or additional datasets like Holidays and the Weather Index. CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive aggregated Impact scores for all time series and time points in your datasets, provide a Predictor ARN. To receive Impact scores for specific time series and time points, provide a Forecast ARN.  CreateExplainability with a Predictor ARN   You can only have one Explainability resource per predictor. If you already enabled ExplainPredictor in CreateAutoPredictor, that predictor already has an Explainability resource.  The following parameters are required when providing a Predictor ARN:    ExplainabilityName - A unique name for the Explainability.    ResourceArn - The Arn of the predictor.    TimePointGranularity - Must be set to “ALL”.    TimeSeriesGranularity - Must be set to “ALL”.   Do not specify a value for the following parameters:    DataSource - Only valid when TimeSeriesGranularity is “SPECIFIC”.    Schema - Only valid when TimeSeriesGranularity is “SPECIFIC”.    StartDateTime - Only valid when TimePointGranularity is “SPECIFIC”.    EndDateTime - Only valid when TimePointGranularity is “SPECIFIC”.    CreateExplainability with a Forecast ARN   You can specify a maximum of 50 time series and 500 time points.  The following parameters are required when providing a Predictor ARN:    ExplainabilityName - A unique name for the Explainability.    ResourceArn - The Arn of the forecast.    TimePointGranularity - Either “ALL” or “SPECIFIC”.    TimeSeriesGranularity - Either “ALL” or “SPECIFIC”.   If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the following:    DataSource - The S3 location of the CSV file specifying your time series.    Schema - The Schema defines the attributes and attribute types listed in the Data Source.   If you set TimePointGranularity to “SPECIFIC”, you must also provide the following:    StartDateTime - The first timestamp in the range of time points.    EndDateTime - The last timestamp in the range of time points",
       options: [
         {
           name: "--explainability-name",
@@ -1027,7 +1028,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-what-if-forecast-export",
       description:
-        "Exports a forecast created by the CreateWhatIfForecast operation to your Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:  \u2248<ForecastExportJobName>_<ExportTimestamp>_<PartNumber>  The <ExportTimestamp> component is in Java SimpleDateFormat (yyyy-MM-ddTHH-mm-ssZ). You must specify a DataDestination object that includes an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see aws-forecast-iam-roles. For more information, see howitworks-forecast. To get a list of all your what-if forecast export jobs, use the ListWhatIfForecastExports operation.  The Status of the forecast export job must be ACTIVE before you can access the forecast in your Amazon S3 bucket. To get the status, use the DescribeWhatIfForecastExport operation",
+        "Exports a forecast created by the CreateWhatIfForecast operation to your Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:  ≈<ForecastExportJobName>_<ExportTimestamp>_<PartNumber>  The <ExportTimestamp> component is in Java SimpleDateFormat (yyyy-MM-ddTHH-mm-ssZ). You must specify a DataDestination object that includes an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see aws-forecast-iam-roles. For more information, see howitworks-forecast. To get a list of all your what-if forecast export jobs, use the ListWhatIfForecastExports operation.  The Status of the forecast export job must be ACTIVE before you can access the forecast in your Amazon S3 bucket. To get the status, use the DescribeWhatIfForecastExport operation",
       options: [
         {
           name: "--what-if-forecast-export-name",
@@ -2013,21 +2014,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of dataset groups created using the CreateDatasetGroup operation. For each dataset group, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the dataset group ARN with the DescribeDatasetGroup operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2075,21 +2061,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of dataset import jobs created using the CreateDatasetImportJob operation. For each import job, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the ARN with the DescribeDatasetImportJob operation. You can filter the list by providing an array of Filter objects",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filters",
           description:
@@ -2147,21 +2118,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of datasets created using the CreateDataset operation. For each dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned. To retrieve the complete set of properties, use the ARN with the DescribeDataset operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2209,21 +2165,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of Explainability resources created using the CreateExplainability operation. This operation returns a summary for each Explainability. You can filter the list using an array of Filter objects. To retrieve the complete set of properties for a particular Explainability resource, use the ARN with the DescribeExplainability operation",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items returned in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filters",
           description:
@@ -2281,21 +2222,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of Explainability exports created using the CreateExplainabilityExport operation. This operation returns a summary for each Explainability export. You can filter the list using an array of Filter objects. To retrieve the complete set of properties for a particular Explainability export, use the ARN with the DescribeExplainability operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             "An array of filters. For each filter, provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude resources that match the statement from the list. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT.    Key - The name of the parameter to filter on. Valid values are ResourceArn and Status.    Value - The value to match",
@@ -2351,21 +2277,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of forecast export jobs created using the CreateForecastExportJob operation. For each forecast export job, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the complete set of properties, use the ARN with the DescribeForecastExportJob operation. You can filter the list using an array of Filter objects",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filters",
           description:
@@ -2423,21 +2334,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of forecasts created using the CreateForecast operation. For each forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the DescribeForecast operation. You can filter the list using an array of Filter objects",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             'An array of filters. For each filter, you provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude the forecasts that match the statement from the list, respectively. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT. To include the forecasts that match the statement, specify IS. To exclude matching forecasts, specify IS_NOT.    Key - The name of the parameter to filter on. Valid values are DatasetGroupArn, PredictorArn, and Status.    Value - The value to match.   For example, to list all forecasts whose status is not ACTIVE, you would specify:  "Filters": [ { "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" } ]',
@@ -2493,21 +2389,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of the monitoring evaluation results and predictor events collected by the monitor resource during different windows of time. For information about monitoring see predictor-monitoring. For more information about retrieving monitoring results see Viewing Monitoring Results",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of monitoring results to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--monitor-arn",
           description:
@@ -2573,22 +2454,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of monitors created with the CreateMonitor operation and CreateAutoPredictor operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the DescribeMonitor operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of monitors to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             'An array of filters. For each filter, provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT.    Key - The name of the parameter to filter on. The only valid value is Status.    Value - The value to match.   For example, to list all monitors who\'s status is ACTIVE, you would specify:  "Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]',
@@ -2645,21 +2510,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of predictor backtest export jobs created using the CreatePredictorBacktestExportJob operation. This operation returns a summary for each backtest export job. You can filter the list using an array of Filter objects. To retrieve the complete set of properties for a particular backtest export job, use the ARN with the DescribePredictorBacktestExportJob operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             "An array of filters. For each filter, provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude the predictor backtest export jobs that match the statement from the list. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT. To include the predictor backtest export jobs that match the statement, specify IS. To exclude matching predictor backtest export jobs, specify IS_NOT.    Key - The name of the parameter to filter on. Valid values are PredictorArn and Status.    Value - The value to match",
@@ -2715,21 +2565,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of predictors created using the CreateAutoPredictor or CreatePredictor operations. For each predictor, this operation returns a summary of its properties, including its Amazon Resource Name (ARN).  You can retrieve the complete set of properties by using the ARN with the DescribeAutoPredictor and DescribePredictor operations. You can filter the list using an array of Filter objects",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filters",
           description:
@@ -2818,21 +2653,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of what-if analyses created using the CreateWhatIfAnalysis operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the DescribeWhatIfAnalysis operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             'An array of filters. For each filter, you provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude the what-if analysis jobs that match the statement from the list, respectively. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT. To include the what-if analysis jobs that match the statement, specify IS. To exclude matching what-if analysis jobs, specify IS_NOT.    Key - The name of the parameter to filter on. Valid values are WhatIfAnalysisArn and Status.    Value - The value to match.   For example, to list all jobs that export a forecast named electricityWhatIf, specify the following filter:  "Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value": "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" } ]',
@@ -2889,21 +2709,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of what-if forecast exports created using the CreateWhatIfForecastExport operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the DescribeWhatIfForecastExport operation",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next\u2028 request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filters",
           description:
             'An array of filters. For each filter, you provide a condition and a match statement. The condition is either IS or IS_NOT, which specifies whether to include or exclude the what-if forecast export jobs that match the statement from the list, respectively. The match statement consists of a key and a value.  Filter properties     Condition - The condition to apply. Valid values are IS and IS_NOT. To include the forecast export jobs that match the statement, specify IS. To exclude matching forecast export jobs, specify IS_NOT.    Key - The name of the parameter to filter on. Valid values are WhatIfForecastExportArn and Status.    Value - The value to match.   For example, to list all jobs that export a forecast named electricityWIFExport, specify the following filter:  "Filters": [ { "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value": "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" } ]',
@@ -2959,21 +2764,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of what-if forecasts created using the CreateWhatIfForecast operation. For each what-if forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast ARN with the DescribeWhatIfForecast operation",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next\u2028 request. Tokens expire after 24 hours",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filters",
           description:

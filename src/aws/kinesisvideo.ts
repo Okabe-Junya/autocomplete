@@ -1,6 +1,6 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "kinesisvideo",
-  description: null,
   subcommands: [
     {
       name: "create-signaling-channel",
@@ -26,7 +26,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--single-master-configuration",
           description:
-            "A structure containing the configuration for the SINGLE_MASTER channel type",
+            "A structure containing the configuration for the SINGLE_MASTER channel type. The default configuration for the channel message's time to live is 60 seconds (1 minute)",
           args: {
             name: "structure",
           },
@@ -66,7 +66,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--device-name",
           description:
-            "The name of the device that is writing to the stream.   In the current implementation, Kinesis Video Streams does not use this name",
+            "The name of the device that is writing to the stream.   In the current implementation, Kinesis Video Streams doesn't use this name",
           args: {
             name: "string",
           },
@@ -90,7 +90,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            "The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (Amazon Web Services/kinesisvideo) is used.  For more information, see DescribeKey",
+            "The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.  For more information, see DescribeKey",
           args: {
             name: "string",
           },
@@ -98,7 +98,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-retention-in-hours",
           description:
-            "The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is 0, indicating that the stream does not persist data. When the DataRetentionInHours value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached",
+            "The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is 0, indicating that the stream does not persist data. The minimum is 1 hour. When the DataRetentionInHours value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached",
           args: {
             name: "integer",
           },
@@ -109,6 +109,14 @@ const completionSpec: Fig.Spec = {
             "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--stream-storage-configuration",
+          description:
+            "The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization. If not specified, the stream will use the default storage configuration with HOT tier for optimal performance",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -133,7 +141,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-edge-configuration",
       description:
-        "An asynchronous API that deletes a stream\u2019s existing edge configuration, as well as the corresponding media from the Edge Agent. When you invoke this API, the sync status is set to DELETING. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to DELETE_FAILED. You will need to re-try the deletion. When the deletion process has completed successfully, the edge configuration is no longer accessible",
+        "An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent. When you invoke this API, the sync status is set to DELETING. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to DELETE_FAILED. You will need to re-try the deletion. When the deletion process has completed successfully, the edge configuration is no longer accessible",
       options: [
         {
           name: "--stream-name",
@@ -253,7 +261,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-edge-configuration",
       description:
-        "Describes a stream\u2019s edge configuration that was set using the StartEdgeConfigurationUpdate API and the latest status of the edge agent's recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent",
+        "Describes a stream’s edge configuration that was set using the StartEdgeConfigurationUpdate API and the latest status of the edge agent's recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent",
       options: [
         {
           name: "--stream-name",
@@ -345,22 +353,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The Amazon Resource Name (ARN) of the stream",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to provide in your next request, to get another batch of results",
           args: {
             name: "string",
           },
@@ -565,6 +557,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-stream-storage-configuration",
+      description:
+        "Retrieves the current storage configuration for the specified Kinesis video stream. In the request, you must specify either the StreamName or the StreamARN. You must have permissions for the KinesisVideo:DescribeStreamStorageConfiguration action",
+      options: [
+        {
+          name: "--stream-name",
+          description:
+            "The name of the stream for which you want to retrieve the storage configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the stream for which you want to retrieve the storage configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-data-endpoint",
       description:
         "Gets an endpoint for a specified stream for either reading or writing. Use this endpoint in your application to read from the specified stream (using the GetMedia or GetMediaForFragmentList operations) or write to it (using the PutMedia operation).   The returned endpoint does not have the API name appended. The client needs to add the API name to the returned endpoint.  In the request, specify the stream either by StreamName or StreamARN",
@@ -615,7 +647,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-signaling-channel-endpoint",
       description:
-        "Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the SingleMasterChannelEndpointConfiguration input parameter, which consists of the Protocols and Role properties.  Protocols is used to determine the communication mechanism. For example, if you specify WSS as the protocol, this API produces a secure websocket endpoint. If you specify HTTPS as the protocol, this API generates an HTTPS endpoint.   Role determines the messaging permissions. A MASTER role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A VIEWER role results in this API generating an endpoint that a client can use to communicate only with a MASTER",
+        "Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the SingleMasterChannelEndpointConfiguration input parameter, which consists of the Protocols and Role properties.  Protocols is used to determine the communication mechanism. For example, if you specify WSS as the protocol, this API produces a secure websocket endpoint. If you specify HTTPS as the protocol, this API generates an HTTPS endpoint. If you specify WEBRTC as the protocol, but the signaling channel isn't configured for ingestion, you will receive the error InvalidArgumentException.  Role determines the messaging permissions. A MASTER role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A VIEWER role results in this API generating an endpoint that a client can use to communicate only with a MASTER",
       options: [
         {
           name: "--channel-arn",
@@ -661,22 +693,6 @@ const completionSpec: Fig.Spec = {
           name: "--hub-device-arn",
           description:
             'The "Internet of Things (IoT) Thing" Arn of the edge agent',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of edge configurations to return in the response. The default is 5",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you specify this parameter, when the result of a ListEdgeAgentConfigurations operation is truncated, the call returns the NextToken in the response. To get another batch of edge configurations, provide this token in your next request",
           args: {
             name: "string",
           },
@@ -729,22 +745,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns an array of ChannelInfo objects. Each object describes a signaling channel. To retrieve only those channels that satisfy a specific condition, you can specify a ChannelNameCondition",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of channels to return in the response. The default is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you specify this parameter, when the result of a ListSignalingChannels operation is truncated, the call returns the NextToken in the response. To get another batch of channels, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--channel-name-condition",
           description:
@@ -801,22 +801,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns an array of StreamInfo objects. Each object describes a stream. To retrieve only streams that satisfy a specific condition, you can specify a StreamNameCondition",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of streams to return in the response. The default is 10,000",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you specify this parameter, when the result of a ListStreams operation is truncated, the call returns the NextToken in the response. To get another batch of streams, provide this token in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--stream-name-condition",
           description:
@@ -958,7 +942,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-edge-configuration-update",
       description:
-        "An asynchronous API that updates a stream\u2019s existing edge configuration. The Kinesis Video Stream will sync the stream\u2019s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The SyncStatus will be updated as the edge configuration is acknowledged, and synced with the Edge Agent.  If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to SYNCING. You will have to wait for the sync status to reach a terminal state such as: IN_SYNC, or SYNC_FAILED, before using this API again. If you invoke this API during the syncing process, a ResourceInUseException will be thrown. The connectivity of the stream\u2019s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the SYNC_FAILED state. To move an edge configuration from one device to another, use DeleteEdgeConfiguration to delete the current edge configuration. You can then invoke StartEdgeConfigurationUpdate with an updated Hub Device ARN",
+        "An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The SyncStatus will be updated as the edge configuration is acknowledged, and synced with the Edge Agent.  If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to SYNCING. You will have to wait for the sync status to reach a terminal state such as: IN_SYNC, or SYNC_FAILED, before using this API again. If you invoke this API during the syncing process, a ResourceInUseException will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the SYNC_FAILED state. To move an edge configuration from one device to another, use DeleteEdgeConfiguration to delete the current edge configuration. You can then invoke StartEdgeConfigurationUpdate with an updated Hub Device ARN",
       options: [
         {
           name: "--stream-name",
@@ -1399,7 +1383,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--single-master-configuration",
           description:
-            "The structure containing the configuration for the SINGLE_MASTER type of the signaling channel that you want to update",
+            "The structure containing the configuration for the SINGLE_MASTER type of the signaling channel that you want to update. This parameter and the channel message's time-to-live are required for channels with the SINGLE_MASTER channel type",
           args: {
             name: "structure",
           },
@@ -1466,6 +1450,62 @@ const completionSpec: Fig.Spec = {
             "The stream's media type. Use MediaType to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see Media Types. If you choose to specify the MediaType, see Naming Requirements. To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify video/h264 as the MediaType",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-stream-storage-configuration",
+      description:
+        "Updates the storage configuration for an existing Kinesis video stream. This operation allows you to modify the storage tier settings for a stream, enabling you to optimize storage costs and performance based on your access patterns.  UpdateStreamStorageConfiguration is an asynchronous operation. You must have permissions for the KinesisVideo:UpdateStreamStorageConfiguration action",
+      options: [
+        {
+          name: "--stream-name",
+          description:
+            "The name of the stream for which you want to update the storage configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the stream for which you want to update the storage configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--current-version",
+          description:
+            "The version of the stream whose storage configuration you want to change. To get the version, call either the DescribeStream or the ListStreams API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-storage-configuration",
+          description:
+            "The new storage configuration for the stream. This includes the default storage tier that determines how stream data is stored and accessed. Different storage tiers offer varying levels of performance and cost optimization to match your specific use case requirements",
+          args: {
+            name: "structure",
           },
         },
         {

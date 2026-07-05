@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "internetmonitor",
   description:
@@ -135,7 +136,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-id",
           description:
-            "The internally-generated identifier of a health event. Because EventID contains the forward slash (\u201c/\u201d) character, you must URL-encode the EventID field in the request URL",
+            "The internally-generated identifier of a health event. Because EventID contains the forward slash (“/”) character, you must URL-encode the EventID field in the request URL",
           args: {
             name: "string",
           },
@@ -360,22 +361,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of health event objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--event-status",
           description: "The status of a health event",
           args: {
@@ -438,22 +423,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists internet events that cause performance or availability issues for client locations. Amazon CloudWatch Internet Monitor displays information about recent global health events, called internet events, on a global outages map that is available to all Amazon Web Services customers.  You can constrain the list of internet events returned by providing a start time and end time to define a total time frame for events you want to list. Both start time and end time specify the time when an event started. End time is optional. If you don't include it, the default end time is the current time. You can also limit the events returned to a specific status (ACTIVE or RESOLVED) or type (PERFORMANCE or AVAILABILITY)",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--start-time",
           description:
@@ -532,22 +501,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of monitor objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--monitor-status",
           description:

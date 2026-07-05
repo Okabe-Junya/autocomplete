@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "inspector2",
   description:
@@ -6,7 +7,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-member",
       description:
-        "Associates an Amazon Web Services account with an Amazon Inspector delegated administrator. An HTTP 200 response indicates the association was started but doesn\u2019t indicate whether it completed. You can check if the association completed using ListMembers for multiple accounts or GetMembers for a single account. An HTTP 402 response indicates the association failed because the organization size exceeded its limit. For information on limits, see Amazon Inspector quotas",
+        "Associates an Amazon Web Services account with an Amazon Inspector delegated administrator. An HTTP 200 response indicates the association was successfully started, but doesn’t indicate whether it was completed. You can check if the association completed by using ListMembers for multiple accounts or GetMembers for a single account",
       options: [
         {
           name: "--account-id",
@@ -14,6 +15,70 @@ const completionSpec: Fig.Spec = {
             "The Amazon Web Services account ID of the member account to be associated",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-associate-code-security-scan-configuration",
+      description:
+        "Associates multiple code repositories with an Amazon Inspector code security scan configuration",
+      options: [
+        {
+          name: "--associate-configuration-requests",
+          description:
+            "A list of code repositories to associate with the specified scan configuration",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-disassociate-code-security-scan-configuration",
+      description:
+        "Disassociates multiple code repositories from an Amazon Inspector code security scan configuration",
+      options: [
+        {
+          name: "--disassociate-configuration-requests",
+          description:
+            "A list of code repositories to disassociate from the specified scan configuration",
+          args: {
+            name: "list",
           },
         },
         {
@@ -168,7 +233,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-ids",
           description:
-            "The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for.  </p>",
+            "The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for",
           args: {
             name: "list",
           },
@@ -296,6 +361,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--security-level",
+          description:
+            "The security level for the CIS scan configuration. Security level refers to the Benchmark levels that CIS assigns to a profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--schedule",
           description: "The schedule for the CIS scan configuration",
           args: {
@@ -303,11 +376,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--security-level",
-          description:
-            "The security level for the CIS scan configuration. Security level refers to the Benchmark levels that CIS assigns to a profile",
+          name: "--targets",
+          description: "The targets for the CIS scan configuration",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
@@ -318,10 +390,115 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--targets",
-          description: "The targets for the CIS scan configuration",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-code-security-integration",
+      description:
+        "Creates a code security integration with a source code repository provider. After calling the CreateCodeSecurityIntegration operation, you complete authentication and authorization with your provider. Next you call the UpdateCodeSecurityIntegration operation to provide the details to complete the integration setup",
+      options: [
+        {
+          name: "--name",
+          description: "The name of the code security integration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description: "The type of repository provider for the integration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--details",
+          description:
+            "The integration details specific to the repository provider type",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags to apply to the code security integration",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-code-security-scan-configuration",
+      description: "Creates a scan configuration for code security scanning",
+      options: [
+        {
+          name: "--name",
+          description: "The name of the scan configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--level",
+          description: "The security level for the scan configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration",
+          description: "The configuration settings for the code security scan",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--scope-settings",
+          description:
+            "The scope settings that define which repositories will be scanned. Include this parameter to create a default scan configuration. Otherwise Amazon Inspector creates a general scan configuration.  A default scan configuration automatically applies to all existing and future projects imported into Amazon Inspector. Use the BatchAssociateCodeSecurityScanConfiguration operation to associate a general scan configuration with projects",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags to apply to the scan configuration",
+          args: {
+            name: "map",
           },
         },
         {
@@ -380,17 +557,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--reason",
-          description: "The reason for creating the filter",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--tags",
           description: "A list of tags for the filter",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--reason",
+          description: "The reason for creating the filter",
+          args: {
+            name: "string",
           },
         },
         {
@@ -463,19 +640,19 @@ const completionSpec: Fig.Spec = {
       description: "Creates a software bill of materials (SBOM) report",
       options: [
         {
-          name: "--report-format",
-          description:
-            "The output format for the software bill of materials (SBOM) report",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-filter-criteria",
           description:
             "The resource filter criteria for the software bill of materials (SBOM) report",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--report-format",
+          description:
+            "The output format for the software bill of materials (SBOM) report",
+          args: {
+            name: "string",
           },
         },
         {
@@ -512,6 +689,68 @@ const completionSpec: Fig.Spec = {
         {
           name: "--scan-configuration-arn",
           description: "The ARN of the CIS scan configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-code-security-integration",
+      description: "Deletes a code security integration",
+      options: [
+        {
+          name: "--integration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the code security integration to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-code-security-scan-configuration",
+      description: "Deletes a code security scan configuration",
+      options: [
+        {
+          name: "--scan-configuration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the scan configuration to delete",
           args: {
             name: "string",
           },
@@ -707,17 +946,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description: "The idempotency token for the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-types",
           description: "The resource scan types you want to enable",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token for the request",
+          args: {
+            name: "string",
           },
         },
         {
@@ -745,16 +984,16 @@ const completionSpec: Fig.Spec = {
         "Enables the Amazon Inspector delegated administrator for your Organizations organization",
       options: [
         {
-          name: "--client-token",
-          description: "The idempotency token for the request",
+          name: "--delegated-admin-account-id",
+          description:
+            "The Amazon Web Services account ID of the Amazon Inspector delegated administrator",
           args: {
             name: "string",
           },
         },
         {
-          name: "--delegated-admin-account-id",
-          description:
-            "The Amazon Web Services account ID of the Amazon Inspector delegated administrator",
+          name: "--client-token",
+          description: "The idempotency token for the request",
           args: {
             name: "string",
           },
@@ -783,14 +1022,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a CIS scan report",
       options: [
         {
-          name: "--report-format",
-          description:
-            "The format of the report. Valid values are PDF and CSV. If no value is specified, the report format defaults to PDF",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--scan-arn",
           description: "The scan ARN",
           args: {
@@ -802,6 +1033,14 @@ const completionSpec: Fig.Spec = {
           description: "The target accounts",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--report-format",
+          description:
+            "The format of the report. Valid values are PDF and CSV. If no value is specified, the report format defaults to PDF",
+          args: {
+            name: "string",
           },
         },
         {
@@ -828,6 +1067,20 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves CIS scan result details",
       options: [
         {
+          name: "--scan-arn",
+          description: "The scan ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-resource-id",
+          description: "The target resource ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--account-id",
           description: "The account ID",
           args: {
@@ -842,29 +1095,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of CIS scan result details to be returned in a single page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from a previous request that's used to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--scan-arn",
-          description: "The scan ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort-by",
           description: "The sort by order",
           args: {
@@ -874,13 +1104,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sort-order",
           description: "The sort order",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--target-resource-id",
-          description: "The target resource ID",
           args: {
             name: "string",
           },
@@ -915,6 +1138,169 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-clusters-for-image",
+      description:
+        "Returns a list of clusters and metadata associated with an image",
+      options: [
+        {
+          name: "--filter",
+          description: "The resource Id for the Amazon ECR image",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-code-security-integration",
+      description: "Retrieves information about a code security integration",
+      options: [
+        {
+          name: "--integration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the code security integration to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags associated with the code security integration",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-code-security-scan",
+      description: "Retrieves information about a specific code security scan",
+      options: [
+        {
+          name: "--resource",
+          description:
+            "The resource identifier for the code repository that was scanned",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--scan-id",
+          description: "The unique identifier of the scan to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-code-security-scan-configuration",
+      description:
+        "Retrieves information about a code security scan configuration",
+      options: [
+        {
+          name: "--scan-configuration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the scan configuration to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1004,15 +1390,15 @@ const completionSpec: Fig.Spec = {
       description: "Gets an encryption key",
       options: [
         {
-          name: "--resource-type",
-          description: "The resource type the key encrypts",
+          name: "--scan-type",
+          description: "The scan type the key encrypts",
           args: {
             name: "string",
           },
         },
         {
-          name: "--scan-type",
-          description: "The scan type the key encrypts",
+          name: "--resource-type",
+          description: "The resource type the key encrypts",
           args: {
             name: "string",
           },
@@ -1130,24 +1516,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-account-permissions",
       description:
-        "Lists the permissions an account has to configure Amazon Inspector",
+        "Lists the permissions an account has to configure Amazon Inspector. If the account is a member account or standalone account with resources managed by an Organizations policy, the operation returns fewer permissions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--service",
           description: "The service scan type to check permissions for",
@@ -1207,22 +1577,6 @@ const completionSpec: Fig.Spec = {
           description: "The CIS scan configuration filter criteria",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of CIS scan configurations to be returned in a single page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from a previous request that's used to retrieve the next page of results",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1287,33 +1641,17 @@ const completionSpec: Fig.Spec = {
       description: "Lists scan results aggregated by checks",
       options: [
         {
-          name: "--filter-criteria",
-          description: "The filter criteria",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of scan results aggregated by checks to be returned in a single page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from a previous request that's used to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--scan-arn",
           description: "The scan ARN",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--filter-criteria",
+          description: "The filter criteria",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1378,33 +1716,17 @@ const completionSpec: Fig.Spec = {
       description: "Lists scan results aggregated by a target resource",
       options: [
         {
-          name: "--filter-criteria",
-          description: "The filter criteria",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of scan results aggregated by a target resource to be returned in a single page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from a previous request that's used to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--scan-arn",
           description: "The scan ARN",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--filter-criteria",
+          description: "The filter criteria",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1469,13 +1791,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a CIS scan list",
       options: [
         {
-          name: "--detail-level",
-          description: "The detail applied to the CIS scan",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filter-criteria",
           description: "The CIS scan filter criteria",
           args: {
@@ -1483,16 +1798,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from a previous request that's used to retrieve the next page of results",
+          name: "--detail-level",
+          description: "The detail applied to the CIS scan",
           args: {
             name: "string",
           },
@@ -1555,6 +1862,133 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-code-security-integrations",
+      description: "Lists all code security integrations in your account",
+      options: [
+        {
+          name: "--next-token",
+          description:
+            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return in a single call",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-code-security-scan-configuration-associations",
+      description:
+        "Lists the associations between code repositories and Amazon Inspector code security scan configurations",
+      options: [
+        {
+          name: "--scan-configuration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the scan configuration to list associations for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return in the response. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-code-security-scan-configurations",
+      description:
+        "Lists all code security scan configurations in your account",
+      options: [
+        {
+          name: "--next-token",
+          description:
+            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return in a single call",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-coverage",
       description: "Lists coverage details for your environment",
       options: [
@@ -1564,22 +1998,6 @@ const completionSpec: Fig.Spec = {
             "An object that contains details on the filters to apply to the coverage data for your environment",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1646,14 +2064,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1678,6 +2088,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -1693,22 +2111,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists information about the Amazon Inspector delegated administrator of your organization",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1757,13 +2159,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists the filters associated with your account",
       options: [
         {
-          name: "--action",
-          description: "The action the filter applies to matched findings",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--arns",
           description: "The Amazon resource number (ARN) of the filter",
           args: {
@@ -1771,17 +2166,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
+          name: "--action",
+          description: "The action the filter applies to matched findings",
           args: {
             name: "string",
           },
@@ -1835,6 +2221,13 @@ const completionSpec: Fig.Spec = {
         "Lists aggregated finding data for your environment based on specific criteria",
       options: [
         {
+          name: "--aggregation-type",
+          description: "The type of the aggregation request",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--account-ids",
           description:
             "The Amazon Web Services account IDs to retrieve finding aggregation data for",
@@ -1848,29 +2241,6 @@ const completionSpec: Fig.Spec = {
             "Details of the aggregation request that is used to filter your aggregation results",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--aggregation-type",
-          description: "The type of the aggregation request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1929,22 +2299,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort-criteria",
           description:
             "Details on the sort criteria to apply to your finding results",
@@ -2000,22 +2354,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List members associated with the Amazon Inspector delegated administrator for your organization",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--only-associated",
           description:
@@ -2114,22 +2452,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results the response can return. If your request would return more than the maximum the response will return a nextToken value, use this value when you call the action again to get the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the maxResults maximum value it will also return a nextToken value. For subsequent calls, use the nextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2178,15 +2500,15 @@ const completionSpec: Fig.Spec = {
         "Resets an encryption key. After the key is reset your resources will be encrypted by an Amazon Web Services owned key",
       options: [
         {
-          name: "--resource-type",
-          description: "The resource type the key encrypts",
+          name: "--scan-type",
+          description: "The scan type the key encrypts",
           args: {
             name: "string",
           },
         },
         {
-          name: "--scan-type",
-          description: "The scan type the key encrypts",
+          name: "--resource-type",
+          description: "The resource type the key encrypts",
           args: {
             name: "string",
           },
@@ -2224,14 +2546,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2251,6 +2565,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2310,13 +2632,6 @@ const completionSpec: Fig.Spec = {
         "Sends a CIS session telemetry. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service",
       options: [
         {
-          name: "--messages",
-          description: "The CIS session telemetry messages",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--scan-job-id",
           description: "A unique identifier for the scan job",
           args: {
@@ -2328,6 +2643,13 @@ const completionSpec: Fig.Spec = {
           description: "The unique token that identifies the CIS session",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--messages",
+          description: "The CIS session telemetry messages",
+          args: {
+            name: "list",
           },
         },
         {
@@ -2355,6 +2677,13 @@ const completionSpec: Fig.Spec = {
         "Starts a CIS session. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service",
       options: [
         {
+          name: "--scan-job-id",
+          description: "A unique identifier for the scan job",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--message",
           description: "The start CIS session message",
           args: {
@@ -2362,10 +2691,42 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--scan-job-id",
-          description: "A unique identifier for the scan job",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-code-security-scan",
+      description: "Initiates a code security scan on a specified repository",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource",
+          description:
+            "The resource identifier for the code repository to scan",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2393,13 +2754,6 @@ const completionSpec: Fig.Spec = {
         "Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to stop a CIS scan session for the scan ID supplied by the service",
       options: [
         {
-          name: "--message",
-          description: "The stop CIS session message",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--scan-job-id",
           description: "A unique identifier for the scan job",
           args: {
@@ -2411,6 +2765,13 @@ const completionSpec: Fig.Spec = {
           description: "The unique token that identifies the CIS session",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--message",
+          description: "The stop CIS session message",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2527,18 +2888,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--schedule",
-          description: "The schedule for the CIS scan configuration",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--security-level",
           description:
             "The security level for the CIS scan configuration. Security level refers to the Benchmark levels that CIS assigns to a profile",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--schedule",
+          description: "The schedule for the CIS scan configuration",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2568,22 +2929,101 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-configuration",
+      name: "update-code-security-integration",
       description:
-        "Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting",
+        "Updates an existing code security integration. After calling the CreateCodeSecurityIntegration operation, you complete authentication and authorization with your provider. Next you call the UpdateCodeSecurityIntegration operation to provide the details to complete the integration setup",
       options: [
         {
-          name: "--ec2-configuration",
+          name: "--integration-arn",
           description:
-            "Specifies how the Amazon EC2 automated scan will be updated for your environment",
+            "The Amazon Resource Name (ARN) of the code security integration to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--details",
+          description:
+            "The updated integration details specific to the repository provider type",
           args: {
             name: "structure",
           },
         },
         {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-code-security-scan-configuration",
+      description: "Updates an existing code security scan configuration",
+      options: [
+        {
+          name: "--scan-configuration-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the scan configuration to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration",
+          description:
+            "The updated configuration settings for the code security scan",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-configuration",
+      description:
+        "Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting",
+      options: [
+        {
           name: "--ecr-configuration",
           description:
             "Specifies how the ECR automated re-scan will be updated for your environment",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ec2-configuration",
+          description:
+            "Specifies how the Amazon EC2 automated scan will be updated for your environment",
           args: {
             name: "structure",
           },
@@ -2662,15 +3102,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--resource-type",
-          description: "The resource type for the encryption key",
+          name: "--scan-type",
+          description: "The scan type for the encryption key",
           args: {
             name: "string",
           },
         },
         {
-          name: "--scan-type",
-          description: "The scan type for the encryption key",
+          name: "--resource-type",
+          description: "The resource type for the encryption key",
           args: {
             name: "string",
           },
@@ -2715,14 +3155,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--filter-arn",
-          description:
-            "The Amazon Resource Number (ARN) of the filter to update",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filter-criteria",
           description: "Defines the criteria to be update in the filter",
           args: {
@@ -2732,6 +3164,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description: "The name of the filter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filter-arn",
+          description:
+            "The Amazon Resource Number (ARN) of the filter to update",
           args: {
             name: "string",
           },

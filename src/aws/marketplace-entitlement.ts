@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "marketplace-entitlement",
   description:
@@ -6,7 +7,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-entitlements",
       description:
-        "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions",
+        "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier, AWS account ID, license ARN, or product dimensions",
       options: [
         {
           name: "--product-code",
@@ -19,25 +20,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are unioned for each value in the value list, and then intersected for each filter key",
+            "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are unioned for each value in the value list, and then intersected for each filter key.  CustomerIdentifier and CustomerAWSAccountId are mutually exclusive parameters. You must use one or the other, but not both in the same request.   If you're migrating an existing integration, use Account Feeds to map CustomerIdentifier to CustomerAWSAccountId, and Agreements Feeds to map CustomerAWSAccountId and LicenseArn",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements",
-          args: {
-            name: "integer",
           },
         },
         {

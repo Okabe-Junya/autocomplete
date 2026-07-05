@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "iotfleetwise",
   description:
@@ -824,7 +825,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--identifier",
-          description: "A unique, service-generated identifier",
+          description: "The unique ID of the state template",
           args: {
             name: "string",
           },
@@ -1150,7 +1151,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--identifier",
-          description: "A unique, service-generated identifier",
+          description: "The unique ID of the state template",
           args: {
             name: "string",
           },
@@ -1209,22 +1210,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves information about the status of campaigns, decoder manifests, or state templates associated with a vehicle",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. This parameter is only supported for resources of type CAMPAIGN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive. This parameter is only supported for resources of type CAMPAIGN",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--vehicle-name",
           description: "The ID of the vehicle to retrieve information about",
@@ -1372,25 +1357,17 @@ const completionSpec: Fig.Spec = {
         "Lists information about created campaigns.   This API operation uses pagination. Specify the nextToken parameter in the request to return more results",
       options: [
         {
-          name: "--next-token",
+          name: "--status",
           description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
+            "An optional parameter to filter the results by the status of each created campaign in your account. The status can be one of: CREATING, WAITING_FOR_APPROVAL, RUNNING, or SUSPENDED",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--list-response-scope",
           description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--status",
-          description:
-            "An optional parameter to filter the results by the status of each created campaign in your account. The status can be one of: CREATING, WAITING_FOR_APPROVAL, RUNNING, or SUSPENDED",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: campaign name, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
           },
@@ -1452,22 +1429,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1521,22 +1482,6 @@ const completionSpec: Fig.Spec = {
             "The name of the decoder manifest to list information about",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1596,19 +1541,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--list-response-scope",
           description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: decoder manifest name, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1660,19 +1597,11 @@ const completionSpec: Fig.Spec = {
         "Retrieves information for each created fleet in an Amazon Web Services account.   This API operation uses pagination. Specify the nextToken parameter in the request to return more results",
       options: [
         {
-          name: "--next-token",
+          name: "--list-response-scope",
           description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: fleet ID, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1728,22 +1657,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the vehicle to retrieve information about",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1803,22 +1716,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1875,19 +1772,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--list-response-scope",
           description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: model manifest name, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1947,22 +1836,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--signal-node-type",
           description: "The type of node in the signal catalog",
           args: {
@@ -2018,22 +1891,6 @@ const completionSpec: Fig.Spec = {
         "Lists all the created signal catalogs in an Amazon Web Services account.  You can use to list information about each signal (node) specified in a signal catalog.  This API operation uses pagination. Specify the nextToken parameter in the request to return more results",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2082,19 +1939,11 @@ const completionSpec: Fig.Spec = {
         "Lists information about created state templates.  Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see Amazon Web Services Region and feature availability in the Amazon Web Services IoT FleetWise Developer Guide",
       options: [
         {
-          name: "--next-token",
+          name: "--list-response-scope",
           description:
-            "The token to retrieve the next set of results, or null if there are no more results",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: state template ID, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2201,19 +2050,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--list-response-scope",
           description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
+            "When you set the listResponseScope parameter to METADATA_ONLY, the list response includes: vehicle name, Amazon Resource Name (ARN), creation time, and last modification time",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2269,22 +2110,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of a fleet",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token for the next set of results. If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return, between 1 and 100, inclusive",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2838,7 +2663,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--identifier",
-          description: "A unique, service-generated identifier",
+          description: "The unique ID of the state template",
           args: {
             name: "string",
           },
@@ -2903,7 +2728,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-vehicle",
-      description: "Updates a vehicle",
+      description:
+        "Updates a vehicle.  Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see Amazon Web Services Region and feature availability in the Amazon Web Services IoT FleetWise Developer Guide",
       options: [
         {
           name: "--vehicle-name",
@@ -2954,6 +2780,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--state-templates-to-remove",
           description: "Remove state templates from the vehicle",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--state-templates-to-update",
+          description:
+            "Change the stateTemplateUpdateStrategy of state templates already associated with the vehicle",
           args: {
             name: "list",
           },

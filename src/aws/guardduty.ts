@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "guardduty",
   description:
-    "Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following foundational data sources - VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to container workloads, such as Amazon EKS, Amazon ECS (including Amazon Web Services Fargate), and Amazon EC2 instances. It uses threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment. This can include issues like escalations of privileges, uses of exposed credentials, or communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances and container workloads. For example, GuardDuty can detect compromised EC2 instances and container workloads serving malware, or mining bitcoin.  GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never been used, or unusual API calls like a password policy change to reduce password strength.  GuardDuty informs you about the status of your Amazon Web Services environment by producing security findings that you can view in the GuardDuty console or through Amazon EventBridge. For more information, see the  Amazon GuardDuty User Guide",
+    "Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following foundational data sources - VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to container workloads, such as Amazon EKS, Amazon ECS (including Amazon Web Services Fargate), and Amazon EC2 instances. It uses threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment. This can include issues like escalations of privileges, uses of exposed credentials, or communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances and container workloads. For example, GuardDuty can detect compromised EC2 instances and container workloads serving malware, or mining bitcoin.  GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never been used, or unusual API calls like a password policy change to reduce password strength.  GuardDuty informs you about the status of your Amazon Web Services environment by producing security findings that you can view in the GuardDuty console or through Amazon EventBridge. For more information, see the  Amazon GuardDuty User Guide ",
   subcommands: [
     {
       name: "accept-administrator-invitation",
@@ -242,7 +243,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--action",
           description:
-            "Specifies the action that is to be applied to the findings that match the filter",
+            "Specifies the action that is to be applied to the findings that match the filter. Default: NOOP",
           args: {
             name: "string",
           },
@@ -258,7 +259,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--finding-criteria",
           description:
-            'Represents the criteria to be used in the filter for querying findings. You can only use the following attributes to query findings:   accountId   id   region   severity To filter on the basis of severity, the API and CLI use the following input list for the FindingCriteria condition:    Low: ["1", "2", "3"]     Medium: ["4", "5", "6"]     High: ["7", "8", "9"]    For more information, see Severity levels for GuardDuty findings.   type   updatedAt Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.   resource.accessKeyDetails.accessKeyId   resource.accessKeyDetails.principalId   resource.accessKeyDetails.userName   resource.accessKeyDetails.userType   resource.instanceDetails.iamInstanceProfile.id   resource.instanceDetails.imageId   resource.instanceDetails.instanceId   resource.instanceDetails.tags.key   resource.instanceDetails.tags.value   resource.instanceDetails.networkInterfaces.ipv6Addresses   resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress   resource.instanceDetails.networkInterfaces.publicDnsName   resource.instanceDetails.networkInterfaces.publicIp   resource.instanceDetails.networkInterfaces.securityGroups.groupId   resource.instanceDetails.networkInterfaces.securityGroups.groupName   resource.instanceDetails.networkInterfaces.subnetId   resource.instanceDetails.networkInterfaces.vpcId   resource.instanceDetails.outpostArn   resource.resourceType   resource.s3BucketDetails.publicAccess.effectivePermissions   resource.s3BucketDetails.name   resource.s3BucketDetails.tags.key   resource.s3BucketDetails.tags.value   resource.s3BucketDetails.type   service.action.actionType   service.action.awsApiCallAction.api   service.action.awsApiCallAction.callerType   service.action.awsApiCallAction.errorCode   service.action.awsApiCallAction.remoteIpDetails.city.cityName   service.action.awsApiCallAction.remoteIpDetails.country.countryName   service.action.awsApiCallAction.remoteIpDetails.ipAddressV4   service.action.awsApiCallAction.remoteIpDetails.ipAddressV6   service.action.awsApiCallAction.remoteIpDetails.organization.asn   service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg   service.action.awsApiCallAction.serviceName   service.action.dnsRequestAction.domain   service.action.dnsRequestAction.domainWithSuffix   service.action.networkConnectionAction.blocked   service.action.networkConnectionAction.connectionDirection   service.action.networkConnectionAction.localPortDetails.port   service.action.networkConnectionAction.protocol   service.action.networkConnectionAction.remoteIpDetails.city.cityName   service.action.networkConnectionAction.remoteIpDetails.country.countryName   service.action.networkConnectionAction.remoteIpDetails.ipAddressV4   service.action.networkConnectionAction.remoteIpDetails.ipAddressV6   service.action.networkConnectionAction.remoteIpDetails.organization.asn   service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg   service.action.networkConnectionAction.remotePortDetails.port   service.action.awsApiCallAction.remoteAccountDetails.affiliated   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6   service.action.kubernetesApiCallAction.namespace   service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn   service.action.kubernetesApiCallAction.requestUri   service.action.kubernetesApiCallAction.statusCode   service.action.networkConnectionAction.localIpDetails.ipAddressV4   service.action.networkConnectionAction.localIpDetails.ipAddressV6   service.action.networkConnectionAction.protocol   service.action.awsApiCallAction.serviceName   service.action.awsApiCallAction.remoteAccountDetails.accountId   service.additionalInfo.threatListName   service.resourceRole   resource.eksClusterDetails.name   resource.kubernetesDetails.kubernetesWorkloadDetails.name   resource.kubernetesDetails.kubernetesWorkloadDetails.namespace   resource.kubernetesDetails.kubernetesUserDetails.username   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix   service.ebsVolumeScanDetails.scanId   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash   resource.ecsClusterDetails.name   resource.ecsClusterDetails.taskDetails.containers.image   resource.ecsClusterDetails.taskDetails.definitionArn   resource.containerDetails.image   resource.rdsDbInstanceDetails.dbInstanceIdentifier   resource.rdsDbInstanceDetails.dbClusterIdentifier   resource.rdsDbInstanceDetails.engine   resource.rdsDbUserDetails.user   resource.rdsDbInstanceDetails.tags.key   resource.rdsDbInstanceDetails.tags.value   service.runtimeDetails.process.executableSha256   service.runtimeDetails.process.name   service.runtimeDetails.process.name   resource.lambdaDetails.functionName   resource.lambdaDetails.functionArn   resource.lambdaDetails.tags.key   resource.lambdaDetails.tags.value',
+            'Represents the criteria to be used in the filter for querying findings. The following fields are available for filtering:   accountId   arn   associatedAttackSequenceArn   confidence   createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   id   partition   region   resource.accessKeyDetails.accessKeyId   resource.accessKeyDetails.principalId   resource.accessKeyDetails.userIdentity.accessKeyId   resource.accessKeyDetails.userIdentity.accountId   resource.accessKeyDetails.userIdentity.arn   resource.accessKeyDetails.userIdentity.principalId   resource.accessKeyDetails.userIdentity.sessionContext.attributes.mfaAuthenticated   resource.accessKeyDetails.userIdentity.sessionContext.ec2RoleDelivery   resource.accessKeyDetails.userIdentity.sessionContext.invokedBy   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.accountId   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.arn   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.principalId   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.type   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.userName   resource.accessKeyDetails.userIdentity.sessionContext.sourceIdentity   resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.attributes   resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.federatedProvider   resource.accessKeyDetails.userIdentity.type   resource.accessKeyDetails.userIdentity.userName   resource.accessKeyDetails.userName   resource.accessKeyDetails.userType   resource.bedrockGuardrailDetails.guardrailArn   resource.bedrockGuardrailDetails.guardrailVersion   resource.containerDetails.containerRuntime   resource.containerDetails.id   resource.containerDetails.image   resource.containerDetails.imagePrefix   resource.containerDetails.name   resource.containerDetails.securityContext.allowPrivilegeEscalation   resource.containerDetails.securityContext.privileged   resource.containerDetails.volumeMounts.mountPath   resource.containerDetails.volumeMounts.name   resource.ebsSnapshotDetails.snapshotArn   resource.ebsVolumeDetails.scannedVolumeDetails.deviceName   resource.ebsVolumeDetails.scannedVolumeDetails.encryptionType   resource.ebsVolumeDetails.scannedVolumeDetails.kmsKeyArn   resource.ebsVolumeDetails.scannedVolumeDetails.snapshotArn   resource.ebsVolumeDetails.scannedVolumeDetails.volumeArn   resource.ebsVolumeDetails.scannedVolumeDetails.volumeSizeInGB   resource.ebsVolumeDetails.scannedVolumeDetails.volumeType   resource.ebsVolumeDetails.skippedVolumeDetails.deviceName   resource.ebsVolumeDetails.skippedVolumeDetails.encryptionType   resource.ebsVolumeDetails.skippedVolumeDetails.kmsKeyArn   resource.ebsVolumeDetails.skippedVolumeDetails.snapshotArn   resource.ebsVolumeDetails.skippedVolumeDetails.volumeArn   resource.ebsVolumeDetails.skippedVolumeDetails.volumeSizeInGB   resource.ebsVolumeDetails.skippedVolumeDetails.volumeType   resource.ec2ImageDetails.imageArn   resource.ecsClusterDetails.activeServicesCount   resource.ecsClusterDetails.arn   resource.ecsClusterDetails.name   resource.ecsClusterDetails.registeredContainerInstancesCount   resource.ecsClusterDetails.runningTasksCount   resource.ecsClusterDetails.status   resource.ecsClusterDetails.tags.key   resource.ecsClusterDetails.tags.value   resource.ecsClusterDetails.taskDetails.arn   resource.ecsClusterDetails.taskDetails.containers.containerRuntime   resource.ecsClusterDetails.taskDetails.containers.id   resource.ecsClusterDetails.taskDetails.containers.image   resource.ecsClusterDetails.taskDetails.containers.imagePrefix   resource.ecsClusterDetails.taskDetails.containers.name   resource.ecsClusterDetails.taskDetails.containers.securityContext.allowPrivilegeEscalation   resource.ecsClusterDetails.taskDetails.containers.securityContext.privileged   resource.ecsClusterDetails.taskDetails.containers.volumeMounts.mountPath   resource.ecsClusterDetails.taskDetails.containers.volumeMounts.name   resource.ecsClusterDetails.taskDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.ecsClusterDetails.taskDetails.definitionArn   resource.ecsClusterDetails.taskDetails.group   resource.ecsClusterDetails.taskDetails.launchType   resource.ecsClusterDetails.taskDetails.startedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.ecsClusterDetails.taskDetails.startedBy   resource.ecsClusterDetails.taskDetails.tags.key   resource.ecsClusterDetails.taskDetails.tags.value   resource.ecsClusterDetails.taskDetails.version   resource.ecsClusterDetails.taskDetails.volumes.hostPath.path   resource.ecsClusterDetails.taskDetails.volumes.name   resource.eksClusterDetails.arn   resource.eksClusterDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.eksClusterDetails.name   resource.eksClusterDetails.status   resource.eksClusterDetails.tags.key   resource.eksClusterDetails.tags.value   resource.eksClusterDetails.vpcId   resource.instanceDetails.availabilityZone   resource.instanceDetails.iamInstanceProfile.arn   resource.instanceDetails.iamInstanceProfile.id   resource.instanceDetails.imageDescription   resource.instanceDetails.imageId   resource.instanceDetails.instanceId   resource.instanceDetails.instanceState   resource.instanceDetails.instanceType   resource.instanceDetails.launchTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.instanceDetails.networkInterfaces.ipv6Addresses   resource.instanceDetails.networkInterfaces.networkInterfaceId   resource.instanceDetails.networkInterfaces.privateDnsName   resource.instanceDetails.networkInterfaces.privateIpAddress   resource.instanceDetails.networkInterfaces.privateIpAddresses.privateDnsName   resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress   resource.instanceDetails.networkInterfaces.publicDnsName   resource.instanceDetails.networkInterfaces.publicIp   resource.instanceDetails.networkInterfaces.securityGroups.groupId   resource.instanceDetails.networkInterfaces.securityGroups.groupName   resource.instanceDetails.networkInterfaces.subnetId   resource.instanceDetails.networkInterfaces.vpcId   resource.instanceDetails.outpostArn   resource.instanceDetails.platform   resource.instanceDetails.productCodes.productCodeId   resource.instanceDetails.productCodes.productCodeType   resource.instanceDetails.tags.key   resource.instanceDetails.tags.value   resource.kubernetesDetails.kubernetesUserDetails.groups   resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.groups   resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.username   resource.kubernetesDetails.kubernetesUserDetails.sessionName   resource.kubernetesDetails.kubernetesUserDetails.uid   resource.kubernetesDetails.kubernetesUserDetails.username   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.containerRuntime   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.id   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.name   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.allowPrivilegeEscalation   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.privileged   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.mountPath   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.name   resource.kubernetesDetails.kubernetesWorkloadDetails.hostIpc   resource.kubernetesDetails.kubernetesWorkloadDetails.hostNetwork   resource.kubernetesDetails.kubernetesWorkloadDetails.hostPid   resource.kubernetesDetails.kubernetesWorkloadDetails.name   resource.kubernetesDetails.kubernetesWorkloadDetails.namespace   resource.kubernetesDetails.kubernetesWorkloadDetails.serviceAccountName   resource.kubernetesDetails.kubernetesWorkloadDetails.type   resource.kubernetesDetails.kubernetesWorkloadDetails.uid   resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.hostPath.path   resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.name   resource.lambdaDetails.description   resource.lambdaDetails.functionArn   resource.lambdaDetails.functionName   resource.lambdaDetails.functionVersion   resource.lambdaDetails.lastModifiedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.lambdaDetails.revisionId   resource.lambdaDetails.role   resource.lambdaDetails.tags.key   resource.lambdaDetails.tags.value   resource.lambdaDetails.vpcConfig.securityGroups.groupId   resource.lambdaDetails.vpcConfig.securityGroups.groupName   resource.lambdaDetails.vpcConfig.subnetIds   resource.lambdaDetails.vpcConfig.vpcId   resource.rdsDbInstanceDetails.dbClusterIdentifier   resource.rdsDbInstanceDetails.dbInstanceArn   resource.rdsDbInstanceDetails.dbInstanceIdentifier   resource.rdsDbInstanceDetails.dbSecurityGroups.name   resource.rdsDbInstanceDetails.dbSecurityGroups.status   resource.rdsDbInstanceDetails.dbiResourceId   resource.rdsDbInstanceDetails.engine   resource.rdsDbInstanceDetails.engineVersion   resource.rdsDbInstanceDetails.iamDatabaseAuthenticationEnabled   resource.rdsDbInstanceDetails.publiclyAccessible   resource.rdsDbInstanceDetails.vpcId   resource.rdsDbInstanceDetails.vpcSecurityGroups.status   resource.rdsDbInstanceDetails.vpcSecurityGroups.vpcSecurityGroupId   resource.rdsDbUserDetails.application   resource.rdsDbUserDetails.authMethod   resource.rdsDbUserDetails.database   resource.rdsDbUserDetails.ssl   resource.rdsDbUserDetails.user   resource.rdsLimitlessDbDetails.dbClusterIdentifier   resource.rdsLimitlessDbDetails.dbShardGroupArn   resource.rdsLimitlessDbDetails.dbShardGroupIdentifier   resource.rdsLimitlessDbDetails.dbShardGroupResourceId   resource.rdsLimitlessDbDetails.engine   resource.rdsLimitlessDbDetails.engineVersion   resource.rdsLimitlessDbDetails.tags.key   resource.rdsLimitlessDbDetails.tags.value   resource.recoveryPointDetails.backupVaultName   resource.recoveryPointDetails.recoveryPointArn   resource.resourceType   resource.s3BucketDetails.arn   resource.s3BucketDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.s3BucketDetails.defaultServerSideEncryption.encryptionType   resource.s3BucketDetails.defaultServerSideEncryption.kmsMasterKeyArn   resource.s3BucketDetails.name   resource.s3BucketDetails.owner.id   resource.s3BucketDetails.publicAccess.effectivePermission   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicPolicy   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.ignorePublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.restrictPublicBuckets   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicReadAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicWriteAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicPolicy   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.ignorePublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.restrictPublicBuckets   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicReadAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicWriteAccess   resource.s3BucketDetails.s3ObjectDetails.eTag   resource.s3BucketDetails.s3ObjectDetails.hash   resource.s3BucketDetails.s3ObjectDetails.key   resource.s3BucketDetails.s3ObjectDetails.objectArn   resource.s3BucketDetails.s3ObjectDetails.versionId   resource.s3BucketDetails.tags.key   resource.s3BucketDetails.tags.value   resource.s3BucketDetails.type   schemaVersion   service.action.actionType   service.action.awsApiCallAction.api   service.action.awsApiCallAction.callerType   service.action.awsApiCallAction.domainDetails.domain   service.action.awsApiCallAction.errorCode   service.action.awsApiCallAction.remoteAccountDetails.accountId   service.action.awsApiCallAction.remoteAccountDetails.affiliated   service.action.awsApiCallAction.remoteAccountDetails.awsServiceName   service.action.awsApiCallAction.remoteIpDetails.city.cityName   service.action.awsApiCallAction.remoteIpDetails.country.countryCode   service.action.awsApiCallAction.remoteIpDetails.country.countryName   service.action.awsApiCallAction.remoteIpDetails.geoLocation.lat   service.action.awsApiCallAction.remoteIpDetails.geoLocation.lon   service.action.awsApiCallAction.remoteIpDetails.ipAddressV4   service.action.awsApiCallAction.remoteIpDetails.ipAddressV6   service.action.awsApiCallAction.remoteIpDetails.organization.asn   service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg   service.action.awsApiCallAction.remoteIpDetails.organization.isp   service.action.awsApiCallAction.remoteIpDetails.organization.org   service.action.awsApiCallAction.serviceName   service.action.awsApiCallAction.userAgent   service.action.dnsRequestAction.blocked   service.action.dnsRequestAction.domain   service.action.dnsRequestAction.domainWithSuffix   service.action.dnsRequestAction.protocol   service.action.dnsRequestAction.vpcOwnerAccountId   service.action.kubernetesApiCallAction.namespace   service.action.kubernetesApiCallAction.parameters   service.action.kubernetesApiCallAction.remoteIpDetails.city.cityName   service.action.kubernetesApiCallAction.remoteIpDetails.country.countryCode   service.action.kubernetesApiCallAction.remoteIpDetails.country.countryName   service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lat   service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lon   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6   service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn   service.action.kubernetesApiCallAction.remoteIpDetails.organization.asnOrg   service.action.kubernetesApiCallAction.remoteIpDetails.organization.isp   service.action.kubernetesApiCallAction.remoteIpDetails.organization.org   service.action.kubernetesApiCallAction.requestUri   service.action.kubernetesApiCallAction.resource   service.action.kubernetesApiCallAction.resourceName   service.action.kubernetesApiCallAction.sourceIPs   service.action.kubernetesApiCallAction.statusCode   service.action.kubernetesApiCallAction.subresource   service.action.kubernetesApiCallAction.userAgent   service.action.kubernetesApiCallAction.verb   service.action.kubernetesPermissionCheckedDetails.allowed   service.action.kubernetesPermissionCheckedDetails.namespace   service.action.kubernetesPermissionCheckedDetails.resource   service.action.kubernetesPermissionCheckedDetails.verb   service.action.kubernetesRoleBindingDetails.kind   service.action.kubernetesRoleBindingDetails.name   service.action.kubernetesRoleBindingDetails.roleRefKind   service.action.kubernetesRoleBindingDetails.roleRefName   service.action.kubernetesRoleBindingDetails.uid   service.action.kubernetesRoleDetails.kind   service.action.kubernetesRoleDetails.name   service.action.kubernetesRoleDetails.uid   service.action.networkConnectionAction.blocked   service.action.networkConnectionAction.connectionDirection   service.action.networkConnectionAction.localIpDetails.ipAddressV4   service.action.networkConnectionAction.localIpDetails.ipAddressV6   service.action.networkConnectionAction.localNetworkInterface   service.action.networkConnectionAction.localPortDetails.port   service.action.networkConnectionAction.localPortDetails.portName   service.action.networkConnectionAction.protocol   service.action.networkConnectionAction.remoteIpDetails.city.cityName   service.action.networkConnectionAction.remoteIpDetails.country.countryCode   service.action.networkConnectionAction.remoteIpDetails.country.countryName   service.action.networkConnectionAction.remoteIpDetails.geoLocation.lat   service.action.networkConnectionAction.remoteIpDetails.geoLocation.lon   service.action.networkConnectionAction.remoteIpDetails.ipAddressV4   service.action.networkConnectionAction.remoteIpDetails.ipAddressV6   service.action.networkConnectionAction.remoteIpDetails.organization.asn   service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg   service.action.networkConnectionAction.remoteIpDetails.organization.isp   service.action.networkConnectionAction.remoteIpDetails.organization.org   service.action.networkConnectionAction.remotePortDetails.port   service.action.networkConnectionAction.remotePortDetails.portName   service.action.portProbeAction.blocked   service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV4   service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV6   service.action.portProbeAction.portProbeDetails.localPortDetails.port   service.action.portProbeAction.portProbeDetails.localPortDetails.portName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.city.cityName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryCode   service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lat   service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lon   service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV4   service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV6   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asn   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asnOrg   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.isp   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.org   service.action.rdsLoginAttemptAction.loginAttributes.application   service.action.rdsLoginAttemptAction.loginAttributes.failedLoginAttempts   service.action.rdsLoginAttemptAction.loginAttributes.successfulLoginAttempts   service.action.rdsLoginAttemptAction.loginAttributes.user   service.action.rdsLoginAttemptAction.remoteIpDetails.city.cityName   service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryCode   service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryName   service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lat   service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lon   service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV4   service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV6   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asn   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asnOrg   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.isp   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.org   service.additionalInfo.agentDetails.agentId   service.additionalInfo.agentDetails.agentVersion   service.additionalInfo.anomalies.anomalousAPIs   service.additionalInfo.authenticationMethod   service.additionalInfo.averagePacketSizeIn   service.additionalInfo.averagePacketSizeOut   service.additionalInfo.context   service.additionalInfo.domain   service.additionalInfo.inBytes   service.additionalInfo.localNetworkInterfaceOwner   service.additionalInfo.localPort   service.additionalInfo.outBytes   service.additionalInfo.packetsIn   service.additionalInfo.packetsOut   service.additionalInfo.policyArn   service.additionalInfo.policyName   service.additionalInfo.remotePort   service.additionalInfo.sample   service.additionalInfo.scannedPort   service.additionalInfo.threatFileSha256   service.additionalInfo.threatListName   service.additionalInfo.threatName   service.additionalInfo.totalBytesIn   service.additionalInfo.totalBytesOut   service.additionalInfo.type   service.additionalInfo.unusual.asnOrg   service.additionalInfo.unusual.port   service.additionalInfo.unusualProtocol   service.additionalInfo.userAgent.fullUserAgent   service.additionalInfo.userAgent.userAgentCategory   service.additionalInfo.value   service.additionalInfo.vpcOwnerAccountId   service.archived   service.count   service.detection.sequence.actors.id   service.detection.sequence.actors.process.name   service.detection.sequence.actors.process.path   service.detection.sequence.actors.process.sha256   service.detection.sequence.actors.session.createdTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.actors.session.issuer   service.detection.sequence.actors.session.mfaStatus   service.detection.sequence.actors.session.uid   service.detection.sequence.actors.user.account.account   service.detection.sequence.actors.user.account.uid   service.detection.sequence.actors.user.credentialUid   service.detection.sequence.actors.user.name   service.detection.sequence.actors.user.type   service.detection.sequence.actors.user.uid   service.detection.sequence.additionalSequenceTypes   service.detection.sequence.description   service.detection.sequence.endpoints.autonomousSystem.name   service.detection.sequence.endpoints.autonomousSystem.number   service.detection.sequence.endpoints.connection.direction   service.detection.sequence.endpoints.domain   service.detection.sequence.endpoints.id   service.detection.sequence.endpoints.ip   service.detection.sequence.endpoints.location.city   service.detection.sequence.endpoints.location.country   service.detection.sequence.endpoints.location.lat   service.detection.sequence.endpoints.location.lon   service.detection.sequence.endpoints.port   service.detection.sequence.resources.accountId   service.detection.sequence.resources.cloudPartition   service.detection.sequence.resources.data.accessKey.principalId   service.detection.sequence.resources.data.accessKey.userName   service.detection.sequence.resources.data.accessKey.userType   service.detection.sequence.resources.data.autoscalingAutoScalingGroup.ec2InstanceUids   service.detection.sequence.resources.data.cloudformationStack.ec2InstanceUids   service.detection.sequence.resources.data.container.image   service.detection.sequence.resources.data.container.imageUid   service.detection.sequence.resources.data.ec2Image.ec2InstanceUids   service.detection.sequence.resources.data.ec2Instance.availabilityZone   service.detection.sequence.resources.data.ec2Instance.ec2NetworkInterfaceUids   service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.arn   service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.id   service.detection.sequence.resources.data.ec2Instance.imageDescription   service.detection.sequence.resources.data.ec2Instance.instanceState   service.detection.sequence.resources.data.ec2Instance.instanceType   service.detection.sequence.resources.data.ec2Instance.outpostArn   service.detection.sequence.resources.data.ec2Instance.platform   service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeId   service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeType   service.detection.sequence.resources.data.ec2LaunchTemplate.ec2InstanceUids   service.detection.sequence.resources.data.ec2LaunchTemplate.version   service.detection.sequence.resources.data.ec2NetworkInterface.ipv6Addresses   service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateDnsName   service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateIpAddress   service.detection.sequence.resources.data.ec2NetworkInterface.publicIp   service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupId   service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupName   service.detection.sequence.resources.data.ec2NetworkInterface.subNetId   service.detection.sequence.resources.data.ec2NetworkInterface.vpcId   service.detection.sequence.resources.data.ec2Vpc.ec2InstanceUids   service.detection.sequence.resources.data.ecsCluster.ec2InstanceUids   service.detection.sequence.resources.data.ecsCluster.status   service.detection.sequence.resources.data.ecsTask.containerUids   service.detection.sequence.resources.data.ecsTask.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.ecsTask.launchType   service.detection.sequence.resources.data.ecsTask.taskDefinitionArn   service.detection.sequence.resources.data.eksCluster.arn   service.detection.sequence.resources.data.eksCluster.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.eksCluster.ec2InstanceUids   service.detection.sequence.resources.data.eksCluster.status   service.detection.sequence.resources.data.eksCluster.vpcId   service.detection.sequence.resources.data.iamInstanceProfile.ec2InstanceUids   service.detection.sequence.resources.data.iamInstanceProfile.id   service.detection.sequence.resources.data.kubernetesWorkload.containerUids   service.detection.sequence.resources.data.kubernetesWorkload.namespace   service.detection.sequence.resources.data.kubernetesWorkload.type   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclAccess   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclIgnoreBehavior   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicBucketRestrictBehavior   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicPolicyAccess   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclAccess   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclIgnoreBehavior   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicBucketRestrictBehavior   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicPolicyAccess   service.detection.sequence.resources.data.s3Bucket.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.s3Bucket.effectivePermission   service.detection.sequence.resources.data.s3Bucket.encryptionKeyArn   service.detection.sequence.resources.data.s3Bucket.encryptionType   service.detection.sequence.resources.data.s3Bucket.ownerId   service.detection.sequence.resources.data.s3Bucket.publicReadAccess   service.detection.sequence.resources.data.s3Bucket.publicWriteAccess   service.detection.sequence.resources.data.s3Bucket.s3ObjectUids   service.detection.sequence.resources.data.s3Object.eTag   service.detection.sequence.resources.data.s3Object.key   service.detection.sequence.resources.data.s3Object.versionId   service.detection.sequence.resources.name   service.detection.sequence.resources.region   service.detection.sequence.resources.resourceType   service.detection.sequence.resources.service   service.detection.sequence.resources.tags.key   service.detection.sequence.resources.tags.value   service.detection.sequence.resources.uid   service.detection.sequence.sequenceIndicators.key   service.detection.sequence.sequenceIndicators.title   service.detection.sequence.sequenceIndicators.values   service.detection.sequence.signals.actorIds   service.detection.sequence.signals.count   service.detection.sequence.signals.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.description   service.detection.sequence.signals.endpointIds   service.detection.sequence.signals.firstSeenAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.lastSeenAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.name   service.detection.sequence.signals.resourceUids   service.detection.sequence.signals.severity   service.detection.sequence.signals.signalIndicators.key   service.detection.sequence.signals.signalIndicators.title   service.detection.sequence.signals.signalIndicators.values   service.detection.sequence.signals.type   service.detection.sequence.signals.uid   service.detection.sequence.signals.updatedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.uid   service.detectorId   service.ebsVolumeScanDetails.scanCompletedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.count   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.severity   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.threatName   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.files   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.totalGb   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.volumes   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.itemCount   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.shortened   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.fileName   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.filePath   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.volumeArn   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.itemCount   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.uniqueThreatNameCount   service.ebsVolumeScanDetails.scanDetections.threatsDetectedItemCount.files   service.ebsVolumeScanDetails.scanId   service.ebsVolumeScanDetails.scanStartedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.ebsVolumeScanDetails.scanType   service.ebsVolumeScanDetails.sources   service.ebsVolumeScanDetails.triggerFindingId   service.eventFirstSeen Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.eventLastSeen Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.evidence.threatIntelligenceDetails.threatFileSha256   service.evidence.threatIntelligenceDetails.threatListName   service.evidence.threatIntelligenceDetails.threatNames   service.featureName   service.malwareScanDetails.scanCategory   service.malwareScanDetails.scanConfiguration.incrementalScanDetails.baselineResourceArn   service.malwareScanDetails.scanConfiguration.triggerType   service.malwareScanDetails.scanId   service.malwareScanDetails.scanType   service.malwareScanDetails.threats.count   service.malwareScanDetails.threats.hash   service.malwareScanDetails.threats.itemDetails.additionalInfo.deviceName   service.malwareScanDetails.threats.itemDetails.additionalInfo.versionId   service.malwareScanDetails.threats.itemDetails.hash   service.malwareScanDetails.threats.itemDetails.itemPath   service.malwareScanDetails.threats.itemDetails.resourceArn   service.malwareScanDetails.threats.itemPaths.hash   service.malwareScanDetails.threats.itemPaths.nestedItemPath   service.malwareScanDetails.threats.name   service.malwareScanDetails.threats.source   service.malwareScanDetails.uniqueThreatCount   service.resourceRole   service.runtimeDetails.context.addressFamily   service.runtimeDetails.context.commandLineExample   service.runtimeDetails.context.fileOperation   service.runtimeDetails.context.filePath   service.runtimeDetails.context.fileSystemType   service.runtimeDetails.context.flags   service.runtimeDetails.context.ianaProtocolNumber   service.runtimeDetails.context.ldPreloadValue   service.runtimeDetails.context.libraryPath   service.runtimeDetails.context.memoryRegions   service.runtimeDetails.context.modifiedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.euid   service.runtimeDetails.context.modifyingProcess.executablePath   service.runtimeDetails.context.modifyingProcess.executableSha256   service.runtimeDetails.context.modifyingProcess.lineage.euid   service.runtimeDetails.context.modifyingProcess.lineage.executablePath   service.runtimeDetails.context.modifyingProcess.lineage.name   service.runtimeDetails.context.modifyingProcess.lineage.namespacePid   service.runtimeDetails.context.modifyingProcess.lineage.parentUuid   service.runtimeDetails.context.modifyingProcess.lineage.pid   service.runtimeDetails.context.modifyingProcess.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.lineage.userId   service.runtimeDetails.context.modifyingProcess.lineage.uuid   service.runtimeDetails.context.modifyingProcess.name   service.runtimeDetails.context.modifyingProcess.namespacePid   service.runtimeDetails.context.modifyingProcess.parentUuid   service.runtimeDetails.context.modifyingProcess.pid   service.runtimeDetails.context.modifyingProcess.pwd   service.runtimeDetails.context.modifyingProcess.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.user   service.runtimeDetails.context.modifyingProcess.userId   service.runtimeDetails.context.modifyingProcess.uuid   service.runtimeDetails.context.moduleFilePath   service.runtimeDetails.context.moduleName   service.runtimeDetails.context.moduleSha256   service.runtimeDetails.context.mountSource   service.runtimeDetails.context.mountTarget   service.runtimeDetails.context.relatedFilePaths   service.runtimeDetails.context.releaseAgentPath   service.runtimeDetails.context.runcBinaryPath   service.runtimeDetails.context.scriptPath   service.runtimeDetails.context.serviceName   service.runtimeDetails.context.shellHistoryFilePath   service.runtimeDetails.context.socketPath   service.runtimeDetails.context.targetProcess.euid   service.runtimeDetails.context.targetProcess.executablePath   service.runtimeDetails.context.targetProcess.executableSha256   service.runtimeDetails.context.targetProcess.lineage.euid   service.runtimeDetails.context.targetProcess.lineage.executablePath   service.runtimeDetails.context.targetProcess.lineage.name   service.runtimeDetails.context.targetProcess.lineage.namespacePid   service.runtimeDetails.context.targetProcess.lineage.parentUuid   service.runtimeDetails.context.targetProcess.lineage.pid   service.runtimeDetails.context.targetProcess.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.targetProcess.lineage.userId   service.runtimeDetails.context.targetProcess.lineage.uuid   service.runtimeDetails.context.targetProcess.name   service.runtimeDetails.context.targetProcess.namespacePid   service.runtimeDetails.context.targetProcess.parentUuid   service.runtimeDetails.context.targetProcess.pid   service.runtimeDetails.context.targetProcess.pwd   service.runtimeDetails.context.targetProcess.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.targetProcess.user   service.runtimeDetails.context.targetProcess.userId   service.runtimeDetails.context.targetProcess.uuid   service.runtimeDetails.context.threatFilePath   service.runtimeDetails.context.toolCategory   service.runtimeDetails.context.toolName   service.runtimeDetails.process.euid   service.runtimeDetails.process.executablePath   service.runtimeDetails.process.executableSha256   service.runtimeDetails.process.lineage.euid   service.runtimeDetails.process.lineage.executablePath   service.runtimeDetails.process.lineage.name   service.runtimeDetails.process.lineage.namespacePid   service.runtimeDetails.process.lineage.parentUuid   service.runtimeDetails.process.lineage.pid   service.runtimeDetails.process.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.process.lineage.userId   service.runtimeDetails.process.lineage.uuid   service.runtimeDetails.process.name   service.runtimeDetails.process.namespacePid   service.runtimeDetails.process.parentUuid   service.runtimeDetails.process.pid   service.runtimeDetails.process.pwd   service.runtimeDetails.process.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.process.user   service.runtimeDetails.process.userId   service.runtimeDetails.process.uuid   service.serviceName   service.userFeedback   severity To configure severity based filters, use the following for the FindingCriteria condition:    Low: ["1", "2", "3"]     Medium: ["4", "5", "6"]     High: ["7", "8"]     Critical: ["9", "10"]    For more information, see Findings severity levels in the Amazon GuardDuty User Guide.   type   updatedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000',
           args: {
             name: "structure",
           },
@@ -275,6 +276,53 @@ const completionSpec: Fig.Spec = {
           description: "The tags to be added to a new filter resource",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-investigation",
+      description:
+        "This API is currently available as a preview. During the preview, you can initiate up to 10 investigations per account per day, with a total limit of 100 investigations per account. This feature is available in the following Amazon Web Services Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific (Tokyo). Initiates a GuardDuty investigation that automatically analyzes security findings, correlates related activity, performs account-level analysis, and produces a structured investigation summary with recommended next steps. Only the administrator account can create an investigation. Member accounts don't have permission to create investigations from their accounts. To use this operation, the AI_ANALYST feature must be enabled on your detector. This feature uses Amazon Bedrock models that leverage Cross-Region Inference (CRIS), which automatically selects the optimal Amazon Web Services Region within your geography to process the investigation analysis and generate the investigation report. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data remains stored only in the Region where the investigation request originates, however, investigation data and summary results may be processed outside that Region. All data is transmitted encrypted across Amazon's secure network. For more information, see GuardDuty Investigation",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector for the account in which the investigation is created. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trigger-prompt",
+          description:
+            'A natural-language description of what to investigate. For example:    "Investigate finding 1ab2c3d4e5f6a7b8c9d0e1f2a3b4c5d6 in account 123456789012"     "Analyze findings in account with id 123456789012"     "Analyze findings in my organization"',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token for the create request",
+          args: {
+            name: "string",
           },
         },
         {
@@ -353,6 +401,14 @@ const completionSpec: Fig.Spec = {
           description: "The tags to be added to a new IP set resource",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
           },
         },
         {
@@ -513,6 +569,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--tags",
+          description:
+            "The tags to be added to a new publishing destination resource",
+          args: {
+            name: "map",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -571,6 +635,95 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-threat-entity-set",
+      description:
+        "Creates a new threat entity set. In a threat entity set, you can provide known malicious threat entities for your Amazon Web Services environment. GuardDuty generates findings based on the entries in the threat entity sets. Only users of the administrator account can manage entity sets, which automatically apply to member accounts",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "A user-friendly name to identify the threat entity set. The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--format",
+          description:
+            "The format of the file that contains the threat entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--location",
+          description:
+            "The URI of the file that contains the threat entity set. The format of the Location URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see Format of location URL under Step 2: Adding trusted or threat intelligence data in the Amazon GuardDuty User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--activate",
+          description:
+            "A boolean value that indicates whether GuardDuty should start using the uploaded threat entity set to generate findings",
+        },
+        {
+          name: "--no-activate",
+          description:
+            "A boolean value that indicates whether GuardDuty should start using the uploaded threat entity set to generate findings",
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token for the create request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to be added to a new threat entity set resource",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-threat-intel-set",
       description:
         "Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can use this operation",
@@ -578,7 +731,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--detector-id",
           description:
-            "The unique ID of the detector of the GuardDuty account for which you want to create a ThreatIntelSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+            "The unique ID of the detector of the GuardDuty account for which you want to create a threatIntelSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
             name: "string",
           },
@@ -626,6 +779,103 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description: "The tags to be added to a new threat list resource",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-trusted-entity-set",
+      description:
+        "Creates a new trusted entity set. In the trusted entity set, you can provide IP addresses and domains that you believe are secure for communication in your Amazon Web Services environment. GuardDuty will not generate findings for the entries that are specified in a trusted entity set. At any given time, you can have only one trusted entity set.  Only users of the administrator account can manage the entity sets, which automatically apply to member accounts",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector of the GuardDuty account for which you want to create a trusted entity set. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "A user-friendly name to identify the trusted entity set. The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--format",
+          description:
+            "The format of the file that contains the trusted entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--location",
+          description:
+            "The URI of the file that contains the threat entity set. The format of the Location URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see Format of location URL under Step 2: Adding trusted or threat intelligence data in the Amazon GuardDuty User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using the uploaded trusted entity set",
+        },
+        {
+          name: "--no-activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using the uploaded trusted entity set",
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token for the create request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to be added to a new trusted entity set resource",
           args: {
             name: "map",
           },
@@ -752,23 +1002,16 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-ip-set",
+      name: "delete-invitations",
       description:
-        "Deletes the IPSet specified by the ipSetId. IPSets are called trusted IP lists in the console user interface",
+        "Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs",
       options: [
         {
-          name: "--detector-id",
+          name: "--account-ids",
           description:
-            "The unique ID of the detector associated with the IPSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+            "A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member account that you want to delete invitations from",
           args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ip-set-id",
-          description: "The unique ID of the IPSet to delete",
-          args: {
-            name: "string",
+            name: "list",
           },
         },
         {
@@ -791,16 +1034,23 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-invitations",
+      name: "delete-ip-set",
       description:
-        "Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs",
+        "Deletes the IPSet specified by the ipSetId. IPSets are called trusted IP lists in the console user interface",
       options: [
         {
-          name: "--account-ids",
+          name: "--detector-id",
           description:
-            "A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member account that you want to delete invitations from",
+            "The unique ID of the detector associated with the IPSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
-            name: "list",
+            name: "string",
+          },
+        },
+        {
+          name: "--ip-set-id",
+          description: "The unique ID of the IPSet to delete",
+          args: {
+            name: "string",
           },
         },
         {
@@ -934,6 +1184,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-threat-entity-set",
+      description:
+        "Deletes the threat entity set that is associated with the specified threatEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector associated with the threat entity set resource. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--threat-entity-set-id",
+          description:
+            "The unique ID that helps GuardDuty identify which threat entity set needs to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-threat-intel-set",
       description:
         "Deletes the ThreatIntelSet specified by the ThreatIntelSet ID",
@@ -974,6 +1264,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-trusted-entity-set",
+      description:
+        "Deletes the trusted entity set that is associated with the specified trustedEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector associated with the trusted entity set resource. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trusted-entity-set-id",
+          description:
+            "The unique ID that helps GuardDuty identify which trusted entity set needs to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-malware-scans",
       description:
         "Returns a list of malware scans. Each member account can view the malware scans for their own accounts. An administrator can view the malware scans for all the member accounts. There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see Regions and endpoints",
@@ -984,22 +1314,6 @@ const completionSpec: Fig.Spec = {
             "The unique ID of the detector that the request is associated with. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1319,7 +1633,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-administrator-account",
       description:
-        "Provides the details of the GuardDuty administrator account associated with the current GuardDuty member account.  If the organization's management account or a delegated administrator runs this API, it will return success (HTTP 200) but no content",
+        "Provides the details of the GuardDuty administrator account associated with the current GuardDuty member account. Based on the type of account that runs this API, the following list shows how the API behavior varies:   When the GuardDuty administrator account runs this API, it will return success (HTTP 200) but no content.   When a member account runs this API, it will return the details of the GuardDuty administrator account that is associated with this calling member account.   When an individual account (not associated with an organization) runs this API, it will return success (HTTP 200) but no content",
       options: [
         {
           name: "--detector-id",
@@ -1585,20 +1899,21 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-ip-set",
-      description: "Retrieves the IPSet specified by the ipSetId",
+      name: "get-investigation",
+      description:
+        "This API is currently available as a preview. This feature is available in the following Amazon Web Services Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific (Tokyo). Retrieves the results and status of a specific GuardDuty investigation. An administrator account can retrieve any investigation within the organization. Member accounts can only retrieve investigations that belong to them",
       options: [
         {
           name: "--detector-id",
           description:
-            "The unique ID of the detector that is associated with the IPSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+            "The unique ID of the GuardDuty detector associated with the investigation. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
             name: "string",
           },
         },
         {
-          name: "--ip-set-id",
-          description: "The unique ID of the IPSet to retrieve",
+          name: "--investigation-id",
+          description: "The unique identifier of the investigation to retrieve",
           args: {
             name: "string",
           },
@@ -1647,6 +1962,44 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-ip-set",
+      description: "Retrieves the IPSet specified by the ipSetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector that is associated with the IPSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ip-set-id",
+          description: "The unique ID of the IPSet to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-malware-protection-plan",
       description:
         "Retrieves the Malware Protection plan details associated with a Malware Protection plan ID",
@@ -1655,6 +2008,38 @@ const completionSpec: Fig.Spec = {
           name: "--malware-protection-plan-id",
           description:
             "A unique identifier associated with Malware Protection plan resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-malware-scan",
+      description:
+        "Retrieves the detailed information for a specific malware scan. Each member account can view the malware scan details for their own account. An administrator can view malware scan details for all accounts in the organization. There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see Regions and endpoints",
+      options: [
+        {
+          name: "--scan-id",
+          description:
+            "A unique identifier that gets generated when you invoke the API without any error. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan",
           args: {
             name: "string",
           },
@@ -1886,6 +2271,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-threat-entity-set",
+      description:
+        "Retrieves the threat entity set associated with the specified threatEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector associated with the threat entity set resource. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--threat-entity-set-id",
+          description:
+            "The unique ID that helps GuardDuty identify the threat entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-threat-intel-set",
       description:
         "Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID",
@@ -1902,6 +2327,46 @@ const completionSpec: Fig.Spec = {
           name: "--threat-intel-set-id",
           description:
             "The unique ID of the threatIntelSet that you want to get",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-trusted-entity-set",
+      description:
+        "Retrieves the trusted entity set associated with the specified trustedEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector associated with this trusted entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trusted-entity-set-id",
+          description:
+            "The unique ID that helps GuardDuty identify the trusted entity set",
           args: {
             name: "string",
           },
@@ -2067,22 +2532,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filter-criteria",
           description:
             "Represents the criteria used to filter the coverage details",
@@ -2147,22 +2596,6 @@ const completionSpec: Fig.Spec = {
         "Lists detectorIds of all the existing Amazon GuardDuty detector resources",
       options: [
         {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2213,22 +2646,6 @@ const completionSpec: Fig.Spec = {
           name: "--detector-id",
           description:
             "The unique ID of the detector that is associated with the filter. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
           args: {
             name: "string",
           },
@@ -2305,21 +2722,117 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-investigations",
+      description:
+        "This API is currently available as a preview. This feature is available in the following Amazon Web Services Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific (Tokyo). Returns a list of investigations associated with the specified GuardDuty detector. An administrator account sees all investigations across the organization. Member accounts see only the investigations that belong to them",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector whose investigations you want to list. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--sort-criteria",
+          description:
+            "Represents the criteria used for sorting investigations",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-invitations",
+      description:
+        "Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services account",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -2377,86 +2890,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-invitations",
-      description:
-        "Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services account",
-      options: [
-        {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2507,7 +2940,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
+            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data. The default page size is 100 plans",
           args: {
             name: "string",
           },
@@ -2518,6 +2951,70 @@ const completionSpec: Fig.Spec = {
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-malware-scans",
+      description:
+        "Returns a list of malware scans. Each member account can view the malware scans for their own accounts. An administrator can view the malware scans for all of its members' accounts",
+      options: [
+        {
+          name: "--filter-criteria",
+          description:
+            "Represents the criteria used to filter the malware scan entries",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--sort-criteria",
+          description:
+            "Represents the criteria used for sorting malware scan entries",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -2545,25 +3042,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--only-associated",
           description:
-            "Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated). Member accounts must have been previously associated with the GuardDuty administrator account using  Create Members",
+            "Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated). Member accounts must have been previously associated with the GuardDuty administrator account using  Create Members ",
           args: {
             name: "string",
           },
@@ -2616,22 +3097,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the accounts designated as GuardDuty delegated administrators. Only the organization's management account can run this API operation",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2756,30 +3221,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-threat-intel-sets",
+      name: "list-threat-entity-sets",
       description:
-        "Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the administrator account are returned",
+        "Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the threat entity sets that are returned as a response, belong to the administrator account",
       options: [
         {
           name: "--detector-id",
           description:
-            "The unique ID of the detector that is associated with the threatIntelSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data",
+            "The unique ID of the GuardDuty detector that is associated with this threat entity set. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
           args: {
             name: "string",
           },
@@ -2828,9 +3277,153 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-threat-intel-sets",
+      description:
+        "Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the administrator account are returned",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the detector that is associated with the threatIntelSet. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-trusted-entity-sets",
+      description:
+        "Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the trusted entity sets that are returned as a response, belong to the administrator account",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector that is associated with this threat entity set. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "send-object-malware-scan",
+      description:
+        "Initiates a malware scan for a specific S3 object. This API allows you to perform on-demand malware scanning of individual objects in S3 buckets that have Malware Protection for S3 enabled. When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection",
+      options: [
+        {
+          name: "--s3-object",
+          description:
+            "The S3 object information for the object you want to scan. The bucket must have a Malware Protection plan configured to use this API",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-malware-scan",
       description:
-        "Initiates the malware scan. Invoking this API will automatically create the Service-linked role in the corresponding account. When the malware scan starts, you can use the associated scan ID to track the status of the scan. For more information, see DescribeMalwareScans",
+        "Initiates the malware scan. Invoking this API will automatically create the Service-linked role in the corresponding account if the resourceArn belongs to an EC2 instance. When the malware scan starts, you can use the associated scan ID to track the status of the scan. For more information, see ListMalwareScans and GetMalwareScan. When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see Amazon Web Services service terms for GuardDuty Malware Protection",
       options: [
         {
           name: "--resource-arn",
@@ -2838,6 +3431,21 @@ const completionSpec: Fig.Spec = {
             "Amazon Resource Name (ARN) of the resource for which you invoked the API",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token for the create request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--scan-configuration",
+          description:
+            "Contains information about the configuration to be used for the malware scan",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -3149,7 +3757,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--action",
           description:
-            "Specifies the action that is to be applied to the findings that match the filter",
+            "Specifies the action that is to be applied to the findings that match the filter. Default: NOOP",
           args: {
             name: "string",
           },
@@ -3165,7 +3773,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--finding-criteria",
           description:
-            "Represents the criteria to be used in the filter for querying findings",
+            'Represents the criteria to be used in the filter for querying findings. The following fields are available for filtering:   accountId   arn   associatedAttackSequenceArn   confidence   createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   id   partition   region   resource.accessKeyDetails.accessKeyId   resource.accessKeyDetails.principalId   resource.accessKeyDetails.userIdentity.accessKeyId   resource.accessKeyDetails.userIdentity.accountId   resource.accessKeyDetails.userIdentity.arn   resource.accessKeyDetails.userIdentity.principalId   resource.accessKeyDetails.userIdentity.sessionContext.attributes.mfaAuthenticated   resource.accessKeyDetails.userIdentity.sessionContext.ec2RoleDelivery   resource.accessKeyDetails.userIdentity.sessionContext.invokedBy   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.accountId   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.arn   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.principalId   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.type   resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.userName   resource.accessKeyDetails.userIdentity.sessionContext.sourceIdentity   resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.attributes   resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.federatedProvider   resource.accessKeyDetails.userIdentity.type   resource.accessKeyDetails.userIdentity.userName   resource.accessKeyDetails.userName   resource.accessKeyDetails.userType   resource.bedrockGuardrailDetails.guardrailArn   resource.bedrockGuardrailDetails.guardrailVersion   resource.containerDetails.containerRuntime   resource.containerDetails.id   resource.containerDetails.image   resource.containerDetails.imagePrefix   resource.containerDetails.name   resource.containerDetails.securityContext.allowPrivilegeEscalation   resource.containerDetails.securityContext.privileged   resource.containerDetails.volumeMounts.mountPath   resource.containerDetails.volumeMounts.name   resource.ebsSnapshotDetails.snapshotArn   resource.ebsVolumeDetails.scannedVolumeDetails.deviceName   resource.ebsVolumeDetails.scannedVolumeDetails.encryptionType   resource.ebsVolumeDetails.scannedVolumeDetails.kmsKeyArn   resource.ebsVolumeDetails.scannedVolumeDetails.snapshotArn   resource.ebsVolumeDetails.scannedVolumeDetails.volumeArn   resource.ebsVolumeDetails.scannedVolumeDetails.volumeSizeInGB   resource.ebsVolumeDetails.scannedVolumeDetails.volumeType   resource.ebsVolumeDetails.skippedVolumeDetails.deviceName   resource.ebsVolumeDetails.skippedVolumeDetails.encryptionType   resource.ebsVolumeDetails.skippedVolumeDetails.kmsKeyArn   resource.ebsVolumeDetails.skippedVolumeDetails.snapshotArn   resource.ebsVolumeDetails.skippedVolumeDetails.volumeArn   resource.ebsVolumeDetails.skippedVolumeDetails.volumeSizeInGB   resource.ebsVolumeDetails.skippedVolumeDetails.volumeType   resource.ec2ImageDetails.imageArn   resource.ecsClusterDetails.activeServicesCount   resource.ecsClusterDetails.arn   resource.ecsClusterDetails.name   resource.ecsClusterDetails.registeredContainerInstancesCount   resource.ecsClusterDetails.runningTasksCount   resource.ecsClusterDetails.status   resource.ecsClusterDetails.tags.key   resource.ecsClusterDetails.tags.value   resource.ecsClusterDetails.taskDetails.arn   resource.ecsClusterDetails.taskDetails.containers.containerRuntime   resource.ecsClusterDetails.taskDetails.containers.id   resource.ecsClusterDetails.taskDetails.containers.image   resource.ecsClusterDetails.taskDetails.containers.imagePrefix   resource.ecsClusterDetails.taskDetails.containers.name   resource.ecsClusterDetails.taskDetails.containers.securityContext.allowPrivilegeEscalation   resource.ecsClusterDetails.taskDetails.containers.securityContext.privileged   resource.ecsClusterDetails.taskDetails.containers.volumeMounts.mountPath   resource.ecsClusterDetails.taskDetails.containers.volumeMounts.name   resource.ecsClusterDetails.taskDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.ecsClusterDetails.taskDetails.definitionArn   resource.ecsClusterDetails.taskDetails.group   resource.ecsClusterDetails.taskDetails.launchType   resource.ecsClusterDetails.taskDetails.startedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.ecsClusterDetails.taskDetails.startedBy   resource.ecsClusterDetails.taskDetails.tags.key   resource.ecsClusterDetails.taskDetails.tags.value   resource.ecsClusterDetails.taskDetails.version   resource.ecsClusterDetails.taskDetails.volumes.hostPath.path   resource.ecsClusterDetails.taskDetails.volumes.name   resource.eksClusterDetails.arn   resource.eksClusterDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.eksClusterDetails.name   resource.eksClusterDetails.status   resource.eksClusterDetails.tags.key   resource.eksClusterDetails.tags.value   resource.eksClusterDetails.vpcId   resource.instanceDetails.availabilityZone   resource.instanceDetails.iamInstanceProfile.arn   resource.instanceDetails.iamInstanceProfile.id   resource.instanceDetails.imageDescription   resource.instanceDetails.imageId   resource.instanceDetails.instanceId   resource.instanceDetails.instanceState   resource.instanceDetails.instanceType   resource.instanceDetails.launchTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.instanceDetails.networkInterfaces.ipv6Addresses   resource.instanceDetails.networkInterfaces.networkInterfaceId   resource.instanceDetails.networkInterfaces.privateDnsName   resource.instanceDetails.networkInterfaces.privateIpAddress   resource.instanceDetails.networkInterfaces.privateIpAddresses.privateDnsName   resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress   resource.instanceDetails.networkInterfaces.publicDnsName   resource.instanceDetails.networkInterfaces.publicIp   resource.instanceDetails.networkInterfaces.securityGroups.groupId   resource.instanceDetails.networkInterfaces.securityGroups.groupName   resource.instanceDetails.networkInterfaces.subnetId   resource.instanceDetails.networkInterfaces.vpcId   resource.instanceDetails.outpostArn   resource.instanceDetails.platform   resource.instanceDetails.productCodes.productCodeId   resource.instanceDetails.productCodes.productCodeType   resource.instanceDetails.tags.key   resource.instanceDetails.tags.value   resource.kubernetesDetails.kubernetesUserDetails.groups   resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.groups   resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.username   resource.kubernetesDetails.kubernetesUserDetails.sessionName   resource.kubernetesDetails.kubernetesUserDetails.uid   resource.kubernetesDetails.kubernetesUserDetails.username   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.containerRuntime   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.id   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.name   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.allowPrivilegeEscalation   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.privileged   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.mountPath   resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.name   resource.kubernetesDetails.kubernetesWorkloadDetails.hostIpc   resource.kubernetesDetails.kubernetesWorkloadDetails.hostNetwork   resource.kubernetesDetails.kubernetesWorkloadDetails.hostPid   resource.kubernetesDetails.kubernetesWorkloadDetails.name   resource.kubernetesDetails.kubernetesWorkloadDetails.namespace   resource.kubernetesDetails.kubernetesWorkloadDetails.serviceAccountName   resource.kubernetesDetails.kubernetesWorkloadDetails.type   resource.kubernetesDetails.kubernetesWorkloadDetails.uid   resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.hostPath.path   resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.name   resource.lambdaDetails.description   resource.lambdaDetails.functionArn   resource.lambdaDetails.functionName   resource.lambdaDetails.functionVersion   resource.lambdaDetails.lastModifiedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.lambdaDetails.revisionId   resource.lambdaDetails.role   resource.lambdaDetails.tags.key   resource.lambdaDetails.tags.value   resource.lambdaDetails.vpcConfig.securityGroups.groupId   resource.lambdaDetails.vpcConfig.securityGroups.groupName   resource.lambdaDetails.vpcConfig.subnetIds   resource.lambdaDetails.vpcConfig.vpcId   resource.rdsDbInstanceDetails.dbClusterIdentifier   resource.rdsDbInstanceDetails.dbInstanceArn   resource.rdsDbInstanceDetails.dbInstanceIdentifier   resource.rdsDbInstanceDetails.dbSecurityGroups.name   resource.rdsDbInstanceDetails.dbSecurityGroups.status   resource.rdsDbInstanceDetails.dbiResourceId   resource.rdsDbInstanceDetails.engine   resource.rdsDbInstanceDetails.engineVersion   resource.rdsDbInstanceDetails.iamDatabaseAuthenticationEnabled   resource.rdsDbInstanceDetails.publiclyAccessible   resource.rdsDbInstanceDetails.vpcId   resource.rdsDbInstanceDetails.vpcSecurityGroups.status   resource.rdsDbInstanceDetails.vpcSecurityGroups.vpcSecurityGroupId   resource.rdsDbUserDetails.application   resource.rdsDbUserDetails.authMethod   resource.rdsDbUserDetails.database   resource.rdsDbUserDetails.ssl   resource.rdsDbUserDetails.user   resource.rdsLimitlessDbDetails.dbClusterIdentifier   resource.rdsLimitlessDbDetails.dbShardGroupArn   resource.rdsLimitlessDbDetails.dbShardGroupIdentifier   resource.rdsLimitlessDbDetails.dbShardGroupResourceId   resource.rdsLimitlessDbDetails.engine   resource.rdsLimitlessDbDetails.engineVersion   resource.rdsLimitlessDbDetails.tags.key   resource.rdsLimitlessDbDetails.tags.value   resource.recoveryPointDetails.backupVaultName   resource.recoveryPointDetails.recoveryPointArn   resource.resourceType   resource.s3BucketDetails.arn   resource.s3BucketDetails.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   resource.s3BucketDetails.defaultServerSideEncryption.encryptionType   resource.s3BucketDetails.defaultServerSideEncryption.kmsMasterKeyArn   resource.s3BucketDetails.name   resource.s3BucketDetails.owner.id   resource.s3BucketDetails.publicAccess.effectivePermission   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicPolicy   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.ignorePublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.restrictPublicBuckets   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicReadAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicWriteAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicPolicy   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.ignorePublicAcls   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.restrictPublicBuckets   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicReadAccess   resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicWriteAccess   resource.s3BucketDetails.s3ObjectDetails.eTag   resource.s3BucketDetails.s3ObjectDetails.hash   resource.s3BucketDetails.s3ObjectDetails.key   resource.s3BucketDetails.s3ObjectDetails.objectArn   resource.s3BucketDetails.s3ObjectDetails.versionId   resource.s3BucketDetails.tags.key   resource.s3BucketDetails.tags.value   resource.s3BucketDetails.type   schemaVersion   service.action.actionType   service.action.awsApiCallAction.api   service.action.awsApiCallAction.callerType   service.action.awsApiCallAction.domainDetails.domain   service.action.awsApiCallAction.errorCode   service.action.awsApiCallAction.remoteAccountDetails.accountId   service.action.awsApiCallAction.remoteAccountDetails.affiliated   service.action.awsApiCallAction.remoteAccountDetails.awsServiceName   service.action.awsApiCallAction.remoteIpDetails.city.cityName   service.action.awsApiCallAction.remoteIpDetails.country.countryCode   service.action.awsApiCallAction.remoteIpDetails.country.countryName   service.action.awsApiCallAction.remoteIpDetails.geoLocation.lat   service.action.awsApiCallAction.remoteIpDetails.geoLocation.lon   service.action.awsApiCallAction.remoteIpDetails.ipAddressV4   service.action.awsApiCallAction.remoteIpDetails.ipAddressV6   service.action.awsApiCallAction.remoteIpDetails.organization.asn   service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg   service.action.awsApiCallAction.remoteIpDetails.organization.isp   service.action.awsApiCallAction.remoteIpDetails.organization.org   service.action.awsApiCallAction.serviceName   service.action.awsApiCallAction.userAgent   service.action.dnsRequestAction.blocked   service.action.dnsRequestAction.domain   service.action.dnsRequestAction.domainWithSuffix   service.action.dnsRequestAction.protocol   service.action.dnsRequestAction.vpcOwnerAccountId   service.action.kubernetesApiCallAction.namespace   service.action.kubernetesApiCallAction.parameters   service.action.kubernetesApiCallAction.remoteIpDetails.city.cityName   service.action.kubernetesApiCallAction.remoteIpDetails.country.countryCode   service.action.kubernetesApiCallAction.remoteIpDetails.country.countryName   service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lat   service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lon   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4   service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6   service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn   service.action.kubernetesApiCallAction.remoteIpDetails.organization.asnOrg   service.action.kubernetesApiCallAction.remoteIpDetails.organization.isp   service.action.kubernetesApiCallAction.remoteIpDetails.organization.org   service.action.kubernetesApiCallAction.requestUri   service.action.kubernetesApiCallAction.resource   service.action.kubernetesApiCallAction.resourceName   service.action.kubernetesApiCallAction.sourceIPs   service.action.kubernetesApiCallAction.statusCode   service.action.kubernetesApiCallAction.subresource   service.action.kubernetesApiCallAction.userAgent   service.action.kubernetesApiCallAction.verb   service.action.kubernetesPermissionCheckedDetails.allowed   service.action.kubernetesPermissionCheckedDetails.namespace   service.action.kubernetesPermissionCheckedDetails.resource   service.action.kubernetesPermissionCheckedDetails.verb   service.action.kubernetesRoleBindingDetails.kind   service.action.kubernetesRoleBindingDetails.name   service.action.kubernetesRoleBindingDetails.roleRefKind   service.action.kubernetesRoleBindingDetails.roleRefName   service.action.kubernetesRoleBindingDetails.uid   service.action.kubernetesRoleDetails.kind   service.action.kubernetesRoleDetails.name   service.action.kubernetesRoleDetails.uid   service.action.networkConnectionAction.blocked   service.action.networkConnectionAction.connectionDirection   service.action.networkConnectionAction.localIpDetails.ipAddressV4   service.action.networkConnectionAction.localIpDetails.ipAddressV6   service.action.networkConnectionAction.localNetworkInterface   service.action.networkConnectionAction.localPortDetails.port   service.action.networkConnectionAction.localPortDetails.portName   service.action.networkConnectionAction.protocol   service.action.networkConnectionAction.remoteIpDetails.city.cityName   service.action.networkConnectionAction.remoteIpDetails.country.countryCode   service.action.networkConnectionAction.remoteIpDetails.country.countryName   service.action.networkConnectionAction.remoteIpDetails.geoLocation.lat   service.action.networkConnectionAction.remoteIpDetails.geoLocation.lon   service.action.networkConnectionAction.remoteIpDetails.ipAddressV4   service.action.networkConnectionAction.remoteIpDetails.ipAddressV6   service.action.networkConnectionAction.remoteIpDetails.organization.asn   service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg   service.action.networkConnectionAction.remoteIpDetails.organization.isp   service.action.networkConnectionAction.remoteIpDetails.organization.org   service.action.networkConnectionAction.remotePortDetails.port   service.action.networkConnectionAction.remotePortDetails.portName   service.action.portProbeAction.blocked   service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV4   service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV6   service.action.portProbeAction.portProbeDetails.localPortDetails.port   service.action.portProbeAction.portProbeDetails.localPortDetails.portName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.city.cityName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryCode   service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryName   service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lat   service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lon   service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV4   service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV6   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asn   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asnOrg   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.isp   service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.org   service.action.rdsLoginAttemptAction.loginAttributes.application   service.action.rdsLoginAttemptAction.loginAttributes.failedLoginAttempts   service.action.rdsLoginAttemptAction.loginAttributes.successfulLoginAttempts   service.action.rdsLoginAttemptAction.loginAttributes.user   service.action.rdsLoginAttemptAction.remoteIpDetails.city.cityName   service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryCode   service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryName   service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lat   service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lon   service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV4   service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV6   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asn   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asnOrg   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.isp   service.action.rdsLoginAttemptAction.remoteIpDetails.organization.org   service.additionalInfo.agentDetails.agentId   service.additionalInfo.agentDetails.agentVersion   service.additionalInfo.anomalies.anomalousAPIs   service.additionalInfo.authenticationMethod   service.additionalInfo.averagePacketSizeIn   service.additionalInfo.averagePacketSizeOut   service.additionalInfo.context   service.additionalInfo.domain   service.additionalInfo.inBytes   service.additionalInfo.localNetworkInterfaceOwner   service.additionalInfo.localPort   service.additionalInfo.outBytes   service.additionalInfo.packetsIn   service.additionalInfo.packetsOut   service.additionalInfo.policyArn   service.additionalInfo.policyName   service.additionalInfo.remotePort   service.additionalInfo.sample   service.additionalInfo.scannedPort   service.additionalInfo.threatFileSha256   service.additionalInfo.threatListName   service.additionalInfo.threatName   service.additionalInfo.totalBytesIn   service.additionalInfo.totalBytesOut   service.additionalInfo.type   service.additionalInfo.unusual.asnOrg   service.additionalInfo.unusual.port   service.additionalInfo.unusualProtocol   service.additionalInfo.userAgent.fullUserAgent   service.additionalInfo.userAgent.userAgentCategory   service.additionalInfo.value   service.additionalInfo.vpcOwnerAccountId   service.archived   service.count   service.detection.sequence.actors.id   service.detection.sequence.actors.process.name   service.detection.sequence.actors.process.path   service.detection.sequence.actors.process.sha256   service.detection.sequence.actors.session.createdTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.actors.session.issuer   service.detection.sequence.actors.session.mfaStatus   service.detection.sequence.actors.session.uid   service.detection.sequence.actors.user.account.account   service.detection.sequence.actors.user.account.uid   service.detection.sequence.actors.user.credentialUid   service.detection.sequence.actors.user.name   service.detection.sequence.actors.user.type   service.detection.sequence.actors.user.uid   service.detection.sequence.additionalSequenceTypes   service.detection.sequence.description   service.detection.sequence.endpoints.autonomousSystem.name   service.detection.sequence.endpoints.autonomousSystem.number   service.detection.sequence.endpoints.connection.direction   service.detection.sequence.endpoints.domain   service.detection.sequence.endpoints.id   service.detection.sequence.endpoints.ip   service.detection.sequence.endpoints.location.city   service.detection.sequence.endpoints.location.country   service.detection.sequence.endpoints.location.lat   service.detection.sequence.endpoints.location.lon   service.detection.sequence.endpoints.port   service.detection.sequence.resources.accountId   service.detection.sequence.resources.cloudPartition   service.detection.sequence.resources.data.accessKey.principalId   service.detection.sequence.resources.data.accessKey.userName   service.detection.sequence.resources.data.accessKey.userType   service.detection.sequence.resources.data.autoscalingAutoScalingGroup.ec2InstanceUids   service.detection.sequence.resources.data.cloudformationStack.ec2InstanceUids   service.detection.sequence.resources.data.container.image   service.detection.sequence.resources.data.container.imageUid   service.detection.sequence.resources.data.ec2Image.ec2InstanceUids   service.detection.sequence.resources.data.ec2Instance.availabilityZone   service.detection.sequence.resources.data.ec2Instance.ec2NetworkInterfaceUids   service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.arn   service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.id   service.detection.sequence.resources.data.ec2Instance.imageDescription   service.detection.sequence.resources.data.ec2Instance.instanceState   service.detection.sequence.resources.data.ec2Instance.instanceType   service.detection.sequence.resources.data.ec2Instance.outpostArn   service.detection.sequence.resources.data.ec2Instance.platform   service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeId   service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeType   service.detection.sequence.resources.data.ec2LaunchTemplate.ec2InstanceUids   service.detection.sequence.resources.data.ec2LaunchTemplate.version   service.detection.sequence.resources.data.ec2NetworkInterface.ipv6Addresses   service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateDnsName   service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateIpAddress   service.detection.sequence.resources.data.ec2NetworkInterface.publicIp   service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupId   service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupName   service.detection.sequence.resources.data.ec2NetworkInterface.subNetId   service.detection.sequence.resources.data.ec2NetworkInterface.vpcId   service.detection.sequence.resources.data.ec2Vpc.ec2InstanceUids   service.detection.sequence.resources.data.ecsCluster.ec2InstanceUids   service.detection.sequence.resources.data.ecsCluster.status   service.detection.sequence.resources.data.ecsTask.containerUids   service.detection.sequence.resources.data.ecsTask.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.ecsTask.launchType   service.detection.sequence.resources.data.ecsTask.taskDefinitionArn   service.detection.sequence.resources.data.eksCluster.arn   service.detection.sequence.resources.data.eksCluster.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.eksCluster.ec2InstanceUids   service.detection.sequence.resources.data.eksCluster.status   service.detection.sequence.resources.data.eksCluster.vpcId   service.detection.sequence.resources.data.iamInstanceProfile.ec2InstanceUids   service.detection.sequence.resources.data.iamInstanceProfile.id   service.detection.sequence.resources.data.kubernetesWorkload.containerUids   service.detection.sequence.resources.data.kubernetesWorkload.namespace   service.detection.sequence.resources.data.kubernetesWorkload.type   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclAccess   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclIgnoreBehavior   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicBucketRestrictBehavior   service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicPolicyAccess   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclAccess   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclIgnoreBehavior   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicBucketRestrictBehavior   service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicPolicyAccess   service.detection.sequence.resources.data.s3Bucket.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.resources.data.s3Bucket.effectivePermission   service.detection.sequence.resources.data.s3Bucket.encryptionKeyArn   service.detection.sequence.resources.data.s3Bucket.encryptionType   service.detection.sequence.resources.data.s3Bucket.ownerId   service.detection.sequence.resources.data.s3Bucket.publicReadAccess   service.detection.sequence.resources.data.s3Bucket.publicWriteAccess   service.detection.sequence.resources.data.s3Bucket.s3ObjectUids   service.detection.sequence.resources.data.s3Object.eTag   service.detection.sequence.resources.data.s3Object.key   service.detection.sequence.resources.data.s3Object.versionId   service.detection.sequence.resources.name   service.detection.sequence.resources.region   service.detection.sequence.resources.resourceType   service.detection.sequence.resources.service   service.detection.sequence.resources.tags.key   service.detection.sequence.resources.tags.value   service.detection.sequence.resources.uid   service.detection.sequence.sequenceIndicators.key   service.detection.sequence.sequenceIndicators.title   service.detection.sequence.sequenceIndicators.values   service.detection.sequence.signals.actorIds   service.detection.sequence.signals.count   service.detection.sequence.signals.createdAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.description   service.detection.sequence.signals.endpointIds   service.detection.sequence.signals.firstSeenAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.lastSeenAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.signals.name   service.detection.sequence.signals.resourceUids   service.detection.sequence.signals.severity   service.detection.sequence.signals.signalIndicators.key   service.detection.sequence.signals.signalIndicators.title   service.detection.sequence.signals.signalIndicators.values   service.detection.sequence.signals.type   service.detection.sequence.signals.uid   service.detection.sequence.signals.updatedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.detection.sequence.uid   service.detectorId   service.ebsVolumeScanDetails.scanCompletedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.count   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.severity   service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.threatName   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.files   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.totalGb   service.ebsVolumeScanDetails.scanDetections.scannedItemCount.volumes   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.itemCount   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.shortened   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.fileName   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.filePath   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.volumeArn   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.itemCount   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity   service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.uniqueThreatNameCount   service.ebsVolumeScanDetails.scanDetections.threatsDetectedItemCount.files   service.ebsVolumeScanDetails.scanId   service.ebsVolumeScanDetails.scanStartedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.ebsVolumeScanDetails.scanType   service.ebsVolumeScanDetails.sources   service.ebsVolumeScanDetails.triggerFindingId   service.eventFirstSeen Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.eventLastSeen Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.evidence.threatIntelligenceDetails.threatFileSha256   service.evidence.threatIntelligenceDetails.threatListName   service.evidence.threatIntelligenceDetails.threatNames   service.featureName   service.malwareScanDetails.scanCategory   service.malwareScanDetails.scanConfiguration.incrementalScanDetails.baselineResourceArn   service.malwareScanDetails.scanConfiguration.triggerType   service.malwareScanDetails.scanId   service.malwareScanDetails.scanType   service.malwareScanDetails.threats.count   service.malwareScanDetails.threats.hash   service.malwareScanDetails.threats.itemDetails.additionalInfo.deviceName   service.malwareScanDetails.threats.itemDetails.additionalInfo.versionId   service.malwareScanDetails.threats.itemDetails.hash   service.malwareScanDetails.threats.itemDetails.itemPath   service.malwareScanDetails.threats.itemDetails.resourceArn   service.malwareScanDetails.threats.itemPaths.hash   service.malwareScanDetails.threats.itemPaths.nestedItemPath   service.malwareScanDetails.threats.name   service.malwareScanDetails.threats.source   service.malwareScanDetails.uniqueThreatCount   service.resourceRole   service.runtimeDetails.context.addressFamily   service.runtimeDetails.context.commandLineExample   service.runtimeDetails.context.fileOperation   service.runtimeDetails.context.filePath   service.runtimeDetails.context.fileSystemType   service.runtimeDetails.context.flags   service.runtimeDetails.context.ianaProtocolNumber   service.runtimeDetails.context.ldPreloadValue   service.runtimeDetails.context.libraryPath   service.runtimeDetails.context.memoryRegions   service.runtimeDetails.context.modifiedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.euid   service.runtimeDetails.context.modifyingProcess.executablePath   service.runtimeDetails.context.modifyingProcess.executableSha256   service.runtimeDetails.context.modifyingProcess.lineage.euid   service.runtimeDetails.context.modifyingProcess.lineage.executablePath   service.runtimeDetails.context.modifyingProcess.lineage.name   service.runtimeDetails.context.modifyingProcess.lineage.namespacePid   service.runtimeDetails.context.modifyingProcess.lineage.parentUuid   service.runtimeDetails.context.modifyingProcess.lineage.pid   service.runtimeDetails.context.modifyingProcess.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.lineage.userId   service.runtimeDetails.context.modifyingProcess.lineage.uuid   service.runtimeDetails.context.modifyingProcess.name   service.runtimeDetails.context.modifyingProcess.namespacePid   service.runtimeDetails.context.modifyingProcess.parentUuid   service.runtimeDetails.context.modifyingProcess.pid   service.runtimeDetails.context.modifyingProcess.pwd   service.runtimeDetails.context.modifyingProcess.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.modifyingProcess.user   service.runtimeDetails.context.modifyingProcess.userId   service.runtimeDetails.context.modifyingProcess.uuid   service.runtimeDetails.context.moduleFilePath   service.runtimeDetails.context.moduleName   service.runtimeDetails.context.moduleSha256   service.runtimeDetails.context.mountSource   service.runtimeDetails.context.mountTarget   service.runtimeDetails.context.relatedFilePaths   service.runtimeDetails.context.releaseAgentPath   service.runtimeDetails.context.runcBinaryPath   service.runtimeDetails.context.scriptPath   service.runtimeDetails.context.serviceName   service.runtimeDetails.context.shellHistoryFilePath   service.runtimeDetails.context.socketPath   service.runtimeDetails.context.targetProcess.euid   service.runtimeDetails.context.targetProcess.executablePath   service.runtimeDetails.context.targetProcess.executableSha256   service.runtimeDetails.context.targetProcess.lineage.euid   service.runtimeDetails.context.targetProcess.lineage.executablePath   service.runtimeDetails.context.targetProcess.lineage.name   service.runtimeDetails.context.targetProcess.lineage.namespacePid   service.runtimeDetails.context.targetProcess.lineage.parentUuid   service.runtimeDetails.context.targetProcess.lineage.pid   service.runtimeDetails.context.targetProcess.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.targetProcess.lineage.userId   service.runtimeDetails.context.targetProcess.lineage.uuid   service.runtimeDetails.context.targetProcess.name   service.runtimeDetails.context.targetProcess.namespacePid   service.runtimeDetails.context.targetProcess.parentUuid   service.runtimeDetails.context.targetProcess.pid   service.runtimeDetails.context.targetProcess.pwd   service.runtimeDetails.context.targetProcess.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.context.targetProcess.user   service.runtimeDetails.context.targetProcess.userId   service.runtimeDetails.context.targetProcess.uuid   service.runtimeDetails.context.threatFilePath   service.runtimeDetails.context.toolCategory   service.runtimeDetails.context.toolName   service.runtimeDetails.process.euid   service.runtimeDetails.process.executablePath   service.runtimeDetails.process.executableSha256   service.runtimeDetails.process.lineage.euid   service.runtimeDetails.process.lineage.executablePath   service.runtimeDetails.process.lineage.name   service.runtimeDetails.process.lineage.namespacePid   service.runtimeDetails.process.lineage.parentUuid   service.runtimeDetails.process.lineage.pid   service.runtimeDetails.process.lineage.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.process.lineage.userId   service.runtimeDetails.process.lineage.uuid   service.runtimeDetails.process.name   service.runtimeDetails.process.namespacePid   service.runtimeDetails.process.parentUuid   service.runtimeDetails.process.pid   service.runtimeDetails.process.pwd   service.runtimeDetails.process.startTime Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000   service.runtimeDetails.process.user   service.runtimeDetails.process.userId   service.runtimeDetails.process.uuid   service.serviceName   service.userFeedback   severity To configure severity based filters, use the following for the FindingCriteria condition:    Low: ["1", "2", "3"]     Medium: ["4", "5", "6"]     High: ["7", "8"]     Critical: ["9", "10"]    For more information, see Findings severity levels in the Amazon GuardDuty User Guide.   type   updatedAt Type: Timestamp in Unix Epoch millisecond format. Ex: 1486685375000',
           args: {
             name: "structure",
           },
@@ -3287,6 +3895,14 @@ const completionSpec: Fig.Spec = {
           name: "--no-activate",
           description:
             "The updated Boolean value that specifies whether the IPSet is active or not",
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -3480,12 +4096,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-enable",
           description:
-            "Represents whether or not to automatically enable member accounts in the organization. Even though this is still supported, we recommend using AutoEnableOrganizationMembers to achieve the similar results. You must provide a value for either autoEnableOrganizationMembers or autoEnable",
+            "Represents whether to automatically enable member accounts in the organization. This applies to only new member accounts, not the existing member accounts. When a new account joins the organization, the chosen features will be enabled for them by default. Even though this is still supported, we recommend using AutoEnableOrganizationMembers to achieve the similar results. You must provide a value for either autoEnableOrganizationMembers or autoEnable",
         },
         {
           name: "--no-auto-enable",
           description:
-            "Represents whether or not to automatically enable member accounts in the organization. Even though this is still supported, we recommend using AutoEnableOrganizationMembers to achieve the similar results. You must provide a value for either autoEnableOrganizationMembers or autoEnable",
+            "Represents whether to automatically enable member accounts in the organization. This applies to only new member accounts, not the existing member accounts. When a new account joins the organization, the chosen features will be enabled for them by default. Even though this is still supported, we recommend using AutoEnableOrganizationMembers to achieve the similar results. You must provide a value for either autoEnableOrganizationMembers or autoEnable",
         },
         {
           name: "--data-sources",
@@ -3577,6 +4193,80 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-threat-entity-set",
+      description:
+        "Updates the threat entity set associated with the specified threatEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector associated with the threat entity set that you want to update. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--threat-entity-set-id",
+          description:
+            "The ID returned by GuardDuty after updating the threat entity set resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "A user-friendly name to identify the trusted entity set. The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--location",
+          description:
+            "The URI of the file that contains the trusted entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using this updated threat entity set. After you update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated entity set to be effective",
+        },
+        {
+          name: "--no-activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using this updated threat entity set. After you update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated entity set to be effective",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-threat-intel-set",
       description:
         "Updates the ThreatIntelSet specified by the ThreatIntelSet ID",
@@ -3622,6 +4312,88 @@ const completionSpec: Fig.Spec = {
           name: "--no-activate",
           description:
             "The updated Boolean value that specifies whether the ThreateIntelSet is active or not",
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-trusted-entity-set",
+      description:
+        "Updates the trusted entity set associated with the specified trustedEntitySetId",
+      options: [
+        {
+          name: "--detector-id",
+          description:
+            "The unique ID of the GuardDuty detector associated with the threat entity set that you want to update. To find the detectorId in the current Region, see the Settings page in the GuardDuty console, or run the ListDetectors API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trusted-entity-set-id",
+          description:
+            "The ID returned by GuardDuty after updating the trusted entity set resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "A user-friendly name to identify the trusted entity set. The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--location",
+          description:
+            "The URI of the file that contains the trusted entity set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expected-bucket-owner",
+          description:
+            "The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the location parameter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using this updated trusted entity set. After you update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated entity set to be effective",
+        },
+        {
+          name: "--no-activate",
+          description:
+            "A boolean value that indicates whether GuardDuty is to start using this updated trusted entity set. After you update an entity set, you will need to activate it again. It might take up to 15 minutes for the updated entity set to be effective",
         },
         {
           name: "--cli-input-json",

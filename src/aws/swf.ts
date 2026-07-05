@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "swf",
   description:
-    "Amazon Simple Workflow Service The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to coordinate work across distributed components. In Amazon SWF, a task represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application. Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state. This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the  Amazon SWF Developer Guide",
+    "Amazon Simple Workflow Service The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to coordinate work across distributed components. In Amazon SWF, a task represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application. Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state. This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the  Amazon SWF Developer Guide ",
   subcommands: [
     {
       name: "count-closed-workflow-executions",
@@ -581,22 +582,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--reverse-order",
           description:
             "When set to true, returns the events in reverse order. By default the results are returned in ascending order of the eventTimeStamp of the events",
@@ -676,22 +661,6 @@ const completionSpec: Fig.Spec = {
             "Specifies the registration status of the activity types to list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -809,22 +778,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--reverse-order",
           description:
             "When set to true, returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions",
@@ -883,27 +836,11 @@ const completionSpec: Fig.Spec = {
         "Returns the list of domains registered in the account. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken returned by the initial call.  This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.   Access Control  You can use IAM policies to control this action's access to Amazon SWF resources as follows:   Use a Resource element with the domain name to limit the action to only specified domains. The element must be set to arn:aws:swf::AccountID:domain/*, where AccountID is the account ID, with no dashes.   Use an Action element to allow or deny permission to call this action.   You cannot use an IAM policy to constrain this action's parameters.   If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's cause parameter is set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF Workflows in the Amazon SWF Developer Guide",
       options: [
         {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--registration-status",
           description:
             "Specifies the registration status of the domains to list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -994,22 +931,6 @@ const completionSpec: Fig.Spec = {
             "If specified, only executions that have the matching tag are listed.   executionFilter, typeFilter and tagFilter are mutually exclusive. You can specify at most one of these in a request",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1130,22 +1051,6 @@ const completionSpec: Fig.Spec = {
             "Specifies the registration status of the workflow types to list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1276,22 +1181,6 @@ const completionSpec: Fig.Spec = {
             "Identity of the decider making the request, which is recorded in the DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-page-token",
-          description:
-            'If NextPageToken is returned there are more results available. The value of NextPageToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a 400 error: "Specified token has exceeded its maximum lifetime".  The configured maximumPageSize determines how many results can be returned in a single call.   The nextPageToken returned by this action cannot be used with GetWorkflowExecutionHistory to get the next page. You must call PollForDecisionTask again (with the nextPageToken) to retrieve the next page of history records. Calling PollForDecisionTask with a nextPageToken doesn\'t return a new decision task',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--maximum-page-size",
-          description:
-            "The maximum number of results that are returned per call. Use nextPageToken to obtain further pages of results.  This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1452,7 +1341,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--default-task-priority",
           description:
-            "The default task priority to assign to the activity type. If not assigned, then 0 is used. Valid values are integers that range from Java's Integer.MIN_VALUE (-2147483648) to Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see Setting Task Priority in the in the Amazon SWF Developer Guide",
+            "The default task priority to assign to the activity type. If not assigned, then 0 is used. Valid values are integers that range from Java's Integer.MIN_VALUE (-2147483648) to Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see Setting Task Priority in the in the Amazon SWF Developer Guide.",
           args: {
             name: "string",
           },
@@ -1618,7 +1507,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--default-child-policy",
           description:
-            "If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the TerminateWorkflowExecution action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the StartWorkflowExecution action or the StartChildWorkflowExecution Decision. The supported child policies are:    TERMINATE \u2013 The child executions are terminated.    REQUEST_CANCEL \u2013 A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON \u2013 No action is taken. The child executions continue to run",
+            "If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the TerminateWorkflowExecution action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the StartWorkflowExecution action or the StartChildWorkflowExecution Decision. The supported child policies are:    TERMINATE – The child executions are terminated.    REQUEST_CANCEL – A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON – No action is taken. The child executions continue to run",
           args: {
             name: "string",
           },
@@ -2034,7 +1923,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--child-policy",
           description:
-            "If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the TerminateWorkflowExecution action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using RegisterWorkflowType. The supported child policies are:    TERMINATE \u2013 The child executions are terminated.    REQUEST_CANCEL \u2013 A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON \u2013 No action is taken. The child executions continue to run.    A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned",
+            "If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the TerminateWorkflowExecution action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using RegisterWorkflowType. The supported child policies are:    TERMINATE – The child executions are terminated.    REQUEST_CANCEL – A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON – No action is taken. The child executions continue to run.    A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned",
           args: {
             name: "string",
           },
@@ -2150,7 +2039,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--child-policy",
           description:
-            "If set, specifies the policy to use for the child workflow executions of the workflow execution being terminated. This policy overrides the child policy specified for the workflow execution at registration time or when starting the execution. The supported child policies are:    TERMINATE \u2013 The child executions are terminated.    REQUEST_CANCEL \u2013 A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON \u2013 No action is taken. The child executions continue to run.    A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned",
+            "If set, specifies the policy to use for the child workflow executions of the workflow execution being terminated. This policy overrides the child policy specified for the workflow execution at registration time or when starting the execution. The supported child policies are:    TERMINATE – The child executions are terminated.    REQUEST_CANCEL – A request to cancel is attempted for each child execution by recording a WorkflowExecutionCancelRequested event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    ABANDON – No action is taken. The child executions continue to run.    A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned",
           args: {
             name: "string",
           },

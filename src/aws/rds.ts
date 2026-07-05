@@ -1,8 +1,49 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "rds",
   description:
     "Amazon Relational Database Service  Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique. Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle, Db2, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS is flexible: you can scale your DB instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use. This interface reference for Amazon RDS contains documentation for a programming or command line interface you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might require techniques such as polling or callback functions to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot, or during the maintenance window. The reference structure is as follows, and we list following some related topics from the user guide.  Amazon RDS API Reference    For the alphabetical list of API actions, see API Actions.   For the alphabetical list of data types, see Data Types.   For a list of common query parameters, see Common Parameters.   For descriptions of the error codes, see Common Errors.    Amazon RDS User Guide    For a summary of the Amazon RDS interfaces, see Available RDS Interfaces.   For more information about how to use the Query API, see Using the Query API",
   subcommands: [
+    {
+      name: "add-option-to-option-group",
+      options: [
+        {
+          name: "--option-group-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--apply-immediately",
+        },
+        {
+          name: "--no-apply-immediately",
+        },
+        {
+          name: "--options",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
     {
       name: "add-role-to-db-cluster",
       description:
@@ -229,7 +270,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "authorize-db-security-group-ingress",
       description:
-        "Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC instances. Second, IP ranges are available if the application accessing your database is running on the internet. Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC). You can't authorize ingress from an EC2 security group in one Amazon Web Services Region to an Amazon RDS DB instance in another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another. For an overview of CIDR ranges, go to the Wikipedia Tutorial.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring \u2013 Here\u2019s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
+        "Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC instances. Second, IP ranges are available if the application accessing your database is running on the internet. Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC). You can't authorize ingress from an EC2 security group in one Amazon Web Services Region to an Amazon RDS DB instance in another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another. For an overview of CIDR ranges, go to the Wikipedia Tutorial.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring – Here’s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-security-group-name",
@@ -445,7 +486,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-cluster-snapshot-identifier",
           description:
-            "The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive. You can't copy an encrypted, shared DB cluster snapshot from one Amazon Web Services Region to another. Constraints:   Must specify a valid system snapshot in the \"available\" state.   If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier.   If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB cluster snapshot ARN. For more information, go to  Copying Snapshots Across Amazon Web Services Regions in the Amazon Aurora User Guide.   Example: my-cluster-snapshot1",
+            'The identifier of the DB cluster snapshot to copy. This parameter isn\'t case-sensitive. Constraints:   Must specify a valid source snapshot in the "available" state.   If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier.   If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB cluster snapshot ARN. You can also specify an ARN of a snapshot that is in a different account and a different Amazon Web Services Region. For more information, go to  Copying Snapshots Across Amazon Web Services Regions in the Amazon Aurora User Guide.   Example: my-cluster-snapshot1',
           args: {
             name: "string",
           },
@@ -494,8 +535,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--source-region",
-          description:
-            "The ID of the region that contains the snapshot to be copied",
           args: {
             name: "string",
           },
@@ -582,7 +621,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-snapshot-identifier",
           description:
-            'The identifier for the source DB snapshot. If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier. For example, you might specify rds:mysql-instance1-snapshot-20130805. If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB snapshot ARN. For example, you might specify arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805. If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot. If you are copying an encrypted snapshot this parameter must be in the ARN format for the source Amazon Web Services Region. Constraints:   Must specify a valid system snapshot in the "available" state.   Example: rds:mydb-2012-04-02-00-01  Example: arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805',
+            'The identifier for the source DB snapshot. If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier. For example, you might specify rds:mysql-instance1-snapshot-20130805. If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot. If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB snapshot ARN. You can also specify an ARN of a snapshot that is in a different account and a different Amazon Web Services Region. For example, you might specify arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805. Constraints:   Must specify a valid source snapshot in the "available" state.   Example: rds:mydb-2012-04-02-00-01  Example: arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805',
           args: {
             name: "string",
           },
@@ -646,6 +685,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--snapshot-target",
+          description:
+            "Configures the location where RDS will store copied snapshots. Valid Values:    local (Dedicated Local Zone)    outposts (Amazon Web Services Outposts)    region (Amazon Web Services Region)",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--copy-option-group",
           description:
             "Specifies whether to copy the DB option group associated with the source DB snapshot to the target Amazon Web Services account and associate with the target DB snapshot. The associated option group can be copied only with cross-account snapshot copy calls",
@@ -656,9 +703,15 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to copy the DB option group associated with the source DB snapshot to the target Amazon Web Services account and associate with the target DB snapshot. The associated option group can be copied only with cross-account snapshot copy calls",
         },
         {
-          name: "--source-region",
+          name: "--snapshot-availability-zone",
           description:
-            "The ID of the region that contains the snapshot to be copied",
+            "Specifies the name of the Availability Zone where RDS stores the DB snapshot. This value is valid only for snapshots that RDS stores on a Dedicated Local Zone",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source-region",
           args: {
             name: "string",
           },
@@ -864,7 +917,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb",
+            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb    RDS Custom for SQL Server supports the following values:    custom-sqlserver-ee     custom-sqlserver-se     custom-sqlserver-web     custom-sqlserver-dev    RDS for SQL Server supports the following values:    sqlserver-ee (Bring Your Own Media)    sqlserver-se (Bring Your Own Media)    sqlserver-dev-ee",
           args: {
             name: "string",
           },
@@ -872,7 +925,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-version",
           description:
-            "The name of your CEV. The name format is 19.customized_string. For example, a valid CEV name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region",
+            "The name of your custom engine version (CEV). For RDS Custom for Oracle, the name format is 19.*customized_string*. For example, a valid CEV name is 19.my_cev1. For RDS Custom for SQL Server and RDS for SQL Server sqlserver-dev-ee, the name format is *major_engine_version*.*minor_engine_version*.*customized_string*. For example, a valid CEV name is 16.00.4215.2.my_cev1. For RDS for SQL Server Bring Your Own Media (sqlserver-ee, sqlserver-se), specify the RDS engine version that you want to use. For example, 16.00.4175.1.v1. The CEV name is unique per customer per Amazon Web Services Regions",
           args: {
             name: "string",
           },
@@ -894,6 +947,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--database-installation-files",
+          description:
+            "The database installation files (ISO and EXE) uploaded to Amazon S3 for your database engine version to import to Amazon RDS. For RDS for SQL Server Bring Your Own Media (sqlserver-ee, sqlserver-se), provide the SQL Server RTM ISO file once per major version and edition combination. Minor versions reuse the same file",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--image-id",
           description:
             "The ID of the Amazon Machine Image (AMI). For RDS Custom for SQL Server, an AMI ID is required to create a CEV. For RDS Custom for Oracle, the default is the most recent AMI available, but you can specify an AMI ID that was used in a different Oracle CEV. Find the AMIs used by your CEVs by calling the DescribeDBEngineVersions operation",
@@ -908,6 +969,24 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--source-custom-db-engine-version-identifier",
+          description:
+            "The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either Source or UseAwsProvidedLatestImage. You can't specify a different JSON manifest when you specify SourceCustomDbEngineVersionIdentifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--use-aws-provided-latest-image",
+          description:
+            "Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify UseAwsProvidedLatestImage, you can't also specify ImageId",
+        },
+        {
+          name: "--no-use-aws-provided-latest-image",
+          description:
+            "Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify UseAwsProvidedLatestImage, you can't also specify ImageId",
         },
         {
           name: "--description",
@@ -933,24 +1012,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--source-custom-db-engine-version-identifier",
-          description:
-            "The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either Source or UseAwsProvidedLatestImage. You can't specify a different JSON manifest when you specify SourceCustomDbEngineVersionIdentifier",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--use-aws-provided-latest-image",
-          description:
-            "Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify UseAwsProvidedLatestImage, you can't also specify ImageId",
-        },
-        {
-          name: "--no-use-aws-provided-latest-image",
-          description:
-            "Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify UseAwsProvidedLatestImage, you can't also specify ImageId",
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -972,12 +1033,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-db-cluster",
       description:
-        "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the CreateDBInstance operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see What is Amazon Aurora? in the Amazon Aurora User Guide. You can also use the ReplicationSourceIdentifier parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
+        "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the CreateDBInstance operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see What is Amazon Aurora? in the Amazon Aurora User Guide. You can also use the ReplicationSourceIdentifier parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see Multi-AZ DB cluster deployments in the Amazon RDS User Guide. You can use the WithExpressConfiguration parameter to create an Aurora DB Cluster with express configuration and create cluster in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API",
       options: [
         {
           name: "--availability-zones",
           description:
-            "A list of Availability Zones (AZs) where you specifically want to create DB instances in the DB cluster. For information on AZs, see Availability Zones in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only Constraints:   Can't specify more than three AZs",
+            "A list of Availability Zones (AZs) where you specifically want to create DB instances in the DB cluster. For the first three DB instances that you create, RDS distributes each DB instance to a different AZ that you specify. For additional DB instances that you create, RDS randomly distributes them to the AZs that you specified. For example, if you create a DB cluster with one writer instance and three reader instances, RDS might distribute the writer instance to AZ 1, the first reader instance to AZ 2, the second reader instance to AZ 3, and the third reader instance to either AZ 1, AZ 2, or AZ 3.  For more information, see Availability Zones and High availability for Aurora DB instances in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only Constraints:   Can't specify more than three AZs",
           args: {
             name: "list",
           },
@@ -1041,7 +1102,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine to use for this DB cluster. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:    aurora-mysql     aurora-postgresql     mysql     postgres     neptune - For information about using Amazon Neptune, see the  Amazon Neptune User Guide",
+            "The database engine to use for this DB cluster. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:    aurora-mysql     aurora-postgresql     mysql     postgres     neptune - For information about using Amazon Neptune, see the  Amazon Neptune User Guide ",
           args: {
             name: "string",
           },
@@ -1165,7 +1226,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-cloudwatch-logs-exports",
           description:
-            "The list of log types that need to be enabled for exporting to CloudWatch Logs. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters The following values are valid for each DB engine:   Aurora MySQL - audit | error | general | slowquery    Aurora PostgreSQL - postgresql    RDS for MySQL - error | general | slowquery    RDS for PostgreSQL - postgresql | upgrade    For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
+            "The list of log types that need to be enabled for exporting to CloudWatch Logs. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters The following values are valid for each DB engine:   Aurora MySQL - audit | error | general | instance | slowquery | iam-db-auth-error    Aurora PostgreSQL - instance | postgresql | iam-db-auth-error    RDS for MySQL - error | general | slowquery | iam-db-auth-error    RDS for PostgreSQL - postgresql | upgrade | iam-db-auth-error    For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
           args: {
             name: "list",
           },
@@ -1194,6 +1255,58 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--db-cluster-instance-class",
+          description:
+            "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see DB instance class in the Amazon RDS User Guide. This setting is required to create a Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--allocated-storage",
+          description:
+            "The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only This setting is required to create a Multi-AZ DB cluster",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-type",
+          description:
+            "The storage type to associate with the DB cluster. For information on storage types for Aurora DB clusters, see Storage configurations for Amazon Aurora DB clusters. For information on storage types for Multi-AZ DB clusters, see Settings for creating Multi-AZ DB clusters. This setting is required to create a Multi-AZ DB cluster. When specified for a Multi-AZ DB cluster, a value for the Iops parameter is required. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:   Aurora DB clusters - aurora | aurora-iopt1    Multi-AZ DB clusters - io1 | io2 | gp3    Default:   Aurora DB clusters - aurora    Multi-AZ DB clusters - io1     When you create an Aurora DB cluster with the storage type set to aurora-iopt1, the storage type is returned in the response. The storage type isn't returned when you set it to aurora",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iops",
+          description:
+            "The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid IOPS values, see Provisioned IOPS storage in the Amazon RDS User Guide. This setting is required to create a Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only Constraints:   Must be a multiple between .5 and 50 of the storage amount for the DB cluster",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--publicly-accessible",
+          description:
+            "Specifies whether the DB cluster is publicly accessible. Valid for Cluster Type: Multi-AZ DB clusters only When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its domain name system (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is controlled by its security group settings. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. The default behavior when PubliclyAccessible is not specified depends on whether a DBSubnetGroup is specified. If DBSubnetGroup isn't specified, PubliclyAccessible defaults to true. If DBSubnetGroup is specified, PubliclyAccessible defaults to false unless the value of DBSubnetGroup is default, in which case PubliclyAccessible defaults to true. If PubliclyAccessible is true and the VPC that the DBSubnetGroup is in doesn't have an internet gateway attached to it, Amazon RDS returns an error",
+        },
+        {
+          name: "--no-publicly-accessible",
+          description:
+            "Specifies whether the DB cluster is publicly accessible. Valid for Cluster Type: Multi-AZ DB clusters only When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its domain name system (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is controlled by its security group settings. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. The default behavior when PubliclyAccessible is not specified depends on whether a DBSubnetGroup is specified. If DBSubnetGroup isn't specified, PubliclyAccessible defaults to true. If DBSubnetGroup is specified, PubliclyAccessible defaults to false unless the value of DBSubnetGroup is default, in which case PubliclyAccessible defaults to true. If PubliclyAccessible is true and the VPC that the DBSubnetGroup is in doesn't have an internet gateway attached to it, Amazon RDS returns an error",
+        },
+        {
+          name: "--auto-minor-version-upgrade",
+          description:
+            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
+        },
+        {
+          name: "--no-auto-minor-version-upgrade",
+          description:
+            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
+        },
+        {
           name: "--deletion-protection",
           description:
             "Specifies whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
@@ -1214,12 +1327,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-http-endpoint",
           description:
-            "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled. When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor. RDS Data API is supported with the following DB clusters:   Aurora PostgreSQL Serverless v2 and provisioned   Aurora PostgreSQL and Aurora MySQL Serverless v1   For more information, see Using RDS Data API in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only",
+            "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled. When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor. For more information, see Using RDS Data API in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only",
         },
         {
           name: "--no-enable-http-endpoint",
           description:
-            "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled. When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor. RDS Data API is supported with the following DB clusters:   Aurora PostgreSQL Serverless v2 and provisioned   Aurora PostgreSQL and Aurora MySQL Serverless v1   For more information, see Using RDS Data API in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only",
+            "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled. When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor. For more information, see Using RDS Data API in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters only",
         },
         {
           name: "--copy-tags-to-snapshot",
@@ -1258,61 +1371,25 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database. You can set this value only on Aurora DB clusters that are members of an Aurora global database. With this parameter enabled, a secondary cluster can forward writes to the current primary cluster, and the resulting changes are replicated back to this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is demoted by a global cluster API operation, but it does nothing until then. Valid for Cluster Type: Aurora DB clusters only",
         },
         {
-          name: "--db-cluster-instance-class",
+          name: "--network-type",
           description:
-            "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see DB instance class in the Amazon RDS User Guide. This setting is required to create a Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "The network type of the DB cluster. The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters only Valid Values: IPV4 | DUAL",
           args: {
             name: "string",
           },
         },
         {
-          name: "--allocated-storage",
+          name: "--serverless-v2-scaling-configuration",
           description:
-            "The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only This setting is required to create a Multi-AZ DB cluster",
+            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
           args: {
-            name: "integer",
+            name: "structure",
           },
-        },
-        {
-          name: "--storage-type",
-          description:
-            "The storage type to associate with the DB cluster. For information on storage types for Aurora DB clusters, see Storage configurations for Amazon Aurora DB clusters. For information on storage types for Multi-AZ DB clusters, see Settings for creating Multi-AZ DB clusters. This setting is required to create a Multi-AZ DB cluster. When specified for a Multi-AZ DB cluster, a value for the Iops parameter is required. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:   Aurora DB clusters - aurora | aurora-iopt1    Multi-AZ DB clusters - io1 | io2 | gp3    Default:   Aurora DB clusters - aurora    Multi-AZ DB clusters - io1     When you create an Aurora DB cluster with the storage type set to aurora-iopt1, the storage type is returned in the response. The storage type isn't returned when you set it to aurora",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--iops",
-          description:
-            "The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid IOPS values, see Provisioned IOPS storage in the Amazon RDS User Guide. This setting is required to create a Multi-AZ DB cluster. Valid for Cluster Type: Multi-AZ DB clusters only Constraints:   Must be a multiple between .5 and 50 of the storage amount for the DB cluster",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--publicly-accessible",
-          description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Valid for Cluster Type: Multi-AZ DB clusters only Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public",
-        },
-        {
-          name: "--no-publicly-accessible",
-          description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Valid for Cluster Type: Multi-AZ DB clusters only Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public",
-        },
-        {
-          name: "--auto-minor-version-upgrade",
-          description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Multi-AZ DB clusters only",
-        },
-        {
-          name: "--no-auto-minor-version-upgrade",
-          description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Multi-AZ DB clusters only",
         },
         {
           name: "--monitoring-interval",
           description:
-            "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. If MonitoringRoleArn is specified, also set MonitoringInterval to a value other than 0. Valid for Cluster Type: Multi-AZ DB clusters only Valid Values: 0 | 1 | 5 | 10 | 15 | 30 | 60  Default: 0",
+            "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. If MonitoringRoleArn is specified, also set MonitoringInterval to a value other than 0. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: 0 | 1 | 5 | 10 | 15 | 30 | 60  Default: 0",
           args: {
             name: "integer",
           },
@@ -1320,7 +1397,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--monitoring-role-arn",
           description:
-            "The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is arn:aws:iam:123456789012:role/emaccess. For information on creating a monitoring role, see Setting up and enabling Enhanced Monitoring in the Amazon RDS User Guide. If MonitoringInterval is set to a value other than 0, supply a MonitoringRoleArn value. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is arn:aws:iam:123456789012:role/emaccess. For information on creating a monitoring role, see Setting up and enabling Enhanced Monitoring in the Amazon RDS User Guide. If MonitoringInterval is set to a value other than 0, supply a MonitoringRoleArn value. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "string",
           },
@@ -1328,7 +1405,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--database-insights-mode",
           description:
-            "Specifies the mode of Database Insights to enable for the cluster",
+            "The mode of Database Insights to enable for the DB cluster. If you set this value to advanced, you must also set the PerformanceInsightsEnabled parameter to true and the PerformanceInsightsRetentionPeriod parameter to 465. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "string",
           },
@@ -1336,17 +1413,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-performance-insights",
           description:
-            "Specifies whether to turn on Performance Insights for the DB cluster. For more information, see  Using Amazon Performance Insights in the Amazon RDS User Guide. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "Specifies whether to turn on Performance Insights for the DB cluster. For more information, see  Using Amazon Performance Insights in the Amazon RDS User Guide. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--no-enable-performance-insights",
           description:
-            "Specifies whether to turn on Performance Insights for the DB cluster. For more information, see  Using Amazon Performance Insights in the Amazon RDS User Guide. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "Specifies whether to turn on Performance Insights for the DB cluster. For more information, see  Using Amazon Performance Insights in the Amazon RDS User Guide. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--performance-insights-kms-key-id",
           description:
-            "The Amazon Web Services KMS key identifier for encryption of Performance Insights data. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you don't specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "The Amazon Web Services KMS key identifier for encryption of Performance Insights data. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you don't specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "string",
           },
@@ -1354,7 +1431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--performance-insights-retention-period",
           description:
-            "The number of days to retain Performance Insights data. Valid for Cluster Type: Multi-AZ DB clusters only Valid Values:    7     month * 31, where month is a number of months from 1-23. Examples: 93 (3 months * 31), 341 (11 months * 31), 589 (19 months * 31)    731    Default: 7 days If you specify a retention period that isn't valid, such as 94, Amazon RDS issues an error",
+            "The number of days to retain Performance Insights data. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:    7     month * 31, where month is a number of months from 1-23. Examples: 93 (3 months * 31), 341 (11 months * 31), 589 (19 months * 31)    731    Default: 7 days If you specify a retention period that isn't valid, such as 94, Amazon RDS issues an error",
           args: {
             name: "integer",
           },
@@ -1368,22 +1445,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-enable-limitless-database",
           description:
             "Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group. Valid for: Aurora DB clusters only  This setting is no longer used. Instead use the ClusterScalabilityType setting",
-        },
-        {
-          name: "--serverless-v2-scaling-configuration",
-          description:
-            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--network-type",
-          description:
-            "The network type of the DB cluster. The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters only Valid Values: IPV4 | DUAL",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--cluster-scalability-type",
@@ -1411,14 +1472,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide and Password management with Amazon Web Services Secrets Manager in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
         },
         {
-          name: "--master-user-secret-kms-key-id",
-          description:
-            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If you don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a customer managed KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--enable-local-write-forwarding",
           description:
             "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
@@ -1427,6 +1480,14 @@ const completionSpec: Fig.Spec = {
           name: "--no-enable-local-write-forwarding",
           description:
             "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
+        },
+        {
+          name: "--master-user-secret-kms-key-id",
+          description:
+            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If you don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a customer managed KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--ca-certificate-identifier",
@@ -1439,15 +1500,39 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Using Amazon RDS Extended Support in the Amazon Aurora User Guide    Amazon RDS - Using Amazon RDS Extended Support in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Amazon RDS Extended Support with Amazon Aurora in the Amazon Aurora User Guide    Amazon RDS - Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
           args: {
             name: "string",
           },
         },
         {
-          name: "--source-region",
+          name: "--tag-specifications",
           description:
-            "The ID of the region that contains the source for the db cluster",
+            "Tags to assign to resources associated with the DB cluster. Valid Values:     cluster-auto-backup - The DB cluster's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--master-user-authentication-type",
+          description:
+            "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster. You can specify one of the following values:    password - Use standard database authentication with a password.    iam-db-auth - Use IAM database authentication for the master user.   Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--with-express-configuration",
+          description:
+            "Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API.  Valid for Cluster Type: Aurora DB clusters",
+        },
+        {
+          name: "--no-with-express-configuration",
+          description:
+            "Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API.  Valid for Cluster Type: Aurora DB clusters",
+        },
+        {
+          name: "--source-region",
           args: {
             name: "string",
           },
@@ -1682,7 +1767,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine to use for this DB instance. Not every database engine is available in every Amazon Web Services Region. Valid Values:    aurora-mysql (for Aurora MySQL DB instances)    aurora-postgresql (for Aurora PostgreSQL DB instances)    custom-oracle-ee (for RDS Custom for Oracle DB instances)    custom-oracle-ee-cdb (for RDS Custom for Oracle DB instances)    custom-oracle-se2 (for RDS Custom for Oracle DB instances)    custom-oracle-se2-cdb (for RDS Custom for Oracle DB instances)    custom-sqlserver-ee (for RDS Custom for SQL Server DB instances)    custom-sqlserver-se (for RDS Custom for SQL Server DB instances)    custom-sqlserver-web (for RDS Custom for SQL Server DB instances)    custom-sqlserver-dev (for RDS Custom for SQL Server DB instances)    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The database engine to use for this DB instance. Not every database engine is available in every Amazon Web Services Region. Valid Values:    aurora-mysql (for Aurora MySQL DB instances)    aurora-postgresql (for Aurora PostgreSQL DB instances)    custom-oracle-ee (for RDS Custom for Oracle DB instances)    custom-oracle-ee-cdb (for RDS Custom for Oracle DB instances)    custom-oracle-se2 (for RDS Custom for Oracle DB instances)    custom-oracle-se2-cdb (for RDS Custom for Oracle DB instances)    custom-sqlserver-ee (for RDS Custom for SQL Server DB instances)    custom-sqlserver-se (for RDS Custom for SQL Server DB instances)    custom-sqlserver-web (for RDS Custom for SQL Server DB instances)    custom-sqlserver-dev (for RDS Custom for SQL Server DB instances)    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-dev-ee     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -1778,12 +1863,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--multi-az",
           description:
-            "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the DB instance is a Multi-AZ deployment. This setting doesn't apply to the following DB instances:   Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)   RDS Custom",
+            "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the DB instance is a Multi-AZ deployment. This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster",
         },
         {
           name: "--no-multi-az",
           description:
-            "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the DB instance is a Multi-AZ deployment. This setting doesn't apply to the following DB instances:   Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)   RDS Custom",
+            "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the DB instance is a Multi-AZ deployment. This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster",
         },
         {
           name: "--engine-version",
@@ -1796,17 +1881,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically. If you create an RDS Custom DB instance, you must set AutoMinorVersionUpgrade to false",
+            "Specifies whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically. If you create an RDS Custom DB instance, you must set AutoMinorVersionUpgrade to false. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically. If you create an RDS Custom DB instance, you must set AutoMinorVersionUpgrade to false",
+            "Specifies whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically. If you create an RDS Custom DB instance, you must set AutoMinorVersionUpgrade to false. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--license-model",
           description:
-            "The license model information for this DB instance.  License models for RDS for Db2 require additional configuration. The Bring Your Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide. The default for RDS for Db2 is bring-your-own-license.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license",
+            "The license model information for this DB instance.  License models for RDS for Db2 require additional configuration. The bring your own license (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide. The default for RDS for Db2 is bring-your-own-license.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included | bring-your-own-media    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license",
           args: {
             name: "string",
           },
@@ -1815,6 +1900,14 @@ const completionSpec: Fig.Spec = {
           name: "--iops",
           description:
             "The amount of Provisioned IOPS (input/output operations per second) to initially allocate for the DB instance. For information about valid IOPS values, see Amazon RDS DB instance storage in the Amazon RDS User Guide. This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster. Constraints:   For RDS for Db2, MariaDB, MySQL, Oracle, and PostgreSQL - Must be a multiple between .5 and 50 of the storage amount for the DB instance.   For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "The storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the gp3 storage type. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances",
           args: {
             name: "integer",
           },
@@ -1846,12 +1939,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "Specifies whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB instance is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB instance is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB instance is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB instance is public",
+            "Specifies whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its domain name system (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is controlled by its security group settings. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. The default behavior when PubliclyAccessible is not specified depends on whether a DBSubnetGroup is specified. If DBSubnetGroup isn't specified, PubliclyAccessible defaults to false for Aurora instances and true for non-Aurora instances. If DBSubnetGroup is specified, PubliclyAccessible defaults to false unless the value of DBSubnetGroup is default, in which case PubliclyAccessible defaults to true. If PubliclyAccessible is true and the VPC that the DBSubnetGroup is in doesn't have an internet gateway attached to it, Amazon RDS returns an error",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "Specifies whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB instance is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB instance is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB instance is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB instance is public",
+            "Specifies whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its domain name system (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is controlled by its security group settings. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. The default behavior when PubliclyAccessible is not specified depends on whether a DBSubnetGroup is specified. If DBSubnetGroup isn't specified, PubliclyAccessible defaults to false for Aurora instances and true for non-Aurora instances. If DBSubnetGroup is specified, PubliclyAccessible defaults to false unless the value of DBSubnetGroup is default, in which case PubliclyAccessible defaults to true. If PubliclyAccessible is true and the VPC that the DBSubnetGroup is in doesn't have an internet gateway attached to it, Amazon RDS returns an error",
         },
         {
           name: "--tags",
@@ -1871,7 +1964,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the DB instance. If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp2",
+            "The storage type to associate with the DB instance. If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp3",
           args: {
             name: "string",
           },
@@ -2013,7 +2106,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--database-insights-mode",
           description:
-            "Specifies the mode of Database Insights to enable for the instance",
+            "The mode of Database Insights to enable for the DB instance.  Aurora DB instances inherit this value from the DB cluster, so you can't change this value",
           args: {
             name: "string",
           },
@@ -2047,7 +2140,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-cloudwatch-logs-exports",
           description:
-            "The list of log types to enable for exporting to CloudWatch Logs. For more information, see  Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. This setting doesn't apply to the following DB instances:   Amazon Aurora (CloudWatch Logs exports are managed by the DB cluster.)   RDS Custom   The following values are valid for each DB engine:   RDS for Db2 - diag.log | notify.log    RDS for MariaDB - audit | error | general | slowquery    RDS for Microsoft SQL Server - agent | error    RDS for MySQL - audit | error | general | slowquery    RDS for Oracle - alert | audit | listener | trace | oemagent    RDS for PostgreSQL - postgresql | upgrade",
+            "The list of log types to enable for exporting to CloudWatch Logs. For more information, see  Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. This setting doesn't apply to the following DB instances:   Amazon Aurora (CloudWatch Logs exports are managed by the DB cluster.)   RDS Custom   The following values are valid for each DB engine:   RDS for Db2 - diag.log | notify.log | iam-db-auth-error    RDS for MariaDB - audit | error | general | slowquery | iam-db-auth-error    RDS for Microsoft SQL Server - agent | error    RDS for MySQL - audit | error | general | slowquery | iam-db-auth-error    RDS for Oracle - alert | audit | listener | trace | oemagent    RDS for PostgreSQL - postgresql | upgrade | iam-db-auth-error",
           args: {
             name: "list",
           },
@@ -2089,22 +2182,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
         },
         {
-          name: "--custom-iam-instance-profile",
-          description:
-            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. This setting is required for RDS Custom. Constraints:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--backup-target",
-          description:
-            "The location for storing automated backups and manual snapshots. Valid Values:    outposts (Amazon Web Services Outposts)    region (Amazon Web Services Region)   Default: region  For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--network-type",
           description:
             "The network type of the DB instance. The network type is determined by the DBSubnetGroup specified for the DB instance. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide.  Valid Values: IPV4 | DUAL",
@@ -2113,11 +2190,35 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-throughput",
+          name: "--backup-target",
           description:
-            "The storage throughput value for the DB instance. This setting applies only to the gp3 storage type. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances",
+            "The location for storing automated backups and manual snapshots. Valid Values:    local (Dedicated Local Zone)    outposts (Amazon Web Services Outposts)    region (Amazon Web Services Region)   Default: region  For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
           args: {
-            name: "integer",
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-iam-instance-profile",
+          description:
+            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. This setting is required for RDS Custom. Constraints:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--db-system-id",
+          description:
+            'The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don\'t specify a SID, the value defaults to RDSCDB. The Oracle SID is also the name of your CDB',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ca-certificate-identifier",
+          description:
+            "The CA certificate identifier to use for the DB instance's server certificate. This setting doesn't apply to RDS Custom DB instances. For more information, see Using SSL/TLS to encrypt a connection to a DB instance in the Amazon RDS User Guide and  Using SSL/TLS to encrypt a connection to a DB cluster in the Amazon Aurora User Guide",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2139,20 +2240,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--ca-certificate-identifier",
+          name: "--multi-tenant",
           description:
-            "The CA certificate identifier to use for the DB instance's server certificate. This setting doesn't apply to RDS Custom DB instances. For more information, see Using SSL/TLS to encrypt a connection to a DB instance in the Amazon RDS User Guide and  Using SSL/TLS to encrypt a connection to a DB cluster in the Amazon Aurora User Guide",
-          args: {
-            name: "string",
-          },
+            "Specifies whether to use the multi-tenant configuration or the single-tenant configuration (default). This parameter only applies to RDS for Oracle container database (CDB) engines. Note the following restrictions:    The DB engine that you specify in the request must support the multi-tenant configuration. If you attempt to enable the multi-tenant configuration on a DB engine that doesn't support it, the request fails.   If you specify the multi-tenant configuration when you create your DB instance, you can't later modify this DB instance to use the single-tenant configuration",
         },
         {
-          name: "--db-system-id",
+          name: "--no-multi-tenant",
           description:
-            'The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don\'t specify a SID, the value defaults to RDSCDB. The Oracle SID is also the name of your CDB',
-          args: {
-            name: "string",
-          },
+            "Specifies whether to use the multi-tenant configuration or the single-tenant configuration (default). This parameter only applies to RDS for Oracle container database (CDB) engines. Note the following restrictions:    The DB engine that you specify in the request must support the multi-tenant configuration. If you attempt to enable the multi-tenant configuration on a DB engine that doesn't support it, the request fails.   If you specify the multi-tenant configuration when you create your DB instance, you can't later modify this DB instance to use the single-tenant configuration",
         },
         {
           name: "--dedicated-log-volume",
@@ -2165,19 +2260,33 @@ const completionSpec: Fig.Spec = {
             "Indicates whether the DB instance has a dedicated log volume (DLV) enabled",
         },
         {
-          name: "--multi-tenant",
-          description:
-            "Specifies whether to use the multi-tenant configuration or the single-tenant configuration (default). This parameter only applies to RDS for Oracle container database (CDB) engines. Note the following restrictions:    The DB engine that you specify in the request must support the multi-tenant configuration. If you attempt to enable the multi-tenant configuration on a DB engine that doesn't support it, the request fails.   If you specify the multi-tenant configuration when you create your DB instance, you can't later modify this DB instance to use the single-tenant configuration",
-        },
-        {
-          name: "--no-multi-tenant",
-          description:
-            "Specifies whether to use the multi-tenant configuration or the single-tenant configuration (default). This parameter only applies to RDS for Oracle container database (CDB) engines. Note the following restrictions:    The DB engine that you specify in the request must support the multi-tenant configuration. If you attempt to enable the multi-tenant configuration on a DB engine that doesn't support it, the request fails.   If you specify the multi-tenant configuration when you create your DB instance, you can't later modify this DB instance to use the single-tenant configuration",
-        },
-        {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Using Amazon RDS Extended Support in the Amazon RDS User Guide. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--additional-storage-volumes",
+          description:
+            "A list of additional storage volumes to create for the DB instance. You can create up to three additional storage volumes using the names rdsdbdata2, rdsdbdata3, and rdsdbdata4. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--master-user-authentication-type",
+          description:
+            "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance. You can specify one of the following values:    password - Use standard database authentication with a password.    iam-db-auth - Use IAM database authentication for the master user.   This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines",
           args: {
             name: "string",
           },
@@ -2204,7 +2313,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-db-instance-read-replica",
       description:
-        "Creates a new DB instance that acts as a read replica for an existing source DB instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see Working with read replicas and Migrating from a Multi-AZ DB cluster to a DB instance using a read replica in the Amazon RDS User Guide. Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the CreateDBInstance operation. All read replica DB instances are created with backups disabled. All other attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance or cluster, except as specified.  Your source DB instance or cluster must have backup retention enabled",
+        "Creates a new DB instance that acts as a read replica for an existing source DB instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see Working with read replicas and Migrating from a Multi-AZ DB cluster to a DB instance using a read replica in the Amazon RDS User Guide. Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the CreateDBInstance operation. RDS creates read replicas with backups disabled. All other attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance or cluster, except as specified.  Your source DB instance or cluster must have backup retention enabled",
       options: [
         {
           name: "--db-instance-identifier",
@@ -2217,7 +2326,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-instance-identifier",
           description:
-            "The identifier of the DB instance that will act as the source for the read replica. Each DB instance can have up to 15 read replicas, with the exception of Oracle and SQL Server, which can have up to five. Constraints:   Must be the identifier of an existing Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server DB instance.   Can't be specified if the SourceDBClusterIdentifier parameter is also specified.   For the limitations of Oracle read replicas, see Version and licensing considerations for RDS for Oracle replicas in the Amazon RDS User Guide.   For the limitations of SQL Server read replicas, see Read replica limitations with SQL Server in the Amazon RDS User Guide.   The specified DB instance must have automatic backups enabled, that is, its backup retention period must be greater than 0.   If the source DB instance is in the same Amazon Web Services Region as the read replica, specify a valid DB instance identifier.   If the source DB instance is in a different Amazon Web Services Region from the read replica, specify a valid DB instance ARN. For more information, see Constructing an ARN for Amazon RDS in the Amazon RDS User Guide. This doesn't apply to SQL Server or RDS Custom, which don't support cross-Region replicas",
+            "The identifier of the DB instance that will act as the source for the read replica. Each DB instance can have up to 15 read replicas, except for the following engines:   Db2 - Can have up to three replicas.   Oracle - Can have up to five read replicas.   SQL Server - Can have up to five read replicas.   Constraints:   Must be the identifier of an existing Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server DB instance.   Can't be specified if the SourceDBClusterIdentifier parameter is also specified.   For the limitations of Oracle read replicas, see Version and licensing considerations for RDS for Oracle replicas in the Amazon RDS User Guide.   For the limitations of SQL Server read replicas, see Read replica limitations with SQL Server in the Amazon RDS User Guide.   The specified DB instance must have automatic backups enabled, that is, its backup retention period must be greater than 0.   If the source DB instance is in the same Amazon Web Services Region as the read replica, specify a valid DB instance identifier.   If the source DB instance is in a different Amazon Web Services Region from the read replica, specify a valid DB instance ARN. For more information, see Constructing an ARN for Amazon RDS in the Amazon RDS User Guide. This doesn't apply to SQL Server or RDS Custom, which don't support cross-Region replicas",
           args: {
             name: "string",
           },
@@ -2259,17 +2368,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor engine upgrades to the read replica during the maintenance window. This setting doesn't apply to RDS Custom DB instances. Default: Inherits the value from the source DB instance",
+            "Specifies whether to automatically apply minor engine upgrades to the read replica during the maintenance window. This setting doesn't apply to RDS Custom DB instances. Default: Inherits the value from the source DB instance. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor engine upgrades to the read replica during the maintenance window. This setting doesn't apply to RDS Custom DB instances. Default: Inherits the value from the source DB instance",
+            "Specifies whether to automatically apply minor engine upgrades to the read replica during the maintenance window. This setting doesn't apply to RDS Custom DB instances. Default: Inherits the value from the source DB instance. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--iops",
           description:
             "The amount of Provisioned IOPS (input/output operations per second) to initially allocate for the DB instance",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "Specifies the storage throughput value for the read replica. This setting doesn't apply to RDS Custom or Amazon Aurora DB instances",
           args: {
             name: "integer",
           },
@@ -2285,7 +2402,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--db-parameter-group-name",
           description:
-            "The name of the DB parameter group to associate with this read replica DB instance. For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify a value for DBParameterGroupName, then Amazon RDS uses the DBParameterGroup of the source DB instance for a same Region read replica, or the default DBParameterGroup for the specified DB engine for a cross-Region read replica. For Multi-AZ DB cluster same Region read replica instances, if you don't specify a value for DBParameterGroupName, then Amazon RDS uses the default DBParameterGroup. Specifying a parameter group for this operation is only supported for MySQL DB instances for cross-Region read replicas, for Multi-AZ DB cluster read replica instances, and for Oracle DB instances. It isn't supported for MySQL DB instances for same Region read replicas or for RDS Custom. Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter.   Can't end with a hyphen or contain two consecutive hyphens",
+            "The name of the DB parameter group to associate with this read replica DB instance. For the Db2 DB engine, if your source DB instance uses the bring your own license (BYOL) model, then a custom parameter group must be associated with the replica. For a same Amazon Web Services Region replica, if you don't specify a custom parameter group, Amazon RDS associates the custom parameter group associated with the source DB instance. For a cross-Region replica, you must specify a custom parameter group. This custom parameter group must include your IBM Site ID and IBM Customer ID. For more information, see IBM IDs for bring your own license (BYOL) for Db2.  For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify a value for DBParameterGroupName, then Amazon RDS uses the DBParameterGroup of the source DB instance for a same Region read replica, or the default DBParameterGroup for the specified DB engine for a cross-Region read replica. For Multi-AZ DB cluster same Region read replica instances, if you don't specify a value for DBParameterGroupName, then Amazon RDS uses the default DBParameterGroup. Specifying a parameter group for this operation is only supported for MySQL DB instances for cross-Region read replicas, for Multi-AZ DB cluster read replica instances, for Db2 DB instances, and for Oracle DB instances. It isn't supported for MySQL DB instances for same Region read replicas or for RDS Custom. Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter.   Can't end with a hyphen or contain two consecutive hyphens",
           args: {
             name: "string",
           },
@@ -2327,7 +2444,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the read replica. If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1 if the Iops parameter is specified. Otherwise, gp2",
+            "The storage type to associate with the read replica. If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1 if the Iops parameter is specified. Otherwise, gp3",
           args: {
             name: "string",
           },
@@ -2386,7 +2503,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--database-insights-mode",
-          description: "Specifies the mode of Database Insights",
+          description:
+            "The mode of Database Insights to enable for the read replica.  This setting isn't supported",
           args: {
             name: "string",
           },
@@ -2504,41 +2622,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replica-mode",
           description:
-            "The open mode of the replica database: mounted or read-only.  This parameter is only supported for Oracle DB instances.  Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active Data Guard to transmit information to the mounted replica. Because it doesn't accept user connections, a mounted replica can't serve a read-only workload. You can create a combination of mounted and read-only DB replicas for the same primary DB instance. For more information, see Working with Oracle Read Replicas for Amazon RDS in the Amazon RDS User Guide. For RDS Custom, you must specify this parameter and set it to mounted. The value won't be set by default. After replica creation, you can manage the open mode manually",
+            "The open mode of the replica database. This parameter is only supported for Db2 DB instances and Oracle DB instances.  Db2  Standby DB replicas are included in Db2 Advanced Edition (AE), Db2 Community Edition (CE), and Db2 Standard Edition (SE). The main use case for standby replicas is cross-Region disaster recovery. Because it doesn't accept user connections, a standby replica can't serve a read-only workload. You can create a combination of standby and read-only DB replicas for the same primary DB instance. For more information, see Working with replicas for Amazon RDS for Db2 in the Amazon RDS User Guide. To create standby DB replicas for RDS for Db2, set this parameter to mounted.  Oracle  Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active Data Guard to transmit information to the mounted replica. Because it doesn't accept user connections, a mounted replica can't serve a read-only workload. You can create a combination of mounted and read-only DB replicas for the same primary DB instance. For more information, see Working with read replicas for Amazon RDS for Oracle in the Amazon RDS User Guide. For RDS Custom, you must specify this parameter and set it to mounted. The value won't be set by default. After replica creation, you can manage the open mode manually",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-allocated-storage",
-          description:
-            "The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance. For more information about this setting, including limitations that apply to it, see  Managing capacity automatically with Amazon RDS storage autoscaling in the Amazon RDS User Guide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--custom-iam-instance-profile",
-          description:
-            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom DB instances",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--network-type",
-          description:
-            "The network type of the DB instance. Valid Values:    IPV4     DUAL    The network type is determined by the DBSubnetGroup specified for read replica. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--storage-throughput",
-          description:
-            "Specifies the storage throughput value for the read replica. This setting doesn't apply to RDS Custom or Amazon Aurora DB instances",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2552,9 +2638,41 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts read replica. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the read replica from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
         },
         {
+          name: "--network-type",
+          description:
+            "The network type of the DB instance. Valid Values:    IPV4     DUAL    The network type is determined by the DBSubnetGroup specified for read replica. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-allocated-storage",
+          description:
+            "The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance. For more information about this setting, including limitations that apply to it, see  Managing capacity automatically with Amazon RDS storage autoscaling in the Amazon RDS User Guide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--backup-target",
+          description:
+            "The location where RDS stores automated backups and manual snapshots. Valid Values:    local for Dedicated Local Zones    region for Amazon Web Services Region",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-iam-instance-profile",
+          description:
+            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom DB instances",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--allocated-storage",
           description:
-            "The amount of storage (in gibibytes) to allocate initially for the read replica. Follow the allocation rules specified in CreateDBInstance.  Be sure to allocate enough storage for your read replica so that the create operation can succeed. You can also allocate additional storage for future growth",
+            "The amount of storage (in gibibytes) to allocate initially for the read replica. Follow the allocation rules specified in CreateDBInstance. This setting isn't valid for RDS for SQL Server.  Be sure to allocate enough storage for your read replica so that the create operation can succeed. You can also allocate additional storage for future growth",
           args: {
             name: "integer",
           },
@@ -2596,9 +2714,23 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--source-region",
+          name: "--additional-storage-volumes",
           description:
-            "The ID of the region that contains the source for the read replica",
+            "A list of additional storage volumes to create for the DB instance. You can create up to three additional storage volumes using the names rdsdbdata2, rdsdbdata3, and rdsdbdata4. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--source-region",
           args: {
             name: "string",
           },
@@ -2625,7 +2757,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-db-parameter-group",
       description:
-        "Creates a new DB parameter group. A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using ModifyDBParameterGroup. Once you've created a DB parameter group, you need to associate it with your DB instance using ModifyDBInstance. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. This command doesn't apply to RDS Custom.  After you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the character_set_database parameter. You can use the Parameter Groups option of the Amazon RDS console or the DescribeDBParameters command to verify that your DB parameter group has been created or modified",
+        "Creates a new DB parameter group. A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using ModifyDBParameterGroup. Once you've created a DB parameter group, you need to associate it with your DB instance using ModifyDBInstance. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. This command doesn't apply to RDS Custom",
       options: [
         {
           name: "--db-parameter-group-name",
@@ -2638,7 +2770,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--db-parameter-group-family",
           description:
-            'The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family. To list all of the available parameter group families for a DB engine, use the following command:  aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:  aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql   The output contains duplicates.  The following are the valid DB engine values:    aurora-mysql     aurora-postgresql     db2-ae     db2-se     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web',
+            'The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family. To list all of the available parameter group families for a DB engine, use the following command:  aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:  aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql   The output contains duplicates.  The following are the valid DB engine values:    aurora-mysql     aurora-postgresql     db2-ae     db2-ce     db2-se     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web',
           args: {
             name: "string",
           },
@@ -2697,6 +2829,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--default-auth-scheme",
+          description:
+            "The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are NONE and IAM_AUTH. When set to IAM_AUTH, the proxy uses end-to-end IAM authentication to connect to the database. If you don't specify DefaultAuthScheme or specify this parameter as NONE, you must specify the Auth option",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--auth",
           description: "The authorization mechanism that the proxy uses",
           args: {
@@ -2748,12 +2888,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--debug-logging",
           description:
-            "Specifies whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs",
+            "Specifies whether the proxy logs detailed connection and query information. When you enable DebugLogging, the proxy captures connection details and connection pool behavior from your queries. Debug logging increases CloudWatch costs and can impact proxy performance. Enable this option only when you need to troubleshoot connection or performance issues",
         },
         {
           name: "--no-debug-logging",
           description:
-            "Specifies whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs",
+            "Specifies whether the proxy logs detailed connection and query information. When you enable DebugLogging, the proxy captures connection details and connection pool behavior from your queries. Debug logging increases CloudWatch costs and can impact proxy performance. Enable this option only when you need to troubleshoot connection or performance issues",
         },
         {
           name: "--tags",
@@ -2761,6 +2901,22 @@ const completionSpec: Fig.Spec = {
             "An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--endpoint-network-type",
+          description:
+            "The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports. Valid values:    IPV4 - The proxy endpoint supports IPv4 only.    IPV6 - The proxy endpoint supports IPv6 only.    DUAL - The proxy endpoint supports both IPv4 and IPv6.   Default: IPV4  Constraints:   If you specify IPV6 or DUAL, the VPC and all subnets must have an IPv6 CIDR block.   If you specify IPV6 or DUAL, the VPC tenancy cannot be dedicated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-connection-network-type",
+          description:
+            "The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database. Valid values:    IPV4 - The proxy connects to the database using IPv4 only.    IPV6 - The proxy connects to the database using IPv6 only.   Default: IPV4  Constraints:   If you specify IPV6, the database must support dual-stack mode. RDS doesn't support IPv6-only databases.   All targets registered with the proxy must be compatible with the specified network type",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2835,6 +2991,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--endpoint-network-type",
+          description:
+            "The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports. Valid values:    IPV4 - The proxy endpoint supports IPv4 only.    IPV6 - The proxy endpoint supports IPv6 only.    DUAL - The proxy endpoint supports both IPv4 and IPv6.   Default: IPV4  Constraints:   If you specify IPV6 or DUAL, the VPC and all subnets must have an IPv6 CIDR block.   If you specify IPV6 or DUAL, the VPC tenancy cannot be dedicated",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2856,7 +3020,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-db-security-group",
       description:
-        "Creates a new DB security group. DB security groups control access to a DB instance. A DB security group controls access to EC2-Classic DB instances that are not in a VPC.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring \u2013 Here\u2019s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
+        "Creates a new DB security group. DB security groups control access to a DB instance. A DB security group controls access to EC2-Classic DB instances that are not in a VPC.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring – Here’s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-security-group-name",
@@ -2922,7 +3086,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--compute-redundancy",
           description:
-            "Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:   0 - Creates a DB shard group without a standby DB shard group. This is the default value.   1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).   2 - Creates a DB shard group with two standby DB shard groups in two different AZs",
+            "Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:   0 - Creates a DB shard group without a standby DB data access shard. This is the default value.   1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).   2 - Creates a DB shard group with two standby DB data access shard in two different AZs",
           args: {
             name: "integer",
           },
@@ -2946,12 +3110,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "Specifies whether the DB shard group is publicly accessible. When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it. When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB shard group is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB shard group is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public",
+            "Specifies whether the DB shard group is publicly accessible. When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it. When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "Specifies whether the DB shard group is publicly accessible. When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it. When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB shard group is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB shard group is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public",
+            "Specifies whether the DB shard group is publicly accessible. When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it. When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public",
         },
         {
           name: "--tags",
@@ -3203,7 +3367,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this global database cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.  This setting only applies to Aurora PostgreSQL-based global databases. You can use this setting to enroll your global cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your global cluster past the end of standard support for that engine version. For more information, see Using Amazon RDS Extended Support in the Amazon Aurora User Guide. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this global database cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your global cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, creating the global cluster will fail if the DB major version is past its end of standard support date.  This setting only applies to Aurora PostgreSQL-based global databases. You can use this setting to enroll your global cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your global cluster past the end of standard support for that engine version. For more information, see Amazon RDS Extended Support with Amazon Aurora in the Amazon Aurora User Guide. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
           args: {
             name: "string",
           },
@@ -3300,7 +3464,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-encryption-context",
           description:
-            "An optional set of non-secret key\u2013value pairs that contains additional contextual information about the data. For more information, see Encryption context in the Amazon Web Services Key Management Service Developer Guide. You can only include this parameter if you specify the KMSKeyId parameter",
+            "An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see Encryption context in the Amazon Web Services Key Management Service Developer Guide. You can only include this parameter if you specify the KMSKeyId parameter",
           args: {
             name: "map",
           },
@@ -3316,7 +3480,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-filter",
           description:
-            "Data filtering options for the integration. For more information, see Data filtering for Aurora zero-ETL integrations with Amazon Redshift.  Valid for: Integrations with Aurora MySQL source DB clusters only",
+            "Data filtering options for the integration. For more information, see Data filtering for Aurora zero-ETL integrations with Amazon Redshift or Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift",
           args: {
             name: "string",
           },
@@ -3363,7 +3527,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-name",
           description:
-            "The name of the engine to associate this option group with. Valid Values:    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The name of the engine to associate this option group with. Valid Values:    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -3441,7 +3605,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--master-user-password",
           description:
-            "The password for the master user in your tenant database. Constraints:   Must be 8 to 30 characters.   Can include any printable ASCII character except forward slash (/), double quote (\"), at symbol (@), ampersand (&), or single quote (')",
+            "The password for the master user in your tenant database. Constraints:   Must be 8 to 30 characters.   Can include any printable ASCII character except forward slash (/), double quote (\"), at symbol (@), ampersand (&), or single quote (').   Can't be specified when ManageMasterUserPassword is enabled",
           args: {
             name: "string",
           },
@@ -3457,6 +3621,24 @@ const completionSpec: Fig.Spec = {
         {
           name: "--nchar-character-set-name",
           description: "The NCHAR value for the tenant database",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+        },
+        {
+          name: "--no-manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+        },
+        {
+          name: "--master-user-secret-kms-key-id",
+          description:
+            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If you don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a customer managed KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region",
           args: {
             name: "string",
           },
@@ -3538,7 +3720,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb",
+            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb    RDS Custom for SQL Server supports the following values:    custom-sqlserver-ee     custom-sqlserver-se     custom-sqlserver-web     custom-sqlserver-dev    RDS for SQL Server supports the following values:    sqlserver-ee (Bring Your Own Media)    sqlserver-se (Bring Your Own Media)    sqlserver-dev-ee",
           args: {
             name: "string",
           },
@@ -3604,12 +3786,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--delete-automated-backups",
           description:
-            "Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted",
+            "Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the Amazon Web Services Backup policy specifies a point-in-time restore rule",
         },
         {
           name: "--no-delete-automated-backups",
           description:
-            "Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted",
+            "Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the Amazon Web Services Backup policy specifies a point-in-time restore rule",
         },
         {
           name: "--cli-input-json",
@@ -3954,7 +4136,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-db-security-group",
       description:
-        "Deletes a DB security group. The specified DB security group must not be associated with any DB instances.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring \u2013 Here\u2019s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
+        "Deletes a DB security group. The specified DB security group must not be associated with any DB instances.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring – Here’s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-security-group-name",
@@ -4217,7 +4399,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tenant-db-name",
           description:
-            "The user-supplied name of the tenant database that you want to remove from your DB instance. Amazon RDS deletes the tenant database with this name. This parameter isn\u2019t case-sensitive",
+            "The user-supplied name of the tenant database that you want to remove from your DB instance. Amazon RDS deletes the tenant database with this name. This parameter isn’t case-sensitive",
           args: {
             name: "string",
           },
@@ -4358,22 +4540,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeBlueGreenDeployments request. If you specify this parameter, the response only includes records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints:   Must be a minimum of 20.   Can't exceed 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4434,22 +4600,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter isn't currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeCertificates request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4525,22 +4675,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4610,22 +4744,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more DB clusters to describe. Supported filters include the following:    db-cluster-backtrack-id - Accepts backtrack identifiers. The results list includes information about only the backtracks identified by these identifiers.    db-cluster-backtrack-status - Accepts any of the following backtrack status values:    applying     completed     failed     pending    The results list includes information about only the backtracks identified by these values",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterBacktracks request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4701,22 +4819,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterEndpoints request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4780,22 +4882,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4854,32 +4940,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source",
           description:
-            "A specific source to return parameters for. Valid Values:    customer     engine     service",
+            "A specific source to return parameters for. Valid Values:    engine-default     system     user",
           args: {
             name: "string",
           },
         },
         {
           name: "--filters",
-          description: "This parameter isn't currently supported",
+          description:
+            "A filter that specifies one or more DB cluster parameters to describe. The only supported filter is parameter-name. The results list only includes information about the DB cluster parameters with these names",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4995,22 +5066,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--include-shared",
           description:
             "Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included. You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from another Amazon Web Services account by the ModifyDBClusterSnapshotAttribute API action",
@@ -5102,22 +5157,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--include-shared",
           description:
             "Specifies whether the output includes information about clusters shared from other Amazon Web Services accounts",
@@ -5178,7 +5217,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine to return version details for. Valid Values:    aurora-mysql     aurora-postgresql     custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb     db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The database engine to return version details for. Valid Values:    aurora-mysql     aurora-postgresql     custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb     db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web     sqlserver-dev-ee",
           args: {
             name: "string",
           },
@@ -5205,22 +5244,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more DB engine versions to describe. Supported filters:    db-parameter-group-family - Accepts parameter groups family names. The results list only includes information about the DB engine versions for these parameter group families.    engine - Accepts engine names. The results list only includes information about the DB engine versions for these engines.    engine-mode - Accepts DB engine modes. The results list only includes information about the DB engine versions for these engine modes. Valid DB engine modes are the following:    global     multimaster     parallelquery     provisioned     serverless       engine-version - Accepts engine versions. The results list only includes information about the DB engine versions for these engine versions.    status - Accepts engine version statuses. The results list only includes information about the DB engine versions for these statuses. Valid statuses are the following:    available     deprecated",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more than the MaxRecords value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -5336,22 +5359,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--db-instance-automated-backups-arn",
           description:
             "The Amazon Resource Name (ARN) of the replicated automated backups, for example, arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE. This setting doesn't apply to RDS Custom",
@@ -5421,22 +5428,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more DB instances to describe. Supported Filters:    db-cluster-id - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.    db-instance-id - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.    dbi-resource-id - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.    domain - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.    engine - Accepts engine names. The results list only includes information about the DB instances for these engines",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBInstances request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -5527,17 +5518,65 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
+          name: "--cli-input-json",
           description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--marker",
+          name: "--max-items",
           description:
-            "The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-db-major-engine-versions",
+      description:
+        "Describes the properties of specific major versions of DB engines",
+      options: [
+        {
+          name: "--engine",
+          description:
+            "The database engine to return major version details for. Valid Values:    aurora-mysql     aurora-postgresql     custom-sqlserver-ee     custom-sqlserver-se     custom-sqlserver-web     db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--major-engine-version",
+          description:
+            "A specific database major engine version to return details for. Example: 8.4",
           args: {
             name: "string",
           },
@@ -5606,22 +5645,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5687,25 +5710,10 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--filters",
-          description: "This parameter isn't currently supported",
+          description:
+            "A filter that specifies one or more DB parameters to describe. The only supported filter is parameter-name. The results list only includes information about the DB parameters with these names",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -5768,22 +5776,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -5857,22 +5849,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5943,22 +5919,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6025,22 +5985,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6124,22 +6068,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of recommendations to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBRecommendations request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6185,7 +6113,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-db-security-groups",
       description:
-        "Returns a list of DBSecurityGroup descriptions. If a DBSecurityGroupName is specified, the list will contain only the descriptions of the specified DB security group.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring \u2013 Here\u2019s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
+        "Returns a list of DBSecurityGroup descriptions. If a DBSecurityGroupName is specified, the list will contain only the descriptions of the specified DB security group.  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring – Here’s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-security-group-name",
@@ -6200,22 +6128,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter isn't currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBSecurityGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6373,7 +6285,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-type",
           description:
-            "The type of DB snapshots to be returned. You can specify one of the following values:    automated \u2013 All DB snapshots that have been automatically taken by Amazon RDS for my Amazon Web Services account.    manual \u2013 All DB snapshots that have been taken by my Amazon Web Services account.    shared \u2013 All manual DB snapshots that have been shared to my Amazon Web Services account.    public \u2013 All DB snapshots that have been marked as public.    awsbackup \u2013 All DB snapshots managed by the Amazon Web Services Backup service",
+            "The type of DB snapshots to be returned. You can specify one of the following values:    automated – All DB snapshots that have been automatically taken by Amazon RDS for my Amazon Web Services account.    manual – All DB snapshots that have been taken by my Amazon Web Services account.    shared – All manual DB snapshots that have been shared to my Amazon Web Services account.    public – All DB snapshots that have been marked as public.    awsbackup – All DB snapshots managed by the Amazon Web Services Backup service",
           args: {
             name: "string",
           },
@@ -6384,22 +6296,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more tenant databases to describe. Supported filters:    tenant-db-name - Tenant database names. The results list only includes information about the tenant databases that match these tenant DB names.    tenant-database-resource-id - Tenant database resource identifiers. The results list only includes information about the tenant databases contained within the DB snapshots.    dbi-resource-id - DB instance resource identifiers. The results list only includes information about snapshots containing tenant databases contained within the DB instances identified by these resource identifiers.    db-instance-id - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs).    db-snapshot-id - Accepts DB snapshot identifiers.    snapshot-type - Accepts types of DB snapshots",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBSnapshotTenantDatabases request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6487,22 +6383,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more DB snapshots to describe. Supported filters:    db-instance-id - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs).    db-snapshot-id - Accepts DB snapshot identifiers.    dbi-resource-id - Accepts identifiers of source DB instances.    snapshot-type - Accepts types of DB snapshots.    engine - Accepts names of database engines",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6595,22 +6475,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6674,22 +6538,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEngineDefaultClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6740,32 +6588,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--db-parameter-group-family",
           description:
-            "The name of the DB parameter group family. Valid Values:    aurora-mysql5.7     aurora-mysql8.0     aurora-postgresql10     aurora-postgresql11     aurora-postgresql12     aurora-postgresql13     aurora-postgresql14     custom-oracle-ee-19     custom-oracle-ee-cdb-19     db2-ae     db2-se     mariadb10.2     mariadb10.3     mariadb10.4     mariadb10.5     mariadb10.6     mysql5.7     mysql8.0     oracle-ee-19     oracle-ee-cdb-19     oracle-ee-cdb-21     oracle-se2-19     oracle-se2-cdb-19     oracle-se2-cdb-21     postgres10     postgres11     postgres12     postgres13     postgres14     sqlserver-ee-11.0     sqlserver-ee-12.0     sqlserver-ee-13.0     sqlserver-ee-14.0     sqlserver-ee-15.0     sqlserver-ex-11.0     sqlserver-ex-12.0     sqlserver-ex-13.0     sqlserver-ex-14.0     sqlserver-ex-15.0     sqlserver-se-11.0     sqlserver-se-12.0     sqlserver-se-13.0     sqlserver-se-14.0     sqlserver-se-15.0     sqlserver-web-11.0     sqlserver-web-12.0     sqlserver-web-13.0     sqlserver-web-14.0     sqlserver-web-15.0",
+            "The name of the DB parameter group family. Valid Values:    aurora-mysql5.7     aurora-mysql8.0     aurora-postgresql10     aurora-postgresql11     aurora-postgresql12     aurora-postgresql13     aurora-postgresql14     custom-oracle-ee-19     custom-oracle-ee-cdb-19     db2-ae     db2-ce     db2-se     mariadb10.2     mariadb10.3     mariadb10.4     mariadb10.5     mariadb10.6     mysql5.7     mysql8.0     oracle-ee-19     oracle-ee-cdb-19     oracle-ee-cdb-21     oracle-se2-19     oracle-se2-cdb-19     oracle-se2-cdb-21     postgres10     postgres11     postgres12     postgres13     postgres14     sqlserver-ee-11.0     sqlserver-ee-12.0     sqlserver-ee-13.0     sqlserver-ee-14.0     sqlserver-ee-15.0     sqlserver-ex-11.0     sqlserver-ex-12.0     sqlserver-ex-13.0     sqlserver-ex-14.0     sqlserver-ex-15.0     sqlserver-se-11.0     sqlserver-se-12.0     sqlserver-se-13.0     sqlserver-se-14.0     sqlserver-se-15.0     sqlserver-web-11.0     sqlserver-web-12.0     sqlserver-web-13.0     sqlserver-web-14.0     sqlserver-web-15.0",
           args: {
             name: "string",
           },
         },
         {
           name: "--filters",
-          description: "This parameter isn't currently supported",
+          description:
+            "A filter that specifies one or more parameters to describe. The only supported filter is parameter-name. The results list only includes information about the parameters with these names",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEngineDefaultParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6814,7 +6647,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-event-categories",
       description:
-        'Displays a list of categories for all event source types, or, if specified, for a specified source type. You can also see this list in the "Amazon RDS event categories and event messages" section of the  Amazon RDS User Guide  or the  Amazon Aurora User Guide',
+        'Displays a list of categories for all event source types, or, if specified, for a specified source type. You can also see this list in the "Amazon RDS event categories and event messages" section of the  Amazon RDS User Guide  or the  Amazon Aurora User Guide ',
       options: [
         {
           name: "--source-type",
@@ -6868,22 +6701,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter isn't currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6990,22 +6807,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7075,22 +6876,6 @@ const completionSpec: Fig.Spec = {
             "Filters specify one or more snapshot or cluster exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive. Supported filters include the following:    export-task-identifier - An identifier for the snapshot or cluster export task.    s3-bucket - The Amazon S3 bucket the data is exported to.    source-arn - The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.    status - The status of the export task. Must be lowercase. Valid statuses are the following:    canceled     canceling     complete     failed     in_progress     starting",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeExportTasks request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later DescribeExportTasks request to retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7165,22 +6950,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeGlobalClusters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7244,22 +7013,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeIntegrations request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7309,7 +7062,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-name",
           description:
-            "The name of the engine to describe options for. Valid Values:    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The name of the engine to describe options for. Valid Values:    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -7327,22 +7080,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter isn't currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -7408,25 +7145,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeOptionGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--engine-name",
           description:
-            "A filter to only include option groups associated with this database engine. Valid Values:    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "A filter to only include option groups associated with this database engine. Valid Values:    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -7490,7 +7211,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The name of the database engine to describe DB instance options for. Valid Values:    aurora-mysql     aurora-postgresql     custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb     db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The name of the database engine to describe DB instance options for. Valid Values:    aurora-mysql     aurora-postgresql     custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb     db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -7542,22 +7263,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter isn't currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 1000",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -7622,22 +7327,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:    db-cluster-id - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes pending maintenance actions for the DB clusters identified by these ARNs.    db-instance-id - Accepts DB instance identifiers and DB instance ARNs. The results list only includes pending maintenance actions for the DB instances identified by these ARNs",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribePendingMaintenanceActions request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7762,22 +7451,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more than the MaxRecords value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7882,20 +7555,95 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
+          name: "--cli-input-json",
           description:
-            "The maximum number of records to include in the response. If more than the MaxRecords value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--marker",
+          name: "--max-items",
           description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-serverless-v2-platform-versions",
+      description:
+        "Describes the properties of specific platform versions for Aurora Serverless v2",
+      options: [
+        {
+          name: "--serverless-v2-platform-version",
+          description:
+            "A specific platform version to return details for. Example: 3",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--engine",
+          description:
+            "The database engine to return platform version details for. Valid Values:    aurora-mysql     aurora-postgresql",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description: "This parameter isn't currently supported",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--default-only",
+          description:
+            "Specifies whether to return only the default platform versions for each engine. The default platform version is the version used for new DB clusters",
+        },
+        {
+          name: "--no-default-only",
+          description:
+            "Specifies whether to return only the default platform versions for each engine. The default platform version is the version used for new DB clusters",
+        },
+        {
+          name: "--include-all",
+          description:
+            "Specifies whether to also include platform versions which are no longer in use",
+        },
+        {
+          name: "--no-include-all",
+          description:
+            "Specifies whether to also include platform versions which are no longer in use",
         },
         {
           name: "--cli-input-json",
@@ -7949,22 +7697,6 @@ const completionSpec: Fig.Spec = {
           name: "--region-name",
           description:
             "The source Amazon Web Services Region name. For example, us-east-1. Constraints:   Must specify a valid Amazon Web Services Region name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeSourceRegions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -8035,7 +7767,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tenant-db-name",
           description:
-            "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn\u2019t case-sensitive",
+            "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn’t case-sensitive",
           args: {
             name: "string",
           },
@@ -8046,22 +7778,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more database tenants to describe. Supported filters:    tenant-db-name - Tenant database names. The results list only includes information about the tenant databases that match these tenant DB names.    tenant-database-resource-id - Tenant database resource identifiers.    dbi-resource-id - DB instance resource identifiers. The results list only includes information about the tenants contained within the DB instances identified by these resource identifiers",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeTenantDatabases request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8172,7 +7888,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "download-db-log-file-portion",
       description:
-        "Downloads all or a portion of the specified log file, up to 1 MB in size. This command doesn't apply to RDS Custom",
+        "Downloads all or a portion of the specified log file, up to 1 MB in size. This command doesn't apply to RDS Custom.  This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then using the GetLogEvents operation. For more information, see GetLogEvents in the Amazon CloudWatch Logs API Reference",
       options: [
         {
           name: "--db-instance-identifier",
@@ -8187,22 +7903,6 @@ const completionSpec: Fig.Spec = {
           description: "The name of the log file to be downloaded",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            'The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--number-of-lines",
-          description:
-            'The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size. If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.   If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.   If NumberOfLines is specified and Marker isn\'t specified, then the most recent lines from the end of the log file are returned.   If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.   You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false',
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8375,6 +8075,29 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "generate-db-auth-token",
+      options: [
+        {
+          name: "--hostname",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--port",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--username",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -8564,7 +8287,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb",
+            "The database engine. RDS Custom for Oracle supports the following values:    custom-oracle-ee     custom-oracle-ee-cdb     custom-oracle-se2     custom-oracle-se2-cdb    RDS Custom for SQL Server supports the following values:    custom-sqlserver-ee     custom-sqlserver-se     custom-sqlserver-web     custom-sqlserver-dev    RDS for SQL Server supports the following values:    sqlserver-ee (Bring Your Own Media)    sqlserver-se (Bring Your Own Media)    sqlserver-dev-ee",
           args: {
             name: "string",
           },
@@ -8635,12 +8358,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--apply-immediately",
           description:
-            "Specifies whether the modifications in this request are asynchronously applied as soon as possible, regardless of the PreferredMaintenanceWindow setting for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next maintenance window. Most modifications can be applied immediately or during the next scheduled maintenance window. Some modifications, such as turning on deletion protection and changing the master password, are applied immediately\u2014regardless of when you choose to apply them. By default, this parameter is disabled. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
+            "Specifies whether the modifications in this request are asynchronously applied as soon as possible, regardless of the PreferredMaintenanceWindow setting for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next maintenance window. Most modifications can be applied immediately or during the next scheduled maintenance window. Some modifications, such as turning on deletion protection and changing the master password, are applied immediately—regardless of when you choose to apply them. By default, this parameter is disabled. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--no-apply-immediately",
           description:
-            "Specifies whether the modifications in this request are asynchronously applied as soon as possible, regardless of the PreferredMaintenanceWindow setting for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next maintenance window. Most modifications can be applied immediately or during the next scheduled maintenance window. Some modifications, such as turning on deletion protection and changing the master password, are applied immediately\u2014regardless of when you choose to apply them. By default, this parameter is disabled. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
+            "Specifies whether the modifications in this request are asynchronously applied as soon as possible, regardless of the PreferredMaintenanceWindow setting for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next maintenance window. Most modifications can be applied immediately or during the next scheduled maintenance window. Some modifications, such as turning on deletion protection and changing the master password, are applied immediately—regardless of when you choose to apply them. By default, this parameter is disabled. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--backup-retention-period",
@@ -8727,7 +8450,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cloudwatch-logs-export-configuration",
           description:
-            "The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters The following values are valid for each DB engine:   Aurora MySQL - audit | error | general | slowquery    Aurora PostgreSQL - postgresql    RDS for MySQL - error | general | slowquery    RDS for PostgreSQL - postgresql | upgrade    For more information about exporting CloudWatch Logs for Amazon RDS, see  Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
+            "The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters The following values are valid for each DB engine:   Aurora MySQL - audit | error | general | instance | slowquery | iam-db-auth-error    Aurora PostgreSQL - instance | postgresql | iam-db-auth-error    RDS for MySQL - error | general | slowquery | iam-db-auth-error    RDS for PostgreSQL - postgresql | upgrade | iam-db-auth-error    For more information about exporting CloudWatch Logs for Amazon RDS, see  Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
           args: {
             name: "structure",
           },
@@ -8857,12 +8580,28 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type of the DB cluster. The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters only Valid Values: IPV4 | DUAL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--serverless-v2-scaling-configuration",
+          description:
+            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
+          args: {
+            name: "structure",
+          },
         },
         {
           name: "--monitoring-interval",
@@ -8883,7 +8622,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--database-insights-mode",
           description:
-            "Specifies the mode of Database Insights to enable for the cluster",
+            "Specifies the mode of Database Insights to enable for the DB cluster. If you change the value from standard to advanced, you must set the PerformanceInsightsEnabled parameter to true and the PerformanceInsightsRetentionPeriod parameter to 465. If you change the value from advanced to standard, you can set the PerformanceInsightsEnabled parameter to true to collect detailed database counter and per-query metrics. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "string",
           },
@@ -8901,7 +8640,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--performance-insights-kms-key-id",
           description:
-            "The Amazon Web Services KMS key identifier for encryption of Performance Insights data. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you don't specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Multi-AZ DB clusters only",
+            "The Amazon Web Services KMS key identifier for encryption of Performance Insights data. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you don't specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "string",
           },
@@ -8909,25 +8648,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--performance-insights-retention-period",
           description:
-            "The number of days to retain Performance Insights data. Valid for Cluster Type: Multi-AZ DB clusters only Valid Values:    7     month * 31, where month is a number of months from 1-23. Examples: 93 (3 months * 31), 341 (11 months * 31), 589 (19 months * 31)    731    Default: 7 days If you specify a retention period that isn't valid, such as 94, Amazon RDS issues an error",
+            "The number of days to retain Performance Insights data. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values:    7     month * 31, where month is a number of months from 1-23. Examples: 93 (3 months * 31), 341 (11 months * 31), 589 (19 months * 31)    731    Default: 7 days If you specify a retention period that isn't valid, such as 94, Amazon RDS issues an error",
           args: {
             name: "integer",
-          },
-        },
-        {
-          name: "--serverless-v2-scaling-configuration",
-          description:
-            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--network-type",
-          description:
-            "The network type of the DB cluster. The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters only Valid Values: IPV4 | DUAL",
-          args: {
-            name: "string",
           },
         },
         {
@@ -8949,6 +8672,16 @@ const completionSpec: Fig.Spec = {
           name: "--no-rotate-master-user-password",
           description:
             "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide and Password management with Amazon Web Services Secrets Manager in the Amazon Aurora User Guide.  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Constraints:   You must apply the change immediately when rotating the master user password",
+        },
+        {
+          name: "--enable-local-write-forwarding",
+          description:
+            "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
+        },
+        {
+          name: "--no-enable-local-write-forwarding",
+          description:
+            "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
         },
         {
           name: "--master-user-secret-kms-key-id",
@@ -8977,16 +8710,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether engine mode changes from serverless to provisioned are allowed. Valid for Cluster Type: Aurora Serverless v1 DB clusters only Constraints:   You must allow engine mode changes when specifying a different value for the EngineMode parameter from the DB cluster's current engine mode",
         },
         {
-          name: "--enable-local-write-forwarding",
-          description:
-            "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
-        },
-        {
-          name: "--no-enable-local-write-forwarding",
-          description:
-            "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. Valid for: Aurora DB clusters only",
-        },
-        {
           name: "--aws-backup-recovery-point-arn",
           description:
             "The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup",
@@ -9008,6 +8731,14 @@ const completionSpec: Fig.Spec = {
           name: "--ca-certificate-identifier",
           description:
             "The CA certificate identifier to use for the DB cluster's server certificate. For more information, see Using SSL/TLS to encrypt a connection to a DB instance in the Amazon RDS User Guide. Valid for Cluster Type: Multi-AZ DB clusters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--master-user-authentication-type",
+          description:
+            "Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication. You can specify one of the following values:    password - Use standard database authentication with a password.    iam-db-auth - Use IAM database authentication for the master user.   Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines",
           args: {
             name: "string",
           },
@@ -9089,7 +8820,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "modify-db-cluster-parameter-group",
       description:
-        "Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: ParameterName, ParameterValue, and ApplyMethod. A maximum of 20 parameters can be modified in a single request.  After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create operation before the parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the character_set_database parameter. You can use the Parameter Groups option of the Amazon RDS console or the DescribeDBClusterParameters operation to verify that your DB cluster parameter group has been created or modified. If the modified DB cluster parameter group is used by an Aurora Serverless v1 cluster, Aurora applies the update immediately. The cluster restart might interrupt your workload. In that case, your application must reopen any connections and retry any transactions that were active when the parameter changes took effect.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
+        "Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: ParameterName, ParameterValue, and ApplyMethod. A maximum of 20 parameters can be modified in a single request.  There are two types of parameters - dynamic parameters and static parameters. Changes to dynamic parameters are applied to the DB cluster immediately without a reboot. Changes to static parameters are applied only after the DB cluster is rebooted, which can be done using RebootDBCluster operation. You can use the Parameter Groups option of the Amazon RDS console or the DescribeDBClusterParameters operation to verify that your DB cluster parameter group has been created or modified.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-cluster-parameter-group-name",
@@ -9247,7 +8978,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--master-user-password",
           description:
-            'The new password for the master user. Changing this parameter doesn\'t result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the MasterUserPassword element exists in the PendingModifiedValues element of the operation response.  Amazon RDS API operations never return the password, so this operation provides a way to regain access to a primary instance user if the password is lost. This includes restoring privileges that might have been accidentally revoked.  This setting doesn\'t apply to the following DB instances:   Amazon Aurora (The password for the master user is managed by the DB cluster. For more information, see ModifyDBCluster.)   RDS Custom   Default: Uses existing setting Constraints:   Can\'t be specified if ManageMasterUserPassword is turned on.   Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle, can\'t include the "&" (ampersand) or the "\'" (single quotes) character.   Length Constraints:   RDS for Db2 - Must contain from 8 to 255 characters.   RDS for MariaDB - Must contain from 8 to 41 characters.   RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.   RDS for MySQL - Must contain from 8 to 41 characters.   RDS for Oracle - Must contain from 8 to 30 characters.   RDS for PostgreSQL - Must contain from 8 to 128 characters',
+            'The new password for the master user. Changing this parameter doesn\'t result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the MasterUserPassword element exists in the PendingModifiedValues element of the operation response.  Amazon RDS API operations never return the password, so this operation provides a way to regain access to a primary instance user if the password is lost. This includes restoring privileges that might have been accidentally revoked.  This setting doesn\'t apply to the following DB instances:   Amazon Aurora The password for the master user is managed by the DB cluster. For more information, see ModifyDBCluster.   RDS Custom   RDS for Oracle CDBs in the multi-tenant configuration Specify the master password in ModifyTenantDatabase instead.   Default: Uses existing setting Constraints:   Can\'t be specified if ManageMasterUserPassword is turned on.   Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle, can\'t include the "&" (ampersand) or the "\'" (single quotes) character.   Length Constraints:   RDS for Db2 - Must contain from 8 to 255 characters.   RDS for MariaDB - Must contain from 8 to 41 characters.   RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.   RDS for MySQL - Must contain from 8 to 41 characters.   RDS for Oracle - Must contain from 8 to 30 characters.   RDS for PostgreSQL - Must contain from 8 to 128 characters',
           args: {
             name: "string",
           },
@@ -9315,17 +9046,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. An outage occurs when all the following conditions are met:   The automatic upgrade is enabled for the maintenance window.   A newer minor version is available.   RDS has enabled automatic patching for the engine version.   If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and doesn't cause an outage. For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error",
+            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. An outage occurs when all the following conditions are met:   The automatic upgrade is enabled for the maintenance window.   A newer minor version is available.   RDS has enabled automatic patching for the engine version.   If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and doesn't cause an outage. For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. An outage occurs when all the following conditions are met:   The automatic upgrade is enabled for the maintenance window.   A newer minor version is available.   RDS has enabled automatic patching for the engine version.   If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and doesn't cause an outage. For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error",
+            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. An outage occurs when all the following conditions are met:   The automatic upgrade is enabled for the maintenance window.   A newer minor version is available.   RDS has enabled automatic patching for the engine version.   If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and doesn't cause an outage. For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--license-model",
           description:
-            "The license model for the DB instance. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license",
+            "The license model for the DB instance. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included | bring-your-own-media    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license",
           args: {
             name: "string",
           },
@@ -9333,7 +9064,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iops",
           description:
-            "The new Provisioned IOPS (I/O operations per second) value for the RDS instance. Changing this setting doesn't result in an outage and the change is applied during the next maintenance window unless the ApplyImmediately parameter is enabled for this request. If you are migrating from Provisioned IOPS to standard storage, set this value to 0. The DB instance will require a reboot for the change in storage type to take effect. If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance. Constraints:   For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL - The value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.   When you increase the Provisioned IOPS, you must also specify the AllocatedStorage parameter. You can use the current value for AllocatedStorage.   Default: Uses existing setting",
+            "The new Provisioned IOPS (I/O operations per second) value for the RDS instance. Changing this setting doesn't result in an outage and the change is applied during the next maintenance window unless the ApplyImmediately parameter is enabled for this request. If you are migrating from Provisioned IOPS to standard storage, set this value to 0. The DB instance will require a reboot for the change in storage type to take effect. If you choose to migrate your DB instance from using standard storage to Provisioned IOPS (io1), or from Provisioned IOPS to standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance.  Constraints:   For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL - The value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.   When you increase the Provisioned IOPS, you must also specify the AllocatedStorage parameter. You can use the current value for AllocatedStorage.   Default: Uses existing setting",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "The storage throughput value for the DB instance. This setting applies only to the gp3 storage type. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances",
           args: {
             name: "integer",
           },
@@ -9357,7 +9096,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the DB instance. If you specify io1, io2, or gp3 you must also include a value for the Iops parameter. If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp2",
+            "The storage type to associate with the DB instance. If you specify io1, io2, or gp3 you must also include a value for the Iops parameter. If you choose to migrate your DB instance from using standard storage to gp2 (General Purpose SSD), gp3, or Provisioned IOPS (io1), or from these storage types to standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp2",
           args: {
             name: "string",
           },
@@ -9405,7 +9144,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--domain-ou",
           description:
-            "The Active Directory organizational unit for your DB instance to join. Constraints:   Must be in the distinguished name format.   Can't be longer than 64 characters.   Example: OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain",
+            "The Active Directory organizational unit for your DB instance to join. Constraints:   Must be in the distinguished name format.   Example: OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain",
           args: {
             name: "string",
           },
@@ -9425,6 +9164,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--disable-domain",
+          description:
+            "Specifies whether to remove the DB instance from the Active Directory domain",
+        },
+        {
+          name: "--no-disable-domain",
+          description:
+            "Specifies whether to remove the DB instance from the Active Directory domain",
         },
         {
           name: "--copy-tags-to-snapshot",
@@ -9479,16 +9228,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--disable-domain",
-          description:
-            "Specifies whether to remove the DB instance from the Active Directory domain",
-        },
-        {
-          name: "--no-disable-domain",
-          description:
-            "Specifies whether to remove the DB instance from the Active Directory domain",
-        },
-        {
           name: "--promotion-tier",
           description:
             "The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see  Fault Tolerance for an Aurora DB Cluster in the Amazon Aurora User Guide. This setting doesn't apply to RDS Custom DB instances. Default: 1  Valid Values: 0 - 15",
@@ -9509,7 +9248,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--database-insights-mode",
           description:
-            "Specifies the mode of Database Insights to enable for the instance",
+            "Specifies the mode of Database Insights to enable for the DB instance.  Aurora DB instances inherit this value from the DB cluster, so you can't change this value",
           args: {
             name: "string",
           },
@@ -9543,7 +9282,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cloudwatch-logs-export-configuration",
           description:
-            "The log types to be enabled for export to CloudWatch Logs for a specific DB instance. A change to the CloudwatchLogsExportConfiguration parameter is always applied to the DB instance immediately. Therefore, the ApplyImmediately parameter has no effect. This setting doesn't apply to RDS Custom DB instances",
+            "The log types to be enabled for export to CloudWatch Logs for a specific DB instance. A change to the CloudwatchLogsExportConfiguration parameter is always applied to the DB instance immediately. Therefore, the ApplyImmediately parameter has no effect. This setting doesn't apply to RDS Custom DB instances. The following values are valid for each DB engine:   Aurora MySQL - audit | error | general | slowquery | iam-db-auth-error    Aurora PostgreSQL - postgresql | iam-db-auth-error    RDS for MySQL - error | general | slowquery | iam-db-auth-error    RDS for PostgreSQL - postgresql | upgrade | iam-db-auth-error    For more information about exporting CloudWatch Logs for Amazon RDS, see  Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
           args: {
             name: "structure",
           },
@@ -9597,25 +9336,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replica-mode",
           description:
-            "A value that sets the open mode of a replica database to either mounted or read-only.  Currently, this parameter is only supported for Oracle DB instances.  Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active Data Guard to transmit information to the mounted replica. Because it doesn't accept user connections, a mounted replica can't serve a read-only workload. For more information, see Working with Oracle Read Replicas for Amazon RDS in the Amazon RDS User Guide. This setting doesn't apply to RDS Custom DB instances",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--enable-customer-owned-ip",
-          description:
-            "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
-        },
-        {
-          name: "--no-enable-customer-owned-ip",
-          description:
-            "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
-        },
-        {
-          name: "--aws-backup-recovery-point-arn",
-          description:
-            "The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup. This setting doesn't apply to RDS Custom DB instances",
+            "The open mode of a replica database. This parameter is only supported for Db2 DB instances and Oracle DB instances.  Db2  Standby DB replicas are included in Db2 Advanced Edition (AE), Db2 Community Edition (CE), and Db2 Standard Edition (SE). The main use case for standby replicas is cross-Region disaster recovery. Because it doesn't accept user connections, a standby replica can't serve a read-only workload. You can create a combination of standby and read-only DB replicas for the same primary DB instance. For more information, see Working with replicas for Amazon RDS for Db2 in the Amazon RDS User Guide. To create standby DB replicas for RDS for Db2, set this parameter to mounted.  Oracle  Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active Data Guard to transmit information to the mounted replica. Because it doesn't accept user connections, a mounted replica can't serve a read-only workload. You can create a combination of mounted and read-only DB replicas for the same primary DB instance. For more information, see Working with read replicas for Amazon RDS for Oracle in the Amazon RDS User Guide. For RDS Custom, you must specify this parameter and set it to mounted. The value won't be set by default. After replica creation, you can manage the open mode manually",
           args: {
             name: "string",
           },
@@ -9637,6 +9358,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--enable-customer-owned-ip",
+          description:
+            "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
+        },
+        {
+          name: "--no-enable-customer-owned-ip",
+          description:
+            "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
+        },
+        {
           name: "--network-type",
           description:
             "The network type of the DB instance. The network type is determined by the DBSubnetGroup specified for the DB instance. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide.  Valid Values: IPV4 | DUAL",
@@ -9645,32 +9376,32 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-throughput",
+          name: "--aws-backup-recovery-point-arn",
           description:
-            "The storage throughput value for the DB instance. This setting applies only to the gp3 storage type. This setting doesn't apply to Amazon Aurora or RDS Custom DB instances",
+            "The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup. This setting doesn't apply to RDS Custom DB instances",
           args: {
-            name: "integer",
+            name: "string",
           },
         },
         {
           name: "--manage-master-user-password",
           description:
-            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified.   Can't specify for RDS for Oracle CDB instances in the multi-tenant configuration. Use ModifyTenantDatabase instead.   Can't specify the parameters ManageMasterUserPassword and MultiTenant in the same operation",
         },
         {
           name: "--no-manage-master-user-password",
           description:
-            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified.   Can't specify for RDS for Oracle CDB instances in the multi-tenant configuration. Use ModifyTenantDatabase instead.   Can't specify the parameters ManageMasterUserPassword and MultiTenant in the same operation",
         },
         {
           name: "--rotate-master-user-password",
           description:
-            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
+            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
         },
         {
           name: "--no-rotate-master-user-password",
           description:
-            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
+            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
         },
         {
           name: "--master-user-secret-kms-key-id",
@@ -9681,12 +9412,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--engine",
+          name: "--multi-tenant",
           description:
-            "The target Oracle DB engine when you convert a non-CDB to a CDB. This intermediate step is necessary to upgrade an Oracle Database 19c non-CDB to an Oracle Database 21c CDB. Note the following requirements:   Make sure that you specify oracle-ee-cdb or oracle-se2-cdb.   Make sure that your DB engine runs Oracle Database 19c with an April 2021 or later RU.   Note the following limitations:   You can't convert a CDB to a non-CDB.   You can't convert a replica database.   You can't convert a non-CDB to a CDB and upgrade the engine version in the same command.   You can't convert the existing custom parameter or option group when it has options or parameters that are permanent or persistent. In this situation, the DB instance reverts to the default option and parameter group. To avoid reverting to the default, specify a new parameter group with --db-parameter-group-name and a new option group with --option-group-name",
-          args: {
-            name: "string",
-          },
+            "Specifies whether the to convert your DB instance from the single-tenant conﬁguration to the multi-tenant conﬁguration. This parameter is supported only for RDS for Oracle CDB instances. During the conversion, RDS creates an initial tenant database and associates the DB name, master user name, character set, and national character set metadata with this database. The tags associated with the instance also propagate to the initial tenant database. You can add more tenant databases to your DB instance by using the CreateTenantDatabase operation.  The conversion to the multi-tenant configuration is permanent and irreversible, so you can't later convert back to the single-tenant configuration. When you specify this parameter, you must also specify ApplyImmediately",
+        },
+        {
+          name: "--no-multi-tenant",
+          description:
+            "Specifies whether the to convert your DB instance from the single-tenant conﬁguration to the multi-tenant conﬁguration. This parameter is supported only for RDS for Oracle CDB instances. During the conversion, RDS creates an initial tenant database and associates the DB name, master user name, character set, and national character set metadata with this database. The tags associated with the instance also propagate to the initial tenant database. You can add more tenant databases to your DB instance by using the CreateTenantDatabase operation.  The conversion to the multi-tenant configuration is permanent and irreversible, so you can't later convert back to the single-tenant configuration. When you specify this parameter, you must also specify ApplyImmediately",
         },
         {
           name: "--dedicated-log-volume",
@@ -9699,14 +9432,36 @@ const completionSpec: Fig.Spec = {
             "Indicates whether the DB instance has a dedicated log volume (DLV) enabled",
         },
         {
-          name: "--multi-tenant",
+          name: "--engine",
           description:
-            "Specifies whether the to convert your DB instance from the single-tenant con\ufb01guration to the multi-tenant con\ufb01guration. This parameter is supported only for RDS for Oracle CDB instances. During the conversion, RDS creates an initial tenant database and associates the DB name, master user name, character set, and national character set metadata with this database. The tags associated with the instance also propagate to the initial tenant database. You can add more tenant databases to your DB instance by using the CreateTenantDatabase operation.  The conversion to the multi-tenant configuration is permanent and irreversible, so you can't later convert back to the single-tenant configuration. When you specify this parameter, you must also specify ApplyImmediately",
+            "The target Oracle DB engine when you convert a non-CDB to a CDB. This intermediate step is necessary to upgrade an Oracle Database 19c non-CDB to an Oracle Database 21c CDB. Note the following requirements:   Make sure that you specify oracle-ee-cdb or oracle-se2-cdb.   Make sure that your DB engine runs Oracle Database 19c with an April 2021 or later RU.   Note the following limitations:   You can't convert a CDB to a non-CDB.   You can't convert a replica database.   You can't convert a non-CDB to a CDB and upgrade the engine version in the same command.   You can't convert the existing custom parameter or option group when it has options or parameters that are permanent or persistent. In this situation, the DB instance reverts to the default option and parameter group. To avoid reverting to the default, specify a new parameter group with --db-parameter-group-name and a new option group with --option-group-name",
+          args: {
+            name: "string",
+          },
         },
         {
-          name: "--no-multi-tenant",
+          name: "--additional-storage-volumes",
           description:
-            "Specifies whether the to convert your DB instance from the single-tenant con\ufb01guration to the multi-tenant con\ufb01guration. This parameter is supported only for RDS for Oracle CDB instances. During the conversion, RDS creates an initial tenant database and associates the DB name, master user name, character set, and national character set metadata with this database. The tags associated with the instance also propagate to the initial tenant database. You can add more tenant databases to your DB instance by using the CreateTenantDatabase operation.  The conversion to the multi-tenant configuration is permanent and irreversible, so you can't later convert back to the single-tenant configuration. When you specify this parameter, you must also specify ApplyImmediately",
+            "A list of additional storage volumes to modify or delete for the DB instance. You can create up to 3 additional storage volumes. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--master-user-authentication-type",
+          description:
+            "Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication. You can specify one of the following values:    password - Use standard database authentication with a password.    iam-db-auth - Use IAM database authentication for the master user.   This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -9787,6 +9542,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--default-auth-scheme",
+          description:
+            "The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are NONE and IAM_AUTH. When set to IAM_AUTH, the proxy uses end-to-end IAM authentication to connect to the database",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--auth",
           description: "The new authentication settings for the DBProxy",
           args: {
@@ -9814,12 +9577,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--debug-logging",
           description:
-            "Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs",
+            "Specifies whether the proxy logs detailed connection and query information. When you enable DebugLogging, the proxy captures connection details and connection pool behavior from your queries. Debug logging increases CloudWatch costs and can impact proxy performance. Enable this option only when you need to troubleshoot connection or performance issues",
         },
         {
           name: "--no-debug-logging",
           description:
-            "Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs",
+            "Specifies whether the proxy logs detailed connection and query information. When you enable DebugLogging, the proxy captures connection details and connection pool behavior from your queries. Debug logging increases CloudWatch costs and can impact proxy performance. Enable this option only when you need to troubleshoot connection or performance issues",
         },
         {
           name: "--role-arn",
@@ -9931,7 +9694,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--new-name",
           description:
-            "The new name for the modified DBProxyTarget. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens",
+            "The new name for the modified DBProxyTarget. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens. You can't rename the default target group",
           args: {
             name: "string",
           },
@@ -10067,7 +9830,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "modify-db-snapshot",
       description:
-        "Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted or unencrypted, but not shared or public.  Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This operation doesn't apply to RDS Custom or RDS for Db2",
+        "Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted or unencrypted, but not shared or public.  Amazon RDS supports upgrading DB snapshots for MariaDB, MySQL, PostgreSQL, and Oracle. This operation doesn't apply to RDS Custom or RDS for Db2",
       options: [
         {
           name: "--db-snapshot-identifier",
@@ -10079,7 +9842,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-version",
           description:
-            "The engine version to upgrade the DB snapshot to. The following are the database engines and engine versions that are available when you upgrade a DB snapshot.  MySQL  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading a MySQL DB snapshot engine version in the Amazon RDS User Guide.   Oracle     19.0.0.0.ru-2022-01.rur-2022-01.r1 (supported for 12.2.0.1 DB snapshots)    19.0.0.0.ru-2022-07.rur-2022-07.r1 (supported for 12.1.0.2 DB snapshots)    12.1.0.2.v8 (supported for 12.1.0.1 DB snapshots)    11.2.0.4.v12 (supported for 11.2.0.2 DB snapshots)    11.2.0.4.v11 (supported for 11.2.0.3 DB snapshots)    PostgreSQL  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading a PostgreSQL DB snapshot engine version in the Amazon RDS User Guide",
+            "The engine version to upgrade the DB snapshot to. The following are the database engines and engine versions that are available when you upgrade a DB snapshot.  MariaDB  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading a MariaDB DB snapshot engine version in the Amazon RDS User Guide.   MySQL  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading a MySQL DB snapshot engine version in the Amazon RDS User Guide.   Oracle     21.0.0.0.ru-2025-04.rur-2025-04.r1 (supported for 21.0.0.0.ru-2022-01.rur-2022-01.r1, 21.0.0.0.ru-2022-04.rur-2022-04.r1, 21.0.0.0.ru-2022-07.rur-2022-07.r1, 21.0.0.0.ru-2022-10.rur-2022-10.r1, 21.0.0.0.ru-2023-01.rur-2023-01.r1 and 21.0.0.0.ru-2023-01.rur-2023-01.r2 DB snapshots)    19.0.0.0.ru-2025-04.rur-2025-04.r1 (supported for 19.0.0.0.ru-2019-07.rur-2019-07.r1, 19.0.0.0.ru-2019-10.rur-2019-10.r1 and 0.0.0.ru-2020-01.rur-2020-01.r1 DB snapshots)    19.0.0.0.ru-2022-01.rur-2022-01.r1 (supported for 12.2.0.1 DB snapshots)    19.0.0.0.ru-2022-07.rur-2022-07.r1 (supported for 12.1.0.2 DB snapshots)    12.1.0.2.v8 (supported for 12.1.0.1 DB snapshots)    11.2.0.4.v12 (supported for 11.2.0.2 DB snapshots)    11.2.0.4.v11 (supported for 11.2.0.3 DB snapshots)    PostgreSQL  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading a PostgreSQL DB snapshot engine version in the Amazon RDS User Guide",
           args: {
             name: "string",
           },
@@ -10346,8 +10109,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "modify-integration",
-      description:
-        "Modifies a zero-ETL integration with Amazon Redshift.  Currently, you can only modify integrations that have Aurora MySQL source DB clusters. Integrations with Aurora PostgreSQL and RDS sources currently don't support modifying the integration",
+      description: "Modifies a zero-ETL integration with Amazon Redshift",
       options: [
         {
           name: "--integration-identifier",
@@ -10366,7 +10128,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-filter",
           description:
-            "A new data filter for the integration. For more information, see Data filtering for Aurora zero-ETL integrations with Amazon Redshift",
+            "A new data filter for the integration. For more information, see Data filtering for Aurora zero-ETL integrations with Amazon Redshift or Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift",
           args: {
             name: "string",
           },
@@ -10413,7 +10175,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tenant-db-name",
           description:
-            "The user-supplied name of the tenant database that you want to modify. This parameter isn\u2019t case-sensitive. Constraints:   Must match the identifier of an existing tenant database",
+            "The user-supplied name of the tenant database that you want to modify. This parameter isn’t case-sensitive. Constraints:   Must match the identifier of an existing tenant database",
           args: {
             name: "string",
           },
@@ -10429,7 +10191,35 @@ const completionSpec: Fig.Spec = {
         {
           name: "--new-tenant-db-name",
           description:
-            "The new name of the tenant database when renaming a tenant database. This parameter isn\u2019t case-sensitive. Constraints:   Can't be the string null or any other reserved word.   Can't be longer than 8 characters",
+            "The new name of the tenant database when renaming a tenant database. This parameter isn’t case-sensitive. Constraints:   Can't be the string null or any other reserved word.   Can't be longer than 8 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the tenant database doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the tenant database already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+        },
+        {
+          name: "--no-manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. If the tenant database doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify MasterUserPassword. If the tenant database already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify MasterUserPassword. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by MasterUserPassword. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
+        },
+        {
+          name: "--rotate-master-user-password",
+          description:
+            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
+        },
+        {
+          name: "--no-rotate-master-user-password",
+          description:
+            "Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The secret value contains the updated password. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   You must apply the change immediately when rotating the master user password",
+        },
+        {
+          name: "--master-user-secret-kms-key-id",
+          description:
+            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if both of the following conditions are met:   The tenant database doesn't manage the master user password in Amazon Web Services Secrets Manager. If the tenant database already manages the master user password in Amazon Web Services Secrets Manager, you can't change the KMS key used to encrypt the secret.   You're turning on ManageMasterUserPassword to manage the master user password in Amazon Web Services Secrets Manager. If you're turning on ManageMasterUserPassword and don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a self-managed KMS key.   The Amazon Web Services KMS key identifier is any of the following:   Key ARN   Key ID   Alias ARN   Alias name for the KMS key   To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. A default KMS key exists for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region",
           args: {
             name: "string",
           },
@@ -10480,6 +10270,14 @@ const completionSpec: Fig.Spec = {
             "The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. To see the time blocks available, see  Adjusting the Preferred Maintenance Window in the Amazon RDS User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
           },
         },
         {
@@ -10764,6 +10562,46 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "remove-option-from-option-group",
+      options: [
+        {
+          name: "--option-group-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--apply-immediately",
+        },
+        {
+          name: "--no-apply-immediately",
+        },
+        {
+          name: "--options",
+          args: {
+            name: "list",
           },
         },
         {
@@ -11276,7 +11114,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-cloudwatch-logs-exports",
           description:
-            "The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used.  Aurora MySQL  Possible values are audit, error, general, and slowquery. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
+            "The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used.  Aurora MySQL  Possible values are audit, error, general, instance, slowquery, and iam-db-auth-error.  Aurora PostgreSQL  Possible value are instance, postgresql, and iam-db-auth-error. For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide",
           args: {
             name: "list",
           },
@@ -11318,11 +11156,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--serverless-v2-scaling-configuration",
+          name: "--storage-type",
           description:
-            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
+            "Specifies the storage type to be associated with the DB cluster. Valid Values: aurora, aurora-iopt1  Default: aurora  Valid for: Aurora DB clusters only",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -11331,6 +11169,14 @@ const completionSpec: Fig.Spec = {
             "The network type of the DB cluster. Valid Values:    IPV4     DUAL    The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--serverless-v2-scaling-configuration",
+          description:
+            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -11352,19 +11198,19 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-type",
+          name: "--engine-lifecycle-support",
           description:
-            "Specifies the storage type to be associated with the DB cluster. Valid Values: aurora, aurora-iopt1  Default: aurora  Valid for: Aurora DB clusters only",
+            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Amazon RDS Extended Support with Amazon Aurora in the Amazon Aurora User Guide    Amazon RDS - Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
           args: {
             name: "string",
           },
         },
         {
-          name: "--engine-lifecycle-support",
+          name: "--tag-specifications",
           description:
-            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Using Amazon RDS Extended Support in the Amazon Aurora User Guide    Amazon RDS - Using Amazon RDS Extended Support in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "Tags to assign to resources associated with the DB cluster. Valid Values:     cluster-auto-backup - The DB cluster's automated backup",
           args: {
-            name: "string",
+            name: "list",
           },
         },
         {
@@ -11389,7 +11235,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "restore-db-cluster-from-snapshot",
       description:
-        "Creates a new DB cluster from a DB snapshot or DB cluster snapshot. The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.  This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the CreateDBInstance operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in DBClusterIdentifier. You can create DB instances only after the RestoreDBClusterFromSnapshot operation has completed and the DB cluster is available.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
+        "Creates a new DB cluster from a DB snapshot or DB cluster snapshot. The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group. You can use the EnableVPCNetworking and EnableInternetAccessGateway parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set EnableVPCNetworking to false to disable the VPC network interface (ENI) for the cluster. EnableInternetAccessGateway enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using EnableIAMDatabaseAuthentication. Once the cluster is restored, you need to modify the DB cluster to update MasterUserAuthenticationType to iam-db-auth.   This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the CreateDBInstance operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in DBClusterIdentifier. You can create DB instances only after the RestoreDBClusterFromSnapshot operation has completed and the DB cluster is available.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
       options: [
         {
           name: "--availability-zones",
@@ -11508,7 +11354,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-cloudwatch-logs-exports",
           description:
-            "The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs. The values in the list depend on the DB engine being used.  RDS for MySQL  Possible values are error, general, and slowquery.  RDS for PostgreSQL  Possible values are postgresql and upgrade.  Aurora MySQL  Possible values are audit, error, general, and slowquery.  Aurora PostgreSQL  Possible value is postgresql. For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide. Valid for: Aurora DB clusters and Multi-AZ DB clusters",
+            "The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs. The values in the list depend on the DB engine being used.  RDS for MySQL  Possible values are error, general, slowquery, and iam-db-auth-error.  RDS for PostgreSQL  Possible values are postgresql, upgrade, and iam-db-auth-error.  Aurora MySQL  Possible values are audit, error, general, instance, slowquery, and iam-db-auth-error.  Aurora PostgreSQL  Possible value are instance, postgresql, and iam-db-auth-error. For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide. Valid for: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "list",
           },
@@ -11600,20 +11446,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Aurora DB clusters and Multi-AZ DB clusters",
+            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Aurora DB clusters and Multi-AZ DB clusters",
-        },
-        {
-          name: "--serverless-v2-scaling-configuration",
-          description:
-            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
-          args: {
-            name: "structure",
-          },
+            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Aurora DB clusters and Multi-AZ DB clusters",
         },
         {
           name: "--network-type",
@@ -11621,6 +11459,14 @@ const completionSpec: Fig.Spec = {
             "The network type of the DB cluster. Valid Values:    IPV4     DUAL    The network type is determined by the DBSubnetGroup specified for the DB cluster. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon Aurora User Guide.  Valid for: Aurora DB clusters only",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--serverless-v2-scaling-configuration",
+          description:
+            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -11673,12 +11519,56 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--engine-lifecycle-support",
+          name: "--backup-retention-period",
           description:
-            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Using Amazon RDS Extended Support in the Amazon Aurora User Guide    Amazon RDS - Using Amazon RDS Extended Support in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The number of days for which automated backups are retained. Specify a minimum value of 1. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Default: Uses existing setting Constraints:   Must be a value from 1 to 35",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--preferred-backup-window",
+          description:
+            "The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. To view the time blocks available, see  Backup window in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--engine-lifecycle-support",
+          description:
+            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Amazon RDS Extended Support with Amazon Aurora in the Amazon Aurora User Guide    Amazon RDS - Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB cluster. Valid Values:     cluster-auto-backup - The DB cluster's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--enable-vpc-networking",
+          description:
+            "Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to false to create a cluster without the VPC network interface (ENI). This parameter must be used together with EnableInternetAccessGateway. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--no-enable-vpc-networking",
+          description:
+            "Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to false to create a cluster without the VPC network interface (ENI). This parameter must be used together with EnableInternetAccessGateway. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--enable-internet-access-gateway",
+          description:
+            "Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC. This parameter must be used together with EnableVPCNetworking set to false. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--no-enable-internet-access-gateway",
+          description:
+            "Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC. This parameter must be used together with EnableVPCNetworking set to false. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
         },
         {
           name: "--cli-input-json",
@@ -11702,7 +11592,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "restore-db-cluster-to-point-in-time",
       description:
-        "Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before LatestRestorableTime for up to BackupRetentionPeriod days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.  For Aurora, this operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the CreateDBInstance operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in DBClusterIdentifier. You can create DB instances only after the RestoreDBClusterToPointInTime operation has completed and the DB cluster is available.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
+        "Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before LatestRestorableTime for up to BackupRetentionPeriod days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group. Unless the RestoreType is set to copy-on-write, the restore may occur in a different Availability Zone (AZ) from the original DB cluster. The AZ where RDS restores the DB cluster depends on the AZs in the specified subnet group. You can use the EnableVPCNetworking and EnableInternetAccessGateway parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set EnableVPCNetworking to false to disable the VPC network interface (ENI) for the cluster. EnableInternetAccessGateway enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using EnableIAMDatabaseAuthentication. Once the cluster is restored, you need to modify the DB cluster to update MasterUserAuthenticationType to iam-db-auth.   For Aurora, this operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the CreateDBInstance operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in DBClusterIdentifier. You can create DB instances only after the RestoreDBClusterToPointInTime operation has completed and the DB cluster is available.  For more information on Amazon Aurora DB clusters, see  What is Amazon Aurora? in the Amazon Aurora User Guide. For more information on Multi-AZ DB clusters, see  Multi-AZ DB cluster deployments in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-cluster-identifier",
@@ -11815,7 +11705,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-cloudwatch-logs-exports",
           description:
-            "The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used.  RDS for MySQL  Possible values are error, general, and slowquery.  RDS for PostgreSQL  Possible values are postgresql and upgrade.  Aurora MySQL  Possible values are audit, error, general, and slowquery.  Aurora PostgreSQL  Possible value is postgresql. For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide. Valid for: Aurora DB clusters and Multi-AZ DB clusters",
+            "The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used.  RDS for MySQL  Possible values are error, general, slowquery, and iam-db-auth-error.  RDS for PostgreSQL  Possible values are postgresql, upgrade, and iam-db-auth-error.  Aurora MySQL  Possible values are audit, error, general, instance, slowquery, and iam-db-auth-error.  Aurora PostgreSQL  Possible value are instance, postgresql, and iam-db-auth-error. For more information about exporting CloudWatch Logs for Amazon RDS, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon RDS User Guide. For more information about exporting CloudWatch Logs for Amazon Aurora, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide. Valid for: Aurora DB clusters and Multi-AZ DB clusters",
           args: {
             name: "list",
           },
@@ -11865,22 +11755,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--scaling-configuration",
-          description:
-            "For DB clusters in serverless DB engine mode, the scaling properties of the DB cluster. Valid for: Aurora DB clusters only",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--engine-mode",
-          description:
-            "The engine mode of the new cluster. Specify provisioned or serverless, depending on the type of the cluster you are creating. You can create an Aurora Serverless v1 clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless v1 cluster. To create a clone that is an Aurora Serverless v1 cluster, the original cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster. Valid for: Aurora DB clusters only",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--db-cluster-instance-class",
           description:
             "The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see DB instance class in the Amazon RDS User Guide. Valid for: Multi-AZ DB clusters only",
@@ -11899,12 +11773,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Multi-AZ DB clusters only",
+            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Multi-AZ DB clusters only",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn\u2019t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Multi-AZ DB clusters only",
+            "Specifies whether the DB cluster is publicly accessible. When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access to the DB cluster is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB cluster doesn't permit it. When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether DBSubnetGroupName is specified. If DBSubnetGroupName isn't specified, and PubliclyAccessible isn't specified, the following applies:   If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.   If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.   If DBSubnetGroupName is specified, and PubliclyAccessible isn't specified, the following applies:   If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.   If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.   Valid for: Multi-AZ DB clusters only",
         },
         {
           name: "--iops",
@@ -11912,14 +11786,6 @@ const completionSpec: Fig.Spec = {
             "The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid IOPS values, see Amazon RDS Provisioned IOPS storage in the Amazon RDS User Guide. Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB instance. Valid for: Multi-AZ DB clusters only",
           args: {
             name: "integer",
-          },
-        },
-        {
-          name: "--serverless-v2-scaling-configuration",
-          description:
-            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -11934,6 +11800,30 @@ const completionSpec: Fig.Spec = {
           name: "--source-db-cluster-resource-id",
           description:
             "The resource ID of the source DB cluster from which to restore",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--serverless-v2-scaling-configuration",
+          description:
+            "Contains the scaling configuration of an Aurora Serverless v2 DB cluster. For more information, see Using Amazon Aurora Serverless v2 in the Amazon Aurora User Guide",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--scaling-configuration",
+          description:
+            "For DB clusters in serverless DB engine mode, the scaling properties of the DB cluster. Valid for: Aurora DB clusters only",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--engine-mode",
+          description:
+            "The engine mode of the new cluster. Specify provisioned or serverless, depending on the type of the cluster you are creating. You can create an Aurora Serverless v1 clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless v1 cluster. To create a clone that is an Aurora Serverless v1 cluster, the original cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster. To create a full copy that is an Aurora Serverless v1 cluster, specify the engine mode serverless. Valid for: Aurora DB clusters only",
           args: {
             name: "string",
           },
@@ -11988,12 +11878,56 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--engine-lifecycle-support",
+          name: "--backup-retention-period",
           description:
-            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Using Amazon RDS Extended Support in the Amazon Aurora User Guide    Amazon RDS - Using Amazon RDS Extended Support in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The number of days for which automated backups are retained. Specify a minimum value of 1. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Default: Uses existing setting Constraints:   Must be a value from 1 to 35",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--preferred-backup-window",
+          description:
+            "The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. To view the time blocks available, see  Backup window in the Amazon Aurora User Guide. Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--engine-lifecycle-support",
+          description:
+            "The life cycle type for this DB cluster.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:   Amazon Aurora - Amazon RDS Extended Support with Amazon Aurora in the Amazon Aurora User Guide    Amazon RDS - Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide    Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB cluster. Valid Values:     cluster-auto-backup - The DB cluster's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--enable-vpc-networking",
+          description:
+            "Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to false to create a cluster without the VPC network interface (ENI). This parameter must be used together with EnableInternetAccessGateway. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--no-enable-vpc-networking",
+          description:
+            "Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to false to create a cluster without the VPC network interface (ENI). This parameter must be used together with EnableInternetAccessGateway. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--enable-internet-access-gateway",
+          description:
+            "Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC. This parameter must be used together with EnableVPCNetworking set to false. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
+        },
+        {
+          name: "--no-enable-internet-access-gateway",
+          description:
+            "Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC. This parameter must be used together with EnableVPCNetworking set to false. When both parameters are specified, IAM database authentication is required. You must also specify EnableIAMDatabaseAuthentication. Valid for Cluster Type: Aurora PostgreSQL clusters",
         },
         {
           name: "--cli-input-json",
@@ -12090,17 +12024,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor version upgrades to the DB instance during the maintenance window. If you restore an RDS Custom DB instance, you must disable this parameter",
+            "Specifies whether to automatically apply minor version upgrades to the DB instance during the maintenance window. If you restore an RDS Custom DB instance, you must disable this parameter. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor version upgrades to the DB instance during the maintenance window. If you restore an RDS Custom DB instance, you must disable this parameter",
+            "Specifies whether to automatically apply minor version upgrades to the DB instance during the maintenance window. If you restore an RDS Custom DB instance, you must disable this parameter. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--license-model",
           description:
-            "License model information for the restored DB instance.  License models for RDS for Db2 require additional configuration. The Bring Your Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license    Default: Same as the source",
+            "License model information for the restored DB instance.  License models for RDS for Db2 require additional configuration. The bring your own license (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included | bring-your-own-media    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license    Default: Same as the source",
           args: {
             name: "string",
           },
@@ -12116,7 +12050,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine to use for the new instance. This setting doesn't apply to RDS Custom. Default: The same as source Constraint: Must be compatible with the engine of the source. For example, you can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot. Valid Values:    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
+            "The database engine to use for the new instance. This setting doesn't apply to RDS Custom. Default: The same as source Constraint: Must be compatible with the engine of the source. For example, you can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot. Valid Values:    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web",
           args: {
             name: "string",
           },
@@ -12125,6 +12059,14 @@ const completionSpec: Fig.Spec = {
           name: "--iops",
           description:
             "Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations per second. If this parameter isn't specified, the IOPS value is taken from the backup. If this parameter is set to 0, the new instance is converted to a non-PIOPS instance. The conversion takes additional time, though your DB instance is available for connections before the conversion starts. The provisioned IOPS value must follow the requirements for your database engine. For more information, see Amazon RDS Provisioned IOPS storage in the Amazon RDS User Guide.  Constraints: Must be an integer greater than 1000",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "Specifies the storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
           args: {
             name: "integer",
           },
@@ -12148,7 +12090,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "Specifies the storage type to be associated with the DB instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. Default: io1 if the Iops parameter is specified, otherwise gp2",
+            "Specifies the storage type to be associated with the DB instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  If you specify io1, io2, or gp3, you must also include a value for the Iops parameter. Default: io1 if the Iops parameter is specified, otherwise gp3",
           args: {
             name: "string",
           },
@@ -12300,22 +12242,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. This setting doesn't apply to RDS Custom. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
         },
         {
-          name: "--custom-iam-instance-profile",
-          description:
-            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--backup-target",
-          description:
-            "Specifies where automated backups and manual snapshots are stored for the restored DB instance. Possible values are outposts (Amazon Web Services Outposts) and region (Amazon Web Services Region). The default is region. For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--network-type",
           description:
             "The network type of the DB instance. Valid Values:    IPV4     DUAL    The network type is determined by the DBSubnetGroup specified for the DB instance. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide",
@@ -12324,9 +12250,25 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-throughput",
+          name: "--backup-target",
           description:
-            "Specifies the storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
+            "Specifies where automated backups and manual snapshots are stored for the restored DB instance. Possible values are local (Dedicated Local Zone), outposts (Amazon Web Services Outposts), and region (Amazon Web Services Region). The default is region. For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-iam-instance-profile",
+          description:
+            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--allocated-storage",
+          description:
+            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance. This setting isn't valid for RDS for SQL Server.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
           args: {
             name: "integer",
           },
@@ -12340,11 +12282,19 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--allocated-storage",
+          name: "--backup-retention-period",
           description:
-            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
+            "The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.  Enabling and disabling backups can result in a brief I/O suspension that lasts from a few seconds to a few minutes, depending on the size and class of your DB instance.  This setting doesn't apply to Amazon Aurora DB instances. The retention period for automated backups is managed by the DB cluster. For more information, see ModifyDBCluster. Default: Uses existing setting Constraints:   Must be a value from 0 to 35.   Can't be set to 0 if the DB instance is a source to read replicas.   Can't be set to 0 for an RDS Custom for Oracle DB instance",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--preferred-backup-window",
+          description:
+            "The daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod parameter. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. For more information, see Backup window in the Amazon RDS User Guide. This setting doesn't apply to Amazon Aurora DB instances. The daily time range for creating automated backups is managed by the DB cluster. For more information, see ModifyDBCluster. Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes",
+          args: {
+            name: "string",
           },
         },
         {
@@ -12368,7 +12318,41 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Using Amazon RDS Extended Support in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--additional-storage-volumes",
+          description:
+            "A list of additional storage volumes to create for the DB instance. You can create up to three additional storage volumes using the names rdsdbdata2, rdsdbdata3, and rdsdbdata4. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide. Constraints:   Applies to RDS for Oracle only",
+        },
+        {
+          name: "--no-manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide. Constraints:   Applies to RDS for Oracle only",
+        },
+        {
+          name: "--master-user-secret-kms-key-id",
+          description:
+            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If you don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a customer managed KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region",
           args: {
             name: "string",
           },
@@ -12395,7 +12379,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "restore-db-instance-from-s3",
       description:
-        "Amazon Relational Database Service (Amazon RDS) supports importing MySQL databases by using backup files. You can create a backup of your on-premises database, store it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file onto a new Amazon RDS DB instance running MySQL. For more information, see Importing Data into an Amazon RDS MySQL DB Instance in the Amazon RDS User Guide.  This operation doesn't apply to RDS Custom",
+        "Amazon Relational Database Service (Amazon RDS) supports importing MySQL databases by using backup files. You can create a backup of your on-premises database, store it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file onto a new Amazon RDS DB instance running MySQL. For more information, see Restoring a backup into an Amazon RDS for MySQL DB instance in the Amazon RDS User Guide.  This operation doesn't apply to RDS Custom",
       options: [
         {
           name: "--db-name",
@@ -12416,7 +12400,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allocated-storage",
           description:
-            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
+            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance. This setting isn't valid for RDS for SQL Server.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
           args: {
             name: "integer",
           },
@@ -12546,12 +12530,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor engine upgrades to the DB instance during the maintenance window. By default, minor engine upgrades are not applied automatically",
+            "Specifies whether to automatically apply minor engine upgrades to the DB instance during the maintenance window. By default, minor engine upgrades are not applied automatically. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether to automatically apply minor engine upgrades to the DB instance during the maintenance window. By default, minor engine upgrades are not applied automatically",
+            "Specifies whether to automatically apply minor engine upgrades to the DB instance during the maintenance window. By default, minor engine upgrades are not applied automatically. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--license-model",
@@ -12565,6 +12549,14 @@ const completionSpec: Fig.Spec = {
           name: "--iops",
           description:
             "The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance. For information about valid IOPS values, see Amazon RDS Provisioned IOPS storage in the Amazon RDS User Guide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "Specifies the storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
           args: {
             name: "integer",
           },
@@ -12699,7 +12691,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--database-insights-mode",
           description:
-            "Specifies the mode of Database Insights to enable for the instance",
+            "Specifies the mode of Database Insights to enable for the DB instance.  Aurora DB instances inherit this value from the DB cluster, so you can't change this value",
           args: {
             name: "string",
           },
@@ -12783,14 +12775,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-throughput",
-          description:
-            "Specifies the storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--manage-master-user-password",
           description:
             "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide.  Constraints:   Can't manage the master user password with Amazon Web Services Secrets Manager if MasterUserPassword is specified",
@@ -12829,9 +12813,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Using Amazon RDS Extended Support in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Amazon RDS Extended Support Amazon RDS in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--additional-storage-volumes",
+          description:
+            "A list of additional storage volumes to modify or delete for the DB instance. You can modify or delete up to three additional storage volumes using the names rdsdbdata2, rdsdbdata3, and rdsdbdata4. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
           },
         },
         {
@@ -12947,17 +12947,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-minor-version-upgrade",
           description:
-            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. This setting doesn't apply to RDS Custom",
+            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. This setting doesn't apply to RDS Custom. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--no-auto-minor-version-upgrade",
           description:
-            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. This setting doesn't apply to RDS Custom",
+            "Specifies whether minor version upgrades are applied automatically to the DB instance during the maintenance window. This setting doesn't apply to RDS Custom. For more information about automatic minor version upgrades, see Automatically upgrading the minor engine version",
         },
         {
           name: "--license-model",
           description:
-            "The license model information for the restored DB instance.  License models for RDS for Db2 require additional configuration. The Bring Your Own License (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license    Default: Same as the source",
+            "The license model information for the restored DB instance.  License models for RDS for Db2 require additional configuration. The bring your own license (BYOL) model requires a custom parameter group and an Amazon Web Services License Manager self-managed license. The Db2 license through Amazon Web Services Marketplace model requires an Amazon Web Services Marketplace subscription. For more information, see Amazon RDS for Db2 licensing options in the Amazon RDS User Guide.  This setting doesn't apply to Amazon Aurora or RDS Custom DB instances. Valid Values:   RDS for Db2 - bring-your-own-license | marketplace-license    RDS for MariaDB - general-public-license    RDS for Microsoft SQL Server - license-included | bring-your-own-media    RDS for MySQL - general-public-license    RDS for Oracle - bring-your-own-license | license-included    RDS for PostgreSQL - postgresql-license    Default: Same as the source",
           args: {
             name: "string",
           },
@@ -12973,7 +12973,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The database engine to use for the new instance. This setting doesn't apply to RDS Custom. Valid Values:    db2-ae     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web    Default: The same as source Constraints:   Must be compatible with the engine of the source",
+            "The database engine to use for the new instance. This setting doesn't apply to RDS Custom. Valid Values:    db2-ae     db2-ce     db2-se     mariadb     mysql     oracle-ee     oracle-ee-cdb     oracle-se2     oracle-se2-cdb     postgres     sqlserver-ee     sqlserver-se     sqlserver-ex     sqlserver-web    Default: The same as source Constraints:   Must be compatible with the engine of the source",
           args: {
             name: "string",
           },
@@ -12982,6 +12982,14 @@ const completionSpec: Fig.Spec = {
           name: "--iops",
           description:
             "The amount of Provisioned IOPS (input/output operations per second) to initially allocate for the DB instance. This setting doesn't apply to SQL Server. Constraints:   Must be an integer greater than 1000",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--storage-throughput",
+          description:
+            "The storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
           args: {
             name: "integer",
           },
@@ -13015,7 +13023,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the DB instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp2. Constraints:   If you specify io1, io2, or gp3, you must also include a value for the Iops parameter",
+            "The storage type to associate with the DB instance. Valid Values: gp2 | gp3 | io1 | io2 | standard  Default: io1, if the Iops parameter is specified. Otherwise, gp3. Constraints:   If you specify io1, io2, or gp3, you must also include a value for the Iops parameter",
           args: {
             name: "string",
           },
@@ -13163,14 +13171,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--source-db-instance-automated-backups-arn",
-          description:
-            "The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE. This setting doesn't apply to RDS Custom",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--enable-customer-owned-ip",
           description:
             "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. This setting doesn't apply to RDS Custom. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
@@ -13181,22 +13181,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. A CoIP provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network. This setting doesn't apply to RDS Custom. For more information about RDS on Outposts, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide. For more information about CoIPs, see Customer-owned IP addresses in the Amazon Web Services Outposts User Guide",
         },
         {
-          name: "--custom-iam-instance-profile",
-          description:
-            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--backup-target",
-          description:
-            "The location for storing automated backups and manual snapshots for the restored DB instance. Valid Values:    outposts (Amazon Web Services Outposts)    region (Amazon Web Services Region)   Default: region  For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--network-type",
           description:
             "The network type of the DB instance. The network type is determined by the DBSubnetGroup specified for the DB instance. A DBSubnetGroup can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL). For more information, see  Working with a DB instance in a VPC in the Amazon RDS User Guide.  Valid Values:    IPV4     DUAL",
@@ -13205,19 +13189,51 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--storage-throughput",
+          name: "--source-db-instance-automated-backups-arn",
           description:
-            "The storage throughput value for the DB instance. This setting doesn't apply to RDS Custom or Amazon Aurora",
+            "The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE. This setting doesn't apply to RDS Custom",
           args: {
-            name: "integer",
+            name: "string",
+          },
+        },
+        {
+          name: "--backup-target",
+          description:
+            "The location for storing automated backups and manual snapshots for the restored DB instance. Valid Values:    local (Dedicated Local Zone)    outposts (Amazon Web Services Outposts)    region (Amazon Web Services Region)   Default: region  For more information, see Working with Amazon RDS on Amazon Web Services Outposts in the Amazon RDS User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-iam-instance-profile",
+          description:
+            "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:   The profile must exist in your account.   The profile must have an IAM role that Amazon EC2 has permissions to assume.   The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom.   For the list of permissions required for the IAM role, see  Configure IAM and your VPC in the Amazon RDS User Guide. This setting is required for RDS Custom",
+          args: {
+            name: "string",
           },
         },
         {
           name: "--allocated-storage",
           description:
-            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
+            "The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in CreateDBInstance. This setting isn't valid for RDS for SQL Server.  Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also allocate additional storage for future growth",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--backup-retention-period",
+          description:
+            "The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.  Enabling and disabling backups can result in a brief I/O suspension that lasts from a few seconds to a few minutes, depending on the size and class of your DB instance.  This setting doesn't apply to Amazon Aurora DB instances. The retention period for automated backups is managed by the DB cluster. For more information, see ModifyDBCluster. Default: Uses existing setting Constraints:   Must be a value from 0 to 35.   Can't be set to 0 if the DB instance is a source to read replicas.   Can't be set to 0 for an RDS Custom for Oracle DB instance",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--preferred-backup-window",
+          description:
+            "The daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod parameter. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. For more information, see Backup window in the Amazon RDS User Guide. This setting doesn't apply to Amazon Aurora DB instances. The daily time range for creating automated backups is managed by the DB cluster. For more information, see ModifyDBCluster. Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes",
+          args: {
+            name: "string",
           },
         },
         {
@@ -13241,7 +13257,41 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-lifecycle-support",
           description:
-            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Using Amazon RDS Extended Support in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+            "The life cycle type for this DB instance.  By default, this value is set to open-source-rds-extended-support, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to open-source-rds-extended-support-disabled. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see Amazon RDS Extended Support with Amazon RDS in the Amazon RDS User Guide. This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster. Valid Values: open-source-rds-extended-support | open-source-rds-extended-support-disabled  Default: open-source-rds-extended-support",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--additional-storage-volumes",
+          description:
+            "A list of additional storage volumes to restore to the DB instance. You can restore up to three additional storage volumes using the names rdsdbdata2, rdsdbdata3, and rdsdbdata4. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "Tags to assign to resources associated with the DB instance. Valid Values:     auto-backup - The DB instance's automated backup",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide. Constraints:   Applies to RDS for Oracle only",
+        },
+        {
+          name: "--no-manage-master-user-password",
+          description:
+            "Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance. For more information, see Password management with Amazon Web Services Secrets Manager in the Amazon RDS User Guide. Constraints:   Applies to RDS for Oracle only",
+        },
+        {
+          name: "--master-user-secret-kms-key-id",
+          description:
+            "The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If you don't specify MasterUserSecretKmsKeyId, then the aws/secretsmanager KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the aws/secretsmanager KMS key to encrypt the secret, and you must use a customer managed KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region",
           args: {
             name: "string",
           },
@@ -13268,7 +13318,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "revoke-db-security-group-ingress",
       description:
-        "Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring \u2013 Here\u2019s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
+        "Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).  EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see Migrate from EC2-Classic to a VPC in the Amazon EC2 User Guide, the blog EC2-Classic Networking is Retiring – Here’s How to Prepare, and Moving a DB instance not in a VPC into a VPC in the Amazon RDS User Guide",
       options: [
         {
           name: "--db-security-group-name",
@@ -13498,9 +13548,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--source-region",
+          name: "--tags",
           description:
-            "The ID of the region that contains the source for the db instance",
+            "A list of tags to associate with the replicated automated backups",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--source-region",
           args: {
             name: "string",
           },
@@ -13527,7 +13583,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-export-task",
       description:
-        "Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided IAM role must have access to the S3 bucket. You can't export snapshot data from Db2 or RDS Custom DB instances. For more information on exporting DB snapshot data, see Exporting DB snapshot data to Amazon S3 in the Amazon RDS User Guide or Exporting DB cluster snapshot data to Amazon S3 in the Amazon Aurora User Guide. For more information on exporting DB cluster data, see Exporting DB cluster data to Amazon S3 in the Amazon Aurora User Guide",
+        "Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided IAM role must have access to the S3 bucket. You can't export snapshot data from RDS Custom DB instances. For more information, see  Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS. For more information on exporting DB snapshot data, see Exporting DB snapshot data to Amazon S3 in the Amazon RDS User Guide or Exporting DB cluster snapshot data to Amazon S3 in the Amazon Aurora User Guide. For more information on exporting DB cluster data, see Exporting DB cluster data to Amazon S3 in the Amazon Aurora User Guide",
       options: [
         {
           name: "--export-task-identifier",
@@ -13564,7 +13620,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            "The ID of the Amazon Web Services KMS key to use to encrypt the data exported to Amazon S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of this operation must be authorized to run the following operations. These can be set in the Amazon Web Services KMS key policy:   kms:Encrypt   kms:Decrypt   kms:GenerateDataKey   kms:GenerateDataKeyWithoutPlaintext   kms:ReEncryptFrom   kms:ReEncryptTo   kms:CreateGrant   kms:DescribeKey   kms:RetireGrant",
+            "The ID of the Amazon Web Services KMS key to use to encrypt the data exported to Amazon S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of this operation must be authorized to run the following operations. These can be set in the Amazon Web Services KMS key policy:   kms:CreateGrant   kms:DescribeKey",
           args: {
             name: "string",
           },
@@ -13681,7 +13737,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "stop-db-instance",
       description:
-        "Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary. For more information, see  Stopping an Amazon RDS DB Instance Temporarily in the Amazon RDS User Guide.   This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora clusters, use StopDBCluster instead",
+        "Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically after 7 days. For more information, see  Stopping an Amazon RDS DB Instance Temporarily in the Amazon RDS User Guide.   This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora clusters, use StopDBCluster instead",
       options: [
         {
           name: "--db-instance-identifier",
@@ -13837,7 +13893,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--db-instance-identifier",
           description:
-            "The DB instance identifier of the current standby database. This value is stored as a lowercase string. Constraints:   Must match the identi\ufb01er of an existing Oracle read replica DB instance",
+            "The DB instance identifier of the current standby database. This value is stored as a lowercase string. Constraints:   Must match the identiﬁer of an existing Oracle read replica DB instance",
           args: {
             name: "string",
           },
@@ -13857,131 +13913,6 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "add-option-to-option-group",
-      description: "Modifies an existing option group",
-      options: [
-        {
-          name: "--option-group-name",
-          description:
-            "The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--apply-immediately",
-          description:
-            "Specifies whether to apply the change immediately or during the next maintenance window for each instance associated with the option group",
-        },
-        {
-          name: "--no-apply-immediately",
-          description:
-            "Specifies whether to apply the change immediately or during the next maintenance window for each instance associated with the option group",
-        },
-        {
-          name: "--options",
-          description:
-            "Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "remove-option-from-option-group",
-      description: "Modifies an existing option group",
-      options: [
-        {
-          name: "--option-group-name",
-          description:
-            "The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--apply-immediately",
-          description:
-            "Specifies whether to apply the change immediately or during the next maintenance window for each instance associated with the option group",
-        },
-        {
-          name: "--no-apply-immediately",
-          description:
-            "Specifies whether to apply the change immediately or during the next maintenance window for each instance associated with the option group",
-        },
-        {
-          name: "--options",
-          description: "Options in this list are removed from the option group",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "generate-db-auth-token",
-      description:
-        "Generates an auth token used to connect to a db with IAM credentials",
-      options: [
-        {
-          name: "--hostname",
-          description: "The hostname of the database to connect to",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--port",
-          description: "The port number the database is listening on",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--username",
-          description: "The username to log in as",
-          args: {
-            name: "string",
           },
         },
       ],
@@ -14084,7 +14015,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "db-cluster-deleted",
           description:
-            "Wait until JMESPath query length(DBClusters) == `0` returns True when polling with ``describe-db-clusters``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query length(DBClusters) == `0` returns true when polling with ``describe-db-clusters``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--db-cluster-identifier",
@@ -14297,7 +14228,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "db-cluster-snapshot-deleted",
           description:
-            "Wait until JMESPath query length(DBClusterSnapshots) == `0` returns True when polling with ``describe-db-cluster-snapshots``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query length(DBClusterSnapshots) == `0` returns true when polling with ``describe-db-cluster-snapshots``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--db-cluster-identifier",
@@ -14500,7 +14431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "db-instance-deleted",
           description:
-            "Wait until JMESPath query length(DBInstances) == `0` returns True when polling with ``describe-db-instances``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query length(DBInstances) == `0` returns true when polling with ``describe-db-instances``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--db-instance-identifier",
@@ -14701,132 +14632,9 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "db-snapshot-completed",
-          description:
-            "Wait until DBSnapshotNotFound is thrown when polling with ``describe-db-snapshots``. It will poll every 15 seconds until a successful state has been reached. This will exit with a return code of 255 after 40 failed checks",
-          options: [
-            {
-              name: "--db-instance-identifier",
-              description:
-                "The ID of the DB instance to retrieve the list of DB snapshots for. This parameter isn't case-sensitive. Constraints:   If supplied, must match the identifier of an existing DBInstance",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--db-snapshot-identifier",
-              description:
-                "A specific DB snapshot identifier to describe. This value is stored as a lowercase string. Constraints:   If supplied, must match the identifier of an existing DBSnapshot.   If this identifier is for an automated snapshot, the SnapshotType parameter must also be specified",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--snapshot-type",
-              description:
-                "The type of snapshots to be returned. You can specify one of the following values:    automated - Return all DB snapshots that have been automatically taken by Amazon RDS for my Amazon Web Services account.    manual - Return all DB snapshots that have been taken by my Amazon Web Services account.    shared - Return all manual DB snapshots that have been shared to my Amazon Web Services account.    public - Return all DB snapshots that have been marked as public.    awsbackup - Return the DB snapshots managed by the Amazon Web Services Backup service. For information about Amazon Web Services Backup, see the  Amazon Web Services Backup Developer Guide.   The awsbackup type does not apply to Aurora.   If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by enabling the IncludeShared parameter. You can include public snapshots with these results by enabling the IncludePublic parameter. The IncludeShared and IncludePublic parameters don't apply for SnapshotType values of manual or automated. The IncludePublic parameter doesn't apply when SnapshotType is set to shared. The IncludeShared parameter doesn't apply when SnapshotType is set to public",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--filters",
-              description:
-                "A filter that specifies one or more DB snapshots to describe. Supported filters:    db-instance-id - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs).    db-snapshot-id - Accepts DB snapshot identifiers.    dbi-resource-id - Accepts identifiers of source DB instances.    snapshot-type - Accepts types of DB snapshots.    engine - Accepts names of database engines",
-              args: {
-                name: "list",
-              },
-            },
-            {
-              name: "--max-records",
-              description:
-                "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--marker",
-              description:
-                "An optional pagination token provided by a previous DescribeDBSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--include-shared",
-              description:
-                "Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included. You can give an Amazon Web Services account permission to restore a manual DB snapshot from another Amazon Web Services account by using the ModifyDBSnapshotAttribute API action. This setting doesn't apply to RDS Custom",
-            },
-            {
-              name: "--no-include-shared",
-              description:
-                "Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included. You can give an Amazon Web Services account permission to restore a manual DB snapshot from another Amazon Web Services account by using the ModifyDBSnapshotAttribute API action. This setting doesn't apply to RDS Custom",
-            },
-            {
-              name: "--include-public",
-              description:
-                "Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included. You can share a manual DB snapshot as public by using the ModifyDBSnapshotAttribute API. This setting doesn't apply to RDS Custom",
-            },
-            {
-              name: "--no-include-public",
-              description:
-                "Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included. You can share a manual DB snapshot as public by using the ModifyDBSnapshotAttribute API. This setting doesn't apply to RDS Custom",
-            },
-            {
-              name: "--dbi-resource-id",
-              description: "A specific DB resource ID to describe",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--cli-input-json",
-              description:
-                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--starting-token",
-              description:
-                "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--page-size",
-              description:
-                "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--max-items",
-              description:
-                "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--generate-cli-skeleton",
-              description:
-                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-              args: {
-                name: "string",
-                suggestions: ["input", "output"],
-              },
-            },
-          ],
-        },
-        {
           name: "db-snapshot-deleted",
           description:
-            "Wait until JMESPath query length(DBSnapshots) == `0` returns True when polling with ``describe-db-snapshots``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query length(DBSnapshots) == `0` returns true when polling with ``describe-db-snapshots``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--db-instance-identifier",
@@ -14962,7 +14770,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--tenant-db-name",
               description:
-                "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn\u2019t case-sensitive",
+                "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn’t case-sensitive",
               args: {
                 name: "string",
               },
@@ -15037,7 +14845,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "tenant-database-deleted",
           description:
-            "Wait until JMESPath query length(TenantDatabases) == `0` returns True when polling with ``describe-tenant-databases``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query length(TenantDatabases) == `0` returns true when polling with ``describe-tenant-databases``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--db-instance-identifier",
@@ -15050,7 +14858,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--tenant-db-name",
               description:
-                "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn\u2019t case-sensitive",
+                "The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn’t case-sensitive",
               args: {
                 name: "string",
               },
@@ -15077,6 +14885,129 @@ const completionSpec: Fig.Spec = {
                 "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results",
               args: {
                 name: "integer",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--starting-token",
+              description:
+                "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--page-size",
+              description:
+                "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--max-items",
+              description:
+                "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "db-snapshot-completed",
+          description:
+            "Wait until DBSnapshotNotFound is thrown when polling with ``describe-db-snapshots``. It will poll every 15 seconds until a successful state has been reached. This will exit with a return code of 255 after 40 failed checks",
+          options: [
+            {
+              name: "--db-instance-identifier",
+              description:
+                "The ID of the DB instance to retrieve the list of DB snapshots for. This parameter isn't case-sensitive. Constraints:   If supplied, must match the identifier of an existing DBInstance",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--db-snapshot-identifier",
+              description:
+                "A specific DB snapshot identifier to describe. This value is stored as a lowercase string. Constraints:   If supplied, must match the identifier of an existing DBSnapshot.   If this identifier is for an automated snapshot, the SnapshotType parameter must also be specified",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--snapshot-type",
+              description:
+                "The type of snapshots to be returned. You can specify one of the following values:    automated - Return all DB snapshots that have been automatically taken by Amazon RDS for my Amazon Web Services account.    manual - Return all DB snapshots that have been taken by my Amazon Web Services account.    shared - Return all manual DB snapshots that have been shared to my Amazon Web Services account.    public - Return all DB snapshots that have been marked as public.    awsbackup - Return the DB snapshots managed by the Amazon Web Services Backup service. For information about Amazon Web Services Backup, see the  Amazon Web Services Backup Developer Guide.   The awsbackup type does not apply to Aurora.   If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by enabling the IncludeShared parameter. You can include public snapshots with these results by enabling the IncludePublic parameter. The IncludeShared and IncludePublic parameters don't apply for SnapshotType values of manual or automated. The IncludePublic parameter doesn't apply when SnapshotType is set to shared. The IncludeShared parameter doesn't apply when SnapshotType is set to public",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--filters",
+              description:
+                "A filter that specifies one or more DB snapshots to describe. Supported filters:    db-instance-id - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs).    db-snapshot-id - Accepts DB snapshot identifiers.    dbi-resource-id - Accepts identifiers of source DB instances.    snapshot-type - Accepts types of DB snapshots.    engine - Accepts names of database engines",
+              args: {
+                name: "list",
+              },
+            },
+            {
+              name: "--max-records",
+              description:
+                "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--marker",
+              description:
+                "An optional pagination token provided by a previous DescribeDBSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--include-shared",
+              description:
+                "Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included. You can give an Amazon Web Services account permission to restore a manual DB snapshot from another Amazon Web Services account by using the ModifyDBSnapshotAttribute API action. This setting doesn't apply to RDS Custom",
+            },
+            {
+              name: "--no-include-shared",
+              description:
+                "Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included. You can give an Amazon Web Services account permission to restore a manual DB snapshot from another Amazon Web Services account by using the ModifyDBSnapshotAttribute API action. This setting doesn't apply to RDS Custom",
+            },
+            {
+              name: "--include-public",
+              description:
+                "Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included. You can share a manual DB snapshot as public by using the ModifyDBSnapshotAttribute API. This setting doesn't apply to RDS Custom",
+            },
+            {
+              name: "--no-include-public",
+              description:
+                "Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included. You can share a manual DB snapshot as public by using the ModifyDBSnapshotAttribute API. This setting doesn't apply to RDS Custom",
+            },
+            {
+              name: "--dbi-resource-id",
+              description: "A specific DB resource ID to describe",
+              args: {
+                name: "string",
               },
             },
             {

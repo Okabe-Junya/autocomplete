@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "qconnect",
   description:
@@ -56,6 +57,14 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect AI Agent",
       options: [
         {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -64,9 +73,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--name",
+          description: "The name of the AI Agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description: "The type of the AI Agent",
           args: {
             name: "string",
           },
@@ -79,15 +94,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "The description of the AI Agent",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--name",
-          description: "The name of the AI Agent",
+          name: "--visibility-status",
+          description: "The visibility status of the AI Agent",
           args: {
             name: "string",
           },
@@ -101,15 +109,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--type",
-          description: "The type of the AI Agent",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--visibility-status",
-          description: "The visibility status of the AI Agent",
+          name: "--description",
+          description: "The description of the AI Agent",
           args: {
             name: "string",
           },
@@ -138,13 +139,6 @@ const completionSpec: Fig.Spec = {
       description: "Creates and Amazon Q in Connect AI Agent version",
       options: [
         {
-          name: "--ai-agent-id",
-          description: "The identifier of the Amazon Q in Connect AI Agent",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -153,9 +147,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--ai-agent-id",
+          description: "The identifier of the Amazon Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -166,6 +159,14 @@ const completionSpec: Fig.Spec = {
             "The modification time of the AI Agent should be tracked for version creation. This field should be specified to avoid version creation when simultaneous update to the underlying AI Agent are possible. The value should be the modifiedTime returned from the request to create or update an AI Agent so that version creation can fail if an update to the AI Agent post the specified modification time has been made",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
+          args: {
+            name: "string",
           },
         },
         {
@@ -192,9 +193,24 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect AI Guardrail",
       options: [
         {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the AI Guardrail",
           args: {
             name: "string",
           },
@@ -216,17 +232,45 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--visibility-status",
+          description: "The visibility status of the AI Guardrail",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description of the AI Guardrail",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--topic-policy-config",
+          description: "The topic policies to configure for the AI Guardrail",
+          args: {
+            name: "structure",
           },
         },
         {
           name: "--content-policy-config",
           description:
             "The content filter policies to configure for the AI Guardrail",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--word-policy-config",
+          description: "The word policy you configure for the AI Guardrail",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--sensitive-information-policy-config",
+          description:
+            "The sensitive information policy to configure for the AI Guardrail",
           args: {
             name: "structure",
           },
@@ -240,54 +284,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "A description of the AI Guardrail",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--name",
-          description: "The name of the AI Guardrail",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sensitive-information-policy-config",
-          description:
-            "The sensitive information policy to configure for the AI Guardrail",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--tags",
           description:
             "The tags used to organize, track, or control access for this resource",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--topic-policy-config",
-          description: "The topic policies to configure for the AI Guardrail",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--visibility-status",
-          description: "The visibility status of the AI Guardrail",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--word-policy-config",
-          description: "The word policy you configure for the AI Guardrail",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -314,13 +315,6 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect AI Guardrail version",
       options: [
         {
-          name: "--ai-guardrail-id",
-          description: "The identifier of the Amazon Q in Connect AI Guardrail",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -329,9 +323,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--ai-guardrail-id",
+          description: "The identifier of the Amazon Q in Connect AI Guardrail",
           args: {
             name: "string",
           },
@@ -341,6 +334,14 @@ const completionSpec: Fig.Spec = {
           description: "The time the AI Guardrail was last modified",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
+          args: {
+            name: "string",
           },
         },
         {
@@ -367,8 +368,9 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect AI Prompt",
       options: [
         {
-          name: "--api-format",
-          description: "The API Format of the AI Prompt",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
           args: {
             name: "string",
           },
@@ -382,16 +384,37 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--name",
+          description: "The name of the AI Prompt",
           args: {
             name: "string",
           },
         },
         {
-          name: "--description",
-          description: "The description of the AI Prompt",
+          name: "--type",
+          description: "The type of this AI Prompt",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-configuration",
+          description:
+            "The configuration of the prompt template for this AI Prompt",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--visibility-status",
+          description: "The visibility status of the AI Prompt",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-type",
+          description: "The type of the prompt template for this AI Prompt",
           args: {
             name: "string",
           },
@@ -399,14 +422,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--model-id",
           description:
-            "The identifier of the model used for this AI Prompt. Model Ids supported are: CLAUDE_3_HAIKU_20240307_V1",
+            "The identifier of the model used for this AI Prompt.  For information about which models are supported in each Amazon Web Services Region, see Supported models for system/custom prompts",
           args: {
             name: "string",
           },
         },
         {
-          name: "--name",
-          description: "The name of the AI Prompt",
+          name: "--api-format",
+          description:
+            "The API Format of the AI Prompt. Recommended values: MESSAGES | TEXT_COMPLETIONS   The values ANTHROPIC_CLAUDE_MESSAGES | ANTHROPIC_CLAUDE_TEXT_COMPLETIONS will be deprecated",
           args: {
             name: "string",
           },
@@ -420,32 +444,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--template-configuration",
+          name: "--description",
+          description: "The description of the AI Prompt",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--inference-configuration",
           description:
-            "The configuration of the prompt template for this AI Prompt",
+            "The inference configuration for the AI Prompt being created",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--template-type",
-          description: "The type of the prompt template for this AI Prompt",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--type",
-          description: "The type of this AI Prompt",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--visibility-status",
-          description: "The visibility status of the AI Prompt",
-          args: {
-            name: "string",
           },
         },
         {
@@ -472,13 +482,6 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect AI Prompt version",
       options: [
         {
-          name: "--ai-prompt-id",
-          description: "The identifier of the Amazon Q in Connect AI prompt",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -487,9 +490,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--ai-prompt-id",
+          description: "The identifier of the Amazon Q in Connect AI prompt",
           args: {
             name: "string",
           },
@@ -499,6 +501,14 @@ const completionSpec: Fig.Spec = {
           description: "The time the AI Prompt was last modified",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
+          args: {
+            name: "string",
           },
         },
         {
@@ -533,13 +543,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "The description of the assistant",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--name",
           description: "The name of the assistant",
           args: {
@@ -547,11 +550,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--server-side-encryption-configuration",
-          description:
-            "The configuration information for the customer managed key used for encryption.  The customer managed key must have a policy that allows kms:CreateGrant,  kms:DescribeKey, kms:Decrypt, and kms:GenerateDataKey* permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow kms:Decrypt, kms:GenerateDataKey*, and kms:DescribeKey permissions to the connect.amazonaws.com service principal.  For more information about setting up a customer managed key for Amazon Q in Connect, see Enable Amazon Q in Connect for your instance",
+          name: "--type",
+          description: "The type of assistant",
           args: {
-            name: "structure",
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the assistant",
+          args: {
+            name: "string",
           },
         },
         {
@@ -563,10 +572,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--type",
-          description: "The type of assistant",
+          name: "--server-side-encryption-configuration",
+          description:
+            "The configuration information for the customer managed key used for encryption.  The customer managed key must have a policy that allows kms:CreateGrant,  kms:DescribeKey, kms:Decrypt, and kms:GenerateDataKey* permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow kms:Decrypt, kms:GenerateDataKey*, and kms:DescribeKey permissions to the connect.amazonaws.com service principal.  For more information about setting up a customer managed key for Amazon Q in Connect, see Enable Amazon Q in Connect for your instance",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
@@ -602,17 +612,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--association",
-          description: "The identifier of the associated resource",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--association-type",
           description: "The type of association",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--association",
+          description: "The identifier of the associated resource",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -656,14 +666,6 @@ const completionSpec: Fig.Spec = {
         "Creates Amazon Q in Connect content. Before to calling this API, use StartContentUpload to upload an asset",
       options: [
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -672,17 +674,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--metadata",
-          description:
-            "A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift",
-          args: {
-            name: "map",
-          },
-        },
-        {
           name: "--name",
           description:
             "The name of the content. Each piece of content in a knowledge base must have a unique name. You can retrieve a piece of content using only its knowledge base and its name with the SearchContent API",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--title",
+          description:
+            "The title of the content. If not set, the title is equal to the name",
           args: {
             name: "string",
           },
@@ -696,19 +698,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--tags",
+          name: "--metadata",
           description:
-            "The tags used to organize, track, or control access for this resource",
+            "A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--title",
-          description:
-            "The title of the content. If not set, the title is equal to the name",
-          args: {
-            name: "string",
           },
         },
         {
@@ -717,6 +711,22 @@ const completionSpec: Fig.Spec = {
             "A pointer to the uploaded asset. This value is returned by StartContentUpload",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags used to organize, track, or control access for this resource",
+          args: {
+            name: "map",
           },
         },
         {
@@ -744,23 +754,16 @@ const completionSpec: Fig.Spec = {
         "Creates an association between a content resource in a knowledge base and step-by-step guides. Step-by-step guides offer instructions to agents for resolving common customer issues. You create a content association to integrate Amazon Q in Connect and step-by-step guides.  After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a recommendation to an agent based on the intent that it's detected, it also provides them with the option to start the step-by-step guide that you have associated with the content. Note the following limitations:   You can create only one content association for each content resource in a knowledge base.   You can associate a step-by-step guide with multiple content resources.   For more information, see Integrate Amazon Q in Connect with step-by-step guides in the Amazon Connect Administrator Guide",
       options: [
         {
-          name: "--association",
-          description: "The identifier of the associated resource",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--association-type",
-          description: "The type of association",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--knowledge-base-id",
+          description: "The identifier of the knowledge base",
           args: {
             name: "string",
           },
@@ -773,10 +776,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--knowledge-base-id",
-          description: "The identifier of the knowledge base",
+          name: "--association-type",
+          description: "The type of association",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--association",
+          description: "The identifier of the associated resource",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -820,8 +830,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "The description",
+          name: "--name",
+          description: "The name of the knowledge base",
           args: {
             name: "string",
           },
@@ -835,15 +845,24 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--name",
-          description: "The name of the knowledge base",
+          name: "--source-configuration",
+          description:
+            "The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
           name: "--rendering-configuration",
           description: "Information about how to render the content",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--vector-ingestion-configuration",
+          description:
+            "Contains details about how to ingest the documents in a data source",
           args: {
             name: "structure",
           },
@@ -857,11 +876,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--source-configuration",
-          description:
-            "The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases",
+          name: "--description",
+          description: "The description",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -870,14 +888,6 @@ const completionSpec: Fig.Spec = {
             "The tags used to organize, track, or control access for this resource",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--vector-ingestion-configuration",
-          description:
-            "Contains details about how to ingest the documents in a data source",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -905,16 +915,16 @@ const completionSpec: Fig.Spec = {
         "Creates an Amazon Q in Connect message template. The name of the message template has to be unique for each knowledge base. The channel subtype of the message template is immutable and cannot be modified after creation. After the message template is created, you can use the $LATEST qualifier to reference the created message template",
       options: [
         {
-          name: "--channel-subtype",
-          description: "The channel subtype this message template applies to",
+          name: "--knowledge-base-id",
+          description:
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--name",
+          description: "The name of the message template",
           args: {
             name: "string",
           },
@@ -927,14 +937,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--default-attributes",
-          description:
-            "An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--description",
           description: "The description of the message template",
           args: {
@@ -942,17 +944,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--grouping-configuration",
-          description:
-            "The configuration information of the grouping of Amazon Q in Connect users",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--knowledge-base-id",
-          description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--channel-subtype",
+          description: "The channel subtype this message template applies to",
           args: {
             name: "string",
           },
@@ -966,8 +959,33 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--name",
-          description: "The name of the message template",
+          name: "--source-configuration",
+          description:
+            "The source configuration of the message template. Only set this argument for WHATSAPP channel subtype",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--default-attributes",
+          description:
+            "An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--grouping-configuration",
+          description:
+            "The configuration information of the grouping of Amazon Q in Connect users",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -1005,29 +1023,6 @@ const completionSpec: Fig.Spec = {
         "Uploads an attachment file to the specified Amazon Q in Connect message template. The name of the message template attachment has to be unique for each message template referenced by the $LATEST qualifier. The body of the attachment file should be encoded using base64 encoding. After the file is uploaded, you can use the pre-signed Amazon S3 URL returned in response to download the uploaded file",
       options: [
         {
-          name: "--body",
-          description:
-            "The body of the attachment file being uploaded. It should be encoded using base64 encoding",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--content-disposition",
-          description: "The presentation information for the attachment file",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -1044,9 +1039,32 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--content-disposition",
+          description: "The presentation information for the attachment file",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--name",
           description:
             "The name of the attachment file being uploaded. The name should include the file extension",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--body",
+          description:
+            "The body of the attachment file being uploaded. It should be encoded using base64 encoding",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -1084,17 +1102,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--message-template-content-sha256",
+          name: "--message-template-id",
           description:
-            "The checksum value of the message template content that is referenced by the $LATEST qualifier. It can be returned in MessageTemplateData or ExtendedMessageTemplateData. It\u2019s calculated by content, language, defaultAttributes and Attachments of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the $LATEST qualifier by default",
+            "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
           args: {
             name: "string",
           },
         },
         {
-          name: "--message-template-id",
+          name: "--message-template-content-sha256",
           description:
-            "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
+            "The checksum value of the message template content that is referenced by the $LATEST qualifier. It can be returned in MessageTemplateData or ExtendedMessageTemplateData. It’s calculated by content, language, defaultAttributes and Attachments of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the $LATEST qualifier by default",
           args: {
             name: "string",
           },
@@ -1123,17 +1141,16 @@ const completionSpec: Fig.Spec = {
       description: "Creates an Amazon Q in Connect quick response",
       options: [
         {
-          name: "--channels",
+          name: "--knowledge-base-id",
           description:
-            "The Amazon Connect channels this quick response applies to",
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
-            name: "list",
+            name: "string",
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--name",
+          description: "The name of the quick response",
           args: {
             name: "string",
           },
@@ -1154,6 +1171,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--grouping-configuration",
+          description:
+            "The configuration information of the user groups that the quick response is accessible to",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--description",
           description: "The description of the quick response",
           args: {
@@ -1161,11 +1186,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--grouping-configuration",
+          name: "--shortcut-key",
           description:
-            "The configuration information of the user groups that the quick response is accessible to",
+            "The shortcut key of the quick response. The value should be unique across the knowledge base",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -1177,11 +1202,11 @@ const completionSpec: Fig.Spec = {
           description: "Whether the quick response is active",
         },
         {
-          name: "--knowledge-base-id",
+          name: "--channels",
           description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The Amazon Connect channels this quick response applies to",
           args: {
-            name: "string",
+            name: "list",
           },
         },
         {
@@ -1193,16 +1218,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--name",
-          description: "The name of the quick response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--shortcut-key",
+          name: "--client-token",
           description:
-            "The shortcut key of the quick response. The value should be unique across the knowledge base",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -1240,22 +1258,6 @@ const completionSpec: Fig.Spec = {
         "Creates a session. A session is a contextual container used for generating recommendations. Amazon Connect creates a new Amazon Q in Connect session for each contact on which Amazon Q in Connect is enabled",
       options: [
         {
-          name: "--ai-agent-configuration",
-          description:
-            "The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session",
-          args: {
-            name: "map",
-          },
-        },
-        {
-          name: "--assistant-id",
-          description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--client-token",
           description:
             "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
@@ -1264,8 +1266,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "The description",
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1278,10 +1281,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--tag-filter",
-          description: "An object that can be used to specify Tag conditions",
+          name: "--description",
+          description: "The description",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -1291,6 +1294,47 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "map",
           },
+        },
+        {
+          name: "--tag-filter",
+          description: "An object that can be used to specify Tag conditions",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ai-agent-configuration",
+          description:
+            "The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--contact-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the email contact in Amazon Connect. Used to retrieve email content and establish session context for AI-powered email assistance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--orchestrator-configuration-list",
+          description:
+            "The list of orchestrator configurations for the session being created",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--remove-orchestrator-configuration-list",
+          description:
+            "The list of orchestrator configurations to remove from the session",
+        },
+        {
+          name: "--no-remove-orchestrator-configuration-list",
+          description:
+            "The list of orchestrator configurations to remove from the session",
         },
         {
           name: "--cli-input-json",
@@ -1364,17 +1408,17 @@ const completionSpec: Fig.Spec = {
       description: "Deletes an Amazon Q in Connect AI Agent",
       options: [
         {
-          name: "--ai-agent-id",
+          name: "--assistant-id",
           description:
-            "The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-agent-id",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1403,17 +1447,17 @@ const completionSpec: Fig.Spec = {
       description: "Deletes an Amazon Q in Connect AI Agent Version",
       options: [
         {
-          name: "--ai-agent-id",
+          name: "--assistant-id",
           description:
-            "The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-agent-id",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1449,17 +1493,17 @@ const completionSpec: Fig.Spec = {
       description: "Deletes an Amazon Q in Connect AI Guardrail",
       options: [
         {
-          name: "--ai-guardrail-id",
+          name: "--assistant-id",
           description:
-            "The identifier of the Amazon Q in Connect AI Guardrail. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-guardrail-id",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect AI Guardrail. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1488,16 +1532,16 @@ const completionSpec: Fig.Spec = {
       description: "Delete and Amazon Q in Connect AI Guardrail version",
       options: [
         {
-          name: "--ai-guardrail-id",
-          description: "The identifier of the Amazon Q in Connect AI Guardrail",
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
-          description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--ai-guardrail-id",
+          description: "The identifier of the Amazon Q in Connect AI Guardrail",
           args: {
             name: "string",
           },
@@ -1534,17 +1578,17 @@ const completionSpec: Fig.Spec = {
       description: "Deletes an Amazon Q in Connect AI Prompt",
       options: [
         {
-          name: "--ai-prompt-id",
+          name: "--assistant-id",
           description:
-            "The identifier of the Amazon Q in Connect AI prompt. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-prompt-id",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect AI prompt. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1573,16 +1617,16 @@ const completionSpec: Fig.Spec = {
       description: "Delete and Amazon Q in Connect AI Prompt version",
       options: [
         {
-          name: "--ai-prompt-id",
-          description: "The identifier of the Amazon Q in Connect AI prompt",
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
-          description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--ai-prompt-id",
+          description: "The identifier of the Amazon Q in Connect AI prompt",
           args: {
             name: "string",
           },
@@ -1689,17 +1733,17 @@ const completionSpec: Fig.Spec = {
       description: "Deletes the content",
       options: [
         {
-          name: "--content-id",
+          name: "--knowledge-base-id",
           description:
-            "The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--knowledge-base-id",
+          name: "--content-id",
           description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1729,9 +1773,8 @@ const completionSpec: Fig.Spec = {
         "Deletes the content association.  For more information about content associations--what they are and when they are used--see Integrate Amazon Q in Connect with step-by-step guides in the Amazon Connect Administrator Guide",
       options: [
         {
-          name: "--content-association-id",
-          description:
-            "The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--knowledge-base-id",
+          description: "The identifier of the knowledge base",
           args: {
             name: "string",
           },
@@ -1744,8 +1787,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--knowledge-base-id",
-          description: "The identifier of the knowledge base",
+          name: "--content-association-id",
+          description:
+            "The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -1774,15 +1818,15 @@ const completionSpec: Fig.Spec = {
       description: "Deletes the quick response import job",
       options: [
         {
-          name: "--import-job-id",
-          description: "The identifier of the import job to be deleted",
+          name: "--knowledge-base-id",
+          description: "The identifier of the knowledge base",
           args: {
             name: "string",
           },
         },
         {
-          name: "--knowledge-base-id",
-          description: "The identifier of the knowledge base",
+          name: "--import-job-id",
+          description: "The identifier of the import job to be deleted",
           args: {
             name: "string",
           },
@@ -1884,13 +1928,6 @@ const completionSpec: Fig.Spec = {
         "Deletes the attachment file from the Amazon Q in Connect message template that is referenced by $LATEST qualifier. Attachments on available message template versions will remain unchanged",
       options: [
         {
-          name: "--attachment-id",
-          description: "The identifier of the attachment file",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -1902,6 +1939,13 @@ const completionSpec: Fig.Spec = {
           name: "--message-template-id",
           description:
             "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-id",
+          description: "The identifier of the attachment file",
           args: {
             name: "string",
           },
@@ -1968,17 +2012,17 @@ const completionSpec: Fig.Spec = {
       description: "Gets an Amazon Q in Connect AI Agent",
       options: [
         {
-          name: "--ai-agent-id",
+          name: "--assistant-id",
           description:
-            "The identifier of the Amazon Q in Connect AI Agent (with or without a version qualifier). Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-agent-id",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the Amazon Q in Connect AI Agent (with or without a version qualifier). Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -2007,16 +2051,16 @@ const completionSpec: Fig.Spec = {
       description: "Gets the Amazon Q in Connect AI Guardrail",
       options: [
         {
-          name: "--ai-guardrail-id",
-          description: "The identifier of the Amazon Q in Connect AI Guardrail",
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
-          description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--ai-guardrail-id",
+          description: "The identifier of the Amazon Q in Connect AI Guardrail",
           args: {
             name: "string",
           },
@@ -2045,16 +2089,16 @@ const completionSpec: Fig.Spec = {
       description: "Gets and Amazon Q in Connect AI Prompt",
       options: [
         {
-          name: "--ai-prompt-id",
-          description: "The identifier of the Amazon Q in Connect AI prompt",
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
-          description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--ai-prompt-id",
+          description: "The identifier of the Amazon Q in Connect AI prompt",
           args: {
             name: "string",
           },
@@ -2194,9 +2238,8 @@ const completionSpec: Fig.Spec = {
         "Returns the content association. For more information about content associations--what they are and when they are used--see Integrate Amazon Q in Connect with step-by-step guides in the Amazon Connect Administrator Guide",
       options: [
         {
-          name: "--content-association-id",
-          description:
-            "The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--knowledge-base-id",
+          description: "The identifier of the knowledge base",
           args: {
             name: "string",
           },
@@ -2209,8 +2252,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--knowledge-base-id",
-          description: "The identifier of the knowledge base",
+          name: "--content-association-id",
+          description:
+            "The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -2348,17 +2392,17 @@ const completionSpec: Fig.Spec = {
         "Retrieves the Amazon Q in Connect message template. The message template identifier can contain an optional qualifier, for example, <message-template-id>:<qualifier>, which is either an actual version number or an Amazon Q Connect managed qualifier $ACTIVE_VERSION | $LATEST. If it is not supplied, then $LATEST is assumed implicitly",
       options: [
         {
-          name: "--knowledge-base-id",
+          name: "--message-template-id",
           description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The identifier of the message template. Can be either the ID or the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--message-template-id",
+          name: "--knowledge-base-id",
           description:
-            "The identifier of the message template. Can be either the ID or the ARN",
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -2394,16 +2438,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-message-token",
-          description:
-            "The token for the next message. Use the value returned in the SendMessage or previous response in the next request to retrieve the next message",
+          name: "--session-id",
+          description: "The identifier of the Amazon Q in Connect session",
           args: {
             name: "string",
           },
         },
         {
-          name: "--session-id",
-          description: "The identifier of the Amazon Q in Connect session",
+          name: "--next-message-token",
+          description:
+            "The token for the next message. Use the value returned in the SendMessage or previous response in the next request to retrieve the next message",
           args: {
             name: "string",
           },
@@ -2432,16 +2476,16 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves the quick response",
       options: [
         {
-          name: "--knowledge-base-id",
-          description:
-            "The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base",
+          name: "--quick-response-id",
+          description: "The identifier of the quick response",
           args: {
             name: "string",
           },
         },
         {
-          name: "--quick-response-id",
-          description: "The identifier of the quick response",
+          name: "--knowledge-base-id",
+          description:
+            "The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base",
           args: {
             name: "string",
           },
@@ -2479,13 +2523,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--session-id",
           description:
             "The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -2494,11 +2531,33 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--max-results",
+          description: "The maximum number of results to return per page",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--wait-time-seconds",
           description:
             "The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call returns successfully with an empty list",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--next-chunk-token",
+          description:
+            "The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--recommendation-type",
+          description: "The type of recommendation being requested",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2564,14 +2623,6 @@ const completionSpec: Fig.Spec = {
       description: "List AI Agent versions",
       options: [
         {
-          name: "--ai-agent-id",
-          description:
-            "The identifier of the Amazon Q in Connect AI Agent for which versions are to be listed",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -2580,16 +2631,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
+          name: "--ai-agent-id",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The identifier of the Amazon Q in Connect AI Agent for which versions are to be listed",
           args: {
             name: "string",
           },
@@ -2658,21 +2702,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--origin",
           description:
             "The origin of the AI Agents to be listed. SYSTEM for a default AI Agent created by Q in Connect or CUSTOMER for an AI Agent created by calling AI Agent creation APIs",
@@ -2728,14 +2757,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists AI Guardrail versions",
       options: [
         {
-          name: "--ai-guardrail-id",
-          description:
-            "The identifier of the Amazon Q in Connect AI Guardrail for which versions are to be listed",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -2744,16 +2765,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
+          name: "--ai-guardrail-id",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The identifier of the Amazon Q in Connect AI Guardrail for which versions are to be listed",
           args: {
             name: "string",
           },
@@ -2815,21 +2829,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2877,14 +2876,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists AI Prompt versions",
       options: [
         {
-          name: "--ai-prompt-id",
-          description:
-            "The identifier of the Amazon Q in Connect AI prompt for which versions are to be listed",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -2893,16 +2884,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
+          name: "--ai-prompt-id",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The identifier of the Amazon Q in Connect AI prompt for which versions are to be listed",
           args: {
             name: "string",
           },
@@ -2972,21 +2956,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--origin",
           description:
             "The origin of the AI Prompts to be listed. SYSTEM for a default AI Agent created by Q in Connect or CUSTOMER for an AI Agent created by calling AI Agent creation APIs",
@@ -3050,21 +3019,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3111,21 +3065,6 @@ const completionSpec: Fig.Spec = {
       name: "list-assistants",
       description: "Lists information about assistants",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3175,13 +3114,6 @@ const completionSpec: Fig.Spec = {
         "Lists the content associations. For more information about content associations--what they are and when they are used--see Integrate Amazon Q in Connect with step-by-step guides in the Amazon Connect Administrator Guide",
       options: [
         {
-          name: "--content-id",
-          description: "The identifier of the content",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description: "The identifier of the knowledge base",
           args: {
@@ -3189,16 +3121,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--content-id",
+          description: "The identifier of the content",
           args: {
             name: "string",
           },
@@ -3259,21 +3183,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3329,21 +3238,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3390,21 +3284,6 @@ const completionSpec: Fig.Spec = {
       name: "list-knowledge-bases",
       description: "Lists the knowledge bases",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3462,24 +3341,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--message-template-id",
           description:
             "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -3541,21 +3405,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3610,23 +3459,87 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--session-id",
+          description: "The identifier of the Amazon Q in Connect session",
           args: {
             name: "string",
           },
         },
         {
-          name: "--session-id",
-          description: "The identifier of the Amazon Q in Connect session",
+          name: "--filter",
+          description: "The filter criteria for listing messages",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-models",
+      description:
+        "Lists the models available to an Amazon Q in Connect assistant in the assistant's Amazon Web Services Region. The available models are determined by the region of the specified assistant",
+      options: [
+        {
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN. The assistant's region determines which models are available",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ai-prompt-type",
+          description:
+            "The type of the AI Prompt to filter models by. When specified, only models that support the given AI Prompt type are returned",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--model-lifecycle",
+          description:
+            "The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned",
           args: {
             name: "string",
           },
@@ -3687,16 +3600,63 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-spans",
+      description:
+        "Retrieves AI agent execution traces for a session, providing granular visibility into agent orchestration flows, LLM interactions, and tool invocations",
+      options: [
+        {
+          name: "--assistant-id",
+          description: "UUID or ARN of the Connect AI Assistant resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "UUID or ARN of the Connect AI Session resource",
           args: {
             name: "string",
           },
@@ -3788,18 +3748,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--recommendation-ids",
-          description: "The identifiers of the recommendations",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--session-id",
           description:
             "The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--recommendation-ids",
+          description: "The identifiers of the recommendations",
+          args: {
+            name: "list",
           },
         },
         {
@@ -3834,13 +3794,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--content-feedback",
-          description: "Information about the feedback provided",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--target-id",
           description: "The identifier of the feedback target",
           args: {
@@ -3852,6 +3805,13 @@ const completionSpec: Fig.Spec = {
           description: "The type of the feedback target",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--content-feedback",
+          description: "Information about the feedback provided",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -3887,24 +3847,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--query-text",
+          description: "The text to search for",
           args: {
             name: "string",
           },
         },
         {
-          name: "--override-knowledge-base-search-type",
+          name: "--session-id",
           description:
-            "The search type to be used against the Knowledge Base for this request. The values can be SEMANTIC which uses vector embeddings or HYBRID which use vector embeddings and raw text",
+            "The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
@@ -3924,16 +3876,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--query-text",
-          description: "The text to search for",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--session-id",
+          name: "--override-knowledge-base-search-type",
           description:
-            "The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The search type to be used against the Knowledge Base for this request. The values can be SEMANTIC which uses vector embeddings or HYBRID which use vector embeddings and raw text",
           args: {
             name: "string",
           },
@@ -3984,8 +3929,16 @@ const completionSpec: Fig.Spec = {
     {
       name: "remove-assistant-ai-agent",
       description:
-        "Removes the AI Agent that is set for use by defafult on an Amazon Q in Connect Assistant",
+        "Removes the AI Agent that is set for use by default on an Amazon Q in Connect Assistant",
       options: [
+        {
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--ai-agent-type",
           description:
@@ -3995,9 +3948,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--assistant-id",
+          name: "--orchestrator-use-case",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The orchestrator use case for the AI Agent being removed",
           args: {
             name: "string",
           },
@@ -4058,14 +4011,6 @@ const completionSpec: Fig.Spec = {
         "Renders the Amazon Q in Connect message template based on the attribute values provided and generates the message content. For any variable present in the message template, if the attribute value is neither provided in the attribute request parameter nor the default attribute of the message template, the rendered message content will keep the variable placeholder as it is and return the attribute keys that are missing",
       options: [
         {
-          name: "--attributes",
-          description:
-            "An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
@@ -4077,6 +4022,59 @@ const completionSpec: Fig.Spec = {
           name: "--message-template-id",
           description:
             "The identifier of the message template. Can be either the ID or the ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attributes",
+          description:
+            "An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "retrieve",
+      description: "Retrieves content from knowledge sources based on a query",
+      options: [
+        {
+          name: "--assistant-id",
+          description:
+            "The identifier of the Amazon Q in Connect assistant for content retrieval",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--retrieval-configuration",
+          description: "The configuration for the content retrieval operation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--retrieval-query",
+          description: "The query for content retrieval",
           args: {
             name: "string",
           },
@@ -4109,21 +4107,6 @@ const completionSpec: Fig.Spec = {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -4192,21 +4175,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--search-expression",
           description:
             "The search expression for querying the message template",
@@ -4263,32 +4231,9 @@ const completionSpec: Fig.Spec = {
         "Searches existing Amazon Q in Connect quick responses in an Amazon Q in Connect knowledge base",
       options: [
         {
-          name: "--attributes",
-          description:
-            "The user-defined Amazon Connect contact attributes to be resolved when search results are returned",
-          args: {
-            name: "map",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -4298,6 +4243,14 @@ const completionSpec: Fig.Spec = {
           description: "The search expression for querying the quick response",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--attributes",
+          description:
+            "The user-defined Amazon Connect contact attributes to be resolved when search results are returned",
+          args: {
+            name: "map",
           },
         },
         {
@@ -4351,21 +4304,6 @@ const completionSpec: Fig.Spec = {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -4432,9 +4370,31 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
+          name: "--session-id",
+          description: "The identifier of the Amazon Q in Connect session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description: "The message type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--message",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field.For more information about idempotency, see Making retries safe with idempotent APIs",
+            "The message data to submit to the Amazon Q in Connect session",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ai-agent-id",
+          description:
+            "The identifier of the AI Agent to use for processing the message",
           args: {
             name: "string",
           },
@@ -4448,23 +4408,38 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--message",
-          description:
-            "The message data to submit to the Amazon Q in Connect session",
+          name: "--configuration",
+          description: "The configuration of the SendMessage request",
           args: {
             name: "structure",
           },
         },
         {
-          name: "--session-id",
-          description: "The identifier of the Amazon Q in Connect session",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field.For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
         },
         {
-          name: "--type",
-          description: "The message type",
+          name: "--orchestrator-use-case",
+          description: "The orchestrator use case for message processing",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--metadata",
+          description: "Additional metadata for the message",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--origin-request-id",
+          description:
+            "Request identifier from the origin system, used for end-to-end tracing across spans",
           args: {
             name: "string",
           },
@@ -4494,16 +4469,16 @@ const completionSpec: Fig.Spec = {
         "Get a URL to upload content to a knowledge base. To upload content, first make a PUT request to the returned URL with your file, making sure to include the required headers. Then use CreateContent to finalize the content creation process or UpdateContent to modify an existing resource. You can only upload content to a knowledge base of type CUSTOM",
       options: [
         {
-          name: "--content-type",
-          description: "The type of content to upload",
+          name: "--knowledge-base-id",
+          description:
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--knowledge-base-id",
-          description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--content-type",
+          description: "The type of content to upload",
           args: {
             name: "string",
           },
@@ -4541,19 +4516,11 @@ const completionSpec: Fig.Spec = {
         "Start an asynchronous job to import Amazon Q in Connect resources from an uploaded source file. Before calling this API, use StartContentUpload to upload an asset that contains the resource data.   For importing Amazon Q in Connect quick responses, you need to upload a csv file including the quick responses. For information about how to format the csv file for importing quick responses, see Import quick responses",
       options: [
         {
-          name: "--client-token",
+          name: "--knowledge-base-id",
           description:
-            "The tags used to organize, track, or control access for this resource",
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.   For importing Amazon Q in Connect quick responses, this should be a QUICK_RESPONSES type knowledge base",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--external-source-configuration",
-          description:
-            "The configuration information of the external source that the resource data are imported from",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -4565,9 +4532,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--knowledge-base-id",
+          name: "--upload-id",
           description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.   For importing Amazon Q in Connect quick responses, this should be a QUICK_RESPONSES type knowledge base",
+            "A pointer to the uploaded asset. This value is returned by StartContentUpload",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The tags used to organize, track, or control access for this resource",
           args: {
             name: "string",
           },
@@ -4581,11 +4556,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--upload-id",
+          name: "--external-source-configuration",
           description:
-            "A pointer to the uploaded asset. This value is returned by StartContentUpload",
+            "The configuration information of the external source that the resource data are imported from",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
@@ -4687,8 +4662,9 @@ const completionSpec: Fig.Spec = {
       description: "Updates an AI Agent",
       options: [
         {
-          name: "--ai-agent-id",
-          description: "The identifier of the Amazon Q in Connect AI Agent",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
           args: {
             name: "string",
           },
@@ -4702,9 +4678,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
+          name: "--ai-agent-id",
+          description: "The identifier of the Amazon Q in Connect AI Agent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visibility-status",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+            "The visbility status of the Amazon Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -4719,14 +4702,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--description",
           description: "The description of the Amazon Q in Connect AI Agent",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--visibility-status",
-          description:
-            "The visbility status of the Amazon Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -4755,8 +4730,9 @@ const completionSpec: Fig.Spec = {
       description: "Updates an AI Guardrail",
       options: [
         {
-          name: "--ai-guardrail-id",
-          description: "The identifier of the Amazon Q in Connect AI Guardrail",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
           args: {
             name: "string",
           },
@@ -4765,6 +4741,21 @@ const completionSpec: Fig.Spec = {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ai-guardrail-id",
+          description: "The identifier of the Amazon Q in Connect AI Guardrail",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visibility-status",
+          description:
+            "The visibility status of the Amazon Q in Connect AI Guardrail",
           args: {
             name: "string",
           },
@@ -4786,11 +4777,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--description",
+          description: "A description of the AI Guardrail",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--topic-policy-config",
+          description: "The topic policies to configure for the AI Guardrail",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -4802,18 +4799,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--contextual-grounding-policy-config",
-          description:
-            "The contextual grounding policy configuration used to create an AI Guardrail",
+          name: "--word-policy-config",
+          description: "The word policy you configure for the AI Guardrail",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--description",
-          description: "A description of the AI Guardrail",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4825,23 +4814,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--topic-policy-config",
-          description: "The topic policies to configure for the AI Guardrail",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--visibility-status",
+          name: "--contextual-grounding-policy-config",
           description:
-            "The visibility status of the Amazon Q in Connect AI Guardrail",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--word-policy-config",
-          description: "The word policy you configure for the AI Guardrail",
+            "The contextual grounding policy configuration used to create an AI Guardrail",
           args: {
             name: "structure",
           },
@@ -4870,8 +4845,9 @@ const completionSpec: Fig.Spec = {
       description: "Updates an AI Prompt",
       options: [
         {
-          name: "--ai-prompt-id",
-          description: "The identifier of the Amazon Q in Connect AI Prompt",
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs.",
           args: {
             name: "string",
           },
@@ -4885,16 +4861,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--client-token",
-          description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          name: "--ai-prompt-id",
+          description: "The identifier of the Amazon Q in Connect AI Prompt",
           args: {
             name: "string",
           },
         },
         {
-          name: "--description",
-          description: "The description of the Amazon Q in Connect AI Prompt",
+          name: "--visibility-status",
+          description:
+            "The visibility status of the Amazon Q in Connect AI prompt",
           args: {
             name: "string",
           },
@@ -4908,11 +4884,25 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--visibility-status",
-          description:
-            "The visibility status of the Amazon Q in Connect AI prompt",
+          name: "--description",
+          description: "The description of the Amazon Q in Connect AI Prompt",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--model-id",
+          description:
+            "The identifier of the model used for this AI Prompt.  For information about which models are supported in each Amazon Web Services Region, see Supported models for system/custom prompts",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--inference-configuration",
+          description: "The updated inference configuration for the AI Prompt",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -4937,20 +4927,20 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-assistant-ai-agent",
       description:
-        "Updates the AI Agent that is set for use by defafult on an Amazon Q in Connect Assistant",
+        "Updates the AI Agent that is set for use by default on an Amazon Q in Connect Assistant",
       options: [
         {
-          name: "--ai-agent-type",
+          name: "--assistant-id",
           description:
-            "The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant",
+            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--assistant-id",
+          name: "--ai-agent-type",
           description:
-            "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
+            "The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant",
           args: {
             name: "string",
           },
@@ -4961,6 +4951,13 @@ const completionSpec: Fig.Spec = {
             "The configuration of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--orchestrator-use-case",
+          description: "The orchestrator use case for the AI Agent being added",
+          args: {
+            name: "string",
           },
         },
         {
@@ -4987,14 +4984,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates information about the content",
       options: [
         {
-          name: "--content-id",
-          description:
-            "The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN",
@@ -5003,11 +4992,26 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--metadata",
+          name: "--content-id",
           description:
-            "A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift",
+            "The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
-            name: "map",
+            name: "string",
+          },
+        },
+        {
+          name: "--revision-id",
+          description:
+            "The revisionId of the content resource to update, taken from an earlier call to GetContent, GetContentSummary, SearchContent, or ListContents. If included, this argument acts as an optimistic lock to ensure content was not modified since it was last read. If it has been modified, this API throws a PreconditionFailedException",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--title",
+          description: "The title of the content",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5027,18 +5031,11 @@ const completionSpec: Fig.Spec = {
           description: "Unset the existing overrideLinkOutUri if it exists",
         },
         {
-          name: "--revision-id",
+          name: "--metadata",
           description:
-            "The revisionId of the content resource to update, taken from an earlier call to GetContent, GetContentSummary, SearchContent, or ListContents. If included, this argument acts as an optimistic lock to ensure content was not modified since it was last read. If it has been modified, this API throws a PreconditionFailedException",
+            "A key/value map to store attributes without affecting tagging or recommendations. For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift",
           args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--title",
-          description: "The title of the content",
-          args: {
-            name: "string",
+            name: "map",
           },
         },
         {
@@ -5113,26 +5110,26 @@ const completionSpec: Fig.Spec = {
         "Updates the Amazon Q in Connect message template. Partial update is supported. If any field is not supplied, it will remain unchanged for the message template that is referenced by the $LATEST qualifier. Any modification will only apply to the message template that is referenced by the $LATEST qualifier. The fields for all available versions will remain unchanged",
       options: [
         {
-          name: "--content",
-          description: "The content of the message template",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--default-attributes",
-          description:
-            "An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--message-template-id",
+          description:
+            "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description: "The content of the message template",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -5144,11 +5141,19 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--message-template-id",
+          name: "--source-configuration",
           description:
-            "The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier",
+            "The source configuration of the message template. Only set this argument for WHATSAPP channel subtype",
           args: {
-            name: "string",
+            name: "structure",
+          },
+        },
+        {
+          name: "--default-attributes",
+          description:
+            "An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -5173,23 +5178,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-message-template-metadata",
       description:
-        "Updates the Amazon Q in Connect message template metadata. Note that any modification to the message template\u2019s name, description and grouping configuration will applied to the message template pointed by the $LATEST qualifier and all available versions. Partial update is supported. If any field is not supplied, it will remain unchanged for the message template",
+        "Updates the Amazon Q in Connect message template metadata. Note that any modification to the message template’s name, description and grouping configuration will applied to the message template pointed by the $LATEST qualifier and all available versions. Partial update is supported. If any field is not supplied, it will remain unchanged for the message template",
       options: [
-        {
-          name: "--description",
-          description: "The description of the message template",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--grouping-configuration",
-          description:
-            "The configuration information of the grouping of Amazon Q in Connect users",
-          args: {
-            name: "structure",
-          },
-        },
         {
           name: "--knowledge-base-id",
           description:
@@ -5211,6 +5201,21 @@ const completionSpec: Fig.Spec = {
           description: "The name of the message template",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the message template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--grouping-configuration",
+          description:
+            "The configuration information of the grouping of Amazon Q in Connect users",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -5237,11 +5242,25 @@ const completionSpec: Fig.Spec = {
       description: "Updates an existing Amazon Q in Connect quick response",
       options: [
         {
-          name: "--channels",
+          name: "--knowledge-base-id",
           description:
-            "The Amazon Connect contact channels this quick response applies to. The supported contact channel types include Chat",
+            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
-            name: "list",
+            name: "string",
+          },
+        },
+        {
+          name: "--quick-response-id",
+          description: "The identifier of the quick response",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the quick response",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5260,13 +5279,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--description",
-          description: "The updated description of the quick response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--grouping-configuration",
           description:
             "The updated grouping configuration of the quick response",
@@ -5275,39 +5287,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--is-active",
-          description: "Whether the quick response is active",
-        },
-        {
-          name: "--no-is-active",
-          description: "Whether the quick response is active",
-        },
-        {
-          name: "--knowledge-base-id",
+          name: "--remove-grouping-configuration",
           description:
-            "The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
+            "Whether to remove the grouping configuration of the quick response",
         },
         {
-          name: "--language",
+          name: "--no-remove-grouping-configuration",
           description:
-            "The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW",
-          args: {
-            name: "string",
-          },
+            "Whether to remove the grouping configuration of the quick response",
         },
         {
-          name: "--name",
-          description: "The name of the quick response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--quick-response-id",
-          description: "The identifier of the quick response",
+          name: "--description",
+          description: "The updated description of the quick response",
           args: {
             name: "string",
           },
@@ -5323,14 +5314,12 @@ const completionSpec: Fig.Spec = {
             "Whether to remove the description from the quick response",
         },
         {
-          name: "--remove-grouping-configuration",
+          name: "--shortcut-key",
           description:
-            "Whether to remove the grouping configuration of the quick response",
-        },
-        {
-          name: "--no-remove-grouping-configuration",
-          description:
-            "Whether to remove the grouping configuration of the quick response",
+            "The shortcut key of the quick response. The value should be unique across the knowledge base",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--remove-shortcut-key",
@@ -5343,9 +5332,25 @@ const completionSpec: Fig.Spec = {
             "Whether to remove the shortcut key of the quick response",
         },
         {
-          name: "--shortcut-key",
+          name: "--is-active",
+          description: "Whether the quick response is active",
+        },
+        {
+          name: "--no-is-active",
+          description: "Whether the quick response is active",
+        },
+        {
+          name: "--channels",
           description:
-            "The shortcut key of the quick response. The value should be unique across the knowledge base",
+            "The Amazon Connect contact channels this quick response applies to. The supported contact channel types include Chat",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW",
           args: {
             name: "string",
           },
@@ -5375,24 +5380,9 @@ const completionSpec: Fig.Spec = {
         "Updates a session. A session is a contextual container used for generating recommendations. Amazon Connect updates the existing Amazon Q in Connect session for each contact on which Amazon Q in Connect is enabled",
       options: [
         {
-          name: "--ai-agent-configuration",
-          description:
-            "The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session",
-          args: {
-            name: "map",
-          },
-        },
-        {
           name: "--assistant-id",
           description:
             "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--description",
-          description: "The description",
           args: {
             name: "string",
           },
@@ -5406,11 +5396,44 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--description",
+          description: "The description",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--tag-filter",
           description: "An object that can be used to specify Tag conditions",
           args: {
             name: "structure",
           },
+        },
+        {
+          name: "--ai-agent-configuration",
+          description:
+            "The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that should be used by Amazon Q in Connect for this Session",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--orchestrator-configuration-list",
+          description:
+            "The updated list of orchestrator configurations for the session",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--remove-orchestrator-configuration-list",
+          description:
+            "The list of orchestrator configurations to remove from the session",
+        },
+        {
+          name: "--no-remove-orchestrator-configuration-list",
+          description:
+            "The list of orchestrator configurations to remove from the session",
         },
         {
           name: "--cli-input-json",
@@ -5444,10 +5467,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--data",
-          description: "The data stored on the Amazon Q in Connect Session",
+          name: "--session-id",
+          description:
+            "The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN",
           args: {
-            name: "list",
+            name: "string",
           },
         },
         {
@@ -5459,11 +5483,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--session-id",
-          description:
-            "The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN",
+          name: "--data",
+          description: "The data stored on the Amazon Q in Connect Session",
           args: {
-            name: "string",
+            name: "list",
           },
         },
         {

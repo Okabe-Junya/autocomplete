@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "networkflowmonitor",
   description:
@@ -6,7 +7,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-monitor",
       description:
-        "Create a monitor for specific network flows between local and remote resources, so that you can monitor network performance for one or several of your workloads. For each monitor, Network Flow Monitor publishes detailed end-to-end performance metrics and a network health indicators (NHI) that informs you whether there were Amazon Web Services network issues for one or more of the network flows tracked by a monitor, during a time period that you choose",
+        "Create a monitor for specific network flows between local and remote resources, so that you can monitor network performance for one or several of your workloads. For each monitor, Network Flow Monitor publishes detailed end-to-end performance metrics and a network health indicator (NHI) that informs you whether there were Amazon Web Services network issues for one or more of the network flows tracked by a monitor, during a time period that you choose",
       options: [
         {
           name: "--monitor-name",
@@ -18,7 +19,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--local-resources",
           description:
-            "The local resources to monitor. A local resource, in a bi-directional flow of a workload, is the host where the agent is installed. For example, if a workload consists of an interaction between a web service and a backend database (for example, Amazon Relational Database Service (RDS)), the EC2 instance hosting the web service, which also runs the agent, is the local resource",
+            "The local resources to monitor. A local resource in a workload is the location of the host, or hosts, where the Network Flow Monitor agent is installed. For example, if a workload consists of an interaction between a web service and a backend database (for example, Amazon Dynamo DB), the subnet with the EC2 instance that hosts the web service, which also runs the agent, is the local resource. Be aware that all local resources must belong to the current Region",
           args: {
             name: "list",
           },
@@ -26,7 +27,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--remote-resources",
           description:
-            "The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource",
+            "The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. When you specify remote resources, be aware that specific combinations of resources are allowed and others are not, including the following constraints:   All remote resources that you specify must all belong to a single Region.   If you specify Amazon Web Services services as remote resources, any other remote resources that you specify must be in the current Region.   When you specify a remote resource for another Region, you can only specify the Region resource type. You cannot specify a subnet, VPC, or Availability Zone in another Region.   If you leave the RemoteResources parameter empty, the monitor will include all network flows that terminate in the current Region",
           args: {
             name: "list",
           },
@@ -77,12 +78,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-scope",
       description:
-        "Create a scope of resources that you want to be available for Network Flow Monitor to generate metrics for, when you have active agents on those resources sending metrics reports to the Network Flow Monitor backend. This call returns a scope ID to identify the scope. When you create a scope, you enable permissions for Network Flow Monitor. The scope is set to the resources for the Amazon Web Services that enables the feature",
+        "In Network Flow Monitor, you specify a scope for the service to generate metrics for. By using the scope, Network Flow Monitor can generate a topology of all the resources to measure performance metrics for. When you create a scope, you enable permissions for Network Flow Monitor. A scope is a Region-account pair or multiple Region-account pairs. Network Flow Monitor uses your scope to determine all the resources (the topology) where Network Flow Monitor will gather network flow performance metrics for you. To provide performance metrics, Network Flow Monitor uses the data that is sent by the Network Flow Monitor agents you install on the resources. To define the Region-account pairs for your scope, the Network Flow Monitor API uses the following constucts, which allow for future flexibility in defining scopes:    Targets, which are arrays of targetResources.    Target resources, which are Region-targetIdentifier pairs.    Target identifiers, made up of a targetID (currently always an account ID) and a targetType (currently always an account)",
       options: [
         {
           name: "--targets",
           description:
-            "The targets to define the scope to be monitored. Currently, a target is an Amazon Web Services account",
+            "The targets to define the scope to be monitored. A target is an array of targetResources, which are currently Region-account pairs, defined by targetResource constructs",
           args: {
             name: "list",
           },
@@ -217,7 +218,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-results-monitor-top-contributors",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryMonitorTopContributors. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryMonitorTopContributors. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--monitor-name",
@@ -229,25 +230,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -296,7 +281,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-results-workload-insights-top-contributors",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributors. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Return the data for a query with the Network Flow Monitor query interface. You specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a scope for workload insights. Workload insights provide a high level view of network flow performance data collected by agents. To return the data for the top contributors, see GetQueryResultsWorkloadInsightsTopContributorsData. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributors. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -309,25 +294,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -376,7 +345,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-results-workload-insights-top-contributors-data",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID. This query returns data for the top contributors for workload insights. Workload insights provide a high level view of network flow performance data collected by agents for a scope. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributorsData. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor. The top contributor network flows overall for a specific metric type, for example, the number of retransmissions",
+        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID. This query returns the data for top contributors for workload insights for a specific scope. Workload insights provide a high level view of network flow performance data collected by agents for a scope. To return just the top contributors, see GetQueryResultsWorkloadInsightsTopContributors. Create a query ID for this call by calling the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributorsData. Use the scope ID that was returned for your account by CreateScope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned. The top contributor network flows overall are for a specific metric type, for example, the number of retransmissions",
       options: [
         {
           name: "--scope-id",
@@ -389,25 +358,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -456,7 +409,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-status-monitor-top-contributors",
       description:
-        "Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors for a monitor. When you start a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start the query, StartQueryMonitorTopContributors. When you run a query, use this call to check the status of the query to make sure that the query has SUCCEEDED before you review the results",
+        "Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors for a monitor. When you create a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start (create) the query, StartQueryMonitorTopContributors. When you run a query, use this call to check the status of the query to make sure that the query has SUCCEEDED before you review the results",
       options: [
         {
           name: "--monitor-name",
@@ -495,7 +448,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-status-workload-insights-top-contributors",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for workload insights. When you start a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributors. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for workload insights. When you start a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributors. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -535,7 +488,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-query-status-workload-insights-top-contributors-data",
       description:
-        "Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors data for workload insights. When you start a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributorsData. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor. The top contributor network flows overall for a specific metric type, for example, the number of retransmissions",
+        "Returns the current status of a query for the Network Flow Monitor query interface, for a specified query ID and monitor. This call returns the query status for the top contributors data for workload insights. When you start a query, use this call to check the status of the query to make sure that it has has SUCCEEDED before you review the results. Use the same query ID that you used for the corresponding API call to start the query, StartQueryWorkloadInsightsTopContributorsData. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned. The top contributor network flows overall are for a specific metric type, for example, the number of retransmissions",
       options: [
         {
           name: "--scope-id",
@@ -610,22 +563,6 @@ const completionSpec: Fig.Spec = {
         "List all monitors in an account. Optionally, you can list only monitors that have a specific status, by using the STATUS parameter",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--monitor-status",
           description:
             "The status of a monitor. The status can be one of the following    PENDING: The monitor is in the process of being created.    ACTIVE: The monitor is active.    INACTIVE: The monitor is inactive.    ERROR: Monitor creation failed due to an error.    DELETING: The monitor is in the process of being deleted",
@@ -680,22 +617,6 @@ const completionSpec: Fig.Spec = {
       name: "list-scopes",
       description: "List all the scopes for an account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of query results that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -772,7 +693,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-query-monitor-top-contributors",
       description:
-        "Start a query to return the data with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for.  The call returns a query ID that you can use with  GetQueryResultsMonitorTopContributors to run the query and return the top contributors for a specific monitor. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned",
       options: [
         {
           name: "--monitor-name",
@@ -784,7 +705,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--start-time",
           description:
-            "The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query",
+            "The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query",
           args: {
             name: "timestamp",
           },
@@ -800,7 +721,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--metric-name",
           description:
-            "The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones",
+            "The metric that you want to query top contributors for. That is, you can specify a metric with this call and return the top contributor network flows, for that type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones",
           args: {
             name: "string",
           },
@@ -808,7 +729,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--destination-category",
           description:
-            "The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_VPC: Top contributor network flows between VPCs    AWS_SERVICES: Top contributor network flows to or from Amazon Web Services services    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
+            "The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_REGION: Top contributor network flows between Regions (to the edge of another Region)    INTER_VPC: Top contributor network flows between VPCs    AMAZON_S3: Top contributor network flows to or from Amazon S3    AMAZON_DYNAMODB: Top contributor network flows to or from Amazon Dynamo DB    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
           args: {
             name: "string",
           },
@@ -842,7 +763,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-query-workload-insights-top-contributors",
       description:
-        "Start a query to return the data with the Network Flow Monitor query interface. Specify the query that you want to start by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Create a query with the Network Flow Monitor query interface that you can run to return workload insights top contributors. Specify the scope that you want to create a query for. The call returns a query ID that you can use with  GetQueryResultsWorkloadInsightsTopContributors to run the query and return the top contributors for the workload insights for a scope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -855,7 +776,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--start-time",
           description:
-            "The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query",
+            "The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query",
           args: {
             name: "timestamp",
           },
@@ -879,7 +800,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--destination-category",
           description:
-            "The destination category for a top contributors row. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_VPC: Top contributor network flows between VPCs    AWS_SERVICES: Top contributor network flows to or from Amazon Web Services services    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
+            "The destination category for a top contributors row. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_REGION: Top contributor network flows between Regions (to the edge of another Region)    INTER_VPC: Top contributor network flows between VPCs    AWS_SERVICES: Top contributor network flows to or from Amazon Web Services services    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
           args: {
             name: "string",
           },
@@ -913,7 +834,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-query-workload-insights-top-contributors-data",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID. This query returns data for the top contributors for workload insights. Workload insights provide a high level view of network flow performance data collected by agents for a scope. A query ID is returned from an API call to start a query of a specific type; for example  Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor. The top contributor network flows overall for a specific metric type, for example, the number of retransmissions",
+        "Create a query with the Network Flow Monitor query interface that you can run to return data for workload insights top contributors. Specify the scope that you want to create a query for. The call returns a query ID that you can use with  GetQueryResultsWorkloadInsightsTopContributorsData to run the query and return the data for the top contributors for the workload insights for a scope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -926,7 +847,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--start-time",
           description:
-            "The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query",
+            "The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query",
           args: {
             name: "timestamp",
           },
@@ -950,7 +871,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--destination-category",
           description:
-            "The destination category for a top contributors. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_VPC: Top contributor network flows between VPCs    AWS_SERVICES: Top contributor network flows to or from Amazon Web Services services    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
+            "The destination category for a top contributors. Destination categories can be one of the following:     INTRA_AZ: Top contributor network flows within a single Availability Zone    INTER_AZ: Top contributor network flows between Availability Zones    INTER_REGION: Top contributor network flows between Regions (to the edge of another Region)    INTER_VPC: Top contributor network flows between VPCs    AWS_SERVICES: Top contributor network flows to or from Amazon Web Services services    UNCLASSIFIED: Top contributor network flows that do not have a bucket classification",
           args: {
             name: "string",
           },
@@ -977,7 +898,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "stop-query-monitor-top-contributors",
       description:
-        "Stop a query with the Network Flow Monitor query interface. Specify the query that you want to stop by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Stop a top contributors query for a monitor. Specify the query that you want to stop by providing a query ID and a monitor name.  Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--monitor-name",
@@ -989,7 +910,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
           },
@@ -1016,7 +937,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "stop-query-workload-insights-top-contributors",
       description:
-        "Stop a query with the Network Flow Monitor query interface. Specify the query that you want to stop by providing a query ID and a monitor name. This query returns the top contributors for a specific monitor. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor",
+        "Stop a top contributors query for workload insights. Specify the query that you want to stop by providing a query ID and a scope ID.  Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -1029,7 +950,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
           },
@@ -1056,7 +977,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "stop-query-workload-insights-top-contributors-data",
       description:
-        "Return the data for a query with the Network Flow Monitor query interface. Specify the query that you want to return results for by providing a query ID and a scope ID. This query returns data for the top contributors for workload insights. Workload insights provide a high level view of network flow performance data collected by agents for a scope. Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type, related to a scope (for workload insights) or a monitor. The top contributor network flows overall for a specific metric type, for example, the number of retransmissions",
+        "Stop a top contributors data query for workload insights. Specify the query that you want to stop by providing a query ID and a scope ID.  Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable call for the top contributors that you want to be returned",
       options: [
         {
           name: "--scope-id",
@@ -1069,7 +990,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-id",
           description:
-            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query",
+            "The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query",
           args: {
             name: "string",
           },
@@ -1182,7 +1103,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--local-resources-to-add",
           description:
-            "The local resources to add, as an array of resources with identifiers and types",
+            "Additional local resources to specify network flows for a monitor, as an array of resources with identifiers and types. A local resource in a workload is the location of hosts where the Network Flow Monitor agent is installed",
           args: {
             name: "list",
           },
@@ -1198,7 +1119,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--remote-resources-to-add",
           description:
-            "The remove resources to add, as an array of resources with identifiers and types",
+            "The remote resources to add, as an array of resources with identifiers and types. A remote resource is the other endpoint in the flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource",
           args: {
             name: "list",
           },
@@ -1206,7 +1127,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--remote-resources-to-remove",
           description:
-            "The remove resources to remove, as an array of resources with identifiers and types",
+            "The remote resources to remove, as an array of resources with identifiers and types. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource",
           args: {
             name: "list",
           },

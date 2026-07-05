@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "managedblockchain",
   description:
@@ -345,7 +346,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-accessor",
       description:
-        "Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the information required for token based access to your Ethereum nodes including, the BILLING_TOKEN. After an accessor is deleted, the status of the accessor changes from AVAILABLE to PENDING_DELETION. An accessor in the PENDING_DELETION state can\u2019t be used for new WebSocket requests or HTTP requests. However, WebSocket connections that were initiated while the accessor was in the AVAILABLE state remain open until they expire (up to 2 hours)",
+        "Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the information required for token based access to your Ethereum nodes including, the BILLING_TOKEN. After an accessor is deleted, the status of the accessor changes from AVAILABLE to PENDING_DELETION. An accessor in the PENDING_DELETION state can’t be used for new WebSocket requests or HTTP requests. However, WebSocket connections that were initiated while the accessor was in the AVAILABLE state remain open until they expire (up to 2 hours)",
       options: [
         {
           name: "--accessor-id",
@@ -652,21 +653,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of the accessors and their properties. Accessor objects are containers that have the information required for token based access to your Ethereum nodes",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of accessors to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--network-type",
           description:

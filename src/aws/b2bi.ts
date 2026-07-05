@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "b2bi",
   description:
@@ -527,12 +528,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "generate-mapping",
       description:
-        "Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.  Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see AI-assisted template mapping prerequisites in the Amazon Web Services B2B Data Interchange User guide",
+        "Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.  Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see AI-assisted template mapping prerequisites in the Amazon Web Services B2B Data Interchange User guide.  To generate a mapping, perform the following steps:   Start with an X12 EDI document to use as the input.   Call TestMapping using your EDI document.   Use the output from the TestMapping operation as either input or output for your GenerateMapping call, along with your sample file",
       options: [
         {
           name: "--input-file-content",
           description:
-            "Provide the contents of a sample X12 EDI file (for inbound EDI) or JSON/XML file (for outbound EDI) to use as a starting point for the mapping",
+            "Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a starting point for the mapping",
           args: {
             name: "string",
           },
@@ -540,7 +541,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--output-file-content",
           description:
-            "Provide the contents of a sample X12 EDI file (for outbound EDI) or JSON/XML file (for inbound EDI) to use as a target for the mapping",
+            "Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a target for the mapping",
           args: {
             name: "string",
           },
@@ -702,7 +703,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-transformer-job",
       description:
-        "Returns the details of the transformer run, based on the Transformer job ID",
+        "Returns the details of the transformer run, based on the Transformer job ID.  If 30 days have elapsed since your transformer job was started, the system deletes it. So, if you run GetTransformerJob and supply a transformerId and transformerJobId for a job that was started more than 30 days previously, you receive a 404 response",
       options: [
         {
           name: "--transformer-job-id",
@@ -744,21 +745,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the capabilities associated with your Amazon Web Services account for your current or specified region. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional resources",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Specifies the maximum number of capabilities to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -816,21 +802,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional resources",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Specifies the maximum number of capabilities to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -878,21 +849,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the profiles associated with your Amazon Web Services account for your current or specified region. A profile is the mechanism used to create the concept of a private network",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional resources",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Specifies the maximum number of profiles to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -974,22 +930,6 @@ const completionSpec: Fig.Spec = {
         "Lists the available transformers. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file",
       options: [
         {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional resources",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the number of items to return for the API response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1035,7 +975,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-transformer-job",
       description:
-        "Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange. If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the StartTransformerJob API to process your files",
+        "Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange. If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the StartTransformerJob API to process your files.  The system stores transformer jobs for 30 days. During that period, you can run GetTransformerJob and supply its transformerId and transformerJobId to return details of the job",
       options: [
         {
           name: "--input-file",
@@ -1239,6 +1179,14 @@ const completionSpec: Fig.Spec = {
           name: "--edi-type",
           description:
             "Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--advanced-options",
+          description:
+            "Specifies advanced options for parsing the input EDI file. These options allow for more granular control over the parsing process, including split options for X12 files",
           args: {
             name: "structure",
           },
@@ -1584,6 +1532,53 @@ const completionSpec: Fig.Spec = {
             name: "string",
             suggestions: ["input", "output"],
           },
+        },
+      ],
+    },
+    {
+      name: "wait",
+      description:
+        "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
+      subcommands: [
+        {
+          name: "transformer-job-succeeded",
+          description:
+            "Wait until JMESPath query status returns succeeded when polling with ``get-transformer-job``. It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 12 failed checks",
+          options: [
+            {
+              name: "--transformer-job-id",
+              description:
+                "Specifies the unique, system-generated identifier for a transformer run",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--transformer-id",
+              description:
+                "Specifies the system-assigned unique identifier for the transformer",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
         },
       ],
     },

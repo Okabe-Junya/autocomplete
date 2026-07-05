@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "migrationhuborchestrator",
   description:
@@ -663,20 +664,6 @@ const completionSpec: Fig.Spec = {
       description: "List AWS Migration Hub Orchestrator plugins",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of plugins that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -754,20 +741,6 @@ const completionSpec: Fig.Spec = {
       description: "List the step groups in a template",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--template-id",
           description: "The ID of the template",
           args: {
@@ -821,20 +794,6 @@ const completionSpec: Fig.Spec = {
       name: "list-template-steps",
       description: "List the steps in a template",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--template-id",
           description: "The ID of the template",
@@ -898,20 +857,6 @@ const completionSpec: Fig.Spec = {
         "List the templates available in Migration Hub Orchestrator to create a migration workflow",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--name",
           description: "The name of the template",
           args: {
@@ -966,20 +911,6 @@ const completionSpec: Fig.Spec = {
       description: "List the step groups in a migration workflow",
       options: [
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--workflow-id",
           description: "The ID of the migration workflow",
           args: {
@@ -1033,20 +964,6 @@ const completionSpec: Fig.Spec = {
       name: "list-workflow-steps",
       description: "List the steps in a workflow",
       options: [
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--workflow-id",
           description: "The ID of the migration workflow",
@@ -1108,20 +1025,6 @@ const completionSpec: Fig.Spec = {
       name: "list-workflows",
       description: "List the migration workflows",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--template-id",
           description: "The ID of the template",

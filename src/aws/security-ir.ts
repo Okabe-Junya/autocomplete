@@ -1,11 +1,13 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "security-ir",
   description:
-    "This guide provides documents the action and response elements for customer use of the service",
+    "This guide documents the action and response elements for use of the service",
   subcommands: [
     {
       name: "batch-get-member-account-details",
-      description: "Grants permission to view an existing membership",
+      description:
+        "Provides information on whether the supplied account IDs are associated with a membership.   AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be 123123123 which is nine digits, and with zero-prepend would be 000123123123. Not zero-prepending to 12 digits could result in errors",
       options: [
         {
           name: "--membership-id",
@@ -18,7 +20,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-ids",
           description:
-            "Optional element to query the membership relationship status to a provided list of account IDs",
+            "Optional element to query the membership relationship status to a provided list of account IDs.   AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be 123123123 which is nine digits, and with zero-prepend would be 000123123123. Not zero-prepending to 12 digits could result in errors",
           args: {
             name: "list",
           },
@@ -44,7 +46,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "cancel-membership",
-      description: "Grants permissions to cancel an existing membership",
+      description: "Cancels an existing membership",
       options: [
         {
           name: "--membership-id",
@@ -75,7 +77,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "close-case",
-      description: "Grants permission to close an existing case",
+      description: "Closes an existing case",
       options: [
         {
           name: "--case-id",
@@ -106,11 +108,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-case",
-      description: "Grants permission to create a new case",
+      description: "Creates a new case",
       options: [
         {
           name: "--client-token",
-          description: "Required element used in combination with CreateCase",
+          description:
+            "The clientToken field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided",
           args: {
             name: "string",
           },
@@ -118,7 +121,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resolver-type",
           description:
-            "Required element used in combination with CreateCase to identify the resolver type. Available resolvers include self-supported | aws-supported",
+            "Required element used in combination with CreateCase to identify the resolver type",
           args: {
             name: "string",
           },
@@ -158,7 +161,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--impacted-accounts",
           description:
-            "Required element used in combination with CreateCase to provide a list of impacted accounts",
+            "Required element used in combination with CreateCase to provide a list of impacted accounts.   AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be 123123123 which is nine digits, and with zero-prepend would be 000123123123. Not zero-prepending to 12 digits could result in errors",
           args: {
             name: "list",
           },
@@ -224,7 +227,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-case-comment",
-      description: "Grants permission to add a comment to an existing case",
+      description: "Adds a comment to an existing case",
       options: [
         {
           name: "--case-id",
@@ -237,7 +240,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "An optional element used in combination with CreateCaseComment",
+            "The clientToken field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided",
           args: {
             name: "string",
           },
@@ -271,12 +274,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-membership",
-      description: "Grants permissions to create a new membership",
+      description: "Creates a new membership",
       options: [
         {
           name: "--client-token",
           description:
-            "An optional element used in combination with CreateMembership",
+            "The clientToken field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided",
           args: {
             name: "string",
           },
@@ -284,7 +287,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--membership-name",
           description:
-            "Required element use in combination with CreateMembership to create a name for the membership",
+            "Required element used in combination with CreateMembership to create a name for the membership",
           args: {
             name: "string",
           },
@@ -292,7 +295,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--incident-response-team",
           description:
-            "Required element use in combination with CreateMembership to add customer incident response team members and trusted partners to the membership",
+            "Required element used in combination with CreateMembership to add customer incident response team members and trusted partners to the membership",
           args: {
             name: "list",
           },
@@ -311,6 +314,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "map",
           },
+        },
+        {
+          name: "--cover-entire-organization",
+          description:
+            "The coverEntireOrganization parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts.  This parameter is optional. If not specified, the default value is false.   If set to true: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization.    If set to false: The membership will only apply to explicitly specified accounts",
+        },
+        {
+          name: "--no-cover-entire-organization",
+          description:
+            "The coverEntireOrganization parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts.  This parameter is optional. If not specified, the default value is false.   If set to true: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization.    If set to false: The membership will only apply to explicitly specified accounts",
         },
         {
           name: "--cli-input-json",
@@ -333,7 +346,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-case",
-      description: "Grant permission to view a designated case",
+      description: "Returns the attributes of a case",
       options: [
         {
           name: "--case-id",
@@ -365,7 +378,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-case-attachment-download-url",
       description:
-        "Grants permission to obtain an Amazon S3 presigned URL to download an attachment",
+        "Returns a Pre-Signed URL for uploading attachments into a case",
       options: [
         {
           name: "--case-id",
@@ -404,12 +417,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-case-attachment-upload-url",
-      description: "Grants permission to upload an attachment to a case",
+      description: "Uploads an attachment to a case",
       options: [
         {
           name: "--case-id",
           description:
-            "Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment to",
+            "Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment",
           args: {
             name: "string",
           },
@@ -425,14 +438,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content-length",
           description:
-            "Required element for GetCaseAttachmentUploadUrl to identify the size od the file attachment",
+            "Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment",
           args: {
             name: "long",
           },
         },
         {
           name: "--client-token",
-          description: "Optional element for customer provided token",
+          description:
+            "The clientToken field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided",
           args: {
             name: "string",
           },
@@ -458,8 +472,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-membership",
-      description:
-        "Grants permission to get details of a designated service membership",
+      description: "Returns the attributes of a membership",
       options: [
         {
           name: "--membership-id",
@@ -490,24 +503,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-case-edits",
-      description:
-        "Grants permissions to view the aidt log for edits made to a designated case",
+      description: "Views the case history for edits made to a designated case",
       options: [
-        {
-          name: "--next-token",
-          description: "Optional element for a customer provided token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Optional element to identify how many results to obtain. There is a maximum value of 25",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--case-id",
           description:
@@ -561,24 +558,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-cases",
-      description:
-        "Grants permission to list all cases the requester has access to",
+      description: "Lists all cases the requester has access to",
       options: [
-        {
-          name: "--next-token",
-          description: "Optional element",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Optional element for ListCases to limit the number of responses",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -624,24 +605,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-comments",
-      description:
-        "Grants permissions to list and view comments for a designated case",
+      description: "Returns comments for a designated case",
       options: [
-        {
-          name: "--next-token",
-          description: "Optional element",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Optional element for ListComments to limit the number of responses",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--case-id",
           description:
@@ -694,23 +659,16 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-memberships",
+      name: "list-investigations",
       description:
-        "Grants permission to query the memberships a principal has access to",
+        "Investigation performed by an agent for a security incident..",
       options: [
         {
-          name: "--next-token",
-          description: "Optional element",
+          name: "--case-id",
+          description:
+            "Investigation performed by an agent for a security incident per caseID",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Request element for ListMemberships to limit the number of responses",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -757,9 +715,56 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-tags-for-resource",
+      name: "list-memberships",
       description:
-        "Grants permission to view currently configured tags on a resource",
+        "Returns the memberships that the calling principal can access",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-tags-for-resource",
+      description: "Returns currently configured tags on a resource",
       options: [
         {
           name: "--resource-arn",
@@ -789,8 +794,60 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "send-feedback",
+      description: "Send feedback based on response investigation action",
+      options: [
+        {
+          name: "--case-id",
+          description: "Send feedback based on request caseID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--result-id",
+          description: "Send feedback based on request result ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--usefulness",
+          description:
+            "Required enum value indicating user assessment of result q....",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--comment",
+          description: "Send feedback based on request comments",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "tag-resource",
-      description: "Grants permission to add a tag(s) to a designated resource",
+      description: "Adds a tag(s) to a designated resource",
       options: [
         {
           name: "--resource-arn",
@@ -829,8 +886,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "untag-resource",
-      description:
-        "Grants permission to remove a tag(s) from a designate resource",
+      description: "Removes a tag(s) from a designate resource",
       options: [
         {
           name: "--resource-arn",
@@ -869,7 +925,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-case",
-      description: "Grants permission to update an existing case",
+      description: "Updates an existing case",
       options: [
         {
           name: "--case-id",
@@ -986,7 +1042,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--impacted-accounts-to-add",
           description:
-            "Optional element for UpdateCase to provide content to add accounts impacted",
+            "Optional element for UpdateCase to provide content to add accounts impacted.   AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be 123123123 which is nine digits, and with zero-prepend would be 000123123123. Not zero-prepending to 12 digits could result in errors",
           args: {
             name: "list",
           },
@@ -994,7 +1050,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--impacted-accounts-to-delete",
           description:
-            "Optional element for UpdateCase to provide content to add accounts impacted",
+            "Optional element for UpdateCase to provide content to add accounts impacted.   AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be 123123123 which is nine digits, and with zero-prepend would be 000123123123. Not zero-prepending to 12 digits could result in errors",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--case-metadata",
+          description: "Update the case request with case metadata",
           args: {
             name: "list",
           },
@@ -1020,7 +1083,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-case-comment",
-      description: "Grants permission to update an existing case comment",
+      description: "Updates an existing case comment",
       options: [
         {
           name: "--case-id",
@@ -1068,7 +1131,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-case-status",
       description:
-        "Grants permission to update the status for a designated cases. Options include Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed",
+        "Updates the state transitions for a designated cases.  Self-managed: the following states are available for self-managed cases.    Submitted → Detection and Analysis   Detection and Analysis → Containment, Eradication, and Recovery   Detection and Analysis → Post-incident Activities   Containment, Eradication, and Recovery → Detection and Analysis   Containment, Eradication, and Recovery → Post-incident Activities   Post-incident Activities → Containment, Eradication, and Recovery   Post-incident Activities → Detection and Analysis   Any → Closed    AWS supported: You must use the CloseCase API to close",
       options: [
         {
           name: "--case-id",
@@ -1107,8 +1170,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-membership",
-      description:
-        "Grants access to UpdateMembership to change membership configuration",
+      description: "Updates membership configuration",
       options: [
         {
           name: "--membership-id",
@@ -1143,6 +1205,24 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--membership-accounts-configurations-update",
+          description:
+            "The membershipAccountsConfigurationsUpdate field in the UpdateMembershipRequest structure allows you to update the configuration settings for accounts within a membership.  This field is optional and contains a structure of type MembershipAccountsConfigurationsUpdate  that specifies the updated account configurations for the membership",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--undo-membership-cancellation",
+          description:
+            "The undoMembershipCancellation parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status.  This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet.    If set to true, the cancellation request will be revoked    If set to false the service will throw a ValidationException",
+        },
+        {
+          name: "--no-undo-membership-cancellation",
+          description:
+            "The undoMembershipCancellation parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status.  This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet.    If set to true, the cancellation request will be revoked    If set to false the service will throw a ValidationException",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1164,7 +1244,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-resolver-type",
       description:
-        "Grants permission to update the resolver type for a case.  This is a one-way action and cannot be reversed.  Options include self-supported > AWS-supported",
+        "Updates the resolver type for a case.  This is a one-way action and cannot be reversed",
       options: [
         {
           name: "--case-id",

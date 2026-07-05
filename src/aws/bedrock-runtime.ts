@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "bedrock-runtime",
   description:
@@ -38,6 +39,14 @@ const completionSpec: Fig.Spec = {
             "The content details used in the request to apply the guardrail",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--output-scope",
+          description:
+            "Specifies the scope of the output that you get in the response. Set to FULL to return the entire output, including any detected and non-detected entries in the response for enhanced debugging. Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII)",
+          args: {
+            name: "string",
           },
         },
         {
@@ -151,6 +160,61 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--service-tier",
+          description:
+            "Specifies the processing tier configuration used for serving the request",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--output-config",
+          description: "Output configuration for a model response",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "count-tokens",
+      description:
+        "Returns the token count for a given inference request. This operation helps you estimate token usage before sending requests to foundation models by returning the token count that would be used if the same input were sent to the model in an inference request. Token counting is model-specific because different models use different tokenization strategies. The token count returned by this operation will match the token count that would be charged if the same input were sent to the model in an InvokeModel or Converse request. You can use this operation to:   Estimate costs before sending inference requests.   Optimize prompts to fit within token limits.   Plan for token usage in your applications.   This operation accepts the same input formats as InvokeModel and Converse, allowing you to count tokens for both raw text inputs and structured conversation formats. The following operations are related to CountTokens:    InvokeModel - Sends inference requests to foundation models    Converse - Sends conversation-based inference requests to foundation models",
+      options: [
+        {
+          name: "--model-id",
+          description:
+            "The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--input",
+          description:
+            "The input for which to count tokens. The structure of this parameter depends on whether you're counting tokens for an InvokeModel or Converse request:   For InvokeModel requests, provide the request body in the invokeModel field   For Converse requests, provide the messages and system content in the converse field   The input format must be compatible with the model specified in the modelId parameter",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -178,6 +242,46 @@ const completionSpec: Fig.Spec = {
           description: "The invocation's ARN",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "invoke-guardrail-checks",
+      description:
+        "Evaluates messages against inline guardrail checks. You specify the check configurations directly in the request, and Amazon Bedrock returns per-check results with severity or confidence scores",
+      options: [
+        {
+          name: "--messages",
+          description:
+            "The messages to evaluate against the specified guardrail checks. Each message includes a role and one or more content blocks",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--checks",
+          description:
+            "The inline check configurations that specify which guardrail checks to run against the messages",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -231,7 +335,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--model-id",
           description:
-            "The unique identifier of the model to invoke to run inference. The modelId to provide depends on the type of model or throughput that you use:   If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see Amazon Bedrock base model IDs (on-demand throughput) in the Amazon Bedrock User Guide.   If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see Supported Regions and models for cross-region inference in the Amazon Bedrock User Guide.   If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see Run inference using a Provisioned Throughput in the Amazon Bedrock User Guide.   If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see Use a custom model in Amazon Bedrock in the Amazon Bedrock User Guide.   If you use an imported model, specify the ARN of the imported model. You can get the model ARN from a successful call to CreateModelImportJob or from the Imported models page in the Amazon Bedrock console",
+            "The unique identifier of the model to invoke to run inference. The modelId to provide depends on the type of model or throughput that you use:   If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see Amazon Bedrock base model IDs (on-demand throughput) in the Amazon Bedrock User Guide.   If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see Supported Regions and models for cross-region inference in the Amazon Bedrock User Guide.   If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see Run inference using a Provisioned Throughput in the Amazon Bedrock User Guide.   If you use a custom model, specify the ARN of the custom model deployment (for on-demand inference) or the ARN of your provisioned model (for Provisioned Throughput). For more information, see Use a custom model in Amazon Bedrock in the Amazon Bedrock User Guide.   If you use an imported model, specify the ARN of the imported model. You can get the model ARN from a successful call to CreateModelImportJob or from the Imported models page in the Amazon Bedrock console",
           args: {
             name: "string",
           },
@@ -268,13 +372,26 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "outfile",
-          description: "Filename where the content will be saved",
+          name: "--service-tier",
+          description:
+            "Specifies the processing tier type used for serving the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--request-metadata",
+          description:
+            "Key-value pairs that you can use to filter invocation logs",
           args: {
             name: "string",
           },
         },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "list-async-invokes",
@@ -297,22 +414,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status-equals",
           description: "Filter invocations by status",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of invocations to return in one page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specify the pagination token from a previous request to retrieve the next page of results",
           args: {
             name: "string",
           },

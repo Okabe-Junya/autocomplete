@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "compute-optimizer",
   description:
@@ -69,21 +70,6 @@ const completionSpec: Fig.Spec = {
             "An array of objects to specify a filter that returns a more specific list of export jobs",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to advance to the next page of export jobs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of export jobs to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -666,12 +652,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "export-rds-database-recommendations",
       description:
-        "Export optimization recommendations for your Amazon Relational Database Service (Amazon RDS).  Recommendations are exported in a comma-separated values (CSV) file, and its metadata in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting Recommendations in the Compute Optimizer User Guide. You can have only one Amazon RDS export job in progress per Amazon Web Services Region",
+        "Export optimization recommendations for your Amazon Aurora and Amazon Relational Database Service (Amazon RDS) databases.  Recommendations are exported in a comma-separated values (CSV) file, and its metadata in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see Exporting Recommendations in the Compute Optimizer User Guide. You can have only one Amazon Aurora or RDS export job in progress per Amazon Web Services Region",
       options: [
         {
           name: "--account-ids",
           description:
-            "The Amazon Web Services account IDs for the export Amazon RDS recommendations.  If your account is the management account or the delegated administrator of an organization, use this parameter to specify the member account you want to export recommendations to. This parameter can't be specified together with the include member accounts parameter. The parameters are mutually exclusive. If this parameter or the include member accounts parameter is omitted, the recommendations for member accounts aren't included in the export. You can specify multiple account IDs per request",
+            "The Amazon Web Services account IDs for the export Amazon Aurora and RDS database recommendations.  If your account is the management account or the delegated administrator of an organization, use this parameter to specify the member account you want to export recommendations to. This parameter can't be specified together with the include member accounts parameter. The parameters are mutually exclusive. If this parameter or the include member accounts parameter is omitted, the recommendations for member accounts aren't included in the export. You can specify multiple account IDs per request",
           args: {
             name: "list",
           },
@@ -679,7 +665,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filters",
           description:
-            "An array of objects to specify a filter that exports a more specific set of Amazon RDS recommendations",
+            "An array of objects to specify a filter that exports a more specific set of Amazon Aurora and RDS recommendations",
           args: {
             name: "list",
           },
@@ -1221,22 +1207,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to advance to the next page of account enrollment statuses",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of account enrollment statuses to return with a single request. You can specify up to 100 statuses to return with each request. To retrieve the remaining results, make another request with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1379,22 +1349,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to advance to the next page of function recommendations",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of function recommendations to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1504,12 +1458,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-rds-database-recommendation-projected-metrics",
       description:
-        "Returns the projected metrics of Amazon RDS recommendations",
+        "Returns the projected metrics of Aurora and RDS database recommendations",
       options: [
         {
           name: "--resource-arn",
           description:
-            "The ARN that identifies the Amazon RDS.   The following is the format of the ARN:   arn:aws:rds:{region}:{accountId}:db:{resourceName}",
+            "The ARN that identifies the Amazon Aurora or RDS database.   The following is the format of the ARN:   arn:aws:rds:{region}:{accountId}:db:{resourceName}",
           args: {
             name: "string",
           },
@@ -1575,12 +1529,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-rds-database-recommendations",
       description:
-        "Returns Amazon RDS recommendations.  Compute Optimizer generates recommendations for Amazon RDS that meet a specific set of requirements. For more information, see the Supported resources and requirements in the Compute Optimizer User Guide",
+        "Returns Amazon Aurora and RDS database recommendations.  Compute Optimizer generates recommendations for Amazon Aurora and RDS databases that meet a specific set of requirements. For more information, see the Supported resources and requirements in the Compute Optimizer User Guide",
       options: [
         {
           name: "--resource-arns",
           description:
-            "The ARN that identifies the Amazon RDS.   The following is the format of the ARN:   arn:aws:rds:{region}:{accountId}:db:{resourceName}   The following is the format of a DB Cluster ARN:   arn:aws:rds:{region}:{accountId}:cluster:{resourceName}",
+            "The ARN that identifies the Amazon Aurora or RDS database.   The following is the format of the ARN:   arn:aws:rds:{region}:{accountId}:db:{resourceName}   The following is the format of a DB Cluster ARN:   arn:aws:rds:{region}:{accountId}:cluster:{resourceName}",
           args: {
             name: "list",
           },
@@ -1588,7 +1542,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description:
-            "The token to advance to the next page of Amazon RDS recommendations",
+            "The token to advance to the next page of Amazon Aurora and RDS database recommendations",
           args: {
             name: "string",
           },
@@ -1596,7 +1550,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "The maximum number of Amazon RDS recommendations to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
+            "The maximum number of Amazon Aurora and RDS database recommendations to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
           args: {
             name: "integer",
           },
@@ -1604,7 +1558,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filters",
           description:
-            "An array of objects to specify a filter that returns a more specific list of Amazon RDS recommendations",
+            "An array of objects to specify a filter that returns a more specific list of Amazon Aurora and RDS database recommendations",
           args: {
             name: "list",
           },
@@ -1612,7 +1566,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--account-ids",
           description:
-            "Return the Amazon RDS recommendations to the specified Amazon Web Services account IDs.  If your account is the management account or the delegated administrator of an organization, use this parameter to return the Amazon RDS recommendations to specific member accounts. You can only specify one account ID per request",
+            "Return the Amazon Aurora and RDS database recommendations to the specified Amazon Web Services account IDs.  If your account is the management account or the delegated administrator of an organization, use this parameter to return the Amazon Aurora and RDS database recommendations to specific member accounts. You can only specify one account ID per request",
           args: {
             name: "list",
           },
@@ -1666,22 +1620,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to advance to the next page of recommendation preferences",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of recommendation preferences to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1727,7 +1665,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-recommendation-summaries",
       description:
-        "Returns the optimization findings for an account. It returns the number of:   Amazon EC2 instances in an account that are Underprovisioned, Overprovisioned, or Optimized.   Auto Scaling groups in an account that are NotOptimized, or Optimized.   Amazon EBS volumes in an account that are NotOptimized, or Optimized.   Lambda functions in an account that are NotOptimized, or Optimized.   Amazon ECS services in an account that are Underprovisioned, Overprovisioned, or Optimized",
+        "Returns the optimization findings for an account. It returns the number of:   Amazon EC2 instances in an account that are Underprovisioned, Overprovisioned, or Optimized.   EC2Auto Scaling groups in an account that are NotOptimized, or Optimized.   Amazon EBS volumes in an account that are NotOptimized, or Optimized.   Lambda functions in an account that are NotOptimized, or Optimized.   Amazon ECS services in an account that are Underprovisioned, Overprovisioned, or Optimized.   Commercial software licenses in an account that are InsufficientMetrics, NotOptimized or Optimized.   Amazon Aurora and Amazon RDS databases in an account that are Underprovisioned, Overprovisioned, Optimized, or NotOptimized",
       options: [
         {
           name: "--account-ids",
@@ -1735,22 +1673,6 @@ const completionSpec: Fig.Spec = {
             "The ID of the Amazon Web Services account for which to return recommendation summaries. If your account is the management account of an organization, use this parameter to specify the member account for which you want to return recommendation summaries. Only one account ID can be specified per request",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to advance to the next page of recommendation summaries",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of recommendation summaries to return with a single request. To retrieve the remaining results, make another request with the returned nextToken value",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1844,7 +1766,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--look-back-period",
           description:
-            "The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed. When this preference isn't specified, we use the default value DAYS_14.  You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.     Amazon EC2 instance lookback preferences can be set at the organization, account, and resource levels.   Auto Scaling group lookback preferences can only be set at the resource level",
+            "The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed. When this preference isn't specified, we use the default value DAYS_14.  You can only set this preference for the Amazon EC2 instance, Auto Scaling group, Amazon EBS volume, Amazon ECS service on Fargate, Amazon RDS DB instance, and Aurora DB cluster storage resource types.     Lookback period preferences for Amazon EC2 instances, Amazon EBS volumes, Amazon ECS services, Amazon RDS DB instances, and Aurora DB cluster storage resource types can be set at the organization, account, and resource levels.   Auto Scaling group lookback preferences can only be set at the resource level.   Amazon EBS volume lookback preferences can be set at the organization, account, and resource levels.   Amazon ECS service on Fargate lookback preferences can be set at the organization, account, and resource levels.   Amazon RDS DB instance lookback preferences can be set at the organization, account, and resource levels.   Aurora DB cluster storage lookback preferences can be set at the organization, account, and resource levels.   Changing the lookback period for Amazon EBS volumes to 14 days does not affect the 32-day lookback period used to determine whether an Amazon EBS volume is unattached",
           args: {
             name: "string",
           },
@@ -1852,7 +1774,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--utilization-preferences",
           description:
-            "The preference to control the resource\u2019s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. When this preference isn't specified, we use the following default values.  CPU utilization:    P99_5 for threshold    PERCENT_20 for headroom   Memory utilization:    PERCENT_20 for headroom      You can only set CPU and memory utilization preferences for the Amazon EC2 instance resource type.   The threshold setting isn\u2019t available for memory utilization",
+            "The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. When this preference isn't specified, we use the following default values.  CPU utilization:    P99_5 for threshold    PERCENT_20 for headroom   Memory utilization:    PERCENT_20 for headroom      You can only set CPU and memory utilization preferences for the Amazon EC2 instance resource type.   The threshold setting isn’t available for memory utilization",
           args: {
             name: "list",
           },
@@ -1860,7 +1782,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--preferred-resources",
           description:
-            "The preference to control which resource type values are considered when generating rightsizing recommendations. You can specify this preference as a combination of include and exclude lists. You must specify either an includeList or excludeList. If the preference is an empty set of resource type values, an error occurs.   You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types",
+            "The preference to control which resource type values are considered when generating rightsizing recommendations. You can specify this preference as a combination of include and exclude lists. You must specify either an includeList or excludeList. If the preference is an empty set of resource type values, an error occurs.   You can only set this preference for the Amazon EC2 instance, Auto Scaling group, Amazon EBS volume, Amazon ECS service, Amazon RDS DB instance, and Aurora DB cluster storage resource types",
           args: {
             name: "list",
           },

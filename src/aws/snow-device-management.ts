@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "snow-device-management",
   description: "Amazon Web Services Snow Device Management documentation",
@@ -249,21 +250,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of resources per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--type",
           description:
             "A structure used to filter the results by type of resource",
@@ -327,21 +313,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of devices to list per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -388,21 +359,6 @@ const completionSpec: Fig.Spec = {
       name: "list-executions",
       description: "Returns the status of tasks for one or more target devices",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of tasks to list per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token to continue to the next page of tasks",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--state",
           description:
@@ -495,21 +451,6 @@ const completionSpec: Fig.Spec = {
       name: "list-tasks",
       description: "Returns a list of tasks that can be filtered by state",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of tasks per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token to continue to the next page of tasks",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--state",
           description: "A structure used to filter the list of tasks",

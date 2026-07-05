@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "dataexchange",
   description:
@@ -212,6 +213,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--tags",
+          description:
+            "Key-value pairs that you can associate with the event action",
+          args: {
+            name: "map",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -234,6 +243,14 @@ const completionSpec: Fig.Spec = {
       name: "create-job",
       description: "This operation creates a job",
       options: [
+        {
+          name: "--asset-configuration",
+          description:
+            "The configuration for the asset, including tags to be applied to assets created by the job",
+          args: {
+            name: "structure",
+          },
+        },
         {
           name: "--details",
           description: "The details for the CreateJob request",
@@ -720,22 +737,6 @@ const completionSpec: Fig.Spec = {
       description: "This operation returns information about all data grants",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be included in the next page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used to retrieve the next page of results for this operation",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -791,22 +792,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -854,22 +839,6 @@ const completionSpec: Fig.Spec = {
       description:
         "This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--origin",
           description:
@@ -933,22 +902,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -999,22 +952,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-set-id",
           description: "The unique identifier for a data set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
           args: {
             name: "string",
           },
@@ -1075,22 +1012,6 @@ const completionSpec: Fig.Spec = {
         "This operation returns information about all received data grants",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be included in the next page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used to retrieve the next page of results for this operation",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--acceptance-state",
           description: "The acceptance state of the data grants to list",
           args: {
@@ -1148,22 +1069,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-set-id",
           description: "The unique identifier for a data set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
           args: {
             name: "string",
           },
@@ -1297,7 +1202,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-api-asset",
       description:
-        "This operation invokes an API Gateway API asset. The request is proxied to the provider\u2019s API Gateway API",
+        "This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API",
       options: [
         {
           name: "--body",

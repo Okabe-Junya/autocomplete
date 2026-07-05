@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ram",
   description:
@@ -46,7 +47,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-resource-share",
       description:
-        "Adds the specified list of principals and list of resources to a resource share. Principals that already have access to this resource share immediately receive access to the added resources. Newly added principals immediately receive access to the resources shared in this resource share",
+        "Adds the specified list of principals, resources, and source constraints to a resource share. Principals that already have access to this resource share immediately receive access to the added resources. Newly added principals immediately receive access to the resources shared in this resource share",
       options: [
         {
           name: "--resource-share-arn",
@@ -67,7 +68,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--principals",
           description:
-            "Specifies a list of principals to whom you want to the resource share. This can be null if you want to add only resources. What the principals can do with the resources in the share is determined by the RAM permissions that you associate with the resource share. See AssociateResourceSharePermission. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
+            "Specifies a list of principals to whom you want to the resource share. This can be null if you want to add only resources. What the principals can do with the resources in the share is determined by the RAM permissions that you associate with the resource share. See AssociateResourceSharePermission. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username    A service principal name, for example: service-id.amazonaws.com     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
           args: {
             name: "list",
           },
@@ -83,7 +84,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sources",
           description:
-            "Specifies from which source accounts the service principal has access to the resources in this resource share",
+            "Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from",
           args: {
             name: "list",
           },
@@ -189,7 +190,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-type",
           description:
-            "Specifies the name of the resource type that this customer managed permission applies to. The format is  <service-code>:<resource-type>  and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the string ec2:subnet. To see the list of valid values for this parameter, query the ListResourceTypes operation",
+            "Specifies the name of the resource type that this customer managed permission applies to. The format is  <service-code>:<resource-type>  and is case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the string ec2:Subnet. To see the list of valid values for this parameter, query the ListResourceTypes operation. This value must match the display name of the resource (available in ListResourceTypes)",
           args: {
             name: "string",
           },
@@ -288,7 +289,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-resource-share",
       description:
-        "Creates a resource share. You can provide a list of the Amazon Resource Names (ARNs) for the resources that you want to share, a list of principals you want to share the resources with, and the permissions to grant those principals.  Sharing a resource makes it available for use by principals outside of the Amazon Web Services account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it",
+        "Creates a resource share. You can provide a list of the Amazon Resource Names (ARNs) for the resources that you want to share, a list of principals you want to share the resources with, the permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.  Sharing a resource makes it available for use by principals outside of the Amazon Web Services account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it",
       options: [
         {
           name: "--name",
@@ -308,7 +309,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--principals",
           description:
-            "Specifies a list of one or more principals to associate with the resource share. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
+            "Specifies a list of one or more principals to associate with the resource share. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username    A service principal name, for example: service-id.amazonaws.com     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
           args: {
             name: "list",
           },
@@ -350,9 +351,16 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sources",
           description:
-            "Specifies from which source accounts the service principal has access to the resources in this resource share",
+            "Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--resource-share-configuration",
+          description: "Specifies the configuration of this resource share",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -505,7 +513,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-resource-share",
       description:
-        "Removes the specified principals or resources from participating in the specified resource share",
+        "Removes the specified principals, resources, or source constraints from participating in the specified resource share",
       options: [
         {
           name: "--resource-share-arn",
@@ -526,7 +534,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--principals",
           description:
-            "Specifies a list of one or more principals that no longer are to have access to the resources in this resource share. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
+            "Specifies a list of one or more principals that no longer are to have access to the resources in this resource share. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username    A service principal name, for example: service-id.amazonaws.com     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
           args: {
             name: "list",
           },
@@ -542,7 +550,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sources",
           description:
-            "Specifies from which source accounts the service principal no longer has access to the resources in this resource share",
+            "Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) to remove from the resource share. This enables granular management of source constraints while maintaining service principal associations. At least one source must remain when service principals are present",
           args: {
             name: "list",
           },
@@ -681,7 +689,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-resource-policies",
       description:
-        "Retrieves the resource policies for the specified resources that you own and have shared",
+        "Retrieves the resource policies for the specified resources that you own and have shared.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-arns",
@@ -696,22 +704,6 @@ const completionSpec: Fig.Spec = {
           description: "Specifies the principal",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -760,12 +752,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-resource-share-associations",
       description:
-        "Retrieves the lists of resources and principals that associated for resource shares that you own",
+        "Retrieves the lists of resources and principals that associated for resource shares that you own.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--association-type",
           description:
-            "Specifies whether you want to retrieve the associations that involve a specified resource or principal.    PRINCIPAL \u2013 list the principals whose associations you want to see.    RESOURCE \u2013 list the resources whose associations you want to see",
+            "Specifies whether you want to retrieve the associations that involve a specified resource or principal.    PRINCIPAL – list the principals whose associations you want to see.    RESOURCE – list the resources whose associations you want to see",
           args: {
             name: "string",
           },
@@ -800,22 +792,6 @@ const completionSpec: Fig.Spec = {
             "Specifies that you want to retrieve only associations that have this status",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -864,7 +840,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-resource-share-invitations",
       description:
-        "Retrieves details about invitations that you have received for resource shares",
+        "Retrieves details about invitations that you have received for resource shares.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-share-invitation-arns",
@@ -880,22 +856,6 @@ const completionSpec: Fig.Spec = {
             "Specifies that you want details about invitations only for the resource shares described by this list of Amazon Resource Names (ARNs)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -944,7 +904,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-resource-shares",
       description:
-        "Retrieves details about the resource shares that you own or that are shared with you",
+        "Retrieves details about the resource shares that you own or that are shared with you.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-share-arns",
@@ -965,7 +925,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-owner",
           description:
-            "Specifies that you want to retrieve details of only those resource shares that match the following:     SELF  \u2013 resource shares that your account shares with other accounts     OTHER-ACCOUNTS  \u2013 resource shares that other accounts share with your account",
+            "Specifies that you want to retrieve details of only those resource shares that match the following:     SELF  – resource shares that your account shares with other accounts     OTHER-ACCOUNTS  – resource shares that other accounts share with your account",
           args: {
             name: "string",
           },
@@ -984,22 +944,6 @@ const completionSpec: Fig.Spec = {
             "Specifies that you want to retrieve details of only those resource shares that match the specified tag keys and values",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1064,7 +1008,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-pending-invitation-resources",
       description:
-        "Lists the resources in a resource share that is shared with you but for which the invitation is still PENDING. That means that you haven't accepted or rejected the invitation and the invitation hasn't expired",
+        "Lists the resources in a resource share that is shared with you but for which the invitation is still PENDING. That means that you haven't accepted or rejected the invitation and the invitation hasn't expired.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-share-invitation-arn",
@@ -1093,7 +1037,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-region-scope",
           description:
-            "Specifies that you want the results to include only resources that have the specified scope.    ALL \u2013 the results include both global and regional resources or resource types.    GLOBAL \u2013 the results include only global resources or resource types.    REGIONAL \u2013 the results include only regional resources or resource types.   The default value is ALL",
+            "Specifies that you want the results to include only resources that have the specified scope.    ALL – the results include both global and regional resources or resource types.    GLOBAL – the results include only global resources or resource types.    REGIONAL – the results include only regional resources or resource types.   The default value is ALL",
           args: {
             name: "string",
           },
@@ -1120,7 +1064,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-permission-associations",
       description:
-        "Lists information about the managed permission and its associations to any resource shares that use this managed permission. This lets you see which resource shares use which versions of the specified managed permission",
+        "Lists information about the managed permission and its associations to any resource shares that use this managed permission. This lets you see which resource shares use which versions of the specified managed permission.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--permission-arn",
@@ -1210,7 +1154,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-permission-versions",
       description:
-        "Lists the available versions of the specified RAM permission",
+        "Lists the available versions of the specified RAM permission.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--permission-arn",
@@ -1258,7 +1202,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-permissions",
       description:
-        "Retrieves a list of available RAM permissions that you can use for the supported resource types",
+        "Retrieves a list of available RAM permissions that you can use for the supported resource types.   Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-type",
@@ -1287,7 +1231,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--permission-type",
           description:
-            "Specifies that you want to list only permissions of this type:    AWS \u2013 returns only Amazon Web Services managed permissions.    LOCAL \u2013 returns only customer managed permissions    ALL \u2013 returns both Amazon Web Services managed permissions and customer managed permissions.   If you don't specify this parameter, the default is All",
+            "Specifies that you want to list only permissions of this type:    AWS – returns only Amazon Web Services managed permissions.    LOCAL – returns only customer managed permissions    ALL – returns both Amazon Web Services managed permissions and customer managed permissions.   If you don't specify this parameter, the default is All",
           args: {
             name: "string",
           },
@@ -1314,12 +1258,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-principals",
       description:
-        "Lists the principals that you are sharing resources with or that are sharing resources with you",
+        "Lists the principals that you are sharing resources with or that are sharing resources with you.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-owner",
           description:
-            "Specifies that you want to list information for only resource shares that match the following:     SELF  \u2013 principals that your account is sharing resources with     OTHER-ACCOUNTS  \u2013 principals that are sharing resources with your account",
+            "Specifies that you want to list information for only resource shares that match the following:     SELF  – principals that your account is sharing resources with     OTHER-ACCOUNTS  – principals that are sharing resources with your account",
           args: {
             name: "string",
           },
@@ -1335,7 +1279,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--principals",
           description:
-            "Specifies that you want to list information for only the listed principals. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
+            "Specifies that you want to list information for only the listed principals. You can include the following values:   An Amazon Web Services account ID, for example: 123456789012    An Amazon Resource Name (ARN) of an organization in Organizations, for example: organizations::123456789012:organization/o-exampleorgid    An ARN of an organizational unit (OU) in Organizations, for example: organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123    An ARN of an IAM role, for example: iam::123456789012:role/rolename    An ARN of an IAM user, for example: iam::123456789012user/username    A service principal name, for example: service-id.amazonaws.com     Not all resource types can be shared with IAM roles and users. For more information, see Sharing with IAM roles and users in the Resource Access Manager User Guide",
           args: {
             name: "list",
           },
@@ -1354,22 +1298,6 @@ const completionSpec: Fig.Spec = {
             "Specifies that you want to list information for only principals associated with the resource shares specified by a list the Amazon Resource Names (ARNs)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1418,7 +1346,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-replace-permission-associations-work",
       description:
-        "Retrieves the current status of the asynchronous tasks performed by RAM when you perform the ReplacePermissionAssociationsWork operation",
+        "Retrieves the current status of the asynchronous tasks performed by RAM when you perform the ReplacePermissionAssociationsWork operation.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--work-ids",
@@ -1474,7 +1402,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-resource-share-permissions",
       description:
-        "Lists the RAM permissions that are associated with a resource share",
+        "Lists the RAM permissions that are associated with a resource share.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-share-arn",
@@ -1542,7 +1470,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-region-scope",
           description:
-            "Specifies that you want the results to include only resources that have the specified scope.    ALL \u2013 the results include both global and regional resources or resource types.    GLOBAL \u2013 the results include only global resources or resource types.    REGIONAL \u2013 the results include only regional resources or resource types.   The default value is ALL",
+            "Specifies that you want the results to include only resources that have the specified scope.    ALL – the results include both global and regional resources or resource types.    GLOBAL – the results include only global resources or resource types.    REGIONAL – the results include only regional resources or resource types.   The default value is ALL",
           args: {
             name: "string",
           },
@@ -1569,12 +1497,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-resources",
       description:
-        "Lists the resources that you added to a resource share or the resources that are shared with you",
+        "Lists the resources that you added to a resource share or the resources that are shared with you.  Always check the NextToken response parameter for a null value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The NextToken response parameter value is null only when there are no more results to display",
       options: [
         {
           name: "--resource-owner",
           description:
-            "Specifies that you want to list only the resource shares that match the following:     SELF  \u2013 resources that your account shares with other accounts     OTHER-ACCOUNTS  \u2013 resources that other accounts share with your account",
+            "Specifies that you want to list only the resource shares that match the following:     SELF  – resources that your account shares with other accounts     OTHER-ACCOUNTS  – resources that other accounts share with your account",
           args: {
             name: "string",
           },
@@ -1612,25 +1540,89 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--resource-region-scope",
           description:
-            "Specifies that you want to receive the next page of results. Valid only if you received a NextToken response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's NextToken response to request the next page of results",
+            "Specifies that you want the results to include only resources that have the specified scope.    ALL – the results include both global and regional resources or resource types.    GLOBAL – the results include only global resources or resource types.    REGIONAL – the results include only regional resources or resource types.   The default value is ALL",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the NextToken response element is returned with a value (not null). Include the specified value as the NextToken request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--resource-region-scope",
+          name: "--max-items",
           description:
-            "Specifies that you want the results to include only resources that have the specified scope.    ALL \u2013 the results include both global and regional resources or resource types.    GLOBAL \u2013 the results include only global resources or resource types.    REGIONAL \u2013 the results include only regional resources or resource types.   The default value is ALL",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-source-associations",
+      description:
+        "Lists source associations for resource shares. Source associations control which sources can be used with service principals in resource shares. This operation provides visibility into source associations for resource share owners. You can filter the results by resource share Amazon Resource Name (ARN), source ID, source type, or association status. We recommend using pagination to ensure that the operation returns quickly and successfully",
+      options: [
+        {
+          name: "--resource-share-arns",
+          description:
+            "The Amazon Resource Names (ARNs) of the resource shares for which you want to retrieve source associations",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--source-id",
+          description:
+            "The identifier of the source for which you want to retrieve associations. This can be an account ID, Amazon Resource Name (ARN), organization ID, or organization path",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source-type",
+          description:
+            "The type of source for which you want to retrieve associations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--association-status",
+          description:
+            "The status of the source associations that you want to retrieve",
           args: {
             name: "string",
           },

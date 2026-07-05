@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "appsync",
   description:
@@ -217,7 +218,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ttl",
           description:
-            "TTL in seconds for cache entries. Valid values are 1\u20133,600 seconds",
+            "TTL in seconds for cache entries. Valid values are 1–3,600 seconds",
           args: {
             name: "long",
           },
@@ -245,7 +246,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--api-caching-behavior",
           description:
-            "Caching behavior.    FULL_REQUEST_CACHING: All requests are fully cached.    PER_RESOLVER_CACHING: Individual resolvers that you specify are cached",
+            "Caching behavior.    FULL_REQUEST_CACHING: All requests from the same user are cached. Individual resolvers are automatically cached. All API calls will try to return responses from the cache.    PER_RESOLVER_CACHING: Individual resolvers that you specify are cached.    OPERATION_LEVEL_CACHING: Full requests are cached together and returned without executing resolvers",
           args: {
             name: "string",
           },
@@ -307,7 +308,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expires",
           description:
-            "From the creation time, the time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see",
+            "From the creation time, the time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see ",
           args: {
             name: "long",
           },
@@ -380,6 +381,14 @@ const completionSpec: Fig.Spec = {
             "A map with keys of TagKey objects and values of TagValue objects",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--handler-configs",
+          description:
+            "The configuration for the OnPublish and OnSubscribe handlers",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -542,6 +551,14 @@ const completionSpec: Fig.Spec = {
           description: "A description of the DomainName",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "A map with keys of TagKey objects and values of TagValue objects",
+          args: {
+            name: "map",
           },
         },
         {
@@ -1964,14 +1981,11 @@ const completionSpec: Fig.Spec = {
           description:
             "A flag that specifies whether the schema introspection should contain directives",
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-resolver",
@@ -2144,22 +2158,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2207,22 +2205,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the APIs in your AppSync account.  ListApis returns only the high level API details. For more detailed information about an API, use GetApi",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2276,22 +2258,6 @@ const completionSpec: Fig.Spec = {
           description: "The Api ID",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2349,22 +2315,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2411,22 +2361,6 @@ const completionSpec: Fig.Spec = {
       name: "list-domain-names",
       description: "Lists multiple custom domain names",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2482,22 +2416,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2544,22 +2462,6 @@ const completionSpec: Fig.Spec = {
       name: "list-graphql-apis",
       description: "Lists your GraphQL APIs",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--api-type",
           description:
@@ -2637,22 +2539,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2715,22 +2601,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2782,22 +2652,6 @@ const completionSpec: Fig.Spec = {
           description: "The API ID",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2892,22 +2746,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2978,22 +2816,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want the request to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3039,7 +2861,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-graphql-api-environment-variables",
       description:
-        'Creates a list of environmental variables in an API by its ID value.  When creating an environmental variable, it must follow the constraints below:   Both JavaScript and VTL templates support environmental variables.   Environmental variables are not evaluated before function invocation.   Environmental variables only support string values.   Any defined value in an environmental variable is considered a string literal and not expanded.   Variable evaluations should ideally be performed in the function code.   When creating an environmental variable key-value pair, it must follow the additional constraints below:   Keys must begin with a letter.   Keys must be at least two characters long.   Keys can only contain letters, numbers, and the underscore character (_).   Values can be up to 512 characters long.   You can configure up to 50 key-value pairs in a GraphQL API.   You can create a list of environmental variables by adding it to the environmentVariables payload as a list in the format {"key1":"value1","key2":"value2", \u2026}. Note that each call of the PutGraphqlApiEnvironmentVariables action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action',
+        'Creates a list of environmental variables in an API by its ID value.  When creating an environmental variable, it must follow the constraints below:   Both JavaScript and VTL templates support environmental variables.   Environmental variables are not evaluated before function invocation.   Environmental variables only support string values.   Any defined value in an environmental variable is considered a string literal and not expanded.   Variable evaluations should ideally be performed in the function code.   When creating an environmental variable key-value pair, it must follow the additional constraints below:   Keys must begin with a letter.   Keys must be at least two characters long.   Keys can only contain letters, numbers, and the underscore character (_).   Values can be up to 512 characters long.   You can configure up to 50 key-value pairs in a GraphQL API.   You can create a list of environmental variables by adding it to the environmentVariables payload as a list in the format {"key1":"value1","key2":"value2", …}. Note that each call of the PutGraphqlApiEnvironmentVariables action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action',
       options: [
         {
           name: "--api-id",
@@ -3052,7 +2874,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--environment-variables",
           description:
-            'The list of environmental variables to add to the API. When creating an environmental variable key-value pair, it must follow the additional constraints below:   Keys must begin with a letter.   Keys must be at least two characters long.   Keys can only contain letters, numbers, and the underscore character (_).   Values can be up to 512 characters long.   You can configure up to 50 key-value pairs in a GraphQL API.   You can create a list of environmental variables by adding it to the environmentVariables payload as a list in the format {"key1":"value1","key2":"value2", \u2026}. Note that each call of the PutGraphqlApiEnvironmentVariables action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action',
+            'The list of environmental variables to add to the API. When creating an environmental variable key-value pair, it must follow the additional constraints below:   Keys must begin with a letter.   Keys must be at least two characters long.   Keys can only contain letters, numbers, and the underscore character (_).   Values can be up to 512 characters long.   You can configure up to 50 key-value pairs in a GraphQL API.   You can create a list of environmental variables by adding it to the environmentVariables payload as a list in the format {"key1":"value1","key2":"value2", …}. Note that each call of the PutGraphqlApiEnvironmentVariables action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action',
           args: {
             name: "map",
           },
@@ -3326,7 +3148,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ttl",
           description:
-            "TTL in seconds for cache entries. Valid values are 1\u20133,600 seconds",
+            "TTL in seconds for cache entries. Valid values are 1–3,600 seconds",
           args: {
             name: "long",
           },
@@ -3334,7 +3156,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--api-caching-behavior",
           description:
-            "Caching behavior.    FULL_REQUEST_CACHING: All requests are fully cached.    PER_RESOLVER_CACHING: Individual resolvers that you specify are cached",
+            "Caching behavior.    FULL_REQUEST_CACHING: All requests from the same user are cached. Individual resolvers are automatically cached. All API calls will try to return responses from the cache.    PER_RESOLVER_CACHING: Individual resolvers that you specify are cached.    OPERATION_LEVEL_CACHING: Full requests are cached together and returned without executing resolvers",
           args: {
             name: "string",
           },
@@ -3403,7 +3225,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expires",
           description:
-            "From the update time, the time after which the API key expires. The date is represented as seconds since the epoch. For more information, see",
+            "From the update time, the time after which the API key expires. The date is represented as seconds since the epoch. For more information, see ",
           args: {
             name: "long",
           },
@@ -3467,6 +3289,14 @@ const completionSpec: Fig.Spec = {
             "The event handler functions that run custom business logic to process published events and subscribe requests",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--handler-configs",
+          description:
+            "The configuration for the OnPublish and OnSubscribe handlers",
+          args: {
+            name: "structure",
           },
         },
         {

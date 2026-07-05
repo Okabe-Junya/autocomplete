@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "grafana",
   description:
@@ -9,9 +10,8 @@ const completionSpec: Fig.Spec = {
         "Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use ENTERPRISE for the licenseType, and pass in a valid Grafana Labs token for the grafanaToken. Upgrading to Grafana Enterprise incurs additional fees. For more information, see Upgrade a workspace to Grafana Enterprise",
       options: [
         {
-          name: "--grafana-token",
-          description:
-            "A token from Grafana Labs that ties your Amazon Web Services account with a Grafana Labs account. For more information, see Link your account with Grafana Labs",
+          name: "--workspace-id",
+          description: "The ID of the workspace to associate the license with",
           args: {
             name: "string",
           },
@@ -25,8 +25,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--workspace-id",
-          description: "The ID of the workspace to associate the license with",
+          name: "--grafana-token",
+          description:
+            "A token from Grafana Labs that ties your Amazon Web Services account with a Grafana Labs account. For more information, see Link your account with Grafana Labs",
           args: {
             name: "string",
           },
@@ -64,43 +65,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--authentication-providers",
-          description:
-            "Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate users for using the Grafana console within a workspace. For more information, see User authentication in Amazon Managed Grafana",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--client-token",
           description:
             "A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--configuration",
-          description:
-            "The configuration string for the workspace that you create. For more information about the format and configuration options available, see Working in your Grafana workspace",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--grafana-version",
-          description:
-            "Specifies the version of Grafana to support in the new workspace. If not specified, defaults to the latest version (for example, 10.4). To get a list of supported versions, use the ListVersions operation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--network-access-control",
-          description:
-            "Configuration for network access to your workspace. When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization will still be required. If this is not configured, or is removed, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -125,21 +94,6 @@ const completionSpec: Fig.Spec = {
             "The name of the CloudFormation stack set to use to generate IAM roles to be used for this workspace",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--tags",
-          description: "The list of tags associated with the workspace",
-          args: {
-            name: "map",
-          },
-        },
-        {
-          name: "--vpc-configuration",
-          description:
-            "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.  Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2)",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -186,6 +140,69 @@ const completionSpec: Fig.Spec = {
           name: "--workspace-role-arn",
           description:
             "Specified the IAM role that grants permissions to the Amazon Web Services resources that the workspace will view data from, including both data sources and notification channels. You are responsible for managing the permissions for this role as new data sources or notification channels are added",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--authentication-providers",
+          description:
+            "Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate users for using the Grafana console within a workspace. For more information, see User authentication in Amazon Managed Grafana",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The list of tags associated with the workspace",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--vpc-configuration",
+          description:
+            "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.  Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2)",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--configuration",
+          description:
+            "The configuration string for the workspace that you create. For more information about the format and configuration options available, see Working in your Grafana workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-access-control",
+          description:
+            "Configuration for network access to your workspace. When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization will still be required. If this is not configured, or is removed, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--grafana-version",
+          description:
+            "Specifies the version of Grafana to support in the new workspace. If not specified, defaults to the latest version (for example, 10.4). To get a list of supported versions, use the ListVersions operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are IPv4 and DualStack. For more information about IP address types, see Network access control",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--kms-key-id",
+          description:
+            "The ID or ARN of the Key Management Service key to use for encrypting workspace data",
           args: {
             name: "string",
           },
@@ -270,17 +287,17 @@ const completionSpec: Fig.Spec = {
         "Creates a service account for the workspace. A service account can be used to call Grafana HTTP APIs, and run automated workloads. After creating the service account with the correct GrafanaRole for your use case, use CreateWorkspaceServiceAccountToken to create a token that can be used to authenticate and authorize Grafana HTTP API calls. You can only create service accounts for workspaces that are compatible with Grafana version 9 and above.  For more information about service accounts, see Service accounts in the Amazon Managed Grafana User Guide. For more information about the Grafana HTTP APIs, see Using Grafana HTTP APIs in the Amazon Managed Grafana User Guide",
       options: [
         {
-          name: "--grafana-role",
+          name: "--name",
           description:
-            "The permission level to use for this service account.  For more information about the roles and the permissions each has, see User roles in the Amazon Managed Grafana User Guide",
+            "A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account",
           args: {
             name: "string",
           },
         },
         {
-          name: "--name",
+          name: "--grafana-role",
           description:
-            "A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account",
+            "The permission level to use for this service account.  For more information about the roles and the permissions each has, see User roles in the Amazon Managed Grafana User Guide",
           args: {
             name: "string",
           },
@@ -480,16 +497,16 @@ const completionSpec: Fig.Spec = {
         "Deletes a token for the workspace service account. This will disable the key associated with the token. If any automation is currently using the key, it will no longer be authenticated or authorized to perform actions with the Grafana HTTP APIs. Service accounts are only available for workspaces that are compatible with Grafana version 9 and above",
       options: [
         {
-          name: "--service-account-id",
-          description:
-            "The ID of the service account from which to delete the token",
+          name: "--token-id",
+          description: "The ID of the token to delete",
           args: {
             name: "string",
           },
         },
         {
-          name: "--token-id",
-          description: "The ID of the token to delete",
+          name: "--service-account-id",
+          description:
+            "The ID of the service account from which to delete the token",
           args: {
             name: "string",
           },
@@ -620,16 +637,16 @@ const completionSpec: Fig.Spec = {
       description: "Removes the Grafana Enterprise license from a workspace",
       options: [
         {
-          name: "--license-type",
-          description: "The type of license to remove from the workspace",
+          name: "--workspace-id",
+          description:
+            "The ID of the workspace to remove the Grafana Enterprise license from",
           args: {
             name: "string",
           },
         },
         {
-          name: "--workspace-id",
-          description:
-            "The ID of the workspace to remove the Grafana Enterprise license from",
+          name: "--license-type",
+          description: "The type of license to remove from the workspace",
           args: {
             name: "string",
           },
@@ -659,25 +676,9 @@ const completionSpec: Fig.Spec = {
         "Lists the users and groups who have the Grafana Admin and Editor roles in this workspace. If you use this operation without specifying userId or groupId, the operation returns the roles of all users and groups. If you specify a userId or a groupId, only the roles for that user or group are returned. If you do this, you can specify only one userId or one groupId",
       options: [
         {
-          name: "--group-id",
+          name: "--user-type",
           description:
-            "(Optional) Limits the results to only the group that matches this ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to use when requesting the next set of results. You received this token from a previous ListPermissions operation",
+            "(Optional) If you specify SSO_USER, then only the permissions of IAM Identity Center users are returned. If you specify SSO_GROUP, only the permissions of IAM Identity Center groups are returned",
           args: {
             name: "string",
           },
@@ -691,9 +692,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--user-type",
+          name: "--group-id",
           description:
-            "(Optional) If you specify SSO_USER, then only the permissions of IAM Identity Center users are returned. If you specify SSO_GROUP, only the permissions of IAM Identity Center groups are returned",
+            "(Optional) Limits the results to only the group that matches this ID",
           args: {
             name: "string",
           },
@@ -787,22 +788,6 @@ const completionSpec: Fig.Spec = {
         "Lists available versions of Grafana. These are available when calling CreateWorkspace. Optionally, include a workspace to list the versions to which it can be upgraded",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to use when requesting the next set of results. You receive this token from a previous ListVersions operation",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--workspace-id",
           description:
             "The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for CreateWorkspace",
@@ -858,21 +843,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of tokens for a workspace service account.  This does not return the key for each token. You cannot access keys after they are created. To create a new key, delete the token and recreate it.  Service accounts are only available for workspaces that are compatible with Grafana version 9 and above",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of tokens to include in the results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of service accounts to return. (You receive this token from a previous ListWorkspaceServiceAccountTokens operation.)",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--service-account-id",
           description:
@@ -937,22 +907,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of service accounts for a workspace. Service accounts are only available for workspaces that are compatible with Grafana version 9 and above",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of service accounts to include in the results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of service accounts to return. (You receive this token from a previous ListWorkspaceServiceAccounts operation.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--workspace-id",
           description: "The workspace for which to list service accounts",
           args: {
@@ -1007,22 +961,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of Amazon Managed Grafana workspaces in the account, with some information about each workspace. For more complete information about one workspace, use DescribeWorkspace",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of workspaces to include in the results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of workspaces to return. (You receive this token from a previous ListWorkspaces operation.)",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1198,14 +1136,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--network-access-control",
-          description:
-            "The configuration settings for network access to your workspace. When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization will still be required. If this is not configured, or is removed, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--organization-role-name",
           description:
             "The name of an IAM role that already exists to use to access resources through Organizations. This can only be used with a workspace that has the permissionType set to CUSTOMER_MANAGED",
@@ -1222,39 +1152,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--remove-network-access-configuration",
-          description:
-            "Whether to remove the network access configuration from the workspace. Setting this to true and providing a networkAccessControl to set will return an error. If you remove this configuration by setting this to true, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
-        },
-        {
-          name: "--no-remove-network-access-configuration",
-          description:
-            "Whether to remove the network access configuration from the workspace. Setting this to true and providing a networkAccessControl to set will return an error. If you remove this configuration by setting this to true, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
-        },
-        {
-          name: "--remove-vpc-configuration",
-          description:
-            "Whether to remove the VPC configuration from the workspace. Setting this to true and providing a vpcConfiguration to set will return an error",
-        },
-        {
-          name: "--no-remove-vpc-configuration",
-          description:
-            "Whether to remove the VPC configuration from the workspace. Setting this to true and providing a vpcConfiguration to set will return an error",
-        },
-        {
           name: "--stack-set-name",
           description:
             "The name of the CloudFormation stack set to use to generate IAM roles to be used for this workspace",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--vpc-configuration",
-          description:
-            "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -1312,6 +1214,50 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--vpc-configuration",
+          description:
+            "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--remove-vpc-configuration",
+          description:
+            "Whether to remove the VPC configuration from the workspace. Setting this to true and providing a vpcConfiguration to set will return an error",
+        },
+        {
+          name: "--no-remove-vpc-configuration",
+          description:
+            "Whether to remove the VPC configuration from the workspace. Setting this to true and providing a vpcConfiguration to set will return an error",
+        },
+        {
+          name: "--network-access-control",
+          description:
+            "The configuration settings for network access to your workspace. When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization will still be required. If this is not configured, or is removed, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--remove-network-access-configuration",
+          description:
+            "Whether to remove the network access configuration from the workspace. Setting this to true and providing a networkAccessControl to set will return an error. If you remove this configuration by setting this to true, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
+        },
+        {
+          name: "--no-remove-network-access-configuration",
+          description:
+            "Whether to remove the network access configuration from the workspace. Setting this to true and providing a networkAccessControl to set will return an error. If you remove this configuration by setting this to true, then all IP addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization will still be required",
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are IPv4 and DualStack. For more information about IP address types, see Network access control",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1336,6 +1282,14 @@ const completionSpec: Fig.Spec = {
         "Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the Admin and Editor roles in the workspace.  Changes to the authentication method for a workspace may take a few minutes to take effect",
       options: [
         {
+          name: "--workspace-id",
+          description:
+            "The ID of the workspace to update the authentication for",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--authentication-providers",
           description:
             "Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate users for using the Grafana console within a workspace. For more information, see User authentication in Amazon Managed Grafana",
@@ -1349,14 +1303,6 @@ const completionSpec: Fig.Spec = {
             "If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the Admin and Editor roles in the workspace",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--workspace-id",
-          description:
-            "The ID of the workspace to update the authentication for",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1391,16 +1337,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--grafana-version",
-          description:
-            "Specifies the version of Grafana to support in the workspace. If not specified, keeps the current version of the workspace. Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example, from 9.4 to 8.4). To know what versions are available to upgrade to for a specific workspace, see the ListVersions operation",
+          name: "--workspace-id",
+          description: "The ID of the workspace to update",
           args: {
             name: "string",
           },
         },
         {
-          name: "--workspace-id",
-          description: "The ID of the workspace to update",
+          name: "--grafana-version",
+          description:
+            "Specifies the version of Grafana to support in the workspace. If not specified, keeps the current version of the workspace. Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example, from 9.4 to 8.4). To know what versions are available to upgrade to for a specific workspace, see the ListVersions operation",
           args: {
             name: "string",
           },

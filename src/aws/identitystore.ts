@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "identitystore",
   description:
-    "The Identity Store service used by IAM Identity Center provides a single place to retrieve all of your identities (users and groups). For more information, see the IAM Identity Center User Guide. This reference guide describes the identity store operations that you can call programmatically and includes detailed information about data types and errors.  IAM Identity Center uses the sso and identitystore API namespaces",
+    "The Identity Store service used by IAM Identity Center provides a single place to retrieve all of your identities (users and groups). For more information, see the  IAM Identity Center User Guide. This reference guide describes the identity store operations that you can call programmatically and includes detailed information about data types and errors.   IAM Identity Center uses the sso, sso-directory, and identitystore API namespaces. The sso-directory and identitystore namespaces authorize access to data in the Identity Store. Make sure your policies with IAM actions from these two namespaces are consistent to avoid conflicting authorization to the same data",
   subcommands: [
     {
       name: "create-group",
@@ -115,7 +116,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--name",
-          description: "An object containing the name of the user",
+          description:
+            "An object containing the name of the user. When used in IAM Identity Center, this parameter is required",
           args: {
             name: "structure",
           },
@@ -123,7 +125,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--display-name",
           description:
-            'A string containing the name of the user. This value is typically formatted for display when the user is referenced. For example, "John Doe."',
+            'A string containing the name of the user. This value is typically formatted for display when the user is referenced. For example, "John Doe." When used in IAM Identity Center, this parameter is required',
           args: {
             name: "string",
           },
@@ -204,6 +206,46 @@ const completionSpec: Fig.Spec = {
           description: "A string containing the time zone of the user",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--photos",
+          description:
+            "A list of photos associated with the user. You can add up to 3 photos per user. Each photo can include a value, type, display name, and primary designation",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--website",
+          description:
+            "The user's personal website or blog URL. This field allows users to provide a link to their personal or professional website",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--birthdate",
+          description:
+            "The user's birthdate in YYYY-MM-DD format. This field supports standard date format for storing personal information",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--roles",
+          description:
+            "A list of Role objects containing roles associated with the user",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--extensions",
+          description:
+            "A map with additional attribute extensions for the user. Each map key corresponds to an extension name, while map values represent extension data in Document type (not supported by Java V1, Go V1 and older versions of the CLI). aws:identitystore:enterprise is the only supported extension name",
+          args: {
+            name: "map",
           },
         },
         {
@@ -340,7 +382,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-group",
       description:
-        "Retrieves the group metadata and attributes from GroupId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves the group metadata and attributes from GroupId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -379,7 +421,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-group-membership",
       description:
-        "Retrieves membership metadata and attributes from MembershipId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves membership metadata and attributes from MembershipId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -418,7 +460,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-user",
       description:
-        "Retrieves the user metadata and attributes from the UserId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves the user metadata and attributes from the UserId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -433,6 +475,14 @@ const completionSpec: Fig.Spec = {
           description: "The identifier for a user in the identity store",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--extensions",
+          description:
+            "A collection of extension names indicating what extensions the service should retrieve alongside other user attributes. aws:identitystore:enterprise is the only supported extension name",
+          args: {
+            name: "list",
           },
         },
         {
@@ -457,7 +507,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-group-id",
       description:
-        "Retrieves GroupId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves GroupId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -469,7 +519,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--alternate-identifier",
           description:
-            "A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is displayName",
+            "A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is  displayName",
           args: {
             name: "structure",
           },
@@ -496,7 +546,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-group-membership-id",
       description:
-        "Retrieves the MembershipId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves the MembershipId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -542,7 +592,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-user-id",
       description:
-        "Retrieves the UserId in an identity store.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Retrieves the UserId in an identity store.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -554,7 +604,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--alternate-identifier",
           description:
-            "A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are userName and emails.value",
+            "A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are  userName and emails.value",
           args: {
             name: "structure",
           },
@@ -581,7 +631,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "is-member-in-groups",
       description:
-        "Checks the user's membership in all requested groups and returns if the member exists in all queried groups.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Checks the user's membership in all requested groups and returns if the member exists in all queried groups.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -626,7 +676,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-group-memberships",
       description:
-        "For the specified group in the specified identity store, returns the list of all GroupMembership objects and returns results in paginated form.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "For the specified group in the specified identity store, returns the list of all  GroupMembership objects and returns results in paginated form.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -638,22 +688,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-id",
           description: "The identifier for a group in the identity store",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request. This parameter is used in all List requests to specify how many results to return in one page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used for the ListUsers, ListGroups and ListGroupMemberships API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page",
           args: {
             name: "string",
           },
@@ -704,7 +738,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-group-memberships-for-member",
       description:
-        "For the specified member in the specified identity store, returns the list of all GroupMembership objects and returns results in paginated form.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "For the specified member in the specified identity store, returns the list of all  GroupMembership objects and returns results in paginated form.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -719,22 +753,6 @@ const completionSpec: Fig.Spec = {
             "An object that contains the identifier of a group member. Setting the UserID field to the specific identifier for a user indicates that the user is a member of the group",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request. This parameter is used in the ListUsers and ListGroups requests to specify how many results to return in one page. The length limit is 50 characters",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used for the ListUsers, ListGroups, and ListGroupMemberships API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -783,7 +801,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-groups",
       description:
-        "Lists all groups in the identity store. Returns a paginated list of complete Group objects. Filtering for a Group by the DisplayName attribute is deprecated. Instead, use the GetGroupId API action.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Lists all groups in the identity store. Returns a paginated list of complete Group objects. Filtering for a Group by the DisplayName attribute is deprecated. Instead, use the GetGroupId API action.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -794,25 +812,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request. This parameter is used in the ListUsers and ListGroups requests to specify how many results to return in one page. The length limit is 50 characters",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used for the ListUsers and ListGroups API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filters",
           description:
-            "A list of Filter objects, which is used in the ListUsers and ListGroups requests",
+            "A list of Filter objects, which is used in the ListUsers and  ListGroups requests",
           args: {
             name: "list",
           },
@@ -863,7 +865,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-users",
       description:
-        "Lists all users in the identity store. Returns a paginated list of complete User objects. Filtering for a User by the UserName attribute is deprecated. Instead, use the GetUserId API action.  If you have administrator access to a member account, you can use this API from the member account. Read about member accounts in the Organizations User Guide",
+        "Lists all users in the identity store. Returns a paginated list of complete User objects. Filtering for a User by the UserName attribute is deprecated. Instead, use the GetUserId API action.  If you have access to a member account, you can use this API operation from the member account. For more information, see Limiting access to the identity store from member accounts in the  IAM Identity Center User Guide",
       options: [
         {
           name: "--identity-store-id",
@@ -874,25 +876,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
+          name: "--extensions",
           description:
-            "The maximum number of results to be returned per request. This parameter is used in the ListUsers and ListGroups requests to specify how many results to return in one page. The length limit is 50 characters",
+            "A collection of extension names indicating what extensions the service should retrieve alongside other user attributes. aws:identitystore:enterprise is the only supported extension name",
           args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used for the ListUsers and ListGroups API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page",
-          args: {
-            name: "string",
+            name: "list",
           },
         },
         {
           name: "--filters",
           description:
-            "A list of Filter objects, which is used in the ListUsers and ListGroups requests",
+            "A list of Filter objects, which is used in the ListUsers and  ListGroups requests",
           args: {
             name: "list",
           },
@@ -943,7 +937,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-group",
       description:
-        "For the specified group in the specified identity store, updates the group metadata and attributes",
+        "Updates the specified group metadata and attributes in the specified identity store",
       options: [
         {
           name: "--identity-store-id",
@@ -962,7 +956,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--operations",
           description:
-            "A list of AttributeOperation objects to apply to the requested group. These operations might add, replace, or remove an attribute",
+            "A list of AttributeOperation objects to apply to the requested group. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see Group",
           args: {
             name: "list",
           },
@@ -989,7 +983,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-user",
       description:
-        "For the specified user in the specified identity store, updates the user metadata and attributes",
+        "Updates the specified user metadata and attributes in the specified identity store",
       options: [
         {
           name: "--identity-store-id",
@@ -1008,7 +1002,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--operations",
           description:
-            "A list of AttributeOperation objects to apply to the requested user. These operations might add, replace, or remove an attribute",
+            "A list of AttributeOperation objects to apply to the requested user. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see User",
           args: {
             name: "list",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codecommit",
   description:
@@ -760,6 +761,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "credential-helper",
+    },
+    {
       name: "delete-approval-rule-template",
       description:
         "Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template",
@@ -1146,22 +1150,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-zero, non-negative integer used to limit the number of returned results. The default is 100 events, which is also the maximum number of events that can be returned in a result",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1512,22 +1500,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1605,22 +1577,6 @@ const completionSpec: Fig.Spec = {
             "The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made. Requirement is conditional: afterCommitId must be specified when repositoryName is included",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments. You can return up to 500 comments with a single request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1747,22 +1703,6 @@ const completionSpec: Fig.Spec = {
           name: "--after-path",
           description:
             "The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-zero, non-negative integer used to limit the number of returned results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
           args: {
             name: "string",
           },
@@ -2391,14 +2331,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that allows the operation to batch the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2418,6 +2350,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2526,22 +2466,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that, when provided in a request, returns the next batch of the results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "A non-zero, non-negative integer used to limit the number of returned results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2589,14 +2513,6 @@ const completionSpec: Fig.Spec = {
       description: "Gets information about one or more repositories",
       options: [
         {
-          name: "--next-token",
-          description:
-            "An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit, another page of 1,000 records is retrieved",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort-by",
           description:
             "The criteria used to sort the results of a list repositories operation",
@@ -2632,6 +2548,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -4344,35 +4268,6 @@ const completionSpec: Fig.Spec = {
             name: "string",
             suggestions: ["input", "output"],
           },
-        },
-      ],
-    },
-    {
-      name: "credential-helper",
-      description:
-        'Provide a SigV4 compatible user name and password for git smart HTTP  These commands are consumed by git and should not used directly. Erase and Store are no-ops. Get is operation to generate credentials to authenticate AWS CodeCommit. Run "aws codecommit credential-helper help" for details',
-      subcommands: [
-        {
-          name: "get",
-          description:
-            "Get a username SigV4 credential pair based on protocol, host and path provided from standard in. This is primarily called by git to generate credentials to authenticate against AWS CodeCommit",
-          options: [
-            {
-              name: "--ignore-host-check",
-              description:
-                "Optional. Generate credentials regardless of whether the domain is an Amazon domain",
-            },
-          ],
-        },
-        {
-          name: "store",
-          description:
-            "This operation does nothing, credentials are calculated each time",
-        },
-        {
-          name: "erase",
-          description:
-            "This operation does nothing, no credentials are ever stored",
         },
       ],
     },

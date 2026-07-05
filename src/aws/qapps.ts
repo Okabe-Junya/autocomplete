@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "qapps",
   description:
@@ -259,7 +260,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-presigned-url",
       description:
-        "Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to set a default file for a FileUploadCard in a Q App definition or to provide a file for a single Q App run. The scope parameter determines how the file will be used, either at the app definition level or the app session level",
+        "Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to set a default file for a FileUploadCard in a Q App definition or to provide a file for a single Q App run. The scope parameter determines how the file will be used, either at the app definition level or the app session level.  The IAM permissions are derived from the qapps:ImportDocument action. For more information on the IAM policy for Amazon Q Apps, see IAM permissions for using Amazon Q Apps",
       options: [
         {
           name: "--instance-id",
@@ -928,21 +929,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of library items to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--category-id",
           description: "Optional category to filter the library items by",
           args: {
@@ -1035,26 +1021,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-q-apps",
       description:
-        "Lists the Amazon Q Apps owned by or associated with the user either because they created it or because they used it from the library in the past. The user identity is extracted from the credentials used to invoke this operation",
+        "Lists the Amazon Q Apps owned by or associated with the user either because they created it or because they used it from the library in the past. The user identity is extracted from the credentials used to invoke this operation.",
       options: [
         {
           name: "--instance-id",
           description:
             "The unique identifier of the Amazon Q Business application environment instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of Q Apps to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to request the next page of results",
           args: {
             name: "string",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "clouddirectory",
   description:
@@ -1477,20 +1478,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1552,20 +1539,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--consistency-level",
           description: "The consistency level to use for this operation",
           args: {
@@ -1621,20 +1594,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves each Amazon Resource Name (ARN) of schemas in the development state",
       options: [
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1681,20 +1640,6 @@ const completionSpec: Fig.Spec = {
       name: "list-directories",
       description: "Lists directories created within an account",
       options: [
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--state",
           description:
@@ -1766,20 +1711,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1832,20 +1763,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) to retrieve facet names from",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1929,20 +1846,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--consistency-level",
           description: "The consistency level to execute the request at",
           args: {
@@ -2019,21 +1922,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of objects in a single page to retrieve from the index during a request. For more information, see Amazon Cloud Directory Limits",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--consistency-level",
           description: "The consistency level to execute the request at",
           args: {
@@ -2097,20 +1985,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2171,21 +2045,6 @@ const completionSpec: Fig.Spec = {
             "The reference that identifies the object whose attributes will be listed",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to be retrieved in a single call. This is an approximate number",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2332,21 +2191,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to be retrieved in a single call. This is an approximate number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2484,21 +2328,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to be retrieved in a single call. This is an approximate number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--consistency-level",
           description:
             "Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object",
@@ -2587,20 +2416,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--consistency-level",
           description: "The consistency level to execute the request at",
           args: {
@@ -2671,21 +2486,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to be retrieved in a single call. This is an approximate number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--consistency-level",
           description:
             "Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object",
@@ -2750,20 +2550,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2817,22 +2603,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token. This is for future use. Currently pagination is not supported for tagging",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2899,20 +2669,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2966,20 +2722,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) that is associated with the schema. For more information, see arns",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The pagination token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3044,21 +2786,6 @@ const completionSpec: Fig.Spec = {
             "Reference that identifies the object whose policies will be looked up",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to be retrieved in a single call. This is an approximate number",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3377,7 +3104,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-link-attributes",
       description:
-        "Updates a given typed link\u2019s attributes. Attributes to be updated must not contribute to the typed link\u2019s identity, as defined by its IdentityAttributeOrder",
+        "Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its IdentityAttributeOrder",
       options: [
         {
           name: "--directory-arn",

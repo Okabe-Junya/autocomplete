@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "redshift-serverless",
   description:
@@ -64,7 +65,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-domain-certificate-arn",
           description:
-            "The custom domain name\u2019s certificate Amazon resource name (ARN)",
+            "The custom domain name’s certificate Amazon resource name (ARN)",
           args: {
             name: "string",
           },
@@ -262,6 +263,54 @@ const completionSpec: Fig.Spec = {
           description: "A list of tag instances",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-reservation",
+      description:
+        "Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates",
+      options: [
+        {
+          name: "--capacity",
+          description:
+            "The number of Redshift Processing Units (RPUs) to reserve",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see  Making retries safe with idempotent APIs ",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--offering-id",
+          description:
+            "The ID of the offering associated with the reservation. The offering determines the payment schedule for the reservation",
+          args: {
+            name: "string",
           },
         },
         {
@@ -566,7 +615,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--config-parameters",
           description:
-            "An array of parameters to set for advanced control over a database. The options are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging, query_group, search_path, require_ssl, use_fips_ssl, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see  Query monitoring metrics for Amazon Redshift Serverless",
+            "An array of parameters to set for advanced control over a database. The options are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging, query_group, search_path, require_ssl, use_fips_ssl, and either wlm_json_configuration or query monitoring metrics that let you define performance boundaries. You can either specify individual query monitoring metrics (such as max_scan_row_count, max_query_execution_time) or use wlm_json_configuration to define query queues with rules, but not both. If you're using wlm_json_configuration, the maximum size of parameterValue is 8000 characters. For more information about query monitoring rules and available metrics, see  Query monitoring metrics for Amazon Redshift Serverless",
           args: {
             name: "list",
           },
@@ -580,6 +629,16 @@ const completionSpec: Fig.Spec = {
           name: "--no-enhanced-vpc-routing",
           description:
             "The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet",
+        },
+        {
+          name: "--extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
+        },
+        {
+          name: "--no-extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
         },
         {
           name: "--ip-address-type",
@@ -652,6 +711,14 @@ const completionSpec: Fig.Spec = {
           description: "A array of tag instances",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--track-name",
+          description:
+            "An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1099,6 +1166,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-identity-center-auth-token",
+      description:
+        "Returns an Identity Center authentication token for accessing Amazon Redshift Serverless workgroups. The token provides secure access to data within the specified workgroups using Identity Center identity propagation. The token expires after a specified duration and must be refreshed for continued access. The Identity and Access Management (IAM) user or role that runs GetIdentityCenterAuthToken must have appropriate permissions to access the specified workgroups and Identity Center integration must be configured for the workgroups",
+      options: [
+        {
+          name: "--workgroup-names",
+          description:
+            "A list of workgroup names for which to generate the Identity Center authentication token. Constraints:   Must contain between 1 and 20 workgroup names.   Each workgroup name must be a valid Amazon Redshift Serverless workgroup identifier.   All specified workgroups must have Identity Center integration enabled",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-namespace",
       description:
         "Returns information about a namespace in Amazon Redshift Serverless",
@@ -1137,6 +1236,68 @@ const completionSpec: Fig.Spec = {
           name: "--recovery-point-id",
           description:
             "The unique identifier of the recovery point to return information for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-reservation",
+      description:
+        "Gets an Amazon Redshift Serverless reservation. A reservation gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates",
+      options: [
+        {
+          name: "--reservation-id",
+          description: "The ID of the reservation to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-reservation-offering",
+      description:
+        "Returns the reservation offering. The offering determines the payment schedule for the reservation",
+      options: [
+        {
+          name: "--offering-id",
+          description: "The identifier for the offering.",
           args: {
             name: "string",
           },
@@ -1299,6 +1460,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-track",
+      description: "Get the Redshift Serverless version for a specified track",
+      options: [
+        {
+          name: "--track-name",
+          description: "The name of the track of which its version is fetched",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-usage-limit",
       description: "Returns information about a usage limit",
       options: [
@@ -1367,7 +1558,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-domain-certificate-arn",
           description:
-            "The custom domain name\u2019s certificate Amazon resource name (ARN)",
+            "The custom domain name’s certificate Amazon resource name (ARN)",
           args: {
             name: "string",
           },
@@ -1375,22 +1566,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-domain-name",
           description: "The custom domain name associated with the workgroup",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page",
           args: {
             name: "string",
           },
@@ -1443,22 +1618,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns an array of EndpointAccess objects and relevant information",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListEndpointAccess operation returns a nextToken, you can include the returned nextToken in following ListEndpointAccess operations, which returns results in the next page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--owner-account",
           description:
@@ -1532,25 +1691,9 @@ const completionSpec: Fig.Spec = {
         "Returns information about a list of specified managed workgroups in your account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListManagedWorkgroups operation returns a nextToken, you can include the returned nextToken in following ListManagedWorkgroups operations, which returns results in the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--source-arn",
           description:
-            "The Amazon Resource Name (ARN) for the managed workgroup in the AWS Glue Data Catalog",
+            "The Amazon Resource Name (ARN) for the managed workgroup in the Glue Data Catalog",
           args: {
             name: "string",
           },
@@ -1602,22 +1745,6 @@ const completionSpec: Fig.Spec = {
       name: "list-namespaces",
       description: "Returns information about a list of specified namespaces",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListNamespaces operation returns a nextToken, you can include the returned nextToken in following ListNamespaces operations, which returns results in the next page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1673,14 +1800,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--namespace-arn",
           description:
             "The Amazon Resource Name (ARN) of the namespace from which to list recovery points",
@@ -1691,14 +1810,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace-name",
           description: "The name of the namespace to list recovery points for",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListRecoveryPoints operation returns a nextToken, you can include the returned nextToken in following ListRecoveryPoints operations, which returns results in the next page",
           args: {
             name: "string",
           },
@@ -1755,30 +1866,108 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-scheduled-actions",
-      description:
-        "Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions",
+      name: "list-reservation-offerings",
+      description: "Returns the current reservation offerings in your account",
       options: [
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "An optional parameter that specifies the maximum number of results to return. Use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--namespace-name",
-          description:
-            "The name of namespace associated with the scheduled action to retrieve",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--starting-token",
           description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-reservations",
+      description: "Returns a list of Reservation objects",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-scheduled-actions",
+      description:
+        "Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions",
+      options: [
+        {
+          name: "--namespace-name",
+          description:
+            "The name of namespace associated with the scheduled action to retrieve",
           args: {
             name: "string",
           },
@@ -1831,25 +2020,9 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of snapshot copy configurations",
       options: [
         {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--namespace-name",
           description:
             "The namespace from which to list all snapshot copy configurations",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page",
           args: {
             name: "string",
           },
@@ -1910,14 +2083,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--namespace-arn",
           description:
             "The Amazon Resource Name (ARN) of the namespace from which to list all snapshots",
@@ -1928,14 +2093,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace-name",
           description: "The namespace from which to list all snapshots",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page",
           args: {
             name: "string",
           },
@@ -2004,25 +2161,9 @@ const completionSpec: Fig.Spec = {
         "Returns information about an array of TableRestoreStatus objects",
       options: [
         {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--namespace-name",
           description:
-            "The namespace from which to list all of the statuses of RestoreTableFromSnapshot operations",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListTableRestoreStatus operation returns a nextToken, you can include the returned nextToken in following ListTableRestoreStatus operations. This will return results on the next page",
+            "The namespace from which to list all of the statuses of RestoreTableFromSnapshot operations ",
           args: {
             name: "string",
           },
@@ -2110,25 +2251,56 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-usage-limits",
-      description: "Lists all usage limits within Amazon Redshift Serverless",
+      name: "list-tracks",
+      description: "List the Amazon Redshift Serverless versions",
       options: [
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to get the next page of results. The default is 100",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "If your initial ListUsageLimits operation returns a nextToken, you can include the returned nextToken in following ListUsageLimits operations, which returns results in the next page",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
-            name: "string",
+            name: "integer",
           },
         },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-usage-limits",
+      description: "Lists all usage limits within Amazon Redshift Serverless",
+      options: [
         {
           name: "--resource-arn",
           description:
@@ -2192,22 +2364,6 @@ const completionSpec: Fig.Spec = {
       name: "list-workgroups",
       description: "Returns information about a list of specified workgroups",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If your initial ListWorkgroups operation returns a nextToken, you can include the returned nextToken in following ListNamespaces operations, which returns results in the next page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--owner-account",
           description:
@@ -2383,7 +2539,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-arn",
           description:
-            "The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from Amazon Redshift Serverless to a provisioned cluster. Must not be specified at the same time as snapshotName. The format of the ARN is arn:aws:redshift:<region>:<account_id>:snapshot:<cluster_identifier>/<snapshot_identifier>",
+            "The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from a provisioned cluster to Amazon Redshift Serverless. Must not be specified at the same time as snapshotName. The format of the ARN is arn:aws:redshift:<region>:<account_id>:snapshot:<cluster_identifier>/<snapshot_identifier>",
           args: {
             name: "string",
           },
@@ -2706,7 +2862,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-domain-certificate-arn",
           description:
-            "The custom domain name\u2019s certificate Amazon resource name (ARN). This is optional",
+            "The custom domain name’s certificate Amazon resource name (ARN). This is optional",
           args: {
             name: "string",
           },
@@ -2761,6 +2917,80 @@ const completionSpec: Fig.Spec = {
             "The list of VPC security groups associated with the endpoint after the endpoint is modified",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-lakehouse-configuration",
+      description:
+        "Modifies the lakehouse configuration for a namespace. This operation allows you to manage Amazon Redshift federated permissions and Amazon Web Services IAM Identity Center trusted identity propagation",
+      options: [
+        {
+          name: "--catalog-name",
+          description:
+            "The name of the Glue Data Catalog that will be associated with the namespace enabled with Amazon Redshift federated permissions. Pattern: ^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dry-run",
+          description:
+            "A boolean value that, if true, validates the request without actually updating the lakehouse configuration. Use this to check for errors before making changes",
+        },
+        {
+          name: "--no-dry-run",
+          description:
+            "A boolean value that, if true, validates the request without actually updating the lakehouse configuration. Use this to check for errors before making changes",
+        },
+        {
+          name: "--lakehouse-idc-application-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lakehouse-idc-registration",
+          description:
+            "Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions. Valid values are Associate or Disassociate",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lakehouse-registration",
+          description:
+            "Specifies whether to register or deregister the namespace with Amazon Redshift federated permissions. Valid values are Register or Deregister",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace-name",
+          description:
+            "The name of the namespace whose lakehouse configuration you want to modify",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3102,7 +3332,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--config-parameters",
           description:
-            "An array of parameters to set for advanced control over a database. The options are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging, query_group, search_path, require_ssl, use_fips_ssl, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see  Query monitoring metrics for Amazon Redshift Serverless",
+            "An array of parameters to set for advanced control over a database. The options are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging, query_group, search_path, require_ssl, use_fips_ssl, and either wlm_json_configuration or query monitoring metrics that let you define performance boundaries. You can either specify individual query monitoring metrics (such as max_scan_row_count, max_query_execution_time) or use wlm_json_configuration to define query queues with rules, but not both. If you're using wlm_json_configuration, the maximum size of parameterValue is 8000 characters. For more information about query monitoring rules and available metrics, see  Query monitoring metrics for Amazon Redshift Serverless",
           args: {
             name: "list",
           },
@@ -3116,6 +3346,16 @@ const completionSpec: Fig.Spec = {
           name: "--no-enhanced-vpc-routing",
           description:
             "The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC",
+        },
+        {
+          name: "--extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
+        },
+        {
+          name: "--no-extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
         },
         {
           name: "--ip-address-type",
@@ -3173,6 +3413,14 @@ const completionSpec: Fig.Spec = {
             "An array of VPC subnet IDs to associate with the workgroup",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--track-name",
+          description:
+            "An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track",
+          args: {
+            name: "string",
           },
         },
         {

@@ -1,8 +1,26 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "dlm",
   description:
     "Amazon Data Lifecycle Manager With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create lifecycle policies, which are used to automate operations on the specified resources. Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For information about using Amazon Data Lifecycle Manager with Amazon EBS, see  Amazon Data Lifecycle Manager in the Amazon EC2 User Guide",
   subcommands: [
+    {
+      name: "create-default-role",
+      options: [
+        {
+          name: "--iam-endpoint",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-type",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
     {
       name: "create-lifecycle-policy",
       description:
@@ -472,30 +490,6 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "create-default-role",
-      description:
-        "Creates the default IAM role  which will be used by Lifecycle service.\nIf the role does not exist, create-default-role will automatically create it and set its policy. If the role has been already created, create-default-role will not update its policy",
-      options: [
-        {
-          name: "--iam-endpoint",
-          description:
-            "The IAM endpoint to call for creating the roles. This is optional and should only be specified when a custom endpoint should be called for IAM operations",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--resource-type",
-          description:
-            "The resource type for which the role needs to be created. The available options are 'snapshot' and 'image'. This parameter defaults to 'snapshot'",
-          args: {
-            name: "string",
-            suggestions: ["snapshot", "image"],
           },
         },
       ],

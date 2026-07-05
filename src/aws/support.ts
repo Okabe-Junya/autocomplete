@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "support",
   description:
-    "Amazon Web Services Support The Amazon Web Services Support API Reference is intended for programmers who need detailed information about the Amazon Web Services Support operations and data types. You can use the API to manage your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return results in JSON format.    You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API.    If you call the Amazon Web Services Support API from an account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, the SubscriptionRequiredException error message appears. For information about changing your support plan, see Amazon Web Services Support.    You can also use the Amazon Web Services Support API to access features for Trusted Advisor. You can return a list of checks and their descriptions, get check results, specify checks to refresh, and get the refresh status of checks. You can manage your support cases with the following Amazon Web Services Support API operations:   The CreateCase, DescribeCases, DescribeAttachment, and ResolveCase operations create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.   The DescribeCommunications, AddCommunicationToCase, and AddAttachmentsToSet operations retrieve and add communications and attachments to Amazon Web Services Support cases.   The DescribeServices and DescribeSeverityLevels operations return Amazon Web Service names, service codes, service categories, and problem severity levels. You use these values when you call the CreateCase operation.   You can also use the Amazon Web Services Support API to call the Trusted Advisor operations. For more information, see Trusted Advisor in the Amazon Web Services Support User Guide. For authentication of requests, Amazon Web Services Support uses Signature Version 4 Signing Process. For more information about this service and the endpoints to use, see About the Amazon Web Services Support API in the Amazon Web Services Support User Guide",
+    "Amazon Web Services Support The Amazon Web Services Support API Reference is intended for programmers who need detailed information about the Amazon Web Services Support operations and data types. You can use the API to manage your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return results in JSON format.    You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API.    If you call the Amazon Web Services Support API from an account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, the SubscriptionRequiredException error message appears. For information about changing your support plan, see Amazon Web Services Support.    You can also use the Amazon Web Services Support API to access features for Trusted Advisor. You can return a list of checks and their descriptions, get check results, specify checks to refresh, and get the refresh status of checks. You can manage your support cases with the following Amazon Web Services Support API operations:   The CreateCase, DescribeCases, DescribeAttachment, and ResolveCase operations create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.   The DescribeCommunications, AddCommunicationToCase, and AddAttachmentsToSet operations retrieve and add communications and attachments to Amazon Web Services Support cases.   The DescribeServices and DescribeSeverityLevels operations return Amazon Web Services service names, service codes, service categories, and problem severity levels. You use these values when you call the CreateCase operation.   You can also use the Amazon Web Services Support API to call the Trusted Advisor operations. For more information, see Trusted Advisor in the Amazon Web Services Support User Guide. For authentication of requests, Amazon Web Services Support uses Signature Version 4 Signing Process. For more information about this service and the endpoints to use, see About the Amazon Web Services Support API in the Amazon Web Services Support User Guide",
   subcommands: [
     {
       name: "add-attachments-to-set",
@@ -155,7 +156,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (\u201czh\u201d), English ("en"), Japanese ("ja") and Korean (\u201cko\u201d). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
+            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
           args: {
             name: "string",
           },
@@ -275,24 +276,9 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to include resolved support cases in the DescribeCases response. By default, resolved cases aren't included",
         },
         {
-          name: "--next-token",
-          description: "A resumption point for pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return before paginating",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--language",
           description:
-            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (\u201czh\u201d), English ("en"), Japanese ("ja") and Korean (\u201cko\u201d). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
+            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
           args: {
             name: "string",
           },
@@ -380,21 +366,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A resumption point for pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return before paginating",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -461,7 +432,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (\u201czh\u201d), English ("en"), Japanese ("ja") and Korean (\u201cko\u201d). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
+            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
           args: {
             name: "string",
           },
@@ -509,7 +480,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (\u201czh\u201d), English ("en"), Japanese ("ja") and Korean (\u201cko\u201d). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
+            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
           args: {
             name: "string",
           },
@@ -541,7 +512,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (\u201czh\u201d), English ("en"), Japanese ("ja") and Korean (\u201cko\u201d). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
+            'The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1 code for the language parameter if you want support in that language',
           args: {
             name: "string",
           },

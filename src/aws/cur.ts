@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "cur",
   description:
@@ -40,21 +41,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the Amazon Web Services Cost and Usage Report available to this account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that Amazon Web Services returns for the operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A generic string",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

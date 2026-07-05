@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "workdocs",
   description:
@@ -1041,20 +1042,6 @@ const completionSpec: Fig.Spec = {
             "Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity)",
         },
         {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1124,21 +1111,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. This marker was received from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1199,22 +1171,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the document",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of versions to return with this call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1311,21 +1267,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description: "The maximum number of items to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. This marker was received from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--type",
           description: "The type of items",
           args: {
@@ -1411,21 +1352,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1477,21 +1403,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the organization",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return with this call",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1564,21 +1475,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description: "The maximum number of items to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1629,21 +1525,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authentication-token",
           description: "Amazon WorkDocs authentication token",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call.)",
           args: {
             name: "string",
           },
@@ -1741,21 +1622,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "The marker for the next set of results. (You received this marker from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--fields",
           description:
             'A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information',
@@ -1766,7 +1632,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-query",
           description:
-            'A query to filter users by user name. Remember the following about the Userids and Query parameters:   If you don\'t use either parameter, the API returns a paginated list of all users on the site.   If you use both parameters, the API ignores the Query parameter.   The Userid parameter only returns user names that match a corresponding user ID.   The Query parameter runs a "prefix" search for users by the GivenName, SurName, or UserName fields included in a CreateUser API call. For example, querying on Ma returns M\u00e1rcia Oliveira, Mar\u00eda Garc\u00eda, and Mateo Jackson. If you use multiple characters, the API only returns data that matches all characters. For example, querying on Ma J only returns Mateo Jackson',
+            'A query to filter users by user name. Remember the following about the Userids and Query parameters:   If you don\'t use either parameter, the API returns a paginated list of all users on the site.   If you use both parameters, the API ignores the Query parameter.   The Userid parameter only returns user names that match a corresponding user ID.   The Query parameter runs a "prefix" search for users by the GivenName, SurName, or UserName fields included in a CreateUser API call. For example, querying on Ma returns Márcia Oliveira, María García, and Mateo Jackson. If you use multiple characters, the API only returns data that matches all characters. For example, querying on Ma J only returns Mateo Jackson',
           args: {
             name: "string",
           },
@@ -2408,7 +2274,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authentication-token",
           description:
-            "Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API",
+            "WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API",
           args: {
             name: "string",
           },
@@ -2457,20 +2323,6 @@ const completionSpec: Fig.Spec = {
           description: "Order by results in one or more categories",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description: "Max results count per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
           },
         },
         {

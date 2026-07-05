@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "greengrass",
   description:
@@ -2259,22 +2260,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2321,22 +2306,6 @@ const completionSpec: Fig.Spec = {
       name: "list-bulk-deployments",
       description: "Returns a list of bulk deployments",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2393,22 +2362,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2455,22 +2408,6 @@ const completionSpec: Fig.Spec = {
       name: "list-connector-definitions",
       description: "Retrieves a list of connector definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2526,22 +2463,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2588,22 +2509,6 @@ const completionSpec: Fig.Spec = {
       name: "list-core-definitions",
       description: "Retrieves a list of core definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2654,22 +2559,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-id",
           description: "The ID of the Greengrass group",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
           args: {
             name: "string",
           },
@@ -2729,22 +2618,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2791,22 +2664,6 @@ const completionSpec: Fig.Spec = {
       name: "list-device-definitions",
       description: "Retrieves a list of device definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2862,22 +2719,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2924,22 +2765,6 @@ const completionSpec: Fig.Spec = {
       name: "list-function-definitions",
       description: "Retrieves a list of Lambda function definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3025,22 +2850,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3087,22 +2896,6 @@ const completionSpec: Fig.Spec = {
       name: "list-groups",
       description: "Retrieves a list of groups",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3158,22 +2951,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3221,22 +2998,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a list of logger definitions",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3283,22 +3044,6 @@ const completionSpec: Fig.Spec = {
       name: "list-resource-definition-versions",
       description: "Lists the versions of a resource definition",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--resource-definition-id",
           description: "The ID of the resource definition",
@@ -3354,22 +3099,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a list of resource definitions",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3416,22 +3145,6 @@ const completionSpec: Fig.Spec = {
       name: "list-subscription-definition-versions",
       description: "Lists the versions of a subscription definition",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--subscription-definition-id",
           description: "The ID of the subscription definition",
@@ -3486,22 +3199,6 @@ const completionSpec: Fig.Spec = {
       name: "list-subscription-definitions",
       description: "Retrieves a list of subscription definitions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or ''null'' if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

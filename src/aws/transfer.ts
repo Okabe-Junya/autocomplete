@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "transfer",
   description:
@@ -11,7 +12,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--home-directory",
           description:
-            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  The HomeDirectory parameter is only used if HomeDirectoryType is set to PATH",
+            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  You can use the HomeDirectory parameter for HomeDirectoryType when it is set to either PATH or LOGICAL",
           args: {
             name: "string",
           },
@@ -94,7 +95,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-agreement",
       description:
-        "Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership, between an Transfer Family server and an AS2 process. The agreement defines the file and message transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family combines a server, local profile, partner profile, certificate, and other attributes. The partner is identified with the PartnerProfileId, and the AS2 process is identified with the LocalProfileId",
+        "Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership, between an Transfer Family server and an AS2 process. The agreement defines the file and message transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family combines a server, local profile, partner profile, certificate, and other attributes. The partner is identified with the PartnerProfileId, and the AS2 process is identified with the LocalProfileId.  Specify either BaseDirectory or CustomDirectories, but not both. Specifying both causes the command to fail",
       options: [
         {
           name: "--description",
@@ -137,7 +138,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-role",
           description:
-            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file\u2019s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
+            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file’s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
           args: {
             name: "string",
           },
@@ -156,6 +157,30 @@ const completionSpec: Fig.Spec = {
             "Key-value pairs that can be used to group and search for agreements",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--preserve-filename",
+          description:
+            "Determines whether or not Transfer Family appends a unique string of characters to the end of the AS2 message payload filename when saving it.     ENABLED: the filename provided by your trading parter is preserved when the file is saved.    DISABLED (default value): when Transfer Family saves the file, the filename is adjusted, as described in File names and locations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--enforce-message-signing",
+          description:
+            "Determines whether or not unsigned messages from your trading partners will be accepted.     ENABLED: Transfer Family rejects unsigned messages from your trading partner.    DISABLED (default value): Transfer Family accepts unsigned messages from your trading partner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-directories",
+          description:
+            "A CustomDirectoriesType structure. This structure specifies custom directories for storing various AS2 message files. You can specify directories for the following types of files.   Failed files   MDN files   Payload files   Status files   Temporary files",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -184,7 +209,8 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--url",
-          description: "The URL of the partner's AS2 or SFTP endpoint",
+          description:
+            "The URL of the partner's AS2 or SFTP endpoint. When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null",
           args: {
             name: "string",
           },
@@ -200,7 +226,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-role",
           description:
-            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file\u2019s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
+            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file’s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
           args: {
             name: "string",
           },
@@ -233,6 +259,22 @@ const completionSpec: Fig.Spec = {
           name: "--security-policy-name",
           description:
             "Specifies the name of the security policy for the connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--egress-config",
+          description:
+            "Specifies the egress configuration for the connector, which determines how traffic is routed from the connector to the SFTP server. When set to VPC, enables routing through customer VPCs using VPC_LATTICE for private connectivity",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies the IP address type for the connector's network connections. When set to IPV4, the connector uses IPv4 addresses only. When set to DUALSTACK, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available",
           args: {
             name: "string",
           },
@@ -376,7 +418,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--logging-role",
           description:
-            "The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs",
+            "The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs",
           args: {
             name: "string",
           },
@@ -408,7 +450,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--protocol-details",
           description:
-            "The protocol settings that are configured for your server.    To indicate passive mode (for FTP and FTPS protocols), use the PassiveIp parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.    To ignore the error that is generated when the client attempts to use the SETSTAT command on a file that you are uploading to an Amazon S3 bucket, use the SetStatOption parameter. To have the Transfer Family server ignore the SETSTAT command and upload files without needing to make any changes to your SFTP client, set the value to ENABLE_NO_OP. If you set the SetStatOption parameter to ENABLE_NO_OP, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a SETSTAT call.   To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the TlsSessionResumptionMode parameter.    As2Transports indicates the transport method for the AS2 messages. Currently, only HTTP is supported",
+            "The protocol settings that are configured for your server.  Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see  Avoid placing NLBs and NATs in front of Transfer Family.     To indicate passive mode (for FTP and FTPS protocols), use the PassiveIp parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.    To ignore the error that is generated when the client attempts to use the SETSTAT command on a file that you are uploading to an Amazon S3 bucket, use the SetStatOption parameter. To have the Transfer Family server ignore the SETSTAT command and upload files without needing to make any changes to your SFTP client, set the value to ENABLE_NO_OP. If you set the SetStatOption parameter to ENABLE_NO_OP, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a SETSTAT call.   To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the TlsSessionResumptionMode parameter.    As2Transports indicates the transport method for the AS2 messages. Currently, only HTTP is supported",
           args: {
             name: "structure",
           },
@@ -448,9 +490,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--s3-storage-options",
           description:
-            "Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. By default, home directory mappings have a TYPE of DIRECTORY. If you enable this option, you would then need to explicitly set the HomeDirectoryMapEntry Type to FILE if you want a mapping to have a file target",
+            "Specifies whether or not performance for your Amazon S3 directories is optimized.   If using the console, this is enabled by default.   If using the API or CLI, this is disabled by default.   By default, home directory mappings have a TYPE of DIRECTORY. If you enable this option, you would then need to explicitly set the HomeDirectoryMapEntry Type to FILE if you want a mapping to have a file target",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your Transfer Family endpoint. The default value is IPV4.  The IpAddressType parameter has the following limitations:   It cannot be changed while the server is online. You must stop the server before modifying this parameter.   It cannot be updated to DUALSTACK if the server has AddressAllocationIds specified.     When using DUALSTACK as the IpAddressType, you cannot set the AddressAllocationIds parameter for the EndpointDetails for the server",
+          args: {
+            name: "string",
           },
         },
         {
@@ -480,7 +530,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--home-directory",
           description:
-            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  The HomeDirectory parameter is only used if HomeDirectoryType is set to PATH",
+            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  You can use the HomeDirectory parameter for HomeDirectoryType when it is set to either PATH or LOGICAL",
           args: {
             name: "string",
           },
@@ -579,12 +629,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-web-app",
       description:
-        "Creates a web app based on specified parameters, and returns the ID for the new web app",
+        "Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC. For more information about using VPC endpoints with Transfer Family, see Create a Transfer Family web app in a VPC",
       options: [
         {
           name: "--identity-provider-details",
           description:
-            "You can provide a structure that contains the details for the identity provider to use with your web app",
+            "You can provide a structure that contains the details for the identity provider to use with your web app. For more details about this parameter, see Configure your identity provider for Transfer Family web apps",
           args: {
             name: "structure",
           },
@@ -592,7 +642,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-endpoint",
           description:
-            "The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value",
+            "The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value. Before you enter a custom URL for this parameter, follow the steps described in Update your access endpoint with a custom URL",
           args: {
             name: "string",
           },
@@ -611,6 +661,22 @@ const completionSpec: Fig.Spec = {
             "Key-value pairs that can be used to group and search for web apps",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--web-app-endpoint-policy",
+          description:
+            "Setting for the type of endpoint policy for the web app. The default value is STANDARD.  If you are creating the web app in an Amazon Web Services GovCloud (US) Region, you can set this parameter to FIPS",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--endpoint-details",
+          description:
+            "The endpoint configuration for the web app. You can specify whether the web app endpoint is publicly accessible or hosted within a VPC",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1195,7 +1261,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-certificate",
       description:
-        "Describes the certificate that's identified by the CertificateId",
+        "Describes the certificate that's identified by the CertificateId.  Transfer Family automatically publishes a Amazon CloudWatch metric called DaysUntilExpiry for imported certificates. This metric tracks the number of days until the certificate expires based on the InactiveDate. The metric is available in the AWS/Transfer namespace and includes the CertificateId as a dimension",
       options: [
         {
           name: "--certificate-id",
@@ -1468,7 +1534,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-web-app",
-      description: "Describes the web app that's identified by WebAppId",
+      description:
+        "Describes the web app that's identified by WebAppId. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted. For more information about using VPC endpoints with Transfer Family, see Create a Transfer Family web app in a VPC",
       options: [
         {
           name: "--web-app-id",
@@ -1560,7 +1627,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "import-certificate",
       description:
-        "Imports the signing and encryption certificates that you need to create local (AS2) profiles and partner profiles",
+        "Imports the signing and encryption certificates that you need to create local (AS2) profiles and partner profiles. You can import both the certificate and its chain in the Certificate parameter. After importing a certificate, Transfer Family automatically creates a Amazon CloudWatch metric called DaysUntilExpiry that tracks the number of days until the certificate expires. The metric is based on the InactiveDate parameter and is published daily in the AWS/Transfer namespace.  It can take up to a full day after importing a certificate for Transfer Family to emit the DaysUntilExpiry metric to your account.   If you use the Certificate parameter to upload both the certificate and its chain, don't use the CertificateChain parameter.   CloudWatch monitoring  The DaysUntilExpiry metric includes the following specifications:    Units: Count (days)    Dimensions: CertificateId (always present), Description (if provided during certificate import)    Statistics: Minimum, Maximum, Average    Frequency: Published daily",
       options: [
         {
           name: "--usage",
@@ -1573,7 +1640,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--certificate",
           description:
-            'For the CLI, provide a file path for a certificate in URI format. For example, --certificate file://encryption-cert.pem. Alternatively, you can provide the raw content.   For the SDK, specify the raw content of a certificate file. For example, --certificate "`cat encryption-cert.pem`"',
+            'For the CLI, provide a file path for a certificate in URI format. For example, --certificate file://encryption-cert.pem. Alternatively, you can provide the raw content.   For the SDK, specify the raw content of a certificate file. For example, --certificate "`cat encryption-cert.pem`".    You can provide both the certificate and its chain in this parameter, without needing to use the CertificateChain parameter. If you use this parameter for both the certificate and its chain, do not use the CertificateChain parameter',
           args: {
             name: "string",
           },
@@ -1589,7 +1656,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--private-key",
           description:
-            'For the CLI, provide a file path for a private key in URI format.For example, --private-key file://encryption-key.pem. Alternatively, you can provide the raw content of the private key file.   For the SDK, specify the raw content of a private key file. For example, --private-key "`cat encryption-key.pem`"',
+            'For the CLI, provide a file path for a private key in URI format. For example, --private-key file://encryption-key.pem. Alternatively, you can provide the raw content of the private key file.   For the SDK, specify the raw content of a private key file. For example, --private-key "`cat encryption-key.pem`"',
           args: {
             name: "string",
           },
@@ -1597,7 +1664,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--active-date",
           description:
-            "An optional date that specifies when the certificate becomes active",
+            "An optional date that specifies when the certificate becomes active. If you do not specify a value, ActiveDate takes the same value as NotBeforeDate, which is specified by the CA",
           args: {
             name: "timestamp",
           },
@@ -1605,7 +1672,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--inactive-date",
           description:
-            "An optional date that specifies when the certificate becomes inactive",
+            "An optional date that specifies when the certificate becomes inactive. If you do not specify a value, InactiveDate takes the same value as NotAfterDate, which is specified by the CA",
           args: {
             name: "timestamp",
           },
@@ -1753,21 +1820,6 @@ const completionSpec: Fig.Spec = {
         "Lists the details for all the accesses you have on your server",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you can get additional results from the ListAccesses call, a NextToken parameter is returned in the output. You can then pass in a subsequent command to the NextToken parameter to continue listing additional accesses",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--server-id",
           description:
             "A system-assigned unique identifier for a server that has users assigned to it",
@@ -1823,21 +1875,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of the agreements for the server that's identified by the ServerId that you supply. If you want to limit the results to a certain number, supply a value for the MaxResults parameter. If you ran the command previously and received a value for NextToken, you can supply that value to continue listing agreements from where you left off",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you can get additional results from the ListAgreements call, a NextToken parameter is returned in the output. You can then pass in a subsequent command to the NextToken parameter to continue listing additional agreements",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--server-id",
           description:
@@ -1895,21 +1932,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of the current certificates that have been imported into Transfer Family. If you want to limit the results to a certain number, supply a value for the MaxResults parameter. If you ran the command previously and received a value for the NextToken parameter, you can supply that value to continue listing certificates from where you left off",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you can get additional results from the ListCertificates call, a NextToken parameter is returned in the output. You can then pass in a subsequent command to the NextToken parameter to continue listing additional certificates",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1956,21 +1978,6 @@ const completionSpec: Fig.Spec = {
       name: "list-connectors",
       description: "Lists the connectors for the specified Region",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you can get additional results from the ListConnectors call, a NextToken parameter is returned in the output. You can then pass in a subsequent command to the NextToken parameter to continue listing additional connectors",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2019,21 +2026,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all in-progress executions for the specified workflow.  If the specified workflow ID cannot be found, ListExecutions returns a ResourceNotFound exception",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "ListExecutions returns the NextToken parameter in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional executions.  This is useful for pagination, for instance. If you have 100 executions for a workflow, you might only want to list first 10. If so, call the API by specifying the max-results:   aws transfer list-executions --max-results 10   This returns details for the first 10 executions, as well as the pointer (NextToken) to the eleventh execution. You can now call the API again, supplying the NextToken value you received:   aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult   This call returns the next 10 executions, the 11th through the 20th. You can then repeat the call until the details for all 100 executions have been returned",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--workflow-id",
           description: "A unique identifier for the workflow",
@@ -2103,22 +2095,6 @@ const completionSpec: Fig.Spec = {
             "A unique identifier for a file transfer. This value should match the value supplied to the corresponding StartFileTransfer call",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If there are more file details than returned in this call, use this value for a subsequent call to ListFileTransferResults to retrieve them",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of files to return in a single page. Note that currently you can specify a maximum of 10 file paths in a single StartFileTransfer operation. Thus, the maximum number of file transfer results that can be returned in a single page is 10",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2217,21 +2193,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of the profiles for your system. If you want to limit the results to a certain number, supply a value for the MaxResults parameter. If you ran the command previously and received a value for NextToken, you can supply that value to continue listing profiles from where you left off",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When there are additional results that were not returned, a NextToken parameter is returned. You can use that value for a subsequent call to ListProfiles to continue listing results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--profile-type",
           description:
             "Indicates whether to list only LOCAL type profiles or only PARTNER type profiles. If not supplied in the request, the command lists all types of profiles",
@@ -2288,22 +2249,6 @@ const completionSpec: Fig.Spec = {
         "Lists the security policies that are attached to your servers and SFTP connectors. For more information about security policies, see Working with security policies for servers or Working with security policies for SFTP connectors",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Specifies the number of security policies to return as a response to the ListSecurityPolicies query",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the ListSecurityPolicies command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional security policies",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2351,22 +2296,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Specifies the number of servers to return as a response to the ListServers query",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When additional results are obtained from the ListServers command, a NextToken parameter is returned in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional servers",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2424,22 +2353,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Specifies the number of tags to return as a response to the ListTagsForResource request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you request additional results from the ListTagsForResource operation, a NextToken parameter is returned in the input. You can then pass in a subsequent command to the NextToken parameter to continue listing additional tags",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2487,22 +2400,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the users for a file transfer protocol-enabled server that you specify by passing the ServerId parameter",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Specifies the number of users to return as a response to the ListUsers request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If there are additional results from the ListUsers call, a NextToken parameter is returned in the output. You can then pass the NextToken to a subsequent ListUsers command, to continue listing additional users",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--server-id",
           description:
@@ -2557,23 +2454,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-web-apps",
       description:
-        "Lists all web apps associated with your Amazon Web Services account for your current region",
+        "Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted. For more information about using VPC endpoints with Transfer Family, see Create a Transfer Family web app in a VPC",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Returns the NextToken parameter in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional web apps",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2622,21 +2504,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all workflows associated with your Amazon Web Services account for your current region",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "ListWorkflows returns the NextToken parameter in the output. You can then pass the NextToken parameter in a subsequent command to continue listing additional workflows",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2737,7 +2604,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-directory-listing",
       description:
-        "Retrieves a list of the contents of a directory from a remote SFTP server. You specify the connector ID, the output path, and the remote directory path. You can also specify the optional MaxItems value to control the maximum number of items that are listed from the remote directory. This API returns a list of all files and directories in the remote directory (up to the maximum value), but does not return files or folders in sub-directories. That is, it only returns a list of files and directories one-level deep. After you receive the listing file, you can provide the files that you want to transfer to the RetrieveFilePaths parameter of the StartFileTransfer API call. The naming convention for the output file is  connector-ID-listing-ID.json. The output file contains the following information:    filePath: the complete path of a remote file, relative to the directory of the listing request for your SFTP connector on the remote server.    modifiedTimestamp: the last time the file was modified, in UTC time format. This field is optional. If the remote file attributes don't contain a timestamp, it is omitted from the file listing.    size: the size of the file, in bytes. This field is optional. If the remote file attributes don't contain a file size, it is omitted from the file listing.    path: the complete path of a remote directory, relative to the directory of the listing request for your SFTP connector on the remote server.    truncated: a flag indicating whether the list output contains all of the items contained in the remote directory or not. If your Truncated output value is true, you can increase the value provided in the optional max-items input attribute to be able to list more items (up to the maximum allowed list size of 10,000 items)",
+        "Retrieves a list of the contents of a directory from a remote SFTP server. You specify the connector ID, the output path, and the remote directory path. You can also specify the optional MaxItems value to control the maximum number of items that are listed from the remote directory. This API returns a list of all files and directories in the remote directory (up to the maximum value), but does not return files or folders in sub-directories. That is, it only returns a list of files and directories one-level deep. After you receive the listing file, you can provide the files that you want to transfer to the RetrieveFilePaths parameter of the StartFileTransfer API call. The naming convention for the output file is  connector-ID-listing-ID.json. The output file contains the following information:    filePath: the complete path of a remote file, relative to the directory of the listing request for your SFTP connector on the remote server.    modifiedTimestamp: the last time the file was modified, in UTC time format. This field is optional. If the remote file attributes don't contain a timestamp, it is omitted from the file listing.    size: the size of the file, in bytes. This field is optional. If the remote file attributes don't contain a file size, it is omitted from the file listing.    path: the complete path of a remote directory, relative to the directory of the listing request for your SFTP connector on the remote server.    truncated: a flag indicating whether the list output contains all of the items contained in the remote directory or not. If your Truncated output value is true, you can increase the value provided in the optional max-items input attribute to be able to list more items (up to the maximum allowed list size of 200,000 items)",
       options: [
         {
           name: "--connector-id",
@@ -2757,7 +2624,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-items",
           description:
-            "An optional parameter where you can specify the maximum number of file/directory names to retrieve. The default value is 1,000",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2829,6 +2696,99 @@ const completionSpec: Fig.Spec = {
           name: "--remote-directory-path",
           description:
             "For an outbound transfer, the RemoteDirectoryPath specifies the destination for one or more files that are transferred to the partner's SFTP server. If you don't specify a RemoteDirectoryPath, the destination for transferred files is the SFTP user's home directory",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-http-headers",
+          description:
+            "An array of key-value pairs that represent custom HTTP headers to include in AS2 messages. These headers are added to the AS2 message when sending files to your trading partner",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-remote-delete",
+      description: "Deletes a file or directory on the remote SFTP server",
+      options: [
+        {
+          name: "--connector-id",
+          description: "The unique identifier for the connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--delete-path",
+          description:
+            "The absolute path of the file or directory to delete. You can only specify one path per call to this operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-remote-move",
+      description:
+        "Moves or renames a file or directory on the remote SFTP server",
+      options: [
+        {
+          name: "--connector-id",
+          description: "The unique identifier for the connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source-path",
+          description:
+            "The absolute path of the file or directory to move or rename. You can only specify one path per call to this operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-path",
+          description:
+            "The absolute path for the target of the move/rename operation",
           args: {
             name: "string",
           },
@@ -3096,7 +3056,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--home-directory",
           description:
-            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  The HomeDirectory parameter is only used if HomeDirectoryType is set to PATH",
+            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  You can use the HomeDirectory parameter for HomeDirectoryType when it is set to either PATH or LOGICAL",
           args: {
             name: "string",
           },
@@ -3179,7 +3139,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-agreement",
       description:
-        "Updates some of the parameters for an existing agreement. Provide the AgreementId and the ServerId for the agreement that you want to update, along with the new values for the parameters to update",
+        "Updates some of the parameters for an existing agreement. Provide the AgreementId and the ServerId for the agreement that you want to update, along with the new values for the parameters to update.  Specify either BaseDirectory or CustomDirectories, but not both. Specifying both causes the command to fail. If you update an agreement from using base directory to custom directories, the base directory is no longer used. Similarly, if you change from custom directories to a base directory, the custom directories are no longer used",
       options: [
         {
           name: "--agreement-id",
@@ -3232,7 +3192,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--base-directory",
           description:
-            "To change the landing directory (folder) for files that are transferred, provide the bucket folder that you want to use; for example, /amzn-s3-demo-bucket/home/mydirectory",
+            "To change the landing directory (folder) for files that are transferred, provide the bucket folder that you want to use; for example, /amzn-s3-demo-bucket/home/mydirectory ",
           args: {
             name: "string",
           },
@@ -3240,9 +3200,33 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-role",
           description:
-            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file\u2019s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
+            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file’s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--preserve-filename",
+          description:
+            "Determines whether or not Transfer Family appends a unique string of characters to the end of the AS2 message payload filename when saving it.     ENABLED: the filename provided by your trading parter is preserved when the file is saved.    DISABLED (default value): when Transfer Family saves the file, the filename is adjusted, as described in File names and locations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--enforce-message-signing",
+          description:
+            "Determines whether or not unsigned messages from your trading partners will be accepted.     ENABLED: Transfer Family rejects unsigned messages from your trading partner.    DISABLED (default value): Transfer Family accepts unsigned messages from your trading partner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-directories",
+          description:
+            "A CustomDirectoriesType structure. This structure specifies custom directories for storing various AS2 message files. You can specify directories for the following types of files.   Failed files   MDN files   Payload files   Status files   Temporary files",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -3279,7 +3263,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--active-date",
           description:
-            "An optional date that specifies when the certificate becomes active",
+            "An optional date that specifies when the certificate becomes active. If you do not specify a value, ActiveDate takes the same value as NotBeforeDate, which is specified by the CA",
           args: {
             name: "timestamp",
           },
@@ -3287,7 +3271,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--inactive-date",
           description:
-            "An optional date that specifies when the certificate becomes inactive",
+            "An optional date that specifies when the certificate becomes inactive. If you do not specify a value, InactiveDate takes the same value as NotAfterDate, which is specified by the CA",
           args: {
             name: "timestamp",
           },
@@ -3332,7 +3316,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--url",
-          description: "The URL of the partner's AS2 or SFTP endpoint",
+          description:
+            "The URL of the partner's AS2 or SFTP endpoint. When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null",
           args: {
             name: "string",
           },
@@ -3348,7 +3333,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-role",
           description:
-            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file\u2019s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
+            "Connectors are used to send files using either the AS2 or SFTP protocol. For the access role, provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.  For AS2 connectors  With AS2, you can send files by calling StartFileTransfer and specifying the file paths in the request parameter, SendFilePaths. We use the file’s parent directory (for example, for --send-file-paths /bucket/dir/file.txt, parent directory is /bucket/dir/) to temporarily store a processed AS2 message file, store the MDN when we receive them from the partner, and write a final JSON file containing relevant metadata of the transmission. So, the AccessRole needs to provide read and write access to the parent directory of the file location used in the StartFileTransfer request. Additionally, you need to provide read and write access to the parent directory of the files that you intend to send with StartFileTransfer. If you are using Basic authentication for your AS2 connector, the access role requires the secretsmanager:GetSecretValue permission for the secret. If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also needs the kms:Decrypt permission for that key.  For SFTP connectors  Make sure that the access role provides read and write access to the parent directory of the file location that's used in the StartFileTransfer request. Additionally, make sure that the role provides secretsmanager:GetSecretValue permission to Secrets Manager",
           args: {
             name: "string",
           },
@@ -3373,6 +3358,22 @@ const completionSpec: Fig.Spec = {
           name: "--security-policy-name",
           description:
             "Specifies the name of the security policy for the connector",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--egress-config",
+          description:
+            "Updates the egress configuration for the connector, allowing you to modify how traffic is routed from the connector to the SFTP server. Changes to VPC configuration may require connector restart",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies the IP address type for the connector's network connections. When set to IPV4, the connector uses IPv4 addresses only. When set to DUALSTACK, the connector supports both IPv4 and IPv6 addresses, with IPv6 preferred when available",
           args: {
             name: "string",
           },
@@ -3498,7 +3499,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--protocol-details",
           description:
-            "The protocol settings that are configured for your server.    To indicate passive mode (for FTP and FTPS protocols), use the PassiveIp parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.    To ignore the error that is generated when the client attempts to use the SETSTAT command on a file that you are uploading to an Amazon S3 bucket, use the SetStatOption parameter. To have the Transfer Family server ignore the SETSTAT command and upload files without needing to make any changes to your SFTP client, set the value to ENABLE_NO_OP. If you set the SetStatOption parameter to ENABLE_NO_OP, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a SETSTAT call.   To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the TlsSessionResumptionMode parameter.    As2Transports indicates the transport method for the AS2 messages. Currently, only HTTP is supported",
+            "The protocol settings that are configured for your server.  Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see  Avoid placing NLBs and NATs in front of Transfer Family.     To indicate passive mode (for FTP and FTPS protocols), use the PassiveIp parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.    To ignore the error that is generated when the client attempts to use the SETSTAT command on a file that you are uploading to an Amazon S3 bucket, use the SetStatOption parameter. To have the Transfer Family server ignore the SETSTAT command and upload files without needing to make any changes to your SFTP client, set the value to ENABLE_NO_OP. If you set the SetStatOption parameter to ENABLE_NO_OP, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a SETSTAT call.   To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the TlsSessionResumptionMode parameter.    As2Transports indicates the transport method for the AS2 messages. Currently, only HTTP is supported",
           args: {
             name: "structure",
           },
@@ -3538,7 +3539,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--logging-role",
           description:
-            "The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs",
+            "The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs",
           args: {
             name: "string",
           },
@@ -3602,9 +3603,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--s3-storage-options",
           description:
-            "Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. By default, home directory mappings have a TYPE of DIRECTORY. If you enable this option, you would then need to explicitly set the HomeDirectoryMapEntry Type to FILE if you want a mapping to have a file target",
+            "Specifies whether or not performance for your Amazon S3 directories is optimized.   If using the console, this is enabled by default.   If using the API or CLI, this is disabled by default.   By default, home directory mappings have a TYPE of DIRECTORY. If you enable this option, you would then need to explicitly set the HomeDirectoryMapEntry Type to FILE if you want a mapping to have a file target",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--ip-address-type",
+          description:
+            "Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your Transfer Family endpoint. The default value is IPV4.  The IpAddressType parameter has the following limitations:   It cannot be changed while the server is online. You must stop the server before modifying this parameter.   It cannot be updated to DUALSTACK if the server has AddressAllocationIds specified.     When using DUALSTACK as the IpAddressType, you cannot set the AddressAllocationIds parameter for the EndpointDetails for the server",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-provider-type",
+          description:
+            "The mode of authentication for a server. The default value is SERVICE_MANAGED, which allows you to store and access user credentials within the Transfer Family service. Use AWS_DIRECTORY_SERVICE to provide access to Active Directory groups in Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in Amazon Web Services using AD Connector. This option also requires you to provide a Directory ID by using the IdentityProviderDetails parameter. Use the API_GATEWAY value to integrate with an identity provider of your choosing. The API_GATEWAY setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the IdentityProviderDetails parameter. Use the AWS_LAMBDA value to directly use an Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the Function parameter for the IdentityProviderDetails data type",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3634,7 +3651,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--home-directory",
           description:
-            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  The HomeDirectory parameter is only used if HomeDirectoryType is set to PATH",
+            "The landing directory (folder) for a user when they log in to the server using the client. A HomeDirectory example is /bucket_name/home/mydirectory.  You can use the HomeDirectory parameter for HomeDirectoryType when it is set to either PATH or LOGICAL",
           args: {
             name: "string",
           },
@@ -3717,7 +3734,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-web-app",
       description:
-        "Assigns new properties to a web app. You can modify the access point, identity provider details, and the web app units",
+        "Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units. For more information about using VPC endpoints with Transfer Family, see Create a Transfer Family web app in a VPC",
       options: [
         {
           name: "--web-app-id",
@@ -3747,6 +3764,14 @@ const completionSpec: Fig.Spec = {
           name: "--web-app-units",
           description:
             "A union that contains the value for number of concurrent connections or the user sessions on your web app",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--endpoint-details",
+          description:
+            "The updated endpoint configuration for the web app. You can modify the endpoint type and VPC configuration settings",
           args: {
             name: "structure",
           },
@@ -3799,7 +3824,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--favicon-file",
-          description: "Specify icon file data string (in base64 encoding)",
+          description: "Specify an icon file data string (in base64 encoding)",
           args: {
             name: "blob",
           },

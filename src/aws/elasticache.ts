@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "elasticache",
   description:
@@ -224,12 +225,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "copy-serverless-cache-snapshot",
       description:
-        "Creates a copy of an existing serverless cache\u2019s snapshot. Available for Valkey, Redis OSS and Serverless Memcached only",
+        "Creates a copy of an existing serverless cache’s snapshot. Available for Valkey, Redis OSS and Serverless Memcached only",
       options: [
         {
           name: "--source-serverless-cache-snapshot-name",
           description:
-            "The identifier of the existing serverless cache\u2019s snapshot to be copied. Available for Valkey, Redis OSS and Serverless Memcached only",
+            "The identifier of the existing serverless cache’s snapshot to be copied. Available for Valkey, Redis OSS and Serverless Memcached only",
           args: {
             name: "string",
           },
@@ -237,7 +238,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-serverless-cache-snapshot-name",
           description:
-            "The identifier for the snapshot to be created. Available for Valkey, Redis OSS and Serverless Memcached only",
+            "The identifier for the snapshot to be created. Available for Valkey, Redis OSS and Serverless Memcached only. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -293,7 +294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-snapshot-name",
           description:
-            "A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting",
+            "A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -573,7 +574,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--network-type",
           description:
-            "Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
           },
@@ -581,7 +582,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-discovery",
           description:
-            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
           },
@@ -612,7 +613,8 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--cache-parameter-group-name",
-          description: "A user-specified name for the cache parameter group",
+          description:
+            "A user-specified name for the cache parameter group. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -620,7 +622,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cache-parameter-group-family",
           description:
-            "The name of the cache parameter group family that the cache parameter group can be used with. Valid values are: memcached1.4 | memcached1.5 | memcached1.6 | redis2.6 | redis2.8 | redis3.2 | redis4.0 | redis5.0 | redis6.x | redis7",
+            "The name of the cache parameter group family that the cache parameter group can be used with. Valid values are: valkey8 | valkey7 | memcached1.4 | memcached1.5 | memcached1.6 | redis2.6 | redis2.8 | redis3.2 | redis4.0 | redis5.0 | redis6.x | redis7",
           args: {
             name: "string",
           },
@@ -769,7 +771,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--global-replication-group-id-suffix",
           description:
-            'The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  For a full list of Amazon Regions and their respective Global datastore iD prefixes, see Using the Amazon CLI with Global datastores',
+            'The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  For a full list of Amazon Regions and their respective Global datastore iD prefixes, see Using the Amazon CLI with Global datastores ',
           args: {
             name: "string",
           },
@@ -784,7 +786,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--primary-replication-group-id",
           description:
-            "The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster",
+            "The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -914,7 +916,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "The name of the cache engine to be used for the clusters in this replication group. The value must be set to Redis",
+            "The name of the cache engine to be used for the clusters in this replication group. The value must be set to valkey or redis",
           args: {
             name: "string",
           },
@@ -1054,12 +1056,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--at-rest-encryption-enabled",
           description:
-            "A flag that enables encryption at rest when set to true. You cannot modify the value of AtRestEncryptionEnabled after the replication group is created. To enable encryption at rest on a replication group you must set AtRestEncryptionEnabled to true when you create the replication group.   Required: Only available when creating a replication group in an Amazon VPC using Redis OSS version 3.2.6, 4.x or later. Default: false",
+            "A flag that enables encryption at-rest on the replication group when set to true. In some cases, encryption at-rest may be enabled even when this value is false. Use StorageEncryptionType to view the effective encryption state of a cluster. You cannot modify the value of AtRestEncryptionEnabled after the replication group is created. Default: true when using Valkey, false when using Redis OSS",
         },
         {
           name: "--no-at-rest-encryption-enabled",
           description:
-            "A flag that enables encryption at rest when set to true. You cannot modify the value of AtRestEncryptionEnabled after the replication group is created. To enable encryption at rest on a replication group you must set AtRestEncryptionEnabled to true when you create the replication group.   Required: Only available when creating a replication group in an Amazon VPC using Redis OSS version 3.2.6, 4.x or later. Default: false",
+            "A flag that enables encryption at-rest on the replication group when set to true. In some cases, encryption at-rest may be enabled even when this value is false. Use StorageEncryptionType to view the effective encryption state of a cluster. You cannot modify the value of AtRestEncryptionEnabled after the replication group is created. Default: true when using Valkey, false when using Redis OSS",
         },
         {
           name: "--kms-key-id",
@@ -1096,7 +1098,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--network-type",
           description:
-            "Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
           },
@@ -1104,7 +1106,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-discovery",
           description:
-            "The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
           },
@@ -1134,9 +1136,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--preferred-cache-cluster-a-zs",
+          name: "--durability",
           description:
-            "A list of EC2 Availability Zones in which the replication group's clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list. This parameter is not used if there is more than one node group (shard). You should use NodeGroupConfiguration instead.  If you are creating your replication group in an Amazon VPC (recommended), you can only locate clusters in Availability Zones associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of NumCacheClusters.  Default: system chosen Availability Zones",
+            "Specifies the durability setting for the replication group. When set to default, the service determines the effective durability based on the engine version, cluster mode, and other parameters. The resolved setting is reflected in the EffectiveDurability property of the replication group. For more information, see Durability",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--preferred-cache-cluster-a-zs",
           args: {
             name: "list",
           },
@@ -1215,7 +1223,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--security-group-ids",
           description:
-            "A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC\u2019s Default Security Group that is associated with the cluster VPC end-point",
+            "A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point",
           args: {
             name: "list",
           },
@@ -1255,7 +1263,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-retention-limit",
           description:
-            "The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Valkey, Redis OSS and Serverless Memcached only",
+            "The number of days for which ElastiCache retains automatic snapshots before deleting them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days",
           args: {
             name: "integer",
           },
@@ -1264,6 +1272,14 @@ const completionSpec: Fig.Spec = {
           name: "--daily-snapshot-time",
           description:
             "The daily time that snapshots will be created from the new serverless cache. By default this number is populated with 0, i.e. no snapshots will be created on an automatic daily basis. Available for Valkey, Redis OSS and Serverless Memcached only",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The IP protocol version used by the serverless cache. Must be either ipv4 | ipv6 | dual_stack. ipv6 is only supported with IPv6-only subnets. If not specified, defaults to ipv4, unless all provided subnets are IPv6-only, in which case it defaults to ipv6",
           args: {
             name: "string",
           },
@@ -1295,7 +1311,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--serverless-cache-snapshot-name",
           description:
-            "The name for the snapshot being created. Must be unique for the customer account. Available for Valkey, Redis OSS and Serverless Memcached only. Must be between 1 and 255 characters",
+            "The name for the snapshot being created. Must be unique for the customer account. Available for Valkey, Redis OSS and Serverless Memcached only. Must be between 1 and 255 characters. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -1366,7 +1382,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--snapshot-name",
-          description: "A name for the snapshot being created",
+          description:
+            "A name for the snapshot being created. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -1408,11 +1425,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-user",
       description:
-        "For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a user. For more information, see Using Role Based Access Control (RBAC)",
+        "For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user. For more information, see Using Role Based Access Control (RBAC)",
       options: [
         {
           name: "--user-id",
-          description: "The ID of the user",
+          description:
+            "The ID of the user. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
@@ -1426,7 +1444,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--engine",
-          description: "The current supported value is Redis",
+          description: "The options are valkey or redis",
           args: {
             name: "string",
           },
@@ -1491,18 +1509,20 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-user-group",
       description:
-        "For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user group. For more information, see Using Role Based Access Control (RBAC)",
+        "For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group. For more information, see Using Role Based Access Control (RBAC)",
       options: [
         {
           name: "--user-group-id",
-          description: "The ID of the user group",
+          description:
+            "The ID of the user group. This value is stored as a lowercase string",
           args: {
             name: "string",
           },
         },
         {
           name: "--engine",
-          description: "The current supported value is Redis user",
+          description:
+            "Sets the engine listed in a user group. The options are valkey or redis",
           args: {
             name: "string",
           },
@@ -1629,7 +1649,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replica-configuration",
           description:
-            "A list of ConfigureShard objects that can be used to configure each shard in a Valkey or Redis OSS (cluster mode enabled) replication group. The ConfigureShard has three members: NewReplicaCount, NodeGroupId, and PreferredAvailabilityZones",
+            "A list of ConfigureShard objects that can be used to configure each shard in a Valkey or Redis OSS replication group. The ConfigureShard has three members: NewReplicaCount, NodeGroupId, and PreferredAvailabilityZones",
           args: {
             name: "list",
           },
@@ -2076,22 +2096,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--show-cache-node-info",
           description:
             "An optional flag that can be included in the DescribeCacheCluster request to retrieve information about the individual cache nodes",
@@ -2183,22 +2187,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--default-only",
           description:
             "If true, specifies that only the default version of the specified engine or engine and major version combination is to be returned",
@@ -2260,22 +2248,6 @@ const completionSpec: Fig.Spec = {
           name: "--cache-parameter-group-name",
           description:
             "The name of a specific cache parameter group to return details for",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -2345,22 +2317,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2412,22 +2368,6 @@ const completionSpec: Fig.Spec = {
           name: "--cache-security-group-name",
           description:
             "The name of the cache security group to return details for",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -2489,22 +2429,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2556,22 +2480,6 @@ const completionSpec: Fig.Spec = {
           name: "--cache-parameter-group-family",
           description:
             "The name of the cache parameter group family. Valid values are: memcached1.4 | memcached1.5 | memcached1.6 | redis2.6 | redis2.8 | redis3.2 | redis4.0 | redis5.0 | redis6.x | redis6.2 | redis7",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -2664,22 +2572,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2730,22 +2622,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--global-replication-group-id",
           description: "The name of the Global datastore",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -2812,22 +2688,6 @@ const completionSpec: Fig.Spec = {
           name: "--replication-group-id",
           description:
             "The identifier for the replication group to be described. This parameter is not case sensitive. If you do not specify this parameter, information about all replication groups is returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -2929,22 +2789,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3032,22 +2876,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3093,7 +2921,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-serverless-cache-snapshots",
       description:
-        "Returns information about serverless cache snapshots. By default, this API lists all of the customer\u2019s serverless cache snapshots. It can also describe a single serverless cache snapshot, or the snapshots associated with a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only",
+        "Returns information about serverless cache snapshots. By default, this API lists all of the customer’s serverless cache snapshots. It can also describe a single serverless cache snapshot, or the snapshots associated with a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only",
       options: [
         {
           name: "--serverless-cache-name",
@@ -3106,7 +2934,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--serverless-cache-snapshot-name",
           description:
-            "The identifier of the serverless cache\u2019s snapshot. If this parameter is specified, only this snapshot is described. Available for Valkey, Redis OSS and Serverless Memcached only",
+            "The identifier of the serverless cache’s snapshot. If this parameter is specified, only this snapshot is described. Available for Valkey, Redis OSS and Serverless Memcached only",
           args: {
             name: "string",
           },
@@ -3117,22 +2945,6 @@ const completionSpec: Fig.Spec = {
             "The type of snapshot that is being described. Available for Valkey, Redis OSS and Serverless Memcached only",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An optional marker returned from a prior request to support pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by max-results. Available for Valkey, Redis OSS and Serverless Memcached only",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified max-results value, a market is included in the response so that remaining results can be retrieved. Available for Valkey, Redis OSS and Serverless Memcached only.The default is 50. The Validation Constraints are a maximum of 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3187,22 +2999,6 @@ const completionSpec: Fig.Spec = {
           name: "--serverless-cache-name",
           description:
             "The identifier for the serverless cache. If this parameter is specified, only information about that specific serverless cache is returned. Default: NULL",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of records in the response. If more records exist than the specified max-records value, the next token is included in the response so that remaining results can be retrieved. The default is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An optional marker returned from a prior request to support pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxResults",
           args: {
             name: "string",
           },
@@ -3266,22 +3062,6 @@ const completionSpec: Fig.Spec = {
           description: "The status of the service update",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3362,22 +3142,6 @@ const completionSpec: Fig.Spec = {
             "If set to system, the output shows snapshots that were automatically created by ElastiCache. If set to user the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. Default: 50 Constraints: minimum 20; maximum 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3499,22 +3263,6 @@ const completionSpec: Fig.Spec = {
             "Dictates whether to include node level update status in the response",
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3564,22 +3312,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-group-id",
           description: "The ID of the user group",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >",
           args: {
             name: "string",
           },
@@ -3650,22 +3382,6 @@ const completionSpec: Fig.Spec = {
           description: "Filter to determine the list of User IDs to return",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4125,17 +3841,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--apply-immediately",
           description:
-            "If true, this parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible, regardless of the PreferredMaintenanceWindow setting for the cluster. If false, changes to the cluster are applied on the next maintenance reboot, or the next failure reboot, whichever occurs first.  If you perform a ModifyCacheCluster before a pending modification is applied, the pending modification is replaced by the newer modification.  Valid values: true | false  Default: false",
+            "If true, this parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible, regardless of the PreferredMaintenanceWindow setting for the cluster. If false, changes to the cluster are applied on the next maintenance reboot, or the next failure reboot, whichever occurs first.  If you perform a ModifyCacheCluster before a pending modification is applied, the pending modification is replaced by the newer modification. However, a pending node-count increase on Memcached clusters cannot be superseded by a request to add fewer nodes. To change a pending node addition, first cancel it by setting NumCacheNodes equal to the current number of nodes in the cluster, then submit the new request. See the NumCacheNodes parameter for details on node scaling behavior.  Valid values: true | false  Default: false",
         },
         {
           name: "--no-apply-immediately",
           description:
-            "If true, this parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible, regardless of the PreferredMaintenanceWindow setting for the cluster. If false, changes to the cluster are applied on the next maintenance reboot, or the next failure reboot, whichever occurs first.  If you perform a ModifyCacheCluster before a pending modification is applied, the pending modification is replaced by the newer modification.  Valid values: true | false  Default: false",
+            "If true, this parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible, regardless of the PreferredMaintenanceWindow setting for the cluster. If false, changes to the cluster are applied on the next maintenance reboot, or the next failure reboot, whichever occurs first.  If you perform a ModifyCacheCluster before a pending modification is applied, the pending modification is replaced by the newer modification. However, a pending node-count increase on Memcached clusters cannot be superseded by a request to add fewer nodes. To change a pending node addition, first cancel it by setting NumCacheNodes equal to the current number of nodes in the cluster, then submit the new request. See the NumCacheNodes parameter for details on node scaling behavior.  Valid values: true | false  Default: false",
         },
         {
           name: "--engine",
           description:
-            "Modifies the engine listed in a cluster message. The options are redis, memcached or valkey",
+            "The engine type used by the cache cluster. The options are valkey, memcached or redis",
           args: {
             name: "string",
           },
@@ -4208,9 +3924,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-discovery",
           description:
-            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--scale-config",
+          description:
+            "Configures horizontal or vertical scaling for Memcached clusters, specifying the scaling percentage and interval",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -4348,7 +4072,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "Modifies the engine listed in a global replication group message. The options are redis, memcached or valkey",
+            "Modifies the engine listed in a global replication group message. The options are valkey, memcached or redis",
           args: {
             name: "string",
           },
@@ -4527,7 +4251,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "Modifies the engine listed in a replication group message. The options are redis, memcached or valkey",
+            "Modifies the engine listed in a replication group message. The options are valkey, memcached or redis",
           args: {
             name: "string",
           },
@@ -4626,7 +4350,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ip-discovery",
           description:
-            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
+            "The network type you choose when modifying a cluster, either ipv4 | ipv6. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the Nitro system",
           args: {
             name: "string",
           },
@@ -4653,6 +4377,14 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-mode",
           description:
             "Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Valkey or Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--durability",
+          description:
+            "Specifies the durability setting for the replication group. Use this parameter to change the durability mode of an existing replication group, for example from sync to async or vice versa. For more information, see Durability",
           args: {
             name: "string",
           },
@@ -4822,7 +4554,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine",
           description:
-            "Modifies the engine listed in a serverless cache request. The options are redis, memcached or valkey",
+            "Modifies the engine listed in a serverless cache request. The options are valkey, memcached or redis",
           args: {
             name: "string",
           },
@@ -4904,7 +4636,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--engine",
-          description: "The engine for a specific user",
+          description:
+            "Modifies the engine listed for a user. The options are valkey or redis",
           args: {
             name: "string",
           },
@@ -4955,7 +4688,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--engine",
-          description: "The engine for a user group",
+          description:
+            "Modifies the engine listed in a user group. The options are valkey or redis",
           args: {
             name: "string",
           },

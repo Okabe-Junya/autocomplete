@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codeguru-reviewer",
   description:
@@ -476,22 +477,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of repository association results returned by ListRepositoryAssociations in paginated output. When this parameter is used, ListRepositoryAssociations only returns maxResults results in a single page with a nextToken response element. The remaining results of the initial request can be seen by sending another ListRepositoryAssociations request with the returned nextToken value. This value can be between 1 and 100. If this parameter is not used, ListRepositoryAssociations returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListRepositoryAssociations request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value.   Treat this token as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -698,14 +683,14 @@ const completionSpec: Fig.Spec = {
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
       subcommands: [
         {
-          name: "code-review-completed",
+          name: "repository-association-succeeded",
           description:
-            "Wait until a code review is complete. It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 180 failed checks",
+            "Wait until a repository association is complete. It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 30 failed checks",
           options: [
             {
-              name: "--code-review-arn",
+              name: "--association-arn",
               description:
-                "The Amazon Resource Name (ARN) of the CodeReview object",
+                "The Amazon Resource Name (ARN) of the RepositoryAssociation object. You can retrieve this ARN by calling ListRepositoryAssociations",
               args: {
                 name: "string",
               },
@@ -730,14 +715,14 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "repository-association-succeeded",
+          name: "code-review-completed",
           description:
-            "Wait until a repository association is complete. It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 30 failed checks",
+            "Wait until a code review is complete. It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 180 failed checks",
           options: [
             {
-              name: "--association-arn",
+              name: "--code-review-arn",
               description:
-                "The Amazon Resource Name (ARN) of the RepositoryAssociation object. You can retrieve this ARN by calling ListRepositoryAssociations",
+                "The Amazon Resource Name (ARN) of the CodeReview object",
               args: {
                 name: "string",
               },

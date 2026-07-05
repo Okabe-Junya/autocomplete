@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "billingconductor",
   description:
-    "Amazon Web Services Billing Conductor is a fully managed service that you can use to customize a proforma version of your billing data each month, to accurately show or chargeback your end customers. Amazon Web Services Billing Conductor doesn't change the way you're billed by Amazon Web Services each month by design. Instead, it provides you with a mechanism to configure, generate, and display rates to certain customers over a given billing period. You can also analyze the difference between the rates you apply to your accounting groupings relative to your actual rates from Amazon Web Services. As a result of your Amazon Web Services Billing Conductor configuration, the payer account can also see the custom rate applied on the billing details page of the Amazon Web Services Billing console, or configure a cost and usage report per billing group. This documentation shows how you can configure Amazon Web Services Billing Conductor using its API. For more information about using the Amazon Web Services Billing Conductor user interface, see the  Amazon Web Services Billing Conductor User Guide",
+    "Billing Conductor is a fully managed service that you can use to customize a pro forma version of your billing data each month, to accurately show or chargeback your end customers. Billing Conductor doesn't change the way you're billed by Amazon Web Services each month by design. Instead, it provides you with a mechanism to configure, generate, and display rates to certain customers over a given billing period. You can also analyze the difference between the rates you apply to your accounting groupings relative to your actual rates from Amazon Web Services. As a result of your Billing Conductor configuration, the payer account can also see the custom rate applied on the billing details page of the Billing console, or configure a cost and usage report per billing group. This documentation shows how you can configure Billing Conductor by using its API. For more information about using the Billing Conductor user interface, see the  Billing Conductor User Guide",
   subcommands: [
     {
       name: "associate-accounts",
@@ -186,7 +187,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "The token that is needed to support idempotency. Idempotency isn't currently supported, but will be implemented in a future update",
+            "A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions",
           args: {
             name: "string",
           },
@@ -264,7 +265,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "The token that is needed to support idempotency. Idempotency isn't currently supported, but will be implemented in a future update",
+            "A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions",
           args: {
             name: "string",
           },
@@ -325,6 +326,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--computation-rule",
+          description:
+            "Specifies how the custom line item charges are computed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--presentation-details",
+          description:
+            "Details controlling how the custom line item charges are presented in the bill. Contains specifications for which service the charges will be shown under",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -351,7 +368,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "The token that is needed to support idempotency. Idempotency isn't currently supported, but will be implemented in a future update",
+            "A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions",
           args: {
             name: "string",
           },
@@ -414,7 +431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "The token that's needed to support idempotency. Idempotency isn't currently supported, but will be implemented in a future update",
+            "A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions",
           args: {
             name: "string",
           },
@@ -452,7 +469,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--modifier-percentage",
           description:
-            "A percentage modifier that's applied on the public pricing rates",
+            "A percentage modifier that's applied on the public pricing rates. Your entry will be rounded to the nearest 2 decimal places",
           args: {
             name: "double",
           },
@@ -491,7 +508,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--usage-type",
           description:
-            "Usage type is the unit that each service uses to measure the usage of a specific type of resource. If the Scope attribute is set to SKU, this attribute indicates which usage type the PricingRule is modifying. For example, USW2-BoxUsage:m2.2xlarge describes an M2 High Memory Double Extra Large instance in the US West (Oregon) Region. </p>",
+            "Usage type is the unit that each service uses to measure the usage of a specific type of resource. If the Scope attribute is set to SKU, this attribute indicates which usage type the PricingRule is modifying. For example, USW2-BoxUsage:m2.2xlarge describes an M2 High Memory Double Extra Large instance in the US West (Oregon) Region",
           args: {
             name: "string",
           },
@@ -738,7 +755,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-billing-group-cost-report",
       description:
-        "Retrieves the margin summary report, which includes the Amazon Web Services cost and charged amount (pro forma cost) by Amazon Web Service for a specific billing group",
+        "Retrieves the margin summary report, which includes the Amazon Web Services cost and charged amount (pro forma cost) by Amazon Web Services service for a specific billing group",
       options: [
         {
           name: "--arn",
@@ -759,7 +776,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-by",
           description:
-            "A list of strings that specify the attributes that are used to break down costs in the margin summary reports for the billing group. For example, you can view your costs by the Amazon Web Service name or the billing period",
+            "A list of strings that specify the attributes that are used to break down costs in the margin summary reports for the billing group. For example, you can view your costs by the Amazon Web Services service name or the billing period",
           args: {
             name: "list",
           },
@@ -821,14 +838,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent calls to retrieve accounts",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -853,6 +862,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -871,21 +888,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--billing-period",
           description: "The preferred billing period for your report",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of reports to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent calls to get reports",
           args: {
             name: "string",
           },
@@ -949,21 +951,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--billing-period",
           description: "The preferred billing period to get billing groups",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of billing groups to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent calls to get billing groups",
           args: {
             name: "string",
           },
@@ -1033,22 +1020,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of custom line item versions to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent calls to retrieve custom line item versions",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filters",
           description:
             "A ListCustomLineItemVersionsFilter that specifies the billing period range in which the custom line item versions are applied",
@@ -1108,21 +1079,6 @@ const completionSpec: Fig.Spec = {
           name: "--billing-period",
           description:
             "The preferred billing period to get custom line items (FFLIs)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of billing groups to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent calls to get custom line items (FFLIs)",
           args: {
             name: "string",
           },
@@ -1199,21 +1155,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of pricing plans to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent call to get pricing plans",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1273,22 +1214,6 @@ const completionSpec: Fig.Spec = {
           name: "--pricing-rule-arn",
           description:
             "The pricing rule Amazon Resource Name (ARN) for which associations will be listed",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The optional maximum number of pricing rule associations to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The optional pagination token returned by a previous call",
           args: {
             name: "string",
           },
@@ -1357,21 +1282,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of pricing rules to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that's used on subsequent call to get pricing rules",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1436,22 +1346,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The optional maximum number of pricing rule associations to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The optional pagination token returned by a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1511,22 +1405,6 @@ const completionSpec: Fig.Spec = {
           name: "--arn",
           description:
             "The ARN of the custom line item for which the resource associations will be listed",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "(Optional) The maximum number of resource associations to be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "(Optional) The pagination token that's returned by a previous request",
           args: {
             name: "string",
           },
@@ -1906,7 +1784,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--modifier-percentage",
           description:
-            "The new modifier to show pricing plan rates as a percentage",
+            "The new modifier to show pricing plan rates as a percentage. Your entry will be rounded to the nearest 2 decimal places",
           args: {
             name: "double",
           },

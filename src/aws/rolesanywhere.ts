@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "rolesanywhere",
   description:
@@ -9,14 +10,45 @@ const completionSpec: Fig.Spec = {
         "Creates a profile, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.  Required permissions:  rolesanywhere:CreateProfile",
       options: [
         {
-          name: "--accept-role-session-name",
-          description:
-            "Used to determine if a custom role session name will be accepted in a temporary credential request",
+          name: "--name",
+          description: "The name of the profile",
+          args: {
+            name: "string",
+          },
         },
         {
-          name: "--no-accept-role-session-name",
+          name: "--require-instance-properties",
           description:
-            "Used to determine if a custom role session name will be accepted in a temporary credential request",
+            "Unused, saved for future use. Will likely specify whether instance properties are required in temporary credential requests with this profile",
+        },
+        {
+          name: "--no-require-instance-properties",
+          description:
+            "Unused, saved for future use. Will likely specify whether instance properties are required in temporary credential requests with this profile",
+        },
+        {
+          name: "--session-policy",
+          description:
+            "A session policy that applies to the trust boundary of the vended session credentials",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--role-arns",
+          description:
+            "A list of IAM roles that this profile can assume in a temporary credential request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--managed-policy-arns",
+          description:
+            "A list of managed policy ARNs that apply to the vended session credentials",
+          args: {
+            name: "list",
+          },
         },
         {
           name: "--duration-seconds",
@@ -35,52 +67,21 @@ const completionSpec: Fig.Spec = {
           description: "Specifies whether the profile is enabled",
         },
         {
-          name: "--managed-policy-arns",
-          description:
-            "A list of managed policy ARNs that apply to the vended session credentials",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--name",
-          description: "The name of the profile",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--require-instance-properties",
-          description:
-            "Specifies whether instance properties are required in temporary credential requests with this profile",
-        },
-        {
-          name: "--no-require-instance-properties",
-          description:
-            "Specifies whether instance properties are required in temporary credential requests with this profile",
-        },
-        {
-          name: "--role-arns",
-          description:
-            "A list of IAM roles that this profile can assume in a temporary credential request",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--session-policy",
-          description:
-            "A session policy that applies to the trust boundary of the vended session credentials",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--tags",
           description: "The tags to attach to the profile",
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--accept-role-session-name",
+          description:
+            "Used to determine if a custom role session name will be accepted in a temporary credential request",
+        },
+        {
+          name: "--no-accept-role-session-name",
+          description:
+            "Used to determine if a custom role session name will be accepted in a temporary credential request",
         },
         {
           name: "--cli-input-json",
@@ -107,26 +108,10 @@ const completionSpec: Fig.Spec = {
         "Creates a trust anchor to establish trust between IAM Roles Anywhere and your certificate authority (CA). You can define a trust anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary Amazon Web Services credentials.  Required permissions:  rolesanywhere:CreateTrustAnchor",
       options: [
         {
-          name: "--enabled",
-          description: "Specifies whether the trust anchor is enabled",
-        },
-        {
-          name: "--no-enabled",
-          description: "Specifies whether the trust anchor is enabled",
-        },
-        {
           name: "--name",
           description: "The name of the trust anchor",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--notification-settings",
-          description:
-            "A list of notification settings to be associated to the trust anchor",
-          args: {
-            name: "list",
           },
         },
         {
@@ -137,8 +122,24 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--enabled",
+          description: "Specifies whether the trust anchor is enabled",
+        },
+        {
+          name: "--no-enabled",
+          description: "Specifies whether the trust anchor is enabled",
+        },
+        {
           name: "--tags",
           description: "The tags to attach to the trust anchor",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--notification-settings",
+          description:
+            "A list of notification settings to be associated to the trust anchor",
           args: {
             name: "list",
           },
@@ -168,16 +169,16 @@ const completionSpec: Fig.Spec = {
         "Delete an entry from the attribute mapping rules enforced by a given profile",
       options: [
         {
-          name: "--certificate-field",
-          description:
-            "Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates",
+          name: "--profile-id",
+          description: "The unique identifier of the profile",
           args: {
             name: "string",
           },
         },
         {
-          name: "--profile-id",
-          description: "The unique identifier of the profile",
+          name: "--certificate-field",
+          description:
+            "Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates",
           args: {
             name: "string",
           },
@@ -622,6 +623,13 @@ const completionSpec: Fig.Spec = {
         "Imports the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM format. IAM Roles Anywhere validates against the CRL before issuing credentials.   Required permissions:  rolesanywhere:ImportCrl",
       options: [
         {
+          name: "--name",
+          description: "The name of the certificate revocation list (CRL)",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--crl-data",
           description:
             "The x509 v3 specified certificate revocation list (CRL)",
@@ -638,13 +646,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-enabled",
           description:
             "Specifies whether the certificate revocation list (CRL) is enabled",
-        },
-        {
-          name: "--name",
-          description: "The name of the certificate revocation list (CRL)",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--tags",
@@ -687,16 +688,9 @@ const completionSpec: Fig.Spec = {
         "Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListCrls",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--page-size",
-          description: "The number of resources in the paginated list",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -742,16 +736,9 @@ const completionSpec: Fig.Spec = {
         "Lists all profiles in the authenticated account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListProfiles",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--page-size",
-          description: "The number of resources in the paginated list",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -797,16 +784,9 @@ const completionSpec: Fig.Spec = {
         "Lists the subjects in the authenticated account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListSubjects",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--page-size",
-          description: "The number of resources in the paginated list",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -883,16 +863,9 @@ const completionSpec: Fig.Spec = {
         "Lists the trust anchors in the authenticated account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListTrustAnchors",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--page-size",
-          description: "The number of resources in the paginated list",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -938,6 +911,13 @@ const completionSpec: Fig.Spec = {
         "Put an entry in the attribute mapping rules that will be enforced by a given profile. A mapping specifies a certificate field and one or more specifiers that have contextual meanings",
       options: [
         {
+          name: "--profile-id",
+          description: "The unique identifier of the profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--certificate-field",
           description:
             "Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates",
@@ -951,13 +931,6 @@ const completionSpec: Fig.Spec = {
             "A list of mapping entries for every supported specifier or sub-field",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--profile-id",
-          description: "The unique identifier of the profile",
-          args: {
-            name: "string",
           },
         },
         {
@@ -985,18 +958,18 @@ const completionSpec: Fig.Spec = {
         "Attaches a list of notification settings to a trust anchor. A notification setting includes information such as event name, threshold, status of the notification setting, and the channel to notify.  Required permissions:  rolesanywhere:PutNotificationSettings",
       options: [
         {
+          name: "--trust-anchor-id",
+          description: "The unique identifier of the trust anchor",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--notification-settings",
           description:
             "A list of notification settings to be associated to the trust anchor",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--trust-anchor-id",
-          description: "The unique identifier of the trust anchor",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1024,18 +997,18 @@ const completionSpec: Fig.Spec = {
         "Resets the custom notification setting to IAM Roles Anywhere default setting.   Required permissions:  rolesanywhere:ResetNotificationSettings",
       options: [
         {
+          name: "--trust-anchor-id",
+          description: "The unique identifier of the trust anchor",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--notification-setting-keys",
           description:
             "A list of notification setting keys to reset. A notification setting key includes the event and the channel",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--trust-anchor-id",
-          description: "The unique identifier of the trust anchor",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1140,14 +1113,6 @@ const completionSpec: Fig.Spec = {
         "Updates the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.  Required permissions:  rolesanywhere:UpdateCrl",
       options: [
         {
-          name: "--crl-data",
-          description:
-            "The x509 v3 specified certificate revocation list (CRL)",
-          args: {
-            name: "blob",
-          },
-        },
-        {
           name: "--crl-id",
           description:
             "The unique identifier of the certificate revocation list (CRL)",
@@ -1160,6 +1125,14 @@ const completionSpec: Fig.Spec = {
           description: "The name of the Crl",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--crl-data",
+          description:
+            "The x509 v3 specified certificate revocation list (CRL)",
+          args: {
+            name: "blob",
           },
         },
         {
@@ -1187,29 +1160,10 @@ const completionSpec: Fig.Spec = {
         "Updates a profile, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.  Required permissions:  rolesanywhere:UpdateProfile",
       options: [
         {
-          name: "--accept-role-session-name",
-          description:
-            "Used to determine if a custom role session name will be accepted in a temporary credential request",
-        },
-        {
-          name: "--no-accept-role-session-name",
-          description:
-            "Used to determine if a custom role session name will be accepted in a temporary credential request",
-        },
-        {
-          name: "--duration-seconds",
-          description:
-            "Used to determine how long sessions vended using this profile are valid for. See the Expiration section of the CreateSession API documentation page for more details. In requests, if this value is not provided, the default value will be 3600",
+          name: "--profile-id",
+          description: "The unique identifier of the profile",
           args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--managed-policy-arns",
-          description:
-            "A list of managed policy ARNs that apply to the vended session credentials",
-          args: {
-            name: "list",
+            name: "string",
           },
         },
         {
@@ -1220,8 +1174,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--profile-id",
-          description: "The unique identifier of the profile",
+          name: "--session-policy",
+          description:
+            "A session policy that applies to the trust boundary of the vended session credentials",
           args: {
             name: "string",
           },
@@ -1235,12 +1190,30 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--session-policy",
+          name: "--managed-policy-arns",
           description:
-            "A session policy that applies to the trust boundary of the vended session credentials",
+            "A list of managed policy ARNs that apply to the vended session credentials",
           args: {
-            name: "string",
+            name: "list",
           },
+        },
+        {
+          name: "--duration-seconds",
+          description:
+            "Used to determine how long sessions vended using this profile are valid for. See the Expiration section of the CreateSession API documentation page for more details. In requests, if this value is not provided, the default value will be 3600",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--accept-role-session-name",
+          description:
+            "Used to determine if a custom role session name will be accepted in a temporary credential request",
+        },
+        {
+          name: "--no-accept-role-session-name",
+          description:
+            "Used to determine if a custom role session name will be accepted in a temporary credential request",
         },
         {
           name: "--cli-input-json",
@@ -1267,6 +1240,13 @@ const completionSpec: Fig.Spec = {
         "Updates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. You can define a trust anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary Amazon Web Services credentials.  Required permissions:  rolesanywhere:UpdateTrustAnchor",
       options: [
         {
+          name: "--trust-anchor-id",
+          description: "The unique identifier of the trust anchor",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--name",
           description: "The name of the trust anchor",
           args: {
@@ -1278,13 +1258,6 @@ const completionSpec: Fig.Spec = {
           description: "The trust anchor type and its related certificate data",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--trust-anchor-id",
-          description: "The unique identifier of the trust anchor",
-          args: {
-            name: "string",
           },
         },
         {

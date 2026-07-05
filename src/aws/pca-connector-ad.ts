@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pca-connector-ad",
   description:
@@ -41,7 +42,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--vpc-information",
           description:
-            "Security group IDs that describe the inbound and outbound rules",
+            "Information about your VPC and security groups used with the connector",
           args: {
             name: "structure",
           },
@@ -161,7 +162,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-template",
       description:
-        "Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester\u2019s Active Directory group membership",
+        "Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester’s Active Directory group membership",
       options: [
         {
           name: "--client-token",
@@ -639,22 +640,6 @@ const completionSpec: Fig.Spec = {
         "Lists the connectors that you created by using the https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector action",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the NextToken element is sent in the response. Use this NextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the NextToken parameter from the response you just received",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -702,22 +687,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the directory registrations that you created by using the https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration action",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the NextToken element is sent in the response. Use this NextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the NextToken parameter from the response you just received",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -770,22 +739,6 @@ const completionSpec: Fig.Spec = {
           name: "--directory-registration-arn",
           description:
             "The Amazon Resource Name (ARN) that was returned when you called CreateDirectoryRegistration",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the NextToken element is sent in the response. Use this NextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the NextToken parameter from the response you just received",
           args: {
             name: "string",
           },
@@ -870,22 +823,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists group access control entries you created",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the NextToken element is sent in the response. Use this NextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the NextToken parameter from the response you just received",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--template-arn",
           description:
             "The Amazon Resource Name (ARN) that was returned when you called CreateTemplate",
@@ -945,22 +882,6 @@ const completionSpec: Fig.Spec = {
           name: "--connector-arn",
           description:
             "The Amazon Resource Name (ARN) that was returned when you called CreateConnector",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the NextToken element is sent in the response. Use this NextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the NextToken parameter from the response you just received",
           args: {
             name: "string",
           },

@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "autoscaling",
   description:
-    "Amazon EC2 Auto Scaling Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks. For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference",
+    "Amazon EC2 Auto Scaling The DescribeAutoScalingGroups API operation might be throttled when retrieving details for an Auto Scaling group that contains many instances. By default, this operation returns details for all instances in the group. To help prevent throttling, you can set the IncludeInstances parameter to false to exclude instance details from the response. Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks. For more information, see the Amazon EC2 Auto Scaling User Guide and the Amazon EC2 Auto Scaling API Reference",
   subcommands: [
     {
       name: "attach-instances",
@@ -84,7 +85,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "attach-load-balancers",
       description:
-        "This API operation is superseded by https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html, which can attach multiple traffic sources types. We recommend using AttachTrafficSources to simplify how you manage traffic sources. However, we continue to support AttachLoadBalancers. You can use both the original AttachLoadBalancers API operation and AttachTrafficSources on the same Auto Scaling group.  Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers. To describe the load balancers for an Auto Scaling group, call the DescribeLoadBalancers API. To detach a load balancer from the Auto Scaling group, call the DetachLoadBalancers API. This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group. For more information, see Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group in the Amazon EC2 Auto Scaling User Guide",
+        "This API operation is superseded by AttachTrafficSources, which can attach multiple traffic sources types. We recommend using AttachTrafficSources to simplify how you manage traffic sources. However, we continue to support AttachLoadBalancers. You can use both the original AttachLoadBalancers API operation and AttachTrafficSources on the same Auto Scaling group.  Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers. To describe the load balancers for an Auto Scaling group, call the DescribeLoadBalancers API. To detach a load balancer from the Auto Scaling group, call the DetachLoadBalancers API. This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group. For more information, see Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group in the Amazon EC2 Auto Scaling User Guide",
       options: [
         {
           name: "--auto-scaling-group-name",
@@ -260,6 +261,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--wait-for-transitioning-instances",
+          description:
+            "When cancelling an instance refresh, this indicates whether to wait for in-flight launches and terminations to complete. The default is true. When set to false, Amazon EC2 Auto Scaling cancels the instance refresh without waiting for any pending launches or terminations to complete",
+        },
+        {
+          name: "--no-wait-for-transitioning-instances",
+          description:
+            "When cancelling an instance refresh, this indicates whether to wait for in-flight launches and terminations to complete. The default is true. When set to false, Amazon EC2 Auto Scaling cancels the instance refresh without waiting for any pending launches or terminations to complete",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -424,6 +435,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--availability-zone-ids",
+          description:
+            "A list of Availability Zone IDs where the Auto Scaling group can launch instances. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--load-balancer-names",
           description:
             "A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the TargetGroupARNs property instead",
@@ -458,7 +477,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--placement-group",
           description:
-            "The name of the placement group into which to launch your instances. For more information, see Placement groups in the Amazon EC2 User Guide for Linux Instances.  A cluster placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group",
+            "The name of the placement group into which to launch your instances. For more information, see Placement groups in the Amazon EC2 User Guide.  A cluster placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group",
           args: {
             name: "string",
           },
@@ -505,6 +524,14 @@ const completionSpec: Fig.Spec = {
             "One or more lifecycle hooks to add to the Auto Scaling group before instances are launched",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--deletion-protection",
+          description:
+            "The deletion protection setting for the Auto Scaling group. This setting helps safeguard your Auto Scaling group and its instances by controlling whether the DeleteAutoScalingGroup operation is allowed. When deletion protection is enabled, users cannot delete the Auto Scaling group according to the specified protection level until the setting is changed back to a less restrictive level.   The valid values are none, prevent-force-deletion, and prevent-all-deletion.   Default: none   For more information, see  Configure deletion protection for your Amazon EC2 Auto Scaling resources in the Amazon EC2 Auto Scaling User Guide",
+          args: {
+            name: "string",
           },
         },
         {
@@ -604,6 +631,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--instance-lifecycle-policy",
+          description:
+            "The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a Retained state instead of automatic termination.  For more information, see  Control instance retention with instance lifecycle policies in the Amazon EC2 Auto Scaling User Guide.   Instances in a Retained state will continue to incur standard EC2 charges until terminated",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -638,7 +673,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--image-id",
           description:
-            "The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see Find a Linux AMI in the Amazon EC2 User Guide for Linux Instances. If you specify InstanceId, an ImageId is not required",
+            "The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see Find a Linux AMI in the Amazon EC2 User Guide. If you specify InstanceId, an ImageId is not required",
           args: {
             name: "string",
           },
@@ -646,7 +681,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--key-name",
           description:
-            "The name of the key pair. For more information, see Amazon EC2 key pairs and Amazon EC2 instances in the Amazon EC2 User Guide for Linux Instances",
+            "The name of the key pair. For more information, see Amazon EC2 key pairs and Amazon EC2 instances in the Amazon EC2 User Guide",
           args: {
             name: "string",
           },
@@ -692,7 +727,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-type",
           description:
-            "Specifies the instance type of the EC2 instance. For information about available instance types, see Available instance types in the Amazon EC2 User Guide for Linux Instances. If you specify InstanceId, an InstanceType is not required",
+            "Specifies the instance type of the EC2 instance. For information about available instance types, see Available instance types in the Amazon EC2 User Guide. If you specify InstanceId, an InstanceType is not required",
           args: {
             name: "string",
           },
@@ -700,7 +735,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kernel-id",
           description:
-            "The ID of the kernel associated with the AMI.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels in the Amazon EC2 User Guide for Linux Instances",
+            "The ID of the kernel associated with the AMI.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels in the Amazon EC2 User Guide",
           args: {
             name: "string",
           },
@@ -708,7 +743,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ramdisk-id",
           description:
-            "The ID of the RAM disk to select.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels in the Amazon EC2 User Guide for Linux Instances",
+            "The ID of the RAM disk to select.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see User provided kernels in the Amazon EC2 User Guide",
           args: {
             name: "string",
           },
@@ -716,7 +751,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--block-device-mappings",
           description:
-            "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see Block device mappings in the Amazon EC2 User Guide for Linux Instances",
+            "The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see Block device mappings in the Amazon EC2 User Guide",
           args: {
             name: "list",
           },
@@ -748,12 +783,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ebs-optimized",
           description:
-            "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see Amazon EBS-optimized instances in the Amazon EC2 User Guide for Linux Instances. The default value is false",
+            "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see Amazon EBS-optimized instances in the Amazon EC2 User Guide. The default value is false",
         },
         {
           name: "--no-ebs-optimized",
           description:
-            "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see Amazon EBS-optimized instances in the Amazon EC2 User Guide for Linux Instances. The default value is false",
+            "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see Amazon EBS-optimized instances in the Amazon EC2 User Guide. The default value is false",
         },
         {
           name: "--associate-public-ip-address",
@@ -1186,20 +1221,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--include-instances",
           description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
+            "Specifies whether to include information about Amazon EC2 instances in the response. When set to true (default), the response includes instance details",
         },
         {
-          name: "--max-records",
+          name: "--no-include-instances",
           description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
+            "Specifies whether to include information about Amazon EC2 instances in the response. When set to true (default), the response includes instance details",
         },
         {
           name: "--filters",
@@ -1263,22 +1292,6 @@ const completionSpec: Fig.Spec = {
             "The IDs of the instances. If you omit this property, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error. Array Members: Maximum number of 50 items",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1416,22 +1429,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1550,22 +1547,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 100 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1618,22 +1599,6 @@ const completionSpec: Fig.Spec = {
           description: "The name of the Auto Scaling group",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 100 and the maximum value is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1716,22 +1681,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1803,22 +1752,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1869,14 +1802,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--activity-ids",
           description:
-            "The activity IDs of the desired scaling activities. If you omit this property, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group. Array Members: Maximum number of 50 IDs",
+            "The activity IDs of the desired scaling activities. If unknown activity IDs are requested, they are ignored with no error. Only activities started within the last six weeks can be returned regardless of the activity IDs specified. If other filters are specified with the request, only results matching all filter criteria can be returned.  Array Members: Maximum number of 50 IDs",
           args: {
             name: "list",
           },
         },
         {
           name: "--auto-scaling-group-name",
-          description: "The name of the Auto Scaling group",
+          description:
+            "The name of the Auto Scaling group.   Omitting this property performs an account-wide operation, which can result in slower or timed-out requests",
           args: {
             name: "string",
           },
@@ -1892,19 +1826,11 @@ const completionSpec: Fig.Spec = {
             "Indicates whether to include scaling activity from deleted Auto Scaling groups",
         },
         {
-          name: "--max-records",
+          name: "--filters",
           description:
-            "The maximum number of items to return with this call. The default value is 100 and the maximum value is 100",
+            "One or more filters to limit the results based on specific criteria. The following filters are supported:     StartTimeLowerBound - The earliest scaling activities to return based on the activity start time. Scaling activities with a start time earlier than this value are not included in the results. Only activities started within the last six weeks can be returned regardless of the value specified.     StartTimeUpperBound - The latest scaling activities to return based on the activity start time. Scaling activities with a start time later than this value are not included in the results. Only activities started within the last six weeks can be returned regardless of the value specified.     Status - The StatusCode value of the scaling activity. This filter can only be used in combination with the AutoScalingGroupName parameter. For valid StatusCode values, see Activity in the Amazon EC2 Auto Scaling API Reference.     StartTimeLowerBound and StartTimeUpperBound accept ISO 8601 formatted timestamps. Timestamps without a timezone offset are assumed to be UTC.     2000-01-18T08:15:00Z     2000-01-18T16:15:00+08:00",
           args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
+            name: "list",
           },
         },
         {
@@ -2011,22 +1937,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2080,22 +1990,6 @@ const completionSpec: Fig.Spec = {
             "One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, auto-scaling-group) is 1000",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of items to return with this call. The default value is 50 and the maximum value is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2228,22 +2122,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--auto-scaling-group-name",
           description: "The name of the Auto Scaling group",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of instances to return with this call. The maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of instances to return. (You received this token from a previous call.)",
           args: {
             name: "string",
           },
@@ -2728,6 +2606,86 @@ const completionSpec: Fig.Spec = {
             "The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days.  Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "launch-instances",
+      description:
+        "Launches a specified number of instances in an Auto Scaling group. Returns instance IDs and other details if launch is successful or error details if launch is unsuccessful",
+      options: [
+        {
+          name: "--auto-scaling-group-name",
+          description:
+            "The name of the Auto Scaling group to launch instances into",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--requested-capacity",
+          description:
+            "The number of instances to launch. Although this value can exceed 100 for instance weights, the actual instance count is limited to 100 instances per launch",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier to ensure idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--availability-zones",
+          description:
+            "The Availability Zones for the instance launch. Must match or be included in the Auto Scaling group's Availability Zone configuration. Either AvailabilityZones or SubnetIds must be specified for groups with multiple Availability Zone configurations",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--availability-zone-ids",
+          description:
+            "A list of Availability Zone IDs where instances should be launched. Must match or be included in the group's AZ configuration. You cannot specify both AvailabilityZones and AvailabilityZoneIds. Required for multi-AZ groups, optional for single-AZ groups",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--subnet-ids",
+          description:
+            "The subnet IDs for the instance launch. Either AvailabilityZones or SubnetIds must be specified. If both are specified, the subnets must reside in the specified Availability Zones",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--retry-strategy",
+          description:
+            "Specifies whether to retry asynchronously if the synchronous launch fails. Valid values are NONE (default, no async retry) and RETRY_WITH_GROUP_CONFIGURATION (increase desired capacity and retry with group configuration)",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3464,7 +3422,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--strategy",
           description:
-            "The strategy to use for the instance refresh. The only valid value is Rolling",
+            "The strategy to use for the instance refresh. The default value is Rolling",
           args: {
             name: "string",
           },
@@ -3659,6 +3617,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--availability-zone-ids",
+          description:
+            "A list of Availability Zone IDs for the Auto Scaling group. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--health-check-type",
           description:
             "A comma-separated value string of one or more health check types. The valid values are EC2, EBS, ELB, and VPC_LATTICE. EC2 is the default health check and cannot be disabled. For more information, see Health checks for instances in an Auto Scaling group in the Amazon EC2 Auto Scaling User Guide. Only specify EC2 if you must clear a value that was previously set",
@@ -3677,7 +3643,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--placement-group",
           description:
-            "The name of an existing placement group into which to launch your instances. To remove the placement group setting, pass an empty string for placement-group. For more information about placement groups, see Placement groups in the Amazon EC2 User Guide for Linux Instances.  A cluster placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group",
+            "The name of an existing placement group into which to launch your instances. To remove the placement group setting, pass an empty string for placement-group. For more information about placement groups, see Placement groups in the Amazon EC2 User Guide.  A cluster placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group",
           args: {
             name: "string",
           },
@@ -3727,12 +3693,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--capacity-rebalance",
           description:
-            "Enables or disables Capacity Rebalancing. For more information, see Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions in the Amazon EC2 Auto Scaling User Guide",
+            "Enables or disables Capacity Rebalancing. If Capacity Rebalancing is disabled, proactive replacement of at-risk Spot Instances does not occur. For more information, see Capacity Rebalancing in Auto Scaling to replace at-risk Spot Instances in the Amazon EC2 Auto Scaling User Guide.  To suspend rebalancing across Availability Zones, use the SuspendProcesses API",
         },
         {
           name: "--no-capacity-rebalance",
           description:
-            "Enables or disables Capacity Rebalancing. For more information, see Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions in the Amazon EC2 Auto Scaling User Guide",
+            "Enables or disables Capacity Rebalancing. If Capacity Rebalancing is disabled, proactive replacement of at-risk Spot Instances does not occur. For more information, see Capacity Rebalancing in Auto Scaling to replace at-risk Spot Instances in the Amazon EC2 Auto Scaling User Guide.  To suspend rebalancing across Availability Zones, use the SuspendProcesses API",
         },
         {
           name: "--context",
@@ -3796,6 +3762,22 @@ const completionSpec: Fig.Spec = {
             "The capacity reservation specification for the Auto Scaling group",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--instance-lifecycle-policy",
+          description:
+            "The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a Retained state instead of automatic termination.  For more information, see  Control instance retention with instance lifecycle policies in the Amazon EC2 Auto Scaling User Guide",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--deletion-protection",
+          description:
+            "The deletion protection setting for the Auto Scaling group. This setting helps safeguard your Auto Scaling group and its instances by controlling whether the DeleteAutoScalingGroup operation is allowed. When deletion protection is enabled, users cannot delete the Auto Scaling group according to the specified protection level until the setting is changed back to a less restrictive level.   The valid values are none, prevent-force-deletion, and prevent-all-deletion.   Default: none   For more information, see  Configure deletion protection for your Amazon EC2 Auto Scaling resources in the Amazon EC2 Auto Scaling User Guide",
+          args: {
+            name: "string",
           },
         },
         {

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "drs",
   description: "AWS Elastic Disaster Recovery Service",
@@ -8,17 +9,17 @@ const completionSpec: Fig.Spec = {
         "Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks",
       options: [
         {
-          name: "--cfn-stack-name",
+          name: "--source-network-id",
           description:
-            "CloudFormation template to associate with a Source Network",
+            "The Source Network ID to associate with CloudFormation template",
           args: {
             name: "string",
           },
         },
         {
-          name: "--source-network-id",
+          name: "--cfn-stack-name",
           description:
-            "The Source Network ID to associate with CloudFormation template",
+            "CloudFormation template to associate with a Source Network",
           args: {
             name: "string",
           },
@@ -87,6 +88,28 @@ const completionSpec: Fig.Spec = {
       description: "Creates a new Launch Configuration Template",
       options: [
         {
+          name: "--tags",
+          description:
+            "Request to associate tags during creation of a Launch Configuration Template",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--launch-disposition",
+          description: "Launch disposition",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-instance-type-right-sizing-method",
+          description: "Target instance type right-sizing method",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--copy-private-ip",
           description: "Copy private IP",
         },
@@ -103,34 +126,17 @@ const completionSpec: Fig.Spec = {
           description: "Copy tags",
         },
         {
-          name: "--export-bucket-arn",
-          description: "S3 bucket ARN to export Source Network templates",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-disposition",
-          description: "Launch disposition",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-into-source-instance",
-          description:
-            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
-        },
-        {
-          name: "--no-launch-into-source-instance",
-          description:
-            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
-        },
-        {
           name: "--licensing",
           description: "Licensing",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--export-bucket-arn",
+          description: "S3 bucket ARN to export Source Network templates",
+          args: {
+            name: "string",
           },
         },
         {
@@ -142,19 +148,14 @@ const completionSpec: Fig.Spec = {
           description: "Whether we want to activate post-launch actions",
         },
         {
-          name: "--tags",
+          name: "--launch-into-source-instance",
           description:
-            "Request to associate tags during creation of a Launch Configuration Template",
-          args: {
-            name: "map",
-          },
+            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
         },
         {
-          name: "--target-instance-type-right-sizing-method",
-          description: "Target instance type right-sizing method",
-          args: {
-            name: "string",
-          },
+          name: "--no-launch-into-source-instance",
+          description:
+            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
         },
         {
           name: "--cli-input-json",
@@ -180,6 +181,13 @@ const completionSpec: Fig.Spec = {
       description: "Creates a new ReplicationConfigurationTemplate",
       options: [
         {
+          name: "--staging-area-subnet-id",
+          description: "The subnet to be used by the replication staging area",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--associate-default-security-group",
           description:
             "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template",
@@ -190,40 +198,30 @@ const completionSpec: Fig.Spec = {
             "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template",
         },
         {
-          name: "--auto-replicate-new-disks",
+          name: "--replication-servers-security-groups-ids",
           description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--no-auto-replicate-new-disks",
-          description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--bandwidth-throttling",
-          description:
-            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
+            "The security group IDs that will be used by the replication server",
           args: {
-            name: "long",
+            name: "list",
           },
         },
         {
-          name: "--create-public-ip",
+          name: "--replication-server-instance-type",
           description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--no-create-public-ip",
-          description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--data-plane-routing",
-          description:
-            "The data plane routing mechanism that will be used for replication",
+            "The instance type to be used for the replication server",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
+        },
+        {
+          name: "--no-use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
         },
         {
           name: "--default-large-staging-disk-type",
@@ -250,35 +248,30 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--pit-policy",
+          name: "--bandwidth-throttling",
           description:
-            "The Point in time (PIT) policy to manage snapshots taken during replication",
+            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
           args: {
-            name: "list",
+            name: "long",
           },
         },
         {
-          name: "--replication-server-instance-type",
+          name: "--data-plane-routing",
           description:
-            "The instance type to be used for the replication server",
+            "The data plane routing mechanism that will be used for replication",
           args: {
             name: "string",
           },
         },
         {
-          name: "--replication-servers-security-groups-ids",
+          name: "--create-public-ip",
           description:
-            "The security group IDs that will be used by the replication server",
-          args: {
-            name: "list",
-          },
+            "Whether to create a Public IP for the Recovery Instance by default",
         },
         {
-          name: "--staging-area-subnet-id",
-          description: "The subnet to be used by the replication staging area",
-          args: {
-            name: "string",
-          },
+          name: "--no-create-public-ip",
+          description:
+            "Whether to create a Public IP for the Recovery Instance by default",
         },
         {
           name: "--staging-area-tags",
@@ -286,6 +279,14 @@ const completionSpec: Fig.Spec = {
             "A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--pit-policy",
+          description:
+            "The Point in time (PIT) policy to manage snapshots taken during replication",
+          args: {
+            name: "list",
           },
         },
         {
@@ -297,14 +298,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--use-dedicated-replication-server",
+          name: "--auto-replicate-new-disks",
           description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
         },
         {
-          name: "--no-use-dedicated-replication-server",
+          name: "--no-auto-replicate-new-disks",
           description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
+        },
+        {
+          name: "--internet-protocol",
+          description:
+            "Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -330,6 +339,13 @@ const completionSpec: Fig.Spec = {
       description: "Create a new Source Network resource for a provided VPC ID",
       options: [
         {
+          name: "--vpc-id",
+          description: "Which VPC ID to protect",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--origin-account-id",
           description: "Account containing the VPC to protect",
           args: {
@@ -349,13 +365,6 @@ const completionSpec: Fig.Spec = {
             "A set of tags to be associated with the Source Network resource",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--vpc-id",
-          description: "Which VPC ID to protect",
-          args: {
-            name: "string",
           },
         },
         {
@@ -412,15 +421,15 @@ const completionSpec: Fig.Spec = {
       description: "Deletes a resource launch action",
       options: [
         {
-          name: "--action-id",
-          description: "Launch action Id",
+          name: "--resource-id",
+          description: "Launch configuration template Id or Source Server Id",
           args: {
             name: "string",
           },
         },
         {
-          name: "--resource-id",
-          description: "Launch configuration template Id or Source Server Id",
+          name: "--action-id",
+          description: "Launch action Id",
           args: {
             name: "string",
           },
@@ -611,20 +620,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of Job log items to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Job log items to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -677,20 +672,6 @@ const completionSpec: Fig.Spec = {
           description: "A set of filters by which to return Jobs",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Maximum number of Jobs to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Job to retrieve",
-          args: {
-            name: "string",
           },
         },
         {
@@ -750,22 +731,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Maximum results to be returned in DescribeLaunchConfigurationTemplates",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token of the next Launch Configuration Template to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -821,20 +786,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of Recovery Instances to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Recovery Instance to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -882,6 +833,13 @@ const completionSpec: Fig.Spec = {
       description: "Lists all Recovery Snapshots for a single Source Server",
       options: [
         {
+          name: "--source-server-id",
+          description: "Filter Recovery Snapshots by Source Server ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--filters",
           description: "A set of filters by which to return Recovery Snapshots",
           args: {
@@ -889,30 +847,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of Recovery Snapshots to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Recovery Snapshot to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--order",
           description:
             "The sorted ordering by which to return Recovery Snapshots",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--source-server-id",
-          description: "Filter Recovery Snapshots by Source Server ID",
           args: {
             name: "string",
           },
@@ -965,22 +902,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Maximum number of Replication Configuration Templates to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token of the next Replication Configuration Template to retrieve",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--replication-configuration-template-ids",
           description:
@@ -1045,20 +966,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of Source Networks to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Source Networks to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1111,20 +1018,6 @@ const completionSpec: Fig.Spec = {
           description: "A set of filters by which to return Source Servers",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Maximum number of Source Servers to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next Source Server to retrieve",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1385,24 +1278,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-extensible-source-servers",
       description:
-        "Returns a list of source servers on a staging account that are extensible, which means that: a. The source server is not already extended into this Account. b. The source server on the Account we\u2019re reading from is not an extension of another source server",
+        "Returns a list of source servers on a staging account that are extensible, which means that: a. The source server is not already extended into this Account. b. The source server on the Account we’re reading from is not an extension of another source server",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of extensible source servers to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token of the next extensible source server to retrieve",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--staging-account-id",
           description:
@@ -1459,32 +1336,17 @@ const completionSpec: Fig.Spec = {
       description: "Lists resource launch actions",
       options: [
         {
-          name: "--filters",
-          description: "Filters to apply when listing resource launch actions",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Maximum amount of items to return when listing resource launch actions",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Next token to use when listing resource launch actions",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-id",
           description: "Launch configuration template Id or Source Server Id",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description: "Filters to apply when listing resource launch actions",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1535,20 +1397,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns an array of staging accounts for existing extended source servers",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of staging Accounts to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token of the next staging Account to retrieve",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1627,6 +1475,13 @@ const completionSpec: Fig.Spec = {
       description: "Puts a resource launch action",
       options: [
         {
+          name: "--resource-id",
+          description: "Launch configuration template Id or Source Server Id",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--action-code",
           description: "Launch action code",
           args: {
@@ -1634,44 +1489,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--order",
+          description: "Launch action order",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--action-id",
           description: "Launch action Id",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--action-version",
-          description: "Launch action version",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--active",
-          description: "Whether the launch action is active",
-        },
-        {
-          name: "--no-active",
-          description: "Whether the launch action is active",
-        },
-        {
-          name: "--category",
-          description: "Launch action category",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--description",
-          description: "Launch action description",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--name",
-          description: "Launch action name",
           args: {
             name: "string",
           },
@@ -1687,10 +1513,32 @@ const completionSpec: Fig.Spec = {
             "Whether the launch will not be marked as failed if this action fails",
         },
         {
-          name: "--order",
-          description: "Launch action order",
+          name: "--active",
+          description: "Whether the launch action is active",
+        },
+        {
+          name: "--no-active",
+          description: "Whether the launch action is active",
+        },
+        {
+          name: "--name",
+          description: "Launch action name",
           args: {
-            name: "integer",
+            name: "string",
+          },
+        },
+        {
+          name: "--action-version",
+          description: "Launch action version",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--category",
+          description: "Launch action category",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1701,8 +1549,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--resource-id",
-          description: "Launch configuration template Id or Source Server Id",
+          name: "--description",
+          description: "Launch action description",
           args: {
             name: "string",
           },
@@ -1835,6 +1683,14 @@ const completionSpec: Fig.Spec = {
         "Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot",
       options: [
         {
+          name: "--source-servers",
+          description:
+            "The Source Servers that we want to start a Recovery Job for",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--is-drill",
           description:
             "Whether this Source Server Recovery operation is a drill or not",
@@ -1843,14 +1699,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-is-drill",
           description:
             "Whether this Source Server Recovery operation is a drill or not",
-        },
-        {
-          name: "--source-servers",
-          description:
-            "The Source Servers that we want to start a Recovery Job for",
-          args: {
-            name: "list",
-          },
         },
         {
           name: "--tags",
@@ -1915,6 +1763,14 @@ const completionSpec: Fig.Spec = {
         "Deploy VPC for the specified Source Network and modify launch templates to use this network. The VPC will be deployed using a dedicated CloudFormation stack",
       options: [
         {
+          name: "--source-networks",
+          description:
+            "The Source Networks that we want to start a Recovery Job for",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--deploy-as-new",
           description:
             "Don't update existing CloudFormation Stack, recover the network using a new stack",
@@ -1923,14 +1779,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-deploy-as-new",
           description:
             "Don't update existing CloudFormation Stack, recover the network using a new stack",
-        },
-        {
-          name: "--source-networks",
-          description:
-            "The Source Networks that we want to start a Recovery Job for",
-          args: {
-            name: "list",
-          },
         },
         {
           name: "--tags",
@@ -2199,11 +2047,10 @@ const completionSpec: Fig.Spec = {
         "Allows you to update the failback replication configuration of a Recovery Instance by ID",
       options: [
         {
-          name: "--bandwidth-throttling",
-          description:
-            "Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps",
+          name: "--recovery-instance-id",
+          description: "The ID of the Recovery Instance",
           args: {
-            name: "long",
+            name: "string",
           },
         },
         {
@@ -2214,10 +2061,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--recovery-instance-id",
-          description: "The ID of the Recovery Instance",
+          name: "--bandwidth-throttling",
+          description:
+            "Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps",
           args: {
-            name: "string",
+            name: "long",
           },
         },
         {
@@ -2229,6 +2077,14 @@ const completionSpec: Fig.Spec = {
           name: "--no-use-private-ip",
           description:
             "Whether to use Private IP for the failback replication of the Recovery Instance",
+        },
+        {
+          name: "--internet-protocol",
+          description:
+            "Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -2254,6 +2110,37 @@ const completionSpec: Fig.Spec = {
       description: "Updates a LaunchConfiguration by Source Server ID",
       options: [
         {
+          name: "--source-server-id",
+          description:
+            "The ID of the Source Server that we want to retrieve a Launch Configuration for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the launch configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--launch-disposition",
+          description:
+            "The state of the Recovery Instance in EC2 after the recovery operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-instance-type-right-sizing-method",
+          description:
+            "Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--copy-private-ip",
           description:
             "Whether we should copy the Private IP of the Source Server to the Recovery Instance",
@@ -2274,33 +2161,11 @@ const completionSpec: Fig.Spec = {
             "Whether we want to copy the tags of the Source Server to the EC2 machine of the Recovery Instance",
         },
         {
-          name: "--launch-disposition",
-          description:
-            "The state of the Recovery Instance in EC2 after the recovery operation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-into-instance-properties",
-          description: "Launch into existing instance properties",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--licensing",
           description:
             "The licensing configuration to be used for this launch configuration",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--name",
-          description: "The name of the launch configuration",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2314,19 +2179,10 @@ const completionSpec: Fig.Spec = {
             "Whether we want to enable post-launch actions for the Source Server",
         },
         {
-          name: "--source-server-id",
-          description:
-            "The ID of the Source Server that we want to retrieve a Launch Configuration for",
+          name: "--launch-into-instance-properties",
+          description: "Launch into existing instance properties",
           args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--target-instance-type-right-sizing-method",
-          description:
-            "Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server",
-          args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
@@ -2353,6 +2209,27 @@ const completionSpec: Fig.Spec = {
       description: "Updates an existing Launch Configuration Template by ID",
       options: [
         {
+          name: "--launch-configuration-template-id",
+          description: "Launch Configuration Template ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--launch-disposition",
+          description: "Launch disposition",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-instance-type-right-sizing-method",
+          description: "Target instance type right-sizing method",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--copy-private-ip",
           description: "Copy private IP",
         },
@@ -2369,41 +2246,17 @@ const completionSpec: Fig.Spec = {
           description: "Copy tags",
         },
         {
-          name: "--export-bucket-arn",
-          description: "S3 bucket ARN to export Source Network templates",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-configuration-template-id",
-          description: "Launch Configuration Template ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-disposition",
-          description: "Launch disposition",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--launch-into-source-instance",
-          description:
-            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
-        },
-        {
-          name: "--no-launch-into-source-instance",
-          description:
-            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
-        },
-        {
           name: "--licensing",
           description: "Licensing",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--export-bucket-arn",
+          description: "S3 bucket ARN to export Source Network templates",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2415,11 +2268,14 @@ const completionSpec: Fig.Spec = {
           description: "Whether we want to activate post-launch actions",
         },
         {
-          name: "--target-instance-type-right-sizing-method",
-          description: "Target instance type right-sizing method",
-          args: {
-            name: "string",
-          },
+          name: "--launch-into-source-instance",
+          description:
+            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
+        },
+        {
+          name: "--no-launch-into-source-instance",
+          description:
+            "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance",
         },
         {
           name: "--cli-input-json",
@@ -2446,6 +2302,28 @@ const completionSpec: Fig.Spec = {
         "Allows you to update a ReplicationConfiguration by Source Server ID",
       options: [
         {
+          name: "--source-server-id",
+          description:
+            "The ID of the Source Server for this Replication Configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the Replication Configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--staging-area-subnet-id",
+          description: "The subnet to be used by the replication staging area",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--associate-default-security-group",
           description:
             "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration",
@@ -2456,40 +2334,30 @@ const completionSpec: Fig.Spec = {
             "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration",
         },
         {
-          name: "--auto-replicate-new-disks",
+          name: "--replication-servers-security-groups-ids",
           description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--no-auto-replicate-new-disks",
-          description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--bandwidth-throttling",
-          description:
-            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
+            "The security group IDs that will be used by the replication server",
           args: {
-            name: "long",
+            name: "list",
           },
         },
         {
-          name: "--create-public-ip",
+          name: "--replication-server-instance-type",
           description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--no-create-public-ip",
-          description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--data-plane-routing",
-          description:
-            "The data plane routing mechanism that will be used for replication",
+            "The instance type to be used for the replication server",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
+        },
+        {
+          name: "--no-use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
         },
         {
           name: "--default-large-staging-disk-type",
@@ -2497,6 +2365,14 @@ const completionSpec: Fig.Spec = {
             "The Staging Disk EBS volume type to be used during replication",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--replicated-disks",
+          description:
+            "The configuration of the disks of the Source Server to be replicated",
+          args: {
+            name: "list",
           },
         },
         {
@@ -2516,10 +2392,37 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--name",
-          description: "The name of the Replication Configuration",
+          name: "--bandwidth-throttling",
+          description:
+            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--data-plane-routing",
+          description:
+            "The data plane routing mechanism that will be used for replication",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--create-public-ip",
+          description:
+            "Whether to create a Public IP for the Recovery Instance by default",
+        },
+        {
+          name: "--no-create-public-ip",
+          description:
+            "Whether to create a Public IP for the Recovery Instance by default",
+        },
+        {
+          name: "--staging-area-tags",
+          description:
+            "A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc",
+          args: {
+            name: "map",
           },
         },
         {
@@ -2531,61 +2434,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--replicated-disks",
+          name: "--auto-replicate-new-disks",
           description:
-            "The configuration of the disks of the Source Server to be replicated",
-          args: {
-            name: "list",
-          },
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
         },
         {
-          name: "--replication-server-instance-type",
+          name: "--no-auto-replicate-new-disks",
           description:
-            "The instance type to be used for the replication server",
-          args: {
-            name: "string",
-          },
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
         },
         {
-          name: "--replication-servers-security-groups-ids",
+          name: "--internet-protocol",
           description:
-            "The security group IDs that will be used by the replication server",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--source-server-id",
-          description:
-            "The ID of the Source Server for this Replication Configuration",
+            "Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)",
           args: {
             name: "string",
           },
-        },
-        {
-          name: "--staging-area-subnet-id",
-          description: "The subnet to be used by the replication staging area",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--staging-area-tags",
-          description:
-            "A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc",
-          args: {
-            name: "map",
-          },
-        },
-        {
-          name: "--use-dedicated-replication-server",
-          description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
-        },
-        {
-          name: "--no-use-dedicated-replication-server",
-          description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
         },
         {
           name: "--cli-input-json",
@@ -2611,8 +2475,22 @@ const completionSpec: Fig.Spec = {
       description: "Updates a ReplicationConfigurationTemplate by ID",
       options: [
         {
+          name: "--replication-configuration-template-id",
+          description: "The Replication Configuration Template ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--arn",
           description: "The Replication Configuration Template ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--staging-area-subnet-id",
+          description: "The subnet to be used by the replication staging area",
           args: {
             name: "string",
           },
@@ -2628,40 +2506,30 @@ const completionSpec: Fig.Spec = {
             "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template",
         },
         {
-          name: "--auto-replicate-new-disks",
+          name: "--replication-servers-security-groups-ids",
           description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--no-auto-replicate-new-disks",
-          description:
-            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
-        },
-        {
-          name: "--bandwidth-throttling",
-          description:
-            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
+            "The security group IDs that will be used by the replication server",
           args: {
-            name: "long",
+            name: "list",
           },
         },
         {
-          name: "--create-public-ip",
+          name: "--replication-server-instance-type",
           description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--no-create-public-ip",
-          description:
-            "Whether to create a Public IP for the Recovery Instance by default",
-        },
-        {
-          name: "--data-plane-routing",
-          description:
-            "The data plane routing mechanism that will be used for replication",
+            "The instance type to be used for the replication server",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
+        },
+        {
+          name: "--no-use-dedicated-replication-server",
+          description:
+            "Whether to use a dedicated Replication Server in the replication staging area",
         },
         {
           name: "--default-large-staging-disk-type",
@@ -2688,42 +2556,30 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--pit-policy",
+          name: "--bandwidth-throttling",
           description:
-            "The Point in time (PIT) policy to manage snapshots taken during replication",
+            "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps",
           args: {
-            name: "list",
+            name: "long",
           },
         },
         {
-          name: "--replication-configuration-template-id",
-          description: "The Replication Configuration Template ID",
+          name: "--data-plane-routing",
+          description:
+            "The data plane routing mechanism that will be used for replication",
           args: {
             name: "string",
           },
         },
         {
-          name: "--replication-server-instance-type",
+          name: "--create-public-ip",
           description:
-            "The instance type to be used for the replication server",
-          args: {
-            name: "string",
-          },
+            "Whether to create a Public IP for the Recovery Instance by default",
         },
         {
-          name: "--replication-servers-security-groups-ids",
+          name: "--no-create-public-ip",
           description:
-            "The security group IDs that will be used by the replication server",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--staging-area-subnet-id",
-          description: "The subnet to be used by the replication staging area",
-          args: {
-            name: "string",
-          },
+            "Whether to create a Public IP for the Recovery Instance by default",
         },
         {
           name: "--staging-area-tags",
@@ -2734,14 +2590,30 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--use-dedicated-replication-server",
+          name: "--pit-policy",
           description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
+            "The Point in time (PIT) policy to manage snapshots taken during replication",
+          args: {
+            name: "list",
+          },
         },
         {
-          name: "--no-use-dedicated-replication-server",
+          name: "--auto-replicate-new-disks",
           description:
-            "Whether to use a dedicated Replication Server in the replication staging area",
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
+        },
+        {
+          name: "--no-auto-replicate-new-disks",
+          description:
+            "Whether to allow the AWS replication agent to automatically replicate newly added disks",
+        },
+        {
+          name: "--internet-protocol",
+          description:
+            "Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",

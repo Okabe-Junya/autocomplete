@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "securitylake",
   description:
@@ -51,7 +52,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-classes",
           description:
-            "The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake. The supported event classes are:    ACCESS_ACTIVITY     FILE_ACTIVITY     KERNEL_ACTIVITY     KERNEL_EXTENSION     MEMORY_ACTIVITY     MODULE_ACTIVITY     PROCESS_ACTIVITY     REGISTRY_KEY_ACTIVITY     REGISTRY_VALUE_ACTIVITY     RESOURCE_ACTIVITY     SCHEDULED_JOB_ACTIVITY     SECURITY_FINDING     ACCOUNT_CHANGE     AUTHENTICATION     AUTHORIZATION     ENTITY_MANAGEMENT_AUDIT     DHCP_ACTIVITY     NETWORK_ACTIVITY     DNS_ACTIVITY     FTP_ACTIVITY     HTTP_ACTIVITY     RDP_ACTIVITY     SMB_ACTIVITY     SSH_ACTIVITY     CONFIG_STATE     INVENTORY_INFO     EMAIL_ACTIVITY     API_ACTIVITY     CLOUD_API",
+            "The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake. For the list of supported event classes, see the Amazon Security Lake User Guide",
           args: {
             name: "list",
           },
@@ -190,7 +191,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-data-lake-organization-configuration",
       description:
-        "Automatically enables Amazon Security Lake for new member accounts in your organization. Security Lake is not automatically enabled for any existing member accounts in your organization",
+        "Automatically enables Amazon Security Lake for new member accounts in your organization. Security Lake is not automatically enabled for any existing member accounts in your organization. This operation merges the new data lake organization configuration with the existing configuration for Security Lake in your organization. If you want to create a new data lake organization configuration, you must delete the existing one using DeleteDataLakeOrganizationConfiguration",
       options: [
         {
           name: "--auto-enable-new-account",
@@ -636,22 +637,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum limit of accounts for which the static snapshot of the current Region, including enabled accounts and log sources, is retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -731,21 +716,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the Amazon Security Lake exceptions that you can use to find the source of problems and fix them",
       options: [
-        {
-          name: "--max-results",
-          description: "Lists the maximum number of failures in Security Lake",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--regions",
           description:
@@ -841,22 +811,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of accounts for which the log sources are displayed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--regions",
           description:
             "The list of Regions for which log sources are displayed",
@@ -920,22 +874,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list of subscriptions associated with a specific organization or Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of accounts for which the configuration is displayed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

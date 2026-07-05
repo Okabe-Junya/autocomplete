@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "mediaconvert",
   description: "AWS Elemental MediaConvert",
@@ -81,7 +82,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--billing-tags-source",
           description:
-            "Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted",
+            "Optionally choose a Billing tags source that AWS Billing and Cost Management will use to display tags for individual output costs on any billing report that you set up. Leave blank to use the default value, Job",
           args: {
             name: "string",
           },
@@ -105,7 +106,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--job-engine-version",
           description:
-            "Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. To specify a Job engine version: Enter a date in a YYYY-MM-DD format. For a list of valid Job engine versions, submit a ListVersions request. To not specify a Job engine version: Leave blank",
+            "Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions represent periodically grouped MediaConvert releases with new features, updates, improvements, and fixes. Job engine versions are in a YYYY-MM-DD format. Note that the Job engine version feature is not publicly available at this time. To request access, contact AWS support",
           args: {
             name: "string",
           },
@@ -169,7 +170,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows",
+            "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key. Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows",
           args: {
             name: "map",
           },
@@ -177,7 +178,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-metadata",
           description:
-            "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags",
+            "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs. Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags",
           args: {
             name: "map",
           },
@@ -386,6 +387,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--maximum-concurrent-feeds",
+          description:
+            "Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--name",
           description: "The name of the queue that you are creating",
           args: {
@@ -422,6 +431,44 @@ const completionSpec: Fig.Spec = {
             "The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-resource-share",
+      description:
+        "Create a new resource share request for MediaConvert resources with AWS Support",
+      options: [
+        {
+          name: "--job-id",
+          description: "Specify MediaConvert Job ID or ARN to share",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--support-case-id",
+          description: "AWS Support case identifier",
+          args: {
+            name: "string",
           },
         },
         {
@@ -562,25 +609,9 @@ const completionSpec: Fig.Spec = {
         "Send a request with an empty body to the regional API endpoint to get your account API endpoint. Note that DescribeEndpoints is no longer required. We recommend that you send your requests directly to the regional endpoint instead",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Optional. Max number of endpoints, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mode",
           description:
             "Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this string, provided with the response to a previous request, to request the next batch of endpoints",
           args: {
             name: "string",
           },
@@ -666,7 +697,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--id",
-          description: "The job ID of the job",
+          description: "the job ID of the job",
           args: {
             name: "string",
           },
@@ -697,6 +728,37 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description: "The name of the job template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-jobs-query-results",
+      description:
+        "Retrieve a JSON array of up to twenty of your most recent jobs matched by a jobs query",
+      options: [
+        {
+          name: "--id",
+          description: "The ID of the jobs query",
           args: {
             name: "string",
           },
@@ -825,22 +887,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Optional. Number of job templates, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this string, provided with the response to a previous request, to request the next batch of job templates",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--order",
           description:
             "Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource",
@@ -896,22 +942,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Optional. Number of jobs, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--order",
           description:
@@ -1001,22 +1031,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Optional. Number of presets, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this string, provided with the response to a previous request, to request the next batch of presets",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--order",
           description:
             "Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource",
@@ -1076,22 +1090,6 @@ const completionSpec: Fig.Spec = {
           name: "--list-by",
           description:
             "Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Optional. Number of queues, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this string, provided with the response to a previous request, to request the next batch of queues",
           args: {
             name: "string",
           },
@@ -1184,22 +1182,6 @@ const completionSpec: Fig.Spec = {
         "Retrieve a JSON array of all available Job engine versions and the date they expire",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Optional. Number of valid Job engine versions, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1229,6 +1211,37 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "probe",
+      description:
+        "Use Probe to obtain detailed information about your input media files. Probe returns a JSON that includes container, codec, frame rate, resolution, track count, audio layout, captions, and more. You can use this information to learn more about your media files, or to help make decisions while automating your transcoding workflow",
+      options: [
+        {
+          name: "--input-files",
+          description: "Specify a media file to probe",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1283,22 +1296,6 @@ const completionSpec: Fig.Spec = {
           name: "--input-file",
           description:
             "Optional. Provide your input file URL or your partial input file name. The maximum length for an input file is 300 characters",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Optional. Number of jobs, up to twenty, that will be returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs",
           args: {
             name: "string",
           },
@@ -1371,9 +1368,65 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-jobs-query",
+      description:
+        "Start an asynchronous jobs query using the provided filters. To receive the list of jobs that match your query, call the GetJobsQueryResults API using the query ID returned by this API",
+      options: [
+        {
+          name: "--filter-list",
+          description:
+            "Optional. Provide an array of JobsQueryFilters for your StartJobsQuery request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "Optional. Number of jobs, up to twenty, that will be included in the jobs query",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "Use this string to request the next batch of jobs matched by a jobs query",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--order",
+          description:
+            "Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "tag-resource",
       description:
-        "Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html",
+        "Add tags to a MediaConvert queue, preset, job, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html",
       options: [
         {
           name: "--arn",
@@ -1413,7 +1466,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html",
+        "Remove tags from a MediaConvert queue, preset, job, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html",
       options: [
         {
           name: "--arn",
@@ -1614,6 +1667,14 @@ const completionSpec: Fig.Spec = {
             "The new description for the queue, if you are changing it",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--maximum-concurrent-feeds",
+          description:
+            "Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently",
+          args: {
+            name: "integer",
           },
         },
         {

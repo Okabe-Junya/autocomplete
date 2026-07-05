@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "macie2",
   description: "Amazon Macie",
@@ -808,22 +809,6 @@ const completionSpec: Fig.Spec = {
           description: "The criteria to use to filter the query results",
           args: {
             name: "map",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response. The default value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1768,22 +1753,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort-by",
           description: "The criteria to use to sort the query results",
           args: {
@@ -1878,22 +1847,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a subset of information about all the allow lists for an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1950,22 +1903,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2018,22 +1955,6 @@ const completionSpec: Fig.Spec = {
           description: "The criteria to use to filter the results",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2100,14 +2021,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2132,6 +2045,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -2145,24 +2066,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-custom-data-identifiers",
       description:
-        "Retrieves a subset of information about all the custom data identifiers for an account",
+        "Retrieves a subset of information about the custom data identifiers for an account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2216,22 +2121,6 @@ const completionSpec: Fig.Spec = {
           description: "The criteria to use to filter the results",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2290,22 +2179,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a subset of information about all the findings filters for an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2353,22 +2226,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves information about Amazon Macie membership invitations that were received by an account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2418,14 +2275,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves information about all the managed data identifiers that Amazon Macie currently provides",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2450,6 +2299,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -2465,22 +2322,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves information about the accounts that are associated with an Amazon Macie administrator account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--only-associated",
           description:
@@ -2538,22 +2379,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves information about the delegated Amazon Macie administrator account for an organization in Organizations",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2602,14 +2427,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-arn",
           description:
             "The Amazon Resource Name (ARN) of the S3 bucket that the request applies to",
@@ -2642,6 +2459,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -2657,22 +2482,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--resource-arn",
           description:
@@ -2729,22 +2538,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves a subset of information about the sensitivity inspection template for an account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of a paginated response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2894,7 +2687,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-resources",
       description:
-        "Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes",
+        "Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes for an account",
       options: [
         {
           name: "--bucket-criteria",
@@ -2902,22 +2695,6 @@ const completionSpec: Fig.Spec = {
             "The filter conditions that determine which S3 buckets to include or exclude from the query results",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in each page of the response. The default value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string that specifies which page of results to return in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3530,7 +3307,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--suppress-data-identifiers",
           description:
-            "An array of objects, one for each custom data identifier or managed data identifier that detected the type of sensitive data to start excluding or including in the bucket's score. To start including all sensitive data types in the score, don't specify any values for this array",
+            "An array of objects, one for each custom data identifier or managed data identifier that detected a type of sensitive data to exclude from the bucket's score. To include all sensitive data types in the score, don't specify any values for this array",
           args: {
             name: "list",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "redshift",
   description:
@@ -612,7 +613,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--node-type",
           description:
-            "The node type to be provisioned for the cluster. For information about node types, go to  Working with Clusters in the Amazon Redshift Cluster Management Guide.  Valid Values: dc2.large | dc2.8xlarge | ra3.large | ra3.xlplus | ra3.4xlarge | ra3.16xlarge",
+            "The node type to be provisioned for the cluster. For information about node types, go to  Working with Clusters in the Amazon Redshift Cluster Management Guide.  Valid Values: dc2.large | dc2.8xlarge| rg.xlarge | rg.4xlarge | ra3.large | ra3.xlplus | ra3.4xlarge | ra3.16xlarge",
           args: {
             name: "string",
           },
@@ -684,7 +685,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--automated-snapshot-retention-period",
           description:
-            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days. Default: 1  Constraints: Must be a value from 0 to 35",
+            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  You can't disable automated snapshots for RG or RA3 node types. Set the automated retention period from 1-35 days. Default: 1  Constraints: Must be a value from 0 to 35",
           args: {
             name: "integer",
           },
@@ -700,7 +701,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--port",
           description:
-            "The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: 5439  Valid Values:    For clusters with ra3 nodes - Select a port within the ranges 5431-5455 or 8191-8215. (If you have an existing cluster with ra3 nodes, it isn't required that you change the port to these ranges.)   For clusters with dc2 nodes - Select a port within the range 1150-65535",
+            "The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: 5439  Valid Values:    For clusters with RG or RA3 nodes - Select a port within the ranges 5431-5455 or 8191-8215. (If you have an existing cluster with RG or RA3 nodes, it isn't required that you change the port to these ranges.)   For clusters with dc2 nodes - Select a port within the range 1150-65535",
           args: {
             name: "integer",
           },
@@ -734,22 +735,22 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network",
+            "If true, the cluster can be accessed from a public network.  Default: false",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network",
+            "If true, the cluster can be accessed from a public network.  Default: false",
         },
         {
           name: "--encrypted",
           description:
-            "If true, the data in the cluster is encrypted at rest.  Default: false",
+            "If true, the data in the cluster is encrypted at rest. If you set the value on this parameter to false, the request will fail. Default: true",
         },
         {
           name: "--no-encrypted",
           description:
-            "If true, the data in the cluster is encrypted at rest.  Default: false",
+            "If true, the data in the cluster is encrypted at rest. If you set the value on this parameter to false, the request will fail. Default: true",
         },
         {
           name: "--hsm-client-certificate-identifier",
@@ -907,6 +908,24 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--catalog-name",
+          description:
+            "The name of the Glue data catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions. Constraints:   Must contain at least one lowercase letter.   Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).   Pattern: ^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$  Example: my-catalog_01",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
+        },
+        {
+          name: "--no-extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
         },
         {
           name: "--cli-input-json",
@@ -1496,7 +1515,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-encryption-context",
           description:
-            "An optional set of non-secret key\u2013value pairs that contains additional contextual information about the data. For more information, see Encryption context in the Amazon Web Services Key Management Service Developer Guide. You can only include this parameter if you specify the KMSKeyId parameter",
+            "An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see Encryption context in the Amazon Web Services Key Management Service Developer Guide. You can only include this parameter if you specify the KMSKeyId parameter",
           args: {
             name: "map",
           },
@@ -1584,6 +1603,29 @@ const completionSpec: Fig.Spec = {
           name: "--service-integrations",
           description:
             "A collection of service integrations for the Redshift IAM Identity Center application",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--application-type",
+          description:
+            "The type of application being created. Valid values are None or Lakehouse. Use Lakehouse to enable Amazon Redshift federated permissions on cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "A list of tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--sso-tag-keys",
+          description:
+            "A list of tags keys that Redshift Identity Center applications copy to IAM Identity Center. For each input key, the tag corresponding to the key-value pair is propagated",
           args: {
             name: "list",
           },
@@ -1873,7 +1915,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--limit-type",
           description:
-            "The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned",
+            "The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned. If FeatureType is extra-compute-for-automatic-optimization, then LimitType must be time",
           args: {
             name: "string",
           },
@@ -2775,22 +2817,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request.  Default: 100 Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point for returning a set of response records. When the results of a DescribeClusterDbRevisions request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request.  Constraints: You can specify either the ClusterIdentifier parameter, or the marker parameter, but not both",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2842,22 +2868,6 @@ const completionSpec: Fig.Spec = {
           name: "--parameter-group-name",
           description:
             "The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterParameterGroups request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -2943,22 +2953,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterParameters request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3010,22 +3004,6 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-security-group-name",
           description:
             "The name of a cluster security group for which you are requesting details. You must specify either the Marker parameter or a ClusterSecurityGroupName parameter, but not both.   Example: securitygroup1",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterSecurityGroups request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request.  Constraints: You must specify either the ClusterSecurityGroupName parameter or the Marker parameter, but not both",
           args: {
             name: "string",
           },
@@ -3143,22 +3121,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterSnapshots request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--owner-account",
           description:
             "The Amazon Web Services account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your Amazon Web Services account, or do not specify the parameter",
@@ -3255,22 +3217,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterSubnetGroups request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--tag-keys",
           description:
             "A tag key or keys for which you want to return all matching cluster subnet groups that are associated with the specified key or keys. For example, suppose that you have subnet groups that are tagged with keys called owner and environment. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag keys associated with them",
@@ -3341,22 +3287,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "An integer value for the maximum number of maintenance tracks to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterTracks request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3420,22 +3350,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusterVersions request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3487,22 +3401,6 @@ const completionSpec: Fig.Spec = {
           name: "--cluster-identifier",
           description:
             "The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive. The default is that all clusters defined for an account are returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeClusters request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request.  Constraints: You can specify either the ClusterIdentifier parameter or the Marker parameter, but not both",
           args: {
             name: "string",
           },
@@ -3588,21 +3486,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum records setting for the associated custom domain",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the custom domain association",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3654,22 +3537,6 @@ const completionSpec: Fig.Spec = {
           name: "--data-share-arn",
           description:
             "The Amazon resource name (ARN) of the datashare to describe details of",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeDataShares request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -3739,22 +3606,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeDataSharesForConsumer request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3819,22 +3670,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeDataSharesForProducer request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3885,22 +3720,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--parameter-group-family",
           description: "The name of the cluster parameter group family",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeDefaultClusterParameters request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -3984,22 +3803,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a Marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEndpointAccess request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4070,22 +3873,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-grantee",
           description:
             "Indicates whether to check authorization from a grantor or grantee point of view. If true, Amazon Redshift returns endpoint authorizations that you've been granted. If false (default), checks authorization from a grantor point of view",
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a Marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEndpointAuthorization request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--cli-input-json",
@@ -4171,22 +3958,6 @@ const completionSpec: Fig.Spec = {
           name: "--subscription-name",
           description:
             "The name of the Amazon Redshift event notification subscription to be described",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -4296,22 +4067,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEvents request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4363,22 +4118,6 @@ const completionSpec: Fig.Spec = {
           name: "--hsm-client-certificate-identifier",
           description:
             "The identifier of a specific HSM client certificate for which you want information. If no identifier is specified, information is returned for all HSM client certificates owned by your Amazon Web Services account",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeHsmClientCertificates request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -4451,22 +4190,6 @@ const completionSpec: Fig.Spec = {
           name: "--hsm-configuration-identifier",
           description:
             "The identifier of a specific Amazon Redshift HSM configuration to be described. If no identifier is specified, information is returned for all HSM configurations owned by your Amazon Web Services account",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeHsmConfigurations request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -4551,22 +4274,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeInboundIntegrations request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4617,22 +4324,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--integration-arn",
           description: "The unique identifier of the integration",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeIntegrations request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -4774,22 +4465,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeNodeConfigurationOptions request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 500  Constraints: minimum 100, maximum 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4849,22 +4524,6 @@ const completionSpec: Fig.Spec = {
           name: "--node-type",
           description:
             "The node type filter value. Specify this parameter to show only the available offerings matching the specified node type",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeOrderableClusterOptions request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -4981,22 +4640,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the Marker parameter and retrying the command. If the Marker field is empty, all response records have been retrieved for the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5060,22 +4703,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a Marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeReservedNodeExchangeStatus request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5131,22 +4758,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeReservedNodeOfferings request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5196,22 +4807,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--reserved-node-id",
           description: "Identifier for the node reservation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeReservedNodes request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -5343,22 +4938,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeScheduledActions request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5409,22 +4988,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-copy-grant-name",
           description: "The name of the snapshot copy grant",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeSnapshotCopyGrant request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request.  Constraints: You can specify either the SnapshotCopyGrantName parameter or the Marker parameter, but not both",
           args: {
             name: "string",
           },
@@ -5523,22 +5086,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the marker parameter and retrying the command. If the marker field is empty, all response records have been retrieved for the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5627,22 +5174,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeTableRestoreStatus request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5702,22 +5233,6 @@ const completionSpec: Fig.Spec = {
           name: "--resource-type",
           description:
             "The type of resource with which you want to view tags. Valid resource types are:    Cluster   CIDR/IP   EC2 security group   Snapshot   Cluster security group   Subnet group   HSM connection   HSM certificate   Parameter group   Snapshot copy grant   Integration (zero-ETL integration or S3 event integration)  To describe the tags associated with an integration, don't specify ResourceType, instead specify the ResourceName of the integration.    For more information about Amazon Redshift resource types and constructing ARNs, go to Specifying Policy Elements: Actions, Effects, Resources, and Principals in the Amazon Redshift Cluster Management Guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the marker parameter and retrying the command. If the marker field is empty, all response records have been retrieved for the request",
           args: {
             name: "string",
           },
@@ -5805,22 +5320,6 @@ const completionSpec: Fig.Spec = {
           name: "--feature-type",
           description:
             "The feature type for which you want to describe usage limits",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: 100  Constraints: minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeUsageLimits request exceed the value specified in MaxRecords, Amazon Web Services returns a value in the Marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -6304,6 +5803,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-identity-center-auth-token",
+      description:
+        "Generates an encrypted authentication token that propagates the caller's Amazon Web Services IAM Identity Center identity to Amazon Redshift clusters. This API extracts the Amazon Web Services IAM Identity Center identity from enhanced credentials and creates a secure token that Amazon Redshift drivers can use for authentication. The token is encrypted using Key Management Service (KMS) and can only be decrypted by the specified Amazon Redshift clusters. The token contains the caller's Amazon Web Services IAM Identity Center identity information and is valid for a limited time period. This API is exclusively for use with Amazon Web Services IAM Identity Center enhanced credentials. If the caller is not using enhanced credentials with embedded Amazon Web Services IAM Identity Center identity, the API will return an error",
+      options: [
+        {
+          name: "--cluster-ids",
+          description:
+            "A list of cluster identifiers that the generated token can be used with. The token will be scoped to only allow authentication to the specified clusters. Constraints:    ClusterIds must contain at least 1 cluster identifier.    ClusterIds can hold a maximum of 20 cluster identifiers.   Cluster identifiers must be 1 to 63 characters in length.   The characters accepted for cluster identifiers are the following:   Alphanumeric characters   Hyphens     Cluster identifiers must start with a letter.   Cluster identifiers can't end with a hyphen or contain two consecutive hyphens",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-reserved-node-exchange-configuration-options",
       description:
         "Gets the configuration options for the reserved-node exchange. These options include information about the source reserved node and target reserved node offering. Details include the node type, the price, the node count, and the offering type",
@@ -6328,22 +5859,6 @@ const completionSpec: Fig.Spec = {
           name: "--snapshot-identifier",
           description:
             "The identifier for the snapshot that is the source for the reserved-node exchange",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a Marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous GetReservedNodeExchangeConfigurationOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the MaxRecords parameter. You can retrieve the next set of response records by providing the returned marker value in the Marker parameter and retrying the request",
           args: {
             name: "string",
           },
@@ -6400,22 +5915,6 @@ const completionSpec: Fig.Spec = {
           name: "--reserved-node-id",
           description:
             "A string representing the node identifier for the DC1 Reserved Node to be exchanged",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "An integer setting the maximum number of ReservedNodeOfferings to retrieve",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "A value that indicates the starting point for the next set of ReservedNodeOfferings",
           args: {
             name: "string",
           },
@@ -6511,22 +6010,6 @@ const completionSpec: Fig.Spec = {
           name: "--namespace-arn",
           description:
             "The Amazon Redshift cluster namespace Amazon Resource Name (ARN) for which the list of Advisor recommendations is returned. If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the Marker parameter and retrying the command. If the Marker field is empty, all response records have been retrieved for the request",
           args: {
             name: "string",
           },
@@ -6675,7 +6158,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--node-type",
           description:
-            "The new node type of the cluster. If you specify a new node type, you must also specify the number of nodes parameter.  For more information about resizing clusters, go to Resizing Clusters in Amazon Redshift in the Amazon Redshift Cluster Management Guide. Valid Values: dc2.large | dc2.8xlarge | ra3.large | ra3.xlplus | ra3.4xlarge | ra3.16xlarge",
+            "The new node type of the cluster. If you specify a new node type, you must also specify the number of nodes parameter.  For more information about resizing clusters, go to Resizing Clusters in Amazon Redshift in the Amazon Redshift Cluster Management Guide. Valid Values: dc2.large | dc2.8xlarge| rg.xlarge | rg.4xlarge | ra3.large | ra3.xlplus | ra3.4xlarge | ra3.16xlarge",
           args: {
             name: "string",
           },
@@ -6723,7 +6206,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--automated-snapshot-retention-period",
           description:
-            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  If you decrease the automated snapshot retention period from its current value, existing automated snapshots that fall outside of the new retention period will be immediately deleted. You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days. Default: Uses existing setting. Constraints: Must be a value from 0 to 35",
+            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  If you decrease the automated snapshot retention period from its current value, existing automated snapshots that fall outside of the new retention period will be immediately deleted. You can't disable automated snapshots for RG or RA3 node types. Set the automated retention period from 1-35 days. Default: Uses existing setting. Constraints: Must be a value from 0 to 35",
           args: {
             name: "integer",
           },
@@ -6789,12 +6272,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network. Only clusters in VPCs can be set to be publicly available",
+            "If true, the cluster can be accessed from a public network. Only clusters in VPCs can be set to be publicly available. Default: false",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network. Only clusters in VPCs can be set to be publicly available",
+            "If true, the cluster can be accessed from a public network. Only clusters in VPCs can be set to be publicly available. Default: false",
         },
         {
           name: "--elastic-ip",
@@ -6861,7 +6344,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--port",
           description:
-            "The option to change the port of an Amazon Redshift cluster. Valid Values:    For clusters with ra3 nodes - Select a port within the ranges 5431-5455 or 8191-8215. (If you have an existing cluster with ra3 nodes, it isn't required that you change the port to these ranges.)   For clusters with dc2 nodes - Select a port within the range 1150-65535",
+            "The option to change the port of an Amazon Redshift cluster. Valid Values:    For clusters with RG or RA3 nodes - Select a port within the ranges 5431-5455 or 8191-8215. (If you have an existing cluster with RG or RA3 nodes, it isn't required that you change the port to these ranges.)   For clusters with dc2 nodes - Select a port within the range 1150-65535",
           args: {
             name: "integer",
           },
@@ -6901,6 +6384,16 @@ const completionSpec: Fig.Spec = {
           name: "--no-multi-az",
           description:
             "If true and the cluster is currently only deployed in a single Availability Zone, the cluster will be modified to be deployed in two Availability Zones",
+        },
+        {
+          name: "--extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
+        },
+        {
+          name: "--no-extra-compute-for-automatic-optimization",
+          description:
+            "If true, allocates additional compute resources for running automatic optimization operations. Default: false",
         },
         {
           name: "--cli-input-json",
@@ -7065,7 +6558,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--defer-maintenance-duration",
           description:
-            "An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less",
+            "An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less",
           args: {
             name: "integer",
           },
@@ -7466,6 +6959,80 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "modify-lakehouse-configuration",
+      description:
+        "Modifies the lakehouse configuration for a cluster. This operation allows you to manage Amazon Redshift federated permissions and Amazon Web Services IAM Identity Center trusted identity propagation",
+      options: [
+        {
+          name: "--cluster-identifier",
+          description:
+            "The unique identifier of the cluster whose lakehouse configuration you want to modify",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lakehouse-registration",
+          description:
+            "Specifies whether to register or deregister the cluster with Amazon Redshift federated permissions. Valid values are Register or Deregister",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--catalog-name",
+          description:
+            "The name of the Glue data catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions. Constraints:   Must contain at least one lowercase letter.   Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).   Pattern: ^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$  Example: my-catalog_01",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lakehouse-idc-registration",
+          description:
+            "Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions. Valid values are Associate or Disassociate",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lakehouse-idc-application-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dry-run",
+          description:
+            "A boolean value that, if true, validates the request without actually modifying the lakehouse configuration. Use this to check for errors before making changes",
+        },
+        {
+          name: "--no-dry-run",
+          description:
+            "A boolean value that, if true, validates the request without actually modifying the lakehouse configuration. Use this to check for errors before making changes",
         },
         {
           name: "--cli-input-json",
@@ -8045,7 +7612,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "resize-cluster",
       description:
-        "Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read and write operations more quickly than with the classic resize method.  Elastic resize operations have the following restrictions:   You can only resize clusters of the following types:   dc2.large   dc2.8xlarge   ra3.large   ra3.xlplus   ra3.4xlarge   ra3.16xlarge     The type of nodes that you add must match the node type for the cluster",
+        "Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read and write operations more quickly than with the classic resize method.  Elastic resize operations have the following restrictions:   You can only resize clusters of the following types:   dc2.large   dc2.8xlarge   rg.xlarge   rg.4xlarge   ra3.large   ra3.xlplus   ra3.4xlarge   ra3.16xlarge     The type of nodes that you add must match the node type for the cluster",
       options: [
         {
           name: "--cluster-identifier",
@@ -8160,7 +7727,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--port",
           description:
-            "The port number on which the cluster accepts connections. Default: The same port as the original cluster. Valid values: For clusters with DC2 nodes, must be within the range 1150-65535. For clusters with ra3 nodes, must be within the ranges 5431-5455 or 8191-8215",
+            "The port number on which the cluster accepts connections. Default: The same port as the original cluster. Valid values: For clusters with DC2 nodes, must be within the range 1150-65535. For clusters with RG or RA3 nodes, must be within the ranges 5431-5455 or 8191-8215",
           args: {
             name: "integer",
           },
@@ -8194,12 +7761,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network",
+            "If true, the cluster can be accessed from a public network.  Default: false",
         },
         {
           name: "--no-publicly-accessible",
           description:
-            "If true, the cluster can be accessed from a public network",
+            "If true, the cluster can be accessed from a public network.  Default: false",
         },
         {
           name: "--owner-account",
@@ -8268,7 +7835,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--automated-snapshot-retention-period",
           description:
-            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days. Default: The value selected for the cluster from which the snapshot was taken. Constraints: Must be a value from 0 to 35",
+            "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot.  You can't disable automated snapshots for RG or RA3 node types. Set the automated retention period from 1-35 days. Default: The value selected for the cluster from which the snapshot was taken. Constraints: Must be a value from 0 to 35",
           args: {
             name: "integer",
           },
@@ -8430,6 +7997,22 @@ const completionSpec: Fig.Spec = {
           name: "--no-multi-az",
           description:
             "If true, the snapshot will be restored to a cluster deployed in two Availability Zones",
+        },
+        {
+          name: "--catalog-name",
+          description:
+            "The name of the Glue Data Catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions. Constraints:   Must contain at least one lowercase letter.   Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).   Pattern: ^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$  Example: my-catalog_01",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--redshift-idc-application-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "translate",
   description:
@@ -290,8 +291,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--data-file",
-          description:
-            "The path to the file of the code you are uploading. Example: fileb://data.csv",
           args: {
             name: "blob",
           },
@@ -441,22 +440,6 @@ const completionSpec: Fig.Spec = {
         "Provides a list of custom terminologies associated with your account",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of custom terminologies returned per list request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -577,7 +560,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-access-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see Identity and access management",
+            "The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see Identity and access management ",
           args: {
             name: "string",
           },
@@ -723,7 +706,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "translate-document",
       description:
-        "Translates the input document from the source language to the target language. This synchronous operation supports text, HTML, or Word documents as the input document. TranslateDocument supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as \u201cen\u201d (English).   If you set the Formality parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see Setting formality",
+        "Translates the input document from the source language to the target language. This synchronous operation supports text, HTML, or Word documents as the input document. TranslateDocument supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English).   If you set the Formality parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see Setting formality",
       options: [
         {
           name: "--document",
@@ -767,8 +750,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--document-content",
-          description:
-            "The path to a file of the content you are uploading Example: fileb://data.txt",
           args: {
             name: "blob",
           },

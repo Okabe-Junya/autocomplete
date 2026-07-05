@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ivs",
   description:
-    'Introduction  The Amazon Interactive Video Service (IVS) API is REST compatible, using a standard HTTP API and an Amazon Web Services EventBridge event stream for responses. JSON is used for both requests and responses, including errors. The API is an Amazon Web Services regional service. For a list of supported regions and Amazon IVS HTTPS service endpoints, see the Amazon IVS page in the Amazon Web Services General Reference.   All API request parameters and URLs are case sensitive.    For a summary of notable documentation changes in each release, see  Document History.  Allowed Header Values      Accept:  application/json     Accept-Encoding:  gzip, deflate     Content-Type: application/json    Key Concepts     Channel \u2014 Stores configuration data related to your live stream. You first create a channel and then use the channel\u2019s stream key to start your live stream.    Stream key \u2014 An identifier assigned by Amazon IVS when you create a channel, which is then used to authorize streaming.  Treat the stream key like a secret, since it allows anyone to stream to the channel.      Playback key pair \u2014 Video playback may be restricted using playback-authorization tokens, which use public-key encryption. A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.    Recording configuration \u2014 Stores configuration related to recording a live stream and where to store the recorded content. Multiple channels can reference the same recording configuration.    Playback restriction policy \u2014 Restricts playback by countries and/or origin sites.   For more information about your IVS live stream, also see Getting Started with IVS Low-Latency Streaming.  Tagging  A tag is a metadata label that you assign to an Amazon Web Services resource. A tag comprises a key and a value, both set by you. For example, you might set a tag as topic:nature to label a particular video category. See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there. Tags can help you identify and organize your Amazon Web Services resources. For example, you can use the same tag for different resources to indicate that they are related. You can also use tags to manage access (see  Access Tags).  The Amazon IVS API has these tag-related operations: TagResource, UntagResource, and ListTagsForResource. The following resources support tagging: Channels, Stream Keys, Playback Key Pairs, and Recording Configurations. At most 50 tags can be applied to a resource.   Authentication versus Authorization  Note the differences between these concepts:    Authentication is about verifying identity. You need to be authenticated to sign Amazon IVS API requests.    Authorization is about granting permissions. Your IAM roles need to have permissions for Amazon IVS API requests. In addition, authorization is needed to view Amazon IVS private channels. (Private channels are channels that are enabled for "playback authorization.")    Authentication  All Amazon IVS API requests must be authenticated with a signature. The Amazon Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the underlying API calls for you. However, if your application calls the Amazon IVS API directly, it\u2019s your responsibility to sign the requests. You generate a signature using valid Amazon Web Services credentials that have permission to perform the requested action. For example, you must sign PutMetadata requests with a signature generated from a user account that has the ivs:PutMetadata permission. For more information:   Authentication and generating signatures \u2014 See Authenticating Requests (Amazon Web Services Signature Version 4) in the Amazon Web Services General Reference.   Managing Amazon IVS permissions \u2014 See Identity and Access Management on the Security page of the Amazon IVS User Guide.    Amazon Resource Names (ARNs)  ARNs uniquely identify AWS resources. An ARN is required when you need to specify a resource unambiguously across all of AWS, such as in IAM policies and API calls. For more information, see Amazon Resource Names in the AWS General Reference',
+    'Introduction  The Amazon Interactive Video Service (IVS) API is REST compatible, using a standard HTTP API and an Amazon Web Services EventBridge event stream for responses. JSON is used for both requests and responses, including errors. The API is an Amazon Web Services regional service. For a list of supported regions and Amazon IVS HTTPS service endpoints, see the Amazon IVS page in the Amazon Web Services General Reference.   All API request parameters and URLs are case sensitive.    For a summary of notable documentation changes in each release, see  Document History.  Allowed Header Values      Accept:  application/json     Accept-Encoding:  gzip, deflate     Content-Type: application/json    Key Concepts     Channel — Stores configuration data related to your live stream. You first create a channel and then use the channel’s stream key to start your live stream.    Stream key — An identifier assigned by Amazon IVS when you create a channel, which is then used to authorize streaming.  Treat the stream key like a secret, since it allows anyone to stream to the channel.      Playback key pair — Video playback may be restricted using playback-authorization tokens, which use public-key encryption. A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.    Recording configuration — Stores configuration related to recording a live stream and where to store the recorded content. Multiple channels can reference the same recording configuration.    Playback restriction policy — Restricts playback by countries and/or origin sites.   For more information about your IVS live stream, also see Getting Started with IVS Low-Latency Streaming.  Tagging  A tag is a metadata label that you assign to an Amazon Web Services resource. A tag comprises a key and a value, both set by you. For example, you might set a tag as topic:nature to label a particular video category. See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there. Tags can help you identify and organize your Amazon Web Services resources. For example, you can use the same tag for different resources to indicate that they are related. You can also use tags to manage access (see  Access Tags).  The Amazon IVS API has these tag-related operations: TagResource, UntagResource, and ListTagsForResource. The following resources support tagging: Channels, Stream Keys, Playback Key Pairs, and Recording Configurations. At most 50 tags can be applied to a resource.   Authentication versus Authorization  Note the differences between these concepts:    Authentication is about verifying identity. You need to be authenticated to sign Amazon IVS API requests.    Authorization is about granting permissions. Your IAM roles need to have permissions for Amazon IVS API requests. In addition, authorization is needed to view Amazon IVS private channels. (Private channels are channels that are enabled for "playback authorization.")    Authentication  All Amazon IVS API requests must be authenticated with a signature. The Amazon Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the underlying API calls for you. However, if your application calls the Amazon IVS API directly, it’s your responsibility to sign the requests. You generate a signature using valid Amazon Web Services credentials that have permission to perform the requested action. For example, you must sign PutMetadata requests with a signature generated from a user account that has the ivs:PutMetadata permission. For more information:   Authentication and generating signatures — See Authenticating Requests (Amazon Web Services Signature Version 4) in the Amazon Web Services General Reference.   Managing Amazon IVS permissions — See Identity and Access Management on the Security page of the Amazon IVS User Guide.    Amazon Resource Names (ARNs)  ARNs uniquely identify AWS resources. An ARN is required when you need to specify a resource unambiguously across all of AWS, such as in IAM policies and API calls. For more information, see Amazon Resource Names in the AWS General Reference',
   subcommands: [
     {
       name: "batch-get-channel",
@@ -96,37 +97,63 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-channel",
+      name: "create-ad-configuration",
       description:
-        "Creates a new channel and an associated stream key to start streaming",
+        "Creates a new ad configuration to be used for server-side ad insertion",
       options: [
         {
-          name: "--authorized",
-          description:
-            "Whether the channel is private (enabled for playback authorization). Default: false",
-        },
-        {
-          name: "--no-authorized",
-          description:
-            "Whether the channel is private (enabled for playback authorization). Default: false",
-        },
-        {
-          name: "--container-format",
-          description:
-            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
+          name: "--name",
+          description: "Ad configuration name. Defaults to “”",
           args: {
             name: "string",
           },
         },
         {
-          name: "--insecure-ingest",
+          name: "--media-tailor-playback-configurations",
           description:
-            "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
+            "List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see Generate and Sign IVS Playback Tokens",
+          args: {
+            name: "list",
+          },
         },
         {
-          name: "--no-insecure-ingest",
+          name: "--tags",
           description:
-            "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
+            'Array of 1-50 maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-channel",
+      description:
+        "Creates a new channel and an associated stream key to start streaming",
+      options: [
+        {
+          name: "--name",
+          description: "Channel name",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--latency-mode",
@@ -137,35 +164,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--multitrack-input-configuration",
+          name: "--type",
           description:
-            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--name",
-          description: "Channel name",
+            "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately. Default: STANDARD. For details, see Channel Types",
           args: {
             name: "string",
           },
         },
         {
-          name: "--playback-restriction-policy-arn",
+          name: "--authorized",
           description:
-            'Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: "" (empty string, no playback restriction policy is applied)',
-          args: {
-            name: "string",
-          },
+            "Whether the channel is private (enabled for playback authorization). Default: false",
         },
         {
-          name: "--preset",
+          name: "--no-authorized",
           description:
-            'Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("")',
-          args: {
-            name: "string",
-          },
+            "Whether the channel is private (enabled for playback authorization). Default: false",
         },
         {
           name: "--recording-configuration-arn",
@@ -184,9 +198,51 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--type",
+          name: "--insecure-ingest",
           description:
-            "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately. Default: STANDARD. For details, see Channel Types",
+            "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
+        },
+        {
+          name: "--no-insecure-ingest",
+          description:
+            "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
+        },
+        {
+          name: "--preset",
+          description:
+            'Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("")',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--playback-restriction-policy-arn",
+          description:
+            'Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: "" (empty string, no playback restriction policy is applied)',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--multitrack-input-configuration",
+          description:
+            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--container-format",
+          description:
+            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ad-configuration-arn",
+          description:
+            "ARN of the ad configuration associated with the channel",
           args: {
             name: "string",
           },
@@ -282,14 +338,6 @@ const completionSpec: Fig.Spec = {
         "Creates a new recording configuration, used to enable recording to Amazon S3.  Known issue: In the us-east-1 region, if you use the Amazon Web Services CLI to create a recording configuration, it returns success even if the S3 bucket is in a different region. In this case, the state of the recording configuration is CREATE_FAILED (instead of ACTIVE). (In other regions, the CLI correctly returns failure if the bucket is in a different region.)  Workaround: Ensure that your S3 bucket is in the same region as the recording configuration. If you create a recording configuration in a different region as your S3 bucket, delete that recording configuration and create a new one with an S3 bucket from the correct region",
       options: [
         {
-          name: "--destination-configuration",
-          description:
-            "A complex type that contains a destination configuration for where recorded video will be stored",
-          args: {
-            name: "structure",
-          },
-        },
-        {
           name: "--name",
           description:
             "Recording-configuration name. The value does not need to be unique",
@@ -298,17 +346,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--recording-reconnect-window-seconds",
+          name: "--destination-configuration",
           description:
-            "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together. Default: 0",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--rendition-configuration",
-          description:
-            "Object that describes which renditions should be recorded for a stream",
+            "A complex type that contains a destination configuration for where recorded video will be stored",
           args: {
             name: "structure",
           },
@@ -325,6 +365,22 @@ const completionSpec: Fig.Spec = {
           name: "--thumbnail-configuration",
           description:
             "A complex type that allows you to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--recording-reconnect-window-seconds",
+          description:
+            "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together. Default: 0",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--rendition-configuration",
+          description:
+            "Object that describes which renditions should be recorded for a stream",
           args: {
             name: "structure",
           },
@@ -388,6 +444,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-ad-configuration",
+      description: "Deletes the specified ad configuration",
+      options: [
+        {
+          name: "--arn",
+          description: "ARN of the ad configuration to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-channel",
       description:
         'Deletes the specified channel and its associated stream keys. If you try to delete a live channel, you will get an error (409 ConflictException). To delete a channel that is live, call StopStream, wait for the Amazon EventBridge "Stream End" event (to verify that the stream\'s state is no longer Live), then call DeleteChannel. (See  Using EventBridge with Amazon IVS.)',
@@ -421,7 +507,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-playback-key-pair",
       description:
-        "Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair\u2019s privateKey. For more information, see Setting Up Private Channels in the Amazon IVS User Guide",
+        "Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair’s privateKey. For more information, see Setting Up Private Channels in the Amazon IVS User Guide",
       options: [
         {
           name: "--arn",
@@ -518,6 +604,36 @@ const completionSpec: Fig.Spec = {
         {
           name: "--arn",
           description: "ARN of the stream key to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-ad-configuration",
+      description: "Gets the ad configuration represented by the specified ARN",
+      options: [
+        {
+          name: "--arn",
+          description: "ARN of the ad configuration to be retrieved",
           args: {
             name: "string",
           },
@@ -769,16 +885,16 @@ const completionSpec: Fig.Spec = {
         "Imports the public portion of a new key pair and returns its arn and fingerprint. The privateKey can then be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see Setting Up Private Channels in the Amazon IVS User Guide",
       options: [
         {
-          name: "--name",
-          description:
-            "Playback-key-pair name. The value does not need to be unique",
+          name: "--public-key-material",
+          description: "The public portion of a customer-generated key pair",
           args: {
             name: "string",
           },
         },
         {
-          name: "--public-key-material",
-          description: "The public portion of a customer-generated key pair",
+          name: "--name",
+          description:
+            "Playback-key-pair name. The value does not need to be unique",
           args: {
             name: "string",
           },
@@ -811,6 +927,92 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "insert-ad-break",
+      description:
+        "Inserts an ad marker in the playlist for the specified channel and duration using the ad configuration associated with the channel.  Note: AWS Elemental MediaTailor (EMT), the service that handles ad requests, provides CloudWatch metrics to help you monitor the success or failure of each InsertAdBreak operation. See Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics in the AWS Elemental MediaTailor User Guide for details on available metrics",
+      options: [
+        {
+          name: "--channel-arn",
+          description: "ARN of the channel into which the ad break is inserted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--duration-seconds",
+          description: "Duration of the ad break, in seconds",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-ad-configurations",
+      description:
+        "Gets summary information about all ad configurations in your account, in the AWS region where the API request is processed",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-channels",
       description:
         "Gets summary information about all channels in your account, in the Amazon Web Services region where the API request is processed. This list can be filtered to match a specified name or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If you try to use both filters, you will get an error (409 ConflictException)",
@@ -818,13 +1020,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter-by-name",
           description: "Filters the channel list to match the specified name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--filter-by-playback-restriction-policy-arn",
-          description: "Filters the channel list to match the specified policy",
           args: {
             name: "string",
           },
@@ -838,16 +1033,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of channels to return. Default: 100",
+          name: "--filter-by-playback-restriction-policy-arn",
+          description: "Filters the channel list to match the specified policy",
           args: {
-            name: "integer",
+            name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--filter-by-ad-configuration-arn",
           description:
-            "The first channel to retrieve. This is used for pagination; see the nextToken response field",
+            "Filters the channel list to match the specified ad configuration ARN",
           args: {
             name: "string",
           },
@@ -901,22 +1096,6 @@ const completionSpec: Fig.Spec = {
         "Gets summary information about playback key pairs. For more information, see Setting Up Private Channels in the Amazon IVS User Guide",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Maximum number of key pairs to return. Default: your service quota or 100, whichever is smaller",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The first key pair to retrieve. This is used for pagination; see the nextToken response field",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -965,18 +1144,18 @@ const completionSpec: Fig.Spec = {
         "Gets summary information about playback restriction policies",
       options: [
         {
-          name: "--max-results",
-          description: "Maximum number of policies to return. Default: 1",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--next-token",
           description:
             "The first policy to retrieve. This is used for pagination; see the nextToken response field",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "Maximum number of policies to return. Default: 1",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1003,22 +1182,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Gets summary information about all recording configurations in your account, in the Amazon Web Services region where the API request is processed",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Maximum number of recording configurations to return. Default: your service quota or 100, whichever is smaller",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The first recording configuration to retrieve. This is used for pagination; see the nextToken response field",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1070,21 +1233,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--channel-arn",
           description: "Channel ARN used to filter the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Maximum number of streamKeys to return. Default: 1",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The first stream key to retrieve. This is used for pagination; see the nextToken response field",
           args: {
             name: "string",
           },
@@ -1145,18 +1293,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Maximum number of streams to return. Default: 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--next-token",
           description:
             "The first stream to retrieve. This is used for pagination; see the nextToken response field",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "Maximum number of streams to return. Default: 100",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1189,21 +1337,6 @@ const completionSpec: Fig.Spec = {
             "Filters the stream list to match the specified criterion",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Maximum number of streams to return. Default: 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The first stream to retrieve. This is used for pagination; see the nextToken response field",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1456,7 +1589,53 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tag-keys",
           description:
-            'Array of tags to be removed. Array of maps, each of the form string:string (key:value). See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+            'Array of tag keys (strings) for the tags to be removed. See Best practices and strategies in Tagging Amazon Web Services Resources and Tag Editor for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there',
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-ad-configuration",
+      description: "Updates a specified ad configuration",
+      options: [
+        {
+          name: "--arn",
+          description: "ARN of the ad configuration to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "Ad configuration name. The value does not need to be unique",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--media-tailor-playback-configurations",
+          description:
+            "List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see Generate and Sign IVS Playback Tokens",
           args: {
             name: "list",
           },
@@ -1493,6 +1672,29 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--name",
+          description: "Channel name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--latency-mode",
+          description:
+            "Channel latency mode. Use NORMAL to broadcast and deliver live video up to Full HD. Use LOW for near-real-time interaction with viewers",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          description:
+            "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately. Default: STANDARD. For details, see Channel Types",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--authorized",
           description:
             "Whether the channel is private (enabled for playback authorization)",
@@ -1503,9 +1705,9 @@ const completionSpec: Fig.Spec = {
             "Whether the channel is private (enabled for playback authorization)",
         },
         {
-          name: "--container-format",
+          name: "--recording-configuration-arn",
           description:
-            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
+            "Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording. If this is set to an empty string, recording is disabled",
           args: {
             name: "string",
           },
@@ -1521,24 +1723,9 @@ const completionSpec: Fig.Spec = {
             "Whether the channel allows insecure RTMP and SRT ingest. Default: false",
         },
         {
-          name: "--latency-mode",
+          name: "--preset",
           description:
-            "Channel latency mode. Use NORMAL to broadcast and deliver live video up to Full HD. Use LOW for near-real-time interaction with viewers",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--multitrack-input-configuration",
-          description:
-            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--name",
-          description: "Channel name",
+            'Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("")',
           args: {
             name: "string",
           },
@@ -1552,25 +1739,25 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--preset",
+          name: "--multitrack-input-configuration",
           description:
-            'Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("")',
+            "Object specifying multitrack input configuration. Default: no multitrack input configuration is specified",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--container-format",
+          description:
+            "Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS",
           args: {
             name: "string",
           },
         },
         {
-          name: "--recording-configuration-arn",
+          name: "--ad-configuration-arn",
           description:
-            "Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording. If this is set to an empty string, recording is disabled",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--type",
-          description:
-            "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately. Default: STANDARD. For details, see Channel Types",
+            "ARN of the ad configuration associated with the channel",
           args: {
             name: "string",
           },
@@ -1599,6 +1786,13 @@ const completionSpec: Fig.Spec = {
       description: "Updates a specified playback restriction policy",
       options: [
         {
+          name: "--arn",
+          description: "ARN of the playback-restriction-policy to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--allowed-countries",
           description:
             "A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array)",
@@ -1612,13 +1806,6 @@ const completionSpec: Fig.Spec = {
             "A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin. Default: All origins (an empty array)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--arn",
-          description: "ARN of the playback-restriction-policy to be updated",
-          args: {
-            name: "string",
           },
         },
         {

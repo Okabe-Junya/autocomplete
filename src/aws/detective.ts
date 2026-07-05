@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "detective",
   description:
@@ -160,12 +161,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--disable-email-notification",
           description:
-            "If set to true, then the invited accounts do not receive email notifications. By default, this is set to false, and the invited accounts receive email notifications. Organization accounts in the organization behavior graph do not receive email notifications",
+            "if set to true, then the invited accounts do not receive email notifications. By default, this is set to false, and the invited accounts receive email notifications. Organization accounts in the organization behavior graph do not receive email notifications",
         },
         {
           name: "--no-disable-email-notification",
           description:
-            "If set to true, then the invited accounts do not receive email notifications. By default, this is set to false, and the invited accounts receive email notifications. Organization accounts in the organization behavior graph do not receive email notifications",
+            "if set to true, then the invited accounts do not receive email notifications. By default, this is set to false, and the invited accounts receive email notifications. Organization accounts in the organization behavior graph do not receive email notifications",
         },
         {
           name: "--accounts",
@@ -1030,7 +1031,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-datasource-packages",
-      description: "Starts a data source packages for the behavior graph",
+      description:
+        "Starts a data source package for the Detective behavior graph",
       options: [
         {
           name: "--graph-arn",
@@ -1041,7 +1043,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--datasource-packages",
-          description: "The data source package start for the behavior graph",
+          description:
+            "The data source package to start for the behavior graph",
           args: {
             name: "list",
           },

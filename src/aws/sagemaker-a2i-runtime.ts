@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "sagemaker-a2i-runtime",
   description:
@@ -100,21 +101,6 @@ const completionSpec: Fig.Spec = {
             "Optional. The order for displaying results. Valid values: Ascending and Descending",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token to display the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of items to return. If the total number of available items is more than the value specified in MaxResults, then a NextToken is returned in the output. You can use this token to display the next page of results",
-          args: {
-            name: "integer",
           },
         },
         {

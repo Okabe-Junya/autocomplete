@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "appstream",
   description:
-    "Amazon AppStream 2.0 This is the Amazon AppStream 2.0 API Reference. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand.   You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint in the Amazon AppStream 2.0 Administration Guide.  To learn more about AppStream 2.0, see the following resources:    Amazon AppStream 2.0 product page     Amazon AppStream 2.0 documentation",
+    "Amazon WorkSpaces Applications This is the Amazon WorkSpaces Applications API Reference. This documentation provides descriptions and syntax for each of the actions and data types in WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. WorkSpaces Applications manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand.   You can call the WorkSpaces Applications API operations by using an interface VPC endpoint (interface endpoint). For more information, see Access WorkSpaces Applications API Operations and CLI Commands Through an Interface VPC Endpoint in the Amazon WorkSpaces Applications Administration Guide.  To learn more about WorkSpaces Applications, see the following resources:    Amazon WorkSpaces Applications product page     Amazon WorkSpaces Applications documentation",
   subcommands: [
     {
       name: "associate-app-block-builder-app-block",
@@ -161,6 +162,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "associate-software-to-image-builder",
+      description:
+        "Associates license included application(s) with an existing image builder instance",
+      options: [
+        {
+          name: "--image-builder-name",
+          description: "The name of the target image builder instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--software-names",
+          description:
+            "The list of license included applications to associate with the image builder. Possible values include the following:   Microsoft_Office_2021_LTSC_Professional_Plus_32Bit   Microsoft_Office_2021_LTSC_Professional_Plus_64Bit   Microsoft_Office_2024_LTSC_Professional_Plus_32Bit   Microsoft_Office_2024_LTSC_Professional_Plus_64Bit   Microsoft_Visio_2021_LTSC_Professional_32Bit   Microsoft_Visio_2021_LTSC_Professional_64Bit   Microsoft_Visio_2024_LTSC_Professional_32Bit   Microsoft_Visio_2024_LTSC_Professional_64Bit   Microsoft_Project_2021_Professional_32Bit   Microsoft_Project_2021_Professional_64Bit   Microsoft_Project_2024_Professional_32Bit   Microsoft_Project_2024_Professional_64Bit   Microsoft_Office_2021_LTSC_Standard_32Bit   Microsoft_Office_2021_LTSC_Standard_64Bit   Microsoft_Office_2024_LTSC_Standard_32Bit   Microsoft_Office_2024_LTSC_Standard_64Bit   Microsoft_Visio_2021_LTSC_Standard_32Bit   Microsoft_Visio_2021_LTSC_Standard_64Bit   Microsoft_Visio_2024_LTSC_Standard_32Bit   Microsoft_Visio_2024_LTSC_Standard_64Bit   Microsoft_Project_2021_Standard_32Bit   Microsoft_Project_2021_Standard_64Bit   Microsoft_Project_2024_Standard_32Bit   Microsoft_Project_2024_Standard_64Bit",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "batch-associate-user-stack",
       description:
         "Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain",
@@ -280,7 +320,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-app-block",
       description:
-        "Creates an app block. App blocks are an Amazon AppStream 2.0 resource that stores the details about the virtual hard disk in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. The virtual hard disk includes the application binaries and other files necessary to launch your applications. Multiple applications can be assigned to a single app block. This is only supported for Elastic fleets",
+        "Creates an app block. App blocks are a WorkSpaces Applications resource that stores the details about the virtual hard disk in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. The virtual hard disk includes the application binaries and other files necessary to launch your applications. Multiple applications can be assigned to a single app block. This is only supported for Elastic fleets",
       options: [
         {
           name: "--name",
@@ -388,7 +428,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+            "The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "map",
           },
@@ -430,7 +470,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances in the Amazon AppStream 2.0 Administration Guide",
+            "The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -442,6 +482,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2",
+        },
+        {
+          name: "--no-disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2",
         },
         {
           name: "--cli-input-json",
@@ -504,7 +554,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-application",
       description:
-        "Creates an application. Applications are an Amazon AppStream 2.0 resource that stores the details about how to launch applications on Elastic fleet streaming instances. An application consists of the launch details, icon, and display name. Applications are associated with an app block that contains the application binaries and other files. The applications assigned to an Elastic fleet are the applications users can launch.  This is only supported for Elastic fleets",
+        "Creates an application. Applications are a WorkSpaces Applications resource that stores the details about how to launch applications on Elastic fleet streaming instances. An application consists of the launch details, icon, and display name. Applications are associated with an app block that contains the application binaries and other files. The applications assigned to an Elastic fleet are the applications users can launch.  This is only supported for Elastic fleets",
       options: [
         {
           name: "--name",
@@ -560,7 +610,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--platforms",
           description:
-            "The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets",
+            "The platforms the application supports. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets",
           args: {
             name: "list",
           },
@@ -610,7 +660,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-directory-config",
       description:
-        "Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains",
+        "Creates a Directory Config object in WorkSpaces Applications. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains",
       options: [
         {
           name: "--directory-name",
@@ -666,7 +716,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-entitlement",
       description:
-        "Creates a new entitlement. Entitlements control access to specific applications within a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application, or to applications managed by a dynamic app provider using the Dynamic Application Framework",
+        "Creates a new entitlement. Entitlements control access to specific applications within a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user identities. WorkSpaces Applications user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application, or to applications managed by a dynamic app provider using the Dynamic Application Framework",
       options: [
         {
           name: "--name",
@@ -724,6 +774,70 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-export-image-task",
+      description:
+        "Creates a task to export a WorkSpaces Applications image to an EC2 AMI. This allows you to use your customized WorkSpaces Applications images with other AWS services or for backup purposes",
+      options: [
+        {
+          name: "--image-name",
+          description:
+            "The name of the WorkSpaces Applications image to export. The image must be in an available state and owned by your account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ami-name",
+          description:
+            "The name for the exported EC2 AMI. This is a required field that must be unique within your account and region",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iam-role-arn",
+          description:
+            "The ARN of the IAM role that allows WorkSpaces Applications to create the AMI. The role must have permissions to copy images, describe images, and create tags, with a trust relationship allowing appstream.amazonaws.com to assume the role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tag-specifications",
+          description:
+            "The tags to apply to the exported AMI. These tags help you organize and manage your EC2 AMIs",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--ami-description",
+          description:
+            "An optional description for the exported AMI. This description will be applied to the resulting EC2 AMI",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-fleet",
       description:
         "Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops",
@@ -752,7 +866,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-type",
           description:
-            "The instance type to use when launching fleet instances. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics-design.large   stream.graphics-design.xlarge   stream.graphics-design.2xlarge   stream.graphics-design.4xlarge   stream.graphics-desktop.2xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics.g5.xlarge   stream.graphics.g5.2xlarge   stream.graphics.g5.4xlarge   stream.graphics.g5.8xlarge   stream.graphics.g5.12xlarge   stream.graphics.g5.16xlarge   stream.graphics.g5.24xlarge   stream.graphics-pro.4xlarge   stream.graphics-pro.8xlarge   stream.graphics-pro.16xlarge   The following instance types are available for Elastic fleets:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge",
+            "The instance type to use when launching fleet instances. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics.g5.xlarge   stream.graphics.g5.2xlarge   stream.graphics.g5.4xlarge   stream.graphics.g5.8xlarge   stream.graphics.g5.12xlarge   stream.graphics.g5.16xlarge   stream.graphics.g5.24xlarge   stream.graphics.g6.xlarge   stream.graphics.g6.2xlarge   stream.graphics.g6.4xlarge   stream.graphics.g6.8xlarge   stream.graphics.g6.16xlarge   stream.graphics.g6.12xlarge   stream.graphics.g6.24xlarge   stream.graphics.gr6.4xlarge   stream.graphics.gr6.8xlarge   stream.graphics.g6f.large   stream.graphics.g6f.xlarge   stream.graphics.g6f.2xlarge   stream.graphics.g6f.4xlarge   stream.graphics.gr6f.4xlarge   The following instance types are available for Elastic fleets:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge",
           args: {
             name: "string",
           },
@@ -832,7 +946,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+            "The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "map",
           },
@@ -848,7 +962,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances in the Amazon AppStream 2.0 Administration Guide",
+            "The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -856,7 +970,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-view",
           description:
-            "The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays. The default value is APP",
+            "The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays. The default value is APP",
           args: {
             name: "string",
           },
@@ -864,7 +978,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--platform",
           description:
-            "The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets",
+            "The fleet platform. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets",
           args: {
             name: "string",
           },
@@ -900,6 +1014,24 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "integer",
           },
+        },
+        {
+          name: "--root-volume-config",
+          description:
+            "The configuration for the root volume of fleet instances. Use this to customize storage capacity from 200 GB up to 500 GB based on your application requirements",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
+        },
+        {
+          name: "--no-disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
         },
         {
           name: "--cli-input-json",
@@ -949,7 +1081,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-type",
           description:
-            "The instance type to use when launching the image builder. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics-design.large   stream.graphics-design.xlarge   stream.graphics-design.2xlarge   stream.graphics-design.4xlarge   stream.graphics-desktop.2xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics-pro.4xlarge   stream.graphics-pro.8xlarge   stream.graphics-pro.16xlarge",
+            "The instance type to use when launching the image builder. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics.g5.xlarge   stream.graphics.g5.2xlarge   stream.graphics.g5.4xlarge   stream.graphics.g5.8xlarge   stream.graphics.g5.16xlarge   stream.graphics.g5.12xlarge   stream.graphics.g5.24xlarge   stream.graphics.g6.xlarge   stream.graphics.g6.2xlarge   stream.graphics.g6.4xlarge   stream.graphics.g6.8xlarge   stream.graphics.g6.16xlarge   stream.graphics.g6.12xlarge   stream.graphics.g6.24xlarge   stream.graphics.gr6.4xlarge   stream.graphics.gr6.8xlarge   stream.graphics.g6f.large   stream.graphics.g6f.xlarge   stream.graphics.g6f.2xlarge   stream.graphics.g6f.4xlarge   stream.graphics.gr6f.4xlarge",
           args: {
             name: "string",
           },
@@ -979,7 +1111,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances in the Amazon AppStream 2.0 Administration Guide",
+            "The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -1005,7 +1137,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--appstream-agent-version",
           description:
-            "The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]",
+            "The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]",
           args: {
             name: "string",
           },
@@ -1013,7 +1145,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+            "The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "map",
           },
@@ -1025,6 +1157,40 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--root-volume-config",
+          description:
+            "The configuration for the root volume of the image builder. Use this to customize storage capacity from 200 GB up to 500 GB based on your application installation requirements",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--softwares-to-install",
+          description:
+            "The list of license included applications to install on the image builder during creation. Possible values include the following:   Microsoft_Office_2021_LTSC_Professional_Plus_32Bit   Microsoft_Office_2021_LTSC_Professional_Plus_64Bit   Microsoft_Office_2024_LTSC_Professional_Plus_32Bit   Microsoft_Office_2024_LTSC_Professional_Plus_64Bit   Microsoft_Visio_2021_LTSC_Professional_32Bit   Microsoft_Visio_2021_LTSC_Professional_64Bit   Microsoft_Visio_2024_LTSC_Professional_32Bit   Microsoft_Visio_2024_LTSC_Professional_64Bit   Microsoft_Project_2021_Professional_32Bit   Microsoft_Project_2021_Professional_64Bit   Microsoft_Project_2024_Professional_32Bit   Microsoft_Project_2024_Professional_64Bit   Microsoft_Office_2021_LTSC_Standard_32Bit   Microsoft_Office_2021_LTSC_Standard_64Bit   Microsoft_Office_2024_LTSC_Standard_32Bit   Microsoft_Office_2024_LTSC_Standard_64Bit   Microsoft_Visio_2021_LTSC_Standard_32Bit   Microsoft_Visio_2021_LTSC_Standard_64Bit   Microsoft_Visio_2024_LTSC_Standard_32Bit   Microsoft_Visio_2024_LTSC_Standard_64Bit   Microsoft_Project_2021_Standard_32Bit   Microsoft_Project_2021_Standard_64Bit   Microsoft_Project_2024_Standard_32Bit   Microsoft_Project_2024_Standard_64Bit",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--softwares-to-uninstall",
+          description:
+            "The list of license included applications to uninstall from the image builder during creation. Possible values include the following:   Microsoft_Office_2021_LTSC_Professional_Plus_32Bit   Microsoft_Office_2021_LTSC_Professional_Plus_64Bit   Microsoft_Office_2024_LTSC_Professional_Plus_32Bit   Microsoft_Office_2024_LTSC_Professional_Plus_64Bit   Microsoft_Visio_2021_LTSC_Professional_32Bit   Microsoft_Visio_2021_LTSC_Professional_64Bit   Microsoft_Visio_2024_LTSC_Professional_32Bit   Microsoft_Visio_2024_LTSC_Professional_64Bit   Microsoft_Project_2021_Professional_32Bit   Microsoft_Project_2021_Professional_64Bit   Microsoft_Project_2024_Professional_32Bit   Microsoft_Project_2024_Professional_64Bit   Microsoft_Office_2021_LTSC_Standard_32Bit   Microsoft_Office_2021_LTSC_Standard_64Bit   Microsoft_Office_2024_LTSC_Standard_32Bit   Microsoft_Office_2024_LTSC_Standard_64Bit   Microsoft_Visio_2021_LTSC_Standard_32Bit   Microsoft_Visio_2021_LTSC_Standard_64Bit   Microsoft_Visio_2024_LTSC_Standard_32Bit   Microsoft_Visio_2024_LTSC_Standard_64Bit   Microsoft_Project_2021_Standard_32Bit   Microsoft_Project_2021_Standard_64Bit   Microsoft_Project_2024_Standard_32Bit   Microsoft_Project_2024_Standard_64Bit",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
+        },
+        {
+          name: "--no-disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
         },
         {
           name: "--cli-input-json",
@@ -1063,6 +1229,118 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "long",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-imported-image",
+      description:
+        "Creates a custom WorkSpaces Applications image by importing an EC2 AMI. This allows you to use your own customized AMI to create WorkSpaces Applications images that support additional instance types beyond the standard stream.* instances",
+      options: [
+        {
+          name: "--name",
+          description:
+            "A unique name for the imported image. The name must be between 1 and 100 characters and can contain letters, numbers, underscores, periods, and hyphens",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source-ami-id",
+          description: "The ID of the EC2 AMI to import",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-image-id",
+          description: "The ID of the Workspaces Image to import",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iam-role-arn",
+          description:
+            "The ARN of the IAM role that allows WorkSpaces Applications to access your AMI. The role must have permissions to modify image attributes and describe images, with a trust relationship allowing appstream.amazonaws.com to assume the role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "An optional description for the imported image. The description must match approved regex patterns and can be up to 256 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--display-name",
+          description:
+            "An optional display name for the imported image. The display name must match approved regex patterns and can be up to 100 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to apply to the imported image. Tags help you organize and manage your WorkSpaces Applications resources",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--runtime-validation-config",
+          description:
+            "Configuration for runtime validation of the imported image. When specified, WorkSpaces Applications provisions an instance to test streaming functionality, which helps ensure the image is suitable for use",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--agent-software-version",
+          description:
+            "The version of the WorkSpaces Applications agent to use for the imported image. Choose CURRENT_LATEST to use the agent version available at the time of import, or ALWAYS_LATEST to automatically update to the latest agent version when new versions are released",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--app-catalog-config",
+          description:
+            "Configuration for the application catalog of the imported image. This allows you to specify applications available for streaming, including their paths, icons, and launch parameters. This field contains sensitive data",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--dry-run",
+          description:
+            "When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation",
+        },
+        {
+          name: "--no-dry-run",
+          description:
+            "When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation",
         },
         {
           name: "--cli-input-json",
@@ -1151,7 +1429,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+            "The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "map",
           },
@@ -1159,7 +1437,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-endpoints",
           description:
-            "The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints",
+            "The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints",
           args: {
             name: "list",
           },
@@ -1167,7 +1445,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--embed-host-domains",
           description:
-            "The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions",
+            "The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions",
           args: {
             name: "list",
           },
@@ -1176,6 +1454,22 @@ const completionSpec: Fig.Spec = {
           name: "--streaming-experience-settings",
           description:
             "The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--content-redirection",
+          description:
+            "Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--agent-access-config",
+          description:
+            "The configuration for agent access on the stack. If specified, agent access is enabled for the stack",
           args: {
             name: "structure",
           },
@@ -1202,7 +1496,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-streaming-url",
       description:
-        "Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup",
+        "Creates a temporary URL to start an WorkSpaces Applications streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup",
       options: [
         {
           name: "--stack-name",
@@ -1244,7 +1538,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--session-context",
           description:
-            "The session context. For more information, see Session Context in the Amazon AppStream 2.0 Administration Guide",
+            "The session context. For more information, see Session Context in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -1342,7 +1636,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-updated-image",
       description:
-        'Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software. For more information, see the "Update an Image by Using Managed AppStream 2.0 Image Updates" section in Administer Your AppStream 2.0 Images, in the Amazon AppStream 2.0 Administration Guide',
+        'Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software. For more information, see the "Update an Image by Using Managed WorkSpaces Applications Image Updates" section in Administer Your WorkSpaces Applications Images, in the Amazon WorkSpaces Applications Administration Guide',
       options: [
         {
           name: "--existing-image-name",
@@ -1376,7 +1670,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--new-image-tags",
           description:
-            "The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+            "The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \\ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "map",
           },
@@ -1384,12 +1678,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--dry-run",
           description:
-            "Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to true, AppStream 2.0 displays whether image updates are available. If this value is set to false, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available",
+            "Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to true, WorkSpaces Applications displays whether image updates are available. If this value is set to false, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available",
         },
         {
           name: "--no-dry-run",
           description:
-            "Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to true, AppStream 2.0 displays whether image updates are available. If this value is set to false, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available",
+            "Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to true, WorkSpaces Applications displays whether image updates are available. If this value is set to false, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available",
         },
         {
           name: "--cli-input-json",
@@ -1449,7 +1743,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--message-action",
           description:
-            "The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.   The temporary password in the welcome email is valid for only 7 days. If users don\u2019t set their passwords within 7 days, you must send them a new welcome email",
+            "The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.   The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email",
           args: {
             name: "string",
           },
@@ -1589,7 +1883,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-directory-config",
       description:
-        "Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain",
+        "Deletes the specified Directory Config object from WorkSpaces Applications. This object includes the information required to join streaming instances to an Active Directory domain",
       options: [
         {
           name: "--directory-name",
@@ -2056,6 +2350,51 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-app-license-usage",
+      description: "Retrieves license included application usage information",
+      options: [
+        {
+          name: "--billing-period",
+          description:
+            "Billing period for the usage record. Specify the value in yyyy-mm format. For example, for August 2025, use 2025-08",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description: "Token for pagination of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-application-fleet-associations",
       description:
         "Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified",
@@ -2156,28 +2495,13 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-directory-configs",
       description:
-        "Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.  Although the response syntax in this topic includes the account password, this password is not returned in the actual response",
+        "Retrieves a list that describes one or more specified Directory Config objects for WorkSpaces Applications, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.  Although the response syntax in this topic includes the account password, this password is not returned in the actual response",
       options: [
         {
           name: "--directory-names",
           description: "The directory names",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2289,14 +2613,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2316,6 +2632,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2341,21 +2665,6 @@ const completionSpec: Fig.Spec = {
           description: "The names of the image builders to describe",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2485,21 +2794,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2570,22 +2864,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The size of each page of results. The default value is 20 and the maximum value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--authentication-type",
           description:
             "The authentication method. Specify API for a user authenticated using a streaming URL or SAML for a SAML federated user. The default is to authenticate users using a streaming URL",
@@ -2644,6 +2922,53 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-software-associations",
+      description:
+        "Retrieves license included application associations for a specified resource",
+      options: [
+        {
+          name: "--associated-resource",
+          description:
+            "The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The pagination token to use to retrieve the next page of results for this operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-stacks",
       description:
         "Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described",
@@ -2653,14 +2978,6 @@ const completionSpec: Fig.Spec = {
           description: "The names of the stacks to describe",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2683,6 +3000,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2797,21 +3122,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum size of each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2868,21 +3178,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum size of each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2928,7 +3223,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "disable-user",
       description:
-        "Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user",
+        "Disables the specified user in the user pool. Users can't sign in to WorkSpaces Applications until they are re-enabled. This action does not delete the user",
       options: [
         {
           name: "--user-name",
@@ -3125,9 +3420,79 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "disassociate-software-from-image-builder",
+      description:
+        "Removes license included application(s) association(s) from an image builder instance",
+      options: [
+        {
+          name: "--image-builder-name",
+          description: "The name of the target image builder instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--software-names",
+          description:
+            "The list of license included applications to disassociate from the image builder. Possible values include the following:   Microsoft_Office_2021_LTSC_Professional_Plus_32Bit   Microsoft_Office_2021_LTSC_Professional_Plus_64Bit   Microsoft_Office_2024_LTSC_Professional_Plus_32Bit   Microsoft_Office_2024_LTSC_Professional_Plus_64Bit   Microsoft_Visio_2021_LTSC_Professional_32Bit   Microsoft_Visio_2021_LTSC_Professional_64Bit   Microsoft_Visio_2024_LTSC_Professional_32Bit   Microsoft_Visio_2024_LTSC_Professional_64Bit   Microsoft_Project_2021_Professional_32Bit   Microsoft_Project_2021_Professional_64Bit   Microsoft_Project_2024_Professional_32Bit   Microsoft_Project_2024_Professional_64Bit   Microsoft_Office_2021_LTSC_Standard_32Bit   Microsoft_Office_2021_LTSC_Standard_64Bit   Microsoft_Office_2024_LTSC_Standard_32Bit   Microsoft_Office_2024_LTSC_Standard_64Bit   Microsoft_Visio_2021_LTSC_Standard_32Bit   Microsoft_Visio_2021_LTSC_Standard_64Bit   Microsoft_Visio_2024_LTSC_Standard_32Bit   Microsoft_Visio_2024_LTSC_Standard_64Bit   Microsoft_Project_2021_Standard_32Bit   Microsoft_Project_2021_Standard_64Bit   Microsoft_Project_2024_Standard_32Bit   Microsoft_Project_2024_Standard_64Bit",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "drain-session-instance",
+      description:
+        "Drains the instance hosting the specified streaming session. The instance stops accepting new sessions while existing sessions continue uninterrupted. Once all sessions end, the instance is reclaimed and replaced. This only applies to multi-session fleets",
+      options: [
+        {
+          name: "--session-id",
+          description: "The identifier of the streaming session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "enable-user",
       description:
-        "Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned",
+        "Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces Applications and open applications from the stacks to which they are assigned",
       options: [
         {
           name: "--user-name",
@@ -3195,6 +3560,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-export-image-task",
+      description:
+        "Retrieves information about an export image task, including its current state, progress, and any error details",
+      options: [
+        {
+          name: "--task-id",
+          description:
+            "The unique identifier of the export image task to retrieve information about",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-associated-fleets",
       description:
         "Retrieves the name of the fleet that is associated with the specified stack",
@@ -3202,14 +3599,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stack-name",
           description: "The name of the stack",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
           args: {
             name: "string",
           },
@@ -3239,6 +3628,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -3257,14 +3654,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--fleet-name",
           description: "The name of the fleet",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
           args: {
             name: "string",
           },
@@ -3289,6 +3678,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -3358,9 +3755,57 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-export-image-tasks",
+      description:
+        "Lists export image tasks, with optional filtering and pagination. Use this operation to monitor the status of multiple export operations",
+      options: [
+        {
+          name: "--filters",
+          description:
+            "Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of export image tasks to return in a single request. The valid range is 1-500, with a default of 50",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The pagination token from a previous request. Use this to retrieve the next page of results when there are more tasks than the MaxResults limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-tags-for-resource",
       description:
-        "Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks. For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+        "Retrieves a list of all tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks. For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
       options: [
         {
           name: "--resource-arn",
@@ -3463,10 +3908,51 @@ const completionSpec: Fig.Spec = {
         {
           name: "--appstream-agent-version",
           description:
-            "The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]",
+            "The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]",
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-software-deployment-to-image-builder",
+      description:
+        "Initiates license included applications deployment to an image builder instance",
+      options: [
+        {
+          name: "--image-builder-name",
+          description: "The name of the target image builder instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--retry-failed-deployments",
+          description:
+            "Whether to retry previously failed license included application deployments",
+        },
+        {
+          name: "--no-retry-failed-deployments",
+          description:
+            "Whether to retry previously failed license included application deployments",
         },
         {
           name: "--cli-input-json",
@@ -3581,7 +4067,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value. To list the current tags for your resources, use ListTagsForResource. To disassociate tags from your resources, use UntagResource. For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+        "Adds or overwrites one or more tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value. To list the current tags for your resources, use ListTagsForResource. To disassociate tags from your resources, use UntagResource. For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
       options: [
         {
           name: "--resource-arn",
@@ -3620,7 +4106,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "Disassociates one or more specified tags from the specified AppStream 2.0 resource. To list the current tags for your resources, use ListTagsForResource. For more information about tags, see Tagging Your Resources in the Amazon AppStream 2.0 Administration Guide",
+        "Disassociates one or more specified tags from the specified WorkSpaces Applications resource. To list the current tags for your resources, use ListTagsForResource. For more information about tags, see Tagging Your Resources in the Amazon WorkSpaces Applications Administration Guide",
       options: [
         {
           name: "--resource-arn",
@@ -3718,7 +4204,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances in the Amazon AppStream 2.0 Administration Guide",
+            "The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -3737,6 +4223,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2",
+        },
+        {
+          name: "--no-disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2",
         },
         {
           name: "--cli-input-json",
@@ -3848,7 +4344,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-directory-config",
       description:
-        "Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains",
+        "Updates the specified Directory Config object in WorkSpaces Applications. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains",
       options: [
         {
           name: "--directory-name",
@@ -3989,7 +4485,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-type",
           description:
-            "The instance type to use when launching fleet instances. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics-design.large   stream.graphics-design.xlarge   stream.graphics-design.2xlarge   stream.graphics-design.4xlarge   stream.graphics-desktop.2xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics-pro.4xlarge   stream.graphics-pro.8xlarge   stream.graphics-pro.16xlarge   The following instance types are available for Elastic fleets:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge",
+            "The instance type to use when launching fleet instances. The following instance types are available:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge   stream.compute.large   stream.compute.xlarge   stream.compute.2xlarge   stream.compute.4xlarge   stream.compute.8xlarge   stream.memory.large   stream.memory.xlarge   stream.memory.2xlarge   stream.memory.4xlarge   stream.memory.8xlarge   stream.memory.z1d.large   stream.memory.z1d.xlarge   stream.memory.z1d.2xlarge   stream.memory.z1d.3xlarge   stream.memory.z1d.6xlarge   stream.memory.z1d.12xlarge   stream.graphics.g4dn.xlarge   stream.graphics.g4dn.2xlarge   stream.graphics.g4dn.4xlarge   stream.graphics.g4dn.8xlarge   stream.graphics.g4dn.12xlarge   stream.graphics.g4dn.16xlarge   stream.graphics.g5.xlarge   stream.graphics.g5.2xlarge   stream.graphics.g5.4xlarge   stream.graphics.g5.8xlarge   stream.graphics.g5.16xlarge   stream.graphics.g5.12xlarge   stream.graphics.g5.24xlarge   stream.graphics.g6.xlarge   stream.graphics.g6.2xlarge   stream.graphics.g6.4xlarge   stream.graphics.g6.8xlarge   stream.graphics.g6.16xlarge   stream.graphics.g6.12xlarge   stream.graphics.g6.24xlarge   stream.graphics.gr6.4xlarge   stream.graphics.gr6.8xlarge   stream.graphics.g6f.large   stream.graphics.g6f.xlarge   stream.graphics.g6f.2xlarge   stream.graphics.g6f.4xlarge   stream.graphics.gr6f.4xlarge   The following instance types are available for Elastic fleets:   stream.standard.small   stream.standard.medium   stream.standard.large   stream.standard.xlarge   stream.standard.2xlarge",
           args: {
             name: "string",
           },
@@ -4084,7 +4580,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances in the Amazon AppStream 2.0 Administration Guide",
+            "The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) AssumeRole API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the appstream_machine_role credential profile on the instance. For more information, see Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances in the Amazon WorkSpaces Applications Administration Guide",
           args: {
             name: "string",
           },
@@ -4092,7 +4588,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-view",
           description:
-            "The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays. The default value is APP",
+            "The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When APP is specified, only the windows of applications opened by users display. When DESKTOP is specified, the standard desktop that is provided by the operating system displays. The default value is APP",
           args: {
             name: "string",
           },
@@ -4100,7 +4596,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--platform",
           description:
-            "The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets",
+            "The platform of the fleet. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets",
           args: {
             name: "string",
           },
@@ -4135,6 +4631,24 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "integer",
           },
+        },
+        {
+          name: "--root-volume-config",
+          description:
+            "The updated configuration for the root volume of fleet instances. Note that volume size cannot be decreased below the image volume size",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
+        },
+        {
+          name: "--no-disable-imdsv1",
+          description:
+            "Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.  Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement",
         },
         {
           name: "--cli-input-json",
@@ -4285,7 +4799,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--access-endpoints",
           description:
-            "The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints",
+            "The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints",
           args: {
             name: "list",
           },
@@ -4293,7 +4807,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--embed-host-domains",
           description:
-            "The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions",
+            "The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions",
           args: {
             name: "list",
           },
@@ -4302,6 +4816,22 @@ const completionSpec: Fig.Spec = {
           name: "--streaming-experience-settings",
           description:
             "The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--content-redirection",
+          description:
+            "Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--agent-access-config",
+          description:
+            "The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value",
           args: {
             name: "structure",
           },

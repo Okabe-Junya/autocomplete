@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "medical-imaging",
   description:
-    "This is the AWS HealthImaging API Reference. AWS HealthImaging is a HIPAA eligible service that empowers healthcare providers, life science organizations, and their software partners to store, analyze, and share medical images in the cloud at petabyte scale. For an introduction to the service, see the  AWS HealthImaging Developer Guide .  We recommend using one of the AWS Software Development Kits (SDKs) for your programming language, as they take care of request authentication, serialization, and connection management. For more information, see Tools to build on AWS.  The following sections list AWS HealthImaging API actions categorized according to functionality. Links are provided to actions within this Reference, along with links back to corresponding sections in the AWS HealthImaging Developer Guide where you can view tested code examples.  Data store actions     CreateDatastore \u2013 See Creating a data store.    GetDatastore \u2013 See Getting data store properties.    ListDatastores \u2013 See Listing data stores.    DeleteDatastore \u2013 See Deleting a data store.    Import job actions     StartDICOMImportJob \u2013 See Starting an import job.    GetDICOMImportJob \u2013 See Getting import job properties.    ListDICOMImportJobs \u2013 See Listing import jobs.    Image set access actions     SearchImageSets \u2013 See Searching image sets.    GetImageSet \u2013 See Getting image set properties.    GetImageSetMetadata \u2013 See Getting image set metadata.    GetImageFrame \u2013 See Getting image set pixel data.    Image set modification actions     ListImageSetVersions \u2013 See Listing image set versions.    UpdateImageSetMetadata \u2013 See Updating image set metadata.    CopyImageSet \u2013 See Copying an image set.    DeleteImageSet \u2013 See Deleting an image set.    Tagging actions     TagResource \u2013 See Tagging a resource.    ListTagsForResource \u2013 See Listing tags for a resource.    UntagResource \u2013 See Untagging a resource",
+    "This is the AWS HealthImaging API Reference. For an introduction to the service, see What is AWS HealthImaging? in the AWS HealthImaging Developer Guide",
   subcommands: [
     {
       name: "copy-image-set",
@@ -31,12 +32,22 @@ const completionSpec: Fig.Spec = {
         {
           name: "--force",
           description:
-            "Setting this flag will force the CopyImageSet operation, even if Patient, Study, or Series level metadata are mismatched across the sourceImageSet and destinationImageSet",
+            "Providing this parameter will force completion of the CopyImageSet operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the sourceImageSet and destinationImageSet",
         },
         {
           name: "--no-force",
           description:
-            "Setting this flag will force the CopyImageSet operation, even if Patient, Study, or Series level metadata are mismatched across the sourceImageSet and destinationImageSet",
+            "Providing this parameter will force completion of the CopyImageSet operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the sourceImageSet and destinationImageSet",
+        },
+        {
+          name: "--promote-to-primary",
+          description:
+            "Providing this parameter will configure the CopyImageSet operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set",
+        },
+        {
+          name: "--no-promote-to-primary",
+          description:
+            "Providing this parameter will configure the CopyImageSet operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set",
         },
         {
           name: "--cli-input-json",
@@ -86,6 +97,20 @@ const completionSpec: Fig.Spec = {
           name: "--kms-key-arn",
           description:
             "The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lambda-authorizer-arn",
+          description: "The ARN of the authorizer's Lambda function",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--lossless-storage-format",
+          description: "The lossless storage format for the datastore",
           args: {
             name: "string",
           },
@@ -178,20 +203,12 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-dicom-import-job",
-      description:
-        "Get the import job properties to learn more about the job or job progress.  The jobStatus refers to the execution of the import job. Therefore, an import job can return a jobStatus as COMPLETED even if validation issues are discovered during the import process. If a jobStatus returns as COMPLETED, we still recommend you review the output manifests written to S3, as they provide details on the success or failure of individual P10 object imports",
+      name: "get-datastore",
+      description: "Get data store properties",
       options: [
         {
           name: "--datastore-id",
           description: "The data store identifier",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--job-id",
-          description: "The import job identifier",
           args: {
             name: "string",
           },
@@ -216,12 +233,20 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-datastore",
-      description: "Get data store properties",
+      name: "get-dicom-import-job",
+      description:
+        "Get the import job properties to learn more about the job or job progress.  The jobStatus refers to the execution of the import job. Therefore, an import job can return a jobStatus as COMPLETED even if validation issues are discovered during the import process. If a jobStatus returns as COMPLETED, we still recommend you review the output manifests written to S3, as they provide details on the success or failure of individual P10 object imports",
       options: [
         {
           name: "--datastore-id",
           description: "The data store identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--job-id",
+          description: "The import job identifier",
           args: {
             name: "string",
           },
@@ -271,14 +296,11 @@ const completionSpec: Fig.Spec = {
             name: "structure",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-image-set",
@@ -349,47 +371,21 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
-      name: "list-dicom-import-jobs",
-      description: "List import jobs created for a specific data store",
+      name: "list-datastores",
+      description: "List data stores",
       options: [
         {
-          name: "--datastore-id",
-          description: "The data store identifier",
+          name: "--datastore-status",
+          description: "The data store status",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--job-status",
-          description: "The filters for listing import jobs based on status",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used to request the list of import jobs on the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The max results count. The upper bound is determined by load testing",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -436,29 +432,21 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-datastores",
-      description: "List data stores",
+      name: "list-dicom-import-jobs",
+      description: "List import jobs created for a specific data store",
       options: [
         {
-          name: "--datastore-status",
-          description: "The data store status",
+          name: "--datastore-id",
+          description: "The data store identifier",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token used to request the list of data stores on the next page",
+          name: "--job-status",
+          description: "The filters for listing import jobs based on status",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Valid Range: Minimum value of 1. Maximum value of 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -520,21 +508,6 @@ const completionSpec: Fig.Spec = {
           description: "The image set identifier",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token used to request the list of image set versions on the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The max results count",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -633,22 +606,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results that can be returned in a search",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token used for pagination of results returned in the response. Use the token returned from the previous request to continue results where the previous request ended",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -694,7 +651,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-dicom-import-job",
       description:
-        "Start importing bulk data into an ACTIVE data store. The import job imports DICOM P10 files found in the S3 prefix specified by the inputS3Uri parameter. The import job stores processing results in the file specified by the outputS3Uri parameter",
+        "Start importing bulk data into an ACTIVE data store. The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The importConfiguration parameter specifies the import type. The data is found in the S3 prefix specified by the inputS3Uri parameter. The import job stores processing results in the file specified by the outputS3Uri parameter",
       options: [
         {
           name: "--job-name",
@@ -746,6 +703,13 @@ const completionSpec: Fig.Spec = {
           description: "The account ID of the source S3 bucket owner",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--import-configuration",
+          description: "The import configuration for the import job",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -880,6 +844,16 @@ const completionSpec: Fig.Spec = {
           name: "--no-force",
           description:
             "Setting this flag will force the UpdateImageSetMetadata operation for the following attributes:    Tag.StudyInstanceUID, Tag.SeriesInstanceUID, Tag.SOPInstanceUID, and Tag.StudyID    Adding, removing, or updating private tags for an individual SOP Instance",
+        },
+        {
+          name: "--include-study-image-sets",
+          description:
+            "Flag to apply the metadata updates to all image sets in the same Study as the requested image set ID",
+        },
+        {
+          name: "--no-include-study-image-sets",
+          description:
+            "Flag to apply the metadata updates to all image sets in the same Study as the requested image set ID",
         },
         {
           name: "--update-image-set-metadata-updates",

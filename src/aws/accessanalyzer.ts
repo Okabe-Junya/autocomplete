@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "accessanalyzer",
   description:
-    "Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.  External access analyzers help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.  Unused access analyzers help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions. Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs.  This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see Identity and Access Management Access Analyzer in the IAM User Guide",
+    "Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external, internal, and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external, internal, or unused access, you first need to create an analyzer.  External access analyzers help you identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.  Internal access analyzers help you identify which principals within your organization or account have access to selected resources. This analysis supports implementing the principle of least privilege by ensuring that your specified resources can only be accessed by the intended principals within your organization.  Unused access analyzers help you identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions. Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs.  This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see Using Identity and Access Management Access Analyzer in the IAM User Guide",
   subcommands: [
     {
       name: "apply-archive-rule",
@@ -275,7 +276,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "The type of analyzer to create. Only ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS, and ORGANIZATION_UNUSED_ACCESS analyzers are supported. You can create only one analyzer per account per Region. You can create up to 5 analyzers per organization per Region",
+            "The type of analyzer to create. You can create only one analyzer per account per Region. You can create up to 5 analyzers per organization per Region",
           args: {
             name: "string",
           },
@@ -306,7 +307,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--configuration",
           description:
-            "Specifies the configuration of the analyzer. If the analyzer is an unused access analyzer, the specified scope of unused access is used for the configuration",
+            "Specifies the configuration of the analyzer. If the analyzer is an unused access analyzer, the specified scope of unused access is used for the configuration. If the analyzer is an internal access analyzer, the specified internal access analysis rules are used for the configuration",
           args: {
             name: "structure",
           },
@@ -383,6 +384,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-service-linked-analyzer",
+      description:
+        "Creates a service-linked analyzer managed by an Amazon Web Services service. This operation can only be invoked by authorized Amazon Web Services services. Direct customer invocation returns AccessDeniedException. Service-linked analyzers enable Amazon Web Services services to create and manage analyzers on behalf of customers. The lifecycle of these analyzers is managed by the calling service",
+      options: [
+        {
+          name: "--type",
+          description:
+            "The type of analyzer to create. Valid values are ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--archive-rules",
+          description:
+            "Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "A client token",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--configuration",
+          description:
+            "Specifies the configuration of the analyzer. The specified scope of unused access is used for the configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-analyzer",
       description:
         "Deletes the specified analyzer. When you delete an analyzer, IAM Access Analyzer is disabled for the account or organization in the current or specific Region. All findings that were generated by the analyzer are deleted. You cannot undo this action",
@@ -435,6 +491,45 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rule-name",
           description: "The name of the rule to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "A client token",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-service-linked-analyzer",
+      description:
+        "Deletes a service-linked analyzer. This operation can be invoked by both authorized Amazon Web Services services and customers. When invoked by a customer, IAM Access Analyzer performs a callback to the managing service to verify whether the analyzer is still in use and can be deleted. If the service indicates the analyzer is still in use, the deletion is rejected with ConflictException",
+      options: [
+        {
+          name: "--analyzer-name",
+          description:
+            "The name of the service-linked analyzer to delete. Service-linked analyzer names follow the format _AccessAnalyzerFor{ServiceName}-{Id}",
           args: {
             name: "string",
           },
@@ -544,7 +639,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-analyzed-resource",
-      description: "Retrieves information about a resource that was analyzed",
+      description:
+        "Retrieves information about a resource that was analyzed.  This action is supported only for external access analyzers",
       options: [
         {
           name: "--analyzer-arn",
@@ -650,7 +746,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-finding",
       description:
-        "Retrieves information about the specified finding. GetFinding and GetFindingV2 both use access-analyzer:GetFinding in the Action element of an IAM policy statement. You must have permission to perform the access-analyzer:GetFinding action",
+        "Retrieves information about the specified finding. GetFinding and GetFindingV2 both use access-analyzer:GetFinding in the Action element of an IAM policy statement. You must have permission to perform the access-analyzer:GetFinding action.  GetFinding is supported only for external access analyzers. You must use GetFindingV2 for internal and unused access analyzers",
       options: [
         {
           name: "--analyzer-arn",
@@ -701,21 +797,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--id",
           description: "The unique ID for the finding recommendation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
           args: {
             name: "string",
           },
@@ -783,21 +864,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -827,6 +893,38 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-findings-statistics",
+      description:
+        "Retrieves a list of aggregated finding statistics for an external access or unused access analyzer",
+      options: [
+        {
+          name: "--analyzer-arn",
+          description:
+            "The ARN of the analyzer used to generate the statistics",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -919,21 +1017,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -987,21 +1070,6 @@ const completionSpec: Fig.Spec = {
             "The ARN of the analyzer used to generate the access preview",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1068,21 +1136,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1129,21 +1182,6 @@ const completionSpec: Fig.Spec = {
       name: "list-analyzers",
       description: "Retrieves a list of analyzers",
       options: [
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--type",
           description: "The type of analyzer",
@@ -1207,20 +1245,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return in the request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1266,7 +1290,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-findings",
       description:
-        "Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use access-analyzer:ListFindings in the Action element of an IAM policy statement. You must have permission to perform the access-analyzer:ListFindings action. To learn about filter keys that you can use to retrieve a list of findings, see IAM Access Analyzer filter keys in the IAM User Guide",
+        "Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use access-analyzer:ListFindings in the Action element of an IAM policy statement. You must have permission to perform the access-analyzer:ListFindings action. To learn about filter keys that you can use to retrieve a list of findings, see IAM Access Analyzer filter keys in the IAM User Guide.  ListFindings is supported only for external access analyzers. You must use ListFindingsV2 for internal and unused access analyzers",
       options: [
         {
           name: "--analyzer-arn",
@@ -1287,21 +1311,6 @@ const completionSpec: Fig.Spec = {
           description: "The sort order for the findings returned",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1367,21 +1376,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort",
           description: "The criteria used to sort",
           args: {
@@ -1440,21 +1434,6 @@ const completionSpec: Fig.Spec = {
           name: "--principal-arn",
           description:
             "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with ListGeneratedPolicies to filter the results to only include results for a specific principal",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
           args: {
             name: "string",
           },
@@ -1582,7 +1561,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-resource-scan",
       description:
-        "Immediately starts a scan of the policies applied to the specified resource",
+        "Immediately starts a scan of the policies applied to the specified resource.  This action is supported only for external access analyzers",
       options: [
         {
           name: "--analyzer-arn",
@@ -1702,7 +1681,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-analyzer",
-      description: "Modifies the configuration of an existing analyzer",
+      description:
+        "Modifies the configuration of an existing analyzer.  This action is not supported for external access analyzers",
       options: [
         {
           name: "--analyzer-name",
@@ -1860,21 +1840,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--locale",
           description: "The locale to use for localizing the findings",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used for pagination of results returned",
           args: {
             name: "string",
           },

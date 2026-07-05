@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "appintegrations",
   description:
-    "Amazon AppIntegrations actions     Amazon AppIntegrations data types    The Amazon AppIntegrations service enables you to configure and reuse connections to external applications. For information about how you can use external applications with Amazon Connect, see the following topics in the Amazon Connect Administrator Guide:    Third-party applications (3p apps) in the agent workspace     Use Amazon Q in Connect for generative AI\u2013powered agent assistance in real-time",
+    "Amazon AppIntegrations actions     Amazon AppIntegrations data types    The Amazon AppIntegrations service enables you to configure and reuse connections to external applications. For information about how you can use external applications with Connect Customer, see the following topics in the Connect Customer Administrator Guide:    Third-party applications (3p apps) in the agent workspace     Use Amazon Q in Connect for generative AI–powered agent assistance in real-time",
   subcommands: [
     {
       name: "create-application",
@@ -72,6 +73,43 @@ const completionSpec: Fig.Spec = {
             "The configuration of events or requests that the application has access to",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--is-service",
+          description: "Indicates whether the application is a service",
+        },
+        {
+          name: "--no-is-service",
+          description: "Indicates whether the application is a service",
+        },
+        {
+          name: "--initialization-timeout",
+          description:
+            "The maximum time in milliseconds allowed to establish a connection with the workspace",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--application-config",
+          description: "The configuration settings for the application",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--iframe-config",
+          description: "The iframe configuration for the application",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--application-type",
+          description: "The type of application",
+          args: {
+            name: "string",
           },
         },
         {
@@ -526,21 +564,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -588,18 +611,10 @@ const completionSpec: Fig.Spec = {
       description: "Lists applications in the account",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--application-type",
+          description: "The type of application",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -658,21 +673,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -720,21 +720,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a paginated list of DataIntegrations in the account.  You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -791,21 +776,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -853,21 +823,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a paginated list of event integrations in the account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1069,6 +1024,43 @@ const completionSpec: Fig.Spec = {
             "The configuration of events or requests that the application has access to",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--is-service",
+          description: "Indicates whether the application is a service",
+        },
+        {
+          name: "--no-is-service",
+          description: "Indicates whether the application is a service",
+        },
+        {
+          name: "--initialization-timeout",
+          description:
+            "The maximum time in milliseconds allowed to establish a connection with the workspace",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--application-config",
+          description: "The configuration settings for the application",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--iframe-config",
+          description: "The iframe configuration for the application",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--application-type",
+          description: "The type of application",
+          args: {
+            name: "string",
           },
         },
         {

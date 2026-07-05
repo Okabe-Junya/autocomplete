@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "timestream-query",
   description: "Amazon Timestream Query",
@@ -192,7 +193,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-endpoints",
       description:
-        "DescribeEndpoints returns a list of available endpoints to make Timestream API calls against. This API is available through both Write and Query. Because the Timestream SDKs are designed to transparently work with the service\u2019s architecture, including the management and mapping of the service endpoints, it is not recommended that you use this API unless:   You are using VPC endpoints (Amazon Web Services PrivateLink) with Timestream     Your application uses a programming language that does not yet have SDK support   You require better control over the client-side implementation   For detailed information on how and when to use and implement DescribeEndpoints, see The Endpoint Discovery Pattern",
+        "DescribeEndpoints returns a list of available endpoints to make Timestream API calls against. This API is available through both Write and Query. Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, it is not recommended that you use this API unless:   You are using VPC endpoints (Amazon Web Services PrivateLink) with Timestream     Your application uses a programming language that does not yet have SDK support   You require better control over the client-side implementation   For detailed information on how and when to use and implement DescribeEndpoints, see The Endpoint Discovery Pattern",
       options: [
         {
           name: "--cli-input-json",
@@ -303,21 +304,6 @@ const completionSpec: Fig.Spec = {
         "Gets a list of all scheduled queries in the caller's Amazon account and Region. ListScheduledQueries is eventually consistent",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as the argument to the subsequent call to ListScheduledQueriesRequest",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A pagination token to resume pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -368,20 +354,6 @@ const completionSpec: Fig.Spec = {
           name: "--resource-arn",
           description:
             "The Timestream resource with tags to be listed. This value is an Amazon Resource Name (ARN)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of tags to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A pagination token to resume pagination",
           args: {
             name: "string",
           },
@@ -489,22 +461,6 @@ const completionSpec: Fig.Spec = {
             "Unique, case-sensitive string of up to 64 ASCII characters specified when a Query request is made. Providing a ClientToken makes the call to Query idempotent. This means that running the same query repeatedly will produce the same result. In other words, making multiple identical Query requests has the same effect as making a single request. When using ClientToken in a query, note the following:     If the Query API is instantiated without a ClientToken, the Query SDK generates a ClientToken on your behalf.   If the Query invocation only contains the ClientToken but does not include a NextToken, that invocation of Query is assumed to be a new query run.   If the invocation contains NextToken, that particular invocation is assumed to be a subsequent invocation of a prior call to the Query API, and a result set is returned.    After 4 hours, any request with the same ClientToken is treated as a new request",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A pagination token used to return a set of results. When the Query API is invoked using NextToken, that particular invocation is assumed to be a subsequent invocation of a prior call to Query, and a result set is returned. However, if the Query invocation only contains the ClientToken, that invocation of Query is assumed to be a new query run.  Note the following when using NextToken in a query:   A pagination token can be used for up to five Query invocations, OR for a duration of up to 1 hour \u2013 whichever comes first.   Using the same NextToken will return the same set of records. To keep paginating through the result set, you must to use the most recent nextToken.   Suppose a Query invocation returns two NextToken values, TokenA and TokenB. If TokenB is used in a subsequent Query invocation, then TokenA is invalidated and cannot be reused.   To request a previous result set from a query after pagination has begun, you must re-invoke the Query API.   The latest NextToken should be used to paginate until null is returned, at which point a new NextToken should be used.    If the IAM principal of the query initiator and the result reader are not the same and/or the query initiator and the result reader do not have the same query string in the query requests, the query will fail with an Invalid pagination token error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-rows",
-          description:
-            "The total number of rows to be returned in the Query output. The initial run of Query with a MaxRows value specified will return the result set of the query in two cases:    The size of the result is less than 1MB.   The number of rows in the result set is less than the value of maxRows.   Otherwise, the initial invocation of Query only returns a NextToken, which can then be used in subsequent calls to fetch the result set. To resume pagination, provide the NextToken value in the subsequent command. If the row size is large (e.g. a row has many columns), Timestream may return fewer rows to keep the response size from exceeding the 1 MB limit. If MaxRows is not provided, Timestream will send the necessary number of rows to meet the 1 MB limit",
-          args: {
-            name: "integer",
           },
         },
         {

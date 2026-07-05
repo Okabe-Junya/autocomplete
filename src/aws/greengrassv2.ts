@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "greengrassv2",
   description:
@@ -661,22 +662,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -727,22 +712,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--arn",
           description: "The ARN of the component",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
           args: {
             name: "string",
           },
@@ -803,22 +772,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -864,7 +817,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-core-devices",
       description:
-        "Retrieves a paginated list of Greengrass core devices.  IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then the reported status of that device might not reflect its current status. The status timestamp indicates when the device status was last updated. Core devices send status updates at the following times:   When the IoT Greengrass Core software starts   When the core device receives a deployment from the Amazon Web Services Cloud   When the status of any component on the core device becomes BROKEN    At a regular interval that you can configure, which defaults to 24 hours   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and cloud deployment",
+        "Retrieves a paginated list of Greengrass core devices.  IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then the reported status of that device might not reflect its current status. The status timestamp indicates when the device status was last updated. Core devices send status updates at the following times:   When the IoT Greengrass Core software starts   When the core device receives a deployment from the Amazon Web Services Cloud   For Greengrass nucleus 2.12.2 and earlier, the core device sends status updates when the status of any component on the core device becomes ERRORED or BROKEN.   For Greengrass nucleus 2.12.3 and later, the core device sends status updates when the status of any component on the core device becomes ERRORED, BROKEN, RUNNING, or FINISHED.   At a regular interval that you can configure, which defaults to 24 hours   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and cloud deployment",
       options: [
         {
           name: "--thing-group-arn",
@@ -877,23 +830,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status",
           description:
-            "The core device status by which to filter. If you specify this parameter, the list includes only core devices that have this status. Choose one of the following options:    HEALTHY \u2013 The IoT Greengrass Core software and all components run on the core device without issue.    UNHEALTHY \u2013 The IoT Greengrass Core software or a component is in a failed state on the core device",
+            "The core device status by which to filter. If you specify this parameter, the list includes only core devices that have this status. Choose one of the following options:    HEALTHY – The IoT Greengrass Core software and all components run on the core device without issue.    UNHEALTHY – The IoT Greengrass Core software or a component is in a failed state on the core device",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--runtime",
           description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
+            "The runtime to be used by the core device. The runtime can be:    aws_nucleus_classic     aws_nucleus_lite",
           args: {
             name: "string",
           },
@@ -955,7 +900,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--history-filter",
           description:
-            "The filter for the list of deployments. Choose one of the following options:    ALL \u2013 The list includes all deployments.    LATEST_ONLY \u2013 The list includes only the latest revision of each deployment.   Default: LATEST_ONLY",
+            "The filter for the list of deployments. Choose one of the following options:    ALL – The list includes all deployments.    LATEST_ONLY – The list includes only the latest revision of each deployment.   Default: LATEST_ONLY",
           args: {
             name: "string",
           },
@@ -964,22 +909,6 @@ const completionSpec: Fig.Spec = {
           name: "--parent-target-arn",
           description:
             "The parent deployment's target ARN within a subdeployment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
           args: {
             name: "string",
           },
@@ -1041,22 +970,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1113,25 +1026,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--topology-filter",
           description:
-            "The filter for the list of components. Choose from the following options:    ALL \u2013 The list includes all components installed on the core device.    ROOT \u2013 The list includes only root components, which are components that you specify in a deployment. When you choose this option, the list doesn't include components that the core device installs as dependencies of other components.   Default: ROOT",
+            "The filter for the list of components. Choose from the following options:    ALL – The list includes all components installed on the core device.    ROOT – The list includes only root components, which are components that you specify in a deployment. When you choose this option, the list doesn't include components that the core device installs as dependencies of other components.   Default: ROOT",
           args: {
             name: "string",
           },

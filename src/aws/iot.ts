@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "iot",
   description:
@@ -408,7 +409,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--thing-principal-type",
           description:
-            "The type of the relation you want to specify when you attach a principal to a thing.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that\u2019s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
+            "The type of the relation you want to specify when you attach a principal to a thing.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
           args: {
             name: "string",
           },
@@ -873,12 +874,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-caching-for-http",
           description:
-            "When true, the result from the authorizer\u2019s Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in refreshAfterInSeconds. This value does not affect authorization of clients that use MQTT connections. The default value is false",
+            "When true, the result from the authorizer’s Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in refreshAfterInSeconds. This value does not affect authorization of clients that use MQTT connections. The default value is false",
         },
         {
           name: "--no-enable-caching-for-http",
           description:
-            "When true, the result from the authorizer\u2019s Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in refreshAfterInSeconds. This value does not affect authorization of clients that use MQTT connections. The default value is false",
+            "When true, the result from the authorizer’s Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in refreshAfterInSeconds. This value does not affect authorization of clients that use MQTT connections. The default value is false",
         },
         {
           name: "--cli-input-json",
@@ -966,8 +967,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--certificate-pem-outfile",
-          description:
-            "Saves the command output contents of certificatePem to the given filename",
           args: {
             name: "string",
           },
@@ -1093,7 +1092,23 @@ const completionSpec: Fig.Spec = {
         {
           name: "--payload",
           description:
-            "The payload object for the command. You must specify this information when using the AWS-IoT namespace. You can upload a static payload file from your local storage that contains the instructions for the device to process. The payload file can use any format. To make sure that the device correctly interprets the payload, we recommend you to specify the payload content type",
+            "The payload object for the static command. You can upload a static payload file from your local storage that contains the instructions for the device to process. The payload file can use any format. To make sure that the device correctly interprets the payload, we recommend you to specify the payload content type",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--payload-template",
+          description:
+            "The payload template for the dynamic command.  This parameter is required for dynamic commands where the command execution placeholders are supplied either from mandatoryParameters or when StartCommandExecution is invoked",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--preprocessor",
+          description:
+            "Configuration that determines how payloadTemplate is processed to generate command execution payload.  This parameter is required for dynamic commands, along with payloadTemplate, and mandatoryParameters",
           args: {
             name: "structure",
           },
@@ -1101,14 +1116,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--mandatory-parameters",
           description:
-            "A list of parameters that are required by the StartCommandExecution API. These parameters need to be specified only when using the AWS-IoT-FleetWise namespace. You can either specify them here or when running the command using the StartCommandExecution API",
+            "A list of parameters that are used by StartCommandExecution API for execution payload generation",
           args: {
             name: "list",
           },
         },
         {
           name: "--role-arn",
-          description: "The IAM role that allows access to create the command",
+          description:
+            "The IAM role that you must provide when using the AWS-IoT-FleetWise namespace. The role grants IoT Device Management the permission to access IoT FleetWise resources for generating the payload for the command. This field is not supported when you use the AWS-IoT namespace",
           args: {
             name: "string",
           },
@@ -1344,7 +1360,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authentication-type",
           description:
-            "An enumerated string that speci\ufb01es the authentication type.    CUSTOM_AUTH_X509 - Use custom authentication and authorization with additional details from the X.509 client certificate.      CUSTOM_AUTH - Use custom authentication and authorization. For more information, see Custom authentication and authorization.      AWS_X509 - Use X.509 client certificates without custom authentication and authorization. For more information, see X.509 client certificates.      AWS_SIGV4 - Use Amazon Web Services Signature Version 4. For more information, see IAM users, groups, and roles.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see Device communication protocols",
+            "An enumerated string that speciﬁes the authentication type.    CUSTOM_AUTH_X509 - Use custom authentication and authorization with additional details from the X.509 client certificate.      CUSTOM_AUTH - Use custom authentication and authorization. For more information, see Custom authentication and authorization.      AWS_X509 - Use X.509 client certificates without custom authentication and authorization. For more information, see X.509 client certificates.      AWS_SIGV4 - Use Amazon Web Services Signature Version 4. For more information, see IAM users, groups, and roles.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see Device communication protocols",
           args: {
             name: "string",
           },
@@ -1352,7 +1368,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--application-protocol",
           description:
-            "An enumerated string that speci\ufb01es the application-layer protocol.    SECURE_MQTT - MQTT over TLS.      MQTT_WSS - MQTT over WebSocket.      HTTPS - HTTP over TLS.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see Device communication protocols",
+            "An enumerated string that speciﬁes the application-layer protocol.    SECURE_MQTT - MQTT over TLS.      MQTT_WSS - MQTT over WebSocket.      HTTPS - HTTP over TLS.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see Device communication protocols",
           args: {
             name: "string",
           },
@@ -1360,7 +1376,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-certificate-config",
           description:
-            "An object that speci\ufb01es the client certificate con\ufb01guration for a domain",
+            "An object that speciﬁes the client certificate conﬁguration for a domain",
           args: {
             name: "structure",
           },
@@ -1841,24 +1857,18 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--certificate-pem-outfile",
-          description:
-            "Saves the command output contents of certificatePem to the given filename",
           args: {
             name: "string",
           },
         },
         {
           name: "--public-key-outfile",
-          description:
-            "Saves the command output contents of keyPair.PublicKey to the given filename",
           args: {
             name: "string",
           },
         },
         {
           name: "--private-key-outfile",
-          description:
-            "Saves the command output contents of keyPair.PrivateKey to the given filename",
           args: {
             name: "string",
           },
@@ -2143,7 +2153,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "Metadata that can be used to define a package version\u2019s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. The combined size of all the attributes on a package version is limited to 3KB",
+            "Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. The combined size of all the attributes on a package version is limited to 3KB",
           args: {
             name: "map",
           },
@@ -4775,6 +4785,30 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-encryption-configuration",
+      description:
+        "Retrieves the encryption configuration for resources and data of your Amazon Web Services account in Amazon Web Services IoT Core. For more information, see Data encryption at rest in the Amazon Web Services IoT Core Developer Guide",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-endpoint",
       description:
         "Returns or creates a unique endpoint specific to the Amazon Web Services account making the call.  The first time DescribeEndpoint is called, an endpoint is created. All subsequent calls to DescribeEndpoint return the same endpoint.  Requires permission to access the DescribeEndpoint action",
@@ -5678,21 +5712,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6395,6 +6414,47 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-thing-connectivity-data",
+      description:
+        "Retrieves the live connectivity status per device. If a device has never connected to IoT Core or was disconnected for more than 1 hour before fleet indexing's thingConnectivityIndexingMode was enabled, the response will have the connected field set to false with no additional session details",
+      options: [
+        {
+          name: "--thing-name",
+          description: "The name of your IoT thing",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--include-socket-information",
+          description:
+            "Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId) should be included in the GetThingConnectivityData response. Set to true to include socket information. Set to false to omit socket information. By default, this is set to false",
+        },
+        {
+          name: "--no-include-socket-information",
+          description:
+            "Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId) should be included in the GetThingConnectivityData response. Set to true to include socket information. Set to false to omit socket information. By default, this is set to false",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-topic-rule",
       description:
         "Gets information about the rule. Requires permission to access the GetTopicRule action",
@@ -6462,6 +6522,16 @@ const completionSpec: Fig.Spec = {
         "Gets the fine grained logging options. Requires permission to access the GetV2LoggingOptions action",
       options: [
         {
+          name: "--verbose",
+          description:
+            "The flag is used to get all the event types and their respective configuration that event-based logging supports",
+        },
+        {
+          name: "--no-verbose",
+          description:
+            "The flag is used to get all the event types and their respective configuration that event-based logging supports",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6521,20 +6591,6 @@ const completionSpec: Fig.Spec = {
           description: "The verification state of the violation (detect alarm)",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6602,21 +6658,6 @@ const completionSpec: Fig.Spec = {
           description: "When true, recursively list attached policies",
         },
         {
-          name: "--marker",
-          description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6636,6 +6677,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -6677,21 +6726,6 @@ const completionSpec: Fig.Spec = {
           description: "Information identifying the noncompliant resource",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
           },
         },
         {
@@ -6793,21 +6827,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6875,21 +6894,6 @@ const completionSpec: Fig.Spec = {
           name: "--task-status",
           description:
             "Specify this filter to limit results to tasks that are in a specific state",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
           args: {
             name: "string",
           },
@@ -6984,21 +6988,6 @@ const completionSpec: Fig.Spec = {
             "Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, ascendingOrder=true",
         },
         {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7078,21 +7067,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7141,21 +7115,6 @@ const completionSpec: Fig.Spec = {
         "Lists the authorizers registered in your account. Requires permission to access the ListAuthorizers action",
       options: [
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "A marker used to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Return the list of authorizers in ascending alphabetical order",
@@ -7197,6 +7156,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -7212,21 +7179,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the billing groups you have created. Requires permission to access the ListBillingGroups action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per request",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--name-prefix-filter",
           description:
@@ -7284,21 +7236,6 @@ const completionSpec: Fig.Spec = {
         "Lists the CA certificates registered for your Amazon Web Services account. The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results. Requires permission to access the ListCACertificates action",
       options: [
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description: "Determines the order of the results",
         },
@@ -7333,6 +7270,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -7396,21 +7341,6 @@ const completionSpec: Fig.Spec = {
         "Lists the certificates registered in your Amazon Web Services account. The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results. Requires permission to access the ListCertificates action",
       options: [
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If True, the results are returned in ascending order, based on the creation date",
@@ -7440,6 +7370,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -7469,21 +7407,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If True, the results are returned in ascending order, based on the creation date",
@@ -7518,6 +7441,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -7531,24 +7462,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-command-executions",
       description:
-        "List all command executions.  You must provide only the startedTimeFilter or the completedTimeFilter information. If you provide both time filters, the API will generate an error. You can use this information to find command executions that started within a specific timeframe",
+        "List all command executions.    You must provide only the startedTimeFilter or the completedTimeFilter information. If you provide both time filters, the API will generate an error. You can use this information to retrieve a list of command executions within a specific timeframe.   You must provide only the commandArn or the thingArn information depending on whether you want to list executions for a specific command or an IoT thing. If you provide both fields, the API will generate an error.   For more information about considerations for using this API, see List command executions in your account (CLI)",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--namespace",
           description: "The namespace of the command",
@@ -7652,22 +7567,6 @@ const completionSpec: Fig.Spec = {
       description: "List all commands in your account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation. By default, the API returns up to a maximum of 25 results. You can override this default value to return up to a maximum of 100 results for this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--namespace",
           description:
             "The namespace of the command. By default, the API returns all commands that have been created for both AWS-IoT and AWS-IoT-FleetWise namespaces. You can override this default value if you want to return all commands that have been created only for a specific namespace",
@@ -7739,21 +7638,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists your Device Defender detect custom metrics.  Requires permission to access the ListCustomMetrics action",
       options: [
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -7841,21 +7725,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7903,21 +7772,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List of Device Defender ML Detect mitigation actions tasks.  Requires permission to access the ListDetectMitigationActionsTasks action",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--start-time",
           description:
@@ -7983,20 +7837,6 @@ const completionSpec: Fig.Spec = {
         "List the set of dimensions that are defined for your Amazon Web Services accounts. Requires permission to access the ListDimensions action",
       options: [
         {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to retrieve at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8045,21 +7885,6 @@ const completionSpec: Fig.Spec = {
         "Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name. Requires permission to access the ListDomainConfigurations action",
       options: [
         {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--service-type",
           description: "The type of service delivered by the endpoint",
           args: {
@@ -8091,6 +7916,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -8106,22 +7939,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all your fleet metrics.  Requires permission to access the ListFleetMetrics action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -8170,21 +7987,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the search indices. Requires permission to access the ListIndices action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token used to get the next set of results, or null if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -8244,21 +8046,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status",
           description: "The status of the job",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -8335,21 +8122,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--job-id",
           description:
             "The unique identifier you assigned to this job when it was created",
@@ -8405,21 +8177,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of job templates. Requires permission to access the ListJobTemplates action",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return in the list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to use to return the next set of results in the list",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -8480,20 +8237,6 @@ const completionSpec: Fig.Spec = {
           name: "--target-selection",
           description:
             "Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.   We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets. By using continuous jobs, devices that join the group receive the job execution even after the job has been created",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -8573,20 +8316,6 @@ const completionSpec: Fig.Spec = {
           name: "--template-name",
           description:
             "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "Maximum number of entries that can be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -8686,20 +8415,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8756,21 +8471,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8818,20 +8518,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists OTA updates. Requires permission to access the ListOTAUpdates action",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--ota-update-status",
           description: "The OTA update job status",
@@ -8888,21 +8574,6 @@ const completionSpec: Fig.Spec = {
         "Lists certificates that are being transferred but not yet accepted. Requires permission to access the ListOutgoingCertificates action",
       options: [
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If True, the results are returned in ascending order, based on the creation date",
@@ -8937,6 +8608,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -8963,20 +8642,6 @@ const completionSpec: Fig.Spec = {
           name: "--status",
           description:
             "The status of the package version. For more information, see Package version lifecycle",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
           args: {
             name: "string",
           },
@@ -9030,20 +8695,6 @@ const completionSpec: Fig.Spec = {
         "Lists the software packages associated to the account. Requires permission to access the ListPackages action",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results returned at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9092,21 +8743,6 @@ const completionSpec: Fig.Spec = {
         "Lists your policies. Requires permission to access the ListPolicies action",
       options: [
         {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If true, the results are returned in ascending creation order",
@@ -9136,6 +8772,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -9164,21 +8808,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If true, the results are returned in ascending creation order",
@@ -9208,6 +8837,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -9268,21 +8905,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description: "The marker for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Specifies the order for results. If true, results are returned in ascending creation order",
@@ -9317,6 +8939,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -9332,22 +8962,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.  Requires permission to access the ListPrincipalThings action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--principal",
           description: "The principal",
@@ -9404,22 +9018,6 @@ const completionSpec: Fig.Spec = {
         "Lists the things associated with the specified principal. A principal can be an X.509 certificate or an Amazon Cognito ID. Requires permission to access the ListPrincipalThings action",
       options: [
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--principal",
           description:
             "The principal. A principal can be an X.509 certificate or an Amazon Cognito ID",
@@ -9430,7 +9028,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--thing-principal-type",
           description:
-            "The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all things, including both the EXCLUSIVE_THING and NON_EXCLUSIVE_THING attachment types.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that\u2019s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
+            "The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all things, including both the EXCLUSIVE_THING and NON_EXCLUSIVE_THING attachment types.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
           args: {
             name: "string",
           },
@@ -9491,20 +9089,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9552,20 +9136,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the provisioning templates in your Amazon Web Services account. Requires permission to access the ListProvisioningTemplates action",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -9622,21 +9192,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token that can be used to retrieve the next set of results, or null if there are no additional results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9685,21 +9240,6 @@ const completionSpec: Fig.Spec = {
         "Lists the role aliases registered in your account. Requires permission to access the ListRoleAliases action",
       options: [
         {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description: "A marker used to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--ascending-order",
           description:
             "Return the list of role aliases in ascending alphabetical order",
@@ -9729,6 +9269,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -9766,21 +9314,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--validation-result",
           description: "The end result of the",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token that can be used to retrieve the next set of results, or null if there are no additional results",
           args: {
             name: "string",
           },
@@ -9834,21 +9367,6 @@ const completionSpec: Fig.Spec = {
         "Lists all of your scheduled audits. Requires permission to access the ListScheduledAudits action",
       options: [
         {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9896,20 +9414,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric. Requires permission to access the ListSecurityProfiles action.   dimensionName and metricName cannot be used in the same request",
       options: [
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--dimension-name",
           description:
@@ -9975,20 +9479,6 @@ const completionSpec: Fig.Spec = {
         "Lists the Device Defender security profiles attached to a target (thing group). Requires permission to access the ListSecurityProfilesForTarget action",
       options: [
         {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--recursive",
           description: "If true, return child groups too",
         },
@@ -10052,20 +9542,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all of the streams in your Amazon Web Services account. Requires permission to access the ListStreams action",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at a time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A token used to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--ascending-order",
           description:
@@ -10132,14 +9608,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -10159,6 +9627,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -10187,21 +9663,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description: "A marker used to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -10221,6 +9682,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -10246,20 +9715,6 @@ const completionSpec: Fig.Spec = {
           description: "The security profile",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -10310,21 +9765,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List the thing groups in your account. Requires permission to access the ListThingGroups action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--parent-group",
           description:
@@ -10405,21 +9845,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -10467,22 +9892,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. Requires permission to access the ListThingPrincipals action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--thing-name",
           description: "The name of the thing",
@@ -10539,22 +9948,6 @@ const completionSpec: Fig.Spec = {
         "Lists the principals associated with the specified thing. A principal can be an X.509 certificate or an Amazon Cognito ID. Requires permission to access the ListThingPrincipals action",
       options: [
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--thing-name",
           description: "The name of the thing",
           args: {
@@ -10564,7 +9957,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--thing-principal-type",
           description:
-            "The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all principals, including both the EXCLUSIVE_THING and NON_EXCLUSIVE_THING attachment types.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that\u2019s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
+            "The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all principals, including both the EXCLUSIVE_THING and NON_EXCLUSIVE_THING attachment types.    EXCLUSIVE_THING - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.      NON_EXCLUSIVE_THING - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal",
           args: {
             name: "string",
           },
@@ -10631,21 +10024,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -10693,21 +10071,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List bulk thing provisioning tasks. Requires permission to access the ListThingRegistrationTasks action",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--status",
           description: "The status of the bulk thing provisioning task",
@@ -10764,22 +10127,6 @@ const completionSpec: Fig.Spec = {
         "Lists the existing thing types. Requires permission to access the ListThingTypes action",
       options: [
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--thing-type-name",
           description: "The name of the thing type",
           args: {
@@ -10834,22 +10181,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists your things. Use the attributeName and attributeValue parameters to filter your things. For example, calling ListThings with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute Color with the value Red. For more information, see List Things from the Amazon Web Services IoT Core Developer Guide. Requires permission to access the ListThings action.  You will not be charged for calling this API if an Access denied error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this operation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--attribute-name",
           description: "The attribute name used to search for things",
@@ -10937,21 +10268,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -11017,21 +10333,6 @@ const completionSpec: Fig.Spec = {
             "When true, list things in this thing group and in all child groups as well",
         },
         {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -11079,21 +10380,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all the topic rule destinations in your Amazon Web Services account. Requires permission to access the ListTopicRuleDestinations action",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -11145,21 +10431,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--topic",
           description: "The topic",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
           args: {
             name: "string",
           },
@@ -11226,21 +10497,6 @@ const completionSpec: Fig.Spec = {
             "The type of resource for which you are configuring logging. Must be THING_Group",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11341,20 +10597,6 @@ const completionSpec: Fig.Spec = {
           description: "The verification state of the violation (detect alarm)",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return at one time",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11849,7 +11091,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-index",
       description:
-        "The query search index. Requires permission to access the SearchIndex action",
+        "Searches the specified index. If a device has never connected to IoT Core or was disconnected for more than 1 hour before fleet indexing's thingConnectivityIndexingMode was enabled, the connectivity object for this device in the response will have the connected field set to false with no additional session details. Requires permission to access the SearchIndex action",
       options: [
         {
           name: "--index-name",
@@ -12073,6 +11315,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--no-disable-all-logs",
           description: "If true all logs are disabled. The default is false",
+        },
+        {
+          name: "--event-configurations",
+          description:
+            "The list of event configurations that override account-level logging",
+          args: {
+            name: "list",
+          },
         },
         {
           name: "--cli-input-json",
@@ -12390,7 +11640,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--principal",
           description:
-            "The principal. Valid principals are CertificateArn (arn:aws:iot:region:accountId:cert/certificateId), thingGroupArn (arn:aws:iot:region:accountId:thinggroup/groupName) and CognitoId (region:id)",
+            "The principal. Valid principals are CertificateArn (arn:aws:iot:region:accountId:cert/certificateId) and CognitoId (region:id)",
           args: {
             name: "string",
           },
@@ -12523,7 +11773,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "transfer-certificate",
       description:
-        "Transfers the specified certificate to the specified Amazon Web Services account. Requires permission to access the TransferCertificate action. You can cancel the transfer until it is acknowledged by the recipient. No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target. The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate action to deactivate it. The certificate must not have any policies attached to it. You can use the DetachPolicy action to detach them",
+        "Transfers the specified certificate to the specified Amazon Web Services account. Requires permission to access the TransferCertificate action. You can cancel the transfer until it is accepted by the recipient. No notification is sent to the transfer destination's account. The caller is responsible for notifying the transfer target. The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate action to deactivate it. The certificate must not have any policies attached to it. You can use the DetachPolicy action to detach them.  Customer managed key behavior: When you use a customer managed key to encrypt your data and then transfer the certificate to a customer in a different account using the TransferCertificate operation, the certificates will no longer be encrypted by their customer managed key configuration. During the transfer process, certificates are encrypted using Amazon Web Services IoT Core owned keys. While a certificate is in the PENDING_TRANSFER state, it's always protected by Amazon Web Services IoT Core owned keys, regardless of the customer managed key configuration of either the source or destination account.  Once the transfer is completed through AcceptCertificateTransfer, RejectCertificateTransfer, or CancelCertificateTransfer, the certificate will be protected by the customer managed key configuration of the account that owns the certificate after the transfer operation:   If the transfer is accepted: The certificate is encrypted by the target account's customer managed key configuration.   If the transfer is rejected or cancelled: The certificate is protected by the source account's customer managed key configuration",
       options: [
         {
           name: "--certificate-id",
@@ -12760,12 +12010,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enable-caching-for-http",
           description:
-            "When true, the result from the authorizer\u2019s Lambda function is cached for the time specified in refreshAfterInSeconds. The cached result is used while the device reuses the same HTTP connection",
+            "When true, the result from the authorizer’s Lambda function is cached for the time specified in refreshAfterInSeconds. The cached result is used while the device reuses the same HTTP connection",
         },
         {
           name: "--no-enable-caching-for-http",
           description:
-            "When true, the result from the authorizer\u2019s Lambda function is cached for the time specified in refreshAfterInSeconds. The cached result is used while the device reuses the same HTTP connection",
+            "When true, the result from the authorizer’s Lambda function is cached for the time specified in refreshAfterInSeconds. The cached result is used while the device reuses the same HTTP connection",
         },
         {
           name: "--cli-input-json",
@@ -13170,7 +12420,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--authentication-type",
           description:
-            "An enumerated string that speci\ufb01es the authentication type.    CUSTOM_AUTH_X509 - Use custom authentication and authorization with additional details from the X.509 client certificate.      CUSTOM_AUTH - Use custom authentication and authorization. For more information, see Custom authentication and authorization.      AWS_X509 - Use X.509 client certificates without custom authentication and authorization. For more information, see X.509 client certificates.      AWS_SIGV4 - Use Amazon Web Services Signature Version 4. For more information, see IAM users, groups, and roles.      DEFAULT  - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see Device communication protocols",
+            "An enumerated string that speciﬁes the authentication type.    CUSTOM_AUTH_X509 - Use custom authentication and authorization with additional details from the X.509 client certificate.      CUSTOM_AUTH - Use custom authentication and authorization. For more information, see Custom authentication and authorization.      AWS_X509 - Use X.509 client certificates without custom authentication and authorization. For more information, see X.509 client certificates.      AWS_SIGV4 - Use Amazon Web Services Signature Version 4. For more information, see IAM users, groups, and roles.      DEFAULT  - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see Device communication protocols",
           args: {
             name: "string",
           },
@@ -13178,7 +12428,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--application-protocol",
           description:
-            "An enumerated string that speci\ufb01es the application-layer protocol.    SECURE_MQTT - MQTT over TLS.      MQTT_WSS - MQTT over WebSocket.      HTTPS - HTTP over TLS.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see Device communication protocols",
+            "An enumerated string that speciﬁes the application-layer protocol.    SECURE_MQTT - MQTT over TLS.      MQTT_WSS - MQTT over WebSocket.      HTTPS - HTTP over TLS.      DEFAULT - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see Device communication protocols",
           args: {
             name: "string",
           },
@@ -13186,7 +12436,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-certificate-config",
           description:
-            "An object that speci\ufb01es the client certificate con\ufb01guration for a domain",
+            "An object that speciﬁes the client certificate conﬁguration for a domain",
           args: {
             name: "structure",
           },
@@ -13256,6 +12506,52 @@ const completionSpec: Fig.Spec = {
           name: "--query-version",
           description:
             'The dynamic thing group query version to update.  Currently one query version is supported: "2017-09-30". If not specified, the query version defaults to this value',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-encryption-configuration",
+      description:
+        "Updates the encryption configuration. By default, Amazon Web Services IoT Core encrypts your data at rest using Amazon Web Services owned keys. Amazon Web Services IoT Core also supports symmetric customer managed keys from Key Management Service (KMS). With customer managed keys, you create, own, and manage the KMS keys in your Amazon Web Services account.  Before using this API, you must set up permissions for Amazon Web Services IoT Core to access KMS. For more information, see Data encryption at rest in the Amazon Web Services IoT Core Developer Guide",
+      options: [
+        {
+          name: "--encryption-type",
+          description: "The type of the KMS key",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--kms-key-arn",
+          description: "The ARN of the customer managedKMS key",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--kms-access-role-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on behalf of the customer",
           args: {
             name: "string",
           },
@@ -13708,7 +13004,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "Metadata that can be used to define a package version\u2019s configuration. For example, the Amazon S3 file location, configuration options that are being sent to the device or fleet.   Note: Attributes can be updated only when the package version is in a draft state. The combined size of all the attributes on a package version is limited to 3KB",
+            "Metadata that can be used to define a package version’s configuration. For example, the Amazon S3 file location, configuration options that are being sent to the device or fleet.   Note: Attributes can be updated only when the package version is in a draft state. The combined size of all the attributes on a package version is limited to 3KB",
           args: {
             name: "map",
           },

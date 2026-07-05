@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "s3outposts",
   description:
@@ -109,22 +110,6 @@ const completionSpec: Fig.Spec = {
         "Lists endpoints associated with the specified Outpost.  Related actions include:    CreateEndpoint     DeleteEndpoint",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If a previous response from this operation included a NextToken value, provide that value here to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of endpoints that will be returned in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -173,22 +158,6 @@ const completionSpec: Fig.Spec = {
         "Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account. Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user from Resource Access Manager (RAM)",
       options: [
         {
-          name: "--next-token",
-          description:
-            "When you can get additional results from the ListOutpostsWithS3 call, a NextToken parameter is returned in the output. You can then pass in a subsequent command to the NextToken parameter to continue listing additional Outposts",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of Outposts to return. The limit is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -236,22 +205,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM). Related actions include:    CreateEndpoint     DeleteEndpoint",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "If a previous response from this operation included a NextToken value, you can provide that value here to retrieve the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of endpoints that will be returned in the response",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--outpost-id",
           description: "The ID of the Amazon Web Services Outpost",

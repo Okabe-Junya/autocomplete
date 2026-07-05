@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "mediapackagev2",
   description:
@@ -401,10 +402,26 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--mss-manifests",
+          description:
+            "A list of Microsoft Smooth Streaming (MSS) manifest configurations for the origin endpoint. You can configure multiple MSS manifests to provide different streaming experiences or to support different client requirements",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--force-endpoint-error-configuration",
           description: "The failover settings for the endpoint",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--uri-separator",
+          description:
+            "The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value, the default is UNDERSCORE",
+          args: {
+            name: "string",
           },
         },
         {
@@ -643,7 +660,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-channel",
       description:
-        "Retrieves the specified channel that's configured in AWS Elemental MediaPackage, including the origin endpoints that are associated with it",
+        "Retrieves the specified channel that's configured in AWS Elemental MediaPackage",
       options: [
         {
           name: "--channel-group-name",
@@ -683,7 +700,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-channel-group",
       description:
-        "Retrieves the specified channel group that's configured in AWS Elemental MediaPackage, including the channels and origin endpoints that are associated with it",
+        "Retrieves the specified channel group that's configured in AWS Elemental MediaPackage",
       options: [
         {
           name: "--channel-group-name",
@@ -905,24 +922,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-channel-groups",
       description:
-        "Retrieves all channel groups that are configured in AWS Elemental MediaPackage, including the channels and origin endpoints that are associated with it",
+        "Retrieves all channel groups that are configured in Elemental MediaPackage",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from the GET list request. Use the token to fetch the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -969,28 +970,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-channels",
       description:
-        "Retrieves all channels in a specific channel group that are configured in AWS Elemental MediaPackage, including the origin endpoints that are associated with it",
+        "Retrieves all channels in a specific channel group that are configured in AWS Elemental MediaPackage",
       options: [
         {
           name: "--channel-group-name",
           description:
             "The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from the GET list request. Use the token to fetch the next page of results",
           args: {
             name: "string",
           },
@@ -1076,22 +1061,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of harvest jobs to return in a single request. If not specified, a default value will be used",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used for pagination. Provide this value in subsequent requests to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1151,22 +1120,6 @@ const completionSpec: Fig.Spec = {
           name: "--channel-name",
           description:
             "The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token from the GET list request. Use the token to fetch the next page of results",
           args: {
             name: "string",
           },
@@ -1324,6 +1277,100 @@ const completionSpec: Fig.Spec = {
         {
           name: "--policy",
           description: "The policy to attach to the specified origin endpoint",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cdn-auth-configuration",
+          description:
+            "The settings for using authorization headers between the MediaPackage endpoint and your CDN.  For information about CDN authorization, see CDN authorization in Elemental MediaPackage in the MediaPackage user guide",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "reset-channel-state",
+      description:
+        "Resetting the channel can help to clear errors from misconfigurations in the encoder. A reset refreshes the ingest stream and removes previous content.   Be sure to stop the encoder before you reset the channel, and wait at least 30 seconds before you restart the encoder",
+      options: [
+        {
+          name: "--channel-group-name",
+          description:
+            "The name of the channel group that contains the channel that you are resetting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--channel-name",
+          description: "The name of the channel that you are resetting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "reset-origin-endpoint-state",
+      description:
+        "Resetting the origin endpoint can help to resolve unexpected behavior and other content packaging issues. It also helps to preserve special events when you don't want the previous content to be available for viewing. A reset clears out all previous content from the origin endpoint. MediaPackage might return old content from this endpoint in the first 30 seconds after the endpoint reset. For best results, when possible, wait 30 seconds from endpoint reset to send playback requests to this endpoint",
+      options: [
+        {
+          name: "--channel-group-name",
+          description:
+            "The name of the channel group that contains the channel with the origin endpoint that you are resetting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--channel-name",
+          description:
+            "The name of the channel with the origin endpoint that you are resetting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--origin-endpoint-name",
+          description: "The name of the origin endpoint that you are resetting",
           args: {
             name: "string",
           },
@@ -1628,10 +1675,26 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--mss-manifests",
+          description:
+            "A list of Microsoft Smooth Streaming (MSS) manifest configurations to update for the origin endpoint. This replaces the existing MSS manifest configurations",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--force-endpoint-error-configuration",
           description: "The failover settings for the endpoint",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--uri-separator",
+          description:
+            "The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value in the update request, the current value is preserved",
+          args: {
+            name: "string",
           },
         },
         {

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codeguruprofiler",
   description:
@@ -91,7 +92,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-resolution",
           description:
-            "The requested resolution of time steps for the returned time series of values. If the requested target resolution is not available due to data not being retained we provide a best effort result by falling back to the most granular available resolution after the target resolution. There are 3 valid values.     P1D \u2014 1 day     PT1H \u2014 1 hour     PT5M \u2014 5 minutes",
+            "The requested resolution of time steps for the returned time series of values. If the requested target resolution is not available due to data not being retained we provide a best effort result by falling back to the most granular available resolution after the target resolution. There are 3 valid values.     P1D — 1 day     PT1H — 1 hour     PT5M — 5 minutes",
           args: {
             name: "string",
           },
@@ -407,7 +408,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--accept",
           description:
-            'The format of the returned profiling data. The format maps to the Accept and Content-Type headers of the HTTP request. You can specify one of the following: or the default .   <ul> <li> <p> <code>application/json</code> \u2014 standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> \u2014 the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>',
+            'The format of the returned profiling data. The format maps to the Accept and Content-Type headers of the HTTP request. You can specify one of the following: or the default .   <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>',
           args: {
             name: "string",
           },
@@ -451,14 +452,11 @@ const completionSpec: Fig.Spec = {
             name: "timestamp",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-recommendations",
@@ -604,22 +602,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of profile time results returned by ListProfileTimes in paginated output. When this parameter is used, ListProfileTimes only returns maxResults results in a single page with a nextToken response element. The remaining results of the initial request can be seen by sending another ListProfileTimes request with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListProfileTimes request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value.   This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--order-by",
           description:
             "The order (ascending or descending by start time of the profile) to use when listing profiles. Defaults to TIMESTAMP_DESCENDING",
@@ -630,7 +612,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--period",
           description:
-            "The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values.     P1D \u2014 1 day     PT1H \u2014 1 hour     PT5M \u2014 5 minutes",
+            "The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values.     P1D — 1 day     PT1H — 1 hour     PT5M — 5 minutes",
           args: {
             name: "string",
           },
@@ -778,7 +760,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "post-agent-profile",
       description:
-        "Submits profiling data to an aggregated profile of a profiling group. To get an aggregated profile that is created with this profiling data, use  GetProfile",
+        "Submits profiling data to an aggregated profile of a profiling group. To get an aggregated profile that is created with this profiling data, use  GetProfile ",
       options: [
         {
           name: "--agent-profile",
@@ -790,7 +772,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content-type",
           description:
-            'The format of the submitted profiling data. The format maps to the Accept and Content-Type headers of the HTTP request. You can specify one of the following: or the default .   <ul> <li> <p> <code>application/json</code> \u2014 standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> \u2014 the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>',
+            'The format of the submitted profiling data. The format maps to the Accept and Content-Type headers of the HTTP request. You can specify one of the following: or the default .   <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>',
           args: {
             name: "string",
           },
@@ -928,7 +910,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "remove-permission",
       description:
-        "Removes permissions from a profiling group's resource-based policy that are provided using an action group. The one supported action group that can be removed is agentPermission which grants ConfigureAgent and PostAgent permissions. For more information, see Resource-based policies in CodeGuru Profiler in the Amazon CodeGuru Profiler User Guide,  ConfigureAgent , and  PostAgentProfile",
+        "Removes permissions from a profiling group's resource-based policy that are provided using an action group. The one supported action group that can be removed is agentPermission which grants ConfigureAgent and PostAgent permissions. For more information, see Resource-based policies in CodeGuru Profiler in the Amazon CodeGuru Profiler User Guide,  ConfigureAgent , and  PostAgentProfile ",
       options: [
         {
           name: "--action-group",

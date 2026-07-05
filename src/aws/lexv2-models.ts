@@ -1,6 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "lexv2-models",
-  description: null,
+  description:
+    "Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components",
   subcommands: [
     {
       name: "batch-create-custom-vocabulary-item",
@@ -26,7 +28,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--locale-id",
           description:
-            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages",
+            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages ",
           args: {
             name: "string",
           },
@@ -82,7 +84,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--locale-id",
           description:
-            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages",
+            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages ",
           args: {
             name: "string",
           },
@@ -138,7 +140,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--locale-id",
           description:
-            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages",
+            "The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see  Supported Languages ",
           args: {
             name: "string",
           },
@@ -290,6 +292,14 @@ const completionSpec: Fig.Spec = {
           description: "The list of bot members in a network to be created",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--error-log-settings",
+          description:
+            "Specifies the configuration for error logging during bot creation",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -452,11 +462,43 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--unified-speech-settings",
+          description:
+            "Unified speech settings to configure for the new bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--audio-filler-settings",
+          description:
+            "Audio filler settings to configure for the new bot locale. When enabled, Amazon Lex plays a brief background audio filler during speech-to-speech interactions to mask processing delays. Requires unifiedSpeechSettings (speech-to-speech) to be configured on the bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--speech-recognition-settings",
+          description:
+            "Speech-to-text settings to configure for the new bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--generative-ai-settings",
           description:
             "Contains specifications about the generative AI capabilities from Amazon Bedrock that you can turn on for your bot",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--speech-detection-sensitivity",
+          description:
+            "The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions",
+          args: {
+            name: "string",
           },
         },
         {
@@ -627,6 +669,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--intent-display-name",
+          description:
+            "A display name for the intent. If configured, This name will be shown to users during Intent Disambiguation instead of the intent name. Display names should be user-friendly, descriptive and match the intent's purpose to improve user experience during disambiguation",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--description",
           description:
             "A description of the intent. Use the description to help identify the intent in lists",
@@ -645,7 +695,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sample-utterances",
           description:
-            'An array of strings that a user might say to signal the intent. For example, "I want a pizza", or "I want a {PizzaSize} pizza".  In an utterance, slot names are enclosed in curly braces ("{", "}") to indicate where they should be displayed in the utterance shown to the user',
+            'An array of strings that a user might say to signal the intent. For example, "I want a pizza", or "I want a {PizzaSize} pizza".  In an utterance, slot names are enclosed in curly braces ("{", "}") to indicate where they should be displayed in the utterance shown to the user.',
           args: {
             name: "list",
           },
@@ -740,6 +790,14 @@ const completionSpec: Fig.Spec = {
           name: "--qn-a-intent-configuration",
           description:
             "Specifies the configuration of the built-in Amazon.QnAIntent. The AMAZON.QnAIntent intent is called when Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the kendraConfiguration field",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--q-in-connect-intent-configuration",
+          description:
+            "Qinconnect intent configuration details for the create intent request",
           args: {
             name: "structure",
           },
@@ -851,7 +909,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--condition",
           description:
-            "Specifies a condition when the policy is in effect. If the principal of the policy is a service principal, you must provide two condition blocks, one with a SourceAccount global condition key and one with a SourceArn global condition key. For more information, see IAM JSON policy elements: Condition",
+            "Specifies a condition when the policy is in effect. If the principal of the policy is a service principal, you must provide two condition blocks, one with a SourceAccount global condition key and one with a SourceArn global condition key. For more information, see IAM JSON policy elements: Condition ",
           args: {
             name: "map",
           },
@@ -1226,6 +1284,45 @@ const completionSpec: Fig.Spec = {
           name: "--no-skip-resource-in-use-check",
           description:
             "By default, Amazon Lex checks if any other resource, such as a bot network, is using the bot alias before it is deleted and throws a ResourceInUseException exception if the alias is being used by another resource. Set this parameter to true to skip this check and remove the alias even if it is being used by another resource",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-bot-analyzer-recommendation",
+      description:
+        "Permanently deletes the recommendations and analysis results for a specific bot analysis request. This operation is provided for GDPR compliance and cannot be undone. After deletion, the analysis results cannot be retrieved. The analysis request ID will still appear in the history list, but attempting to describe the recommendations will return a ResourceNotFoundException",
+      options: [
+        {
+          name: "--bot-id",
+          description: "The unique identifier of the bot",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--bot-analyzer-request-id",
+          description:
+            "The unique identifier of the analysis request whose recommendations should be deleted",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -1890,6 +1987,68 @@ const completionSpec: Fig.Spec = {
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-bot-analyzer-recommendation",
+      description:
+        "Retrieves the analysis results and recommendations for bot optimization. The analysis must be in Available status before recommendations can be retrieved. Recommendations are returned with pagination support. Each recommendation includes the issue location, priority level, detailed description, and proposed fix",
+      options: [
+        {
+          name: "--bot-id",
+          description: "The unique identifier of the bot",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--bot-analyzer-request-id",
+          description: "The unique identifier of the analysis request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -2846,6 +3005,77 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-bot-analyzer-history",
+      description:
+        "Retrieves a list of historical bot analysis executions for a specific bot. You can filter the results by locale and bot version. The history includes all analysis executions regardless of their status, allowing you to track past analyses and their outcomes",
+      options: [
+        {
+          name: "--bot-id",
+          description: "The unique identifier of the bot",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--locale-id",
+          description:
+            "The locale identifier to filter the history. If not specified, returns history for all locales",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--bot-version",
+          description:
+            "The bot version to filter the history. If not specified, defaults to DRAFT",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-bot-locales",
       description: "Gets a list of locales for the specified bot",
       options: [
@@ -3590,7 +3820,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-intent-metrics",
       description:
-        "Retrieves summary metrics for the intents in your bot. The following fields are required:    metrics \u2013 A list of AnalyticsIntentMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can specify only one order in a given request",
+        "Retrieves summary metrics for the intents in your bot. The following fields are required:    metrics – A list of AnalyticsIntentMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can specify only one order in a given request",
       options: [
         {
           name: "--bot-id",
@@ -3635,7 +3865,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-by",
           description:
-            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    IntentName \u2013 The name of the intent.    IntentEndState \u2013 The final state of the intent. The possible end states are detailed in Key definitions in the user guide",
+            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    IntentName – The name of the intent.    IntentEndState – The final state of the intent. The possible end states are detailed in Key definitions in the user guide",
           args: {
             name: "list",
           },
@@ -3686,7 +3916,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-intent-paths",
       description:
-        "Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.    intentPath \u2013 Define an order of intents for which you want to retrieve metrics. Separate intents in the path with a forward slash. For example, populate the intentPath field with /BookCar/BookHotel to see details about how many times users invoked the BookCar and BookHotel intents in that order.   Use the optional filters field to filter the results",
+        "Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:    startDateTime and endDateTime – Define a time range for which you want to retrieve results.    intentPath – Define an order of intents for which you want to retrieve metrics. Separate intents in the path with a forward slash. For example, populate the intentPath field with /BookCar/BookHotel to see details about how many times users invoked the BookCar and BookHotel intents in that order.   Use the optional filters field to filter the results",
       options: [
         {
           name: "--bot-id",
@@ -3750,7 +3980,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-intent-stage-metrics",
       description:
-        "Retrieves summary metrics for the stages within intents in your bot. The following fields are required:    metrics \u2013 A list of AnalyticsIntentStageMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can only specify one order in a given request",
+        "Retrieves summary metrics for the stages within intents in your bot. The following fields are required:    metrics – A list of AnalyticsIntentStageMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can only specify one order in a given request",
       options: [
         {
           name: "--bot-id",
@@ -3795,7 +4025,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-by",
           description:
-            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    IntentStageName \u2013 The name of the intent stage.    SwitchedToIntent \u2013 The intent to which the conversation was switched (if any)",
+            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    IntentStageName – The name of the intent stage.    SwitchedToIntent – The intent to which the conversation was switched (if any)",
           args: {
             name: "list",
           },
@@ -4076,7 +4306,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-session-metrics",
       description:
-        "Retrieves summary metrics for the user sessions with your bot. The following fields are required:    metrics \u2013 A list of AnalyticsSessionMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both",
+        "Retrieves summary metrics for the user sessions with your bot. The following fields are required:    metrics – A list of AnalyticsSessionMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both",
       options: [
         {
           name: "--bot-id",
@@ -4121,7 +4351,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-by",
           description:
-            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    ConversationEndState \u2013 The final state of the conversation. The possible end states are detailed in Key definitions in the user guide.    LocaleId \u2013 The unique identifier of the bot locale",
+            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    ConversationEndState – The final state of the conversation. The possible end states are detailed in Key definitions in the user guide.    LocaleId – The unique identifier of the bot locale",
           args: {
             name: "list",
           },
@@ -4562,7 +4792,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-utterance-analytics-data",
       description:
-        "To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results and the sortBy field to specify the values by which to sort the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results",
+        "To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results and the sortBy field to specify the values by which to sort the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results",
       options: [
         {
           name: "--bot-id",
@@ -4642,7 +4872,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-utterance-metrics",
       description:
-        "To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves summary metrics for the utterances in your bot. The following fields are required:    metrics \u2013 A list of AnalyticsUtteranceMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime \u2013 Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both",
+        "To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves summary metrics for the utterances in your bot. The following fields are required:    metrics – A list of AnalyticsUtteranceMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both",
       options: [
         {
           name: "--bot-id",
@@ -4687,7 +4917,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--group-by",
           description:
-            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    UtteranceText \u2013 The transcription of the utterance.    UtteranceState \u2013 The state of the utterance. The possible states are detailed in Key definitions in the user guide",
+            "A list of objects, each of which specifies how to group the results. You can group by the following criteria:    UtteranceText – The transcription of the utterance.    UtteranceState – The state of the utterance. The possible states are detailed in Key definitions in the user guide",
           args: {
             name: "list",
           },
@@ -4695,7 +4925,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A list containing attributes related to the utterance that you want the response to return. The following attributes are possible:    LastUsedIntent \u2013 The last used intent at the time of the utterance",
+            "A list containing attributes related to the utterance that you want the response to return. The following attributes are possible:    LastUsedIntent – The last used intent at the time of the utterance",
           args: {
             name: "list",
           },
@@ -4809,6 +5039,61 @@ const completionSpec: Fig.Spec = {
             "If the response from the SearchAssociatedTranscriptsRequest operation contains more results than specified in the maxResults parameter, an index is returned in the response. Use that index in the nextIndex parameter to return the next page of results",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-bot-analyzer",
+      description:
+        "Initiates an asynchronous analysis of your bot configuration using AI-powered analysis to identify potential issues and recommend improvements based on AWS best practices. The analysis examines your bot's configuration, including intents, utterances, slots, and conversation flows, to provide actionable recommendations for optimization",
+      options: [
+        {
+          name: "--bot-id",
+          description: "The unique identifier of the bot to analyze",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--analysis-scope",
+          description:
+            "The scope of analysis to perform. Currently only BotLocale scope is supported. Valid Values: BotLocale",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--locale-id",
+          description:
+            "The locale identifier for the bot locale to analyze. Required when analysisScope is BotLocale",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--bot-version",
+          description:
+            "The version of the bot to analyze. Defaults to DRAFT if not specified",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5128,6 +5413,44 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "stop-bot-analyzer",
+      description:
+        "Cancels an ongoing bot analysis execution. Once stopped, the analysis cannot be resumed and no recommendations will be generated",
+      options: [
+        {
+          name: "--bot-id",
+          description: "The unique identifier of the bot",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--bot-analyzer-request-id",
+          description: "The unique identifier of the analysis request to stop",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "stop-bot-recommendation",
       description: "Stop an already running Bot Recommendation request",
       options: [
@@ -5328,6 +5651,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--error-log-settings",
+          description:
+            "Allows you to modify how Amazon Lex logs errors during bot interactions, including destinations for error logs and the types of errors to be captured",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5480,11 +5811,43 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--unified-speech-settings",
+          description:
+            "Updated unified speech settings to apply to the bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--audio-filler-settings",
+          description:
+            "Updated audio filler settings to apply to the bot locale. When enabled, requires unifiedSpeechSettings (speech-to-speech) to be configured on the bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--speech-recognition-settings",
+          description:
+            "Updated speech-to-text settings to apply to the bot locale",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--generative-ai-settings",
           description:
             "Contains settings for generative AI features powered by Amazon Bedrock for your bot locale. Use this object to turn generative AI features on and off. Pricing may differ if you turn a feature on. For more information, see LINK",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--speech-detection-sensitivity",
+          description:
+            "The new sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5628,6 +5991,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--intent-display-name",
+          description: "The new display name for the intent",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--description",
           description: "The new description of the intent",
           args: {
@@ -5748,6 +6118,14 @@ const completionSpec: Fig.Spec = {
           name: "--qn-a-intent-configuration",
           description:
             "Specifies the configuration of the built-in Amazon.QnAIntent. The AMAZON.QnAIntent intent is called when Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the kendraConfiguration field",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--q-in-connect-intent-configuration",
+          description:
+            "Qinconnect intent configuration details for the update intent request",
           args: {
             name: "structure",
           },
@@ -6091,21 +6469,13 @@ const completionSpec: Fig.Spec = {
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
       subcommands: [
         {
-          name: "bot-alias-available",
+          name: "bot-available",
           description:
-            "Wait until a bot alias is available It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
+            "Wait until a bot is available It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
           options: [
             {
-              name: "--bot-alias-id",
-              description: "The identifier of the bot alias to describe",
-              args: {
-                name: "string",
-              },
-            },
-            {
               name: "--bot-id",
-              description:
-                "The identifier of the bot associated with the bot alias to describe",
+              description: "The unique identifier of the bot to describe",
               args: {
                 name: "string",
               },
@@ -6130,13 +6500,21 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "bot-available",
+          name: "bot-alias-available",
           description:
-            "Wait until a bot is available It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
+            "Wait until a bot alias is available It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
           options: [
             {
+              name: "--bot-alias-id",
+              description: "The identifier of the bot alias to describe",
+              args: {
+                name: "string",
+              },
+            },
+            {
               name: "--bot-id",
-              description: "The unique identifier of the bot to describe",
+              description:
+                "The identifier of the bot associated with the bot alias to describe",
               args: {
                 name: "string",
               },
@@ -6270,53 +6648,6 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "bot-locale-created",
-          description:
-            "Wait unit a bot locale is created It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
-          options: [
-            {
-              name: "--bot-id",
-              description:
-                "The identifier of the bot associated with the locale",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--bot-version",
-              description: "The version of the bot associated with the locale",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--locale-id",
-              description:
-                "The unique identifier of the locale to describe. The string must match one of the supported locales. For more information, see Supported languages",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--cli-input-json",
-              description:
-                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--generate-cli-skeleton",
-              description:
-                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-              args: {
-                name: "string",
-                suggestions: ["input", "output"],
-              },
-            },
-          ],
-        },
-        {
           name: "bot-locale-express-testing-available",
           description:
             "Wait until a bot locale build is ready for express testing It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
@@ -6379,6 +6710,53 @@ const completionSpec: Fig.Spec = {
             {
               name: "--bot-version",
               description: "The version of the bot to return metadata for",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "bot-locale-created",
+          description:
+            "Wait unit a bot locale is created It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 35 failed checks",
+          options: [
+            {
+              name: "--bot-id",
+              description:
+                "The identifier of the bot associated with the locale",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--bot-version",
+              description: "The version of the bot associated with the locale",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--locale-id",
+              description:
+                "The unique identifier of the locale to describe. The string must match one of the supported locales. For more information, see Supported languages",
               args: {
                 name: "string",
               },

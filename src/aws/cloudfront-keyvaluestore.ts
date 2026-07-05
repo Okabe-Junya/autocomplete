@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "cloudfront-keyvaluestore",
   description:
@@ -124,22 +125,6 @@ const completionSpec: Fig.Spec = {
           description: "The Amazon Resource Name (ARN) of the Key Value Store",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50",
-          args: {
-            name: "integer",
           },
         },
         {

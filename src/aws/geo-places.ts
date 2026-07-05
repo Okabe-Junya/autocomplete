@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "geo-places",
   description:
@@ -6,12 +7,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "autocomplete",
       description:
-        "The autocomplete operation speeds up and increases the accuracy of entering addresses by providing a list of address candidates matching a partially entered address. Results are sorted from most to least matching. Filtering and biasing can be used to increase the relevance of the results if additional search context is known",
+        "Autocomplete completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views. For more information, see Autocomplete in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-text",
           description:
-            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form",
+            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.  The fields QueryText, and QueryID are mutually exclusive",
           args: {
             name: "string",
           },
@@ -19,7 +20,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call. Default value: 5",
           args: {
             name: "integer",
           },
@@ -27,7 +28,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--bias-position",
           description:
-            "The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WSG84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
+            "The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WGS 84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
           args: {
             name: "list",
           },
@@ -35,7 +36,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -43,7 +44,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--postal-code-mode",
           description:
-            "The PostalCodeMode affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value cityLookup, all cities in that postal code are returned",
+            "The PostalCodeMode affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value EnumerateSpannedLocalities, all cities in that postal code are returned",
           args: {
             name: "string",
           },
@@ -67,7 +68,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country",
+            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. The following political views are currently supported:    ARG: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands    EGY: Egypt's view on Bir Tawil    IND: India's view on Gilgit-Baltistan    KEN: Kenya's view on the Ilemi Triangle    MAR: Morocco's view on Western Sahara    RUS: Russia's view on Crimea    SDN: Sudan's view on the Halaib Triangle    SRB: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands    SUR: Suriname's view on the Courantyne Headwaters and Lawa Headwaters    SYR: Syria's view on the Golan Heights    TUR: Turkey's view on Cyprus and Northern Cyprus    TZA: Tanzania's view on Lake Malawi    URY: Uruguay's view on Rincon de Artigas    VNM: Vietnam's view on the Paracel Islands and Spratly Islands",
           args: {
             name: "string",
           },
@@ -75,7 +76,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored). Currently, Autocomplete does not support storage of results",
           args: {
             name: "string",
           },
@@ -110,7 +111,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "geocode",
       description:
-        "The Geocode action allows you to obtain coordinates, addresses, and other information about places",
+        "Geocode converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views. For more information, see Geocode in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-text",
@@ -131,7 +132,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call. Default value: 20",
           args: {
             name: "integer",
           },
@@ -139,7 +140,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--bias-position",
           description:
-            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WSG84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
+            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WGS 84 format",
           args: {
             name: "list",
           },
@@ -147,7 +148,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -179,7 +180,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored). Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers.   When storing Geocode responses, you must set this field to Storage to comply with the terms of service. These requests will be charged at a higher rate. Please review the user agreement and service pricing structure to determine the correct setting for your use case",
           args: {
             name: "string",
           },
@@ -214,7 +215,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-place",
       description:
-        "Finds a place by its unique ID. A PlaceId is returned by other place operations",
+        "GetPlace finds a place by its unique ID. A PlaceId is returned by other place operations. For more information, see GetPlace in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--place-id",
@@ -227,7 +228,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-features",
           description:
-            "A list of optional additional parameters such as time zone that can be requested for each result",
+            "A list of optional additional parameters such as time zone that can be requested for each result. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the TimeZone value",
           args: {
             name: "list",
           },
@@ -235,7 +236,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry",
+            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the following codes: en, id, km, lo, ms, my, pt, th, tl, vi, zh",
           args: {
             name: "string",
           },
@@ -243,7 +244,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country",
+            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
           args: {
             name: "string",
           },
@@ -251,7 +252,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored). Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers.   When storing GetPlace responses, you must set this field to Storage to comply with the terms of service. These requests will be charged at a higher rate. Please review the user agreement and service pricing structure to determine the correct setting for your use case",
           args: {
             name: "string",
           },
@@ -286,12 +287,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "reverse-geocode",
       description:
-        "The ReverseGeocode operation allows you to retrieve addresses and place information from coordinates",
+        "ReverseGeocode converts geographic coordinates into a human-readable address or place. You can obtain address component, and other related information such as place type, category, street information. The Reverse Geocode API supports filtering to on place type so that you can refine result based on your need. Also, The Reverse Geocode API can also provide additional features such as time zone information and the inclusion of political views. For more information, see Reverse Geocode in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-position",
           description:
-            "The position, in [lng, lat] for which you are querying nearby resultsfor. Results closer to the position will be ranked higher then results further away from the position",
+            "The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position",
           args: {
             name: "list",
           },
@@ -299,7 +300,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-radius",
           description:
-            "The maximum distance in meters from the QueryPosition from which a result will be returned",
+            "The maximum distance in meters from the QueryPosition from which a result will be returned. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only up to a maximum value of 100,000",
           args: {
             name: "long",
           },
@@ -307,7 +308,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call. Default value: 1",
           args: {
             name: "integer",
           },
@@ -315,7 +316,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -323,7 +324,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-features",
           description:
-            "A list of optional additional parameters, such as time zone that can be requested for each result",
+            "A list of optional additional parameters, such as time zone that can be requested for each result. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the TimeZone value",
           args: {
             name: "list",
           },
@@ -331,7 +332,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry",
+            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the following codes: en, id, km, lo, ms, my, pt, th, tl, vi, zh",
           args: {
             name: "string",
           },
@@ -339,7 +340,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country",
+            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
           args: {
             name: "string",
           },
@@ -347,7 +348,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored).   When storing ReverseGeocode responses, you must set this field to Storage to comply with the terms of service. These requests will be charged at a higher rate. Please review the user agreement and service pricing structure to determine the correct setting for your use case",
           args: {
             name: "string",
           },
@@ -358,6 +359,14 @@ const completionSpec: Fig.Spec = {
             "Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--heading",
+          description:
+            "The heading in degrees from true north in a navigation context. The heading is measured as the angle clockwise from the North direction. Example: North is 0 degrees, East is 90 degrees, South is 180 degrees, and West is 270 degrees",
+          args: {
+            name: "double",
           },
         },
         {
@@ -381,12 +390,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "search-nearby",
-      description: "Search nearby a specified location",
+      description:
+        "SearchNearby queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters. For more information, see Search Nearby in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-position",
           description:
-            "The position, in [lng, lat] for which you are querying nearby resultsfor. Results closer to the position will be ranked higher then results further away from the position",
+            "The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position",
           args: {
             name: "list",
           },
@@ -394,7 +404,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--query-radius",
           description:
-            "The maximum distance in meters from the QueryPosition from which a result will be returned",
+            "The maximum distance in meters from the QueryPosition from which a result will be returned.  The fields QueryText, and QueryID are mutually exclusive",
           args: {
             name: "long",
           },
@@ -402,7 +412,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call. Default value: 20",
           args: {
             name: "integer",
           },
@@ -410,7 +420,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -442,7 +452,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored). Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers.   When storing SearchNearby responses, you must set this field to Storage to comply with the terms of service. These requests will be charged at a higher rate. Please review the user agreement and service pricing structure to determine the correct setting for your use case",
           args: {
             name: "string",
           },
@@ -485,19 +495,20 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-text",
       description:
-        "Use the SearchText operation to search for geocode and place information. You can then complete a follow-up query suggested from the Suggest API via a query id",
+        "SearchText searches for geocode and place information. You can then complete a follow-up query suggested from the Suggest API via a query id. For more information, see Search Text in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-text",
           description:
-            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form",
+            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.  Exactly one of the following fields must be set: QueryText or QueryId",
           args: {
             name: "string",
           },
         },
         {
           name: "--query-id",
-          description: "The query Id",
+          description:
+            "The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API. Not available in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers.  Exactly one of the following fields must be set: QueryText or QueryId",
           args: {
             name: "string",
           },
@@ -505,7 +516,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call. Default value: 20",
           args: {
             name: "integer",
           },
@@ -513,7 +524,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--bias-position",
           description:
-            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WSG84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
+            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WGS 84 format.  Exactly one of the following fields must be set: BiasPosition, Filter.BoundingBox, or Filter.Circle",
           args: {
             name: "list",
           },
@@ -521,7 +532,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -529,7 +540,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-features",
           description:
-            "A list of optional additional parameters, such as time zone, that can be requested for each result",
+            "A list of optional additional parameters, such as time zone, that can be requested for each result. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the TimeZone value",
           args: {
             name: "list",
           },
@@ -537,7 +548,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry",
+            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the following codes: en, id, km, lo, ms, my, pt, th, tl, vi, zh",
           args: {
             name: "string",
           },
@@ -545,7 +556,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country",
+            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
           args: {
             name: "string",
           },
@@ -553,7 +564,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored).   When storing SearchText responses, you must set this field to Storage to comply with the terms of service. These requests will be charged at a higher rate. Please review the user agreement and service pricing structure to determine the correct setting for your use case",
           args: {
             name: "string",
           },
@@ -596,12 +607,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "suggest",
       description:
-        "The Suggest operation finds addresses or place candidates based on incomplete or misspelled queries. You then select the best query to submit based on the returned results",
+        "Suggest provides intelligent predictions or recommendations based on the user's input or context, such as relevant places, points of interest, query terms or search category. It is designed to help users find places or point of interests candidates or identify a follow on query based on incomplete or misspelled queries. It returns a list of possible matches or refinements that can be used to formulate a more accurate query. Users can select the most appropriate suggestion and use it for further searching. The API provides options for filtering results by location and other attributes, and allows for additional features like phonemes and timezones. The response includes refined query terms and detailed place information. For more information, see Suggest in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--query-text",
           description:
-            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form",
+            "The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.  The fields QueryText and QueryID are mutually exclusive",
           args: {
             name: "string",
           },
@@ -609,7 +620,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-results",
           description:
-            "An optional limit for the number of results returned in a single call",
+            "An optional limit for the number of results returned in a single call.  Default value: 20",
           args: {
             name: "integer",
           },
@@ -617,7 +628,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--max-query-refinements",
           description:
-            "Maximum number of query terms to be returned for use with a search text query",
+            "Maximum number of query terms to be returned for use with a search text query. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
           args: {
             name: "integer",
           },
@@ -625,7 +636,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--bias-position",
           description:
-            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WSG84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
+            "The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in [lng, lat] and in the WGS 84 format.  The fields BiasPosition, FilterBoundingBox, and FilterCircle are mutually exclusive",
           args: {
             name: "list",
           },
@@ -633,7 +644,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "A structure which contains a set of inclusion/exclusion properties that results must posses in order to be returned as a result",
+            "A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result",
           args: {
             name: "structure",
           },
@@ -641,7 +652,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-features",
           description:
-            "A list of optional additional parameters, such as time zone, that can be requested for each result",
+            "A list of optional additional parameters, such as time zone, that can be requested for each result. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the Core and TimeZone values",
           args: {
             name: "list",
           },
@@ -649,7 +660,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--language",
           description:
-            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry",
+            "A list of BCP 47 compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the following codes: en, id, km, lo, ms, my, pt, th, tl, vi, zh",
           args: {
             name: "string",
           },
@@ -657,7 +668,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country",
+            "The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
           args: {
             name: "string",
           },
@@ -665,7 +676,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--intended-use",
           description:
-            "Indicates if the results will be stored. Defaults to SingleUse, if left empty",
+            "Indicates if the query results will be persisted in customer infrastructure. Defaults to SingleUse (not stored). Currently, Suggest does not support storage of results",
           args: {
             name: "string",
           },

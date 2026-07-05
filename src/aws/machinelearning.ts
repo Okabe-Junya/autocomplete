@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "machinelearning",
   description:
@@ -747,21 +748,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "An ID of the page in the paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -879,21 +865,6 @@ const completionSpec: Fig.Spec = {
             "A two-value parameter that determines the sequence of the resulting list of DataSource.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The ID of the page in the paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of DataSource to include in the result",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1017,21 +988,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "The ID of the page in the paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of Evaluation to include in the result",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1149,21 +1105,6 @@ const completionSpec: Fig.Spec = {
             "A two-value parameter that determines the sequence of the resulting list of MLModel.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The ID of the page in the paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1606,141 +1547,6 @@ const completionSpec: Fig.Spec = {
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
       subcommands: [
         {
-          name: "batch-prediction-available",
-          description:
-            "Wait until JMESPath query Results[].Status returns COMPLETED for all elements when polling with ``describe-batch-predictions``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
-          options: [
-            {
-              name: "--filter-variable",
-              description:
-                "Use one of the following variables to filter a list of BatchPrediction:    CreatedAt - Sets the search criteria to the BatchPrediction creation date.    Status - Sets the search criteria to the BatchPrediction status.    Name - Sets the search criteria to the contents of the BatchPrediction   Name.    IAMUser - Sets the search criteria to the user account that invoked the BatchPrediction creation.    MLModelId - Sets the search criteria to the MLModel used in the BatchPrediction.    DataSourceId - Sets the search criteria to the DataSource used in the BatchPrediction.    DataURI - Sets the search criteria to the data file(s) used in the BatchPrediction. The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--eq",
-              description:
-                "The equal to operator. The BatchPrediction results will have FilterVariable values that exactly match the value specified with EQ",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--gt",
-              description:
-                "The greater than operator. The BatchPrediction results will have FilterVariable values that are greater than the value specified with GT",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--lt",
-              description:
-                "The less than operator. The BatchPrediction results will have FilterVariable values that are less than the value specified with LT",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--ge",
-              description:
-                "The greater than or equal to operator. The BatchPrediction results will have FilterVariable values that are greater than or equal to the value specified with GE",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--le",
-              description:
-                "The less than or equal to operator. The BatchPrediction results will have FilterVariable values that are less than or equal to the value specified with LE",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--ne",
-              description:
-                "The not equal to operator. The BatchPrediction results will have FilterVariable values not equal to the value specified with NE",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--prefix",
-              description:
-                "A string that is found at the beginning of a variable, such as Name or Id. For example, a Batch Prediction operation could have the Name 2014-09-09-HolidayGiftMailer. To search for this BatchPrediction, select Name for the FilterVariable and any of the following strings for the Prefix:    2014-09   2014-09-09   2014-09-09-Holiday",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--sort-order",
-              description:
-                "A two-value parameter that determines the sequence of the resulting list of MLModels.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--next-token",
-              description: "An ID of the page in the paginated results",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--limit",
-              description:
-                "The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--cli-input-json",
-              description:
-                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--starting-token",
-              description:
-                "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--page-size",
-              description:
-                "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--max-items",
-              description:
-                "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-              args: {
-                name: "integer",
-              },
-            },
-            {
-              name: "--generate-cli-skeleton",
-              description:
-                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-              args: {
-                name: "string",
-                suggestions: ["input", "output"],
-              },
-            },
-          ],
-        },
-        {
           name: "data-source-available",
           description:
             "Wait until JMESPath query Results[].Status returns COMPLETED for all elements when polling with ``describe-data-sources``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
@@ -1828,6 +1634,141 @@ const completionSpec: Fig.Spec = {
               name: "--limit",
               description:
                 "The maximum number of DataSource to include in the result",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--starting-token",
+              description:
+                "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--page-size",
+              description:
+                "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--max-items",
+              description:
+                "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+              args: {
+                name: "integer",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "ml-model-available",
+          description:
+            "Wait until JMESPath query Results[].Status returns COMPLETED for all elements when polling with ``describe-ml-models``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+          options: [
+            {
+              name: "--filter-variable",
+              description:
+                "Use one of the following variables to filter a list of MLModel:    CreatedAt - Sets the search criteria to MLModel creation date.    Status - Sets the search criteria to MLModel status.    Name - Sets the search criteria to the contents of MLModel   Name.    IAMUser - Sets the search criteria to the user account that invoked the MLModel creation.    TrainingDataSourceId - Sets the search criteria to the DataSource used to train one or more MLModel.    RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time endpoint status.    MLModelType - Sets the search criteria to MLModel type: binary, regression, or multi-class.    Algorithm - Sets the search criteria to the algorithm that the MLModel uses.    TrainingDataURI - Sets the search criteria to the data file(s) used in training a MLModel. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--eq",
+              description:
+                "The equal to operator. The MLModel results will have FilterVariable values that exactly match the value specified with EQ",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--gt",
+              description:
+                "The greater than operator. The MLModel results will have FilterVariable values that are greater than the value specified with GT",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--lt",
+              description:
+                "The less than operator. The MLModel results will have FilterVariable values that are less than the value specified with LT",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--ge",
+              description:
+                "The greater than or equal to operator. The MLModel results will have FilterVariable values that are greater than or equal to the value specified with GE",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--le",
+              description:
+                "The less than or equal to operator. The MLModel results will have FilterVariable values that are less than or equal to the value specified with LE",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--ne",
+              description:
+                "The not equal to operator. The MLModel results will have FilterVariable values not equal to the value specified with NE",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--prefix",
+              description:
+                "A string that is found at the beginning of a variable, such as Name or Id. For example, an MLModel could have the Name 2014-09-09-HolidayGiftMailer. To search for this MLModel, select Name for the FilterVariable and any of the following strings for the Prefix:    2014-09   2014-09-09   2014-09-09-Holiday",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--sort-order",
+              description:
+                "A two-value parameter that determines the sequence of the resulting list of MLModel.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--next-token",
+              description: "The ID of the page in the paginated results",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--limit",
+              description:
+                "The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100",
               args: {
                 name: "integer",
               },
@@ -2011,14 +1952,14 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "ml-model-available",
+          name: "batch-prediction-available",
           description:
-            "Wait until JMESPath query Results[].Status returns COMPLETED for all elements when polling with ``describe-ml-models``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+            "Wait until JMESPath query Results[].Status returns COMPLETED for all elements when polling with ``describe-batch-predictions``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--filter-variable",
               description:
-                "Use one of the following variables to filter a list of MLModel:    CreatedAt - Sets the search criteria to MLModel creation date.    Status - Sets the search criteria to MLModel status.    Name - Sets the search criteria to the contents of MLModel   Name.    IAMUser - Sets the search criteria to the user account that invoked the MLModel creation.    TrainingDataSourceId - Sets the search criteria to the DataSource used to train one or more MLModel.    RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time endpoint status.    MLModelType - Sets the search criteria to MLModel type: binary, regression, or multi-class.    Algorithm - Sets the search criteria to the algorithm that the MLModel uses.    TrainingDataURI - Sets the search criteria to the data file(s) used in training a MLModel. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory",
+                "Use one of the following variables to filter a list of BatchPrediction:    CreatedAt - Sets the search criteria to the BatchPrediction creation date.    Status - Sets the search criteria to the BatchPrediction status.    Name - Sets the search criteria to the contents of the BatchPrediction   Name.    IAMUser - Sets the search criteria to the user account that invoked the BatchPrediction creation.    MLModelId - Sets the search criteria to the MLModel used in the BatchPrediction.    DataSourceId - Sets the search criteria to the DataSource used in the BatchPrediction.    DataURI - Sets the search criteria to the data file(s) used in the BatchPrediction. The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory",
               args: {
                 name: "string",
               },
@@ -2026,7 +1967,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--eq",
               description:
-                "The equal to operator. The MLModel results will have FilterVariable values that exactly match the value specified with EQ",
+                "The equal to operator. The BatchPrediction results will have FilterVariable values that exactly match the value specified with EQ",
               args: {
                 name: "string",
               },
@@ -2034,7 +1975,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--gt",
               description:
-                "The greater than operator. The MLModel results will have FilterVariable values that are greater than the value specified with GT",
+                "The greater than operator. The BatchPrediction results will have FilterVariable values that are greater than the value specified with GT",
               args: {
                 name: "string",
               },
@@ -2042,7 +1983,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--lt",
               description:
-                "The less than operator. The MLModel results will have FilterVariable values that are less than the value specified with LT",
+                "The less than operator. The BatchPrediction results will have FilterVariable values that are less than the value specified with LT",
               args: {
                 name: "string",
               },
@@ -2050,7 +1991,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--ge",
               description:
-                "The greater than or equal to operator. The MLModel results will have FilterVariable values that are greater than or equal to the value specified with GE",
+                "The greater than or equal to operator. The BatchPrediction results will have FilterVariable values that are greater than or equal to the value specified with GE",
               args: {
                 name: "string",
               },
@@ -2058,7 +1999,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--le",
               description:
-                "The less than or equal to operator. The MLModel results will have FilterVariable values that are less than or equal to the value specified with LE",
+                "The less than or equal to operator. The BatchPrediction results will have FilterVariable values that are less than or equal to the value specified with LE",
               args: {
                 name: "string",
               },
@@ -2066,7 +2007,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--ne",
               description:
-                "The not equal to operator. The MLModel results will have FilterVariable values not equal to the value specified with NE",
+                "The not equal to operator. The BatchPrediction results will have FilterVariable values not equal to the value specified with NE",
               args: {
                 name: "string",
               },
@@ -2074,7 +2015,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--prefix",
               description:
-                "A string that is found at the beginning of a variable, such as Name or Id. For example, an MLModel could have the Name 2014-09-09-HolidayGiftMailer. To search for this MLModel, select Name for the FilterVariable and any of the following strings for the Prefix:    2014-09   2014-09-09   2014-09-09-Holiday",
+                "A string that is found at the beginning of a variable, such as Name or Id. For example, a Batch Prediction operation could have the Name 2014-09-09-HolidayGiftMailer. To search for this BatchPrediction, select Name for the FilterVariable and any of the following strings for the Prefix:    2014-09   2014-09-09   2014-09-09-Holiday",
               args: {
                 name: "string",
               },
@@ -2082,14 +2023,14 @@ const completionSpec: Fig.Spec = {
             {
               name: "--sort-order",
               description:
-                "A two-value parameter that determines the sequence of the resulting list of MLModel.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
+                "A two-value parameter that determines the sequence of the resulting list of MLModels.    asc - Arranges the list in ascending order (A-Z, 0-9).    dsc - Arranges the list in descending order (Z-A, 9-0).   Results are sorted by FilterVariable",
               args: {
                 name: "string",
               },
             },
             {
               name: "--next-token",
-              description: "The ID of the page in the paginated results",
+              description: "An ID of the page in the paginated results",
               args: {
                 name: "string",
               },
