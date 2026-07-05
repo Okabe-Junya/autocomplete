@@ -10,9 +10,11 @@
 //      synthetic `--cli-input-json` / `--generate-cli-skeleton` / pagination
 //      arguments) in the exact order the CLI exposes them.
 //   2. The botocore service models `<root>/botocore/data/<service>/<api>/
-//      service-2.json` (operation and parameter documentation) and
-//      `waiters-2.json` (waiter definitions). Documentation is HTML that is
-//      stripped to plain text.
+//      service-2.json` (operation and parameter documentation),
+//      `waiters-2.json` (waiter definitions) and `paginators-1.json`
+//      (pagination configs — used to hide the raw pagination members the CLI
+//      replaces with --starting-token / --page-size / --max-items).
+//      Documentation is HTML that is stripped to plain text.
 //
 // The command tree drives which subcommands/options exist; the models supply
 // the human-readable descriptions. Option order mirrors `param_table`
@@ -138,6 +140,13 @@ const SYNTHETIC_DESCS = {
   "max-items": MAX_ITEMS_DESC,
 };
 const DROP_ARGS = new Set(["cli-input-yaml"]);
+
+// The `outfile` argument added by awscli.customizations.streamingoutputarg is
+// a positional in the real CLI (its cli_name has no `--` prefix), but ac.index
+// marks it positional_arg=0 — special-case it. Its help text is the
+// customization's fixed HELP string.
+const OUTFILE_ARG = "outfile";
+const OUTFILE_DESC = "Filename where the content will be saved";
 
 const WAIT_DESCRIPTION =
   "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met";
@@ -474,7 +483,11 @@ function loadModel(service) {
         const waiters = fs.existsSync(waiterFile)
           ? JSON.parse(fs.readFileSync(waiterFile, "utf8")).waiters || {}
           : {};
-        model = buildModelIndex(raw, waiters);
+        const paginatorFile = path.join(apiDir, "paginators-1.json");
+        const pagination = fs.existsSync(paginatorFile)
+          ? JSON.parse(fs.readFileSync(paginatorFile, "utf8")).pagination || {}
+          : {};
+        model = buildModelIndex(raw, waiters, pagination);
       }
     }
   }
@@ -482,7 +495,7 @@ function loadModel(service) {
   return model;
 }
 
-function buildModelIndex(raw, waiters) {
+function buildModelIndex(raw, waiters, pagination) {
   const shapes = raw.shapes || {};
   const operations = raw.operations || {};
   // command token -> operation name
@@ -490,12 +503,30 @@ function buildModelIndex(raw, waiters) {
   for (const opName of Object.keys(operations)) {
     opByCommand[xformName(opName, "-")] = opName;
   }
+  // For every paginated operation the CLI hides the raw pagination members
+  // (input_token(s) and limit_key, plus output_token should it name an input
+  // member) and exposes only the generic --starting-token / --page-size /
+  // --max-items arguments (awscli.customizations.paginate). Precompute the CLI
+  // names of the members to drop, per operation.
+  const paginationDrops = new Map(); // opName -> Set of CLI arg names
+  for (const [opName, cfg] of Object.entries(pagination)) {
+    const drop = new Set();
+    for (const key of ["input_token", "limit_key", "output_token"]) {
+      const v = cfg[key];
+      if (!v) continue;
+      for (const member of Array.isArray(v) ? v : [v]) {
+        drop.add(xformName(member, "-"));
+      }
+    }
+    if (drop.size) paginationDrops.set(opName, drop);
+  }
   return {
     serviceDoc: raw.documentation || "",
     shapes,
     operations,
     opByCommand,
     waiters,
+    paginationDrops,
   };
 }
 
@@ -524,6 +555,8 @@ const stats = {
   waiters: 0,
   missingOpDoc: 0,
   missingArgDoc: 0,
+  paginationArgsDropped: 0,
+  positionals: 0,
 };
 
 // Emit one option object literal (raw TS text; biome pretty-prints later).
@@ -572,6 +605,34 @@ function optionsText(service, command, params, argDocs) {
   return items;
 }
 
+// Split a command's params into positional arguments and options. Rows flagged
+// positional in param_table are positionals, as is the streaming `outfile`
+// argument (see OUTFILE_ARG).
+function splitParams(params) {
+  const positionals = [];
+  const options = [];
+  for (const p of params) {
+    if (p[2] || p[0] === OUTFILE_ARG) positionals.push(p);
+    else options.push(p);
+  }
+  return { positionals, options };
+}
+
+// Emit the subcommand `args` field for positional parameters (single object,
+// or an array preserving CLI order for multiple).
+function positionalArgsText(positionals, argDocs) {
+  const items = positionals.map(([argname]) => {
+    const parts = [`name: ${J(argname)}`];
+    const desc =
+      argname === OUTFILE_ARG
+        ? cleanDoc(OUTFILE_DESC)
+        : cleanDoc(argDocs[argname] ?? "");
+    if (desc) parts.push(`description: ${J(desc)}`);
+    return obj(parts);
+  });
+  return items.length === 1 ? items[0] : `[\n${items.join(",\n")}\n]`;
+}
+
 // --- emit subcommands ------------------------------------------------------
 
 function operationSubcommand(model, service, command, params) {
@@ -585,8 +646,23 @@ function operationSubcommand(model, service, command, params) {
   } else {
     stats.missingOpDoc++;
   }
-  const opts = optionsText(service, command, params, argDocs);
+  let { positionals, options } = splitParams(params);
+  // For paginated operations, drop the raw pagination members the CLI hides;
+  // only the generic --starting-token / --page-size / --max-items remain.
+  // Guard on the triad actually being present so we never remove the only way
+  // to paginate.
+  const drops = opName && model.paginationDrops.get(opName);
+  if (drops && options.some(([argname]) => argname === "starting-token")) {
+    const before = options.length;
+    options = options.filter(([argname]) => !drops.has(argname));
+    stats.paginationArgsDropped += before - options.length;
+  }
+  const opts = optionsText(service, command, options, argDocs);
   if (opts.length) parts.push(`options: [\n${opts.join(",\n")}\n]`);
+  if (positionals.length) {
+    parts.push(`args: ${positionalArgsText(positionals, argDocs)}`);
+    stats.positionals += positionals.length;
+  }
   stats.operations++;
   return obj(parts);
 }
@@ -637,8 +713,13 @@ function waitSubcommand(model, service, waitParamsByCommand) {
     const argDocs = argDocsForOperation(model, waiter.operation);
     const parts = [`name: ${J(command)}`];
     if (desc) parts.push(`description: ${J(desc)}`);
-    const opts = optionsText(service, command, params, argDocs);
+    const { positionals, options } = splitParams(params);
+    const opts = optionsText(service, command, options, argDocs);
     if (opts.length) parts.push(`options: [\n${opts.join(",\n")}\n]`);
+    if (positionals.length) {
+      parts.push(`args: ${positionalArgsText(positionals, argDocs)}`);
+      stats.positionals += positionals.length;
+    }
     subs.push(obj(parts));
     stats.waiters++;
   }
@@ -726,13 +807,13 @@ function main() {
   for (const list of opsByService.values()) list.sort();
 
   const paramRows = sqlite(
-    "SELECT parent, command, argname, type_name FROM param_table WHERE parent LIKE 'aws.%' ORDER BY parent, command, param_id;"
+    "SELECT parent, command, argname, type_name, positional_arg FROM param_table WHERE parent LIKE 'aws.%' ORDER BY parent, command, param_id;"
   );
-  const paramsByKey = new Map(); // "parent\tcommand" -> [[argname,type],...]
-  for (const [parent, command, argname, typeName] of paramRows) {
+  const paramsByKey = new Map(); // "parent\tcommand" -> [[argname,type,positional],...]
+  for (const [parent, command, argname, typeName, positional] of paramRows) {
     const key = `${parent}\t${command}`;
     if (!paramsByKey.has(key)) paramsByKey.set(key, []);
-    paramsByKey.get(key).push([argname, typeName]);
+    paramsByKey.get(key).push([argname, typeName, positional === "1"]);
   }
 
   const existingEntries = parseExistingIndexEntries();
@@ -826,6 +907,8 @@ function main() {
   console.error(`waiter states emitted: ${stats.waiters}`);
   console.error(`ops without model doc: ${stats.missingOpDoc}`);
   console.error(`args without doc:      ${stats.missingArgDoc}`);
+  console.error(`pagination args hidden: ${stats.paginationArgsDropped}`);
+  console.error(`positional args:       ${stats.positionals}`);
   if (dangling.length) {
     console.error(`ERROR: dangling loadSpec targets: ${dangling.join(", ")}`);
     process.exit(1);
