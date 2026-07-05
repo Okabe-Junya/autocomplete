@@ -1,0 +1,8 @@
+# Machine-generated completion spec trees — collapsed in diffs and
+# excluded from language stats. Regenerate instead of editing by hand
+# (see scripts/generate-*-specs.mjs).
+src/aws.ts linguist-generated=true
+src/aws/** linguist-generated=true
+src/az/** linguist-generated=true
+src/gcloud.ts linguist-generated=true
+src/gcloud/** linguist-generated=true
