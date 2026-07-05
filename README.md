@@ -28,8 +28,7 @@ brew tap okabe-junya/tap
 brew install okabe-junya/tap/autocomplete-specs
 ```
 
-Then create a one-time symlink (Homebrew sandboxes `post_install` with a
-redirected `HOME`, so the formula cannot do this itself):
+Then create a one-time symlink:
 
 ```bash
 mkdir -p ~/.fig/autocomplete
