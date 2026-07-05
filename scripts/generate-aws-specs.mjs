@@ -148,6 +148,15 @@ const DROP_ARGS = new Set(["cli-input-yaml"]);
 const OUTFILE_ARG = "outfile";
 const OUTFILE_DESC = "Filename where the content will be saved";
 
+// The synthetic pagination triad the CLI adds to every paginated operation
+// (name, CLI type, positional). Types match the rows ac.index emits for
+// these arguments.
+const PAGINATION_TRIAD = [
+  ["starting-token", "string", false],
+  ["page-size", "integer", false],
+  ["max-items", "integer", false],
+];
+
 const WAIT_DESCRIPTION =
   "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met";
 
@@ -556,6 +565,7 @@ const stats = {
   missingOpDoc: 0,
   missingArgDoc: 0,
   paginationArgsDropped: 0,
+  triadReinserted: 0,
   positionals: 0,
 };
 
@@ -656,6 +666,17 @@ function operationSubcommand(model, service, command, params) {
     const before = options.length;
     options = options.filter(([argname]) => !drops.has(argname));
     stats.paginationArgsDropped += before - options.length;
+    // The synthetic triad must survive even when a raw member's CLI name
+    // collides with a triad name (e.g. route53's limit_key MaxItems ->
+    // max-items): re-insert any triad member the drop removed, in the
+    // conventional position (just before --generate-cli-skeleton).
+    const present = new Set(options.map(([argname]) => argname));
+    const missing = PAGINATION_TRIAD.filter(([n]) => !present.has(n));
+    if (missing.length) {
+      const gcs = options.findIndex(([n]) => n === "generate-cli-skeleton");
+      options.splice(gcs === -1 ? options.length : gcs, 0, ...missing);
+      stats.triadReinserted += missing.length;
+    }
   }
   const opts = optionsText(service, command, options, argDocs);
   if (opts.length) parts.push(`options: [\n${opts.join(",\n")}\n]`);
@@ -908,6 +929,7 @@ function main() {
   console.error(`ops without model doc: ${stats.missingOpDoc}`);
   console.error(`args without doc:      ${stats.missingArgDoc}`);
   console.error(`pagination args hidden: ${stats.paginationArgsDropped}`);
+  console.error(`triad args re-inserted: ${stats.triadReinserted}`);
   console.error(`positional args:       ${stats.positionals}`);
   if (dangling.length) {
     console.error(`ERROR: dangling loadSpec targets: ${dangling.join(", ")}`);
