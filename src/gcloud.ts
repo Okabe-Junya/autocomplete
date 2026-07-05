@@ -1,7 +1,14 @@
+// Generated from the gcloud CLI tree (SDK 575.0.0) by scripts/generate-gcloud-specs.mjs — do not edit by hand
+
 const completionSpec: Fig.Spec = {
   name: "gcloud",
-  description: "Manage Google Cloud Platform resources and developer workflow",
+  description: "Manage Google Cloud resources and developer workflow",
   subcommands: [
+    {
+      name: "access-approval",
+      description: "Manage Access Approval requests and settings",
+      loadSpec: "gcloud/access-approval",
+    },
     {
       name: "access-context-manager",
       description: "Manage Access Context Manager resources",
@@ -13,14 +20,24 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/active-directory",
     },
     {
+      name: "agent-registry",
+      description: "Manage Agent Registry resources",
+      loadSpec: "gcloud/agent-registry",
+    },
+    {
+      name: "ai",
+      description: "Manage entities in Vertex AI",
+      loadSpec: "gcloud/ai",
+    },
+    {
       name: "ai-platform",
       description: "Manage AI Platform jobs and models",
       loadSpec: "gcloud/ai-platform",
     },
     {
-      name: "alpha",
-      description: "*(ALPHA)*  Alpha versions of gcloud commands",
-      loadSpec: "gcloud/alpha",
+      name: "alloydb",
+      description: "Create and manage AlloyDB databases",
+      loadSpec: "gcloud/alloydb",
     },
     {
       name: "anthos",
@@ -28,14 +45,29 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/anthos",
     },
     {
+      name: "api-gateway",
+      description: "Manage Cloud API Gateway resources",
+      loadSpec: "gcloud/api-gateway",
+    },
+    {
       name: "apigee",
       description: "Manage Apigee resources",
       loadSpec: "gcloud/apigee",
     },
     {
+      name: "apihub",
+      description: "Manage Apihub resources",
+      loadSpec: "gcloud/apihub",
+    },
+    {
       name: "app",
       description: "Manage your App Engine deployments",
       loadSpec: "gcloud/app",
+    },
+    {
+      name: "apphub",
+      description: "Manage App Hub resources",
+      loadSpec: "gcloud/apphub",
     },
     {
       name: "artifacts",
@@ -48,14 +80,39 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/asset",
     },
     {
+      name: "assured",
+      description: "Read and manipulate Assured Workloads data controls",
+      loadSpec: "gcloud/assured",
+    },
+    {
+      name: "audit-manager",
+      description: "Enroll resources, audit workloads and generate reports",
+      loadSpec: "gcloud/audit-manager",
+    },
+    {
       name: "auth",
-      description: "Manage oauth2 credentials for the Google Cloud SDK",
+      description: "Manage oauth2 credentials for the Google Cloud CLI",
       loadSpec: "gcloud/auth",
     },
     {
-      name: "beta",
-      description: "*(BETA)*  Beta versions of gcloud commands",
-      loadSpec: "gcloud/beta",
+      name: "backup-dr",
+      description: "Manage Backup and DR resources",
+      loadSpec: "gcloud/backup-dr",
+    },
+    {
+      name: "batch",
+      description: "Manage Batch resources",
+      loadSpec: "gcloud/batch",
+    },
+    {
+      name: "beyondcorp",
+      description: "Manage Beyondcorp resources",
+      loadSpec: "gcloud/beyondcorp",
+    },
+    {
+      name: "biglake",
+      description: "Create and manage Google Cloud BigLake resources",
+      loadSpec: "gcloud/biglake",
     },
     {
       name: "bigtable",
@@ -63,9 +120,25 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/bigtable",
     },
     {
+      name: "billing",
+      description: "Manage billing accounts and associate them with projects",
+      loadSpec: "gcloud/billing",
+    },
+    {
+      name: "bms",
+      description: "Manage Bare Metal Solution resources",
+      loadSpec: "gcloud/bms",
+    },
+    { name: "bq", description: "Manage Bq resources", loadSpec: "gcloud/bq" },
+    {
       name: "builds",
       description: "Create and manage builds for Google Cloud Build",
       loadSpec: "gcloud/builds",
+    },
+    {
+      name: "certificate-manager",
+      description: "Manage SSL certificates for your Google Cloud projects",
+      loadSpec: "gcloud/certificate-manager",
     },
     {
       name: "cheat-sheet",
@@ -78,9 +151,24 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/cloud-shell",
     },
     {
+      name: "cloudlocationfinder",
+      description: "Manage Cloudlocationfinder resources",
+      loadSpec: "gcloud/cloudlocationfinder",
+    },
+    {
+      name: "colab",
+      description: "Manage Colab Enterprise resources",
+      loadSpec: "gcloud/colab",
+    },
+    {
+      name: "compliance-manager",
+      description: "Manage Compliance Manager resources",
+      loadSpec: "gcloud/compliance-manager",
+    },
+    {
       name: "components",
       description:
-        "List, install, update, or remove Google Cloud SDK components",
+        "List, install, update, or remove Google Cloud CLI components",
       loadSpec: "gcloud/components",
     },
     {
@@ -95,7 +183,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "config",
-      description: "View and edit Cloud SDK properties",
+      description: "View and edit Google Cloud CLI properties",
       loadSpec: "gcloud/config",
     },
     {
@@ -106,13 +194,28 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "data-catalog",
-      description: "Manage Cloud Data Catalog resources",
+      description: "Manage Data Catalog resources",
       loadSpec: "gcloud/data-catalog",
+    },
+    {
+      name: "database-migration",
+      description: "Manage Database Migration Service resources",
+      loadSpec: "gcloud/database-migration",
     },
     {
       name: "dataflow",
       description: "Manage Google Cloud Dataflow resources",
       loadSpec: "gcloud/dataflow",
+    },
+    {
+      name: "datalineage",
+      description: "Manage Google Cloud Data Lineage resources",
+      loadSpec: "gcloud/datalineage",
+    },
+    {
+      name: "dataplex",
+      description: "Manage Dataplex resources",
+      loadSpec: "gcloud/dataplex",
     },
     {
       name: "dataproc",
@@ -125,14 +228,29 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/datastore",
     },
     {
-      name: "debug",
-      description: "Commands for interacting with the Cloud Debugger",
-      loadSpec: "gcloud/debug",
+      name: "datastream",
+      description: "Manage Cloud Datastream resources",
+      loadSpec: "gcloud/datastream",
+    },
+    {
+      name: "deploy",
+      description: "Create and manage Cloud Deploy resources",
+      loadSpec: "gcloud/deploy",
     },
     {
       name: "deployment-manager",
       description: "Manage deployments of cloud resources",
       loadSpec: "gcloud/deployment-manager",
+    },
+    {
+      name: "design-center",
+      description: "Manage Application Design Center resources",
+      loadSpec: "gcloud/design-center",
+    },
+    {
+      name: "developer-connect",
+      description: "Manage Developer Connect resources",
+      loadSpec: "gcloud/developer-connect",
     },
     {
       name: "dns",
@@ -151,18 +269,43 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/domains",
     },
     {
+      name: "edge-cache",
+      description: "Manage Media CDN resources",
+      loadSpec: "gcloud/edge-cache",
+    },
+    {
+      name: "edge-cloud",
+      description: "Manage edge-cloud resources",
+      loadSpec: "gcloud/edge-cloud",
+    },
+    {
+      name: "emulators",
+      description: "Set up your local development environment using emulators",
+      loadSpec: "gcloud/emulators",
+    },
+    {
       name: "endpoints",
       description: "Create, enable and manage API services",
       loadSpec: "gcloud/endpoints",
     },
     {
+      name: "essential-contacts",
+      description: "Manage Essential Contacts",
+      loadSpec: "gcloud/essential-contacts",
+    },
+    {
+      name: "eventarc",
+      description: "Manage Eventarc resources",
+      loadSpec: "gcloud/eventarc",
+    },
+    {
       name: "feedback",
-      description: "Provide feedback to the Google Cloud SDK team",
+      description: "Provide feedback to the Google Cloud CLI team",
       loadSpec: "gcloud/feedback",
     },
     {
       name: "filestore",
-      description: "Create and manipulate Cloud Filestore resources",
+      description: "Create and manipulate Filestore resources",
       loadSpec: "gcloud/filestore",
     },
     {
@@ -181,9 +324,10 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/functions",
     },
     {
-      name: "game",
-      description: "Managed Cloud Game Services",
-      loadSpec: "gcloud/game",
+      name: "gemini",
+      description:
+        "Manage resources associated with Gemini Code Assist and Gemini Cloud Assist",
+      loadSpec: "gcloud/gemini",
     },
     {
       name: "healthcare",
@@ -200,30 +344,27 @@ const completionSpec: Fig.Spec = {
       description: "Manage IAM service accounts and keys",
       loadSpec: "gcloud/iam",
     },
-    {
-      name: "iap",
-      description: "Manage IAP policies",
-      loadSpec: "gcloud/iap",
-    },
+    { name: "iap", description: "Manage IAP policies", loadSpec: "gcloud/iap" },
     {
       name: "identity",
       description: "Manage Cloud Identity Groups and Memberships resources",
       loadSpec: "gcloud/identity",
     },
+    { name: "ids", description: "Manage Cloud IDS", loadSpec: "gcloud/ids" },
     {
       name: "info",
       description: "Display information about the current gcloud environment",
       loadSpec: "gcloud/info",
     },
     {
+      name: "infra-manager",
+      description: "Manage Infra Manager resources",
+      loadSpec: "gcloud/infra-manager",
+    },
+    {
       name: "init",
       description: "Initialize or reinitialize gcloud",
       loadSpec: "gcloud/init",
-    },
-    {
-      name: "iot",
-      description: "Manage Cloud IoT resources",
-      loadSpec: "gcloud/iot",
     },
     {
       name: "kms",
@@ -236,9 +377,40 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/logging",
     },
     {
-      name: "meta",
-      description: "Cloud meta introspection commands",
-      loadSpec: "gcloud/meta",
+      name: "looker",
+      description: "Manage Looker resources",
+      loadSpec: "gcloud/looker",
+    },
+    {
+      name: "lustre",
+      description: "Manage Lustre resources",
+      loadSpec: "gcloud/lustre",
+    },
+    {
+      name: "managed-kafka",
+      description:
+        "Administer Managed Service for Apache Kafka clusters, topics, and consumer groups",
+      loadSpec: "gcloud/managed-kafka",
+    },
+    {
+      name: "memcache",
+      description: "Manage Cloud Memorystore Memcached resources",
+      loadSpec: "gcloud/memcache",
+    },
+    {
+      name: "memorystore",
+      description: "Manage Memorystore resources",
+      loadSpec: "gcloud/memorystore",
+    },
+    {
+      name: "metastore",
+      description: "Manage Dataproc Metastore resources",
+      loadSpec: "gcloud/metastore",
+    },
+    {
+      name: "migration",
+      description: "The root group for various Cloud Migration teams",
+      loadSpec: "gcloud/migration",
     },
     {
       name: "ml",
@@ -246,9 +418,10 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/ml",
     },
     {
-      name: "ml-engine",
-      description: "Manage AI Platform jobs and models",
-      loadSpec: "gcloud/ml-engine",
+      name: "model-armor",
+      description:
+        "Model Armor is a service offering LLM-agnostic security and AI safety measures to mitigate risks associated with large language models (LLMs)",
+      loadSpec: "gcloud/model-armor",
     },
     {
       name: "monitoring",
@@ -256,9 +429,49 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/monitoring",
     },
     {
+      name: "netapp",
+      description: "Create and manipulate Cloud NetApp Files resources",
+      loadSpec: "gcloud/netapp",
+    },
+    {
+      name: "network-connectivity",
+      description: "Manage Network Connectivity resources",
+      loadSpec: "gcloud/network-connectivity",
+    },
+    {
       name: "network-management",
       description: "Manage Network Management resources",
       loadSpec: "gcloud/network-management",
+    },
+    {
+      name: "network-security",
+      description: "Manage Network Security resources",
+      loadSpec: "gcloud/network-security",
+    },
+    {
+      name: "network-services",
+      description: "Manage Network Services resources",
+      loadSpec: "gcloud/network-services",
+    },
+    {
+      name: "notebooks",
+      description: "Notebooks Command Group",
+      loadSpec: "gcloud/notebooks",
+    },
+    {
+      name: "observability",
+      description: "Manage Observability resources",
+      loadSpec: "gcloud/observability",
+    },
+    {
+      name: "oracle-database",
+      description: "Manage Oracle Database resources",
+      loadSpec: "gcloud/oracle-database",
+    },
+    {
+      name: "org-policies",
+      description: "Create and manage Organization Policies",
+      loadSpec: "gcloud/org-policies",
     },
     {
       name: "organizations",
@@ -266,9 +479,32 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/organizations",
     },
     {
+      name: "pam",
+      description:
+        "Manage Privileged Access Manager (PAM) entitlements and grants",
+      loadSpec: "gcloud/pam",
+    },
+    {
+      name: "parametermanager",
+      description:
+        "Parameter Manager is a single source of truth to store, access and manage the lifecycle of your application parameters",
+      loadSpec: "gcloud/parametermanager",
+    },
+    {
+      name: "policy-intelligence",
+      description:
+        "A platform to help better understand, use, and manage policies at scale",
+      loadSpec: "gcloud/policy-intelligence",
+    },
+    {
       name: "policy-troubleshoot",
       description: "Troubleshoot Google Cloud Platform policies",
       loadSpec: "gcloud/policy-troubleshoot",
+    },
+    {
+      name: "privateca",
+      description: "Manage private Certificate Authorities on Google Cloud",
+      loadSpec: "gcloud/privateca",
     },
     {
       name: "projects",
@@ -276,9 +512,20 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/projects",
     },
     {
+      name: "publicca",
+      description:
+        "Manage accounts for Google Trust Services' Certificate Authority",
+      loadSpec: "gcloud/publicca",
+    },
+    {
       name: "pubsub",
       description: "Manage Cloud Pub/Sub topics, subscriptions, and snapshots",
       loadSpec: "gcloud/pubsub",
+    },
+    {
+      name: "recaptcha",
+      description: "Manage reCAPTCHA Enterprise Keys",
+      loadSpec: "gcloud/recaptcha",
     },
     {
       name: "recommender",
@@ -316,6 +563,22 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/secrets",
     },
     {
+      name: "service-directory",
+      description: "Command groups for Service Directory",
+      loadSpec: "gcloud/service-directory",
+    },
+    {
+      name: "service-extensions",
+      description: "Manage Service Extensions resources",
+      loadSpec: "gcloud/service-extensions",
+    },
+    {
+      name: "service-health",
+      description:
+        "Request events that are relevant to your project or organization",
+      loadSpec: "gcloud/service-health",
+    },
+    {
       name: "services",
       description: "List, enable and disable APIs and services",
       loadSpec: "gcloud/services",
@@ -324,6 +587,11 @@ const completionSpec: Fig.Spec = {
       name: "source",
       description: "Cloud git repository commands",
       loadSpec: "gcloud/source",
+    },
+    {
+      name: "source-manager",
+      description: "Manage Secure Source Manager resources",
+      loadSpec: "gcloud/source-manager",
     },
     {
       name: "spanner",
@@ -336,8 +604,13 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/sql",
     },
     {
+      name: "storage",
+      description: "Create and manage Cloud Storage buckets and objects",
+      loadSpec: "gcloud/storage",
+    },
+    {
       name: "survey",
-      description: "Invoke a customer satisfaction survey for Cloud SDK",
+      description: "Invoke a customer satisfaction survey for Google Cloud CLI",
       loadSpec: "gcloud/survey",
     },
     {
@@ -346,14 +619,64 @@ const completionSpec: Fig.Spec = {
       loadSpec: "gcloud/tasks",
     },
     {
+      name: "telco-automation",
+      description: "Manage Telco Automation resources",
+      loadSpec: "gcloud/telco-automation",
+    },
+    {
       name: "topic",
-      description: "Gcloud supplementary help",
+      description: "gcloud supplementary help",
       loadSpec: "gcloud/topic",
     },
     {
+      name: "transcoder",
+      description: "Manage Transcoder jobs and job templates",
+      loadSpec: "gcloud/transcoder",
+    },
+    {
+      name: "transfer",
+      description: "Manage Transfer Service jobs, operations, and agents",
+      loadSpec: "gcloud/transfer",
+    },
+    {
+      name: "vector-search",
+      description: "Manage Vector Search data objects",
+      loadSpec: "gcloud/vector-search",
+    },
+    {
       name: "version",
-      description: "Print version information for Cloud SDK components",
+      description: "Print version information for Google Cloud CLI components",
       loadSpec: "gcloud/version",
+    },
+    {
+      name: "vmware",
+      description: "Manage Google Cloud VMware Engine resources",
+      loadSpec: "gcloud/vmware",
+    },
+    {
+      name: "workbench",
+      description: "Workbench Command Group",
+      loadSpec: "gcloud/workbench",
+    },
+    {
+      name: "workflows",
+      description: "Manage your Cloud Workflows resources",
+      loadSpec: "gcloud/workflows",
+    },
+    {
+      name: "workload-identity",
+      description: "Manage Workload Identity",
+      loadSpec: "gcloud/workload-identity",
+    },
+    {
+      name: "workspace-add-ons",
+      description: "Manage Google Workspace Add-ons resources",
+      loadSpec: "gcloud/workspace-add-ons",
+    },
+    {
+      name: "workstations",
+      description: "Manage Cloud Workstations resources",
+      loadSpec: "gcloud/workstations",
     },
   ],
 };
