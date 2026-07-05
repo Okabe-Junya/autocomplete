@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "socialmessaging",
   description:
@@ -43,7 +44,238 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-whatsapp-media-message",
+      name: "create-whatsapp-flow",
+      description:
+        "Creates a new WhatsApp Flow. Flows enable businesses to create rich, interactive forms and experiences that users can complete without leaving WhatsApp. The Flow is created in DRAFT status. If publish is set to true and a valid flowJson is provided, the Flow is published immediately",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to associate with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-name",
+          description:
+            "The name of the Flow. Must be unique within the WhatsApp Business Account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--categories",
+          description:
+            "The categories that classify the business purpose of the Flow. At least one category is required",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--flow-json",
+          description:
+            "The Flow JSON definition that describes the screens, components, and logic of the Flow. Maximum size is 10 MB",
+          args: {
+            name: "blob",
+          },
+        },
+        {
+          name: "--publish",
+          description:
+            "Set to true to publish the Flow immediately after creation. Requires a valid flowJson that passes Meta's validation",
+        },
+        {
+          name: "--no-publish",
+          description:
+            "Set to true to publish the Flow immediately after creation. Requires a valid flowJson that passes Meta's validation",
+        },
+        {
+          name: "--clone-flow-id",
+          description:
+            "The ID of an existing Flow within the same WhatsApp Business Account to clone",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-whatsapp-message-template",
+      description:
+        "Creates a new WhatsApp message template from a custom definition.  Amazon Web Services End User Messaging Social does not store any WhatsApp message template content",
+      options: [
+        {
+          name: "--template-definition",
+          description: "The complete template definition as a JSON blob",
+          args: {
+            name: "blob",
+          },
+        },
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to associate with this template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-whatsapp-message-template-from-library",
+      description:
+        "Creates a new WhatsApp message template using a template from Meta's template library",
+      options: [
+        {
+          name: "--meta-library-template",
+          description:
+            "The template configuration from Meta's library, including customizations for buttons and body text",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to associate with this template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-whatsapp-message-template-media",
+      description: "Uploads media for use in a WhatsApp message template",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this media upload",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--source-s3-file",
+          description:
+            "Contains information for the S3 bucket that contains media files",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-whatsapp-flow",
+      description:
+        "Deletes a WhatsApp Flow permanently. Only Flows in DRAFT status can be deleted. Published or deprecated Flows cannot be deleted",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-whatsapp-message-media",
       description:
         "Delete a media object from the WhatsApp service. If the object is still in an Amazon S3 bucket you should delete it from there too",
       options: [
@@ -59,6 +291,98 @@ const completionSpec: Fig.Spec = {
           name: "--origination-phone-number-id",
           description:
             "The unique identifier of the originating phone number associated with the media. Phone number identifiers are formatted as phone-number-id-01234567890123456789012345678901. Use GetLinkedWhatsAppBusinessAccount to find a phone number's id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-whatsapp-message-template",
+      description: "Deletes a WhatsApp message template",
+      options: [
+        {
+          name: "--meta-template-id",
+          description: "The numeric ID of the template assigned by Meta",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--delete-all-languages",
+          description: "If true, deletes all language versions of the template",
+        },
+        {
+          name: "--no-delete-all-languages",
+          description: "If true, deletes all language versions of the template",
+        },
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-name",
+          description: "The name of the template to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "deprecate-whatsapp-flow",
+      description:
+        "Deprecates a published WhatsApp Flow, marking it as no longer recommended for use. The Flow must be in PUBLISHED status. This is an irreversible operation",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to deprecate",
           args: {
             name: "string",
           },
@@ -148,7 +472,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-linked-whatsapp-business-account-phone-number",
       description:
-        "Use your WhatsApp phone number id to get the WABA account id and phone number details",
+        "Retrieve the WABA account id and phone number details of a WhatsApp business account phone number",
       options: [
         {
           name: "--id",
@@ -157,6 +481,94 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-whatsapp-flow",
+      description:
+        "Retrieves the metadata and status of a WhatsApp Flow, including validation errors, preview information, and health status",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-whatsapp-flow-preview",
+      description:
+        "Generates a web preview URL for testing a WhatsApp Flow before publishing. Preview URLs expire in 30 days and can be shared with stakeholders for review",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to preview",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--invalidate",
+          description:
+            "Set to true to force generation of a new preview URL. Use this if the previous URL has been compromised or you want a fresh expiration period",
+        },
+        {
+          name: "--no-invalidate",
+          description:
+            "Set to true to force generation of a new preview URL. Use this if the previous URL has been compromised or you want a fresh expiration period",
         },
         {
           name: "--cli-input-json",
@@ -239,24 +651,64 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-linked-whatsapp-business-accounts",
-      description:
-        "List all WhatsApp Business Accounts linked to your Amazon Web Services account",
+      name: "get-whatsapp-message-template",
+      description: "Retrieves a specific WhatsApp message template",
       options: [
         {
-          name: "--next-token",
-          description: "The next token for pagination",
+          name: "--meta-template-id",
+          description: "The numeric ID of the template assigned by Meta",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this template",
           args: {
-            name: "integer",
+            name: "string",
           },
         },
+        {
+          name: "--template-name",
+          description:
+            "The name of the message template. Use together with templateLanguageCode as an alternative to metaTemplateId to identify a template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-language-code",
+          description:
+            "The language code of the message template (for example, en or en_US). Use together with templateName as an alternative to metaTemplateId to identify a template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-linked-whatsapp-business-accounts",
+      description:
+        "List all WhatsApp Business Accounts linked to your Amazon Web Services account",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -333,6 +785,245 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-whatsapp-flow-assets",
+      description:
+        "Lists the assets (Flow JSON definition) of a WhatsApp Flow with presigned download URLs. Download URLs are generated by Meta and expire after a short period",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow whose assets to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-whatsapp-flows",
+      description:
+        "Lists all WhatsApp Flows for a WhatsApp Business Account. Returns summary information including Flow ID, name, status, and categories",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to list Flows for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-whatsapp-message-templates",
+      description:
+        "Lists WhatsApp message templates for a specific WhatsApp Business Account",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to list templates for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-whatsapp-template-library",
+      description:
+        "Lists templates available in Meta's template library for WhatsApp messaging",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account to list library templates for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "Map of filters to apply (searchKey, topic, usecase, industry, language)",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "post-whatsapp-message-media",
       description:
         "Upload a media file to the WhatsApp service. Only the specified originationPhoneNumberId has the permissions to send the media file when using SendWhatsAppMessage. You must use either sourceS3File or sourceS3PresignedUrl for the source. If both or neither are specified then an InvalidParameterException is returned",
@@ -357,6 +1048,45 @@ const completionSpec: Fig.Spec = {
           description: "The source S3 url for the media file",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "publish-whatsapp-flow",
+      description:
+        "Publishes a WhatsApp Flow, making it available for use in template messages. The Flow must be in DRAFT status with valid Flow JSON that passes Meta's validation. This is an irreversible operation",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to publish",
+          args: {
+            name: "string",
           },
         },
         {
@@ -421,7 +1151,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-whatsapp-message",
       description:
-        "Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see Sending messages in the  Amazon Web Services End User Messaging Social User Guide",
+        "Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see Sending messages in the  Amazon Web Services End User Messaging Social User Guide ",
       options: [
         {
           name: "--origination-phone-number-id",
@@ -522,6 +1252,195 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-whatsapp-flow",
+      description:
+        "Updates the metadata of a WhatsApp Flow, such as its name or categories. This does not update the Flow JSON definition. Use UpdateWhatsAppFlowAssets to update the Flow JSON",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description: "The unique identifier of the Flow to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-name",
+          description: "The updated name for the Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--categories",
+          description: "The updated categories for the Flow",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-whatsapp-flow-assets",
+      description:
+        "Updates the Flow JSON definition (assets) of a WhatsApp Flow. Updating a published Flow's assets reverts it to DRAFT status, requiring re-publishing",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this Flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-id",
+          description:
+            "The unique identifier of the Flow whose assets to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-json",
+          description:
+            "The updated Flow JSON definition. Maximum size is 10 MB",
+          args: {
+            name: "blob",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-whatsapp-message-template",
+      description: "Updates an existing WhatsApp message template",
+      options: [
+        {
+          name: "--id",
+          description:
+            "The ID of the WhatsApp Business Account associated with this template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--meta-template-id",
+          description: "The numeric ID of the template assigned by Meta",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-name",
+          description:
+            "The name of the message template. Use together with templateLanguageCode as an alternative to metaTemplateId to identify a template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-language-code",
+          description:
+            "The language code of the message template (for example, en or en_US). Use together with templateName as an alternative to metaTemplateId to identify a template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--parameter-format",
+          description:
+            "The format specification for parameters in the template, this can be either 'named' or 'positional'",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-category",
+          description:
+            "The new category for the template (for example, UTILITY or MARKETING)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--template-components",
+          description:
+            "The updated components of the template as a JSON blob (maximum 3000 characters)",
+          args: {
+            name: "blob",
+          },
+        },
+        {
+          name: "--cta-url-link-tracking-opted-out",
+          description:
+            "When true, disables click tracking for call-to-action URL buttons in the template",
+        },
+        {
+          name: "--no-cta-url-link-tracking-opted-out",
+          description:
+            "When true, disables click tracking for call-to-action URL buttons in the template",
         },
         {
           name: "--cli-input-json",

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "license-manager-linux-subscriptions",
   description:
@@ -105,21 +106,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum items to return in a request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to specify where to start paginating. This is the nextToken from a previously truncated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -176,21 +162,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum items to return in a request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to specify where to start paginating. This is the nextToken from a previously truncated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -238,21 +209,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List Bring Your Own License (BYOL) subscription registration resources for your account",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum items to return in a request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to specify where to start paginating. This is the nextToken from a previously truncated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--subscription-provider-sources",
           description:

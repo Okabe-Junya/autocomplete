@@ -1,7 +1,56 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "glue",
   description: "Glue Defines the public endpoint for the Glue service",
   subcommands: [
+    {
+      name: "associate-glossary-terms",
+      description:
+        "Associates one or more glossary terms with an asset in Glue Data Catalog",
+      options: [
+        {
+          name: "--asset-identifier",
+          description:
+            "The unique identifier of the asset to associate glossary terms with",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--glossary-term-identifiers",
+          description:
+            "The list of glossary term identifiers to associate with the asset",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
     {
       name: "batch-create-partition",
       description: "Creates one or more partitions in a batch operation",
@@ -440,6 +489,52 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-get-iterable-forms",
+      description:
+        "Retrieves multiple items from an iterable form on an asset in Glue Data Catalog in a single request",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The unique identifier of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iterable-form-name",
+          description: "The name of the iterable form to retrieve items from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--item-identifiers",
+          description:
+            "The list of item identifiers to retrieve. Each identifier can be an item ID or item name",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "batch-get-jobs",
       description:
         "Returns a list of resource metadata for a given list of job names. After calling the ListJobs operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags",
@@ -504,6 +599,22 @@ const completionSpec: Fig.Spec = {
             "A list of partition values identifying the partitions to retrieve",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--query-session-context",
+          description:
+            "A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -634,11 +745,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "batch-put-data-quality-statistic-annotation",
       description:
-        "Annotate datapoints over time for a specific data quality statistic",
+        "Annotate datapoints over time for a specific data quality statistic. The API requires both profileID and statisticID as part of the InclusionAnnotation input. The API only works for a single statisticId across multiple profiles",
       options: [
         {
           name: "--inclusion-annotations",
-          description: "A list of DatapointInclusionAnnotation's",
+          description:
+            "A list of DatapointInclusionAnnotation's. The InclusionAnnotations must contain a profileId and statisticId. If there are multiple InclusionAnnotations, the list must refer to a single statisticId across multiple profileIds",
           args: {
             name: "list",
           },
@@ -1696,6 +1808,163 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-glossary",
+      description:
+        "Creates a business glossary in Glue Data Catalog. A glossary is a container for glossary terms that define business concepts",
+      options: [
+        {
+          name: "--name",
+          description: "The name of the glossary",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the glossary",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-glossary-term",
+      description:
+        "Creates a glossary term within a business glossary in Glue Data Catalog",
+      options: [
+        {
+          name: "--glossary-identifier",
+          description:
+            "The unique identifier of the glossary in which to create the term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--short-description",
+          description: "A short description of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--long-description",
+          description: "A long description of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-glue-identity-center-configuration",
+      description:
+        "Creates a new Glue Identity Center configuration to enable integration between Glue and Amazon Web Services IAM Identity Center for authentication and authorization",
+      options: [
+        {
+          name: "--instance-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Identity Center instance to be associated with the Glue configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--scopes",
+          description:
+            "A list of Identity Center scopes that define the permissions and access levels for the Glue configuration",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--user-background-sessions-enabled",
+          description:
+            "Specifies whether users can run background sessions when using Identity Center authentication with Glue services",
+        },
+        {
+          name: "--no-user-background-sessions-enabled",
+          description:
+            "Specifies whether users can run background sessions when using Identity Center authentication with Glue services",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-integration",
       description:
         "Creates a Zero-ETL integration in the caller's account between two resources with Amazon Resource Names (ARNs): the SourceArn and TargetArn",
@@ -1746,7 +2015,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-encryption-context",
           description:
-            "An optional set of non-secret key\u2013value pairs that contains additional contextual information for encryption. This can only be provided if KMSKeyId is provided",
+            "An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if KMSKeyId is provided",
           args: {
             name: "map",
           },
@@ -1757,6 +2026,13 @@ const completionSpec: Fig.Spec = {
             "Metadata assigned to the resource consisting of a list of key-value pairs",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--integration-config",
+          description: "The configuration settings",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1808,6 +2084,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--tags",
+          description:
+            "Metadata assigned to the resource consisting of a list of key-value pairs",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1834,7 +2118,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description:
-            "The connection ARN of the source, or the database ARN of the target",
+            "The Amazon Resource Name (ARN) of the target table for which to create integration table properties. Currently, this API only supports creating integration table properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for creating integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release",
           args: {
             name: "string",
           },
@@ -1848,7 +2132,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--source-table-config",
-          description: "A structure for the source table configuration",
+          description:
+            "A structure for the source table configuration. See the SourceTableConfig structure to see list of supported source properties",
           args: {
             name: "structure",
           },
@@ -1988,7 +2273,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--timeout",
           description:
-            "The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours) for batch jobs. Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days",
+            "The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception. When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later. Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day. For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days",
           args: {
             name: "integer",
           },
@@ -2028,7 +2313,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--glue-version",
           description:
-            "In Spark jobs, GlueVersion determines the versions of Apache Spark and Python that Glue available in a job. The Python version indicates the version supported for jobs of type Spark.  Ray jobs should set GlueVersion to 4.0 or greater. However, the versions of Ray, Python and additional libraries available in your Ray job are determined by the Runtime parameter of the Job command. For more information about the available Glue versions and corresponding Spark and Python versions, see Glue version in the developer guide. Jobs that are created without specifying a Glue version default to Glue 0.9",
+            "In Spark jobs, GlueVersion determines the versions of Apache Spark and Python that Glue available in a job. The Python version indicates the version supported for jobs of type Spark.  Ray jobs should set GlueVersion to 4.0 or greater. However, the versions of Ray, Python and additional libraries available in your Ray job are determined by the Runtime parameter of the Job command. For more information about the available Glue versions and corresponding Spark and Python versions, see Glue version in the developer guide. Jobs that are created without specifying a Glue version default to Glue 5.1",
           args: {
             name: "string",
           },
@@ -2044,7 +2329,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--worker-type",
           description:
-            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler",
+            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and South America (São Paulo).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 or later streaming jobs.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler",
           args: {
             name: "string",
           },
@@ -2583,7 +2868,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--timeout",
           description:
-            "The number of minutes before session times out. Default for Spark ETL jobs is 48 hours (2880 minutes), the maximum session lifetime for this job type. Consult the documentation for other job types",
+            "The number of minutes before session times out. Default for Spark ETL jobs is 48 hours (2880 minutes). Consult the documentation for other job types",
           args: {
             name: "integer",
           },
@@ -2629,7 +2914,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--worker-type",
           description:
-            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, or G.8X for Spark jobs. Accepts the value Z.2X for Ray notebooks.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler",
+            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, or G.8X for Spark jobs. Accepts the value Z.2X for Ray notebooks.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler",
           args: {
             name: "string",
           },
@@ -2661,6 +2946,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--request-origin",
           description: "The origin of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-type",
+          description: "The type of session to create",
           args: {
             name: "string",
           },
@@ -2700,6 +2992,14 @@ const completionSpec: Fig.Spec = {
           name: "--database-name",
           description:
             "The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The unique identifier for the table within the specified database that will be created in the Glue Data Catalog",
           args: {
             name: "string",
           },
@@ -2816,7 +3116,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-trigger",
-      description: "Creates a new trigger",
+      description:
+        "Creates a new trigger. Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job",
       options: [
         {
           name: "--name",
@@ -3035,7 +3336,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--default-run-properties",
           description:
-            "A collection of properties to be used as part of each execution of the workflow",
+            "A collection of properties to be used as part of each execution of the workflow. Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run",
           args: {
             name: "map",
           },
@@ -3053,6 +3354,121 @@ const completionSpec: Fig.Spec = {
             "You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-asset",
+      description: "Deletes an asset from Glue Data Catalog",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the asset to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-asset-type",
+      description: "Deletes an asset type from Glue Data Catalog",
+      options: [
+        {
+          name: "--identifier",
+          description: "The identifier of the asset type to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-attachment",
+      description:
+        "Deletes a form attachment from an asset in Glue Data Catalog",
+      options: [
+        {
+          name: "--asset-identifier",
+          description:
+            "The unique identifier of the asset from which to delete the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iterable-form-name",
+          description:
+            "The name of the iterable form. When specified along with itemIdentifier, the attachment is deleted from an item within the iterable form rather than from the asset itself",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--item-identifier",
+          description:
+            "The identifier of the item within the iterable form. Required when iterableFormName is specified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-name",
+          description: "The name of the attachment to delete",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3357,6 +3773,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-connection-type",
+      description:
+        "Deletes a custom connection type in Glue. The connection type must exist and be registered before it can be deleted. This operation supports cleanup of connection type resources and helps maintain proper lifecycle management of custom connection types",
+      options: [
+        {
+          name: "--connection-type",
+          description:
+            "The name of the connection type to delete. Must reference an existing registered connection type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-crawler",
       description:
         "Removes a specified crawler from the Glue Data Catalog, unless the crawler state is RUNNING",
@@ -3518,12 +3966,160 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-form-type",
+      description:
+        "Deletes a form type from Glue Data Catalog. A form type cannot be deleted if it is still referenced by an asset type",
+      options: [
+        {
+          name: "--identifier",
+          description: "The identifier of the form type to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-glossary",
+      description:
+        "Deletes a business glossary from Glue Data Catalog. A glossary cannot be deleted if it still contains glossary terms",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-glossary-term",
+      description: "Deletes a glossary term from Glue Data Catalog",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary term to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-glue-identity-center-configuration",
+      description:
+        "Deletes the existing Glue Identity Center configuration, removing the integration between Glue and Amazon Web Services IAM Identity Center",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-integration",
       description: "Deletes the specified Zero-ETL integration",
       options: [
         {
           name: "--integration-identifier",
           description: "The Amazon Resource Name (ARN) for the integration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-integration-resource-property",
+      description:
+        "This API is used for deleting the ResourceProperty of the Glue connection (for the source) or Glue database ARN (for the target)",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The connection ARN of the source, or the database ARN of the target",
           args: {
             name: "string",
           },
@@ -4269,7 +4865,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-connection-type",
       description:
-        "The DescribeConnectionType API provides full details of the supported options for a given connection type in Glue",
+        "The DescribeConnectionType API provides full details of the supported options for a given connection type in Glue. The response includes authentication configuration details that show supported authentication types and properties, and RestConfiguration for custom REST-based connection types registered via RegisterConnectionType. See also: ListConnectionTypes, RegisterConnectionType, DeleteConnectionType",
       options: [
         {
           name: "--connection-type",
@@ -4327,14 +4923,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A continuation token, included if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--data-store-api-version",
           description: "The version of the API used for the data store",
           args: {
@@ -4361,6 +4949,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -4462,6 +5058,116 @@ const completionSpec: Fig.Spec = {
             'A list of key and values, to filter down the results. Supported keys are "Status", "IntegrationName", and "SourceArn". IntegrationName is limited to only one value',
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-glossary-terms",
+      description:
+        "Removes the association of one or more glossary terms from an asset in Glue Data Catalog",
+      options: [
+        {
+          name: "--asset-identifier",
+          description:
+            "The unique identifier of the asset to disassociate glossary terms from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--glossary-term-identifiers",
+          description:
+            "The list of glossary term identifiers to disassociate from the asset",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-asset",
+      description:
+        "Retrieves the metadata for an asset in Glue Data Catalog, including its forms, additional attachments, and associated glossary terms",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the asset to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-asset-type",
+      description:
+        "Retrieves an asset type in Glue Data Catalog by its identifier",
+      options: [
+        {
+          name: "--identifier",
+          description: "The identifier of the asset type to retrieve",
+          args: {
+            name: "string",
           },
         },
         {
@@ -4710,12 +5416,32 @@ const completionSpec: Fig.Spec = {
         {
           name: "--recursive",
           description:
-            "When specified as true, iterates through the account and returns all catalog resources (including top-level resources and child resources)",
+            "Whether to list all catalogs across the catalog hierarchy, starting from the ParentCatalogId. Defaults to false . When true, all catalog objects in the ParentCatalogID hierarchy are enumerated in the response",
         },
         {
           name: "--no-recursive",
           description:
-            "When specified as true, iterates through the account and returns all catalog resources (including top-level resources and child resources)",
+            "Whether to list all catalogs across the catalog hierarchy, starting from the ParentCatalogId. Defaults to false . When true, all catalog objects in the ParentCatalogID hierarchy are enumerated in the response",
+        },
+        {
+          name: "--include-root",
+          description:
+            "Whether to list the default catalog in the account and region in the response. Defaults to false. When true and ParentCatalogId = NULL | Amazon Web Services Account ID, all catalogs and the default catalog are enumerated in the response. When the ParentCatalogId is not equal to null, and this attribute is passed as false or true, an InvalidInputException is thrown",
+        },
+        {
+          name: "--no-include-root",
+          description:
+            "Whether to list the default catalog in the account and region in the response. Defaults to false. When true and ParentCatalogId = NULL | Amazon Web Services Account ID, all catalogs and the default catalog are enumerated in the response. When the ParentCatalogId is not equal to null, and this attribute is passed as false or true, an InvalidInputException is thrown",
+        },
+        {
+          name: "--has-databases",
+          description:
+            "When true, the response only includes catalogs that can contain databases. Some catalogs are organizational containers that hold only other catalogs, not databases. When this parameter is set to true, those container-only catalogs are excluded, and only catalogs capable of containing databases are returned. Defaults to false",
+        },
+        {
+          name: "--no-has-databases",
+          description:
+            "When true, the response only includes catalogs that can contain databases. Some catalogs are organizational containers that hold only other catalogs, not databases. When this parameter is set to true, those container-only catalogs are excluded, and only catalogs capable of containing databases are returned. Defaults to false",
         },
         {
           name: "--cli-input-json",
@@ -4770,20 +5496,6 @@ const completionSpec: Fig.Spec = {
       name: "get-classifiers",
       description: "Lists all classifier objects in the Data Catalog",
       options: [
-        {
-          name: "--max-results",
-          description: "The size of the list to return (optional)",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "An optional continuation token",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -5151,21 +5863,6 @@ const completionSpec: Fig.Spec = {
             "Allows you to retrieve the connection metadata without returning the password. For instance, the Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the KMS key to decrypt the password, but it does have permission to access the rest of the connection properties",
         },
         {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of connections to return in one response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5251,20 +5948,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5312,21 +5995,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves metadata for all crawlers defined in the customer account",
       options: [
-        {
-          name: "--max-results",
-          description: "The number of crawlers to return on each call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is a continuation request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -5379,6 +6047,53 @@ const completionSpec: Fig.Spec = {
           name: "--name",
           description:
             "The name of the custom pattern that you want to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-dashboard-url",
+      description:
+        "Retrieves the URL for the Spark monitoring dashboard for a Glue resource",
+      options: [
+        {
+          name: "--resource-id",
+          description:
+            "The unique identifier of the resource for which to retrieve the dashboard URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-type",
+          description:
+            "The type of the resource. Valid values are SESSION and JOB",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--request-origin",
+          description: "The origin of the request",
           args: {
             name: "string",
           },
@@ -5683,21 +6398,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of databases to return in one response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--resource-share-type",
           description:
             "Allows you to specify that you want to list the databases shared with your account. The allowable values are FEDERATED, FOREIGN or ALL.    If set to FEDERATED, will list the federated databases (referencing an external entity) shared with your account.   If set to FOREIGN, will list the databases shared with your account.    If set to ALL, will list the databases shared with your account, as well as the databases in yor local account",
@@ -5708,7 +6408,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes-to-get",
           description:
-            "Specifies the database fields returned by the GetDatabases call. This parameter doesn\u2019t accept an empty list. The request must include the NAME",
+            "Specifies the database fields returned by the GetDatabases call. This parameter doesn’t accept an empty list. The request must include the NAME",
           args: {
             name: "list",
           },
@@ -5823,20 +6523,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves all the development endpoints in this Amazon Web Services account.  When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, Glue returns only a public IP address",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum size of information to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -5981,6 +6667,123 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-form-type",
+      description:
+        "Retrieves a form type in Glue Data Catalog by its identifier",
+      options: [
+        {
+          name: "--identifier",
+          description: "The identifier of the form type to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-glossary",
+      description:
+        "Retrieves a business glossary in Glue Data Catalog by its identifier",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-glossary-term",
+      description:
+        "Retrieves a glossary term in Glue Data Catalog by its identifier",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary term to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-glue-identity-center-configuration",
+      description:
+        "Retrieves the current Glue Identity Center configuration details, including the associated Identity Center instance and application information",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-integration-resource-property",
       description:
         "This API is used for fetching the ResourceProperty of the Glue connection (for the source) or Glue database ARN (for the target)",
@@ -6020,7 +6823,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-arn",
           description:
-            "The connection ARN of the source, or the database ARN of the target",
+            "The Amazon Resource Name (ARN) of the target table for which to retrieve integration table properties. Currently, this API only supports retrieving properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for retrieving integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release",
           args: {
             name: "string",
           },
@@ -6122,7 +6925,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-job-run",
       description:
-        "Retrieves the metadata for a given job run. Job run history is accessible for 90 days for your workflow and job run",
+        "Retrieves the metadata for a given job run. Job run history is accessible for 365 days for your workflow and job run",
       options: [
         {
           name: "--job-name",
@@ -6167,7 +6970,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-job-runs",
-      description: "Retrieves metadata for all runs of a given job definition",
+      description:
+        "Retrieves metadata for all runs of a given job definition.  GetJobRuns returns the job runs in chronological order, with the newest jobs returned first",
       options: [
         {
           name: "--job-name",
@@ -6175,20 +6979,6 @@ const completionSpec: Fig.Spec = {
             "The name of the job definition for which to retrieve all job runs",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of the response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6239,20 +7029,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves all current job definitions",
       options: [
         {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6282,6 +7058,90 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-mapping",
+      description: "Creates mappings",
+      options: [
+        {
+          name: "--source",
+          description: "Specifies the source table",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--sinks",
+          description: "A list of target tables",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--location",
+          description: "Parameters for the mapping",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-materialized-view-refresh-task-run",
+      description:
+        "Get the associated metadata/information for a task run, given a task run ID",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--materialized-view-refresh-task-run-id",
+          description:
+            "The identifier for the particular materialized view refresh task run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -6482,50 +7342,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-mapping",
-      description: "Creates mappings",
-      options: [
-        {
-          name: "--source",
-          description: "Specifies the source table",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--sinks",
-          description: "A list of target tables",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--location",
-          description: "Parameters for the mapping",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
       name: "get-partition",
       description: "Retrieves information about a specified partition",
       options: [
@@ -6557,6 +7373,14 @@ const completionSpec: Fig.Spec = {
           description: "The values that define the partition",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -6606,14 +7430,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A continuation token, included if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -6633,6 +7449,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -6684,27 +7508,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is not the first call to retrieve these partitions",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--segment",
           description:
             "The segment of the table's partitions to scan in this request",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of partitions to return in a single response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6731,6 +7539,14 @@ const completionSpec: Fig.Spec = {
             "The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with TransactionId",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -6820,7 +7636,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--additional-plan-options-map",
           description:
-            'A map to hold additional optional key-value parameters. Currently, these key-value pairs are supported:    inferSchema\u00a0 \u2014 \u00a0Specifies whether to set inferSchema to true or false for the default script generated by an Glue job. For example, to set inferSchema to true, pass the following key value pair:  --additional-plan-options-map \'{"inferSchema":"true"}\'',
+            'A map to hold additional optional key-value parameters. Currently, these key-value pairs are supported:    inferSchema  —  Specifies whether to set inferSchema to true or false for the default script generated by an Glue job. For example, to set inferSchema to true, pass the following key value pair:  --additional-plan-options-map \'{"inferSchema":"true"}\'',
           args: {
             name: "map",
           },
@@ -6880,21 +7696,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves the resource policies set on individual resources by Resource Access Manager during cross-account permission grants. Also retrieves the Data Catalog resource policy. If you enabled metadata encryption in Data Catalog settings, and you do not have permission on the KMS key, the operation can't return the Data Catalog resource policy",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is a continuation request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -7003,7 +7804,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-schema-by-definition",
       description:
-        "Retrieves a schema by the SchemaDefinition. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the SchemaName or ARN (or the default registry, if none is supplied), that schema\u2019s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in Deleted statuses will not be included in the results",
+        "Retrieves a schema by the SchemaDefinition. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the SchemaName or ARN (or the default registry, if none is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in Deleted statuses will not be included in the results",
       options: [
         {
           name: "--schema-id",
@@ -7176,20 +7977,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a list of all security configurations",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7246,6 +8033,37 @@ const completionSpec: Fig.Spec = {
         {
           name: "--request-origin",
           description: "The origin of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session-endpoint",
+      description:
+        "Returns the Spark Connect endpoint URL and authentication token for an interactive session",
+      options: [
+        {
+          name: "--session-id",
+          description: "The unique identifier of the interactive session",
           args: {
             name: "string",
           },
@@ -7358,6 +8176,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--include-status-details",
           description:
             "Specifies whether to include status details related to a request to create or update an Glue Data Catalog view",
@@ -7366,6 +8192,14 @@ const completionSpec: Fig.Spec = {
           name: "--no-include-status-details",
           description:
             "Specifies whether to include status details related to a request to create or update an Glue Data Catalog view",
+        },
+        {
+          name: "--attributes-to-get",
+          description:
+            "Specifies the table fields returned by the GetTable call. This parameter doesn't accept an empty list. The following are the valid combinations of values:    DEFAULT - Returns the Hive-style table definition only.    LATEST_ICEBERG_METADATA - Returns only the latest Apache Iceberg table metadata.    DEFAULT, LATEST_ICEBERG_METADATA - Returns both the Hive-style table definition and the latest Apache Iceberg table metadata",
+          args: {
+            name: "list",
+          },
         },
         {
           name: "--cli-input-json",
@@ -7476,6 +8310,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -7524,18 +8366,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A continuation token, if this is not the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
+          name: "--audit-context",
           description:
-            "The maximum number of table versions to return in one response",
+            "A structure containing the Lake Formation audit context",
           args: {
-            name: "integer",
+            name: "structure",
           },
         },
         {
@@ -7611,22 +8446,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A continuation token, included if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of tables to return in a single response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--transaction-id",
           description: "The transaction ID at which to read the table contents",
           args: {
@@ -7642,6 +8461,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--audit-context",
+          description:
+            "A structure containing the Lake Formation audit context",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--include-status-details",
           description:
             "Specifies whether to include status details related to a request to create or update an Glue Data Catalog view",
@@ -7654,7 +8481,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes-to-get",
           description:
-            "Specifies the table fields returned by the GetTables call. This parameter doesn\u2019t accept an empty list. The request must include NAME. The following are the valid combinations of values:    NAME - Names of all tables in the database.    NAME, TABLE_TYPE - Names of all tables and the table types",
+            "Specifies the table fields returned by the GetTables call. This parameter doesn’t accept an empty list. The request must include NAME. The following are the valid combinations of values:    NAME - Names of all tables in the database.    NAME, TABLE_TYPE - Names of all tables and the table types",
           args: {
             name: "list",
           },
@@ -7768,25 +8595,11 @@ const completionSpec: Fig.Spec = {
       description: "Gets all the triggers associated with a job",
       options: [
         {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--dependent-job-name",
           description:
             "The name of the job to retrieve triggers for. The trigger that can start this job is returned, and if there is no such trigger, all triggers are returned",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of the response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8245,18 +9058,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
+          name: "--function-type",
+          description:
+            "An optional function-type pattern string that filters the function definitions returned from Amazon Redshift Federated Permissions Catalog. Specify a value of REGULAR_FUNCTION or STORED_PROCEDURE. The STORED_PROCEDURE function type is only compatible with Amazon Redshift Federated Permissions Catalog",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of functions to return in one response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8452,21 +9258,6 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to include the workflow graph in response or not",
         },
         {
-          name: "--next-token",
-          description: "The maximum size of the response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of workflow runs to be included in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -8541,24 +9332,56 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-blueprints",
-      description: "Lists all the blueprint names in an account",
+      name: "list-asset-types",
+      description: "Lists the asset types defined in Glue Data Catalog",
       options: [
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "A continuation token, if this is a continuation request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-blueprints",
+      description: "Lists all the blueprint names in an account",
+      options: [
         {
           name: "--tags",
           description:
@@ -8650,22 +9473,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-connection-types",
       description:
-        "The ListConnectionTypes API provides a discovery mechanism to learn available connection types in Glue. The response contains a list of connection types with high-level details of what is supported for each connection type. The connection types listed are the set of supported options for the ConnectionType value in the CreateConnection API",
+        "The ListConnectionTypes API provides a discovery mechanism to learn available connection types in Glue. The response contains a list of connection types with high-level details of what is supported for each connection type, including both built-in connection types and custom connection types registered via RegisterConnectionType. The connection types listed are the set of supported options for the ConnectionType value in the CreateConnection API. See also: DescribeConnectionType, RegisterConnectionType, DeleteConnectionType",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -9234,14 +10043,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A continuation token, included if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--data-store-api-version",
           description: "The API version of the SaaS connector",
           args: {
@@ -9273,6 +10074,273 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-form-types",
+      description: "Lists the form types defined in Glue Data Catalog",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-glossaries",
+      description: "Lists business glossaries in Glue Data Catalog",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-glossary-terms",
+      description:
+        "Lists glossary terms within a business glossary in Glue Data Catalog",
+      options: [
+        {
+          name: "--glossary-identifier",
+          description:
+            "The unique identifier of the glossary whose terms to list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-integration-resource-properties",
+      description:
+        "List integration resource properties for a single customer. It supports the filters, maxRecords and markers",
+      options: [
+        {
+          name: "--marker",
+          description:
+            "This is the pagination token for next page, initial value is null",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "A list of filters, supported filter Key is SourceArn and TargetArn",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--max-records",
+          description: "This is total number of items to be evaluated",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-iterable-forms",
+      description:
+        "Lists the items in an iterable form on an asset in Glue Data Catalog. For example, lists the columns of a table asset",
+      options: [
+        {
+          name: "--asset-identifier",
+          description: "The unique identifier of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iterable-form-name",
+          description: "The name of the iterable form to list items from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -9289,25 +10357,80 @@ const completionSpec: Fig.Spec = {
         "Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names. This operation takes the optional Tags field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved",
       options: [
         {
-          name: "--next-token",
+          name: "--tags",
+          description: "Specifies to return only these tagged resources",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
           description:
-            "A continuation token, if this is a continuation request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--tags",
-          description: "Specifies to return only these tagged resources",
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
-            name: "map",
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-materialized-view-refresh-task-runs",
+      description: "List all task runs for a particular account",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--database-name",
+          description: "The database where the table resides",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--table-name",
+          description:
+            "The name of the table for which statistics is generated",
+          args: {
+            name: "string",
           },
         },
         {
@@ -9421,21 +10544,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of registries that you have created, with minimal registry information. Registries in the Deleting status will not be included in the results. Empty results will be returned if there are no registries available",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9492,21 +10600,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9560,21 +10653,6 @@ const completionSpec: Fig.Spec = {
             "A wrapper structure that may contain the registry name and Amazon Resource Name (ARN)",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
           },
         },
         {
@@ -9751,21 +10829,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of optimizer runs to return on each call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9814,26 +10877,11 @@ const completionSpec: Fig.Spec = {
         "Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names. This operation takes the optional Tags field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is a continuation request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--dependent-job-name",
           description:
             "The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9891,22 +10939,6 @@ const completionSpec: Fig.Spec = {
       description: "List all the Glue usage profiles",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A continuation token, included if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of usage profiles to return in a single response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -9953,21 +10985,6 @@ const completionSpec: Fig.Spec = {
       name: "list-workflows",
       description: "Lists names of workflows created in the account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is a continuation request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of a list to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -10038,8 +11055,210 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--integration-config",
+          description:
+            "The configuration settings for the integration. Currently, only the RefreshInterval can be modified",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--integration-name",
           description: "A unique name for an integration in Glue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-asset",
+      description:
+        "Creates or updates an asset in Glue Data Catalog. If the asset already exists, this operation updates it; otherwise, a new asset is created",
+      options: [
+        {
+          name: "--asset-type-id",
+          description: "The identifier of the asset type for the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identifier",
+          description:
+            "The unique identifier of the asset. If an asset with this identifier already exists, it is updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--forms",
+          description:
+            "The forms to set on the asset, keyed by form name. Each entry specifies the form type and its JSON content",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-asset-type",
+      description:
+        "Creates or updates an asset type in Glue Data Catalog. An asset type defines the structure of assets by specifying which forms they include. If an asset type with the given name already exists, it is updated",
+      options: [
+        {
+          name: "--name",
+          description: "The name of the asset type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--forms",
+          description:
+            "The forms that make up the asset type, keyed by form name. Each entry references the form type that defines the form's schema",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-attachment",
+      description:
+        "Attaches a form to an asset or an iterable form item in Glue Data Catalog. If an attachment with the same name already exists, it is overwritten",
+      options: [
+        {
+          name: "--asset-identifier",
+          description:
+            "The unique identifier of the asset to attach the form to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iterable-form-name",
+          description:
+            "The name of the iterable form. When specified along with itemIdentifier, the attachment targets an item within the iterable form rather than the asset itself",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--item-identifier",
+          description:
+            "The identifier of the item within the iterable form. Required when iterableFormName is specified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-name",
+          description: "The name of the attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The JSON content of the form, conforming to the schema of the specified form type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--form-type-id",
+          description: "The identifier of the form type for this attachment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
           args: {
             name: "string",
           },
@@ -10117,6 +11336,53 @@ const completionSpec: Fig.Spec = {
         {
           name: "--inclusion-annotation",
           description: "The inclusion annotation value to apply to the profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-form-type",
+      description:
+        "Creates or updates a form type in Glue Data Catalog. A form type defines the schema for structured metadata that can be attached to assets",
+      options: [
+        {
+          name: "--name",
+          description:
+            "The name of the form type. Must start with an uppercase letter",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--schema",
+          description: "The Smithy IDL schema definition for the form type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
           args: {
             name: "string",
           },
@@ -10275,7 +11541,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--run-properties",
-          description: "The properties to put for the specified run",
+          description:
+            "The properties to put for the specified run. Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run",
           args: {
             name: "map",
           },
@@ -10346,6 +11613,85 @@ const completionSpec: Fig.Spec = {
           description: "A continuation token, if this is a continuation call",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "register-connection-type",
+      description:
+        "Registers a custom connection type in Glue based on the configuration provided. This operation enables customers to configure custom connectors for any data source with REST-based APIs, eliminating the need for building custom Lambda connectors. The registered connection type stores details about how requests and responses are interpreted by REST sources, including connection properties, authentication configuration, and REST configuration with entity definitions. Once registered, customers can create connections using this connection type and work with them the same way as natively supported Glue connectors. Supports multiple authentication types including Basic, OAuth2 (Client Credentials, JWT Bearer, Authorization Code), and Custom Auth configurations",
+      options: [
+        {
+          name: "--connection-type",
+          description:
+            'The name of the connection type. Must be between 1 and 255 characters and must be prefixed with "REST-" to indicate it is a REST-based connector',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--integration-type",
+          description:
+            'The integration type for the connection. Currently only "REST" protocol is supported',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "A description of the connection type. Can be up to 2048 characters and provides details about the purpose and functionality of the connection type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--connection-properties",
+          description:
+            "Defines the base URL and additional request parameters needed during connection creation for this connection type",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--connector-authentication-configuration",
+          description:
+            "Defines the supported authentication types and required properties for this connection type, including Basic, OAuth2, and Custom authentication methods",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--rest-configuration",
+          description:
+            "Defines the HTTP request and response configuration, validation endpoint, and entity configurations for REST API interactions",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags you assign to the connection type",
+          args: {
+            name: "map",
           },
         },
         {
@@ -10589,13 +11935,84 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "search-assets",
+      description:
+        "Searches for assets in Glue Data Catalog using full-text search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked results",
+      options: [
+        {
+          name: "--search-text",
+          description:
+            "The text to search for. At least one of searchText or filterClause must be provided",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sort",
+          description: "The sort criteria for the search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--filter-clause",
+          description:
+            "The filter clause to apply to the search. Supports nested AND/OR logic with attribute-level and map-level filters",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "search-tables",
       description:
         "Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions.  You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search",
       options: [
         {
           name: "--catalog-id",
-          description: "A unique identifier, consisting of  account_id",
+          description: "A unique identifier, consisting of  account_id ",
           args: {
             name: "string",
           },
@@ -11104,7 +12521,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-import-labels-task-run",
       description:
-        "Enables you to provide additional labels (examples of truth) to be used to teach the machine learning transform and improve its quality. This API operation is generally used as part of the active learning workflow that starts with the StartMLLabelingSetGenerationTaskRun call and that ultimately results in improving the quality of your machine learning transform.  After the StartMLLabelingSetGenerationTaskRun finishes, Glue machine learning will have generated a series of questions for humans to answer. (Answering these questions is often called 'labeling' in the machine learning workflows). In the case of the FindMatches transform, these questions are of the form, \u201cWhat is the correct way to group these rows together into groups composed entirely of matching records?\u201d After the labeling process is finished, users upload their answers/labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform use the new and improved labels and perform a higher-quality transformation. By default, StartMLLabelingSetGenerationTaskRun continually learns from and combines all labels that you upload unless you set Replace to true. If you set Replace to true, StartImportLabelsTaskRun deletes and forgets all previously uploaded labels and learns only from the exact set that you upload. Replacing labels can be helpful if you realize that you previously uploaded incorrect labels, and you believe that they are having a negative effect on your transform quality. You can check on the status of your task run by calling the GetMLTaskRun operation",
+        "Enables you to provide additional labels (examples of truth) to be used to teach the machine learning transform and improve its quality. This API operation is generally used as part of the active learning workflow that starts with the StartMLLabelingSetGenerationTaskRun call and that ultimately results in improving the quality of your machine learning transform.  After the StartMLLabelingSetGenerationTaskRun finishes, Glue machine learning will have generated a series of questions for humans to answer. (Answering these questions is often called 'labeling' in the machine learning workflows). In the case of the FindMatches transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?” After the labeling process is finished, users upload their answers/labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform use the new and improved labels and perform a higher-quality transformation. By default, StartMLLabelingSetGenerationTaskRun continually learns from and combines all labels that you upload unless you set Replace to true. If you set Replace to true, StartImportLabelsTaskRun deletes and forgets all previously uploaded labels and learns only from the exact set that you upload. Replacing labels can be helpful if you realize that you previously uploaded incorrect labels, and you believe that they are having a negative effect on your transform quality. You can check on the status of your task run by calling the GetMLTaskRun operation",
       options: [
         {
           name: "--transform-id",
@@ -11196,7 +12613,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--timeout",
           description:
-            "The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. This value overrides the timeout value set in the parent job.  Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days",
+            "The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. This value overrides the timeout value set in the parent job.  Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception. When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later. Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day. For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days",
           args: {
             name: "integer",
           },
@@ -11228,7 +12645,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--worker-type",
           description:
-            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler",
+            "The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.   For the G.1X worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.2X worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.   For the G.4X worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).   For the G.8X worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the G.4X worker type.   For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 or later streaming jobs.   For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler",
           args: {
             name: "string",
           },
@@ -11248,6 +12665,71 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--execution-role-session-policy",
+          description:
+            "This inline session policy to the StartJobRun API allows you to dynamically restrict the permissions of the specified execution role for the scope of the job, without requiring the creation of additional IAM roles",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-materialized-view-refresh-task-run",
+      description:
+        "Starts a materialized view refresh task run, for a specified table and columns",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--database-name",
+          description: "The name of the database where the table resides",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--table-name",
+          description:
+            "The name of the table to generate run the materialized view refresh task",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--full-refresh",
+          description:
+            "Specifies whether this is a full refresh of the task run",
+        },
+        {
+          name: "--no-full-refresh",
+          description:
+            "Specifies whether this is a full refresh of the task run",
         },
         {
           name: "--cli-input-json",
@@ -11303,7 +12785,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-ml-labeling-set-generation-task-run",
       description:
-        'Starts the active learning workflow for your machine learning transform to improve the transform\'s quality by generating label sets and adding labels. When the StartMLLabelingSetGenerationTaskRun finishes, Glue will have generated a "labeling set" or a set of questions for humans to answer. In the case of the FindMatches transform, these questions are of the form, \u201cWhat is the correct way to group these rows together into groups composed entirely of matching records?\u201d  After the labeling process is finished, you can upload your labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation',
+        'Starts the active learning workflow for your machine learning transform to improve the transform\'s quality by generating label sets and adding labels. When the StartMLLabelingSetGenerationTaskRun finishes, Glue will have generated a "labeling set" or a set of questions for humans to answer. In the case of the FindMatches transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?”  After the labeling process is finished, you can upload your labels with a call to StartImportLabelsTaskRun. After StartImportLabelsTaskRun finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation. Note: The role used to write the generated labeling set to the OutputS3Path is the role associated with the Machine Learning Transform, specified in the CreateMLTransform API',
       options: [
         {
           name: "--transform-id",
@@ -11384,7 +12866,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--run-properties",
-          description: "The workflow run properties for the new workflow run",
+          description:
+            "The workflow run properties for the new workflow run. Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run",
           args: {
             name: "map",
           },
@@ -11521,6 +13004,52 @@ const completionSpec: Fig.Spec = {
         {
           name: "--crawler-name",
           description: "Name of the crawler whose schedule state to set",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "stop-materialized-view-refresh-task-run",
+      description:
+        "Stops a materialized view refresh task run, for a specified table and columns",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--database-name",
+          description: "The name of the database where the table resides",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--table-name",
+          description: "The name of the table to generate statistics",
           args: {
             name: "string",
           },
@@ -11751,6 +13280,59 @@ const completionSpec: Fig.Spec = {
           description: "Tags to remove from this resource",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-asset",
+      description:
+        "Updates the name and description of an existing asset in Glue Data Catalog. Only the fields that you provide are updated",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the asset to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The new name of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The new description of the asset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
           },
         },
         {
@@ -12502,6 +14084,159 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-glossary",
+      description: "Updates a business glossary in Glue Data Catalog",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The updated name of the glossary",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The updated description of the glossary",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-glossary-term",
+      description: "Updates a glossary term in Glue Data Catalog",
+      options: [
+        {
+          name: "--identifier",
+          description: "The unique identifier of the glossary term to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The updated name of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--short-description",
+          description: "The updated short description of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--long-description",
+          description: "The updated long description of the glossary term",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-glue-identity-center-configuration",
+      description:
+        "Updates the existing Glue Identity Center configuration, allowing modification of scopes and permissions for the integration",
+      options: [
+        {
+          name: "--scopes",
+          description:
+            "A list of Identity Center scopes that define the updated permissions and access levels for the Glue configuration",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--user-background-sessions-enabled",
+          description:
+            "Specifies whether users can run background sessions when using Identity Center authentication with Glue services",
+        },
+        {
+          name: "--no-user-background-sessions-enabled",
+          description:
+            "Specifies whether users can run background sessions when using Identity Center authentication with Glue services",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-integration-resource-property",
       description:
         "This API can be used for updating the ResourceProperty of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. Since the same resource can be used across multiple integrations, updating resource properties will impact all the integrations using it",
@@ -13115,6 +14850,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--name",
+          description:
+            "The unique identifier for the table within the specified database that will be created in the Glue Data Catalog",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--table-input",
           description:
             "An updated TableInput object to define the metadata table in the catalog",
@@ -13163,6 +14906,14 @@ const completionSpec: Fig.Spec = {
           name: "--no-force",
           description:
             "A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements",
+        },
+        {
+          name: "--update-open-table-format-input",
+          description:
+            "Input parameters for updating open table format tables in GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg",
+          args: {
+            name: "structure",
+          },
         },
         {
           name: "--cli-input-json",
@@ -13245,7 +14996,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-trigger",
-      description: "Updates a trigger definition",
+      description:
+        "Updates a trigger definition. Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job",
       options: [
         {
           name: "--name",
@@ -13401,7 +15153,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--default-run-properties",
           description:
-            "A collection of properties to be used as part of each execution of the workflow",
+            "A collection of properties to be used as part of each execution of the workflow. Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run",
           args: {
             name: "map",
           },

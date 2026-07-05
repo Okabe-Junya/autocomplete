@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "mediastore",
   description:
@@ -11,7 +12,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--container-name",
           description:
-            "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named movies in every region, as long as you don\u2019t have an existing container with that name",
+            "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named movies in every region, as long as you don’t have an existing container with that name",
           args: {
             name: "string",
           },
@@ -362,22 +363,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the properties of all containers in AWS Elemental MediaStore.  You can query to receive all the containers in one response. Or you can include the MaxResults parameter to receive a limited number of containers in each response. In this case, the response includes a token. To get the next set of containers, send the command again, this time with the NextToken parameter (with the returned token as its value). The next set of responses appears, with a token if there are still more containers to receive.  See also DescribeContainer, which gets the properties of one container",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "Only if you used MaxResults in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Enter the maximum number of containers in the response. Use from 1 to 255 characters",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

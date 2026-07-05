@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "emr",
   description:
@@ -43,23 +44,43 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "add-instance-groups",
-      description: "Adds an instance group to a running cluster",
+      description: "Adds one or more instance groups to a running cluster",
       options: [
         {
           name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
+          description: "Job flow in which to add the instance groups",
           args: {
             name: "string",
           },
         },
         {
           name: "--instance-groups",
-          description:
-            "Specifies the number and type of Amazon EC2 instances to create for each node type in a cluster, using uniform instance groups. You can specify either --instance-groups or --instance-fleets but not both. For more information, see the following topic in the EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.htmlYou can specify arguments individually using multiple InstanceGroupType argument blocks, one for the MASTER instance group, one for a CORE instance group, and optional, multiple TASK instance groups.If you specify inline JSON structures, enclose the entire InstanceGroupType argument block in single quotation marks.Each InstanceGroupType block takes the following inline arguments. Optional arguments are shown in [square brackets].[Name] - An optional friendly name for the instance group.InstanceGroupType - MASTER, CORE, or TASK.InstanceType - The type of EC2 instance, for example m4.large, to use for all nodes in the instance group.InstanceCount - The number of EC2 instances to provision in the instance group.[BidPrice] - If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.[EbsConfiguration] - Specifies additional Amazon EBS storage volumes attached to EC2 instances using an inline JSON structure.[AutoScalingPolicy] - Specifies an automatic scaling policy for the instance group using an inline JSON structure",
+          description: "Instance groups to add",
           args: {
             name: "list",
-            isVariadic: true,
+          },
+        },
+      ],
+    },
+    {
+      name: "add-steps",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--steps",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--execution-role-arn",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -80,10 +101,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "A list of tags to associate with a cluster, which apply to each Amazon EC2 instance in the cluster. Tags are key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.You can specify tags in key=value format or you can add a tag without a value using only the key name, for example key. Use a space to separate multiple tags",
+            "A list of tags to associate with a resource. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters",
           args: {
             name: "string",
-            isVariadic: true,
+          },
+        },
+        {
+          name: "--cluster-id",
+          description:
+            "The ID of the cluster that scopes the tag operation. Required when the resource being tagged is a session-scoped resource",
+          args: {
+            name: "string",
           },
         },
         {
@@ -130,6 +158,358 @@ const completionSpec: Fig.Spec = {
           name: "--step-cancellation-option",
           description:
             "The option to choose to cancel RUNNING steps. By default, the value is SEND_INTERRUPT",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-cluster",
+      options: [
+        {
+          name: "--release-label",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--os-release-label",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ami-version",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-groups",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--instance-type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-count",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--auto-terminate",
+        },
+        {
+          name: "--no-auto-terminate",
+        },
+        {
+          name: "--instance-fleets",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--log-uri",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--log-encryption-kms-key-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--service-role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--auto-scaling-role",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--use-default-roles",
+        },
+        {
+          name: "--configurations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ec2-attributes",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--termination-protected",
+        },
+        {
+          name: "--no-termination-protected",
+        },
+        {
+          name: "--unhealthy-node-replacement",
+        },
+        {
+          name: "--no-unhealthy-node-replacement",
+        },
+        {
+          name: "--scale-down-behavior",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visible-to-all-users",
+        },
+        {
+          name: "--no-visible-to-all-users",
+        },
+        {
+          name: "--enable-debugging",
+        },
+        {
+          name: "--no-enable-debugging",
+        },
+        {
+          name: "--tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--bootstrap-actions",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--applications",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--emrfs",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--steps",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--additional-info",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--restore-from-hbase-backup",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--security-configuration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-ami-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ebs-root-volume-size",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ebs-root-volume-iops",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ebs-root-volume-throughput",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--repo-upgrade-on-boot",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--kerberos-attributes",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--step-concurrency-level",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--step-execution-role-arn",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--managed-scaling-policy",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--placement-group-configs",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--auto-termination-policy",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--monitoring-configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--extended-support",
+        },
+        {
+          name: "--no-extended-support",
+        },
+        {
+          name: "--session-enabled",
+        },
+        {
+          name: "--no-session-enabled",
+        },
+      ],
+    },
+    {
+      name: "create-default-roles",
+      options: [
+        {
+          name: "--iam-endpoint",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
+      name: "create-hbase-backup",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dir",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--consistent",
+        },
+      ],
+    },
+    {
+      name: "create-persistent-app-ui",
+      description: "Creates a persistent application user interface",
+      options: [
+        {
+          name: "--target-resource-arn",
+          description:
+            "The unique Amazon Resource Name (ARN) of the target resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--emr-containers-config",
+          description: "The EMR containers configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description: "Tags for the persistent application user interface",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--x-referer",
+          description:
+            "The cross reference for the persistent application user interface",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--profiler-type",
+          description:
+            "The profiler type for the persistent application user interface",
           args: {
             name: "string",
           },
@@ -533,12 +913,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-cluster",
       description:
-        "Provides  cluster-level details including status, hardware and software configuration, VPC settings, bootstrap actions, instance groups and so on. Permissions needed for describe-cluster include elasticmapreduce:ListBootstrapActions, elasticmapreduce:ListInstanceFleets, elasticmapreduce:DescribeCluster, and elasticmapreduce:ListInstanceGroups",
+        "Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on",
       options: [
         {
           name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
+          description: "The identifier of the cluster to describe",
           args: {
             name: "string",
           },
@@ -552,6 +931,37 @@ const completionSpec: Fig.Spec = {
         {
           name: "--notebook-execution-id",
           description: "The unique identifier of the notebook execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-persistent-app-ui",
+      description: "Describes a persistent application user interface",
+      options: [
+        {
+          name: "--persistent-app-ui-id",
+          description:
+            "The identifier for the persistent application user interface",
           args: {
             name: "string",
           },
@@ -721,6 +1131,58 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "disable-hbase-backups",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--full",
+        },
+        {
+          name: "--incremental",
+        },
+      ],
+    },
+    {
+      name: "get",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--key-pair-file",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--src",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dest",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ssh-options",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "get-auto-termination-policy",
       description:
         "Returns the auto-termination policy for an Amazon EMR cluster",
@@ -848,6 +1310,212 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-on-cluster-app-ui-presigned-url",
+      description:
+        "The presigned URL properties for the cluster's application user interface",
+      options: [
+        {
+          name: "--cluster-id",
+          description:
+            "The cluster ID associated with the cluster's application user interface presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--on-cluster-app-ui-type",
+          description:
+            "The application UI type associated with the cluster's application user interface presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--application-id",
+          description:
+            "The application ID associated with the cluster's application user interface presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dry-run",
+          description:
+            "Determines if the user interface presigned URL is for a dry run",
+        },
+        {
+          name: "--no-dry-run",
+          description:
+            "Determines if the user interface presigned URL is for a dry run",
+        },
+        {
+          name: "--execution-role-arn",
+          description:
+            "The execution role ARN associated with the cluster's application user interface presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-persistent-app-ui-presigned-url",
+      description:
+        "The presigned URL properties for the cluster's application user interface",
+      options: [
+        {
+          name: "--persistent-app-ui-id",
+          description:
+            "The persistent application user interface ID associated with the presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--persistent-app-ui-type",
+          description:
+            "The persistent application user interface type associated with the presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--application-id",
+          description: "The application ID associated with the presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--auth-proxy-call",
+          description:
+            "A boolean that represents if the caller is an authentication proxy call",
+        },
+        {
+          name: "--no-auth-proxy-call",
+          description:
+            "A boolean that represents if the caller is an authentication proxy call",
+        },
+        {
+          name: "--execution-role-arn",
+          description:
+            "The execution role ARN associated with the presigned URL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session",
+      description: "Returns detailed information about a session",
+      options: [
+        {
+          name: "--cluster-id",
+          description: "The ID of the cluster that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-session-endpoint",
+      description:
+        "Returns the Spark Connect endpoint URL and a time-limited authentication token for the specified session. Use the endpoint and token to connect a PySpark client to the session. Call this operation again when the token expires to obtain a new one",
+      options: [
+        {
+          name: "--cluster-id",
+          description: "The ID of the cluster that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-studio-session-mapping",
       description:
         "Fetches mapping details for the specified Amazon EMR Studio and identity (user or group)",
@@ -903,6 +1571,23 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "install-applications",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--applications",
+          args: {
+            name: "list",
+          },
+        },
+      ],
+    },
+    {
       name: "list-clusters",
       description:
         "Provides the status of all clusters visible to this Amazon Web Services account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters in unsorted order per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls",
@@ -910,7 +1595,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--created-after",
           description:
-            "List only those clusters created after the date and time specified in the format yyyy-mm-ddThh:mm:ss. For example, --created-after 2017-07-04T00:01:30",
+            "The creation date and time beginning value filter for listing clusters",
           args: {
             name: "timestamp",
           },
@@ -918,7 +1603,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--created-before",
           description:
-            "List only those clusters created before the date and time specified in the format yyyy-mm-ddThh:mm:ss. For example, --created-before 2017-07-04T00:01:30",
+            "The creation date and time end value filter for listing clusters",
           args: {
             name: "timestamp",
           },
@@ -926,24 +1611,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-states",
           description:
-            "Specifies that only clusters in the states specified are listed. Alternatively, you can use the shorthand form for single states or a group of states.Takes the following state values:STARTINGBOOTSTRAPPINGRUNNINGWAITINGTERMINATINGTERMINATEDTERMINATED_WITH_ERRORS",
-          args: {
-            name: "string",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
+            "The cluster state filters to apply when listing clusters. Clusters that change state while this action runs may be not be returned as expected in the list of clusters",
           args: {
             name: "string",
           },
         },
         {
           name: "--active",
-          description:
-            "Shortcut options for --cluster-states. The following shortcut options can be specified:--active - list only clusters that are STARTING,BOOTSTRAPPING, RUNNING, WAITING, or TERMINATING. --terminated - list only clusters that are TERMINATED. --failed - list only clusters that are TERMINATED_WITH_ERRORS",
         },
         {
           name: "--terminated",
@@ -976,6 +1650,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -994,14 +1676,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-id",
           description: "The unique identifier of the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
           args: {
             name: "string",
           },
@@ -1026,6 +1700,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1094,14 +1776,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1121,6 +1795,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1174,14 +1856,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "The pagination token, returned by a previous ListNotebookExecutions call, that indicates the start of the list for this ListNotebookExecutions call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--execution-engine-id",
           description: "The unique ID of the execution engine",
           args: {
@@ -1208,6 +1882,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1277,11 +1959,74 @@ const completionSpec: Fig.Spec = {
         "Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls",
       options: [
         {
-          name: "--marker",
+          name: "--cli-input-json",
           description:
-            "The pagination token that indicates the set of results to retrieve",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-sessions",
+      description:
+        "Lists the sessions on a cluster. You can filter the results by session state. Newer sessions are returned first",
+      options: [
+        {
+          name: "--cluster-id",
+          description: "The ID of the cluster to list sessions for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-states",
+          description:
+            "An optional filter that limits the results to sessions in the specified states",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of sessions to return in each page of results",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1304,6 +2049,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1349,14 +2102,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
-          description:
-            "The maximum number of steps that a single ListSteps action returns is 50. To return a longer list of steps, use multiple ListSteps actions along with the Marker parameter, which is a pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1376,6 +2121,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1412,13 +2165,53 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--marker",
+          name: "--cli-input-json",
           description:
-            "The pagination token that indicates the set of results to retrieve",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-studios",
+      description:
+        "Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and creation time for each Studio",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -1444,49 +2237,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--generate-cli-skeleton",
+          name: "--page-size",
           description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-studios",
-      description:
-        "Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and creation time for each Studio",
-      options: [
-        {
-          name: "--marker",
-          description:
-            "The pagination token that indicates the set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1510,7 +2263,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--release-label",
           description:
-            "The Amazon EMR release label determines the versions of open-source application packages that Amazon EMR has installed on the cluster. Release labels are in the format emr-x.x.x, where x.x.x is an Amazon EMR release number such as emr-6.10.0. For more information about Amazon EMR releases and their included application versions and features, see the  Amazon EMR Release Guide",
+            "The Amazon EMR release label determines the versions of open-source application packages that Amazon EMR has installed on the cluster. Release labels are in the format emr-x.x.x, where x.x.x is an Amazon EMR release number such as emr-6.10.0. For more information about Amazon EMR releases and their included application versions and features, see the  Amazon EMR Release Guide ",
           args: {
             name: "string",
           },
@@ -1563,6 +2316,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--extended-support",
+          description: "Reserved",
+        },
+        {
+          name: "--no-extended-support",
+          description: "Reserved",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1578,6 +2339,41 @@ const completionSpec: Fig.Spec = {
             name: "string",
             suggestions: ["input", "output"],
           },
+        },
+      ],
+    },
+    {
+      name: "modify-cluster-attributes",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visible-to-all-users",
+        },
+        {
+          name: "--no-visible-to-all-users",
+        },
+        {
+          name: "--termination-protected",
+        },
+        {
+          name: "--no-termination-protected",
+        },
+        {
+          name: "--auto-terminate",
+        },
+        {
+          name: "--no-auto-terminate",
+        },
+        {
+          name: "--unhealthy-node-replacement",
+        },
+        {
+          name: "--no-unhealthy-node-replacement",
         },
       ],
     },
@@ -1654,6 +2450,41 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--key-pair-file",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--src",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dest",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ssh-options",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -1943,6 +2774,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--cluster-id",
+          description:
+            "The ID of the cluster that scopes the tag operation. Required when the resource being untagged is a session-scoped resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1957,6 +2796,125 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "restore-from-hbase-backup",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dir",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--backup-version",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
+      name: "schedule-hbase-backup",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dir",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--interval",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--unit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--start-time",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--consistent",
+        },
+      ],
+    },
+    {
+      name: "socks",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--key-pair-file",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ssh-options",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
+      name: "ssh",
+      options: [
+        {
+          name: "--cluster-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--key-pair-file",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--command",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--ssh-options",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -2079,12 +3037,146 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-session",
+      description:
+        "Creates and starts a new Spark Connect session on the specified cluster. The cluster must be in the RUNNING or WAITING state and have sessions enabled. This operation is supported in Amazon EMR Spark 8.0.0 and later",
+      options: [
+        {
+          name: "--name",
+          description: "An optional name for the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cluster-id",
+          description: "The ID of the cluster on which to start the session",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--execution-role-arn",
+          description:
+            "The execution role ARN for the session. Amazon EMR uses this role to access Amazon Web Services resources on your behalf during session execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--engine-configurations",
+          description:
+            "The configuration overrides for the session. Only runtime configuration overrides are supported",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--monitoring-configuration",
+          description:
+            "The monitoring configuration that controls where session logs are published, such as Amazon S3, CloudWatch, or managed logging",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--session-idle-timeout-in-minutes",
+          description:
+            "The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR EC2 automatically terminates it",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--client-request-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client request token, the service returns the original response without performing the operation again",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags to assign to the session",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "stop-notebook-execution",
       description: "Stops a notebook execution",
       options: [
         {
           name: "--notebook-execution-id",
           description: "The unique identifier of the notebook execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "terminate-clusters",
+      options: [
+        {
+          name: "--cluster-ids",
+          args: {
+            name: "list",
+          },
+        },
+      ],
+    },
+    {
+      name: "terminate-session",
+      description:
+        "Terminates an active session. After you call this operation, the session enters the TERMINATING state and then transitions to TERMINATED",
+      options: [
+        {
+          name: "--cluster-id",
+          description: "The ID of the cluster that the session belongs to",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description: "The ID of the session to terminate",
           args: {
             name: "string",
           },
@@ -2242,723 +3334,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "terminate-clusters",
-      description:
-        "Shuts down one or more clusters, each specified by cluster ID. Use this command only on clusters that do not have termination protection enabled. Clusters with termination protection enabled are not terminated. When a cluster is shut down, any step not yet completed is canceled and the Amazon EC2 instances in the cluster are terminated. Any log files not already saved are uploaded to Amazon S3 if a --log-uri was specified when the cluster was created. The maximum number of clusters allowed in the list is 10. The command is asynchronous. Depending on the configuration of the cluster, it may take from 5 to 20 minutes for the cluster to terminate completely and release allocated resources such as Amazon EC2 instances",
-      options: [
-        {
-          name: "--cluster-ids",
-          description: "A list of clusters to terminate",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-      ],
-    },
-    {
-      name: "modify-cluster-attributes",
-      description:
-        "Modifies the cluster attributes 'visible-to-all-users',  'termination-protected' and 'unhealthy-node-replacement'",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--visible-to-all-users",
-          description:
-            "Specifies whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If a user has the proper policy permissions set, they can also manage the cluster.Visibility is on by default. The --no-visible-to-all-users option is no longer supported. To restrict cluster visibility, use an IAM policy",
-        },
-        {
-          name: "--no-visible-to-all-users",
-          description:
-            "Specifies whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If a user has the proper policy permissions set, they can also manage the cluster.Visibility is on by default. The --no-visible-to-all-users option is no longer supported. To restrict cluster visibility, use an IAM policy",
-        },
-        {
-          name: "--termination-protected",
-          description: "Set termination protection on or off",
-        },
-        {
-          name: "--no-termination-protected",
-          description: "Set termination protection on or off",
-        },
-        {
-          name: "--auto-terminate",
-          description:
-            "Set cluster auto terminate after completing all the steps on or off",
-        },
-        {
-          name: "--no-auto-terminate",
-          description:
-            "Set cluster auto terminate after completing all the steps on or off",
-        },
-        {
-          name: "--unhealthy-node-replacement",
-          description: "Set Unhealthy Node Replacement on or off",
-        },
-        {
-          name: "--no-unhealthy-node-replacement",
-          description: "Set Unhealthy Node Replacement on or off",
-        },
-      ],
-    },
-    {
-      name: "install-applications",
-      description:
-        "Installs applications on a running cluster. Currently only Hive and Pig can be installed using this command, and this command is only supported by AMI versions (3.x and 2.x)",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--applications",
-          description:
-            "The applications to be installed. Takes the following parameters: Name and Args",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-      ],
-    },
-    {
-      name: "create-cluster",
-      description:
-        "Creates an Amazon EMR cluster with the specified configurations",
-      options: [
-        {
-          name: "--release-label",
-          description:
-            "Specifies the Amazon EMR release version, which determines the versions of application software that are installed on the cluster. For example, --release-label emr-5.15.0 installs the application versions and features available in that version. For details about application versions and features available in each release, see the Amazon EMR Release Guide:https://docs.aws.amazon.com/emr/latest/ReleaseGuideUse --release-label only for Amazon EMR release version 4.0 and later. Use --ami-version for earlier versions. You cannot specify both a release label and AMI version",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--os-release-label",
-          description:
-            "Specifies a particular Amazon Linux release for all nodes in a cluster launch request. If a release is not specified, EMR uses the latest validated Amazon Linux release for cluster launch",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ami-version",
-          description:
-            "Applies only to Amazon EMR release versions earlier than 4.0. Use --release-label for 4.0 and later. Specifies the version of Amazon Linux Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the cluster. For example, --ami-version 3.1.0",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--instance-groups",
-          description:
-            "Specifies the number and type of Amazon EC2 instances to create for each node type in a cluster, using uniform instance groups. You can specify either --instance-groups or --instance-fleets but not both. For more information, see the following topic in the EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.htmlYou can specify arguments individually using multiple InstanceGroupType argument blocks, one for the MASTER instance group, one for a CORE instance group, and optional, multiple TASK instance groups.If you specify inline JSON structures, enclose the entire InstanceGroupType argument block in single quotation marks.Each InstanceGroupType block takes the following inline arguments. Optional arguments are shown in [square brackets].[Name] - An optional friendly name for the instance group.InstanceGroupType - MASTER, CORE, or TASK.InstanceType - The type of EC2 instance, for example m4.large, to use for all nodes in the instance group.InstanceCount - The number of EC2 instances to provision in the instance group.[BidPrice] - If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.[EbsConfiguration] - Specifies additional Amazon EBS storage volumes attached to EC2 instances using an inline JSON structure.[AutoScalingPolicy] - Specifies an automatic scaling policy for the instance group using an inline JSON structure",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--instance-type",
-          description:
-            "Shortcut parameter as an alternative to --instance-groups. Specifies the type of Amazon EC2 instance to use in a cluster. If used without the --instance-count parameter, the cluster consists of a single master node running on the EC2 instance type specified. When used together with --instance-count, one instance is used for the master node, and the remainder are used for the core node type",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--instance-count",
-          description:
-            "Shortcut parameter as an alternative to --instance-groups when used together with --instance-type. Specifies the number of Amazon EC2 instances to create for a cluster. One instance is used for the master node, and the remainder are used for the core node type",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--auto-terminate",
-          description:
-            "Specifies whether the cluster should terminate after completing all the steps. Auto termination is off by default",
-        },
-        {
-          name: "--no-auto-terminate",
-        },
-        {
-          name: "--instance-fleets",
-          description:
-            "Applies only to Amazon EMR release version 5.0 and later. Specifies the number and type of Amazon EC2 instances to create for each node type in a cluster, using instance fleets. You can specify either --instance-fleets or --instance-groups but not both. For more information and examples, see the following topic in the Amazon EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.htmlYou can specify arguments individually using multiple InstanceFleetType argument blocks, one for the MASTER instance fleet, one for a CORE instance fleet, and an optional TASK instance fleet.The following arguments can be specified for each instance fleet. Optional arguments are shown in [square brackets].[Name] - An optional friendly name for the instance fleet.InstanceFleetType - MASTER, CORE, or TASK.TargetOnDemandCapacity - The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision. The WeightedCapacity specified for an instance type within InstanceTypeConfigs counts toward this total when an instance type with the On-Demand purchasing option launches.TargetSpotCapacity - The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision. The WeightedCapacity specified for an instance type within InstanceTypeConfigs counts toward this total when an instance type with the Spot purchasing option launches.[LaunchSpecifications] - When TargetSpotCapacity is specified, specifies the block duration and timeout action for Spot Instances.InstanceTypeConfigs - Specify up to five EC2 instance types to use in the instance fleet, including details such as Spot price and Amazon EBS configuration. When you use an On-Demand or Spot Instance allocation strategy, you can specify up to 30 instance types per instance fleet",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--name",
-          description:
-            'The name of the cluster. If not provided, the default is "Development Cluster"',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--log-uri",
-          description:
-            "Specifies the location in Amazon S3 to which log files are periodically written. If a value is not provided, logs files are not written to Amazon S3 from the master node and are lost if the master node terminates",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--log-encryption-kms-key-id",
-          description:
-            "Specifies the KMS Id utilized for log encryption. If a value is not provided, log files will be encrypted by default encryption method AES-256. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--service-role",
-          description:
-            "Specifies an IAM service role, which Amazon EMR requires to call other AWS services on your behalf during cluster operation. This parameter is usually specified when a customized service role is used. To specify the default service role, as well as the default instance profile, use the --use-default-roles parameter. If the role and instance profile do not already exist, use the aws emr create-default-roles command to create them",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--auto-scaling-role",
-          description:
-            "Specify --auto-scaling-role EMR_AutoScaling_DefaultRole if an automatic scaling policy is specified for an instance group using the --instance-groups parameter. This default IAM role allows the automatic scaling feature to launch and terminate Amazon EC2 instances during scaling operations",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--use-default-roles",
-          description:
-            "Specifies that the cluster should use the default service role (EMR_DefaultRole) and instance profile (EMR_EC2_DefaultRole) for permissions to access other AWS services.Make sure that the role and instance profile exist first. To create them, use the create-default-roles command",
-        },
-        {
-          name: "--configurations",
-          description:
-            "Specifies a JSON file that contains configuration classifications, which you can use to customize applications that Amazon EMR installs when cluster instances launch. Applies only to Amazon EMR 4.0 and later. The file referenced can either be stored locally (for example, --configurations file://configurations.json) or stored in Amazon S3 (for example, --configurations https://s3.amazonaws.com/myBucket/configurations.json). Each classification usually corresponds to the xml configuration file for an application, such as yarn-site for YARN. For a list of available configuration classifications and example JSON, see the following topic in the Amazon EMR Release Guide:https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ec2-attributes",
-          description:
-            "Configures cluster and Amazon EC2 instance configurations. Accepts the following arguments:KeyName - Specifies the name of the AWS EC2 key pair that will be used for SSH connections to the master node and other instances on the cluster.AvailabilityZone - Applies to clusters that use the uniform instance group configuration. Specifies the availability zone in which to launch the cluster. For example, us-west-1b. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.AvailabilityZones - Applies to clusters that use the instance fleet configuration. When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.SubnetId - Applies to clusters that use the uniform instance group configuration. Specify the VPC subnet in which to create the cluster. SubnetId is used for uniform instance groups, while SubnetIds (plural) is used for instance fleets.SubnetIds - Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet. SubnetId is used for uniform instance groups, while SubnetIds (plural) is used for instance fleets.InstanceProfile - An IAM role that allows EC2 instances to access other AWS services, such as Amazon S3, that are required for operations.EmrManagedMasterSecurityGroup - The security group ID of the Amazon EC2 security group for the master node.EmrManagedSlaveSecurityGroup - The security group ID of the Amazon EC2 security group for the slave nodes.ServiceAccessSecurityGroup - The security group ID of the Amazon EC2 security group for Amazon EMR access to clusters in VPC private subnets.AdditionalMasterSecurityGroups - A list of additional Amazon EC2 security group IDs for the master node.AdditionalSlaveSecurityGroups - A list of additional Amazon EC2 security group IDs for the slave nodes",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--termination-protected",
-          description:
-            "Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or an error",
-        },
-        {
-          name: "--no-termination-protected",
-        },
-        {
-          name: "--unhealthy-node-replacement",
-          description: "Unhealthy node replacement for an Amazon EMR cluster",
-        },
-        {
-          name: "--no-unhealthy-node-replacement",
-        },
-        {
-          name: "--scale-down-behavior",
-          description:
-            "Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.Accepted values:TERMINATE_AT_TASK_COMPLETION - Specifies that Amazon EMR blacklists and drains tasks from nodes before terminating the instance.TERMINATE_AT_INSTANCE_HOUR - Specifies that Amazon EMR terminate EC2 instances at the instance-hour boundary, regardless of when the request to terminate was submitted",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--visible-to-all-users",
-          description:
-            "Specifies whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If a user has the proper policy permissions set, they can also manage the cluster.Visibility is on by default. The --no-visible-to-all-users option is no longer supported. To restrict cluster visibility, use an IAM policy",
-        },
-        {
-          name: "--no-visible-to-all-users",
-        },
-        {
-          name: "--enable-debugging",
-          description:
-            "Specifies that the debugging tool is enabled for the cluster, which allows you to browse log files using the Amazon EMR console. Turning debugging on requires that you specify --log-uri because log files must be stored in Amazon S3 so that Amazon EMR can index them for viewing in the console. Effective January 23, 2023, Amazon EMR will discontinue the debugging tool for all versions",
-        },
-        {
-          name: "--no-enable-debugging",
-        },
-        {
-          name: "--tags",
-          description:
-            "A list of tags to associate with a cluster, which apply to each Amazon EC2 instance in the cluster. Tags are key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.You can specify tags in key=value format or you can add a tag without a value using only the key name, for example key. Use a space to separate multiple tags",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--bootstrap-actions",
-          description:
-            "Specifies a list of bootstrap actions to run on each EC2 instance when a cluster is created. Bootstrap actions run on each instance immediately after Amazon EMR provisions the EC2 instance and before Amazon EMR installs specified applications.You can specify a bootstrap action as an inline JSON structure enclosed in single quotation marks, or you can use a shorthand syntax, specifying multiple bootstrap actions, each separated by a space. When using the shorthand syntax, each bootstrap action takes the following parameters, separated by commas with no trailing space. Optional parameters are shown in [square brackets].Path - The path and file name of the script to run, which must be accessible to each instance in the cluster. For example, Path=s3://mybucket/myscript.sh.[Name] - A friendly name to help you identify the bootstrap action. For example, Name=BootstrapAction1[Args] - A comma-separated list of arguments to pass to the bootstrap action script. Arguments can be either a list of values (Args=arg1,arg2,arg3) or a list of key-value pairs, as well as optional values, enclosed in square brackets (Args=[arg1,arg2=arg2value,arg3])",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--applications",
-          description:
-            "Specifies the applications to install on the cluster. Available applications and their respective versions vary by Amazon EMR release. For more information, see the Amazon EMR Release Guide:https://docs.aws.amazon.com/emr/latest/ReleaseGuide/When using versions of Amazon EMR earlier than 4.0, some applications take optional arguments for configuration. Arguments should either be a comma-separated list of values (Args=arg1,arg2,arg3) or a bracket-enclosed list of values and key-value pairs (Args=[arg1,arg2=arg3,arg4])",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--emrfs",
-          description:
-            "Specifies EMRFS configuration options, such as consistent view and Amazon S3 encryption parameters.When you use Amazon EMR release version 4.8.0 or later, we recommend that you use the --configurations option together with the emrfs-site configuration classification to configure EMRFS, and use security configurations to configure encryption for EMRFS data in Amazon S3 instead. For more information, see the following topic in the Amazon EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ManagementGuide/emrfs-configure-consistent-view.html",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--steps",
-          description:
-            "Specifies a list of steps to be executed by the cluster. Steps run only on the master node after applications are installed and are used to submit work to a cluster. A step can be specified using the shorthand syntax, by referencing a JSON file or by specifying an inline JSON structure. Args supplied with steps should be a comma-separated list of values (Args=arg1,arg2,arg3) or a bracket-enclosed list of values and key-value pairs (Args=[arg1,arg2=value,arg4)",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--additional-info",
-          description:
-            'Specifies additional information during cluster creation. To set development mode when starting your EMR cluster, set this parameter to {"clusterType":"development"}',
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--restore-from-hbase-backup",
-          description:
-            "Applies only when using Amazon EMR release versions earlier than 4.0. Launches a new HBase cluster and populates it with data from a previous backup of an HBase cluster. HBase must be installed using the --applications option",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--security-configuration",
-          description:
-            "Specifies the name of a security configuration to use for the cluster. A security configuration defines data encryption settings and other security options. For more information, see the following topic in the Amazon EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.htmlUse list-security-configurations to get a list of available security configurations in the active account",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--custom-ami-id",
-          description:
-            "Applies only to Amazon EMR release version 5.7.0 and later. Specifies the AMI ID of a custom AMI to use when Amazon EMR provisions EC2 instances. A custom AMI can be used to encrypt the Amazon EBS root volume. It can also be used instead of bootstrap actions to customize cluster node configurations. For more information, see the following topic in the Amazon EMR Management Guide:https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ebs-root-volume-size",
-          description:
-            "This option is available only with Amazon EMR version 4.x and later. Specifies the size, in GiB, of the EBS root device volume of the Amazon Linux AMI that is used for each EC2 instance in the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ebs-root-volume-iops",
-          description:
-            "This option is available only with Amazon EMR version 6.15.0 and later. Specifies the IOPS, of the EBS root device volume of the Amazon Linux AMI that is used for each EC2 instance in the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--ebs-root-volume-throughput",
-          description:
-            "This option is available only with Amazon EMR version 6.15.0 and later. Specifies the throughput, in MiB/s, of the EBS root device volume of the Amazon Linux AMI that is used for each EC2 instance in the cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--repo-upgrade-on-boot",
-          description:
-            "Applies only when a --custom-ami-id is specified. On first boot, by default, Amazon Linux AMIs connect to package repositories to install security updates before other services start. You can set this parameter using --rep-upgrade-on-boot NONE to disable these updates. CAUTION: This creates additional security risks",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--kerberos-attributes",
-          description:
-            "Specifies required cluster attributes for Kerberos when Kerberos authentication is enabled in the specified --security-configuration. Takes the following arguments: Realm - Specifies the name of the Kerberos realm to which all nodes in a cluster belong. For example, Realm=EC2.INTERNAL. KdcAdminPassword - Specifies the password used within the cluster for the kadmin service, which maintains Kerberos principals, password policies, and keytabs for the cluster. CrossRealmTrustPrincipalPassword - Required when establishing a cross-realm trust with a KDC in a different realm. This is the cross-realm principal password, which must be identical across realms. ADDomainJoinUser - Required when establishing trust with an Active Directory domain. This is the User logon name of an AD account with sufficient privileges to join resources to the domain. ADDomainJoinPassword - The AD password for ADDomainJoinUser",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--step-concurrency-level",
-          description:
-            "This command specifies the step concurrency level of the cluster.Default is 1 which is non-concurrent",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--managed-scaling-policy",
-          description:
-            "Managed scaling policy for an Amazon EMR cluster. The policy specifies the limits for resources that can be added or terminated from a cluster. You can specify the ComputeLimits which include the MaximumCapacityUnits, MaximumCoreCapacityUnits, MinimumCapacityUnits, MaximumOnDemandCapacityUnits and UnitType. For an InstanceFleet cluster, the UnitType must be InstanceFleetUnits. For InstanceGroup clusters, the UnitType can be either VCPU or Instances",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--placement-group-configs",
-          description:
-            "Placement group configuration for an Amazon EMR cluster. The configuration specifies the EC2 placement group strategy associated with each EMR Instance Role. Currently, we support placement group only for MASTER role with SPREAD strategy by default. You can opt-in by passing --placement-group-configs InstanceRole=MASTER during cluster creation",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--auto-termination-policy",
-          description:
-            "Auto termination policy for an Amazon EMR cluster. The configuration specifies the termination idle timeoutthreshold for an cluster",
-          args: {
-            name: "structure",
-          },
-        },
-      ],
-    },
-    {
-      name: "add-steps",
-      description: "Add a list of steps to a cluster",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--steps",
-          description:
-            "Specifies a list of steps to be executed by the cluster. Steps run only on the master node after applications are installed and are used to submit work to a cluster. A step can be specified using the shorthand syntax, by referencing a JSON file or by specifying an inline JSON structure. Args supplied with steps should be a comma-separated list of values (Args=arg1,arg2,arg3) or a bracket-enclosed list of values and key-value pairs (Args=[arg1,arg2=value,arg4)",
-          args: {
-            name: "list",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--execution-role-arn",
-          description:
-            "You must grant the execution role the permissions needed to access the same IAM resources that the step can access. The execution role can be a cross-account IAM Role",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "restore-from-hbase-backup",
-      description:
-        "Restores HBase from S3. This command is only available when using Amazon EMR versionsearlier than 4.0",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dir",
-          description:
-            "The Amazon S3 location of the Hbase backup. Example: s3://mybucket/mybackup, where mybucket is the specified Amazon S3 bucket and mybackup is the specified backup location. The path argument must begin with s3://, which refers to an Amazon S3 bucket",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--backup-version",
-          description:
-            "The backup version to restore from. If not specified, the latest backup in the specified location is used",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "create-hbase-backup",
-      description:
-        "Creates a HBase backup in S3. This command is only available when using Amazon EMR versionsearlier than 4.0",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dir",
-          description:
-            "The Amazon S3 location of the Hbase backup. Example: s3://mybucket/mybackup, where mybucket is the specified Amazon S3 bucket and mybackup is the specified backup location. The path argument must begin with s3://, which refers to an Amazon S3 bucket",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--consistent",
-          description:
-            "Performs a consistent backup. Pauses all write operations to the HBase cluster during the backup process",
-        },
-      ],
-    },
-    {
-      name: "schedule-hbase-backup",
-      description:
-        "Adds a step to schedule automated HBase backup. This command is only available when using Amazon EMR versionsearlier than 4.0",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--type",
-          description: "Backup type. You can specify 'incremental' or 'full'",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dir",
-          description:
-            "The Amazon S3 location of the Hbase backup. Example: s3://mybucket/mybackup, where mybucket is the specified Amazon S3 bucket and mybackup is the specified backup location. The path argument must begin with s3://, which refers to an Amazon S3 bucket",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--interval",
-          description: "The time between backups",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--unit",
-          description:
-            "The time unit for backup's time-interval. You can specify one of the following values: 'minutes', 'hours', or 'days'",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--start-time",
-          description:
-            "The time of the first backup in ISO format. e.g. 2014-04-21T05:26:10Z. Default is now",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--consistent",
-          description:
-            "Performs a consistent backup. Pauses all write operations to the HBase cluster during the backup process",
-        },
-      ],
-    },
-    {
-      name: "disable-hbase-backups",
-      description:
-        "Add a step to disable automated HBase backups. This command is only available when using Amazon EMR versionsearlier than 4.0",
-      options: [
-        {
-          name: "--cluster-id",
-          description:
-            "A unique string that identifies a cluster. The create-cluster command returns this identifier. You can use the list-clusters command to get cluster IDs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--full",
-          description: "Disables full backup",
-        },
-        {
-          name: "--incremental",
-          description: "Disables incremental backup",
-        },
-      ],
-    },
-    {
-      name: "create-default-roles",
-      description:
-        'Creates the default IAM role EMR_EC2_DefaultRole and EMR_DefaultRole which can be used when creating the cluster using the create-cluster command. The default roles for EMR use managed policies, which are updated automatically to support future EMR functionality.\n\nIf you do not have a Service Role and Instance Profile variable set for your create-cluster command in the AWS CLI config file, create-default-roles will automatically set the values for these variables with these default roles. If you have already set a value for Service Role or Instance Profile, create-default-roles will not automatically set the defaults for these variables in the AWS CLI config file. You can view settings for variables in the config file using the "aws configure get" command',
-      options: [
-        {
-          name: "--iam-endpoint",
-          description:
-            "The IAM endpoint to call for creating the roles. This is optional and should only be specified when a custom endpoint should be called for IAM operations",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "ssh",
-      description:
-        'SSH into master node of the cluster.\n\nA value for the variable Key Pair File can be set in the AWS CLI config file using the "aws configure set emr.key_pair_file " command',
-      options: [
-        {
-          name: "--cluster-id",
-          description: "Cluster Id of cluster you want to ssh into",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--key-pair-file",
-          description: "Private key file to use for login",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--command",
-          description: "Command to execute on Master Node",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "socks",
-      description:
-        'Create a socks tunnel on port 8157 from your machine to the master.\n\nA value for the variable Key Pair File can be set in the AWS CLI config file using the "aws configure set emr.key_pair_file " command',
-      options: [
-        {
-          name: "--cluster-id",
-          description: "Cluster Id of cluster you want to ssh into",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--key-pair-file",
-          description: "Private key file to use for login",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "get",
-      description:
-        'Get file from master node.\n\nA value for the variable Key Pair File can be set in the AWS CLI config file using the "aws configure set emr.key_pair_file " command',
-      options: [
-        {
-          name: "--cluster-id",
-          description: "Cluster Id of cluster you want to get file from",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--key-pair-file",
-          description: "Private key file to use for login",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--src",
-          description: "Source file path on remote host",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dest",
-          description: "Destination file path on your machine",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "put",
-      description:
-        'Put file onto the master node.\n\nA value for the variable Key Pair File can be set in the AWS CLI config file using the "aws configure set emr.key_pair_file " command',
-      options: [
-        {
-          name: "--cluster-id",
-          description: "Cluster Id of cluster you want to put file onto",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--key-pair-file",
-          description: "Private key file to use for login",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--src",
-          description: "Source file path on local machine",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dest",
-          description: "Destination file path on remote host",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
       name: "wait",
       description:
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
@@ -2967,37 +3342,6 @@ const completionSpec: Fig.Spec = {
           name: "cluster-running",
           description:
             "Wait until JMESPath query Cluster.Status.State returns RUNNING when polling with ``describe-cluster``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
-          options: [
-            {
-              name: "--cluster-id",
-              description: "The identifier of the cluster to describe",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--cli-input-json",
-              description:
-                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--generate-cli-skeleton",
-              description:
-                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-              args: {
-                name: "string",
-                suggestions: ["input", "output"],
-              },
-            },
-          ],
-        },
-        {
-          name: "cluster-terminated",
-          description:
-            "Wait until JMESPath query Cluster.Status.State returns TERMINATED when polling with ``describe-cluster``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
           options: [
             {
               name: "--cluster-id",
@@ -3041,6 +3385,37 @@ const completionSpec: Fig.Spec = {
             {
               name: "--step-id",
               description: "The identifier of the step to describe",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "cluster-terminated",
+          description:
+            "Wait until JMESPath query Cluster.Status.State returns TERMINATED when polling with ``describe-cluster``. It will poll every 30 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+          options: [
+            {
+              name: "--cluster-id",
+              description: "The identifier of the cluster to describe",
               args: {
                 name: "string",
               },

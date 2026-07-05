@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "schemas",
   description: "Amazon EventBridge Schema Registry",
@@ -578,14 +579,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-discovered-schema",
@@ -670,20 +668,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--source-arn-prefix",
           description:
             "Specifying this limits the results to only those ARNs that start with the specified prefix",
@@ -738,20 +722,6 @@ const completionSpec: Fig.Spec = {
       name: "list-registries",
       description: "List the registries",
       options: [
-        {
-          name: "--limit",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--registry-name-prefix",
           description:
@@ -817,20 +787,6 @@ const completionSpec: Fig.Spec = {
         "Provides a list of the schema versions and related information",
       options: [
         {
-          name: "--limit",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--registry-name",
           description: "The name of the registry",
           args: {
@@ -891,20 +847,6 @@ const completionSpec: Fig.Spec = {
       name: "list-schemas",
       description: "List the schemas",
       options: [
-        {
-          name: "--limit",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--registry-name",
           description: "The name of the registry",
@@ -1097,20 +1039,6 @@ const completionSpec: Fig.Spec = {
           name: "--keywords",
           description:
             "Specifying this limits the results to only schemas that include the provided keywords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts",
           args: {
             name: "string",
           },

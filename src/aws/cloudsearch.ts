@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "cloudsearch",
   description:
@@ -123,15 +124,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expression",
           description:
-            "The expression to evaluate for sorting while processing a search request. The Expression syntax is based on JavaScript expressions. For more information, see Configuring Expressions in the Amazon CloudSearch Developer Guide",
+            "A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results",
           args: {
             name: "string",
           },
         },
         {
           name: "--name",
-          description:
-            "Names must begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore)",
           args: {
             name: "string",
           },
@@ -170,61 +169,45 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--name",
-          description:
-            "A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.  Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.  The name score is reserved and cannot be used as a field name. To reference a document's ID, you can use the name _id",
           args: {
             name: "string",
           },
         },
         {
           name: "--type",
-          description:
-            "The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see Configuring Index Fields in the Amazon CloudSearch Developer Guide",
           args: {
             name: "string",
           },
         },
         {
           name: "--default-value",
-          description:
-            "A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document",
           args: {
             name: "string",
           },
         },
         {
           name: "--facet-enabled",
-          description:
-            "Whether facet information can be returned for the field",
         },
         {
           name: "--search-enabled",
-          description: "Whether the contents of the field are searchable",
         },
         {
           name: "--return-enabled",
-          description:
-            "Whether the contents of the field can be returned in the search results",
         },
         {
           name: "--sort-enabled",
-          description:
-            "Whether the field can be used to sort the search results",
         },
         {
           name: "--source-field",
-          description: "The name of the source field to map to the field",
           args: {
             name: "string",
           },
         },
         {
           name: "--highlight-enabled",
-          description: "Whether highlights can be returned for the field",
         },
         {
           name: "--analysis-scheme",
-          description: "The name of an analysis scheme for a text field",
           args: {
             name: "string",
           },

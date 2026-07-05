@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "cleanroomsml",
   description:
@@ -19,6 +20,14 @@ const completionSpec: Fig.Spec = {
           name: "--trained-model-arn",
           description:
             "The Amazon Resource Name (ARN) of the trained model job that you want to cancel",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--version-identifier",
+          description:
+            "The version identifier of the trained model to cancel. This parameter allows you to specify which version of the trained model you want to cancel when multiple versions exist. If versionIdentifier is not specified, the base model will be cancelled",
           args: {
             name: "string",
           },
@@ -467,6 +476,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--payer-configuration",
+          description:
+            "The payer configuration for the ML input channel. Determines which member account pays for compute and synthetic data costs",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -545,11 +562,27 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--data-channels",
+          name: "--incremental-training-data-channels",
           description:
-            "Defines the data channels that are used as input for the trained model request",
+            "Specifies the incremental training data channels for the trained model.  Incremental training allows you to create a new trained model with updates without retraining from scratch. You can specify up to one incremental training data channel that references a previously trained model and its version. Limit: Maximum of 20 channels total (including both incrementalTrainingDataChannels and dataChannels)",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--data-channels",
+          description:
+            "Defines the data channels that are used as input for the trained model request. Limit: Maximum of 20 channels total (including both dataChannels and incrementalTrainingDataChannels)",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--training-input-mode",
+          description:
+            "The input mode for accessing the training data. This parameter determines how the training data is made available to the training algorithm. Valid values are:    File - The training data is downloaded to the training instance and made available as files.    FastFile - The training data is streamed directly from Amazon S3 to the training algorithm, providing faster access for large datasets.    Pipe - The training data is streamed to the training algorithm using named pipes, which can improve performance for certain algorithms",
+          args: {
+            name: "string",
           },
         },
         {
@@ -573,6 +606,14 @@ const completionSpec: Fig.Spec = {
             "The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:   Maximum number of tags per resource - 50.   For each resource, each tag key must be unique, and each tag key can have only one value.   Maximum key length - 128 Unicode characters in UTF-8.   Maximum value length - 256 Unicode characters in UTF-8.   If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.   Tag keys and values are case sensitive.   Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--ml-model-training-payer-account-id",
+          description:
+            "The account ID of the member that is responsible for paying for model training costs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -927,7 +968,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-trained-model-output",
-      description: "Deletes the output of a trained model",
+      description: "Deletes the model artifacts stored by the service",
       options: [
         {
           name: "--trained-model-arn",
@@ -941,6 +982,14 @@ const completionSpec: Fig.Spec = {
           name: "--membership-identifier",
           description:
             "The membership ID of the member that is deleting the trained model output",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--version-identifier",
+          description:
+            "The version identifier of the trained model to delete. If not specified, the operation will delete the base version of the trained model. When specified, only the particular version will be deleted",
           args: {
             name: "string",
           },
@@ -1155,6 +1204,14 @@ const completionSpec: Fig.Spec = {
           name: "--collaboration-identifier",
           description:
             "The collaboration ID that contains the trained model that you want to return information about",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--version-identifier",
+          description:
+            "The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model",
           args: {
             name: "string",
           },
@@ -1404,6 +1461,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--version-identifier",
+          description:
+            "The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1497,22 +1562,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of the audience export jobs",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--audience-generation-job-arn",
           description:
             "The Amazon Resource Name (ARN) of the audience generation job that you are interested in",
@@ -1567,22 +1616,6 @@ const completionSpec: Fig.Spec = {
       name: "list-audience-generation-jobs",
       description: "Returns a list of audience generation jobs",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--configured-audience-model-arn",
           description:
@@ -1647,22 +1680,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of audience models",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1710,22 +1727,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of the configured model algorithm associations in a collaboration",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--collaboration-identifier",
           description:
@@ -1781,21 +1782,6 @@ const completionSpec: Fig.Spec = {
       name: "list-collaboration-ml-input-channels",
       description: "Returns a list of the ML input channels in a collaboration",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--collaboration-identifier",
           description:
@@ -1853,22 +1839,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of the export jobs for a trained model in a collaboration",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--collaboration-identifier",
           description:
             "The collaboration ID of the collaboration that contains the trained model export jobs that you are interested in",
@@ -1880,6 +1850,14 @@ const completionSpec: Fig.Spec = {
           name: "--trained-model-arn",
           description:
             "The Amazon Resource Name (ARN) of the trained model that was used to create the export jobs that you are interested in",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trained-model-version-identifier",
+          description:
+            "The version identifier of the trained model to filter export jobs by. When specified, only export jobs for this specific version of the trained model are returned",
           args: {
             name: "string",
           },
@@ -1933,22 +1911,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of trained model inference jobs in a specified collaboration",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--collaboration-identifier",
           description:
             "The collaboration ID of the collaboration that contains the trained model inference jobs that you are interested in",
@@ -1960,6 +1922,14 @@ const completionSpec: Fig.Spec = {
           name: "--trained-model-arn",
           description:
             "The Amazon Resource Name (ARN) of the trained model that was used to create the trained model inference jobs that you are interested in",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trained-model-version-identifier",
+          description:
+            "The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned",
           args: {
             name: "string",
           },
@@ -2011,22 +1981,6 @@ const completionSpec: Fig.Spec = {
       name: "list-collaboration-trained-models",
       description: "Returns a list of the trained models in a collaboration",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--collaboration-identifier",
           description:
@@ -2083,22 +2037,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of the configured audience models",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2145,22 +2083,6 @@ const completionSpec: Fig.Spec = {
       name: "list-configured-model-algorithm-associations",
       description: "Returns a list of configured model algorithm associations",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--membership-identifier",
           description:
@@ -2217,22 +2139,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of configured model algorithms",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2279,21 +2185,6 @@ const completionSpec: Fig.Spec = {
       name: "list-ml-input-channels",
       description: "Returns a list of ML input channels",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of ML input channels to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--membership-identifier",
           description:
@@ -2382,22 +2273,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of trained model inference jobs that match the request parameters",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--membership-identifier",
           description: "The membership",
           args: {
@@ -2408,6 +2283,86 @@ const completionSpec: Fig.Spec = {
           name: "--trained-model-arn",
           description:
             "The Amazon Resource Name (ARN) of a trained model that was used to create the trained model inference jobs that you are interested in",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trained-model-version-identifier",
+          description:
+            "The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-trained-model-versions",
+      description:
+        "Returns a list of trained model versions for a specified trained model. This operation allows you to view all versions of a trained model, including information about their status and creation details. You can use this to track the evolution of your trained models and select specific versions for inference or further training",
+      options: [
+        {
+          name: "--membership-identifier",
+          description:
+            "The membership identifier for the collaboration that contains the trained model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--trained-model-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the trained model for which to list versions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "Filter the results to only include trained model versions with the specified status. Valid values include CREATE_PENDING, CREATE_IN_PROGRESS, ACTIVE, CREATE_FAILED, and others",
           args: {
             name: "string",
           },
@@ -2459,22 +2414,6 @@ const completionSpec: Fig.Spec = {
       name: "list-trained-models",
       description: "Returns a list of trained models",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--membership-identifier",
           description:
@@ -2530,22 +2469,6 @@ const completionSpec: Fig.Spec = {
       name: "list-training-datasets",
       description: "Returns a list of training datasets",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum size of the results that is returned per call",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2837,6 +2760,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--trained-model-version-identifier",
+          description:
+            "The version identifier of the trained model to export. This specifies which version of the trained model should be exported to the specified destination",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--membership-identifier",
           description:
             "The membership ID of the member that is receiving the exported trained model artifacts",
@@ -2907,6 +2838,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--trained-model-version-identifier",
+          description:
+            "The version identifier of the trained model to use for inference. This specifies which version of the trained model should be used to generate predictions on the input data",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--configured-model-algorithm-association-arn",
           description:
             "The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model inference job",
@@ -2933,7 +2872,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data-source",
           description:
-            "Defines he data source that is used for the trained model inference job",
+            "Defines the data source that is used for the trained model inference job",
           args: {
             name: "structure",
           },
@@ -2974,6 +2913,14 @@ const completionSpec: Fig.Spec = {
             "The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:   Maximum number of tags per resource - 50.   For each resource, each tag key must be unique, and each tag key can have only one value.   Maximum key length - 128 Unicode characters in UTF-8.   Maximum value length - 256 Unicode characters in UTF-8.   If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.   Tag keys and values are case sensitive.   Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--ml-model-inference-payer-account-id",
+          description:
+            "The account ID of the member that is responsible for paying for model inference costs",
+          args: {
+            name: "string",
           },
         },
         {

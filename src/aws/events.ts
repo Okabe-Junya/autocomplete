@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "events",
   description:
@@ -137,7 +138,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-archive",
       description:
-        "Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.  Archives and schema discovery are not supported for event buses encrypted using a customer managed key. EventBridge returns an error if:   You call  CreateArchive  on an event bus set to use a customer managed key for encryption.   You call  CreateDiscoverer  on an event bus set to use a customer managed key for encryption.   You call  UpdatedEventBus  to set a customer managed key on an event bus with an archives or schema discovery enabled.   To enable archives or schema discovery on an event bus, choose to use an Amazon Web Services owned key. For more information, see Data encryption in EventBridge in the Amazon EventBridge User Guide",
+        "Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.  If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.  For more information, see Encrypting archives in the Amazon EventBridge User Guide",
       options: [
         {
           name: "--archive-name",
@@ -175,6 +176,14 @@ const completionSpec: Fig.Spec = {
             "The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--kms-key-identifier",
+          description:
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt the archive. For more information, see Identify and view keys in the Key Management Service Developer Guide.   If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.  For more information, see Encrypting archives in the Amazon EventBridge User Guide",
+          args: {
+            name: "string",
           },
         },
         {
@@ -234,9 +243,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--invocation-connectivity-parameters",
           description:
-            "For connections to private resource endpoints, the parameters to use for invoking the resource endpoint. For more information, see Connecting to private resources in the  Amazon EventBridge User Guide",
+            "For connections to private APIs, the parameters to use for invoking the API. For more information, see Connecting to private APIs in the  Amazon EventBridge User Guide ",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--kms-key-identifier",
+          description:
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt the connection. For more information, see Identify and view keys in the Key Management Service Developer Guide",
+          args: {
+            name: "string",
           },
         },
         {
@@ -261,7 +278,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-endpoint",
       description:
-        'Creates a global endpoint. Global endpoints improve your application\'s availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region with event buses in each Region. You also create a Amazon Route\u00a053 health check that will tell EventBridge to route events to the secondary Region when an "unhealthy" state is encountered and events will be routed back to the primary Region when the health check reports a "healthy" state',
+        'Creates a global endpoint. Global endpoints improve your application\'s availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region with event buses in each Region. You also create a Amazon Route 53 health check that will tell EventBridge to route events to the secondary Region when an "unhealthy" state is encountered and events will be routed back to the primary Region when the health check reports a "healthy" state',
       options: [
         {
           name: "--name",
@@ -281,7 +298,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--routing-config",
           description:
-            "Configure the routing policy, including the health check and secondary Region",
+            "Configure the routing policy, including the health check and secondary Region.",
           args: {
             name: "structure",
           },
@@ -359,7 +376,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-identifier",
           description:
-            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt events on the event bus. For more information, see Managing keys in the Key Management Service Developer Guide.   Archives and schema discovery are not supported for event buses encrypted using a customer managed key. EventBridge returns an error if:   You call  CreateArchive  on an event bus set to use a customer managed key for encryption.   You call  CreateDiscoverer  on an event bus set to use a customer managed key for encryption.   You call  UpdatedEventBus  to set a customer managed key on an event bus with an archives or schema discovery enabled.   To enable archives or schema discovery on an event bus, choose to use an Amazon Web Services owned key. For more information, see Data encryption in EventBridge in the Amazon EventBridge User Guide",
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt events on the event bus. For more information, see Identify and view keys in the Key Management Service Developer Guide.   Schema discovery is not supported for event buses encrypted using a customer managed key. EventBridge returns an error if:    You call  CreateDiscoverer  on an event bus set to use a customer managed key for encryption.   You call  UpdatedEventBus  to set a customer managed key on an event bus with schema discovery enabled.   To enable schema discovery on an event bus, choose to use an Amazon Web Services owned key. For more information, see Encrypting events in the Amazon EventBridge User Guide.   If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.  For more information, see Encrypting archives in the Amazon EventBridge User Guide",
           args: {
             name: "string",
           },
@@ -368,6 +385,14 @@ const completionSpec: Fig.Spec = {
           name: "--dead-letter-config",
           description:
             "Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). For more information, see Using dead-letter queues to process undelivered events in the EventBridge User Guide",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--log-config",
+          description:
+            "The logging configuration settings for the event bus. For more information, see Configuring logs for event buses in the EventBridge User Guide",
           args: {
             name: "structure",
           },
@@ -594,12 +619,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-endpoint",
       description:
-        "Delete an existing global endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide",
+        "Delete an existing global endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide ",
       options: [
         {
           name: "--name",
           description:
-            'The name of the endpoint you want to delete. For example, "Name":"us-east-2-custom_bus_A-endpoint"',
+            'The name of the endpoint you want to delete. For example, "Name":"us-east-2-custom_bus_A-endpoint".',
           args: {
             name: "string",
           },
@@ -835,7 +860,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-endpoint",
       description:
-        "Get the information about an existing global endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide",
+        "Get the information about an existing global endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide ",
       options: [
         {
           name: "--name",
@@ -1289,7 +1314,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-endpoints",
       description:
-        "List the global endpoints associated with this account. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide",
+        "List the global endpoints associated with this account. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide ",
       options: [
         {
           name: "--name-prefix",
@@ -1509,7 +1534,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--limit",
           description:
-            "Pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results",
+            "pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results",
           args: {
             name: "integer",
           },
@@ -1616,21 +1641,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token returned by a previous call, which you can use to retrieve the next set of results. The value of nextToken is a unique pagination token for each page. To retrieve the next page of results, make the call again using the returned token. Keep all other arguments unchanged.  Using an expired pagination token results in an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1691,21 +1701,6 @@ const completionSpec: Fig.Spec = {
             "The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token returned by a previous call, which you can use to retrieve the next set of results. The value of nextToken is a unique pagination token for each page. To retrieve the next page of results, make the call again using the returned token. Keep all other arguments unchanged.  Using an expired pagination token results in an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1804,21 +1799,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token returned by a previous call, which you can use to retrieve the next set of results. The value of nextToken is a unique pagination token for each page. To retrieve the next page of results, make the call again using the returned token. Keep all other arguments unchanged.  Using an expired pagination token results in an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1864,7 +1844,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-events",
       description:
-        "Sends custom events to Amazon EventBridge so that they can be matched to rules. The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including the event and any necessary characters and keys of the JSON representation of the event. To learn more, see Calculating PutEvents event entry size in the  Amazon EventBridge User Guide   PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.  PutEvents will only process nested JSON up to 1000 levels deep",
+        "Sends custom events to Amazon EventBridge so that they can be matched to rules. You can batch multiple event entries into one request for efficiency. However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events. For more information, see Calculating PutEvents event entry size in the  Amazon EventBridge User Guide . PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.  PutEvents will only process nested JSON up to 1000 levels deep",
       options: [
         {
           name: "--entries",
@@ -2027,7 +2007,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-pattern",
           description:
-            "The event pattern. For more information, see Amazon EventBridge event patterns in the  Amazon EventBridge User Guide",
+            "The event pattern. For more information, see Amazon EventBridge event patterns in the  Amazon EventBridge User Guide ",
           args: {
             name: "string",
           },
@@ -2356,7 +2336,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-pattern",
           description:
-            "The event pattern. For more information, see Events and Event Patterns in the  Amazon EventBridge User Guide",
+            "The event pattern. For more information, see Events and Event Patterns in the  Amazon EventBridge User Guide ",
           args: {
             name: "string",
           },
@@ -2528,6 +2508,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--kms-key-identifier",
+          description:
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt the archive. For more information, see Identify and view keys in the Key Management Service Developer Guide.   If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.  For more information, see Encrypting archives in the Amazon EventBridge User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2581,9 +2569,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--invocation-connectivity-parameters",
           description:
-            "For connections to private resource endpoints, the parameters to use for invoking the resource endpoint. For more information, see Connecting to private resources in the  Amazon EventBridge User Guide",
+            "For connections to private APIs, the parameters to use for invoking the API. For more information, see Connecting to private APIs in the  Amazon EventBridge User Guide ",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--kms-key-identifier",
+          description:
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt the connection. For more information, see Identify and view keys in the Key Management Service Developer Guide",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2608,7 +2604,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-endpoint",
       description:
-        "Update an existing endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide",
+        "Update an existing endpoint. For more information about global endpoints, see Making applications Regional-fault tolerant with global endpoints and event replication in the  Amazon EventBridge User Guide ",
       options: [
         {
           name: "--name",
@@ -2688,7 +2684,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-identifier",
           description:
-            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt events on the event bus. For more information, see Managing keys in the Key Management Service Developer Guide.   Archives and schema discovery are not supported for event buses encrypted using a customer managed key. EventBridge returns an error if:   You call  CreateArchive  on an event bus set to use a customer managed key for encryption.   You call  CreateDiscoverer  on an event bus set to use a customer managed key for encryption.   You call  UpdatedEventBus  to set a customer managed key on an event bus with an archives or schema discovery enabled.   To enable archives or schema discovery on an event bus, choose to use an Amazon Web Services owned key. For more information, see Data encryption in EventBridge in the Amazon EventBridge User Guide",
+            "The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt events on the event bus. For more information, see Identify and view keys in the Key Management Service Developer Guide.   Schema discovery is not supported for event buses encrypted using a customer managed key. EventBridge returns an error if:    You call  CreateDiscoverer  on an event bus set to use a customer managed key for encryption.   You call  UpdatedEventBus  to set a customer managed key on an event bus with schema discovery enabled.   To enable schema discovery on an event bus, choose to use an Amazon Web Services owned key. For more information, see Encrypting events in the Amazon EventBridge User Guide.   If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.  For more information, see Encrypting archives in the Amazon EventBridge User Guide",
           args: {
             name: "string",
           },
@@ -2704,6 +2700,14 @@ const completionSpec: Fig.Spec = {
           name: "--dead-letter-config",
           description:
             "Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). For more information, see Using dead-letter queues to process undelivered events in the EventBridge User Guide",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--log-config",
+          description:
+            "The logging configuration settings for the event bus. For more information, see Configuring logs for event buses in the EventBridge User Guide",
           args: {
             name: "structure",
           },
@@ -2726,6 +2730,9 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "wizard",
     },
   ],
 };

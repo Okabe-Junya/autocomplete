@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "auditmanager",
   description:
@@ -293,7 +294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--scope",
           description:
-            "The wrapper that contains the Amazon Web Services accounts that are in scope for the assessment.   You no longer need to specify which Amazon Web Services are in scope when you create or update an assessment. Audit Manager infers the services in scope by examining your assessment controls and their data sources, and then mapping this information to the relevant Amazon Web Services.  If an underlying data source changes for your assessment, we automatically update the services scope as needed to reflect the correct Amazon Web Services. This ensures that your assessment collects accurate and comprehensive evidence about all of the relevant services in your AWS environment",
+            "The wrapper that contains the Amazon Web Services accounts that are in scope for the assessment.   You no longer need to specify which Amazon Web Services services are in scope when you create or update an assessment. Audit Manager infers the services in scope by examining your assessment controls and their data sources, and then mapping this information to the relevant Amazon Web Services services.  If an underlying data source changes for your assessment, we automatically update the services scope as needed to reflect the correct Amazon Web Services services. This ensures that your assessment collects accurate and comprehensive evidence about all of the relevant services in your AWS environment",
           args: {
             name: "structure",
           },
@@ -368,7 +369,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--control-sets",
           description:
-            "The control sets that are associated with the framework",
+            "The control sets that are associated with the framework.   The Controls object returns a partial response when called through Framework APIs. For a complete Controls object, use GetControl",
           args: {
             name: "list",
           },
@@ -629,7 +630,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-assessment-report",
       description:
-        "Deletes an assessment report in Audit Manager.  When you run the DeleteAssessmentReport operation, Audit Manager attempts to delete the following data:   The specified assessment report that\u2019s stored in your S3 bucket   The associated metadata that\u2019s stored in Audit Manager   If Audit Manager can\u2019t access the assessment report in your S3 bucket, the report isn\u2019t deleted. In this event, the DeleteAssessmentReport operation doesn\u2019t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself.  This scenario happens when Audit Manager receives a 403 (Forbidden) or 404 (Not Found) error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see Assessment report destination permissions in the Audit Manager User Guide. For information about the issues that could cause a 403 (Forbidden) or 404 (Not Found) error from Amazon S3, see List of Error Codes in the Amazon Simple Storage Service API Reference",
+        "Deletes an assessment report in Audit Manager.  When you run the DeleteAssessmentReport operation, Audit Manager attempts to delete the following data:   The specified assessment report that’s stored in your S3 bucket   The associated metadata that’s stored in Audit Manager   If Audit Manager can’t access the assessment report in your S3 bucket, the report isn’t deleted. In this event, the DeleteAssessmentReport operation doesn’t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself.  This scenario happens when Audit Manager receives a 403 (Forbidden) or 404 (Not Found) error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see Assessment report destination permissions in the Audit Manager User Guide. For information about the issues that could cause a 403 (Forbidden) or 404 (Not Found) error from Amazon S3, see List of Error Codes in the Amazon Simple Storage Service API Reference",
       options: [
         {
           name: "--assessment-id",
@@ -667,7 +668,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-control",
       description:
-        "Deletes a custom control in Audit Manager.   When you invoke this operation, the custom control is deleted from any frameworks or assessments that it\u2019s currently part of. As a result, Audit Manager will stop collecting evidence for that custom control in all of your assessments. This includes assessments that you previously created before you deleted the custom control",
+        "Deletes a custom control in Audit Manager.   When you invoke this operation, the custom control is deleted from any frameworks or assessments that it’s currently part of. As a result, Audit Manager will stop collecting evidence for that custom control in all of your assessments. This includes assessments that you previously created before you deleted the custom control",
       options: [
         {
           name: "--control-id",
@@ -722,7 +723,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "deregister-organization-admin-account",
       description:
-        "Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager.  When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.  Keep in mind the following cleanup task if you use evidence finder: Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn\u2019t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually deletes the event data store. This cleanup task is necessary to ensure that you don't end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don't delete it.  When you deregister a delegated administrator account for Audit Manager, the data for that account isn\u2019t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager.  To delete your Audit Manager resource data, see the following instructions:     DeleteAssessment (see also: Deleting an assessment in the Audit Manager User Guide)    DeleteAssessmentFramework (see also: Deleting a custom framework in the Audit Manager User Guide)    DeleteAssessmentFrameworkShare (see also: Deleting a share request in the Audit Manager User Guide)    DeleteAssessmentReport (see also: Deleting an assessment report in the Audit Manager User Guide)    DeleteControl (see also: Deleting a custom control in the Audit Manager User Guide)   At this time, Audit Manager doesn't provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration",
+        "Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager.  When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.  Keep in mind the following cleanup task if you use evidence finder: Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn’t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually deletes the event data store. This cleanup task is necessary to ensure that you don't end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don't delete it.  When you deregister a delegated administrator account for Audit Manager, the data for that account isn’t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager.  To delete your Audit Manager resource data, see the following instructions:     DeleteAssessment (see also: Deleting an assessment in the Audit Manager User Guide)    DeleteAssessmentFramework (see also: Deleting a custom framework in the Audit Manager User Guide)    DeleteAssessmentFrameworkShare (see also: Deleting a share request in the Audit Manager User Guide)    DeleteAssessmentReport (see also: Deleting an assessment report in the Audit Manager User Guide)    DeleteControl (see also: Deleting a custom control in the Audit Manager User Guide)   At this time, Audit Manager doesn't provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration",
       options: [
         {
           name: "--admin-account-id",
@@ -1422,7 +1423,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-services-in-scope",
       description:
-        "Gets a list of the Amazon Web Services from which Audit Manager can collect evidence.  Audit Manager defines which Amazon Web Services are in scope for an assessment. Audit Manager infers this scope by examining the assessment\u2019s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services that are in this list.  For information about why it's no longer possible to specify services in scope manually, see I can't edit the services in scope for my assessment in the Troubleshooting section of the Audit Manager user guide",
+        "Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence.  Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.  For information about why it's no longer possible to specify services in scope manually, see I can't edit the services in scope for my assessment in the Troubleshooting section of the Audit Manager user guide",
       options: [
         {
           name: "--cli-input-json",
@@ -1715,7 +1716,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-control-domain-insights",
       description:
-        "Lists the latest analytics data for control domains across all of your active assessments.  Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see  ListDomains  in the Amazon Web Services Control Catalog API Reference.  A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn\u2019t met, no data is listed for that control domain",
+        "Lists the latest analytics data for control domains across all of your active assessments.  Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see  ListDomains  in the Amazon Web Services Control Catalog API Reference.  A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn’t met, no data is listed for that control domain",
       options: [
         {
           name: "--next-token",
@@ -1755,7 +1756,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-control-domain-insights-by-assessment",
       description:
-        "Lists analytics data for control domains within a specified active assessment. Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see  ListDomains  in the Amazon Web Services Control Catalog API Reference.  A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn\u2019t met, no data is listed for that domain",
+        "Lists analytics data for control domains within a specified active assessment. Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see  ListDomains  in the Amazon Web Services Control Catalog API Reference.  A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn’t met, no data is listed for that domain",
       options: [
         {
           name: "--assessment-id",
@@ -1878,7 +1879,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--control-catalog-id",
           description:
-            "A filter that narrows the list of controls to a specific resource from the Amazon Web Services Control Catalog.  To use this parameter, specify the ARN of the Control Catalog resource. You can specify either a control domain, a control objective, or a common control. For information about how to find the ARNs for these resources, see  ListDomains ,  ListObjectives , and  ListCommonControls .  You can only filter by one Control Catalog resource at a time. Specifying multiple resource ARNs isn\u2019t currently supported. If you want to filter by more than one ARN, we recommend that you run the ListControls operation separately for each ARN.   Alternatively, specify UNCATEGORIZED to list controls that aren't mapped to a Control Catalog resource. For example, this operation might return a list of custom controls that don't belong to any control domain or control objective",
+            "A filter that narrows the list of controls to a specific resource from the Amazon Web Services Control Catalog.  To use this parameter, specify the ARN of the Control Catalog resource. You can specify either a control domain, a control objective, or a common control. For information about how to find the ARNs for these resources, see  ListDomains ,  ListObjectives , and  ListCommonControls .  You can only filter by one Control Catalog resource at a time. Specifying multiple resource ARNs isn’t currently supported. If you want to filter by more than one ARN, we recommend that you run the ListControls operation separately for each ARN.   Alternatively, specify UNCATEGORIZED to list controls that aren't mapped to a Control Catalog resource. For example, this operation might return a list of custom controls that don't belong to any control domain or control objective",
           args: {
             name: "string",
           },
@@ -2430,7 +2431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--control-sets",
           description:
-            "The control sets that are associated with the framework",
+            "The control sets that are associated with the framework.   The Controls object returns a partial response when called through Framework APIs. For a complete Controls object, use GetControl",
           args: {
             name: "list",
           },
@@ -2649,12 +2650,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--evidence-finder-enabled",
           description:
-            "Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.  When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that\u2019s used to query your evidence data. As a result, you can\u2019t re-enable evidence finder and use the feature again. Your only alternative is to deregister and then re-register Audit Manager",
+            "Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.  When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to deregister and then re-register Audit Manager",
         },
         {
           name: "--no-evidence-finder-enabled",
           description:
-            "Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.  When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that\u2019s used to query your evidence data. As a result, you can\u2019t re-enable evidence finder and use the feature again. Your only alternative is to deregister and then re-register Audit Manager",
+            "Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.  When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to deregister and then re-register Audit Manager",
         },
         {
           name: "--deregistration-policy",

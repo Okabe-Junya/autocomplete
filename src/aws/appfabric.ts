@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "appfabric",
   description:
@@ -688,22 +689,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -750,22 +735,6 @@ const completionSpec: Fig.Spec = {
       name: "list-app-bundles",
       description: "Returns a list of app bundles",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -831,22 +800,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -898,22 +851,6 @@ const completionSpec: Fig.Spec = {
           name: "--app-bundle-identifier",
           description:
             "The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
           args: {
             name: "string",
           },

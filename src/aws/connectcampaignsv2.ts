@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "connectcampaignsv2",
   description: "Provide APIs to create and manage Amazon Connect Campaigns",
@@ -29,6 +30,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--type",
+          description: "The type of campaign externally exposed in APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--source",
           description: "Source of the campaign",
           args: {
@@ -45,6 +53,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--schedule",
           description: "Campaign schedule",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--entry-limits-config",
+          description: "Campaign entry limits config",
           args: {
             name: "structure",
           },
@@ -211,6 +226,37 @@ const completionSpec: Fig.Spec = {
         {
           name: "--config",
           description: "The type of campaign communication time config",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-campaign-entry-limits",
+      description:
+        "Deletes the entry limits config for a campaign. This API is idempotent",
+      options: [
+        {
+          name: "--id",
+          description: "Identifier representing a Campaign",
           args: {
             name: "string",
           },
@@ -465,6 +511,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-instance-communication-limits",
+      description: "Get the instance communication limits",
+      options: [
+        {
+          name: "--connect-instance-id",
+          description: "Amazon Connect Instance Id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-instance-onboarding-job-status",
       description: "Get the specific instance onboarding job status",
       options: [
@@ -499,20 +575,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Provides summary information about the campaigns under the specified Amazon Connect account",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--filters",
           description: "Filter model by type",
@@ -571,20 +633,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--connect-instance-id",
           description: "Amazon Connect Instance Id",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
           args: {
             name: "string",
           },
@@ -707,6 +755,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--integration-config",
           description: "Integration config for Connect Instance",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-instance-communication-limits",
+      description:
+        "Put the instance communication limits. This API is idempotent",
+      options: [
+        {
+          name: "--connect-instance-id",
+          description: "Amazon Connect Instance Id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--communication-limits-config",
+          description: "Instance Communication limits config",
           args: {
             name: "structure",
           },
@@ -1100,6 +1186,44 @@ const completionSpec: Fig.Spec = {
         {
           name: "--communication-time-config",
           description: "Campaign communication time config",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-campaign-entry-limits",
+      description:
+        "Updates the entry limits config for a campaign. This API is idempotent",
+      options: [
+        {
+          name: "--id",
+          description: "Identifier representing a Campaign",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entry-limits-config",
+          description: "Campaign entry limits config",
           args: {
             name: "structure",
           },

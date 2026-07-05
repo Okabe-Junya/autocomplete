@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "migrationhubstrategy",
   description:
@@ -234,22 +235,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves detailed information about a specified server",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in the response. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--server-id",
           description: "The ID of the server",
           args: {
@@ -336,22 +321,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a list of all the servers fetched from customer vCenter using Strategy Recommendation Collector",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in the response. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort",
           description:
             "Specifies whether to sort by ascending (ASC) or descending (DESC) order",
@@ -431,22 +400,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in the response. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sort",
           description:
             "Specifies whether to sort by ascending (ASC) or descending (DESC) order",
@@ -502,22 +455,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a list of all the installed collectors",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in the response. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -564,22 +501,6 @@ const completionSpec: Fig.Spec = {
       name: "list-import-file-task",
       description: "Retrieves a list of all the imports performed",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The total number of items to return. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -640,22 +561,6 @@ const completionSpec: Fig.Spec = {
           description: "Specifies the group ID to filter on",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to include in the response. The maximum value is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10",
-          args: {
-            name: "string",
           },
         },
         {

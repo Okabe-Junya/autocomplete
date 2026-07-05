@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "emr-containers",
   description:
@@ -193,6 +194,47 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-role-associations",
+      options: [
+        {
+          name: "--cluster-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--role-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--operator-namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--service-account-name",
+          args: {
+            name: "string",
+          },
+        },
+      ],
+    },
+    {
       name: "create-security-configuration",
       description:
         "Creates a security configuration. Security configurations in Amazon EMR on EKS are templates for different security setups. You can use security configurations to configure the Lake Formation integration setup. You can also create a security configuration to re-use a security setup each time you create a virtual cluster",
@@ -210,6 +252,14 @@ const completionSpec: Fig.Spec = {
           description: "The name of the security configuration",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--container-provider",
+          description:
+            "The container provider associated with the security configuration",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -369,6 +419,47 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-role-associations",
+      options: [
+        {
+          name: "--cluster-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--role-name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--operator-namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--service-account-name",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -605,7 +696,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--credential-type",
           description:
-            "Type of the token requested. Currently supported and default value of this field is \u201cTOKEN.\u201d",
+            "Type of the token requested. Currently supported and default value of this field is “TOKEN.”",
           args: {
             name: "string",
           },
@@ -696,20 +787,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of job runs that can be listed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of job runs to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -771,20 +848,6 @@ const completionSpec: Fig.Spec = {
             "The date and time before which the job templates were created",
           args: {
             name: "timestamp",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of job templates that can be listed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of job templates to return",
-          args: {
-            name: "string",
           },
         },
         {
@@ -873,22 +936,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of managed endpoints that can be listed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of managed endpoints to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -950,22 +997,6 @@ const completionSpec: Fig.Spec = {
             "The date and time before which the security configuration was created",
           args: {
             name: "timestamp",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of security configurations the operation can list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of security configurations to return",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1082,22 +1113,6 @@ const completionSpec: Fig.Spec = {
           description: "The states of the requested virtual clusters",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of virtual clusters that can be listed",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of virtual clusters to return",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1333,45 +1348,33 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-role-trust-policy",
-      description:
-        'Updates the trust policy of given IAM role such that it can be used with Amazon EMR on EKS with the given namespace from the given EKS cluster.\n\nNote:\n To use the IAM Role with Amazon EMR on EKS, OIDC identity provider also needs to be created for the EKS cluster.\n This can be done using ``eksctl utils associate-iam-oidc-provider --cluster  --approve`` command.\n For information about installing or upgrading eksctl, see `Installing or upgrading eksctl `__ in the *Amazon EKS User Guide*.\n\nThe command would merge the existing trust policy of the role with the below trust policy::\n\n    {\n        "Version": "2012-10-17",\n        "Statement": [\n            {\n                "Effect": "Allow",\n                "Principal": {\n                    "Federated": "arn:aws:iam:::oidc-provider/"\n                },\n                "Action": "sts:AssumeRoleWithWebIdentity",\n                "Condition": {\n                    "StringLike": {\n                        ":sub": "system:serviceaccount::emr-containers-sa-*-*--"\n                    }\n                }\n            }\n        ]\n    }\n\nHere::\n\n     = AWS Account ID of the EKS cluster\n     = OIDC Identity Provider for the EKS cluster\n     = Namespace of the EKS cluster\n     = Base36 encoded form of the IAM Role name\n\nYou can use the **--dry-run** option to print the merged trust policy document to stdout instead of updating the role trust policy directly',
       options: [
         {
           name: "--cluster-name",
-          description:
-            "Specify the name of the Amazon EKS cluster with which the IAM Role would be used",
           args: {
             name: "string",
           },
         },
         {
           name: "--namespace",
-          description:
-            "Specify the namespace from the Amazon EKS cluster with which the IAM Role would be used",
           args: {
             name: "string",
           },
         },
         {
           name: "--role-name",
-          description:
-            "Specify the IAM Role name that you want to usewith Amazon EMR on EKS",
           args: {
             name: "string",
           },
         },
         {
           name: "--iam-endpoint",
-          description:
-            "The  IAM  endpoint  to call for updating the role trust policy. This is optional and should only bespecified when a custom endpoint should be calledfor IAM operations",
           args: {
             name: "string",
           },
         },
         {
           name: "--dry-run",
-          description:
-            "Print the merged trust policy document tostdout instead of updating the role trustpolicy directly",
         },
       ],
     },

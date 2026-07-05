@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "applicationcostprofiler",
   description:
@@ -102,21 +103,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves a list of all reports and their configurations for your AWS account. The maximum number of reports is one",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token value from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "kinesis",
   description:
@@ -18,7 +19,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "A set of up to 10 key-value pairs to use to create the tags",
+            "A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value. You can add up to 50 tags per resource",
           args: {
             name: "map",
           },
@@ -26,6 +27,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -52,7 +60,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-stream",
       description:
-        "Creates a Kinesis data stream. A stream captures and transports data records that are continuously emitted from different data sources or producers. Scale-out within a stream is explicitly supported by means of shards, which are uniquely identified groups of data records in a stream. You can create your data stream using either on-demand or provisioned capacity mode. Data streams with an on-demand mode require no capacity planning and automatically scale to handle gigabytes of write and read throughput per minute. With the on-demand mode, Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput. For the data streams with a provisioned mode, you must specify the number of shards for the data stream. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MiB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. If the amount of data input increases or decreases, you can add or remove shards. The stream name identifies the stream. The name is scoped to the Amazon Web Services account used by the application. It is also scoped by Amazon Web Services Region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different Regions, can have the same name.  CreateStream is an asynchronous operation. Upon receiving a CreateStream request, Kinesis Data Streams immediately returns and sets the stream status to CREATING. After the stream is created, Kinesis Data Streams sets the stream status to ACTIVE. You should perform read and write operations only on an ACTIVE stream.  You receive a LimitExceededException when making a CreateStream request when you try to do one of the following:   Have more than five streams in the CREATING state at any point in time.   Create more shards than are authorized for your account.   For the default shard limit for an Amazon Web Services account, see Amazon Kinesis Data Streams Limits in the Amazon Kinesis Data Streams Developer Guide. To increase this limit, contact Amazon Web Services Support. You can use DescribeStreamSummary to check the stream status, which is returned in StreamStatus.  CreateStream has a limit of five transactions per second per account. You can add tags to the stream when making a CreateStream request by setting the Tags parameter. If you pass Tags parameter, in addition to having kinesis:createStream permission, you must also have kinesis:addTagsToStream permission for the stream that will be created. Tags will take effect from the CREATING status of the stream",
+        "Creates a Kinesis data stream. A stream captures and transports data records that are continuously emitted from different data sources or producers. Scale-out within a stream is explicitly supported by means of shards, which are uniquely identified groups of data records in a stream. You can create your data stream using either on-demand or provisioned capacity mode. Data streams with an on-demand mode require no capacity planning and automatically scale to handle gigabytes of write and read throughput per minute. With the on-demand mode, Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput. If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling MinimumThroughputBillingCommitment for your account. Once your account has MinimumThroughputBillingCommitment enabled, you can specify the warm throughput in MiB per second that your stream can support in writes. For the data streams with a provisioned mode, you must specify the number of shards for the data stream. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MiB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. If the amount of data input increases or decreases, you can add or remove shards. The stream name identifies the stream. The name is scoped to the Amazon Web Services account used by the application. It is also scoped by Amazon Web Services Region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different Regions, can have the same name.  CreateStream is an asynchronous operation. Upon receiving a CreateStream request, Kinesis Data Streams immediately returns and sets the stream status to CREATING. After the stream is created, Kinesis Data Streams sets the stream status to ACTIVE. You should perform read and write operations only on an ACTIVE stream.  You receive a LimitExceededException when making a CreateStream request when you try to do one of the following:   Have more than five streams in the CREATING state at any point in time.   Create more shards than are authorized for your account.   For the default shard or on-demand throughput limits for an Amazon Web Services account, see Amazon Kinesis Data Streams Limits in the Amazon Kinesis Data Streams Developer Guide. To increase this limit, contact Amazon Web Services Support. You can use DescribeStreamSummary to check the stream status, which is returned in StreamStatus.  CreateStream has a limit of five transactions per second per account. You can add tags to the stream when making a CreateStream request by setting the Tags parameter. If you pass the Tags parameter, in addition to having the kinesis:CreateStream permission, you must also have the kinesis:AddTagsToStream permission for the stream that will be created. The kinesis:TagResource permission won’t work to tag streams on creation. Tags will take effect from the CREATING status of the stream, but you can't make any updates to the tags until the stream is in ACTIVE state",
       options: [
         {
           name: "--stream-name",
@@ -81,9 +89,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "A set of up to 10 key-value pairs to use to create the tags",
+            "A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--warm-throughput-mi-bps",
+          description:
+            "The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-record-size-in-ki-b",
+          description:
+            "The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -133,6 +157,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -160,6 +191,13 @@ const completionSpec: Fig.Spec = {
           name: "--resource-arn",
           description:
             "The Amazon Resource Name (ARN) of the data stream or consumer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -213,6 +251,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -259,6 +304,37 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-account-settings",
+      description:
+        "Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations. This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the LimitExceededException",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -315,24 +391,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--exclusive-start-shard-id",
-          description:
-            "The shard ID of the shard to start with. Specify this parameter to indicate that you want to describe the stream starting with the shard whose ID immediately follows ExclusiveStartShardId. If you don't specify this parameter, the default behavior for DescribeStream is to describe the stream starting with the first shard in the stream",
+          name: "--stream-arn",
+          description: "The ARN of the stream",
           args: {
             name: "string",
           },
         },
         {
-          name: "--stream-arn",
-          description: "The ARN of the stream",
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -409,6 +476,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -442,6 +516,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -494,6 +575,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -536,6 +624,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -588,6 +683,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -615,6 +717,13 @@ const completionSpec: Fig.Spec = {
           name: "--resource-arn",
           description:
             "The Amazon Resource Name (ARN) of the data stream or consumer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -690,6 +799,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -736,6 +852,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -768,27 +891,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "When the number of shards in the data stream is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of shards in the data stream, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListShards to list the next set of shards. Don't specify StreamName or StreamCreationTimestamp if you specify NextToken because the latter unambiguously identifies the stream. You can optionally specify a value for the MaxResults parameter when you specify NextToken. If you specify a MaxResults value that is less than the number of shards that the operation returns if you don't specify MaxResults, the response will contain a new NextToken value. You can use the new NextToken value in a subsequent call to the ListShards operation.  Tokens expire after 300 seconds. When you obtain a value for NextToken in the response to a call to ListShards, you have 300 seconds to use that value. If you specify an expired token in a call to ListShards, you get ExpiredNextTokenException",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--exclusive-start-shard-id",
           description:
             "Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows ExclusiveStartShardId. If you don't specify this parameter, the default behavior is for ListShards to list the shards starting with the first one in the stream. You cannot specify this parameter if you specify NextToken",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of shards to return in a single call to ListShards. The maximum number of shards to return in a single call. The default value is 1000. If you specify a value greater than 1000, at most 1000 results are returned.  When the number of shards to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListShards to list the next set of shards",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -810,6 +917,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -871,27 +985,18 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "When the number of consumers that are registered with the data stream is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListStreamConsumers to list the next set of registered consumers. Don't specify StreamName or StreamCreationTimestamp if you specify NextToken because the latter unambiguously identifies the stream. You can optionally specify a value for the MaxResults parameter when you specify NextToken. If you specify a MaxResults value that is less than the number of consumers that the operation returns if you don't specify MaxResults, the response will contain a new NextToken value. You can use the new NextToken value in a subsequent call to the ListStreamConsumers operation to list the next set of consumers.  Tokens expire after 300 seconds. When you obtain a value for NextToken in the response to a call to ListStreamConsumers, you have 300 seconds to use that value. If you specify an expired token in a call to ListStreamConsumers, you get ExpiredNextTokenException",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of consumers that you want a single call of ListStreamConsumers to return. The default value is 100. If you specify a value greater than 100, at most 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--stream-creation-timestamp",
           description:
             "Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for.  You can't specify this parameter if you specify the NextToken parameter",
           args: {
             name: "timestamp",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
           },
         },
         {
@@ -943,22 +1048,8 @@ const completionSpec: Fig.Spec = {
         "Lists your Kinesis data streams. The number of streams may be too large to return from a single call to ListStreams. You can limit the number of returned streams using the Limit parameter. If you do not specify a value for the Limit parameter, Kinesis Data Streams uses the default limit, which is currently 100. You can detect if there are more streams available to list by using the HasMoreStreams flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the ListStreams request in the ExclusiveStartStreamName parameter in a subsequent request to ListStreams. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list.   ListStreams has a limit of five transactions per second per account",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of streams to list. The default value is 100. If you specify a value greater than 100, at most 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--exclusive-start-stream-name",
           description: "The name of the stream to start the list with",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
           args: {
             name: "string",
           },
@@ -1007,6 +1098,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-tags-for-resource",
+      description:
+        "List all tags added to the specified Kinesis resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. For more information about tagging Kinesis resources, see Tag your Amazon Kinesis Data Streams resources",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-tags-for-stream",
       description:
         "Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions per second per account.  When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API",
@@ -1037,6 +1167,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -1095,6 +1232,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1116,7 +1260,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-record",
       description:
-        "Writes a single data record into an Amazon Kinesis data stream. Call PutRecord to send data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second.  When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API.  You must specify the name of the stream that captures, stores, and transports the data; a partition key; and the data blob itself. The data blob can be any type of data; for example, a segment from a log file, geographic/location data, website clickstream data, and so on. The partition key is used by Kinesis Data Streams to distribute data across shards. Kinesis Data Streams segregates the data records that belong to a stream into multiple shards, using the partition key associated with each data record to determine the shard to which a given data record belongs. Partition keys are Unicode strings, with a maximum length limit of 256 characters for each key. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards using the hash key ranges of the shards. You can override hashing the partition key to determine the shard by explicitly specifying a hash value using the ExplicitHashKey parameter. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide.  PutRecord returns the shard ID of where the data record was placed and the sequence number that was assigned to the data record. Sequence numbers increase over time and are specific to a shard within a stream, not across all shards within a stream. To guarantee strictly increasing ordering, write serially to a shard and use the SequenceNumberForOrdering parameter. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide.  After you write a record to a stream, you cannot modify that record or its order within the stream.  If a PutRecord request cannot be processed because of insufficient provisioned throughput on the shard involved in the request, PutRecord throws ProvisionedThroughputExceededException.  By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period",
+        "Writes a single data record into an Amazon Kinesis data stream. Call PutRecord to send data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 10 MiB per second.  When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API.  You must specify the name of the stream that captures, stores, and transports the data; a partition key; and the data blob itself. The data blob can be any type of data; for example, a segment from a log file, geographic/location data, website clickstream data, and so on. The partition key is used by Kinesis Data Streams to distribute data across shards. Kinesis Data Streams segregates the data records that belong to a stream into multiple shards, using the partition key associated with each data record to determine the shard to which a given data record belongs. Partition keys are Unicode strings, with a maximum length limit of 256 characters for each key. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards using the hash key ranges of the shards. You can override hashing the partition key to determine the shard by explicitly specifying a hash value using the ExplicitHashKey parameter. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide.  PutRecord returns the shard ID of where the data record was placed and the sequence number that was assigned to the data record. Sequence numbers increase over time and are specific to a shard within a stream, not across all shards within a stream. To guarantee strictly increasing ordering, write serially to a shard and use the SequenceNumberForOrdering parameter. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide.  After you write a record to a stream, you cannot modify that record or its order within the stream.  If a PutRecord request cannot be processed because of insufficient provisioned throughput on the shard involved in the request, PutRecord throws ProvisionedThroughputExceededException.  By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period",
       options: [
         {
           name: "--stream-name",
@@ -1128,7 +1272,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data",
           description:
-            "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB)",
+            "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (10 MiB)",
           args: {
             name: "blob",
           },
@@ -1165,6 +1309,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1186,7 +1337,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-records",
       description:
-        "Writes multiple data records into a Kinesis data stream in a single call (also referred to as a PutRecords request). Use this operation to send data into the stream for data ingestion and processing.   When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API.  Each PutRecords request can support up to 500 records. Each record in the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request, including partition keys. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. You must specify the name of the stream that captures, stores, and transports the data; and an array of request Records, with each record in the array requiring a partition key and data blob. The record size limit applies to the total size of the partition key and data blob. The data blob can be any type of data; for example, a segment from a log file, geographic/location data, website clickstream data, and so on. The partition key is used by Kinesis Data Streams as input to a hash function that maps the partition key and associated data to a specific shard. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide. Each record in the Records array may include an optional parameter, ExplicitHashKey, which overrides the partition key to shard mapping. This parameter allows a data producer to determine explicitly the shard where the record is stored. For more information, see Adding Multiple Records with PutRecords in the Amazon Kinesis Data Streams Developer Guide. The PutRecords response includes an array of response Records. Each record in the response array directly correlates with a record in the request array using natural ordering, from the top to the bottom of the request and response. The response Records array always includes the same number of records as the request array. The response Records array includes both successfully and unsuccessfully processed records. Kinesis Data Streams attempts to process all records in each PutRecords request. A single record failure does not stop the processing of subsequent records. As a result, PutRecords doesn't guarantee the ordering of records. If you need to read records in the same order they are written to the stream, use PutRecord instead of PutRecords, and write to the same shard. A successfully processed record includes ShardId and SequenceNumber values. The ShardId parameter identifies the shard in the stream where the record is stored. The SequenceNumber parameter is an identifier assigned to the put record, unique to all records in the stream. An unsuccessfully processed record includes ErrorCode and ErrorMessage values. ErrorCode reflects the type of error and can be one of the following values: ProvisionedThroughputExceededException or InternalFailure. ErrorMessage provides more detailed information about the ProvisionedThroughputExceededException exception including the account ID, stream name, and shard ID of the record that was throttled. For more information about partially successful responses, see Adding Multiple Records with PutRecords in the Amazon Kinesis Data Streams Developer Guide.  After you write a record to a stream, you cannot modify that record or its order within the stream.  By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period",
+        "Writes multiple data records into a Kinesis data stream in a single call (also referred to as a PutRecords request). Use this operation to send data into the stream for data ingestion and processing.   When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API.  Each PutRecords request can support up to 500 records. Each record in the request can be as large as 10 MiB, up to a limit of 10 MiB for the entire request, including partition keys. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second. You must specify the name of the stream that captures, stores, and transports the data; and an array of request Records, with each record in the array requiring a partition key and data blob. The record size limit applies to the total size of the partition key and data blob. The data blob can be any type of data; for example, a segment from a log file, geographic/location data, website clickstream data, and so on. The partition key is used by Kinesis Data Streams as input to a hash function that maps the partition key and associated data to a specific shard. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream. For more information, see Adding Data to a Stream in the Amazon Kinesis Data Streams Developer Guide. Each record in the Records array may include an optional parameter, ExplicitHashKey, which overrides the partition key to shard mapping. This parameter allows a data producer to determine explicitly the shard where the record is stored. For more information, see Adding Multiple Records with PutRecords in the Amazon Kinesis Data Streams Developer Guide. The PutRecords response includes an array of response Records. Each record in the response array directly correlates with a record in the request array using natural ordering, from the top to the bottom of the request and response. The response Records array always includes the same number of records as the request array. The response Records array includes both successfully and unsuccessfully processed records. Kinesis Data Streams attempts to process all records in each PutRecords request. A single record failure does not stop the processing of subsequent records. As a result, PutRecords doesn't guarantee the ordering of records. If you need to read records in the same order they are written to the stream, use PutRecord instead of PutRecords, and write to the same shard. A successfully processed record includes ShardId and SequenceNumber values. The ShardId parameter identifies the shard in the stream where the record is stored. The SequenceNumber parameter is an identifier assigned to the put record, unique to all records in the stream. An unsuccessfully processed record includes ErrorCode and ErrorMessage values. ErrorCode reflects the type of error and can be one of the following values: ProvisionedThroughputExceededException or InternalFailure. ErrorMessage provides more detailed information about the ProvisionedThroughputExceededException exception including the account ID, stream name, and shard ID of the record that was throttled. For more information about partially successful responses, see Adding Multiple Records with PutRecords in the Amazon Kinesis Data Streams Developer Guide.  After you write a record to a stream, you cannot modify that record or its order within the stream.  By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use IncreaseStreamRetentionPeriod or DecreaseStreamRetentionPeriod to modify this retention period",
       options: [
         {
           name: "--records",
@@ -1205,6 +1356,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -1242,6 +1400,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--policy",
           description:
             "Details of the resource policy. It must include the identity of the principal and the actions allowed on this resource. This is formatted as a JSON string",
@@ -1271,7 +1436,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-stream-consumer",
       description:
-        "Registers a consumer with a Kinesis data stream. When you use this operation, the consumer you register can then call SubscribeToShard to receive data from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected by the total number of consumers that read from the same stream. You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time. For an example of how to use this operation, see Enhanced Fan-Out Using the Kinesis Data Streams API. The use of this operation has a limit of five transactions per second per account. Also, only 5 consumers can be created simultaneously. In other words, you cannot have more than 5 consumers in a CREATING status at the same time. Registering a 6th consumer while there are 5 in a CREATING status results in a LimitExceededException",
+        "Registers a consumer with a Kinesis data stream. When you use this operation, the consumer you register can then call SubscribeToShard to receive data from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected by the total number of consumers that read from the same stream. You can add tags to the registered consumer when making a RegisterStreamConsumer request by setting the Tags parameter. If you pass the Tags parameter, in addition to having the kinesis:RegisterStreamConsumer permission, you must also have the kinesis:TagResource permission for the consumer that will be registered. Tags will take effect from the CREATING status of the consumer. With On-demand Advantage streams, you can register up to 50 consumers per stream to use Enhanced Fan-out. With On-demand Standard and Provisioned streams, you can register up to 20 consumers per stream to use Enhanced Fan-out. A given consumer can only be registered with one stream at a time. For an example of how to use this operation, see Enhanced Fan-Out Using the Kinesis Data Streams API. The use of this operation has a limit of five transactions per second per account. Also, only 5 consumers can be created simultaneously. In other words, you cannot have more than 5 consumers in a CREATING status at the same time. Registering a 6th consumer while there are 5 in a CREATING status results in a LimitExceededException",
       options: [
         {
           name: "--stream-arn",
@@ -1287,6 +1452,21 @@ const completionSpec: Fig.Spec = {
             "For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "A set of up to 50 key-value pairs. A tag consists of a required key and an optional value",
+          args: {
+            name: "map",
           },
         },
         {
@@ -1331,6 +1511,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -1384,6 +1571,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--stream-arn",
           description: "The ARN of the stream",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
           args: {
             name: "string",
           },
@@ -1444,6 +1638,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1495,6 +1696,186 @@ const completionSpec: Fig.Spec = {
           description: "The ARN of the stream",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "tag-resource",
+      description:
+        "Adds or updates tags for the specified Kinesis resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. You can assign up to 50 tags to a Kinesis resource",
+      options: [
+        {
+          name: "--tags",
+          description:
+            "An array of tags to be added to the Kinesis resource. A tag consists of a required key and an optional value. You can add up to 50 tags per resource. Tags may only contain Unicode letters, digits, white space, or these symbols: _ . : / = + - @",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Kinesis resource to which to add tags",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "untag-resource",
+      description:
+        "Removes tags from the specified Kinesis resource. Removed tags are deleted and can't be recovered after this operation completes successfully",
+      options: [
+        {
+          name: "--tag-keys",
+          description:
+            "A list of tag key-value pairs. Existing tags of the resource whose keys are members of this list will be removed from the Kinesis resource",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-account-settings",
+      description:
+        "Updates the account-level settings for Amazon Kinesis Data Streams. Updating account settings is a synchronous operation. Upon receiving the request, Kinesis Data Streams will return immediately with your account’s updated settings.  API limits    Certain account configurations have minimum commitment windows. Attempting to update your settings prior to the end of the minimum commitment window might have certain restrictions.   This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the LimitExceededException",
+      options: [
+        {
+          name: "--minimum-throughput-billing-commitment",
+          description:
+            "Specifies the minimum throughput billing commitment configuration for your account",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-max-record-size",
+      description:
+        "This allows you to update the MaxRecordSize of a single record that you can write to, and read from a stream. You can ingest and digest single records up to 10240 KiB",
+      options: [
+        {
+          name: "--stream-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the stream for the MaxRecordSize update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-record-size-in-ki-b",
+          description:
+            "The maximum record size of a single record in KiB that you can write to, and read from a stream. Specify a value between 1024 and 10240 KiB (1 to 10 MiB). If you specify a value that is out of this range, UpdateMaxRecordSize sends back an ValidationException message",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1552,6 +1933,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1573,7 +1961,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-stream-mode",
       description:
-        "Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between an on-demand capacity mode and a provisioned capacity mode for your data stream",
+        "Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between an on-demand capacity mode and a provisioned capacity mode for your data stream.  If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling MinimumThroughputBillingCommitment for your account. Once your account has MinimumThroughputBillingCommitment enabled, you can specify the warm throughput in MiB per second that your stream can support in writes",
       options: [
         {
           name: "--stream-arn",
@@ -1584,11 +1972,79 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--stream-mode-details",
           description:
             "Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an on-demand capacity mode and a provisioned capacity mode for your data streams",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--warm-throughput-mi-bps",
+          description:
+            "The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations. This field is only valid when the stream mode is being updated to on-demand",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-stream-warm-throughput",
+      description:
+        "Updates the warm throughput configuration for the specified Amazon Kinesis Data Streams on-demand data stream. This operation allows you to proactively scale your on-demand data stream to a specified throughput level, enabling better performance for sudden traffic spikes.   When invoking this API, you must use either the StreamARN or the StreamName parameter, or both. It is recommended that you use the StreamARN input parameter when you invoke this API.  Updating the warm throughput is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to UPDATING. After the update is complete, Kinesis Data Streams sets the status of the stream back to ACTIVE. Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is UPDATING. This operation is only supported for data streams with the on-demand capacity mode in accounts that have MinimumThroughputBillingCommitment enabled. Provisioned capacity mode streams do not support warm throughput configuration. This operation has the following default limits. By default, you cannot do the following:   Scale to more than 10 GiBps for an on-demand stream.   This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the LimitExceededException.   For the default limits for an Amazon Web Services account, see Streams Limits in the Amazon Kinesis Data Streams Developer Guide. To request an increase in the call rate limit, the shard limit for this API, or your overall shard limit, use the limits form",
+      options: [
+        {
+          name: "--stream-arn",
+          description: "The ARN of the stream to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-name",
+          description: "The name of the stream to be updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--stream-id",
+          description: "Not Implemented. Reserved for future use",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--warm-throughput-mi-bps",
+          description:
+            "The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1646,6 +2102,13 @@ const completionSpec: Fig.Spec = {
             {
               name: "--stream-arn",
               description: "The ARN of the stream",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--stream-id",
+              description: "Not Implemented. Reserved for future use",
               args: {
                 name: "string",
               },
@@ -1724,6 +2187,13 @@ const completionSpec: Fig.Spec = {
             {
               name: "--stream-arn",
               description: "The ARN of the stream",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--stream-id",
+              description: "Not Implemented. Reserved for future use",
               args: {
                 name: "string",
               },

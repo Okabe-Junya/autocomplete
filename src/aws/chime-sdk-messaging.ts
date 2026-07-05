@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "chime-sdk-messaging",
   description:
@@ -234,7 +235,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--channel-id",
-          description: "The ID of the channel in the request",
+          description:
+            "An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel",
           args: {
             name: "string",
           },
@@ -953,7 +955,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sub-channel-id",
           description:
-            "The ID of the SubChannel in the request. The response contains an ElasticChannelConfiguration object.  Only required to get a user\u2019s SubChannel membership details",
+            "The ID of the SubChannel in the request. The response contains an ElasticChannelConfiguration object.  Only required to get a user’s SubChannel membership details",
           args: {
             name: "string",
           },
@@ -1318,6 +1320,14 @@ const completionSpec: Fig.Spec = {
       name: "get-messaging-session-endpoint",
       description: "The details of the endpoint for the messaging session",
       options: [
+        {
+          name: "--network-type",
+          description:
+            "The type of network for the messaging session endpoint. Either IPv4 only or dual-stack (IPv4 and IPv6)",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--cli-input-json",
           description:
@@ -2060,7 +2070,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--preferences",
           description:
-            "The channel membership preferences of an AppInstanceUser",
+            "The channel membership preferences of an AppInstanceUser ",
           args: {
             name: "structure",
           },
@@ -2125,7 +2135,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "redact-channel-message",
       description:
-        "Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.  The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header",
+        "Redacts message content and metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.  The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header",
       options: [
         {
           name: "--channel-arn",
@@ -2179,7 +2189,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-channels",
       description:
-        "Allows the ChimeBearer to search channels by channel members. Users or bots can search across the channels that they belong to. Users in the AppInstanceAdmin role can search across all channels. The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header",
+        "Allows the ChimeBearer to search channels by channel members. Users or bots can search across the channels that they belong to. Users in the AppInstanceAdmin role can search across all channels. The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header.  This operation isn't supported for AppInstanceUsers with a large number of memberships",
       options: [
         {
           name: "--chime-bearer",
@@ -2319,7 +2329,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target",
           description:
-            "The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can\u2019t see",
+            "The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see",
           args: {
             name: "list",
           },

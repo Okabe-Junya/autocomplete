@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "scheduler",
   description:
@@ -329,25 +330,9 @@ const completionSpec: Fig.Spec = {
       description: "Returns a paginated list of your schedule groups",
       options: [
         {
-          name: "--max-results",
-          description:
-            "If specified, limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--name-prefix",
           description:
             "The name prefix that you can use to return a filtered list of your schedule groups",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token returned by a previous call to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -409,25 +394,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "If specified, limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--name-prefix",
           description:
             "Schedule name prefix to return the filtered list of resources",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token returned by a previous call to retrieve the next set of results",
           args: {
             name: "string",
           },

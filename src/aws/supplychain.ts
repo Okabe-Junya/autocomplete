@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "supplychain",
   description:
@@ -134,7 +135,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The name space of the dataset.    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
+            "The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
@@ -150,7 +151,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--schema",
           description:
-            "The custom schema of the data lake dataset and is only required when the name space is default",
+            "The custom schema of the data lake dataset and required for dataset in default and custom namespaces",
           args: {
             name: "structure",
           },
@@ -163,8 +164,70 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--partition-spec",
+          description:
+            "The partition specification of the dataset. Partitioning can effectively improve the dataset query performance by reducing the amount of data scanned during query execution. But partitioning or not will affect how data get ingested by data ingestion methods, such as SendDataIntegrationEvent's dataset UPSERT will upsert records within partition (instead of within whole dataset). For more details, refer to those data ingestion documentations",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--tags",
           description: "The tags of the dataset",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-data-lake-namespace",
+      description:
+        "Enables you to programmatically create an Amazon Web Services Supply Chain data lake namespace. Developers can create the namespaces for a given instance ID",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The Amazon Web Services Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the namespace. Noted you cannot create namespace with name starting with asc, default, scn, aws, amazon, amzn",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "The tags of the namespace",
           args: {
             name: "map",
           },
@@ -211,6 +274,14 @@ const completionSpec: Fig.Spec = {
           name: "--kms-key-arn",
           description:
             "The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon Web Services owned KMS key. If you don't provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--web-app-dns-domain",
+          description:
+            'The DNS subdomain of the web app. This would be "example" in the URL "example.scn.global.on.aws". You can set this to a custom value, as long as the domain isn\'t already being used by someone else. The name may only include alphanumeric characters and hyphens',
           args: {
             name: "string",
           },
@@ -303,7 +374,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The namespace of the dataset. The available values are:   asc: for  AWS Supply Chain supported datasets .   default: for datasets with custom user-defined schemas",
+            "The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
@@ -311,7 +382,46 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "The name of the dataset. If the namespace is asc, the name must be one of the supported data entities",
+            "The name of the dataset. For asc namespace, the name must be one of the supported data entities under https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-data-lake-namespace",
+      description:
+        "Enables you to programmatically delete an Amazon Web Services Supply Chain data lake namespace and its underling datasets. Developers can delete the existing namespaces for a given instance ID and namespace name",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The AWS Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the namespace. Noted you cannot delete pre-defined namespace like asc, default which are only deleted through instance deletion",
           args: {
             name: "string",
           },
@@ -404,6 +514,45 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-data-integration-event",
+      description:
+        "Enables you to programmatically view an Amazon Web Services Supply Chain Data Integration Event. Developers can view the eventType, eventGroupId, eventTimestamp, datasetTarget, datasetLoadExecution",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The Amazon Web Services Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--event-id",
+          description: "The unique event identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-data-integration-flow",
       description:
         "Enables you to programmatically view a specific data pipeline for the provided Amazon Web Services Supply Chain instance and DataIntegrationFlow name",
@@ -443,6 +592,50 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-data-integration-flow-execution",
+      description: "Get the flow execution",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The AWS Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-name",
+          description: "The flow name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--execution-id",
+          description: "The flow execution identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-data-lake-dataset",
       description:
         "Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name",
@@ -458,7 +651,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The name space of the dataset. The available values are:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
+            "The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
@@ -466,7 +659,47 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "The name of the dataset. For asc name space, the name must be one of the supported data entities under https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html",
+            "The name of the dataset. For asc namespace, the name must be one of the supported data entities under https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-data-lake-namespace",
+      description:
+        "Enables you to programmatically view an Amazon Web Services Supply Chain data lake namespace. Developers can view the data lake namespace information such as description for a given instance ID and namespace name",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The Amazon Web Services Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the namespace. Besides the namespaces user created, you can also specify the pre-defined namespaces:    asc - Pre-defined namespace containing Amazon Web Services Supply Chain supported datasets, see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - Pre-defined namespace containing datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
@@ -522,9 +755,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-data-integration-flows",
+      name: "list-data-integration-events",
       description:
-        "Enables you to programmatically list all data pipelines for the provided Amazon Web Services Supply Chain instance",
+        "Enables you to programmatically list all data integration events for the provided Amazon Web Services Supply Chain instance",
       options: [
         {
           name: "--instance-id",
@@ -535,19 +768,128 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--event-type",
           description:
-            "The pagination token to fetch the next page of the DataIntegrationFlows",
+            "List data integration events for the specified eventType",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "Specify the maximum number of DataIntegrationFlows to fetch in one paginated request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-integration-flow-executions",
+      description: "List flow executions",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The AWS Supply Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-name",
+          description: "The flow name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-integration-flows",
+      description:
+        "Enables you to programmatically list all data pipelines for the provided Amazon Web Services Supply Chain instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The Amazon Web Services Supply Chain instance identifier",
+          args: {
+            name: "string",
           },
         },
         {
@@ -609,24 +951,65 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The namespace of the dataset. The available values are:   asc: for  AWS Supply Chain supported datasets .   default: for datasets with custom user-defined schemas",
+            "The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
-          description: "The pagination token to fetch next page of datasets",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
+          name: "--cli-input-json",
           description:
-            "The max number of datasets to fetch in this paginated request",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-lake-namespaces",
+      description:
+        "Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake namespaces. Developers can view the namespaces and the corresponding information such as description for a given instance ID. Note that this API only return custom namespaces, instance pre-defined namespaces are not included",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The Amazon Web Services Supply Chain instance identifier",
+          args: {
+            name: "string",
           },
         },
         {
@@ -677,22 +1060,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List all Amazon Web Services Supply Chain instances for a specific account. Enables you to programmatically list all Amazon Web Services Supply Chain instances based on their account ID, instance name, and state of the instance (active or delete)",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to fetch the next page of instances",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specify the maximum number of instances to fetch in this paginated request",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--instance-name-filter",
           description: "The filter to ListInstances based on their names",
@@ -785,7 +1152,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-data-integration-event",
       description:
-        "Send the transactional data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake. New data events are synced with data lake at 5 PM GMT everyday. The updated transactional data is available in data lake after ingestion",
+        "Send the data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake",
       options: [
         {
           name: "--instance-id",
@@ -796,7 +1163,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--event-type",
-          description: "The data event type",
+          description:
+            "The data event type.    scn.data.dataset - Send data directly to any specified dataset.    scn.data.supplyplan - Send data to supply_plan dataset.    scn.data.shipmentstoporder - Send data to shipment_stop_order dataset.    scn.data.shipmentstop - Send data to shipment_stop dataset.    scn.data.shipment - Send data to shipment dataset.    scn.data.reservation - Send data to reservation dataset.    scn.data.processproduct - Send data to process_product dataset.    scn.data.processoperation - Send data to process_operation dataset.    scn.data.processheader - Send data to process_header dataset.    scn.data.forecast - Send data to forecast dataset.    scn.data.inventorylevel - Send data to inv_level dataset.    scn.data.inboundorder - Send data to inbound_order dataset.    scn.data.inboundorderline - Send data to inbound_order_line dataset.    scn.data.inboundorderlineschedule - Send data to inbound_order_line_schedule dataset.    scn.data.outboundorderline - Send data to outbound_order_line dataset.    scn.data.outboundshipment - Send data to outbound_shipment dataset",
           args: {
             name: "string",
           },
@@ -804,7 +1172,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--data",
           description:
-            "The data payload of the event. For more information on the data schema to use, see Data entities supported in AWS Supply Chain",
+            "The data payload of the event, should follow the data schema of the target dataset, or see Data entities supported in AWS Supply Chain. To send single data record, use JsonObject format; to send multiple data records, use JsonArray format. Note that for AWS Supply Chain dataset under asc namespace, it has a connection_id internal field that is not allowed to be provided by client directly, they will be auto populated",
           args: {
             name: "string",
           },
@@ -812,23 +1180,33 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-group-id",
           description:
-            "Event identifier (for example, orderId for InboundOrder) used for data sharing or partitioning",
+            "Event identifier (for example, orderId for InboundOrder) used for data sharding or partitioning. Noted under one eventGroupId of same eventType and instanceId, events are processed sequentially in the order they are received by the server",
           args: {
             name: "string",
           },
         },
         {
           name: "--event-timestamp",
-          description: "The event timestamp (in epoch seconds)",
+          description:
+            "The timestamp (in epoch seconds) associated with the event. If not provided, it will be assigned with current timestamp",
           args: {
             name: "timestamp",
           },
         },
         {
           name: "--client-token",
-          description: "The idempotent client token",
+          description:
+            "The idempotent client token. The token is active for 8 hours, and within its lifetime, it ensures the request completes only once upon retry with same client token. If omitted, the AWS SDK generates a unique value so that AWS SDK can safely retry the request upon network errors",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--dataset-target",
+          description:
+            "The target dataset configuration for scn.data.dataset event type",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1008,7 +1386,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--namespace",
           description:
-            "The name space of the dataset. The available values are:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
+            "The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:    asc - For information on the Amazon Web Services Supply Chain supported datasets see https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html.    default - For datasets with custom user-defined schemas",
           args: {
             name: "string",
           },
@@ -1016,7 +1394,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description:
-            "The name of the dataset. For asc name space, the name must be one of the supported data entities under https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html",
+            "The name of the dataset. For asc namespace, the name must be one of the supported data entities under https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html",
           args: {
             name: "string",
           },
@@ -1024,6 +1402,52 @@ const completionSpec: Fig.Spec = {
         {
           name: "--description",
           description: "The updated description of the data lake dataset",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-data-lake-namespace",
+      description:
+        "Enables you to programmatically update an Amazon Web Services Supply Chain data lake namespace. Developers can update the description of a data lake namespace for a given instance ID and namespace name",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The Amazon Web Services Chain instance identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the namespace. Noted you cannot update namespace with name starting with asc, default, scn, aws, amazon, amzn",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The updated description of the data lake namespace",
           args: {
             name: "string",
           },

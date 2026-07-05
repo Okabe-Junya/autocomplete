@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "devops-guru",
   description:
@@ -6,7 +7,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "add-notification-channel",
       description:
-        "Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.  If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see Permissions for Amazon SNS topics. If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see Permissions for Amazon Web Services KMS\u2013encrypted Amazon SNS topics",
+        "Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.  If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see Permissions for Amazon SNS topics. If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see Permissions for Amazon Web Services KMS–encrypted Amazon SNS topics",
       options: [
         {
           name: "--config",
@@ -382,14 +383,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--max-results",
           description:
             "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
@@ -422,6 +415,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -446,14 +447,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -473,6 +466,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -518,14 +519,6 @@ const completionSpec: Fig.Spec = {
         "Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources. For more information, see Estimate your Amazon DevOps Guru costs and Amazon DevOps Guru pricing",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -545,6 +538,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -574,14 +575,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -601,6 +594,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -635,22 +636,6 @@ const completionSpec: Fig.Spec = {
             "A time range used to specify when the requested anomalies started. All returned anomalies started during this time range",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -723,22 +708,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -792,22 +761,6 @@ const completionSpec: Fig.Spec = {
             "A ListEventsFilters object used to specify which events to return",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -874,22 +827,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -946,22 +883,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1010,14 +931,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of notification channels configured for DevOps Guru. Each notification channel is used to notify you when DevOps Guru generates an insight that contains information about how to improve your operations. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS)",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1037,6 +950,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1066,14 +987,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--account-ids",
           description: "The ID of the Amazon Web Services account",
           args: {
@@ -1085,14 +998,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the organizational unit",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1151,14 +1056,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--locale",
           description:
             "A locale that specifies the language to use for recommendations",
@@ -1193,6 +1090,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1292,22 +1197,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--type",
           description:
             "The type of insights you are searching for (REACTIVE or PROACTIVE)",
@@ -1384,22 +1273,6 @@ const completionSpec: Fig.Spec = {
             "A SearchOrganizationInsightsFilters object that is used to set the severity and status filters on your insight search",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page",
-          args: {
-            name: "string",
           },
         },
         {

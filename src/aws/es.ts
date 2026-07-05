@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "es",
   description:
@@ -351,6 +352,21 @@ const completionSpec: Fig.Spec = {
           description: "A list of Tag added during domain creation",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--deployment-strategy-options",
+          description: "Specifies the deployment strategy options",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--automated-snapshot-pause-options",
+          description:
+            "Specifies the automated snapshot pause options for the domain.  Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.  Maximum suspension duration: 3 days",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1089,22 +1105,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Set this value to limit the number of results returned. If not specified, defaults to 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1156,22 +1156,6 @@ const completionSpec: Fig.Spec = {
           name: "--reserved-elasticsearch-instance-id",
           description:
             "The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Set this value to limit the number of results returned. If not specified, defaults to 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination",
           args: {
             name: "string",
           },
@@ -1382,21 +1366,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "Set this value to limit the number of results returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Paginated APIs accepts NextToken input to returns next page results and provides a NextToken output in the response which can be used by the client to retrieve more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1570,22 +1539,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1632,22 +1585,6 @@ const completionSpec: Fig.Spec = {
       name: "list-elasticsearch-versions",
       description: "List all supported Elasticsearch versions",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Paginated APIs accepts NextToken input to returns next page results and provides a NextToken output in the response which can be used by the client to retrieve more results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2188,6 +2125,21 @@ const completionSpec: Fig.Spec = {
           name: "--no-dry-run",
           description:
             "This flag, when set to True, specifies whether the UpdateElasticsearchDomain request should return the results of validation checks without actually applying the change. This flag, when set to True, specifies the deployment mechanism through which the update shall be applied on the domain. This will not actually perform the Update",
+        },
+        {
+          name: "--deployment-strategy-options",
+          description: "Specifies the deployment strategy options",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--automated-snapshot-pause-options",
+          description:
+            "Specifies the automated snapshot pause options for the domain.  Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.  Maximum suspension duration: 3 days",
+          args: {
+            name: "structure",
+          },
         },
         {
           name: "--cli-input-json",

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "managedblockchain-query",
   description:
@@ -174,22 +175,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of contracts to list. Default: 100   Even if additional results can be retrieved, the request can return less results than maxResults or an empty array of results. To retrieve the next set of results, make another request with the returned nextToken value. The value of nextToken is null when there are no more results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -285,22 +270,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of transaction events to list. Default: 100   Even if additional results can be retrieved, the request can return less results than maxResults or an empty array of results. To retrieve the next set of results, make another request with the returned nextToken value. The value of nextToken is null when there are no more results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -362,22 +331,6 @@ const completionSpec: Fig.Spec = {
             "The contract address or a token identifier on the blockchain network by which to filter the request. You must specify the contractAddress property of this container when listing tokens minted by a contract.  You must always specify the network property of this container when using this operation",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of token balances to return. Default: 100   Even if additional results can be retrieved, the request can return less results than maxResults or an empty array of results. To retrieve the next set of results, make another request with the returned nextToken value. The value of nextToken is null when there are no more results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -450,22 +403,6 @@ const completionSpec: Fig.Spec = {
             "The blockchain network where the transaction events occurred",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of transaction events to list. Default: 100   Even if additional results can be retrieved, the request can return less results than maxResults or an empty array of results. To retrieve the next set of results, make another request with the returned nextToken value. The value of nextToken is null when there are no more results to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -549,22 +486,6 @@ const completionSpec: Fig.Spec = {
           description: "The order by which the results will be sorted",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of transactions to list. Default: 100   Even if additional results can be retrieved, the request can return less results than maxResults or an empty array of results. To retrieve the next set of results, make another request with the returned nextToken value. The value of nextToken is null when there are no more results to return",
-          args: {
-            name: "integer",
           },
         },
         {

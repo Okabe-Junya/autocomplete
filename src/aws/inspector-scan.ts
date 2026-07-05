@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "inspector-scan",
   description:
@@ -6,12 +7,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "scan-sbom",
       description:
-        "Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the Amazon Inspector SBOM generator",
+        "Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the Amazon Inspector SBOM generator.   The output of this action reports NVD and CVSS scores when NVD and CVSS scores are available. Because the output reports both scores, you might notice a discrepency between them. However, you can triage the severity of either score depending on the vendor of your choosing",
       options: [
         {
           name: "--sbom",
           description:
-            "The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format",
+            "The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format. This format limits you to passing 2000 components before throwing a ValidException error",
           args: {
             name: "structure",
           },

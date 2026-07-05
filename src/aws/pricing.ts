@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pricing",
   description:
@@ -22,22 +23,6 @@ const completionSpec: Fig.Spec = {
             "The format version that you want the response to be in. Valid values are: aws_v1",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want returned in the response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -102,21 +87,6 @@ const completionSpec: Fig.Spec = {
             "The name of the attribute that you want to retrieve the values for, such as volumeType",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return in response",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -232,22 +202,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -298,7 +252,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--service-code",
           description:
-            "The service code or the Savings Plan service code for the attributes that you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use AmazonEC2. For a full list of service codes containing On-Demand and Reserved Instance (RI) pricing, use the DescribeServices API. To retrieve the Reserved Instance and Compute Savings Plan price lists, use ComputeSavingsPlans.  To retrieve Machine Learning Savings Plans price lists, use MachineLearningSavingsPlans",
+            "The service code or the Savings Plans service code for the attributes that you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use AmazonEC2. For a full list of service codes containing On-Demand and Reserved Instance (RI) pricing, use the DescribeServices API. To retrieve the Reserved Instance and Compute Savings Plans price lists, use ComputeSavingsPlans.  To retrieve Machine Learning Savings Plans price lists, use MachineLearningSavingsPlans",
           args: {
             name: "string",
           },
@@ -325,22 +279,6 @@ const completionSpec: Fig.Spec = {
             "The three alphabetical character ISO-4217 currency code that the Price List files are denominated in",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token that indicates the next set of results that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in the response",
-          args: {
-            name: "integer",
           },
         },
         {

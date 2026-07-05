@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "mediapackage",
   description: "AWS Elemental MediaPackage",
@@ -439,21 +440,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a collection of Channels",
       options: [
         {
-          name: "--max-results",
-          description: "Upper bound on number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -517,21 +503,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The upper bound on the number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -582,21 +553,6 @@ const completionSpec: Fig.Spec = {
           name: "--channel-id",
           description:
             "When specified, the request will return only OriginEndpoints associated with the given Channel ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The upper bound on the number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
           args: {
             name: "string",
           },

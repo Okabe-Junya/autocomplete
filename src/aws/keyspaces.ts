@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "keyspaces",
   description:
@@ -26,7 +27,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replication-specification",
           description:
-            "The replication specification of the keyspace includes:    replicationStrategy - the required value is SINGLE_REGION or MULTI_REGION.    regionList - if the replicationStrategy is MULTI_REGION, the regionList requires the current Region and at least one additional Amazon Web Services Region where the keyspace is going to be replicated in. The maximum number of supported replication Regions including the current Region is six",
+            "The replication specification of the keyspace includes:    replicationStrategy - the required value is SINGLE_REGION or MULTI_REGION.    regionList - if the replicationStrategy is MULTI_REGION, the regionList requires the current Region and at least one additional Amazon Web Services Region where the keyspace is going to be replicated in",
           args: {
             name: "structure",
           },
@@ -156,6 +157,21 @@ const completionSpec: Fig.Spec = {
             "The optional Amazon Web Services Region specific settings of a multi-Region table. These settings overwrite the general settings of the table for the specified Region.  For a multi-Region table in provisioned capacity mode, you can configure the table's read capacity differently for each Region's replica. The write capacity, however, remains synchronized between all replicas to ensure that there's enough capacity to replicate writes across all Regions. To define the read capacity for a table replica in a specific Region, you can do so by configuring the following parameters.    region: The Region where these settings are applied. (Required)    readCapacityUnits: The provisioned read capacity units. (Optional)    readCapacityAutoScaling: The read capacity auto scaling settings for the table. (Optional)",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cdc-specification",
+          description: "The CDC stream settings of the table",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--warm-throughput-specification",
+          description:
+            "Specifies the warm throughput settings for the table. Pre-warming a table helps you avoid capacity exceeded exceptions by pre-provisioning read and write capacity units to reduce cold start latency when your table receives traffic. For more information about pre-warming in Amazon Keyspaces, see Pre-warm a table in Amazon Keyspaces in the Amazon Keyspaces Developer Guide",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -482,22 +498,6 @@ const completionSpec: Fig.Spec = {
       description: "The ListKeyspaces operation returns a list of keyspaces",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of keyspaces to return in the output. If the total number of keyspaces available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -545,22 +545,6 @@ const completionSpec: Fig.Spec = {
       description:
         "The ListTables operation returns a list of tables for a specified keyspace. To read keyspace metadata using ListTables, the IAM principal needs Select action permissions for the system keyspace",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The pagination token. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of tables to return in the output. If the total number of tables available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--keyspace-name",
           description: "The name of the keyspace",
@@ -625,22 +609,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of tags to return in the output. If the total number of tags available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -688,22 +656,6 @@ const completionSpec: Fig.Spec = {
       description:
         "The ListTypes operation returns a list of types for a specified keyspace.  To read keyspace metadata using ListTypes, the IAM principal needs Select action permissions for the system keyspace. To configure the required permissions, see Permissions to view a UDT in the Amazon Keyspaces Developer Guide",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The pagination token. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The total number of types to return in the output. If the total number of types available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as an argument of a subsequent API invocation",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--keyspace-name",
           description:
@@ -957,7 +909,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replication-specification",
           description:
-            "The replication specification of the keyspace includes:    regionList - up to six Amazon Web Services Regions where the keyspace is replicated in.    replicationStrategy - the required value is SINGLE_REGION or MULTI_REGION",
+            "The replication specification of the keyspace includes:    regionList - the Amazon Web Services Regions where the keyspace is replicated in.    replicationStrategy - the required value is SINGLE_REGION or MULTI_REGION",
           args: {
             name: "structure",
           },
@@ -1078,6 +1030,21 @@ const completionSpec: Fig.Spec = {
           description: "The Region specific settings of a multi-Regional table",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cdc-specification",
+          description: "The CDC stream settings of the table",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--warm-throughput-specification",
+          description:
+            "Modifies the warm throughput settings for the table. You can update the read and write capacity units to adjust the pre-provisioned throughput",
+          args: {
+            name: "structure",
           },
         },
         {

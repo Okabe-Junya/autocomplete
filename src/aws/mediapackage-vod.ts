@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "mediapackage-vod",
   description: "AWS Elemental MediaPackage VOD",
@@ -422,21 +423,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a collection of MediaPackage VOD Asset resources",
       options: [
         {
-          name: "--max-results",
-          description: "Upper bound on number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--packaging-group-id",
           description:
             "Returns Assets associated with the specified PackagingGroup",
@@ -493,21 +479,6 @@ const completionSpec: Fig.Spec = {
         "Returns a collection of MediaPackage VOD PackagingConfiguration resources",
       options: [
         {
-          name: "--max-results",
-          description: "Upper bound on number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--packaging-group-id",
           description:
             "Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup",
@@ -563,21 +534,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a collection of MediaPackage VOD PackagingGroup resources",
       options: [
-        {
-          name: "--max-results",
-          description: "Upper bound on number of records to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token used to resume pagination from the end of a previous request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "servicecatalog-appregistry",
   description:
@@ -523,22 +524,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a list of all of your applications. Results are paginated",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -591,22 +576,6 @@ const completionSpec: Fig.Spec = {
           description: "The name or ID of the application",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -665,22 +634,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -728,22 +681,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all attribute groups which you have access to. Results are paginated",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -797,22 +734,6 @@ const completionSpec: Fig.Spec = {
           description: "The name or ID of the application",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "This token retrieves the next page of results after a previous API call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -922,7 +843,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "sync-resource",
       description:
-        "Syncs the resource with current AppRegistry records. Specifically, the resource\u2019s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource",
+        "Syncs the resource with current AppRegistry records. Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource",
       options: [
         {
           name: "--resource-type",

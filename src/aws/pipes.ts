@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pipes",
   description:
-    "Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company\u2019s applications. With Pipes, the target can be any available EventBridge target. To set up a pipe, you select the event source, add optional event filtering, define optional enrichment, and select the target for the event data",
+    "Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company’s applications. With Pipes, the target can be any available EventBridge target. To set up a pipe, you select the event source, add optional event filtering, define optional enrichment, and select the target for the event data",
   subcommands: [
     {
       name: "create-pipe",
@@ -224,21 +225,6 @@ const completionSpec: Fig.Spec = {
           description: "The prefix matching the pipe target",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of pipes to include in the response",
-          args: {
-            name: "integer",
           },
         },
         {

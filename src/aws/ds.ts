@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ds",
   description:
@@ -109,7 +110,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--vpc-settings",
           description:
-            "Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation",
+            "Contains VPC information for the CreateDirectory, CreateMicrosoftAD, or CreateHybridAD operation",
           args: {
             name: "structure",
           },
@@ -270,6 +271,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--network-type",
+          description:
+            "The network type for your directory. The default value is IPv4 or IPv6 based on the provided subnet capabilities",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -421,6 +430,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--dns-ipv6-addrs",
+          description:
+            "The IPv6 addresses of the remote DNS server associated with RemoteDomainName",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -462,7 +479,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--password",
           description:
-            "The password for the directory administrator. The directory creation process creates a directory administrator account with the user name Administrator and this password. If you need to change the password for the administrator account, you can use the ResetUserPassword API call. The regex pattern for this string is made up of the following conditions:   Length (?=^.{8,64}$) \u2013 Must be between 8 and 64 characters   AND any 3 of the following password complexity rules required by Active Directory:   Numbers and upper case and lowercase (?=.*\\d)(?=.*[A-Z])(?=.*[a-z])   Numbers and special characters and lower case (?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])   Special characters and upper case and lower case (?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])   Numbers and upper case and special characters (?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s])   For additional information about how Active Directory passwords are enforced, see Password must meet complexity requirements on the Microsoft website",
+            "The password for the directory administrator. The directory creation process creates a directory administrator account with the user name Administrator and this password. If you need to change the password for the administrator account, you can use the ResetUserPassword API call. The regex pattern for this string is made up of the following conditions:   Length (?=^.{8,64}$) – Must be between 8 and 64 characters   AND any 3 of the following password complexity rules required by Active Directory:   Numbers and upper case and lowercase (?=.*\\d)(?=.*[A-Z])(?=.*[a-z])   Numbers and special characters and lower case (?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])   Special characters and upper case and lower case (?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])   Numbers and upper case and special characters (?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s])   For additional information about how Active Directory passwords are enforced, see Password must meet complexity requirements on the Microsoft website",
           args: {
             name: "string",
           },
@@ -492,6 +509,62 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description: "The tags to be assigned to the Simple AD directory",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type for your directory. Simple AD supports IPv4 and Dual-stack only",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-hybrid-ad",
+      description:
+        "Creates a hybrid directory that connects your self-managed Active Directory (AD) infrastructure and Amazon Web Services. You must have a successful directory assessment using StartADAssessment to validate your environment compatibility before you use this operation. Updates are applied asynchronously. Use DescribeDirectories to monitor the progress of directory creation",
+      options: [
+        {
+          name: "--secret-arn",
+          description:
+            'The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials for the service account used to join hybrid domain controllers to your self-managed AD domain. This secret is used once and not stored. The secret must contain key-value pairs with keys matching customerAdAdminDomainUsername and customerAdAdminDomainPassword. For example: {"customerAdAdminDomainUsername":"carlos_salazar","customerAdAdminDomainPassword":"ExamplePassword123!"}',
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--assessment-id",
+          description:
+            "The unique identifier of the successful directory assessment that validates your self-managed AD environment. You must have a successful directory assessment before you create a hybrid directory",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to be assigned to the directory. Each tag consists of a key and value pair. You can specify multiple tags as a list",
           args: {
             name: "list",
           },
@@ -617,6 +690,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--network-type",
+          description:
+            "The network type for your domain. The default value is IPv4 or IPv6 based on the provided subnet capabilities",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -726,9 +807,49 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--conditional-forwarder-ipv6-addrs",
+          description:
+            "The IPv6 addresses of the remote DNS server associated with RemoteDomainName",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--selective-auth",
           description:
             "Optional parameter to enable selective authentication for the trust",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-ad-assessment",
+      description:
+        "Deletes a directory assessment and all associated data. This operation permanently removes the assessment results, validation reports, and configuration information. You cannot delete system-initiated assessments. You can delete customer-created assessments even if they are in progress",
+      options: [
+        {
+          name: "--assessment-id",
+          description:
+            "The unique identifier of the directory assessment to delete",
           args: {
             name: "string",
           },
@@ -1004,6 +1125,69 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-ad-assessment",
+      description:
+        "Retrieves detailed information about a directory assessment, including its current status, validation results, and configuration details. Use this operation to monitor assessment progress and review results",
+      options: [
+        {
+          name: "--assessment-id",
+          description: "The identifier of the directory assessment to describe",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-ca-enrollment-policy",
+      description:
+        "Retrieves detailed information about the certificate authority (CA) enrollment policy for the specified directory. This policy determines how client certificates are automatically enrolled and managed through Amazon Web Services Private Certificate Authority",
+      options: [
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the directory for which to retrieve the CA enrollment policy information",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-certificate",
       description:
         "Displays information about the certificate registered for secure LDAP or client certificate authentication",
@@ -1060,22 +1244,6 @@ const completionSpec: Fig.Spec = {
             "The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The DescribeClientAuthenticationSettingsResult.NextToken value from a previous call to DescribeClientAuthenticationSettings. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1175,22 +1343,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeDirectoriesResult.NextToken value from a previous call to DescribeDirectories. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1286,21 +1438,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeDomainControllers.NextToken value from a previous call to DescribeDomainControllers. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1384,6 +1521,54 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-hybrid-ad-update",
+      description:
+        "Retrieves information about update activities for a hybrid directory. This operation provides details about configuration changes, administrator account updates, and self-managed instance settings (IDs and DNS IPs)",
+      options: [
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the hybrid directory for which to retrieve update information",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--update-type",
+          description:
+            "The type of update activities to retrieve. Valid values include SelfManagedInstances and HybridAdministratorAccount",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The pagination token from a previous request to DescribeHybridADUpdate. Pass null if this is the first request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-ldaps-settings",
       description:
         "Describes the status of LDAP security for the specified directory",
@@ -1401,21 +1586,6 @@ const completionSpec: Fig.Spec = {
             "The type of LDAP security to enable. Currently only the value Client is supported",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The type of next token used for pagination",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "Specifies the number of items that should be displayed on one page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1481,14 +1651,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeRegionsResult.NextToken value from a previous call to DescribeRegions. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1508,6 +1670,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1592,22 +1762,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeSharedDirectoriesResult.NextToken value from a previous call to DescribeSharedDirectories. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The number of shared directories to return in the response object",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1672,21 +1826,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeSnapshotsResult.NextToken value from a previous call to DescribeSnapshots. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of objects to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1748,21 +1887,6 @@ const completionSpec: Fig.Spec = {
             "A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned. An empty list results in an InvalidParameterException being thrown",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The DescribeTrustsResult.NextToken value from a previous call to DescribeTrusts. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of objects to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1836,14 +1960,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The DescribeUpdateDirectoryResult. NextToken value from a previous call to DescribeUpdateDirectory. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1865,6 +1981,46 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disable-ca-enrollment-policy",
+      description:
+        "Disables the certificate authority (CA) enrollment policy for the specified directory. This stops automatic certificate enrollment and management for domain-joined clients, but does not affect existing certificates.  Disabling the CA enrollment policy prevents new certificates from being automatically enrolled, but existing certificates remain valid and functional until they expire",
+      options: [
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the directory for which to disable the CA enrollment policy",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1920,7 +2076,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "disable-directory-data-access",
       description:
-        "Deactivates access to directory data via the Directory Service Data API for the specified directory",
+        "Deactivates access to directory data via the Directory Service Data API for the specified directory. For more information, see Directory Service Data API Reference",
       options: [
         {
           name: "--directory-id",
@@ -2066,6 +2222,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "enable-ca-enrollment-policy",
+      description:
+        "Enables certificate authority (CA) enrollment policy for the specified directory. This allows domain-joined clients to automatically request and receive certificates from the specified Amazon Web Services Private Certificate Authority.  Before enabling CA enrollment, ensure that the PCA connector is properly configured and accessible from the directory. The connector must be in an active state and have the necessary permissions",
+      options: [
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the directory for which to enable the CA enrollment policy",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--pca-connector-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Private Certificate Authority (PCA) connector to use for automatic certificate enrollment. This connector must be properly configured and accessible from the directory. The ARN format is: arn:aws:pca-connector-ad:region:account-id:connector/connector-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "enable-client-authentication",
       description:
         "Enables alternative client authentication methods for the specified directory",
@@ -2107,7 +2303,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "enable-directory-data-access",
       description:
-        "Enables access to directory data via the Directory Service Data API for the specified directory",
+        "Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see Directory Service Data API Reference",
       options: [
         {
           name: "--directory-id",
@@ -2317,6 +2513,62 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-ad-assessments",
+      description:
+        "Retrieves a list of directory assessments for the specified directory or all assessments in your account. Use this operation to monitor assessment status and manage multiple assessments",
+      options: [
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the directory for which to list assessments. If not specified, all assessments in your account are returned",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-certificates",
       description:
         "For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication",
@@ -2326,21 +2578,6 @@ const completionSpec: Fig.Spec = {
           description: "The identifier of the directory",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token for requesting another page of certificates if the NextToken response element indicates that more certificates are available. Use the value of the returned NextToken element in your request until the token comes back as null. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The number of items that should show up on one page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2400,22 +2637,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The ListIpRoutes.NextToken value from a previous call to ListIpRoutes. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2469,20 +2690,6 @@ const completionSpec: Fig.Spec = {
             "If a DirectoryID is provided, lists only the log subscription associated with that directory. If no DirectoryId is provided, lists all log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for the Amazon Web Services account or the directory, an empty list will be returned",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of items to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items returned",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2542,21 +2749,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The ListSchemaExtensions.NextToken value from a previous call to ListSchemaExtensions. Pass null if this is the first call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2609,20 +2801,6 @@ const completionSpec: Fig.Spec = {
             "Identifier (ID) of the directory for which you want to retrieve tags",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Reserved for future use",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "Reserved for future use",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2809,6 +2987,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cidr-ips",
           description: "IP address blocks that you want to remove",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cidr-ipv6s",
+          description: "IPv6 address blocks that you want to remove",
           args: {
             name: "list",
           },
@@ -3036,6 +3221,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-ad-assessment",
+      description:
+        "Initiates a directory assessment to validate your self-managed AD environment for hybrid domain join. The assessment checks compatibility and connectivity of the self-managed AD environment. A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: CUSTOMER and SYSTEM. Your Amazon Web Services account has a limit of 100 CUSTOMER directory assessments. The assessment process typically takes 30 minutes or more to complete. The assessment process is asynchronous and you can monitor it with DescribeADAssessment. The InstanceIds must have a one-to-one correspondence with CustomerDnsIps, meaning that if the IP address for instance i-10243410 is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100] paired with [i-10243420, i-10243410]. Note: You must provide exactly one DirectoryId or AssessmentConfiguration",
+      options: [
+        {
+          name: "--assessment-configuration",
+          description:
+            "Configuration parameters for the directory assessment, including DNS server information, domain name, Amazon VPC subnet, and Amazon Web Services System Manager managed node details",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--directory-id",
+          description:
+            "The identifier of the directory for which to perform the assessment. This should be an existing directory. If the assessment is not for an existing directory, this parameter should be omitted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-schema-extension",
       description: "Applies a schema extension to a Microsoft AD directory",
       options: [
@@ -3161,6 +3386,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--dns-ipv6-addrs",
+          description:
+            "The updated IPv6 addresses of the remote DNS server associated with the conditional forwarder",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3181,20 +3414,19 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-directory-setup",
-      description: "Updates the directory for a particular update type",
+      description:
+        "Updates directory configuration for the specified update type",
       options: [
         {
           name: "--directory-id",
-          description:
-            "The identifier of the directory on which you want to perform the update",
+          description: "The identifier of the directory to update",
           args: {
             name: "string",
           },
         },
         {
           name: "--update-type",
-          description:
-            "The type of update that needs to be performed on the directory. For example, OS",
+          description: "The type of update to perform on the directory",
           args: {
             name: "string",
           },
@@ -3202,7 +3434,23 @@ const completionSpec: Fig.Spec = {
         {
           name: "--os-update-settings",
           description:
-            "The settings for the OS update that needs to be performed on the directory",
+            "Operating system configuration to apply during the directory update operation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--directory-size-update-settings",
+          description:
+            "Directory size configuration to apply during the update operation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--network-update-settings",
+          description:
+            "Network configuration to apply during the directory update operation",
           args: {
             name: "structure",
           },
@@ -3210,12 +3458,59 @@ const completionSpec: Fig.Spec = {
         {
           name: "--create-snapshot-before-update",
           description:
-            "The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory",
+            "Specifies whether to create a directory snapshot before performing the update",
         },
         {
           name: "--no-create-snapshot-before-update",
           description:
-            "The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory",
+            "Specifies whether to create a directory snapshot before performing the update",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-hybrid-ad",
+      description:
+        "Updates the configuration of an existing hybrid directory. You can recover hybrid directory administrator account or modify self-managed instance settings. Updates are applied asynchronously. Use DescribeHybridADUpdate to monitor the progress of configuration changes. The InstanceIds must have a one-to-one correspondence with CustomerDnsIps, meaning that if the IP address for instance i-10243410 is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then the input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100] paired with [i-10243420, i-10243410].  You must provide at least one update to UpdateHybridADRequest$HybridAdministratorAccountUpdate or UpdateHybridADRequest$SelfManagedInstancesSettings",
+      options: [
+        {
+          name: "--directory-id",
+          description: "The identifier of the hybrid directory to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hybrid-administrator-account-update",
+          description:
+            "We create a hybrid directory administrator account when we create a hybrid directory. Use HybridAdministratorAccountUpdate to recover the hybrid directory administrator account if you have deleted it. To recover your hybrid directory administrator account, we need temporary access to a user in your self-managed AD with administrator permissions in the form of a secret from Amazon Web Services Secrets Manager. We use these credentials once during recovery and don't store them. If your hybrid directory administrator account exists, then you don’t need to use HybridAdministratorAccountUpdate, even if you have updated your self-managed AD administrator user",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--self-managed-instances-settings",
+          description:
+            "Updates to the self-managed AD configuration, including DNS server IP addresses and Amazon Web Services System Manager managed node identifiers",
+          args: {
+            name: "structure",
+          },
         },
         {
           name: "--cli-input-json",
@@ -3422,6 +3717,61 @@ const completionSpec: Fig.Spec = {
             name: "string",
             suggestions: ["input", "output"],
           },
+        },
+      ],
+    },
+    {
+      name: "wait",
+      description:
+        "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
+      subcommands: [
+        {
+          name: "hybrid-ad-updated",
+          description:
+            "Wait until JMESPath query UpdateActivities.SelfManagedInstances[].Status returns Updated for all elements when polling with ``describe-hybrid-ad-update``. It will poll every 120 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+          options: [
+            {
+              name: "--directory-id",
+              description:
+                "The identifier of the hybrid directory for which to retrieve update information",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--update-type",
+              description:
+                "The type of update activities to retrieve. Valid values include SelfManagedInstances and HybridAdministratorAccount",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--next-token",
+              description:
+                "The pagination token from a previous request to DescribeHybridADUpdate. Pass null if this is the first request",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
         },
       ],
     },

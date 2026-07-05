@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "configservice",
   description:
@@ -155,7 +156,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-config-rule",
       description:
-        "Deletes the specified Config rule and all of its evaluation results. Config sets the state of a rule to DELETING until the deletion is complete. You cannot update a rule while it is in this state. If you make a PutConfigRule or DeleteConfigRule request for the rule, you will receive a ResourceInUseException. You can check the state of a rule by using the DescribeConfigRules request.   Recommendation: Stop recording resource compliance before deleting rules  It is highly recommended that you stop recording for the AWS::Config::ResourceCompliance resource type before you delete rules in your account. Deleting rules creates CIs for AWS::Config::ResourceCompliance and can affect your Config configuration recorder costs. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded. Best practice:   Stop recording AWS::Config::ResourceCompliance    Delete rule(s)   Turn on recording for AWS::Config::ResourceCompliance",
+        "Deletes the specified Config rule and all of its evaluation results. Config sets the state of a rule to DELETING until the deletion is complete. You cannot update a rule while it is in this state. If you make a PutConfigRule or DeleteConfigRule request for the rule, you will receive a ResourceInUseException. You can check the state of a rule by using the DescribeConfigRules request.   Recommendation: Consider excluding the AWS::Config::ResourceCompliance resource type from recording before deleting rules  Deleting rules creates configuration items (CIs) for AWS::Config::ResourceCompliance that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded. To avoid the associated costs, you can opt to disable recording for the AWS::Config::ResourceCompliance resource type before deleting rules, and re-enable recording after the rules have been deleted. However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time when recording is disabled for AWS::Config::ResourceCompliance, rule evaluations will not be recorded in the associated resource’s history",
       options: [
         {
           name: "--config-rule-name",
@@ -249,7 +250,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-conformance-pack",
       description:
-        "Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that conformance pack. Config sets the conformance pack to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state",
+        "Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that conformance pack. Config sets the conformance pack to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state.   Recommendation: Consider excluding the AWS::Config::ResourceCompliance resource type from recording before deleting rules  Deleting rules creates configuration items (CIs) for AWS::Config::ResourceCompliance that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded. To avoid the associated costs, you can opt to disable recording for the AWS::Config::ResourceCompliance resource type before deleting rules, and re-enable recording after the rules have been deleted. However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time when recording is disabled for AWS::Config::ResourceCompliance, rule evaluations will not be recorded in the associated resource’s history",
       options: [
         {
           name: "--conformance-pack-name",
@@ -344,7 +345,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-organization-config-rule",
       description:
-        "Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization.  Only a management account and a delegated administrator account can delete an organization Config rule. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a rule while it is in this state",
+        "Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization.  Only a management account and a delegated administrator account can delete an organization Config rule. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a rule while it is in this state.   Recommendation: Consider excluding the AWS::Config::ResourceCompliance resource type from recording before deleting rules  Deleting rules creates configuration items (CIs) for AWS::Config::ResourceCompliance that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded. To avoid the associated costs, you can opt to disable recording for the AWS::Config::ResourceCompliance resource type before deleting rules, and re-enable recording after the rules have been deleted. However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time when recording is disabled for AWS::Config::ResourceCompliance, rule evaluations will not be recorded in the associated resource’s history",
       options: [
         {
           name: "--organization-config-rule-name",
@@ -376,7 +377,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-organization-conformance-pack",
       description:
-        "Deletes the specified organization conformance pack and all of the Config rules and remediation actions from all member accounts in that organization.   Only a management account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state",
+        "Deletes the specified organization conformance pack and all of the Config rules and remediation actions from all member accounts in that organization.   Only a management account or a delegated administrator account can delete an organization conformance pack. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a conformance pack while it is in this state.    Recommendation: Consider excluding the AWS::Config::ResourceCompliance resource type from recording before deleting rules  Deleting rules creates configuration items (CIs) for AWS::Config::ResourceCompliance that can affect your costs for the configuration recorder. If you are deleting rules which evaluate a large number of resource types, this can lead to a spike in the number of CIs recorded. To avoid the associated costs, you can opt to disable recording for the AWS::Config::ResourceCompliance resource type before deleting rules, and re-enable recording after the rules have been deleted. However, since deleting rules is an asynchronous process, it might take an hour or more to complete. During the time when recording is disabled for AWS::Config::ResourceCompliance, rule evaluations will not be recorded in the associated resource’s history",
       options: [
         {
           name: "--organization-conformance-pack-name",
@@ -706,22 +707,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -785,22 +770,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -848,22 +817,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of authorizations granted to various aggregator accounts and regions",
       options: [
-        {
-          name: "--limit",
-          description:
-            "The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -928,14 +881,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -955,6 +900,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -996,22 +949,6 @@ const completionSpec: Fig.Spec = {
           description: "Filters the results by compliance",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1071,22 +1008,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 1000 rules. For information about requesting a rule limit increase, see Config Limits in the Amazon Web Services General Reference Guide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1142,14 +1063,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filters",
           description:
             "Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see  Evaluation Mode  in the Config Developer Guide",
@@ -1177,6 +1090,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1210,22 +1131,6 @@ const completionSpec: Fig.Spec = {
             "Filters the status type.   Valid value FAILED indicates errors while moving data.   Valid value SUCCEEDED indicates the data was successfully moved.   Valid value OUTDATED indicates the data is not the most recent",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1284,22 +1189,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1350,7 +1239,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--configuration-recorder-names",
           description:
-            "The name of the configuration recorder. If the name is not specified, the opertation returns the status for the customer managed configuration recorder configured for the account, if applicable.  When making a request to this operation, you can only specify one configuration recorder",
+            "The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.  When making a request to this operation, you can only specify one configuration recorder",
           args: {
             name: "list",
           },
@@ -1398,7 +1287,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--configuration-recorder-names",
           description:
-            "A list of names of the configuration recorders that you want to specify",
+            "A list of names of the configuration recorders that you want to specify.  When making a request to this operation, you can only specify one configuration recorder",
           args: {
             name: "list",
           },
@@ -1458,27 +1347,35 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of Config rules within a conformance pack are returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned in a previous request that you use to request the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -1502,22 +1399,6 @@ const completionSpec: Fig.Spec = {
           description: "Comma-separated list of conformance pack names",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of conformance packs status returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned in a previous request that you use to request the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1573,22 +1454,6 @@ const completionSpec: Fig.Spec = {
             "Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of conformance packs returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned in a previous request that you use to request the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1710,22 +1575,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of OrganizationConfigRuleStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1779,22 +1628,6 @@ const completionSpec: Fig.Spec = {
             "The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1854,22 +1687,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1926,22 +1743,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1988,22 +1789,6 @@ const completionSpec: Fig.Spec = {
       name: "describe-pending-aggregation-requests",
       description: "Returns a list of all pending aggregation requests",
       options: [
-        {
-          name: "--limit",
-          description:
-            "The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2155,22 +1940,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2227,14 +1996,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2254,6 +2015,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2347,22 +2116,6 @@ const completionSpec: Fig.Spec = {
           name: "--compliance-type",
           description:
             "The resource compliance status.  For the GetAggregateComplianceDetailsByConfigRuleRequest data type, Config supports only the COMPLIANT and NON_COMPLIANT. Config does not support the NOT_APPLICABLE and INSUFFICIENT_DATA values",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
           args: {
             name: "string",
           },
@@ -2657,22 +2410,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2745,14 +2482,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-evaluation-id",
           description:
             "The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results.   You need to only provide either a ResourceEvaluationID or a ResourceID and ResourceType",
@@ -2780,6 +2509,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2915,22 +2652,6 @@ const completionSpec: Fig.Spec = {
           description: "Names of conformance packs",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of conformance packs returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3076,22 +2797,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of OrganizationConfigRuleDetailedStatus returned on each page. If you do not specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3152,22 +2857,6 @@ const completionSpec: Fig.Spec = {
           description: "An OrganizationResourceDetailedStatusFilters object",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of OrganizationConformancePackDetailedStatuses returned on each page. If you do not specify a number, Config uses the default. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3248,7 +2937,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-resource-config-history",
       description:
-        "For accurate reporting on the compliance status, you must record the AWS::Config::ResourceCompliance resource type. For more information, see Selecting Which Resources Config Records.  Returns a list of ConfigurationItems for the specified resource. The list contains details about each state of the resource during the specified time interval. If you specified a retention period to retain your ConfigurationItems between a minimum of 30 days and a maximum of 7 years (2557 days), Config returns the ConfigurationItems for the specified retention period.  The response is paginated. By default, Config returns a limit of 10 configuration items per page. You can customize this number with the limit parameter. The response includes a nextToken string. To get the next page of results, run the request again and specify the string for the nextToken parameter.  Each call to the API is limited to span a duration of seven days. It is likely that the number of records returned is smaller than the specified limit. In such cases, you can make another call, using the nextToken",
+        "For accurate reporting on the compliance status, you must record the AWS::Config::ResourceCompliance resource type. For more information, see Recording Amazon Web Services Resources in the Config Resources Developer Guide.  Returns a list of configurations items (CIs) for the specified resource.  Contents  The list contains details about each state of the resource during the specified time interval. If you specified a retention period to retain your CIs between a minimum of 30 days and a maximum of 7 years (2557 days), Config returns the CIs for the specified retention period.   Pagination  The response is paginated. By default, Config returns a limit of 10 configuration items per page. You can customize this number with the limit parameter. The response includes a nextToken string. To get the next page of results, run the request again and specify the string for the nextToken parameter.  Each call to the API is limited to span a duration of seven days. It is likely that the number of records returned is smaller than the specified limit. In such cases, you can make another call, using the nextToken",
       options: [
         {
           name: "--resource-type",
@@ -3284,22 +2973,6 @@ const completionSpec: Fig.Spec = {
           name: "--chronological-order",
           description:
             "The chronological order for configuration items listed. By default, the results are listed in reverse chronological order",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
           args: {
             name: "string",
           },
@@ -3380,6 +3053,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-status",
+    },
+    {
       name: "get-stored-query",
       description: "Returns the details of a specific stored query",
       options: [
@@ -3438,22 +3114,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3507,22 +3167,6 @@ const completionSpec: Fig.Spec = {
             "Filters the results based on a list of ConfigurationRecorderFilter objects that you specify",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The NextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3635,7 +3279,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-discovered-resources",
       description:
-        "Accepts a resource type and returns a list of resource identifiers for the resources of that type. A resource identifier includes the resource type, ID, and (if available) the custom resource name. The results consist of resources that Config has discovered, including those that Config is not currently recording. You can narrow the results to include only resources that have specific resource IDs or a resource name.  You can specify either resource IDs or a resource name, but not both, in the same request.  The response is paginated. By default, Config lists 100 resource identifiers on each page. You can customize this number with the limit parameter. The response includes a nextToken string. To get the next page of results, run the request again and specify the string for the nextToken parameter",
+        "Returns a list of resource resource identifiers for the specified resource types for the resources of that type. A resource identifier includes the resource type, ID, and (if available) the custom resource name. The results consist of resources that Config has discovered, including those that Config is not currently recording. You can narrow the results to include only resources that have specific resource IDs or a resource name.  You can specify either resource IDs or a resource name, but not both, in the same request.    CloudFormation stack recording behavior in Config  When a CloudFormation stack fails to create (for example, it enters the ROLLBACK_FAILED state), Config does not record a configuration item (CI) for that stack. Configuration items are only recorded for stacks that reach the following states:    CREATE_COMPLETE     UPDATE_COMPLETE     UPDATE_ROLLBACK_COMPLETE     UPDATE_ROLLBACK_FAILED     DELETE_FAILED     DELETE_COMPLETE    Because no CI is created for a failed stack creation, you won't see configuration history for that stack in Config, even after the stack is deleted. This helps make sure that Config only tracks resources that were successfully provisioned",
       options: [
         {
           name: "--resource-type",
@@ -3662,14 +3306,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--include-deleted-resources",
           description:
             "Specifies whether Config includes deleted resources in the results. By default, deleted resources are not included",
@@ -3678,14 +3314,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-include-deleted-resources",
           description:
             "Specifies whether Config includes deleted resources in the results. By default, deleted resources are not included",
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--cli-input-json",
@@ -3739,22 +3367,6 @@ const completionSpec: Fig.Spec = {
           description: "Returns a ResourceEvaluationFilters object",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of evaluations returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -3853,22 +3465,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned on a previous page that you use to get the next page of results in a paginated response",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3914,7 +3510,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-aggregation-authorization",
       description:
-        "Authorizes the aggregator account and region to collect data from the source account and region.    Tags are added at creation and cannot be updated with this operation   PutAggregationAuthorization is an idempotent API. Subsequent requests won\u2019t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
+        "Authorizes the aggregator account and region to collect data from the source account and region.    Tags are added at creation and cannot be updated with this operation   PutAggregationAuthorization is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--authorized-account-id",
@@ -3960,7 +3556,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-config-rule",
       description:
-        "Adds or updates an Config rule to evaluate if your Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account, see  Service Limits  in the Config Developer Guide. There are two types of rules: Config Managed Rules and Config Custom Rules. You can use PutConfigRule to create both Config Managed Rules and Config Custom Rules. Config Managed Rules are predefined, customizable rules created by Config. For a list of managed rules, see List of Config Managed Rules. If you are adding an Config managed rule, you must specify the rule's identifier for the SourceIdentifier key. Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions ( Lambda Developer Guide) and with Guard (Guard GitHub Repository), a policy-as-code language. Config custom rules created with Lambda are called Config Custom Lambda Rules and Config custom rules created with Guard are called Config Custom Policy Rules. If you are adding a new Config Custom Lambda rule, you first need to create an Lambda function that the rule invokes to evaluate your resources. When you use PutConfigRule to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN) that Lambda assigns to the function. You specify the ARN in the SourceIdentifier key. This key is part of the Source object, which is part of the ConfigRule object.  For any new Config rule that you add, specify the ConfigRuleName in the ConfigRule object. Do not specify the ConfigRuleArn or the ConfigRuleId. These values are generated by Config for new rules. If you are updating a rule that you added previously, you can specify the rule by ConfigRuleName, ConfigRuleId, or ConfigRuleArn in the ConfigRule data type that you use in this request. For more information about developing and using Config rules, see Evaluating Resources with Config Rules in the Config Developer Guide.   Tags are added at creation and cannot be updated with this operation   PutConfigRule is an idempotent API. Subsequent requests won\u2019t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
+        "Adds or updates an Config rule to evaluate if your Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account, see  Service Limits  in the Config Developer Guide. There are two types of rules: Config Managed Rules and Config Custom Rules. You can use PutConfigRule to create both Config Managed Rules and Config Custom Rules. Config Managed Rules are predefined, customizable rules created by Config. For a list of managed rules, see List of Config Managed Rules. If you are adding an Config managed rule, you must specify the rule's identifier for the SourceIdentifier key. Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions ( Lambda Developer Guide) and with Guard (Guard GitHub Repository), a policy-as-code language. Config custom rules created with Lambda are called Config Custom Lambda Rules and Config custom rules created with Guard are called Config Custom Policy Rules. If you are adding a new Config Custom Lambda rule, you first need to create an Lambda function that the rule invokes to evaluate your resources. When you use PutConfigRule to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN) that Lambda assigns to the function. You specify the ARN in the SourceIdentifier key. This key is part of the Source object, which is part of the ConfigRule object.  For any new Config rule that you add, specify the ConfigRuleName in the ConfigRule object. Do not specify the ConfigRuleArn or the ConfigRuleId. These values are generated by Config for new rules. If you are updating a rule that you added previously, you can specify the rule by ConfigRuleName, ConfigRuleId, or ConfigRuleArn in the ConfigRule data type that you use in this request. For more information about developing and using Config rules, see Evaluating Resources with Config Rules in the Config Developer Guide.   Tags are added at creation and cannot be updated with this operation   PutConfigRule is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--config-rule",
@@ -3998,7 +3594,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-configuration-aggregator",
       description:
-        "Creates and updates the configuration aggregator with the selected source accounts and regions. The source account can be individual account(s) or an organization.  accountIds that are passed will be replaced with existing accounts. If you want to add additional accounts into the aggregator, call DescribeConfigurationAggregators to get the previous accounts and then append new ones.  Config should be enabled in source accounts and regions you want to aggregate. If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization. If the caller is a management account, Config calls EnableAwsServiceAccess API to enable integration between Config and Organizations. If the caller is a registered delegated administrator, Config calls ListDelegatedAdministrators API to verify whether the caller is a valid delegated administrator. To register a delegated administrator, see Register a Delegated Administrator in the Config developer guide.     Tags are added at creation and cannot be updated with this operation   PutConfigurationAggregator is an idempotent API. Subsequent requests won\u2019t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
+        "Creates and updates the configuration aggregator with the selected source accounts and regions. The source account can be individual account(s) or an organization.  accountIds that are passed will be replaced with existing accounts. If you want to add additional accounts into the aggregator, call DescribeConfigurationAggregators to get the previous accounts and then append new ones.  Config should be enabled in source accounts and regions you want to aggregate. If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization. If the caller is a management account, Config calls EnableAwsServiceAccess API to enable integration between Config and Organizations. If the caller is a registered delegated administrator, Config calls ListDelegatedAdministrators API to verify whether the caller is a valid delegated administrator. To register a delegated administrator, see Register a Delegated Administrator in the Config developer guide.     Tags are added at creation and cannot be updated with this operation   PutConfigurationAggregator is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--configuration-aggregator-name",
@@ -4058,7 +3654,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-configuration-recorder",
       description:
-        "Creates or updates the customer managed configuration recorder. You can use this operation to create a new customer managed configuration recorder or to update the roleARN and the recordingGroup for an existing customer managed configuration recorder. To start the customer managed configuration recorder and begin recording configuration changes for the resource types you specify, use the StartConfigurationRecorder operation. For more information, see  Working with the Configuration Recorder  in the Config Developer Guide.   One customer managed configuration recorder per account per Region  You can create only one customer managed configuration recorder for each account for each Amazon Web Services Region.  Default is to record all supported resource types, excluding the global IAM resource types  If you have not specified values for the recordingGroup field, the default for the customer managed configuration recorder is to record all supported resource types, excluding the global IAM resource types: AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, and AWS::IAM::User.  Tags are added at creation and cannot be updated   PutConfigurationRecorder is an idempotent API. Subsequent requests won\u2019t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
+        "Creates or updates the customer managed configuration recorder. You can use this operation to create a new customer managed configuration recorder or to update the roleARN and the recordingGroup for an existing customer managed configuration recorder. To start the customer managed configuration recorder and begin recording configuration changes for the resource types you specify, use the StartConfigurationRecorder operation. For more information, see  Working with the Configuration Recorder  in the Config Developer Guide.   One customer managed configuration recorder per account per Region  You can create only one customer managed configuration recorder for each account for each Amazon Web Services Region.  Default is to record all supported resource types, excluding the global IAM resource types  If you have not specified values for the recordingGroup field, the default for the customer managed configuration recorder is to record all supported resource types, excluding the global IAM resource types: AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, and AWS::IAM::User.  Tags are added at creation and cannot be updated   PutConfigurationRecorder is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--configuration-recorder",
@@ -4078,8 +3674,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--recording-group",
-          description:
-            "Specifies which resource types are in scope for the configuration recorder to record.    High Number of Config Evaluations  You might notice increased activity in your account during your initial month recording with Config when compared to subsequent months. During the initial bootstrapping process, Config runs evaluations on all the resources in your account that you have selected for Config to record. If you are running ephemeral workloads, you may see increased activity from Config as it records configuration changes associated with creating and deleting these temporary resources. An ephemeral workload is a temporary use of computing resources that are loaded and run when needed. Examples include Amazon Elastic Compute Cloud (Amazon EC2) Spot Instances, Amazon EMR jobs, and Auto Scaling. If you want to avoid the increased activity from running ephemeral workloads, you can set up the configuration recorder to exclude these resource types from being recorded, or run these types of workloads in a separate account with Config turned off to avoid increased configuration recording and rule evaluations",
           args: {
             name: "structure",
           },
@@ -4106,7 +3700,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-conformance-pack",
       description:
-        "Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization. For information on how many conformance packs you can have per account, see  Service Limits  in the Config Developer Guide. This API creates a service-linked role AWSServiceRoleForConfigConforms in your account. The service-linked role is created only when the role does not exist in your account.   You must specify only one of the follow parameters: TemplateS3Uri, TemplateBody or TemplateSSMDocumentDetails",
+        "Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization. For information on how many conformance packs you can have per account, see  Service Limits  in the Config Developer Guide.  When you use PutConformancePack to deploy conformance packs in your account, the operation can create Config rules and remediation actions without requiring config:PutConfigRule or config:PutRemediationConfigurations permissions in your account IAM policies. This API uses the AWSServiceRoleForConfigConforms service-linked role in your account to create conformance pack resources. This service-linked role includes the permissions to create Config rules and remediation configurations, even if your account IAM policies explicitly deny these actions.  This API creates a service-linked role AWSServiceRoleForConfigConforms in your account. The service-linked role is created only when the role does not exist in your account.   You must specify only one of the follow parameters: TemplateS3Uri, TemplateBody or TemplateSSMDocumentDetails.    Tags are added at creation and cannot be updated with this operation   PutConformancePack is an idempotent API. Subsequent requests won't create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different. Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--conformance-pack-name",
@@ -4127,7 +3721,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--template-body",
           description:
-            "A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.  You can use a YAML template with two resource types: Config rule (AWS::Config::ConfigRule) and remediation action (AWS::Config::RemediationConfiguration)",
+            "A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.  You can use a YAML template with two resource types: Config rule (AWS::Config::ConfigRule) and remediation action (AWS::Config::RemediationConfiguration)",
           args: {
             name: "string",
           },
@@ -4161,6 +3755,14 @@ const completionSpec: Fig.Spec = {
             "An object of type TemplateSSMDocumentDetails, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define",
+          args: {
+            name: "list",
           },
         },
         {
@@ -4349,6 +3951,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--tags",
+          description:
+            "The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4370,7 +3980,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-organization-conformance-pack",
       description:
-        "Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account, see  Service Limits  in the Config Developer Guide. Only a management account and a delegated administrator can call this API. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. An organization can have up to 3 delegated administrators. This API enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service-linked role AWSServiceRoleForConfigMultiAccountSetup in the management or delegated administrator account of your organization. The service-linked role is created only when the role does not exist in the caller account. To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization register-delegate-admin for config-multiaccountsetup.amazonaws.com.  Prerequisite: Ensure you call EnableAllFeatures API to enable all features in an organization. You must specify either the TemplateS3Uri or the TemplateBody parameter, but not both. If you provide both Config uses the TemplateS3Uri parameter and ignores the TemplateBody parameter. Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated. You cannot update a conformance pack while it is in this state",
+        "Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account, see  Service Limits  in the Config Developer Guide. Only a management account and a delegated administrator can call this API. When calling this API with a delegated administrator, you must ensure Organizations ListDelegatedAdministrator permissions are added. An organization can have up to 3 delegated administrators.  When you use PutOrganizationConformancePack to deploy conformance packs across member accounts, the operation can create Config rules and remediation actions without requiring config:PutConfigRule or config:PutRemediationConfigurations permissions in member account IAM policies. This API uses the AWSServiceRoleForConfigConforms service-linked role in each member account to create conformance pack resources. This service-linked role includes the permissions to create Config rules and remediation configurations, even if member account IAM policies explicitly deny these actions.  This API enables organization service access for config-multiaccountsetup.amazonaws.com through the EnableAWSServiceAccess action and creates a service-linked role AWSServiceRoleForConfigMultiAccountSetup in the management or delegated administrator account of your organization. The service-linked role is created only when the role does not exist in the caller account. To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization register-delegate-admin for config-multiaccountsetup.amazonaws.com.  Prerequisite: Ensure you call EnableAllFeatures API to enable all features in an organization. You must specify either the TemplateS3Uri or the TemplateBody parameter, but not both. If you provide both Config uses the TemplateS3Uri parameter and ignores the TemplateBody parameter. Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated. You cannot update a conformance pack while it is in this state",
       options: [
         {
           name: "--organization-conformance-pack-name",
@@ -4391,7 +4001,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--template-body",
           description:
-            "A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes",
+            "A string that contains the full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes",
           args: {
             name: "string",
           },
@@ -4423,6 +4033,14 @@ const completionSpec: Fig.Spec = {
           name: "--excluded-accounts",
           description:
             "A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags for the organization conformance pack. Each tag consists of a key and an optional value, both of which you define",
           args: {
             name: "list",
           },
@@ -4540,7 +4158,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-type",
           description:
-            "The type of the resource. The custom resource type must be registered with CloudFormation.   You cannot use the organization names \u201camzn\u201d, \u201camazon\u201d, \u201calexa\u201d, \u201ccustom\u201d with custom resource types. It is the first part of the ResourceType up to the first ::",
+            "The type of the resource. The custom resource type must be registered with CloudFormation.   You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::",
           args: {
             name: "string",
           },
@@ -4637,7 +4255,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-service-linked-configuration-recorder",
       description:
-        "Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the ServicePrincipal you specify. The configuration recorder's name, recordingGroup, recordingMode, and recordingScope is set by the service that is linked to the configuration recorder. For more information, see  Working with the Configuration Recorder  in the Config Developer Guide. This API creates a service-linked role AWSServiceRoleForConfig in your account. The service-linked role is created only when the role does not exist in your account.   The recording scope determines if you receive configuration items  The recording scope is set by the service that is linked to the configuration recorder and determines whether you receive configuration items (CIs) in the delivery channel. If the recording scope is internal, you will not receive CIs in the delivery channel.  Tags are added at creation and cannot be updated with this operation  Use TagResource and UntagResource to update tags after creation",
+        "Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the ServicePrincipal you specify. The configuration recorder's name, recordingGroup, recordingMode, and recordingScope is set by the service that is linked to the configuration recorder. For more information and a list of supported services/service principals, see  Working with the Configuration Recorder  in the Config Developer Guide. This API creates a service-linked role AWSServiceRoleForConfig in your account. The service-linked role is created only when the role does not exist in your account.   The recording scope determines if you receive configuration items  The recording scope is set by the service that is linked to the configuration recorder and determines whether you receive configuration items (CIs) in the delivery channel. If the recording scope is internal, you will not receive CIs in the delivery channel.  Tags are added at creation and cannot be updated with this operation  Use TagResource and UntagResource to update tags after creation",
       options: [
         {
           name: "--service-principal",
@@ -4677,7 +4295,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-stored-query",
       description:
-        "Saves a new query or updates an existing saved query. The QueryName must be unique for a single Amazon Web Services account and a single Amazon Web Services Region. You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.   Tags are added at creation and cannot be updated   PutStoredQuery is an idempotent API. Subsequent requests won\u2019t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different",
+        "Saves a new query or updates an existing saved query. The QueryName must be unique for a single Amazon Web Services account and a single Amazon Web Services Region. You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.   Tags are added at creation and cannot be updated   PutStoredQuery is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different",
       options: [
         {
           name: "--stored-query",
@@ -4733,27 +4351,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of query results returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--max-results",
           description:
             "The maximum number of query results returned on each page. Config also allows the Limit request parameter",
           args: {
             name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned in a previous request that you use to request the next page of results in a paginated response",
-          args: {
-            name: "string",
           },
         },
         {
@@ -4807,22 +4409,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expression",
           description: "The SQL query SELECT command",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of query results returned on each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken string returned in a previous request that you use to request the next page of results in a paginated response",
           args: {
             name: "string",
           },
@@ -4996,7 +4582,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--evaluation-mode",
           description:
-            "The mode of an evaluation. The valid values for this API are DETECTIVE and PROACTIVE",
+            "The mode of an evaluation.  The only valid value for this API is PROACTIVE",
           args: {
             name: "string",
           },
@@ -5064,6 +4650,29 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "subscribe",
+      options: [
+        {
+          name: "--s3-bucket",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sns-topic",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--iam-role",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -5144,42 +4753,6 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
-    },
-    {
-      name: "subscribe",
-      description:
-        "Subscribes user to AWS Config by creating an AWS Config delivery channel and configuration recorder to track AWS resource configurations. The names of the default channel and configuration recorder will be default",
-      options: [
-        {
-          name: "--s3-bucket",
-          description:
-            "The S3 bucket that the AWS Config delivery channel will use. If the bucket does not exist, it will be automatically created. The value for this argument should follow the form bucket/prefix. Note that the prefix is optional",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sns-topic",
-          description:
-            "The SNS topic that the AWS Config delivery channel will use. If the SNS topic does not exist, it will be automatically created. Value for this should be a valid SNS topic name or the ARN of an existing SNS topic",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--iam-role",
-          description:
-            "The IAM role that the AWS Config configuration recorder will use to record current resource configurations. Value for this should be the ARN of the desired IAM role",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "get-status",
-      description:
-        "Reports the status of all of configuration recorders and delivery channels",
     },
   ],
 };

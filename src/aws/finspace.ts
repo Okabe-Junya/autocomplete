@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "finspace",
   description:
@@ -109,7 +110,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--change-requests",
           description:
-            'A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and dbPath. A changeType can have the following values:    PUT \u2013 Adds or updates files in a database.   DELETE \u2013 Deletes files in a database.   All the change requests require a mandatory dbPath attribute that defines the path within the database directory. All database paths must start with a leading / and end with a trailing /. The s3Path attribute defines the s3 source file path and is required for a PUT change type. The s3path must end with a trailing / if it is a directory and must end without a trailing / if it is a file.  Here are few examples of how you can use the change request object:   This request adds a single sym file at database root location.   { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}    This request adds files in the given s3Path under the 2020.01.02 partition of the database.  { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}    This request adds files in the given s3Path under the taq table partition of the database.  [ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/", "dbPath":"/2020.01.02/taq/"}]    This request deletes the 2020.01.02 partition of the database.  [{ "changeType": "DELETE", "dbPath": "/2020.01.02/"} ]    The DELETE request allows you to delete the existing files under the 2020.01.02 partition of the database, and the PUT request adds a new taq table under it.  [ {"changeType": "DELETE", "dbPath":"/2020.01.02/"}, {"changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/", "dbPath":"/2020.01.02/taq/"}]',
+            'A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and dbPath. A changeType can have the following values:    PUT – Adds or updates files in a database.   DELETE – Deletes files in a database.   All the change requests require a mandatory dbPath attribute that defines the path within the database directory. All database paths must start with a leading / and end with a trailing /. The s3Path attribute defines the s3 source file path and is required for a PUT change type. The s3path must end with a trailing / if it is a directory and must end without a trailing / if it is a file.  Here are few examples of how you can use the change request object:   This request adds a single sym file at database root location.   { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}    This request adds files in the given s3Path under the 2020.01.02 partition of the database.  { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}    This request adds files in the given s3Path under the taq table partition of the database.  [ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/", "dbPath":"/2020.01.02/taq/"}]    This request deletes the 2020.01.02 partition of the database.  [{ "changeType": "DELETE", "dbPath": "/2020.01.02/"} ]    The DELETE request allows you to delete the existing files under the 2020.01.02 partition of the database, and the PUT request adds a new taq table under it.  [ {"changeType": "DELETE", "dbPath":"/2020.01.02/"}, {"changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/taq/", "dbPath":"/2020.01.02/taq/"}]',
           args: {
             name: "list",
           },
@@ -170,7 +171,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-type",
           description:
-            "Specifies the type of KDB database that is being created. The following types are available:    HDB \u2013 A Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed kdb databases mounted to the cluster.   RDB \u2013 A Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the savedownStorageConfiguration parameter.   GATEWAY \u2013 A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a writable local storage.   GP \u2013 A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only SINGLE AZ mode.   Tickerplant \u2013 A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process",
+            "Specifies the type of KDB database that is being created. The following types are available:    HDB – A Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed kdb databases mounted to the cluster.   RDB – A Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the savedownStorageConfiguration parameter.   GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a writable local storage.   GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only SINGLE AZ mode.   Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process",
           args: {
             name: "string",
           },
@@ -280,7 +281,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--az-mode",
           description:
-            "The number of availability zones you want to assign per cluster. This can be one of the following     SINGLE \u2013 Assigns one availability zone per cluster.    MULTI \u2013 Assigns all the availability zones per cluster",
+            "The number of availability zones you want to assign per cluster. This can be one of the following     SINGLE – Assigns one availability zone per cluster.    MULTI – Assigns all the availability zones per cluster",
           args: {
             name: "string",
           },
@@ -460,12 +461,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--read-write",
           description:
-            "The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.\u2028\u2028   You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path.   You cannot perform updates on a writeable dataview. Hence, autoUpdate must be set as False if readWrite is True for a dataview.   You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.   Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the readWrite parameter later",
+            "The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.     You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path.   You cannot perform updates on a writeable dataview. Hence, autoUpdate must be set as False if readWrite is True for a dataview.   You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.   Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the readWrite parameter later",
         },
         {
           name: "--no-read-write",
           description:
-            "The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.\u2028\u2028   You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path.   You cannot perform updates on a writeable dataview. Hence, autoUpdate must be set as False if readWrite is True for a dataview.   You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.   Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the readWrite parameter later",
+            "The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.     You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path.   You cannot perform updates on a writeable dataview. Hence, autoUpdate must be set as False if readWrite is True for a dataview.   You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.   Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the readWrite parameter later",
         },
         {
           name: "--description",
@@ -601,7 +602,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--host-type",
           description:
-            "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed. You can add one of the following values:    kx.sg.large \u2013 The host type with a configuration of 16 GiB memory and 2 vCPUs.    kx.sg.xlarge \u2013 The host type with a configuration of 32 GiB memory and 4 vCPUs.    kx.sg.2xlarge \u2013 The host type with a configuration of 64 GiB memory and 8 vCPUs.    kx.sg.4xlarge \u2013 The host type with a configuration of 108 GiB memory and 16 vCPUs.    kx.sg.8xlarge \u2013 The host type with a configuration of 216 GiB memory and 32 vCPUs.    kx.sg.16xlarge \u2013 The host type with a configuration of 432 GiB memory and 64 vCPUs.    kx.sg.32xlarge \u2013 The host type with a configuration of 864 GiB memory and 128 vCPUs.    kx.sg1.16xlarge \u2013 The host type with a configuration of 1949 GiB memory and 64 vCPUs.    kx.sg1.24xlarge \u2013 The host type with a configuration of 2948 GiB memory and 96 vCPUs",
+            "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed. You can add one of the following values:    kx.sg.large – The host type with a configuration of 16 GiB memory and 2 vCPUs.    kx.sg.xlarge – The host type with a configuration of 32 GiB memory and 4 vCPUs.    kx.sg.2xlarge – The host type with a configuration of 64 GiB memory and 8 vCPUs.    kx.sg.4xlarge – The host type with a configuration of 108 GiB memory and 16 vCPUs.    kx.sg.8xlarge – The host type with a configuration of 216 GiB memory and 32 vCPUs.    kx.sg.16xlarge – The host type with a configuration of 432 GiB memory and 64 vCPUs.    kx.sg.32xlarge – The host type with a configuration of 864 GiB memory and 128 vCPUs.    kx.sg1.16xlarge – The host type with a configuration of 1949 GiB memory and 64 vCPUs.    kx.sg1.24xlarge – The host type with a configuration of 2948 GiB memory and 96 vCPUs",
           args: {
             name: "string",
           },
@@ -1740,7 +1741,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-type",
           description:
-            "Specifies the type of KDB database that is being created. The following types are available:    HDB \u2013 A Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed kdb databases mounted to the cluster.   RDB \u2013 A Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the savedownStorageConfiguration parameter.   GATEWAY \u2013 A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a writable local storage.   GP \u2013 A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only SINGLE AZ mode.   Tickerplant \u2013 A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process",
+            "Specifies the type of KDB database that is being created. The following types are available:    HDB – A Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed kdb databases mounted to the cluster.   RDB – A Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the savedownStorageConfiguration parameter.   GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a writable local storage.   GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only SINGLE AZ mode.   Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process",
           args: {
             name: "string",
           },
@@ -1885,22 +1886,6 @@ const completionSpec: Fig.Spec = {
       name: "list-kx-environments",
       description: "Returns a list of kdb environments created in an account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in this request",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

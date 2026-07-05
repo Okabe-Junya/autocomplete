@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "cloudtrail",
   description:
@@ -349,7 +350,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sns-topic-name",
           description:
-            "Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters",
+            "Specifies the name or ARN of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters",
           args: {
             name: "string",
           },
@@ -403,7 +404,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            "Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see Using multi-Region keys in the Key Management Service Developer Guide. Examples:    alias/MyAliasName     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     12345678-1234-1234-1234-123456789012",
+            "Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see Using multi-Region keys in the Key Management Service Developer Guide. Examples:    alias/MyAliasName     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     12345678-1234-1234-1234-123456789012",
           args: {
             name: "string",
           },
@@ -573,7 +574,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-trail",
       description:
-        "Deletes a trail. This operation must be called from the Region in which the trail was created. DeleteTrail cannot be called on the shadow trails (replicated trails in other Regions) of a trail that is enabled in all Regions",
+        "Deletes a trail. This operation must be called from the Region in which the trail was created. DeleteTrail cannot be called on the shadow trails (replicated trails in other Regions) of a trail that is enabled in all Regions.   While deleting a CloudTrail trail is an irreversible action, CloudTrail does not delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the CloudWatchlog group to which the trail delivers events. Deleting a multi-Region trail will stop logging of events in all Amazon Web Services Regions enabled in your Amazon Web Services account. Deleting a single-Region trail will stop logging of events in that Region only. It will not stop logging of events in other Regions even if the trails in those other Regions have identical names to the deleted trail.  For information about account closure and deletion of CloudTrail trails, see https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html",
       options: [
         {
           name: "--name",
@@ -811,7 +812,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "generate-query",
       description:
-        'Generates a query from a natural language prompt. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt.  The prompt can be a question or a statement about the event data in your event data store. For example, you can enter prompts like "What are my top errors in the past month?" and \u201cGive me a list of users that used SNS.\u201d The prompt must be in English. For information about limitations, permissions, and supported Regions, see Create CloudTrail Lake queries from natural language prompts in the CloudTrail  user guide.  Do not include any personally identifying, confidential, or sensitive information in your prompts. This feature uses generative AI large language models (LLMs); we recommend double-checking the LLM response',
+        'Generates a query from a natural language prompt. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt.  The prompt can be a question or a statement about the event data in your event data store. For example, you can enter prompts like "What are my top errors in the past month?" and “Give me a list of users that used SNS.” The prompt must be in English. For information about limitations, permissions, and supported Regions, see Create CloudTrail Lake queries from natural language prompts in the CloudTrail  user guide.  Do not include any personally identifying, confidential, or sensitive information in your prompts. This feature uses generative AI large language models (LLMs); we recommend double-checking the LLM response',
       options: [
         {
           name: "--event-data-stores",
@@ -885,6 +886,46 @@ const completionSpec: Fig.Spec = {
         {
           name: "--dashboard-id",
           description: "The name or ARN for the dashboard",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-event-configuration",
+      description:
+        "Retrieves the current event configuration settings for the specified event data store or trail. The response includes maximum event size configuration, the context key selectors configured for the event data store, and any aggregation settings configured for the trail",
+      options: [
+        {
+          name: "--trail-name",
+          description:
+            "The name of the trail for which you want to retrieve event configuration settings",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--event-data-store",
+          description:
+            "The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to retrieve event configuration settings",
           args: {
             name: "string",
           },
@@ -1005,7 +1046,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-insight-selectors",
       description:
-        "Describes the settings for the Insights event selectors that you configured for your trail or event data store. GetInsightSelectors shows if CloudTrail Insights event logging is enabled on the trail or event data store, and if it is, which Insights types are enabled. If you run GetInsightSelectors on a trail or event data store that does not have Insights events enabled, the operation throws the exception InsightNotEnabledException  Specify either the EventDataStore parameter to get Insights event selectors for an event data store, or the TrailName parameter to the get Insights event selectors for a trail. You cannot specify these parameters together. For more information, see Logging CloudTrail Insights events in the CloudTrail User Guide",
+        "Describes the settings for the Insights event selectors that you configured for your trail or event data store. GetInsightSelectors shows if CloudTrail Insights logging is enabled and which Insights types are configured with corresponding event categories. If you run GetInsightSelectors on a trail or event data store that does not have Insights events enabled, the operation throws the exception InsightNotEnabledException  Specify either the EventDataStore parameter to get Insights event selectors for an event data store, or the TrailName parameter to the get Insights event selectors for a trail. You cannot specify these parameters together. For more information, see Working with CloudTrail Insights in the CloudTrail User Guide",
       options: [
         {
           name: "--trail-name",
@@ -1346,22 +1387,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of failures to display on a single page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token you can use to get the next page of import failures",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1410,14 +1435,6 @@ const completionSpec: Fig.Spec = {
         "Returns information on all imports, or a select set of imports by ImportStatus or Destination",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of imports to display on a single page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--destination",
           description: "The ARN of the destination event data store",
           args: {
@@ -1427,14 +1444,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--import-status",
           description: "The status of the import",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token you can use to get the next page of import results",
           args: {
             name: "string",
           },
@@ -1483,10 +1492,106 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-insights-data",
+      description:
+        "Returns Insights events generated on a trail that logs data events. You can list Insights events that occurred in a Region within the last 90 days. ListInsightsData supports the following Dimensions for Insights events:   Event ID   Event name   Event source   All dimensions are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results. The rate of ListInsightsData requests is limited to two per second, per account, per Region. If this limit is exceeded, a throttling error occurs",
+      options: [
+        {
+          name: "--insight-source",
+          description:
+            "The Amazon Resource Name(ARN) of the trail for which you want to retrieve Insights events",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-type",
+          description:
+            "Specifies the category of events returned. To fetch Insights events, specify InsightsEvents as the value of DataType",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dimensions",
+          description:
+            "Contains a map of dimensions. Currently the map can contain only one item",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--start-time",
+          description:
+            "Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--end-time",
+          description:
+            "Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-insights-metric-data",
       description:
-        "Returns Insights metrics data for trails that have enabled Insights. The request must include the EventSource, EventName, and InsightType parameters. If the InsightType is set to ApiErrorRateInsight, the request must also include the ErrorCode parameter. The following are the available time periods for ListInsightsMetricData. Each cutoff is inclusive.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 90 days.   Access to the ListInsightsMetricData API operation is linked to the cloudtrail:LookupEvents action. To use this operation, you must have permissions to perform the cloudtrail:LookupEvents action",
+        "Returns Insights metrics data for trails that have enabled Insights. The request must include the EventSource, EventName, and InsightType parameters. If the InsightType is set to ApiErrorRateInsight, the request must also include the ErrorCode parameter. The following are the available time periods for ListInsightsMetricData. Each cutoff is inclusive.   Data points with a period of 60 seconds (1-minute) are available for 15 days.   Data points with a period of 300 seconds (5-minute) are available for 63 days.   Data points with a period of 3600 seconds (1 hour) are available for 90 days.   To use ListInsightsMetricData operation, you must have the following permissions:   If ListInsightsMetricData is invoked with TrailName parameter, access to the ListInsightsMetricData API operation is linked to the cloudtrail:LookupEvents action and cloudtrail:ListInsightsData. To use this operation, you must have permissions to perform the cloudtrail:LookupEvents and cloudtrail:ListInsightsData action on the specific trail.   If ListInsightsMetricData is invoked without TrailName parameter, access to the ListInsightsMetricData API operation is linked to the cloudtrail:LookupEvents action only. To use this operation, you must have permissions to perform the cloudtrail:LookupEvents action",
       options: [
+        {
+          name: "--trail-name",
+          description:
+            "The Amazon Resource Name(ARN) or name of the trail for which you want to retrieve Insights metrics data. This parameter should only be provided to fetch Insights metrics data generated on trails logging data events. This parameter is not required for Insights metric data generated on trails logging management events",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--event-source",
           description:
@@ -1608,13 +1713,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Reserved for future use",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1634,6 +1732,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1733,12 +1839,52 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Reserved for future use",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-trails",
+      description: "Lists trails that are in the current account",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -1764,48 +1910,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--generate-cli-skeleton",
+          name: "--page-size",
           description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-trails",
-      description: "Lists trails that are in the current account",
-      options: [
-        {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1859,22 +1966,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of events to return. Possible values are 1 through 50. The default is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1918,9 +2009,73 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-event-configuration",
+      description:
+        "Updates the event configuration settings for the specified event data store or trail. This operation supports updating the maximum event size, adding or modifying context key selectors for event data store, and configuring aggregation settings for the trail",
+      options: [
+        {
+          name: "--trail-name",
+          description:
+            "The name of the trail for which you want to update event configuration settings",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--event-data-store",
+          description:
+            "The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which event configuration settings are updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-event-size",
+          description:
+            "The maximum allowed size for events to be stored in the specified event data store. If you are using context key selectors, MaxEventSize must be set to Large",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--context-key-selectors",
+          description:
+            "A list of context key selectors that will be included to provide enriched event data",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--aggregation-configurations",
+          description:
+            "The list of aggregation configurations that you want to configure for the trail",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "put-event-selectors",
       description:
-        "Configures event selectors (also referred to as basic event selectors) or advanced event selectors for your trail. You can use either AdvancedEventSelectors or EventSelectors, but not both. If you apply AdvancedEventSelectors to a trail, any existing EventSelectors are overwritten. You can use AdvancedEventSelectors to log management events, data events for all resource types, and network activity events. You can use EventSelectors to log management events and data events for the following resource types:    AWS::DynamoDB::Table     AWS::Lambda::Function     AWS::S3::Object    You can't use EventSelectors to log network activity events. If you want your trail to log Insights events, be sure the event selector or advanced event selector enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see Logging Insights events in the CloudTrail User Guide. By default, trails created without specific event selectors are configured to log all read and write management events, and no data events or network activity events. When an event occurs in your account, CloudTrail evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. Example   You create an event selector for a trail and specify that you want to log write-only events.   The EC2 GetConsoleOutput and RunInstances API operations occur in your account.   CloudTrail evaluates whether the events match your event selectors.   The RunInstances is a write-only event and it matches your event selector. The trail logs the event.   The GetConsoleOutput is a read-only event that doesn't match your event selector. The trail doesn't log the event.    The PutEventSelectors operation must be called from the Region in which the trail was created; otherwise, an InvalidHomeRegionException exception is thrown. You can configure up to five event selectors for each trail. You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see Logging management events, Logging data events, Logging network activity events, and Quotas in CloudTrail in the CloudTrail User Guide",
+        "Configures event selectors (also referred to as basic event selectors) or advanced event selectors for your trail. You can use either AdvancedEventSelectors or EventSelectors, but not both. If you apply AdvancedEventSelectors to a trail, any existing EventSelectors are overwritten. You can use AdvancedEventSelectors to log management events, data events for all resource types, and network activity events. You can use EventSelectors to log management events and data events for the following resource types:    AWS::DynamoDB::Table     AWS::Lambda::Function     AWS::S3::Object    You can't use EventSelectors to log network activity events. If you want your trail to log Insights events, be sure the event selector or advanced event selector enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see Working with CloudTrail Insights in the CloudTrail User Guide. By default, trails created without specific event selectors are configured to log all read and write management events, and no data events or network activity events. When an event occurs in your account, CloudTrail evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. Example   You create an event selector for a trail and specify that you want to log write-only events.   The EC2 GetConsoleOutput and RunInstances API operations occur in your account.   CloudTrail evaluates whether the events match your event selectors.   The RunInstances is a write-only event and it matches your event selector. The trail logs the event.   The GetConsoleOutput is a read-only event that doesn't match your event selector. The trail doesn't log the event.    The PutEventSelectors operation must be called from the Region in which the trail was created; otherwise, an InvalidHomeRegionException exception is thrown. You can configure up to five event selectors for each trail. You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see Logging management events, Logging data events, Logging network activity events, and Quotas in CloudTrail in the CloudTrail User Guide",
       options: [
         {
           name: "--trail-name",
@@ -1968,7 +2123,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-insight-selectors",
       description:
-        "Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing trail or event data store. You also use PutInsightSelectors to turn off Insights event logging, by passing an empty list of Insights types. The valid Insights event types are ApiErrorRateInsight and ApiCallRateInsight. To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (EventDataStore) and the destination event data store (InsightsDestination). The source event data store logs management events and enables Insights. The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account. To log Insights events for a trail, you must specify the name (TrailName) of the CloudTrail trail for which you want to change or add Insights selectors. To log CloudTrail Insights events on API call volume, the trail or event data store must log write management events. To log CloudTrail Insights events on API error rate, the trail or event data store must log read or write management events. You can call GetEventSelectors on a trail to check whether the trail logs management events. You can call GetEventDataStore on an event data store to check whether the event data store logs management events. For more information, see Logging CloudTrail Insights events in the CloudTrail User Guide",
+        "Lets you enable Insights event logging on specific event categories by specifying the Insights selectors that you want to enable on an existing trail or event data store. You also use PutInsightSelectors to turn off Insights event logging, by passing an empty list of Insights types. The valid Insights event types are ApiErrorRateInsight and ApiCallRateInsight, and valid EventCategories are Management and Data.   Insights on data events are not supported on event data stores. For event data stores, you can only enable Insights on management events.   To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (EventDataStore) and the destination event data store (InsightsDestination). The source event data store logs management events and enables Insights. The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account. To log Insights events for a trail, you must specify the name (TrailName) of the CloudTrail trail for which you want to change or add Insights selectors.    For Management events Insights: To log CloudTrail Insights on the API call rate, the trail or event data store must log write management events. To log CloudTrail Insights on the API error rate, the trail or event data store must log read or write management events.     For Data events Insights: To log CloudTrail Insights on the API call rate or API error rate, the trail must log read or write data events. Data events Insights are not supported on event data store.    To log CloudTrail Insights events on API call volume, the trail or event data store must log write management events. To log CloudTrail Insights events on API error rate, the trail or event data store must log read or write management events. You can call GetEventSelectors on a trail to check whether the trail logs management events. You can call GetEventDataStore on an event data store to check whether the event data store logs management events. For more information, see Working with CloudTrail Insights in the CloudTrail User Guide",
       options: [
         {
           name: "--trail-name",
@@ -1981,7 +2136,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--insight-selectors",
           description:
-            "A JSON string that contains the Insights types you want to log on a trail or event data store. ApiCallRateInsight and ApiErrorRateInsight are valid Insight types. The ApiCallRateInsight Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume. The ApiErrorRateInsight Insights type analyzes management API calls that result in error codes. The error is shown if the API call is unsuccessful",
+            "Contains the Insights types you want to log on a specific category of events on a trail or event data store. ApiCallRateInsight and ApiErrorRateInsight are valid Insight types.The EventCategory field can specify Management or Data events or both. For event data store, you can log Insights for management events only. The ApiCallRateInsight Insights type analyzes write-only management API calls or read and write data API calls that are aggregated per minute against a baseline API call volume. The ApiErrorRateInsight Insights type analyzes management and data API calls that result in error codes. The error is shown if the API call is unsuccessful",
           args: {
             name: "list",
           },
@@ -2064,7 +2219,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-organization-delegated-admin",
       description:
-        "Registers an organization\u2019s member account as the CloudTrail delegated administrator",
+        "Registers an organization’s member account as the CloudTrail delegated administrator",
       options: [
         {
           name: "--member-account-id",
@@ -2141,6 +2296,54 @@ const completionSpec: Fig.Spec = {
           name: "--event-data-store",
           description:
             "The ARN (or the ID suffix of the ARN) of the event data store that you want to restore",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-sample-queries",
+      description:
+        "Searches sample queries and returns a list of sample queries that are sorted by relevance. To search for sample queries, provide a natural language SearchPhrase in English",
+      options: [
+        {
+          name: "--search-phrase",
+          description:
+            "The natural language phrase to use for the semantic search. The phrase must be in English. The length constraint is in characters, not words",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return on a single page. The default value is 10",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "A token you can use to get the next page of results. The length constraint is in characters, not words",
           args: {
             name: "string",
           },
@@ -2721,7 +2924,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sns-topic-name",
           description:
-            "Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters",
+            "Specifies the name or ARN of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters",
           args: {
             name: "string",
           },
@@ -2775,7 +2978,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            'Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see Using multi-Region keys in the Key Management Service Developer Guide. Examples:   alias/MyAliasName   arn:aws:kms:us-east-2:123456789012:alias/MyAliasName   arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012   12345678-1234-1234-1234-123456789012',
+            'Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see Using multi-Region keys in the Key Management Service Developer Guide. Examples:   alias/MyAliasName   arn:aws:kms:us-east-2:123456789012:alias/MyAliasName   arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012   12345678-1234-1234-1234-123456789012',
           args: {
             name: "string",
           },
@@ -2810,186 +3013,69 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-subscription",
-      description:
-        "Creates and configures the AWS resources necessary to use CloudTrail, creates a trail using those resources, and turns on logging",
-      options: [
-        {
-          name: "--name",
-          description: "Cloudtrail name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-new-bucket",
-          description: "Create a new S3 bucket with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-use-bucket",
-          description: "Use an existing S3 bucket with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-prefix",
-          description: "S3 object prefix",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sns-new-topic",
-          description: "Create a new SNS topic with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--include-global-service-events",
-          description: "Whether to include global service events",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-custom-policy",
-          description: "Custom S3 policy template or URL",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sns-custom-policy",
-          description: "Custom SNS policy template or URL",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "update-subscription",
-      description:
-        "Updates any of the trail configuration settings, and creates and configures any new AWS resources specified",
-      options: [
-        {
-          name: "--name",
-          description: "Cloudtrail name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-new-bucket",
-          description: "Create a new S3 bucket with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-use-bucket",
-          description: "Use an existing S3 bucket with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-prefix",
-          description: "S3 object prefix",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sns-new-topic",
-          description: "Create a new SNS topic with this name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--include-global-service-events",
-          description: "Whether to include global service events",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--s3-custom-policy",
-          description: "Custom S3 policy template or URL",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--sns-custom-policy",
-          description: "Custom SNS policy template or URL",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
       name: "validate-logs",
-      description:
-        "Validates CloudTrail logs for a given period of time.\n\n    This command uses the digest files delivered to your S3 bucket to perform\n    the validation.\n\n    The AWS CLI allows you to detect the following types of changes:\n\n    - Modification or deletion of CloudTrail log files.\n    - Modification or deletion of CloudTrail digest files.\n\n    To validate log files with the AWS CLI, the following preconditions must\n    be met:\n\n    - You must have online connectivity to AWS.\n    - You must have read access to the S3 bucket that contains the digest and\n      log files.\n    - The digest and log files must not have been moved from the original S3\n      location where CloudTrail delivered them.\n    - For organization trails you must have access to describe-organization to\n      validate digest files\n\n    When you disable Log File Validation, the chain of digest files is broken\n    after one hour. CloudTrail will not digest log files that were delivered\n    during a period in which the Log File Validation feature was disabled.\n    For example, if you enable Log File Validation on January 1, disable it\n    on January 2, and re-enable it on January 10, digest files will not be\n    created for the log files delivered from January 3 to January 9. The same\n    applies whenever you stop CloudTrail logging or delete a trail.\n\n    .. note::\n\n        Log files that have been downloaded to local disk cannot be validated\n        with the AWS CLI. The CLI will download all log files each time this\n        command is executed.\n\n    .. note::\n\n        This command requires that the role executing the command has\n        permission to call ListObjects, GetObject, and GetBucketLocation for\n        each bucket referenced by the trail",
       options: [
         {
           name: "--trail-arn",
-          description: "Specifies the ARN of the trail to be validated",
           args: {
             name: "string",
           },
         },
         {
           name: "--start-time",
-          description:
-            'Specifies that log files delivered on or after the specified UTC timestamp value will be validated. Example: "2015-01-08T05:21:42Z"',
           args: {
             name: "string",
           },
         },
         {
           name: "--end-time",
-          description:
-            'Optionally specifies that log files delivered on or before the specified UTC timestamp value will be validated. The default value is the current time. Example: "2015-01-08T12:31:41Z"',
           args: {
             name: "string",
           },
         },
         {
           name: "--s3-bucket",
-          description:
-            "Optionally specifies the S3 bucket where the digest files are stored. If a bucket name is not specified, the CLI will retrieve it by calling describe_trails",
           args: {
             name: "string",
           },
         },
         {
           name: "--s3-prefix",
-          description:
-            "Optionally specifies the optional S3 prefix where the digest files are stored. If not specified, the CLI will determine the prefix automatically by calling describe_trails",
           args: {
             name: "string",
           },
         },
         {
           name: "--account-id",
-          description:
-            "Optionally specifies the account for validating logs. This parameter is needed for organization trails for validating logs for specific account inside an organization",
           args: {
             name: "string",
           },
         },
         {
           name: "--verbose",
-          description: "Display verbose log validation information",
+        },
+      ],
+    },
+    {
+      name: "verify-query-results",
+      options: [
+        {
+          name: "--local-export-path",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--s3-bucket",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--s3-prefix",
+          args: {
+            name: "string",
+          },
         },
       ],
     },

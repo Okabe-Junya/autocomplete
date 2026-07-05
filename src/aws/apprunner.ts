@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "apprunner",
   description:
@@ -322,7 +323,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--subnets",
           description:
-            "A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.   App Runner currently only provides support for IPv4",
+            "A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.   App Runner only supports subnets of IP address type IPv4 and dual stack (IPv4 and IPv6)",
           args: {
             name: "list",
           },
@@ -386,7 +387,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ingress-vpc-configuration",
           description:
-            "Specifications for the customer\u2019s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource",
+            "Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource",
           args: {
             name: "structure",
           },
@@ -1588,7 +1589,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ingress-vpc-configuration",
           description:
-            "Specifications for the customer\u2019s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to update the VPC Ingress Connection resource",
+            "Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to update the VPC Ingress Connection resource",
           args: {
             name: "structure",
           },

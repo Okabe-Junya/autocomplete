@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "route53-recovery-readiness",
   description: "Recovery readiness",
@@ -465,22 +466,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -559,22 +544,6 @@ const completionSpec: Fig.Spec = {
         "Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--readiness-check-name",
           description: "Name of a readiness check",
           args: {
@@ -637,22 +606,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Gets the readiness status for an individual readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in a recovery group, use GetRecoveryGroupReadinessSummary",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--readiness-check-name",
           description: "Name of a readiness check",
@@ -740,22 +693,6 @@ const completionSpec: Fig.Spec = {
         "Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--recovery-group-name",
           description: "The name of a recovery group",
           args: {
@@ -841,22 +778,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists the cells for an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -905,22 +826,6 @@ const completionSpec: Fig.Spec = {
         "Lists the cross-account readiness authorizations that are in place for an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -967,22 +872,6 @@ const completionSpec: Fig.Spec = {
       name: "list-readiness-checks",
       description: "Lists the readiness checks for an account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1031,22 +920,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists the recovery groups in an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1093,22 +966,6 @@ const completionSpec: Fig.Spec = {
       name: "list-resource-sets",
       description: "Lists the resource sets in an account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1157,22 +1014,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all readiness rules, or lists the readiness rules for a specific resource type",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--resource-type",
           description: "The resource type that a readiness rule applies to",

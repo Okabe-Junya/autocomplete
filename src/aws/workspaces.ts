@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "workspaces",
   description:
@@ -296,7 +297,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-connect-client-add-in",
       description:
-        "Creates a client-add-in for Amazon Connect within a directory. You can create only one Amazon Connect client add-in within a directory. This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect",
+        "Creates a client-add-in for Connect Customer within a directory. You can create only one Connect Customer client add-in within a directory. This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer",
       options: [
         {
           name: "--resource-id",
@@ -315,7 +316,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--url",
-          description: "The endpoint URL of the Amazon Connect client add-in",
+          description: "The endpoint URL of the Connect Customer client add-in",
           args: {
             name: "string",
           },
@@ -782,6 +783,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--running-mode",
+          description: "The running mode for the pool",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -881,7 +889,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-connect-client-add-in",
       description:
-        "Deletes a client-add-in for Amazon Connect that is configured within a directory",
+        "Deletes a client-add-in for Connect Customer that is configured within a directory",
       options: [
         {
           name: "--add-in-id",
@@ -1182,14 +1190,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a list that describes modifications to the configuration of Bring Your Own License (BYOL) for the specified account",
       options: [
         {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1209,6 +1209,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1455,7 +1463,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-connect-client-add-ins",
       description:
-        "Retrieves a list of Amazon Connect client add-ins that have been created",
+        "Retrieves a list of Connect Customer client add-ins that have been created",
       options: [
         {
           name: "--resource-id",
@@ -1600,6 +1608,37 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-custom-workspace-image-import",
+      description:
+        "Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage",
+      options: [
+        {
+          name: "--image-id",
+          description: "The identifier of the WorkSpace image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-image-associations",
       description:
         "Describes the associations between the applications and the specified image",
@@ -1647,21 +1686,6 @@ const completionSpec: Fig.Spec = {
             "The identifiers of one or more IP access control groups",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1799,14 +1823,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1826,6 +1842,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1869,14 +1893,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filters",
           description: "The filter condition for the WorkSpaces",
           args: {
@@ -1903,6 +1919,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1981,21 +2005,6 @@ const completionSpec: Fig.Spec = {
           description: "The type (owned or shared) of the image",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2109,21 +2118,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--workspace-name",
           description: "The name of the user-decoupled WorkSpace",
           args: {
@@ -2187,14 +2181,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2214,6 +2200,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2250,7 +2244,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--limit",
-          description: "The maximum number of items to return",
+          description:
+            "The maximum size of each page of results. The default value is 20 and the maximum value is 50",
           args: {
             name: "integer",
           },
@@ -2554,6 +2549,96 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "import-custom-workspace-image",
+      description:
+        "Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see  Bring Your Own Windows Desktop Licenses",
+      options: [
+        {
+          name: "--image-name",
+          description: "The name of the WorkSpace image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--image-description",
+          description: "The description of the WorkSpace image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--compute-type",
+          description: "The supported compute type for the WorkSpace image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--protocol",
+          description:
+            "The supported protocol for the WorkSpace image. Windows 11 does not support PCOIP protocol",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--image-source",
+          description: "The options for image import source",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--infrastructure-configuration-arn",
+          description:
+            "The infrastructure configuration ARN that specifies how the WorkSpace image is built",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--platform",
+          description: "The platform for the WorkSpace image source",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--os-version",
+          description: "The OS version for the WorkSpace image source",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The resource tags. Each WorkSpaces resource can have a maximum of 50 tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "import-workspace-image",
       description:
         "Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see  Bring Your Own Windows Desktop Licenses",
@@ -2634,21 +2719,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to use to retrieve the next page of results. This value is null when there are no more results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of accounts to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2700,21 +2770,6 @@ const completionSpec: Fig.Spec = {
           name: "--management-cidr-range-constraint",
           description:
             "The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If you received a NextToken from a previous call that was paginated, provide this token to receive the next set of results",
           args: {
             name: "string",
           },
@@ -2903,6 +2958,45 @@ const completionSpec: Fig.Spec = {
           description: "Information about the Amazon WorkSpaces client",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "modify-endpoint-encryption-mode",
+      description:
+        "Modifies the endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode",
+      options: [
+        {
+          name: "--directory-id",
+          description: "The identifier of the directory",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--endpoint-encryption-mode",
+          description:
+            "The encryption mode used for endpoint connections when streaming to WorkSpaces Personal or WorkSpace Pools",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3290,16 +3384,6 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "list",
           },
-        },
-        {
-          name: "--enable-work-docs",
-          description:
-            "Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set EnableWorkDocs to disabled, and try again",
-        },
-        {
-          name: "--no-enable-work-docs",
-          description:
-            "Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set EnableWorkDocs to disabled, and try again",
         },
         {
           name: "--enable-self-service",
@@ -3724,7 +3808,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-connect-client-add-in",
       description:
-        "Updates a Amazon Connect client add-in. Use this action to update the name and endpoint URL of a Amazon Connect client add-in",
+        "Updates a Connect Customer client add-in. Use this action to update the name and endpoint URL of a Connect Customer client add-in",
       options: [
         {
           name: "--add-in-id",
@@ -3750,7 +3834,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--url",
-          description: "The endpoint URL of the Amazon Connect client add-in",
+          description: "The endpoint URL of the Connect Customer client add-in",
           args: {
             name: "string",
           },
@@ -3991,6 +4075,14 @@ const completionSpec: Fig.Spec = {
           description: "Indicates the timeout settings of the specified pool",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--running-mode",
+          description:
+            "The desired running mode for the pool. The running mode can only be updated when the pool is in a stopped state",
+          args: {
+            name: "string",
           },
         },
         {

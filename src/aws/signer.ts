@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "signer",
   description:
-    "AWS Signer is a fully managed code-signing service to help you ensure the trust and integrity of your code.  Signer supports the following applications: With code signing for AWS Lambda, you can sign AWS Lambda deployment packages. Integrated support is provided for Amazon S3, Amazon CloudWatch, and AWS CloudTrail. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3.  With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for Amazon FreeRTOS and AWS IoT Device Management, and is integrated with AWS Certificate Manager (ACM). In order to sign code, you import a third-party code-signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management.  With Signer and the Notation CLI from the Notary\u2028 Project, you can sign container images stored in a container registry such as Amazon Elastic Container Registry (ECR). The signatures are stored in the registry alongside the images, where they are available for verifying image authenticity and integrity. For more information about Signer, see the AWS Signer Developer Guide",
+    "AWS Signer is a fully managed code-signing service to help you ensure the trust and integrity of your code.  Signer supports the following applications: With code signing for AWS Lambda, you can sign AWS Lambda deployment packages. Integrated support is provided for Amazon S3, Amazon CloudWatch, and AWS CloudTrail. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3.  With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for Amazon FreeRTOS and AWS IoT Device Management, and is integrated with AWS Certificate Manager (ACM). In order to sign code, you import a third-party code-signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management.  With Signer and the Notation CLI from the Notary  Project, you can sign container images stored in a container registry such as Amazon Elastic Container Registry (ECR). The signatures are stored in the registry alongside the images, where they are available for verifying image authenticity and integrity. For more information about Signer, see the AWS Signer Developer Guide",
   subcommands: [
     {
       name: "add-profile-permission",
@@ -74,7 +75,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "cancel-signing-profile",
       description:
-        "Changes the state of an ACTIVE signing profile to CANCELED. A canceled profile is still viewable with the ListSigningProfiles operation, but it cannot perform new signing jobs, and is deleted two years after cancelation",
+        "Changes the state of an ACTIVE signing profile to CANCELED. A canceled profile is still viewable with the ListSigningProfiles operation, but it cannot perform new signing jobs. See Data Retention for more information on scheduled deletion of a canceled signing profile",
       options: [
         {
           name: "--profile-name",
@@ -170,7 +171,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--certificate-hashes",
           description:
-            "A list of composite signed hashes that identify certificates. A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined with a parent CA TBS hash (signed by the parent CA\u2019s CA). Root certificates are defined as their own CA. The following example shows how to calculate a hash for this parameter using OpenSSL commands:   openssl asn1parse -in childCert.pem -strparse 4 -out childCert.tbs   openssl sha384 < childCert.tbs -binary > childCertTbsHash   openssl asn1parse -in parentCert.pem -strparse 4 -out parentCert.tbs   openssl sha384 < parentCert.tbs -binary > parentCertTbsHash xxd -p childCertTbsHash > certificateHash.hex xxd -p parentCertTbsHash >> certificateHash.hex   cat certificateHash.hex | tr -d '\\n'",
+            "A list of composite signed hashes that identify certificates. A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root certificates are defined as their own CA. The following example shows how to calculate a hash for this parameter using OpenSSL commands:   openssl asn1parse -in childCert.pem -strparse 4 -out childCert.tbs   openssl sha384 < childCert.tbs -binary > childCertTbsHash   openssl asn1parse -in parentCert.pem -strparse 4 -out parentCert.tbs   openssl sha384 < parentCert.tbs -binary > parentCertTbsHash xxd -p childCertTbsHash > certificateHash.hex xxd -p parentCertTbsHash >> certificateHash.hex   cat certificateHash.hex | tr -d '\\n'",
           args: {
             name: "list",
           },
@@ -329,22 +330,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the nextToken element is set in the response. Use the nextToken value in a subsequent request to retrieve additional items",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of nextToken from the response that you just received",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--is-revoked",
           description:
             "Filters results to return only signing jobs with revoked signatures",
@@ -449,22 +434,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned by this operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of nextToken from the response that you just received",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -521,21 +490,6 @@ const completionSpec: Fig.Spec = {
           name: "--no-include-canceled",
           description:
             "Designates whether to include profiles with the status of CANCELED",
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of profiles to be returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of nextToken from the response that you just received",
-          args: {
-            name: "string",
-          },
         },
         {
           name: "--platform-id",
@@ -800,7 +754,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "revoke-signing-profile",
       description:
-        "Changes the state of a signing profile to REVOKED. This indicates that signatures generated using the signing profile after an effective start date are no longer valid",
+        "Changes the state of a signing profile to REVOKED. This indicates that signatures generated using the signing profile after an effective start date are no longer valid. A revoked profile is still viewable with the ListSigningProfiles operation, but it cannot perform new signing jobs. See Data Retention for more information on scheduled deletion of a revoked signing profile",
       options: [
         {
           name: "--profile-name",
@@ -905,7 +859,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-signing-job",
       description:
-        "Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the ListSigningJobs operation for two years after they are performed. Note the following requirements:     You must create an Amazon S3 source bucket. For more information, see Creating a Bucket in the Amazon S3 Getting Started Guide.    Your S3 source bucket must be version enabled.   You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.   You specify the name of the source and destination buckets when calling the StartSigningJob operation.   You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.   You must also specify a request token that identifies your request to Signer.   You can call the DescribeSigningJob and the ListSigningJobs actions after you call StartSigningJob. For a Java example that shows how to use this action, see StartSigningJob",
+        "Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the ListSigningJobs operation. Note the following requirements:     You must create an Amazon S3 source bucket. For more information, see Creating a Bucket in the Amazon S3 Getting Started Guide.    Your S3 source bucket must be version enabled.   You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.   You specify the name of the source and destination buckets when calling the StartSigningJob operation.   You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.   You must also specify a request token that identifies your request to Signer.   You can call the DescribeSigningJob and the ListSigningJobs actions after you call StartSigningJob. For a Java example that shows how to use this action, see StartSigningJob",
       options: [
         {
           name: "--source",

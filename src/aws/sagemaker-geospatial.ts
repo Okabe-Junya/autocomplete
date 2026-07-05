@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "sagemaker-geospatial",
   description:
@@ -344,14 +345,11 @@ const completionSpec: Fig.Spec = {
             name: "integer",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-vector-enrichment-job",
@@ -390,21 +388,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description: "The total number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--sort-by",
           description: "The parameter by which to sort the results",
@@ -475,21 +458,6 @@ const completionSpec: Fig.Spec = {
       name: "list-raster-data-collections",
       description: "Use this operation to get raster data collections",
       options: [
-        {
-          name: "--max-results",
-          description: "The total number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -568,21 +536,6 @@ const completionSpec: Fig.Spec = {
       name: "list-vector-enrichment-jobs",
       description: "Retrieves a list of vector enrichment jobs",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of items to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--sort-by",
           description: "The parameter by which to sort the results",

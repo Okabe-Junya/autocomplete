@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pinpoint",
   description: "Doc Engage API - Amazon Pinpoint API",
@@ -1498,7 +1499,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -1570,7 +1571,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -1696,7 +1697,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -1775,7 +1776,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -1877,7 +1878,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -1925,7 +1926,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2188,7 +2189,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2307,7 +2308,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2504,7 +2505,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2574,7 +2575,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2629,7 +2630,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2691,7 +2692,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2753,7 +2754,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2806,7 +2807,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -2918,7 +2919,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3005,7 +3006,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3060,7 +3061,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3162,7 +3163,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3217,7 +3218,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3448,7 +3449,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3527,7 +3528,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },
@@ -3583,7 +3584,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "string",
           },

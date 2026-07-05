@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "migration-hub-refactor-spaces",
   description:
@@ -196,7 +197,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to assign to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair",
+            "The tags to assign to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.",
           args: {
             name: "map",
           },
@@ -230,7 +231,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-service",
       description:
-        "Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the environment owner, regardless of which account in the environment creates the service. Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda function endpoint.  If an Amazon Web Services resource is launched in a service VPC, and you want it to be accessible to all of an environment\u2019s services with VPCs and routes, apply the RefactorSpacesSecurityGroup to the resource. Alternatively, to add more cross-account constraints, apply your own security group",
+        "Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the environment owner, regardless of which account in the environment creates the service. Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda function endpoint.  If an Amazon Web Services resource is launched in a service VPC, and you want it to be accessible to all of an environment’s services with VPCs and routes, apply the RefactorSpacesSecurityGroup to the resource. Alternatively, to add more cross-account constraints, apply your own security group",
       options: [
         {
           name: "--application-identifier",
@@ -287,7 +288,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tags",
           description:
-            "The tags to assign to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair",
+            "The tags to assign to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.",
           args: {
             name: "map",
           },
@@ -721,21 +722,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -791,21 +777,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -853,21 +824,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists Amazon Web Services Migration Hub Refactor Spaces environments owned by a caller account or shared with the caller account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -926,21 +882,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--environment-identifier",
           description: "The ID of the environment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
           args: {
             name: "string",
           },
@@ -1008,21 +949,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1068,7 +994,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-tags-for-resource",
       description:
-        "Lists the tags of a resource. The caller account must be the same as the resource\u2019s OwnerAccountId. Listing tags in other accounts is not supported",
+        "Lists the tags of a resource. The caller account must be the same as the resource’s OwnerAccountId. Listing tags in other accounts is not supported",
       options: [
         {
           name: "--resource-arn",
@@ -1139,7 +1065,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Removes the tags of a given resource. Tags are metadata which can be used to manage a resource. To tag a resource, the caller account must be the same as the resource\u2019s OwnerAccountId. Tagging resources in other accounts is not supported.  Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an environment\u2019s transit gateway",
+        "Removes the tags of a given resource. Tags are metadata which can be used to manage a resource. To tag a resource, the caller account must be the same as the resource’s OwnerAccountId. Tagging resources in other accounts is not supported.  Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an environment’s transit gateway",
       options: [
         {
           name: "--resource-arn",
@@ -1177,7 +1103,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource. To untag a resource, the caller account must be the same as the resource\u2019s OwnerAccountId. Untagging resources across accounts is not supported",
+        "Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource. To untag a resource, the caller account must be the same as the resource’s OwnerAccountId. Untagging resources across accounts is not supported",
       options: [
         {
           name: "--resource-arn",
@@ -1221,7 +1147,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--activation-state",
           description:
-            "If set to ACTIVE, traffic is forwarded to this route\u2019s service after the route is updated",
+            "If set to ACTIVE, traffic is forwarded to this route’s service after the route is updated",
           args: {
             name: "string",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "comprehend",
   description:
@@ -1965,21 +1966,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2075,21 +2061,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2143,21 +2114,6 @@ const completionSpec: Fig.Spec = {
             "Filters that jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2217,21 +2173,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2285,21 +2226,6 @@ const completionSpec: Fig.Spec = {
             "Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2395,21 +2321,6 @@ const completionSpec: Fig.Spec = {
             "Filters the list of entities returned. You can filter on Status, SubmitTimeBefore, or SubmitTimeAfter. You can only set one filter at a time",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return on each page. The default is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2614,21 +2525,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2685,20 +2581,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return in each page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2752,21 +2634,6 @@ const completionSpec: Fig.Spec = {
             "Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2902,21 +2769,6 @@ const completionSpec: Fig.Spec = {
             "Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "Identifies the next page of results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in each page. The default is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3540,7 +3392,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--output-data-config",
           description:
-            "Provides con\ufb01guration parameters for the output of PII entity detection jobs",
+            "Provides conﬁguration parameters for the output of PII entity detection jobs",
           args: {
             name: "structure",
           },

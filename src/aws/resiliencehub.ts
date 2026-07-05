@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "resiliencehub",
   description:
@@ -682,7 +683,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--terraform-source",
           description:
-            "The imported Terraform s3 state \ufb01le you want to remove from the Resilience Hub application",
+            "The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub application",
           args: {
             name: "structure",
           },
@@ -1521,22 +1522,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Maximum number of drift results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Null, or the token from a previous call to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2170,22 +2155,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "Maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Null, or the token from a previous call to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sorts",
           description:
             "(Optional) Indicates the order in which you want to sort the fields in the metrics. By default, the fields are sorted in the ascending order",
@@ -2373,22 +2342,6 @@ const completionSpec: Fig.Spec = {
           name: "--app-arn",
           description:
             "Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more information about ARNs, see  Amazon Resource Names (ARNs) in the Amazon Web Services General Reference guide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Maximum number of grouping recommendations to be displayed per Resilience Hub application",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Null, or the token from a previous call to get the next set of results",
           args: {
             name: "string",
           },

@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "rbin",
   description:
-    "This is the Recycle Bin API Reference. This documentation provides descriptions and syntax for each of the actions and data types in Recycle Bin. Recycle Bin is a resource recovery feature that enables you to restore accidentally deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify. You can restore a resource from the Recycle Bin at any time before its retention period expires. After you restore a resource from the Recycle Bin, the resource is removed from the Recycle Bin, and you can then use it in the same way you use any other resource of that type in your account. If the retention period expires and the resource is not restored, the resource is permanently deleted from the Recycle Bin and is no longer available for recovery. For more information about Recycle Bin, see  Recycle Bin in the Amazon Elastic Compute Cloud User Guide",
+    "This is the Recycle Bin API Reference. This documentation provides descriptions and syntax for each of the actions and data types in Recycle Bin. Recycle Bin is a resource recovery feature that enables you to restore accidentally deleted EBS volumes, EBS snapshots, and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify. You can restore a resource from the Recycle Bin at any time before its retention period expires. After you restore a resource from the Recycle Bin, the resource is removed from the Recycle Bin, and you can then use it in the same way you use any other resource of that type in your account. If the retention period expires and the resource is not restored, the resource is permanently deleted from the Recycle Bin and is no longer available for recovery. For more information about Recycle Bin, see  Recycle Bin in the Amazon Elastic Compute Cloud User Guide",
   subcommands: [
     {
       name: "create-rule",
@@ -34,7 +35,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-type",
           description:
-            "The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots and EBS-backed AMIs are supported. To retain snapshots, specify EBS_SNAPSHOT. To retain EBS-backed AMIs, specify EC2_IMAGE",
+            "The resource type to be retained by the retention rule. Currently, only EBS volumes, EBS snapshots, and EBS-backed AMIs are supported.   To retain EBS volumes, specify EBS_VOLUME.   To retain EBS snapshots, specify EBS_SNAPSHOT    To retain EBS-backed AMIs, specify EC2_IMAGE",
           args: {
             name: "string",
           },
@@ -148,24 +149,9 @@ const completionSpec: Fig.Spec = {
       description: "Lists the Recycle Bin retention rules in the Region",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned NextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-type",
           description:
-            "The resource type retained by the retention rule. Only retention rules that retain the specified resource type are listed. Currently, only Amazon EBS snapshots and EBS-backed AMIs are supported. To list retention rules that retain snapshots, specify EBS_SNAPSHOT. To list retention rules that retain EBS-backed AMIs, specify EC2_IMAGE",
+            "The resource type retained by the retention rule. Only retention rules that retain the specified resource type are listed. Currently, only EBS volumes, EBS snapshots, and EBS-backed AMIs are supported.   To list retention rules that retain EBS volumes, specify EBS_VOLUME.   To list retention rules that retain EBS snapshots, specify EBS_SNAPSHOT.   To list retention rules that retain EBS-backed AMIs, specify EC2_IMAGE",
           args: {
             name: "string",
           },

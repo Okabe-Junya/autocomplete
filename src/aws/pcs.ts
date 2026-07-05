@@ -1,12 +1,13 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pcs",
   description:
-    "Amazon Web Services Parallel Computing Service (Amazon Web Services PCS) is a managed service that makes it easier for you to run and scale your high performance computing (HPC) workloads, and build scientific and engineering models on Amazon Web Services using Slurm. For more information, see the Amazon Web Services Parallel Computing Service User Guide. This reference describes the actions and data types of the service management API. You can use the Amazon Web Services SDKs to call the API actions in software, or use the Command Line Interface (CLI) to call the API actions manually. These API actions manage the service through an Amazon Web Services account. The API actions operate on Amazon Web Services PCS resources. A resource is an entity in Amazon Web Services that you can work with. Amazon Web Services services create resources when you use the features of the service. Examples of Amazon Web Services PCS resources include clusters, compute node groups, and queues. For more information about resources in Amazon Web Services, see Resource in the Resource Explorer User Guide.  An Amazon Web Services PCS compute node is an Amazon EC2 instance. You don't launch compute nodes directly. Amazon Web Services PCS uses configuration information that you provide to launch compute nodes in your Amazon Web Services account. You receive billing charges for your running compute nodes. Amazon Web Services PCS automatically terminates your compute nodes when you delete the Amazon Web Services PCS resources related to those compute nodes",
+    "Parallel Computing Service (PCS) is a managed service that makes it easier for you to run and scale your high performance computing (HPC) workloads, and build scientific and engineering models on Amazon Web Services using Slurm. For more information, see the Parallel Computing Service User Guide. This reference describes the actions and data types of the service management API. You can use the Amazon Web Services SDKs to call the API actions in software, or use the Command Line Interface (CLI) to call the API actions manually. These API actions manage the service through an Amazon Web Services account. The API actions operate on PCS resources. A resource is an entity in Amazon Web Services that you can work with. Amazon Web Services services create resources when you use the features of the service. Examples of PCS resources include clusters, compute node groups, and queues. For more information about resources in Amazon Web Services, see Resource in the Resource Explorer User Guide.  An PCS compute node is an Amazon EC2 instance. You don't launch compute nodes directly. PCS uses configuration information that you provide to launch compute nodes in your Amazon Web Services account. You receive billing charges for your running compute nodes. PCS automatically terminates your compute nodes when you delete the PCS resources related to those compute nodes",
   subcommands: [
     {
       name: "create-cluster",
       description:
-        "Creates a cluster in your account. Amazon Web Services PCS creates the cluster controller in a service-owned account. The cluster controller communicates with the cluster resources in your account. The subnets and security groups for the cluster must already exist before you use this API action.  It takes time for Amazon Web Services PCS to create the cluster. The cluster is in a Creating state until it is ready to use. There can only be 1 cluster in a Creating state per Amazon Web Services Region per Amazon Web Services account. CreateCluster fails with a ServiceQuotaExceededException if there is already a cluster in a Creating state",
+        "Creates a cluster in your account. PCS creates the cluster controller in a service-owned account. The cluster controller communicates with the cluster resources in your account. The subnets and security groups for the cluster must already exist before you use this API action.  It takes time for PCS to create the cluster. The cluster is in a Creating state until it is ready to use. There can only be 1 cluster in a Creating state per Amazon Web Services Region per Amazon Web Services account. CreateCluster fails with a ServiceQuotaExceededException if there is already a cluster in a Creating state",
       options: [
         {
           name: "--cluster-name",
@@ -84,7 +85,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-compute-node-group",
       description:
-        "Creates a managed set of compute nodes. You associate a compute node group with a cluster through 1 or more Amazon Web Services PCS queues or as part of the login fleet. A compute node group includes the definition of the compute properties and lifecycle management. Amazon Web Services PCS uses the information you provide to this API action to launch compute nodes in your account. You can only specify subnets in the same Amazon VPC as your cluster. You receive billing charges for the compute nodes that Amazon Web Services PCS launches in your account. You must already have a launch template before you call this API. For more information, see Launch an instance from a launch template in the Amazon Elastic Compute Cloud User Guide for Linux Instances",
+        "Creates a managed set of compute nodes. You associate a compute node group with a cluster through 1 or more PCS queues or as part of the login fleet. A compute node group includes the definition of the compute properties and lifecycle management. PCS uses the information you provide to this API action to launch compute nodes in your account. You can only specify subnets in the same Amazon VPC as your cluster. You receive billing charges for the compute nodes that PCS launches in your account. You must already have a launch template before you call this API. For more information, see Launch an instance from a launch template in the Amazon Elastic Compute Cloud User Guide for Linux Instances",
       options: [
         {
           name: "--cluster-identifier",
@@ -104,7 +105,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ami-id",
           description:
-            "The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, Amazon Web Services PCS uses the AMI ID specified in the custom launch template",
+            "The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in the custom launch template",
           args: {
             name: "string",
           },
@@ -120,7 +121,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--purchase-option",
           description:
-            "Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand",
+            "Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see Amazon EC2 billing and purchasing options in the Amazon Elastic Compute Cloud User Guide. For more information about PCS support for Capacity Blocks, see Using Amazon EC2 Capacity Blocks for ML with PCS in the PCS User Guide. For more information about PCS support for interruptible capacity reservations, see Using I-ODCRs with PCS in the PCS User Guide. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see Using ODCRs with PCS. If you don't provide this option, it defaults to On-Demand",
           args: {
             name: "string",
           },
@@ -128,7 +129,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-launch-template",
           description:
-            "An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes",
+            "An Amazon EC2 launch template PCS uses to launch compute nodes",
           args: {
             name: "structure",
           },
@@ -136,7 +137,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-instance-profile-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the pcs:RegisterComputeNodeGroupInstance permission. The resource identifier of the ARN must start with AWSPCS or it must have /aws-pcs/ in its path.  Examples     arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1     arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2",
+            "The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the pcs:RegisterComputeNodeGroupInstance permission and the role name must start with AWSPCS or must have the path /aws-pcs/. For more information, see IAM instance profiles for PCS in the PCS User Guide",
           args: {
             name: "string",
           },
@@ -152,7 +153,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-configs",
           description:
-            "A list of EC2 instance configurations that Amazon Web Services PCS can provision in the compute node group",
+            "A list of EC2 instance configurations that PCS can provision in the compute node group",
           args: {
             name: "list",
           },
@@ -233,6 +234,13 @@ const completionSpec: Fig.Spec = {
             "The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--slurm-configuration",
+          description: "Additional options related to the Slurm scheduler",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -359,7 +367,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-queue",
       description:
-        "Deletes a job queue. If the compute node group associated with this queue isn't associated with any other queues, Amazon Web Services PCS terminates all the compute nodes for this queue",
+        "Deletes a job queue. If the compute node group associated with this queue isn't associated with any other queues, PCS terminates all the compute nodes for this queue",
       options: [
         {
           name: "--cluster-identifier",
@@ -409,7 +417,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--cluster-identifier",
-          description: "The name or ID of the cluster of the queue",
+          description: "The name or ID of the cluster",
           args: {
             name: "string",
           },
@@ -514,22 +522,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of running clusters in your account",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The value of nextToken is a unique pagination token for each page of results returned. If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -583,22 +575,6 @@ const completionSpec: Fig.Spec = {
             "The name or ID of the cluster to list compute node groups for",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The value of nextToken is a unique pagination token for each page of results returned. If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -656,22 +632,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The value of nextToken is a unique pagination token for each page of results returned. If nextToken is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an HTTP 400 InvalidToken error",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that are returned per call. You can use nextToken to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -716,8 +676,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-tags-for-resource",
-      description:
-        "Returns a list of all tags on an Amazon Web Services PCS resource",
+      description: "Returns a list of all tags on an PCS resource",
       options: [
         {
           name: "--resource-arn",
@@ -749,7 +708,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-compute-node-group-instance",
       description:
-        "This API action isn't intended for you to use.  Amazon Web Services PCS uses this API action to register the compute nodes it launches in your account",
+        "This API action isn't intended for you to use.  PCS uses this API action to register the compute nodes it launches in your account",
       options: [
         {
           name: "--cluster-identifier",
@@ -788,7 +747,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Adds or edits tags on an Amazon Web Services PCS resource. Each tag consists of a tag key and a tag value. The tag key and tag value are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value",
+        "Adds or edits tags on an PCS resource. Each tag consists of a tag key and a tag value. The tag key and tag value are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value",
       options: [
         {
           name: "--resource-arn",
@@ -827,7 +786,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-resource",
       description:
-        "Deletes tags from an Amazon Web Services PCS resource. To delete a tag, specify the tag key and the Amazon Resource Name (ARN) of the Amazon Web Services PCS resource",
+        "Deletes tags from an PCS resource. To delete a tag, specify the tag key and the Amazon Resource Name (ARN) of the PCS resource",
       options: [
         {
           name: "--resource-arn",
@@ -842,6 +801,60 @@ const completionSpec: Fig.Spec = {
             "1 or more tag keys to remove from the resource. Specify only tag keys and not tag values",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-cluster",
+      description:
+        "Updates a cluster configuration. You can upgrade the Slurm version, modify scheduler settings, and update accounting configuration for an existing cluster. For more information about upgrading the Slurm version, see Upgrading the Slurm version on a cluster in the PCS User Guide.   You can only update clusters that are in ACTIVE, UPDATE_FAILED, or SUSPENDED state. All associated resources (queues and compute node groups) must be in ACTIVE state before you can update the cluster",
+      options: [
+        {
+          name: "--cluster-identifier",
+          description: "The name or ID of the cluster to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--slurm-configuration",
+          description: "Additional options related to the Slurm scheduler",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--scheduler",
+          description:
+            "The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see Upgrading the Slurm version on a cluster in the PCS User Guide",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -886,7 +899,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ami-id",
           description:
-            "The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch instances. If not provided, Amazon Web Services PCS uses the AMI ID specified in the custom launch template",
+            "The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template",
           args: {
             name: "string",
           },
@@ -902,7 +915,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--custom-launch-template",
           description:
-            "An Amazon EC2 launch template Amazon Web Services PCS uses to launch compute nodes",
+            "An Amazon EC2 launch template PCS uses to launch compute nodes",
           args: {
             name: "structure",
           },
@@ -910,7 +923,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--purchase-option",
           description:
-            "Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand",
+            "Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see Amazon EC2 billing and purchasing options in the Amazon Elastic Compute Cloud User Guide. For more information about PCS support for Capacity Blocks, see Using Amazon EC2 Capacity Blocks for ML with PCS in the PCS User Guide. For more information about PCS support for interruptible capacity reservations, see Using I-ODCRs with PCS in the PCS User Guide. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see Using ODCRs with PCS. If you don't provide this option, it defaults to On-Demand",
           args: {
             name: "string",
           },
@@ -934,7 +947,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--iam-instance-profile-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the pcs:RegisterComputeNodeGroupInstance permission. The resource identifier of the ARN must start with AWSPCS or it must have /aws-pcs/ in its path.  Examples     arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1     arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2",
+            "The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the pcs:RegisterComputeNodeGroupInstance permission and the role name must start with AWSPCS or must have the path /aws-pcs/. For more information, see IAM instance profiles for PCS in the PCS User Guide",
           args: {
             name: "string",
           },
@@ -998,6 +1011,13 @@ const completionSpec: Fig.Spec = {
             "The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--slurm-configuration",
+          description: "Additional options related to the Slurm scheduler",
+          args: {
+            name: "structure",
           },
         },
         {

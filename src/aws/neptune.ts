@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "neptune",
   description:
@@ -185,7 +186,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-cluster-parameter-group-identifier",
           description:
-            "The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see  Constructing an Amazon Resource Name (ARN). Constraints:   Must specify a valid DB cluster parameter group.   If the source DB cluster parameter group is in the same Amazon Region as the copy, specify a valid DB parameter group identifier, for example my-db-cluster-param-group, or a valid ARN.   If the source DB parameter group is in a different Amazon Region than the copy, specify a valid DB cluster parameter group ARN, for example arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1",
+            "The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see  Constructing an Amazon Resource Name (ARN). Constraints:   Must specify a valid DB cluster parameter group.   Must specify a valid DB cluster parameter group identifier, for example my-db-cluster-param-group, or a valid ARN.   The source DB cluster parameter group must be in the same Amazon Region as the copy. Neptune does not support cross-Region copying of parameter groups",
           args: {
             name: "string",
           },
@@ -241,7 +242,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-cluster-snapshot-identifier",
           description:
-            'The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive. Constraints:   Must specify a valid system snapshot in the "available" state.   Specify a valid DB snapshot identifier.   Example: my-cluster-snapshot1',
+            'The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive. If the source DB cluster snapshot is in a different region or owned by another account, specify the snapshot ARN. Constraints:   Must specify a valid system snapshot in the "available" state.   Specify a valid DB snapshot identifier.   Example: my-cluster-snapshot1',
           args: {
             name: "string",
           },
@@ -257,7 +258,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            "The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify a value for KmsKeyId to encrypt the copy with a new KMS encryption key. If you don't specify a value for KmsKeyId, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. If you copy an encrypted DB cluster snapshot that is shared from another Amazon account, then you must specify a value for KmsKeyId.  KMS encryption keys are specific to the Amazon Region that they are created in, and you can't use encryption keys from one Amazon Region in another Amazon Region. You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try to copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an error is returned",
+            "The Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify a value for KmsKeyId to encrypt the copy with a new KMS encryption key. If you don't specify a value for KmsKeyId, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. If you copy an encrypted DB cluster snapshot that is shared from another Amazon account, then you must specify a value for KmsKeyId.  KMS encryption keys are specific to the Amazon Region that they are created in, and you can't use encryption keys from one Amazon Region in another Amazon Region. You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try to copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an error is returned",
           args: {
             name: "string",
           },
@@ -288,8 +289,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--source-region",
-          description:
-            "The ID of the region that contains the snapshot to be copied",
           args: {
             name: "string",
           },
@@ -320,7 +319,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-db-parameter-group-identifier",
           description:
-            "The identifier or ARN for the source DB parameter group. For information about creating an ARN, see  Constructing an Amazon Resource Name (ARN). Constraints:   Must specify a valid DB parameter group.   Must specify a valid DB parameter group identifier, for example my-db-param-group, or a valid ARN",
+            "The identifier or ARN for the source DB parameter group. For information about creating an ARN, see  Constructing an Amazon Resource Name (ARN). Constraints:   Must specify a valid DB parameter group.   Must specify a valid DB parameter group identifier, for example my-db-param-group, or a valid ARN.   The source DB parameter group must be in the same Amazon Region as the copy. Neptune does not support cross-Region copying of parameter groups",
           args: {
             name: "string",
           },
@@ -407,8 +406,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--database-name",
-          description:
-            "The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Neptune will not create a database in the DB cluster you are creating",
+          description: "Not supported by Neptune",
           args: {
             name: "string",
           },
@@ -456,7 +454,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--engine-version",
           description:
-            "The version number of the database engine to use for the new DB cluster. Example: 1.0.2.1",
+            "The version number of the database engine to use for the new DB cluster. Example: 1.2.1.0",
           args: {
             name: "string",
           },
@@ -591,15 +589,21 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the DB cluster. Valid Values:    standard | iopt1    Default:    standard     When you create a Neptune cluster with the storage type set to iopt1, the storage type is returned in the response. The storage type isn't returned when you set it to standard",
+            "The storage type for the new DB cluster. Valid Values:     standard    –   ( the default ) Configures cost-effective database storage for applications with moderate to small I/O usage. When set to standard, the storage type is not returned in the response.     iopt1    –   Enables I/O-Optimized storage that's designed to meet the needs of I/O-intensive graph workloads that require predictable pricing with low I/O latency and consistent I/O throughput. Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type of the DB cluster. Valid Values:     IPV4    –   ( the default ) The DB cluster uses only IPv4 addresses for communication.     DUAL    –   The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6",
           args: {
             name: "string",
           },
         },
         {
           name: "--source-region",
-          description:
-            "The ID of the region that contains the source for the db cluster",
           args: {
             name: "string",
           },
@@ -982,11 +986,13 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--publicly-accessible",
-          description: "This flag should no longer be used",
+          description:
+            "Indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address",
         },
         {
           name: "--no-publicly-accessible",
-          description: "This flag should no longer be used",
+          description:
+            "Indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address",
         },
         {
           name: "--tags",
@@ -1006,7 +1012,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "Specifies the storage type to be associated with the DB instance. Not applicable. Storage is managed by the DB Cluster",
+            "Not applicable. In Neptune the storage type is managed at the DB Cluster level",
           args: {
             name: "string",
           },
@@ -1040,7 +1046,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kms-key-id",
           description:
-            "The Amazon KMS key identifier for an encrypted DB instance. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same Amazon account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key. Not applicable. The KMS key identifier is managed by the DB cluster. For more information, see CreateDBCluster. If the StorageEncrypted parameter is true, and you do not specify a value for the KmsKeyId parameter, then Amazon Neptune will use your default encryption key. Amazon KMS creates the default encryption key for your Amazon account. Your Amazon account has a different default encryption key for each Amazon Region",
+            "The Amazon KMS key identifier for an encrypted DB instance. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same Amazon account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KMS encryption key. Not applicable. The KMS key identifier is managed by the DB cluster. For more information, see CreateDBCluster. If the StorageEncrypted parameter is true, and you do not specify a value for the KmsKeyId parameter, then Amazon Neptune will use your default encryption key. Amazon KMS creates the default encryption key for your Amazon account. Your Amazon account has a different default encryption key for each Amazon Region",
           args: {
             name: "string",
           },
@@ -1317,12 +1323,12 @@ const completionSpec: Fig.Spec = {
         {
           name: "--enabled",
           description:
-            "A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it",
+            "A Boolean value; set to true to activate the subscription, set to false to create the subscription but not activate it",
         },
         {
           name: "--no-enabled",
           description:
-            "A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it",
+            "A Boolean value; set to true to activate the subscription, set to false to create the subscription but not activate it",
         },
         {
           name: "--tags",
@@ -1398,6 +1404,21 @@ const completionSpec: Fig.Spec = {
             "The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled",
         },
         {
+          name: "--database-name",
+          description:
+            "The name for the new global database (up to 64 alpha-numeric characters)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "Tags to assign to the global cluster",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--storage-encrypted",
           description:
             "The storage encryption setting for the new global database cluster",
@@ -1452,7 +1473,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--final-db-snapshot-identifier",
           description:
-            "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.   Specifying this parameter and also setting the SkipFinalShapshot parameter to true results in an error.  Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter   Cannot end with a hyphen or contain two consecutive hyphens",
+            "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.   Specifying this parameter and also setting the SkipFinalSnapshot parameter to true results in an error.  Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter   Cannot end with a hyphen or contain two consecutive hyphens",
           args: {
             name: "string",
           },
@@ -1598,7 +1619,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--final-db-snapshot-identifier",
           description:
-            "The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to false.  Specifying this parameter and also setting the SkipFinalShapshot parameter to true results in an error.  Constraints:   Must be 1 to 255 letters or numbers.   First character must be a letter   Cannot end with a hyphen or contain two consecutive hyphens   Cannot be specified when deleting a Read Replica",
+            "The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to false.  Specifying this parameter and also setting the SkipFinalSnapshot parameter to true results in an error.  Constraints:   Must be 1 to 255 letters or numbers.   First character must be a letter   Cannot end with a hyphen or contain two consecutive hyphens   Cannot be specified when deleting a Read Replica",
           args: {
             name: "string",
           },
@@ -1779,22 +1800,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterEndpoints request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1855,22 +1860,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1942,22 +1931,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2072,22 +2045,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusterSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--include-shared",
           description:
             "True to include shared manual DB cluster snapshots from other Amazon accounts that this Amazon account has been given permission to copy or restore, and otherwise false. The default is false. You can give an Amazon account permission to restore a manual DB cluster snapshot from another Amazon account by the ModifyDBClusterSnapshotAttribute API action",
@@ -2172,22 +2129,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBClusters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2261,22 +2202,6 @@ const completionSpec: Fig.Spec = {
           description: "Not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more than the MaxRecords value is available, a pagination token called a marker is included in the response so that the following results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2374,22 +2299,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBInstances request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2450,22 +2359,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2540,22 +2433,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2615,22 +2492,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2751,22 +2612,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEngineDefaultParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2866,22 +2711,6 @@ const completionSpec: Fig.Spec = {
           description: "This parameter is not currently supported",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
           },
         },
         {
@@ -2988,22 +2817,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3055,22 +2868,6 @@ const completionSpec: Fig.Spec = {
           name: "--global-cluster-identifier",
           description:
             "The user-supplied DB cluster identifier. If this parameter is specified, only information about the specified DB cluster is returned. This parameter is not case-sensitive. Constraints: If supplied, must match an existing DB cluster identifier",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination marker token is included in the response that you can use to retrieve the remaining results. Default: 100  Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "(Optional) A pagination token returned by a previous call to DescribeGlobalClusters. If this parameter is specified, the response will only include records beyond the marker, up to the number specified by MaxRecords",
           args: {
             name: "string",
           },
@@ -3173,22 +2970,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3250,22 +3031,6 @@ const completionSpec: Fig.Spec = {
             "A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:    db-cluster-id - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB clusters identified by these ARNs.    db-instance-id - Accepts DB instance identifiers and DB instance ARNs. The results list will only include pending maintenance actions for the DB instances identified by these ARNs",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "An optional pagination token provided by a previous DescribePendingMaintenanceActions request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by MaxRecords",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-records",
-          description:
-            "The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3402,6 +3167,26 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--allow-data-loss",
+          description:
+            "Specifies whether to allow data loss for this global database cluster operation. Allowing data loss triggers a global failover operation. If you don't specify AllowDataLoss, the global database cluster operation defaults to a switchover. Constraints: Can't be specified together with the Switchover parameter",
+        },
+        {
+          name: "--no-allow-data-loss",
+          description:
+            "Specifies whether to allow data loss for this global database cluster operation. Allowing data loss triggers a global failover operation. If you don't specify AllowDataLoss, the global database cluster operation defaults to a switchover. Constraints: Can't be specified together with the Switchover parameter",
+        },
+        {
+          name: "--switchover",
+          description:
+            "Specifies whether to switch over this global database cluster. Constraints: Can't be specified together with the AllowDataLoss parameter",
+        },
+        {
+          name: "--no-switchover",
+          description:
+            "Specifies whether to switch over this global database cluster. Constraints: Can't be specified together with the AllowDataLoss parameter",
         },
         {
           name: "--cli-input-json",
@@ -3628,7 +3413,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage type to associate with the DB cluster. Valid Values:    standard | iopt1    Default:    standard",
+            "The storage type to associate with the DB cluster. Valid Values:     standard    –   ( the default ) Configures cost-effective database storage for applications with moderate to small I/O usage.     iopt1    –   Enables I/O-Optimized storage that's designed to meet the needs of I/O-intensive graph workloads that require predictable pricing with low I/O latency and consistent I/O throughput. Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type of the DB cluster. Valid Values:     IPV4    –   The DB cluster uses only IPv4 addresses for communication.     DUAL    –   The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6",
           args: {
             name: "string",
           },
@@ -3973,7 +3766,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--storage-type",
-          description: "Not supported",
+          description:
+            "Not applicable. In Neptune the storage type is managed at the DB Cluster level",
           args: {
             name: "string",
           },
@@ -4037,11 +3831,13 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--publicly-accessible",
-          description: "This flag should no longer be used",
+          description:
+            "Indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address",
         },
         {
           name: "--no-publicly-accessible",
-          description: "This flag should no longer be used",
+          description:
+            "Indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible and you connect from outside of the DB instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB instance, the endpoint resolves to the private IP address. Access to the DB instance is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address",
         },
         {
           name: "--monitoring-role-arn",
@@ -4422,7 +4218,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "remove-from-global-cluster",
       description:
-        "Detaches a Neptune DB cluster from a Neptune global database. A secondary cluster becomes a normal standalone cluster with read-write capability instead of being read-only, and no longer receives data from a the primary cluster",
+        "Detaches a Neptune DB cluster from a Neptune global database. A secondary cluster becomes a normal standalone cluster with read-write capability instead of being read-only, and no longer receives data from the primary cluster",
       options: [
         {
           name: "--global-cluster-identifier",
@@ -4845,6 +4641,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--network-type",
+          description:
+            "The network type of the DB cluster. Valid Values:     IPV4    –   ( the default ) The DB cluster uses only IPv4 addresses for communication.     DUAL    –   The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5009,6 +4813,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--network-type",
+          description:
+            "The network type of the DB cluster. Valid Values:     IPV4    –   ( the default ) The DB cluster uses only IPv4 addresses for communication.     DUAL    –   The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5068,6 +4880,46 @@ const completionSpec: Fig.Spec = {
           name: "--db-cluster-identifier",
           description:
             "The DB cluster identifier of the Neptune DB cluster to be stopped. This parameter is stored as a lowercase string",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "switchover-global-cluster",
+      description:
+        'Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster. Switchover operations were previously called "managed planned failovers." Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary clusters are synchronized with the primary at the beginning of the process so the new primary continues operations for the global database without losing any data. Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles.  This operation is intended for controlled environments, for operations such as "regional rotation" or to fall back to the original primary after a global database failover',
+      options: [
+        {
+          name: "--global-cluster-identifier",
+          description:
+            "The identifier of the global database cluster to switch over. This parameter isn't case-sensitive. Constraints: Must match the identifier of an existing global database cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-db-cluster-identifier",
+          description:
+            "The Amazon Resource Name (ARN) of the secondary Neptune DB cluster that you want to promote to primary for the global database",
           args: {
             name: "string",
           },

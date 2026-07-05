@@ -1,17 +1,18 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "connect",
   description:
-    "Amazon Connect actions     Amazon Connect data types    Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale. Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents. There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see Amazon Connect Service Quotas in the Amazon Connect Administrator Guide. You can use an endpoint to connect programmatically to an Amazon Web Services service. For a list of Amazon Connect endpoints, see Amazon Connect Endpoints",
+    "Amazon Connect now refers to a portfolio of agentic solutions for business functions. The legacy product is now called Amazon Connect Customer, or simply Customer. The legacy name is used interchangeably in this documentation.     Connect Customer Customer actions     Connect Customer Customer data types    Connect Customer Customer engages customers at every touchpoint and creates deeper relationships with AI powered capabilities. Build and manage customer communication experiences. Connect customers to agents, enable intelligent routing, and track performance in real-time. There are limits to the number of Connect Customer resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see Connect Customer Service Quotas in the Connect Customer Administrator Guide. You can use an endpoint to connect programmatically to an Amazon Web Services service. For a list of Connect Customer endpoints, see Connect Customer Endpoints",
   subcommands: [
     {
       name: "activate-evaluation-form",
       description:
-        "Activates an evaluation form in the specified Amazon Connect instance. After the evaluation form is activated, it is available to start new evaluations based on the form",
+        "Activates an evaluation form in the specified Connect Customer instance. After the evaluation form is activated, it is available to start new evaluations based on the form",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -53,12 +54,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-analytics-data-set",
       description:
-        "Associates the specified dataset for a Amazon Connect instance with the target account. You can associate only one dataset in a single call",
+        "Associates the specified dataset for a Connect Customer instance with the target account. You can associate only one dataset in a single call",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -74,7 +75,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-account-id",
           description:
-            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance",
+            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -101,12 +102,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-approved-origin",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Associates an approved origin to an Amazon Connect instance",
+        "This API is in preview release for Connect Customer and is subject to change. Associates an approved origin to an Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -114,6 +115,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origin",
           description: "The domain to add to your allow list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -140,12 +149,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-bot",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot",
+        "This API is in preview release for Connect Customer and is subject to change. Allows the specified Connect Customer instance to access the specified Amazon Lex or Amazon Lex V2 bot",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -162,6 +171,62 @@ const completionSpec: Fig.Spec = {
           description: "The Amazon Lex V2 bot to associate with the instance",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "associate-contact-with-user",
+      description:
+        "Associates a queued contact with an agent.  Use cases  Following are common uses cases for this API:   Programmatically assign queued contacts to available users.   Leverage the IAM context key connect:PreferredUserArn to restrict contact association to specific preferred user.    Important things to know    Use this API with chat, email, and task contacts. It does not support voice contacts.   Use it to associate contacts with users regardless of their current state, including custom states. Ensure your application logic accounts for user availability before making associations.   It honors the IAM context key connect:PreferredUserArn to prevent unauthorized contact associations.   It respects the IAM context key connect:PreferredUserArn to enforce authorization controls and prevent unauthorized contact associations. Verify that your IAM policies are properly configured to support your intended use cases.   The service quota Queues per routing profile per instance applies to manually assigned queues, too. For more information about this quota, see Connect Customer quotas in the Connect Customer Administrator Guide.    Endpoints: See Connect Customer endpoints and quotas",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description:
+            "The identifier of the contact in this instance of Connect Customer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--user-id",
+          description:
+            "The identifier for the user. This can be the ID or the ARN of the user",
+          args: {
+            name: "string",
           },
         },
         {
@@ -186,12 +251,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-default-vocabulary",
       description:
-        "Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time analysis sessions for the given language",
+        "Associates an existing vocabulary as the default. Contact Lens for Connect Customer uses the vocabulary in post-call and real-time analysis sessions for the given language",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -232,13 +297,68 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "associate-email-address-alias",
+      description:
+        "Associates an email address alias with an existing email address in an Connect Customer instance. This creates a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary email address.   Use cases  Following are common uses cases for this API:    Unified customer support: Create multiple entry points (for example, support@example.com, help@example.com, customercare@example.com) that all forward to a single agent queue for streamlined management.    Department consolidation: Forward emails from legacy department addresses (for example, sales@example.com, info@example.com) to a centralized customer service email during organizational restructuring.    Brand management: Enable you to use familiar brand-specific email addresses that forward to the appropriate Connect Customer instance email address.    Important things to know    Each email address can have a maximum of one alias. You cannot create multiple aliases for the same email address.    If the alias email address already receives direct emails, it continues to receive direct emails plus forwarded emails.   You cannot chain email aliases together (that is, create an alias of an alias).    AssociateEmailAddressAlias does not return the following information:   A confirmation of the alias relationship details (you must call DescribeEmailAddress to verify).   The timestamp of when the association occurred.   The status of the forwarding configuration.    Endpoints: See Connect Customer endpoints and quotas.  Related operations     DisassociateEmailAddressAlias: Removes the alias association between two email addresses in an Connect Customer instance.    DescribeEmailAddress: View current alias configurations for an email address.    SearchEmailAddresses: Find email addresses and their alias relationships across an instance.    CreateEmailAddress: Create new email addresses that can participate in alias relationships.    DeleteEmailAddress: Remove email addresses (automatically removes any alias relationships).    UpdateEmailAddressMetadata: Modify email address properties (does not affect alias relationships)",
+      options: [
+        {
+          name: "--email-address-id",
+          description: "The identifier of the email address",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--alias-configuration",
+          description:
+            "Configuration object that specifies which email address will serve as the alias. The specified email address must already exist in the Connect Customer instance and cannot already be configured as an alias or have an alias of its own",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "associate-flow",
       description: "Associates a connect resource to a flow",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -285,14 +405,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "associate-instance-storage-config",
+      name: "associate-hours-of-operations",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Associates a storage resource type for the first time. You can only associate one type of storage configuration in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing chat transcripts. This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the resource being specified in the storage configuration, like an S3 bucket, exists when being used for association",
+        "Associates a set of hours of operations with another hours of operation. Refer to Administrator Guide  here  for more information on inheriting overrides from parent hours of operation(s)",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier of the child hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--parent-hours-of-operation-configs",
+          description:
+            "The Amazon Resource Names (ARNs) of the parent hours of operation resources to associate with the child hours of operation resource",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "associate-instance-storage-config",
+      description:
+        "This API is in preview release for Connect Customer and is subject to change. Associates a storage resource type for the first time. You can only associate one type of storage configuration in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing chat transcripts. This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the resource being specified in the storage configuration, like an S3 bucket, exists when being used for association",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -310,6 +477,14 @@ const completionSpec: Fig.Spec = {
           description: "A valid storage type",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -334,12 +509,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-lambda-function",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Allows the specified Amazon Connect instance to access the specified Lambda function",
+        "This API is in preview release for Connect Customer and is subject to change. Allows the specified Connect Customer instance to access the specified Lambda function",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -348,6 +523,14 @@ const completionSpec: Fig.Spec = {
           name: "--function-arn",
           description:
             "The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -374,12 +557,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-lex-bot",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Allows the specified Amazon Connect instance to access the specified Amazon Lex V1 bot. This API only supports the association of Amazon Lex V1 bots",
+        "This API is in preview release for Connect Customer and is subject to change. Allows the specified Connect Customer instance to access the specified Amazon Lex V1 bot. This API only supports the association of Amazon Lex V1 bots",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -389,6 +572,14 @@ const completionSpec: Fig.Spec = {
           description: "The Amazon Lex bot to associate with the instance",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -413,7 +604,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-phone-number-contact-flow",
       description:
-        "Associates a flow with a phone number claimed to your Amazon Connect instance.  If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException",
+        "Associates a flow with a phone number claimed to your Connect Customer instance.  If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException",
       options: [
         {
           name: "--phone-number-id",
@@ -425,7 +616,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -457,14 +648,68 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "associate-queue-quick-connects",
+      name: "associate-queue-email-addresses",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Associates a set of quick connects with a queue",
+        'Associates a set of email addresses with a queue to enable agents to select different "From" (system) email addresses when replying to inbound email contacts or initiating outbound email contacts. This allows agents to handle email contacts across different brands and business units within the same queue.  Important things to know    You can associate up to 49 additional email addresses with a single queue, plus 1 default outbound email address, for a total of 50.   The email addresses must already exist in the Connect Customer instance before they can be associated with a queue.   Agents will be able to select from these associated email addresses when handling email contacts in the queue.   For inbound email contacts, agents can select from email addresses associated with the queue where the contact was accepted.   For outbound email contacts, agents can select from email addresses associated with their default outbound queue configured in their routing profile',
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description: "The identifier for the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--email-addresses-config",
+          description:
+            "Configuration list containing the email addresses to associate with the queue. Each configuration specifies an email address ID that should be linked to this queue for routing purposes",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "associate-queue-quick-connects",
+      description: "Associates a set of quick connects with a queue",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -509,7 +754,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -524,6 +769,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-configs",
           description: "The queues to associate with this routing profile",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--manual-assignment-queue-configs",
+          description:
+            "The manual assignment queues to associate with this routing profile. Note: Use this config for chat, email, and task contacts. It does not support voice contacts",
           args: {
             name: "list",
           },
@@ -550,7 +803,54 @@ const completionSpec: Fig.Spec = {
     {
       name: "associate-security-key",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Associates a security key to the instance",
+        "This API is in preview release for Connect Customer and is subject to change. Associates a security key to the instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--key",
+          description: "A valid security key in PEM format as a String",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "associate-security-profiles",
+      description:
+        "Associate security profiles with an Entity in an Amazon Connect instance",
       options: [
         {
           name: "--instance-id",
@@ -561,8 +861,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--key",
-          description: "A valid security key in PEM format as a String",
+          name: "--security-profiles",
+          description: "List of Security Profile Object",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--entity-type",
+          description: "Only supported type is AI_AGENT",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-arn",
+          description: "Arn of a Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -610,7 +924,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -636,12 +950,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "associate-user-proficiencies",
-      description: ">Associates a set of proficiencies with a user",
+      description: "Associates a set of proficiencies with a user",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN of the instance)",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN of the instance)",
           args: {
             name: "string",
           },
@@ -680,14 +994,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "batch-associate-analytics-data-set",
+      name: "associate-workspace",
       description:
-        "Associates a list of analytics datasets for a given Amazon Connect instance to a target account. You can associate multiple datasets in a single call",
+        "Associates a workspace with one or more users or routing profiles, allowing them to access the workspace's configured views and pages",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arns",
+          description:
+            "The Amazon Resource Names (ARNs) of the resources to associate with the workspace. Valid resource types are users and routing profiles",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-associate-analytics-data-set",
+      description:
+        "Associates a list of analytics datasets for a given Connect Customer instance to a target account. You can associate multiple datasets in a single call",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -702,7 +1063,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-account-id",
           description:
-            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance",
+            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -727,14 +1088,155 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-create-data-table-value",
+      description:
+        "Creates values for attributes in a data table. The value may be a default or it may be associated with a primary value. The value must pass all customer defined validation as well as the default validation for the value type. The operation must conform to Batch Operation API Standards. Although the standard specifies that successful and failed entities are listed separately in the response, authorization fails if any primary values or attributes are unauthorized. The combination of primary values and the attribute name serve as the identifier for the individual item request",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--values",
+          description:
+            "A list of values to create. Each value must specify the attribute name and optionally primary values if the table has primary attributes",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-delete-data-table-value",
+      description:
+        "Deletes multiple values from a data table. API users may delete values at any time. When deletion is requested from the admin website, a warning is shown alerting the user of the most recent time the attribute and its values were accessed. System managed values are not deletable by customers",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--values",
+          description:
+            "A list of value identifiers to delete, each specifying primary values, attribute name, and lock version information",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-describe-data-table-value",
+      description:
+        'Retrieves multiple values from a data table without evaluating expressions. Returns the raw stored values along with metadata such as lock versions and modification timestamps. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations',
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--values",
+          description:
+            "A list of value identifiers to retrieve, each specifying primary values and attribute names",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "batch-disassociate-analytics-data-set",
       description:
-        "Removes a list of analytics datasets associated with a given Amazon Connect instance. You can disassociate multiple datasets in a single call",
+        "Removes a list of analytics datasets associated with a given Connect Customer instance. You can disassociate multiple datasets in a single call",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -749,7 +1251,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-account-id",
           description:
-            "The identifier of the target account. Use to disassociate a dataset from a different account than the one containing the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance",
+            "The identifier of the target account. Use to disassociate a dataset from a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -826,7 +1328,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -868,7 +1370,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "batch-put-contact",
       description:
-        "Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API.  Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial requests via the PutDialRequestBatch API. It then uses BatchPutContact to create contacts corresponding to those dial requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting voice call uses the same contactId that was created by BatchPutContact",
+        "Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account and call this API.  Allows you to create a batch of contacts in Connect Customer. The outbound campaigns capability ingests dial requests via the PutDialRequestBatch API. It then uses BatchPutContact to create contacts corresponding to those dial requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting voice call uses the same contactId that was created by BatchPutContact",
       options: [
         {
           name: "--client-token",
@@ -881,7 +1383,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -913,14 +1415,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-update-data-table-value",
+      description:
+        "Updates multiple data table values using all properties from BatchCreateDataTableValue. System managed values are not modifiable by customers. The operation requires proper lock versions to prevent concurrent modification conflicts",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--values",
+          description:
+            "A list of values to update, each including the current lock version to ensure optimistic locking",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "claim-phone-number",
       description:
-        "Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created. For more information about how to use this operation, see Claim a phone number in your country and Claim phone numbers to traffic distribution groups in the Amazon Connect Administrator Guide.   You can call the SearchAvailablePhoneNumbers API for available phone numbers that you can claim. Call the DescribePhoneNumber API to verify the status of a previous ClaimPhoneNumber operation.  If you plan to claim and release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired. By default you can claim and release up to 200% of your maximum number of active phone numbers. If you claim and release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services support ticket",
+        "Claims an available phone number to your Connect Customer instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Connect Customer instance or traffic distribution group was created. For more information about how to use this operation, see Claim a phone number in your country and Claim phone numbers to traffic distribution groups in the Connect Customer Administrator Guide.   You can call the SearchAvailablePhoneNumbers API for available phone numbers that you can claim. Call the DescribePhoneNumber API to verify the status of a previous ClaimPhoneNumber operation.  If you plan to claim and release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired. By default you can claim and release up to 200% of your maximum number of active phone numbers. If you claim and release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services support ticket",
       options: [
         {
           name: "--target-arn",
           description:
-            "The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
+            "The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -928,7 +1477,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
+            "The identifier of the Connect Customer instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -990,7 +1539,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--instance-id",
-          description: "The unique identifier of the Amazon Connect instance",
+          description: "The unique identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -1032,12 +1581,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-agent-status",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Creates an agent status for the specified Amazon Connect instance",
+        "Creates an agent status for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1098,17 +1647,10 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-contact",
-      description: "Creates a new contact",
+      name: "create-attached-file",
+      description:
+        "Creates an attached file for a completed voice contact by copying a recording from a source S3 URI into Connect Customer managed storage. Use this API to attach voice recordings to contacts for downstream processing such as conversational analytics.  The AssociatedResourceArn must be the ARN of a completed voice contact, FileUseCaseType must be set to VOICE_RECORDING, and FileSourceUri must be a valid S3 URI.   For example, you can call CreateContact, then CreateAttachedFile, then StartContactConversationalAnalyticsJob to create a contact, attach a recording, and run post-call analytics",
       options: [
-        {
-          name: "--instance-id",
-          description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--client-token",
           description:
@@ -1118,83 +1660,41 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--related-contact-id",
+          name: "--instance-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
         },
         {
-          name: "--attributes",
+          name: "--file-use-case-type",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+            "The use case for the file.  Only VOICE_RECORDING is supported",
           args: {
-            name: "map",
+            name: "string",
           },
         },
         {
-          name: "--references",
+          name: "--file-source-uri",
           description:
-            "A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following reference types at the time of creation: URL | NUMBER | STRING | DATE | EMAIL | ATTACHMENT",
-          args: {
-            name: "map",
-          },
-        },
-        {
-          name: "--channel",
-          description: "The channel for the contact",
+            "The S3 URI of the file to be attached. Only S3 source URIs are supported",
           args: {
             name: "string",
           },
         },
         {
-          name: "--initiation-method",
-          description: "Indicates how the contact was initiated",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--expiry-duration-in-minutes",
+          name: "--associated-resource-arn",
           description:
-            "Number of minutes the contact will be active for before expiring",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--user-info",
-          description: "User details for the contact",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--initiate-as",
-          description: "Initial state of the contact when it's created",
+            "The ARN of the completed voice contact to attach the file to. Only voice contacts with Telephony subtype are supported.  This value must be a valid ARN",
           args: {
             name: "string",
           },
         },
         {
-          name: "--name",
-          description: "The name of a the contact",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--description",
-          description: "A description of the contact",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--segment-attributes",
+          name: "--tags",
           description:
-            'A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to set Segment Contact Expiry as a duration in minutes.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger": 135}}}}',
+            'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
           args: {
             name: "map",
           },
@@ -1219,13 +1719,147 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-contact-flow",
+      name: "create-contact",
       description:
-        "Creates a flow for the specified Amazon Connect instance. You can also create and update flows using the Amazon Connect Flow language",
+        "Only the VOICE, EMAIL, and TASK channels are supported.    For VOICE: The supported initiation method is TRANSFER. The contacts created with this initiation method have a subtype connect:ExternalAudio.    For EMAIL: The supported initiation methods are OUTBOUND, AGENT_REPLY, and FLOW.    For TASK: The supported initiation method is API. Contacts created with this API have a sub-type of connect:ExternalTask.    Creates a new VOICE, EMAIL, or TASK contact.  After a contact is created, you can move it to the desired state by using the InitiateAs parameter. While you can use API to create task contacts that are in the COMPLETED state, you must contact Amazon Web Services Support before using it for bulk import use cases. Bulk import causes your requests to be throttled or fail if your CreateContact limits aren't high enough",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--related-contact-id",
+          description:
+            "The identifier of the contact in this instance of Connect Customer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attributes",
+          description:
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--references",
+          description:
+            "A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following reference types at the time of creation: URL | NUMBER | STRING | DATE | EMAIL | ATTACHMENT",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--channel",
+          description:
+            "The channel for the contact.  The CHAT channel is not supported. The following information is incorrect. We're working to correct it",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--initiation-method",
+          description:
+            "Indicates how the contact was initiated.   CreateContact only supports the following initiation methods. Valid values by channel are:    For VOICE: TRANSFER and the subtype connect:ExternalAudio    For EMAIL: OUTBOUND | AGENT_REPLY | FLOW    For TASK: API    The other channels listed below are incorrect. We're working to correct this information",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expiry-duration-in-minutes",
+          description:
+            "Number of minutes the contact will be active for before expiring",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--user-info",
+          description:
+            "User details for the contact  UserInfo is required when creating an EMAIL contact with OUTBOUND and AGENT_REPLY contact initiation methods",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--initiate-as",
+          description:
+            "Initial state of the contact when it's created. Only TASK channel contacts can be initiated with COMPLETED state",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of a the contact",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "A description of the contact",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--segment-attributes",
+          description:
+            'A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to set Segment Contact Expiry as a duration in minutes.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger": 135}}}}',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--previous-contact-id",
+          description:
+            "The ID of the previous contact when creating a transfer contact. This value can be provided only for external audio contacts. For more information, see Integrate Connect Customer Contact Lens with external voice systems in the Connect Customer Administrator Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-contact-flow",
+      description:
+        "Creates a flow for the specified Connect Customer instance. You can also create and update flows using the Connect Customer Flow language",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -1240,7 +1874,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "The type of the flow. For descriptions of the available types, see Choose a flow type in the Amazon Connect Administrator Guide",
+            "The type of the flow. For descriptions of the available types, see Choose a flow type in the Connect Customer Administrator Guide",
           args: {
             name: "string",
           },
@@ -1255,7 +1889,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content",
           description:
-            "The JSON string that represents the content of the flow. For an example, see Example flow in Amazon Connect Flow language.  Length Constraints: Minimum length of 1. Maximum length of 256000",
+            "The JSON string that represents the content of the flow. For an example, see Example flow in Connect Customer Flow language.  Length Constraints: Minimum length of 1. Maximum length of 256000",
           args: {
             name: "string",
           },
@@ -1298,12 +1932,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-contact-flow-module",
       description:
-        "Creates a flow module for the specified Amazon Connect instance",
+        "Creates a flow module for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1325,7 +1959,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content",
           description:
-            "The JSON string that represents the content of the flow. For an example, see Example flow in Amazon Connect Flow language",
+            "The JSON string that represents the content of the flow. For an example, see Example flow in Connect Customer Flow language",
           args: {
             name: "string",
           },
@@ -1342,6 +1976,135 @@ const completionSpec: Fig.Spec = {
           name: "--client-token",
           description:
             "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--settings",
+          description: "The configuration settings for the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--external-invocation-configuration",
+          description:
+            "The external invocation configuration for the flow module",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-contact-flow-module-alias",
+      description:
+        "Creates a named alias that points to a specific version of a contact flow module",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-version",
+          description: "The version of the flow module",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--alias-name",
+          description: "The name of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-contact-flow-module-version",
+      description:
+        "Creates an immutable snapshot of a contact flow module, preserving its content and settings at a specific point in time for version control and rollback capabilities",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the flow module version",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--flow-module-content-sha256",
+          description:
+            "Indicates the checksum value of the flow module content",
           args: {
             name: "string",
           },
@@ -1368,11 +2131,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-contact-flow-version",
       description:
-        "Publishes a new version of the flow provided. Versions are immutable and monotonically increasing. If a version of the same flow content already exists, no new version is created and instead the existing version number is returned. If the FlowContentSha256 provided is different from the FlowContentSha256 of the $LATEST published flow content, then an error is returned. This API only supports creating versions for flows of type Campaign",
+        "Publishes a new version of the flow provided. Versions are immutable and monotonically increasing. If the FlowContentSha256 provided is different from the FlowContentSha256 of the $LATEST published flow content, then an error is returned. This API only supports creating versions for flows of type Campaign",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -1396,6 +2159,13 @@ const completionSpec: Fig.Spec = {
           description: "Indicates the checksum value of the flow content",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-version",
+          description: "The identifier of the flow version",
+          args: {
+            name: "long",
           },
         },
         {
@@ -1434,9 +2204,170 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-data-table",
+      description:
+        "Creates a new data table with the specified properties. Supports the creation of all table properties except for attributes and values. A table with no attributes and values is a valid state for a table. The number of tables per instance is limited to 100 per instance. Customers can request an increase by using Amazon Web Services Service Quotas",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The unique identifier for the Amazon Connect instance where the data table will be created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name for the data table. Must conform to Connect human readable string specification and have 1-127 characters. Whitespace must be trimmed first. Must not start with the reserved case insensitive values 'connect:' and 'aws:'. Must be unique for the instance using case-insensitive comparison",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "An optional description for the data table. Must conform to Connect human readable string specification and have 0-250 characters. Whitespace must be trimmed first",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--time-zone",
+          description:
+            "The IANA timezone identifier to use when resolving time based dynamic values. Required even if no time slices are specified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--value-lock-level",
+          description:
+            "The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE. NONE is the default if unspecified. This determines how concurrent edits are handled when multiple users attempt to modify values simultaneously",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "The status of the data table. One of PUBLISHED or SAVED. Required parameter that determines the initial state of the table",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Key value pairs for attribute based access control (TBAC or ABAC). Optional tags to apply to the data table for organization and access control purposes",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-data-table-attribute",
+      description:
+        "Adds an attribute to an existing data table. Creating a new primary attribute uses the empty value for the specified value type for all existing records. This should not affect uniqueness of published data tables since the existing primary values will already be unique. Creating attributes does not create any values. System managed tables may not allow customers to create new attributes",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be one of the two available system managed aliases, $SAVED or $LATEST",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name for the attribute. Must conform to Connect human readable string specification and have 1-127 characters. Must not start with the reserved case insensitive values 'connect:' and 'aws:'. Whitespace trimmed before persisting. Must be unique for the data table using case-insensitive comparison",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--value-type",
+          description:
+            "The type of value allowed or the resultant type after the value's expression is evaluated. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, and BOOLEAN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "An optional description for the attribute. Must conform to Connect human readable string specification and have 0-250 characters. Whitespace trimmed before persisting",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--primary",
+          description:
+            "Optional boolean that defaults to false. Determines if the value is used to identify a record in the table. Values for primary attributes must not be expressions",
+        },
+        {
+          name: "--no-primary",
+          description:
+            "Optional boolean that defaults to false. Determines if the value is used to identify a record in the table. Values for primary attributes must not be expressions",
+        },
+        {
+          name: "--validation",
+          description:
+            "Optional validation rules for the attribute. Borrows heavily from JSON Schema - Draft 2020-12. The maximum length of arrays within validations and depth of validations is 5. There are default limits that apply to all types. Customer specified limits in excess of the default limits are not permitted",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-email-address",
       description:
-        "Create new email address in the specified Amazon Connect instance. For more information about email addresses, see Create email addresses in the Amazon Connect Administrator Guide",
+        "Create new email address in the specified Connect Customer instance. For more information about email addresses, see Create email addresses in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--description",
@@ -1448,15 +2379,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
         },
         {
           name: "--email-address",
-          description:
-            "The email address with the instance, in [^\\s@]+@[^\\s@]+\\.[^\\s@]+ format",
+          description: "The email address, including the domain",
           args: {
             name: "string",
           },
@@ -1506,12 +2436,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-evaluation-form",
       description:
-        "Creates an evaluation form in the specified Amazon Connect instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form",
+        "Creates an evaluation form in the specified Connect Customer instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1546,11 +2476,59 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--auto-evaluation-configuration",
+          description: "Configuration information about automated evaluations",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--client-token",
           description:
             "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--as-draft",
+          description:
+            "A boolean flag indicating whether to create evaluation form in draft state",
+        },
+        {
+          name: "--no-as-draft",
+          description:
+            "A boolean flag indicating whether to create evaluation form in draft state",
+        },
+        {
+          name: "--tags",
+          description:
+            'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--review-configuration",
+          description: "Configuration information about evaluation reviews",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--target-configuration",
+          description:
+            "Configuration that specifies the target for the evaluation form",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--language-configuration",
+          description:
+            "Configuration for language settings of the evaluation form",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -1574,13 +2552,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "create-hours-of-operation",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Creates hours of operation",
+      description: "Creates hours of operation",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1615,6 +2592,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--parent-hours-of-operation-configs",
+          description:
+            "Configuration for parent hours of operations. Eg: ResourceArn.  For more information about parent hours of operations, see Link overrides from different hours of operation in the  Administrator Guide",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--tags",
           description:
             'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
@@ -1642,9 +2627,100 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-hours-of-operation-override",
+      description:
+        "Creates an hours of operation override in an Connect Customer hours of operation resource",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--config",
+          description:
+            "Configuration information for the hours of operation override: day, start time, and end time",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--effective-from",
+          description:
+            "The date from when the hours of operation override is effective",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--effective-till",
+          description:
+            "The date until when the hours of operation override is effective",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--recurrence-config",
+          description: "Configuration for a recurring event",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--override-type",
+          description:
+            "Whether the override will be defined as a standard or as a recurring event. For more information about how override types are applied, see Build your list of overrides in the  Administrator Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-instance",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any configurations on features, such as Contact Lens for Amazon Connect.  For more information, see Create an Amazon Connect instance in the Amazon Connect Administrator Guide. Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account",
+        "This API is in preview release for Connect Customer and is subject to change. Initiates an Connect Customer instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any configurations on features, such as Contact Lens for Connect Customer.  For more information, see Create an Connect Customer instance in the Connect Customer Administrator Guide. Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account",
       options: [
         {
           name: "--client-token",
@@ -1656,7 +2732,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identity-management-type",
           description:
-            "The type of identity management for your Amazon Connect users",
+            "The type of identity management for your Connect Customer users",
           args: {
             name: "string",
           },
@@ -1721,12 +2797,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-integration-association",
       description:
-        "Creates an Amazon Web Services resource association with an Amazon Connect instance",
+        "Creates an Amazon Web Services resource association with an Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1741,7 +2817,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--integration-arn",
           description:
-            "The Amazon Resource Name (ARN) of the integration.  When integrating with Amazon Web Services End User Messaging, the Amazon Connect and Amazon Web Services End User Messaging instances must be in the same account",
+            "The Amazon Resource Name (ARN) of the integration.  When integrating with Amazon Web Services End User Messaging, the Connect Customer and Amazon Web Services End User Messaging instances must be in the same account",
           args: {
             name: "string",
           },
@@ -1798,9 +2874,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-participant",
+      name: "create-notification",
       description:
-        "Adds a new participant into an on-going chat contact. For more information, see Customize chat flow experiences by integrating custom participants",
+        "Creates a new notification to be delivered to specified recipients. Notifications can include localized content with links, and an optional expiration time. Recipients can be specified as individual user ARNs or instance ARNs to target all users in an instance",
       options: [
         {
           name: "--instance-id",
@@ -1811,9 +2887,96 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--expires-at",
+          description:
+            "The timestamp when the notification should expire and no longer be displayed to users. If not specified, defaults to one week from creation",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--recipients",
+          description:
+            "A list of Amazon Resource Names (ARNs) identifying the recipients of the notification. Can include user ARNs or instance ARNs to target all users in an instance. Maximum of 200 recipients",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--priority",
+          description:
+            "The priority level of the notification. Valid values are HIGH and LOW. High priority notifications are displayed above low priority notifications",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The localized content of the notification. A map where keys are locale codes and values are the notification text in that locale. Content supports links. Maximum 250 characters per locale",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--predefined-notification-id",
+          description: "The unique identifier for a notification",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-participant",
+      description:
+        "Adds a new participant into an on-going chat contact or webRTC call. For more information, see Customize chat flow experiences by integrating custom participants or Enable multi-user web, in-app, and video calling",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect. Only contacts in the CHAT channel are supported",
+            "The identifier of the contact in this instance of Connect Customer. Supports contacts in the CHAT channel and VOICE (WebRTC) channels. For WebRTC calls, this should be the initial contact ID that was generated when the contact was first created (from the StartWebRTCContact API) in the VOICE channel",
           args: {
             name: "string",
           },
@@ -1829,7 +2992,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--participant-details",
           description:
-            "Information identifying the participant.  The only Valid value for ParticipantRole is CUSTOM_BOT.   DisplayName is Required",
+            "Information identifying the participant.  The only valid value for ParticipantRole is CUSTOM_BOT for chat contact and CUSTOMER for voice contact",
           args: {
             name: "structure",
           },
@@ -1856,12 +3019,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-persistent-contact-association",
       description:
-        "Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see Enable persistent chat in the Amazon Connect Administrator Guide",
+        "Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see Enable persistent chat in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1877,7 +3040,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--rehydration-type",
           description:
-            'The contactId chosen for rehydration depends on the type chosen.    ENTIRE_PAST_SESSION: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the initialContactId of the past ended chat session in the sourceContactId field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat.     FROM_SEGMENT: Rehydrates a chat from the specified past chat contact provided in the sourceContactId field.    The actual contactId used for rehydration is provided in the response of this API. To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID C1. Agent a1 then transfers the chat to Agent a2. This creates another contact ID C2. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID C3. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases:     Use Case 1: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:    Configuration    SourceContactId = "C2"   RehydrationType = "FROM_SEGMENT"      Expected behavior    This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.        Use Case 2: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:    Configuration    SourceContactId = "C1"   RehydrationType = "ENTIRE_PAST_SESSION"      Expected behavior    This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session',
+            'The contactId chosen for rehydration depends on the type chosen.    ENTIRE_PAST_SESSION: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the initialContactId of the past ended chat session in the sourceContactId field. In this type, Connect Customer determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat.     FROM_SEGMENT: Rehydrates a chat from the specified past chat contact provided in the sourceContactId field.    The actual contactId used for rehydration is provided in the response of this API. To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID C1. Agent a1 then transfers the chat to Agent a2. This creates another contact ID C2. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID C3. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases:     Use Case 1: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:    Configuration    SourceContactId = "C2"   RehydrationType = "FROM_SEGMENT"      Expected behavior    This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.        Use Case 2: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:    Configuration    SourceContactId = "C1"   RehydrationType = "ENTIRE_PAST_SESSION"      Expected behavior    This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session',
           args: {
             name: "string",
           },
@@ -1920,12 +3083,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-predefined-attribute",
       description:
-        "Creates a new predefined attribute for the specified Amazon Connect instance. Predefined attributes are attributes in an Amazon Connect instance that can be used to route contacts to an agent or pools of agents within a queue. For more information, see Create predefined attributes for routing contacts to agents",
+        "Creates a new predefined attribute for the specified Connect Customer instance. A predefined attribute is made up of a name and a value. For the predefined attributes per instance quota, see Connect Customer quotas.  Use cases  Following are common uses cases for this API:   Create an attribute for routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to agents.   Create an attribute for business unit name that has a list of predefined business unit names used in your organization. This is a use case where information for a contact varies between transfers or conferences. For more information, see Use contact segment attributes.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -1940,6 +3103,22 @@ const completionSpec: Fig.Spec = {
         {
           name: "--values",
           description: "The values of the predefined attribute",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--purposes",
+          description:
+            "Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--attribute-configuration",
+          description:
+            "Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Connect Customer admin website",
           args: {
             name: "structure",
           },
@@ -1966,12 +3145,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-prompt",
       description:
-        "Creates a prompt. For more information about prompts, such as supported file types and maximum length, see Create prompts in the Amazon Connect Administrator Guide",
+        "Creates a prompt. For more information about prompts, such as supported file types and maximum length, see Create prompts in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2028,7 +3207,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-push-notification-registration",
       description:
-        "Creates registration for a device token and a chat contact to receive real-time push notifications. For more information about push notifications, see Set up push notifications in Amazon Connect for mobile chat in the Amazon Connect Administrator Guide",
+        "Creates registration for a device token and a chat contact to receive real-time push notifications. For more information about push notifications, see Set up push notifications in Connect Customer for mobile chat in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
@@ -2099,12 +3278,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-queue",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Creates a new queue for the specified Amazon Connect instance.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Amazon Connect instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn't contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region",
+        "Creates a new queue for the specified Connect Customer instance.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Connect Customer instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn't contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2162,6 +3341,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--email-addresses-config",
+          description:
+            "Configuration list containing the email addresses to associate with the queue during creation. Each configuration specifies an email address ID that agents can select when handling email contacts in this queue",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--tags",
           description:
             'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
@@ -2191,12 +3378,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-quick-connect",
       description:
-        "Creates a quick connect for the specified Amazon Connect instance",
+        "Creates a quick connect for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2256,7 +3443,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2287,7 +3474,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-configs",
           description:
-            "The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls. The limit of 10 array members applies to the maximum number of RoutingProfileQueueConfig objects that can be passed during a CreateRoutingProfile API request. It is different from the quota of 50 queues per routing profile per instance that is listed in Amazon Connect service quotas",
+            "The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls. The limit of 10 array members applies to the maximum number of RoutingProfileQueueConfig objects that can be passed during a CreateRoutingProfile API request. It is different from the quota of 50 queues per routing profile per instance that is listed in Connect Customer service quotas",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--manual-assignment-queue-configs",
+          description:
+            "The manual assignment queues associated with the routing profile. If no queue is added, agents and supervisors can't pick or assign any contacts from this routing profile. The limit of 10 array members applies to the maximum number of RoutingProfileManualAssignmentQueueConfig objects that can be passed during a CreateRoutingProfile API request. It is different from the quota of 50 queues per routing profile per instance that is listed in Connect Customer service quotas. Note: Use this config for chat, email, and task contacts. It does not support voice contacts",
           args: {
             name: "list",
           },
@@ -2338,12 +3533,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-rule",
       description:
-        "Creates a rule for the specified Amazon Connect instance. Use the Rules Function language to code conditions for the rule",
+        "Creates a rule for the specified Connect Customer instance. Use the Rules Function language to code conditions for the rule",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2413,7 +3608,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-security-profile",
       description:
-        "Creates a security profile. For information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Creates a security profile. For information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--security-profile-name",
@@ -2440,7 +3635,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2456,7 +3651,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-access-control-tags",
           description:
-            "The list of tags that a security profile uses to restrict access to resources in Amazon Connect",
+            "The list of tags that a security profile uses to restrict access to resources in Connect Customer",
           args: {
             name: "map",
           },
@@ -2464,7 +3659,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tag-restricted-resources",
           description:
-            "The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: User | SecurityProfile | Queue | RoutingProfile",
+            "The list of resources that a security profile applies tag restrictions to in Connect Customer. For a list of Connect Customer resources that you can tag, see Add tags to resources in Connect Customer in the Connect Customer Administrator Guide",
           args: {
             name: "list",
           },
@@ -2472,7 +3667,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--applications",
           description:
-            "A list of third-party applications that the security profile will give access to",
+            "A list of third-party applications or MCP Servers that the security profile will give access to",
           args: {
             name: "list",
           },
@@ -2480,7 +3675,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--hierarchy-restricted-resources",
           description:
-            "The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: User",
+            "The list of resources that a security profile applies hierarchy restrictions to in Connect Customer. Following are acceptable ResourceNames: User",
           args: {
             name: "list",
           },
@@ -2488,9 +3683,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-access-control-hierarchy-group-id",
           description:
-            "The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect",
+            "The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--allowed-flow-modules",
+          description:
+            "A list of Flow Modules an AI Agent can invoke as a tool",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--granular-access-control-configuration",
+          description:
+            "The granular access control configuration for the security profile, including data table permissions",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2515,12 +3726,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-task-template",
       description:
-        "Creates a new task template in the specified Amazon Connect instance",
+        "Creates a new task template in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2613,9 +3824,114 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-test-case",
+      description:
+        "Creates a test case with its content and metadata for the specified Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the test",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the test",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The JSON string that represents the content of the test",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entry-point",
+          description: "Defines the starting point for your test",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--initialization-data",
+          description: "Defines the initial custom attributes for your test",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description:
+            "Id of the test case if you want to create it in a replica region using Amazon Connect Global Resiliency",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags used to organize, track, or control access for this resource",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--last-modified-time",
+          description: "The time at which the resource was last modified",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--last-modified-region",
+          description: "The region in which the resource was last modified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-traffic-distribution-group",
       description:
-        "Creates a traffic distribution group given an Amazon Connect instance that has been replicated.  The SignInConfig distribution is available only on a default TrafficDistributionGroup (see the IsDefault parameter in the TrafficDistributionGroup data type). If you call UpdateTrafficDistribution with a modified SignInConfig and a non-default TrafficDistributionGroup, an InvalidRequestException is returned.  For more information about creating traffic distribution groups, see Set up traffic distribution groups in the Amazon Connect Administrator Guide",
+        "Creates a traffic distribution group given an Connect Customer instance that has been replicated.  The SignInConfig distribution is available only on a default TrafficDistributionGroup (see the IsDefault parameter in the TrafficDistributionGroup data type). If you call UpdateTrafficDistribution with a modified SignInConfig and a non-default TrafficDistributionGroup, an InvalidRequestException is returned.  For more information about creating traffic distribution groups, see Set up traffic distribution groups in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--name",
@@ -2634,7 +3950,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance that has been replicated. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance that has been replicated. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -2681,7 +3997,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2731,7 +4047,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-user",
       description:
-        "Creates a user account for the specified Amazon Connect instance.  Certain UserIdentityInfo parameters are required in some situations. For example, Email is required if you are using SAML for identity management. FirstName and LastName are required if you are using Amazon Connect or SAML for identity management.  For information about how to create users using the Amazon Connect admin website, see Add Users in the Amazon Connect Administrator Guide",
+        "Creates a user account for the specified Connect Customer instance.  Certain UserIdentityInfo parameters are required in some situations. For example, Email, FirstName and LastName are required if you are using Connect Customer or SAML for identity management.   Fields in PhoneConfig cannot be set simultaneously with their corresponding channel-specific configuration parameters. Specifically:    PhoneConfig.AutoAccept conflicts with AutoAcceptConfigs     PhoneConfig.AfterContactWorkTimeLimit conflicts with AfterContactWorkConfigs     PhoneConfig.PhoneType and PhoneConfig.PhoneNumber conflict with PhoneNumberConfigs     PhoneConfig.PersistentConnection conflicts with PersistentConnectionConfigs    We recommend using channel-specific parameters such as AutoAcceptConfigs, AfterContactWorkConfigs, PhoneNumberConfigs, PersistentConnectionConfigs, and VoiceEnhancementConfigs for per-channel configuration.  For information about how to create users using the Connect Customer admin website, see Add Users in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--username",
@@ -2744,7 +4060,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--password",
           description:
-            "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password",
+            "The password for the user account. A password is required if you are using Connect Customer for identity management. Otherwise, it is an error to include a password",
           args: {
             name: "string",
           },
@@ -2758,7 +4074,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--phone-config",
-          description: "The phone settings for the user",
+          description:
+            "The phone settings for the user. This parameter is optional. If not provided, the user can be configured using channel-specific parameters such as AutoAcceptConfigs, AfterContactWorkConfigs, PhoneNumberConfigs, PersistentConnectionConfigs, and VoiceEnhancementConfigs",
           args: {
             name: "structure",
           },
@@ -2766,7 +4083,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--directory-user-id",
           description:
-            "The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned",
+            "The identifier of the user account in the directory used for identity management. If Connect Customer cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Connect Customer cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Connect Customer when Connect Customer cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned",
           args: {
             name: "string",
           },
@@ -2795,9 +4112,49 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--auto-accept-configs",
+          description:
+            "The list of auto-accept configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--after-contact-work-configs",
+          description:
+            "The list of after contact work (ACW) timeout configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--phone-number-configs",
+          description:
+            "The list of phone number configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--persistent-connection-configs",
+          description:
+            "The list of persistent connection configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--voice-enhancement-configs",
+          description:
+            "The list of voice enhancement configuration settings for each channel",
+          args: {
+            name: "list",
           },
         },
         {
@@ -2850,7 +4207,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -2890,7 +4247,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -2968,7 +4325,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -3018,7 +4375,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-vocabulary",
       description:
-        "Creates a custom vocabulary associated with your Amazon Connect instance. You can set a custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default vocabulary in post-call and real-time contact analysis sessions for that language",
+        "Creates a custom vocabulary associated with your Connect Customer instance. You can set a custom vocabulary to be your default vocabulary for a given language. Contact Lens for Connect Customer uses the default vocabulary in post-call and real-time contact analysis sessions for that language",
       options: [
         {
           name: "--client-token",
@@ -3031,7 +4388,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3087,14 +4444,155 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "deactivate-evaluation-form",
+      name: "create-workspace",
       description:
-        "Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form",
+        "Creates a workspace that defines the user experience by mapping views to pages. Workspaces can be assigned to users or routing profiles",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The name of the workspace. Must be unique within the instance and can contain 1-127 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "The description of the workspace. Maximum length is 250 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--theme",
+          description:
+            "The theme configuration for the workspace, including colors and styling",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--title",
+          description: "The title displayed for the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-workspace-page",
+      description:
+        "Associates a view with a page in a workspace, defining what users see when they navigate to that page",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the view to associate with the page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page",
+          description:
+            "The page identifier. Valid system pages include HOME and AGENT_EXPERIENCE. Custom pages cannot use the aws: or connect: prefixes",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--slug",
+          description: "The URL-friendly identifier for the page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--input-data",
+          description:
+            "A JSON string containing input parameters for the view, validated against the view's input schema",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "deactivate-evaluation-form",
+      description:
+        "Deactivates an evaluation form in the specified Connect Customer instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3182,12 +4680,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-contact-evaluation",
       description:
-        "Deletes a contact evaluation in the specified Amazon Connect instance",
+        "Deletes a contact evaluation in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3220,12 +4718,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-contact-flow",
-      description: "Deletes a flow for the specified Amazon Connect instance",
+      description: "Deletes a flow for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3263,7 +4761,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3295,14 +4793,234 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-email-address",
+      name: "delete-contact-flow-module-alias",
       description:
-        "Deletes email address from the specified Amazon Connect instance",
+        "Removes an alias reference, breaking the named connection to the underlying module version without affecting the version itself",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--alias-id",
+          description: "The identifier of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-contact-flow-module-version",
+      description: "Removes a specific version of a contact flow module",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-version",
+          description: "The version of the flow module to delete",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-contact-flow-version",
+      description:
+        "Deletes the particular version specified in flow version identifier",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-id",
+          description: "The identifier of the flow",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-version",
+          description: "The identifier of the flow version",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-data-table",
+      description:
+        "Deletes a data table and all associated attributes, versions, audits, and values. Does not update any references to the data table, even from other data tables. This includes dynamic values and conditional validations. System managed data tables are not deletable by customers. API users may delete the table at any time. When deletion is requested from the admin website, a warning is shown alerting the user of the most recent time the table and its values were accessed",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table to delete. Must also accept the table ARN. Fails with an error if the version is provided and is not $LATEST",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-data-table-attribute",
+      description: "Deletes an attribute and all its values from a data table",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description: "The unique identifier for the data table",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attribute-name",
+          description: "The name of the attribute to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-email-address",
+      description:
+        "Deletes email address from the specified Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3336,12 +5054,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-evaluation-form",
       description:
-        "Deletes an evaluation form in the specified Amazon Connect instance.    If the version property is provided, only the specified version of the evaluation form is deleted.   If no version is provided, then the full form (all versions) is deleted",
+        "Deletes an evaluation form in the specified Connect Customer instance.    If the version property is provided, only the specified version of the evaluation form is deleted.   If no version is provided, then the full form (all versions) is deleted",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3381,13 +5099,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-hours-of-operation",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Deletes an hours of operation",
+      description: "Deletes an hours of operation",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3419,14 +5136,67 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-hours-of-operation-override",
+      description:
+        "Deletes an hours of operation override in an Connect Customer hours of operation resource",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-override-id",
+          description: "The identifier for the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-instance",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Deletes the Amazon Connect instance. For more information, see Delete your Amazon Connect instance in the Amazon Connect Administrator Guide. Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account",
+        "This API is in preview release for Connect Customer and is subject to change. Deletes the Connect Customer instance. For more information, see Delete your Connect Customer instance in the Connect Customer Administrator Guide. Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -3453,12 +5223,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-integration-association",
       description:
-        "Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it",
+        "Deletes an Amazon Web Services resource association from an Connect Customer instance. The association must not have any use cases associated with it",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3490,14 +5260,53 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "delete-predefined-attribute",
+      name: "delete-notification",
       description:
-        "Deletes a predefined attribute from the specified Amazon Connect instance",
+        "Deletes a notification. Once deleted, the notification is no longer visible to all users and cannot be managed through the Admin Website or APIs",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--notification-id",
+          description: "The unique identifier for the notification to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-predefined-attribute",
+      description:
+        "Deletes a predefined attribute from the specified Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3535,7 +5344,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3588,7 +5397,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact within the Amazon Connect instance",
+            "The identifier of the contact within the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -3614,13 +5423,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-queue",
-      description:
-        "Deletes a queue. It isn't possible to delete a queue by using the Amazon Connect admin website",
+      description: "Deletes a queue",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3654,12 +5462,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-quick-connect",
       description:
-        "Deletes a quick connect.   After calling DeleteUser, it's important to call DeleteQuickConnect to delete any records related to the deleted users. This will help you:   Avoid dangling resources that impact your service quotas.   Remove deleted users so they don't appear to agents as transfer options.   Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using Amazon Connect Global Resiliency",
+        "Deletes a quick connect.   After calling DeleteUser, it's important to call DeleteQuickConnect to delete any records related to the deleted users. This will help you:   Avoid dangling resources that impact your service quotas.   Remove deleted users so they don't appear to agents as transfer options.   Avoid the disruption of other Connect Customer processes, such as instance replication and syncing if you're using Connect Customer Global Resiliency",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3697,7 +5505,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3730,12 +5538,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "delete-rule",
-      description: "Deletes a rule for the specified Amazon Connect instance",
+      description: "Deletes a rule for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3773,7 +5581,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3811,7 +5619,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3843,9 +5651,47 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-test-case",
+      description:
+        "Deletes the test case that has already been created for the specified Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-traffic-distribution-group",
       description:
-        "Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created. For more information about deleting traffic distribution groups, see Delete traffic distribution groups in the Amazon Connect Administrator Guide",
+        "Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created. For more information about deleting traffic distribution groups, see Delete traffic distribution groups in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--traffic-distribution-group-id",
@@ -3881,7 +5727,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3922,12 +5768,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-user",
       description:
-        "Deletes a user account from the specified Amazon Connect instance. For information about what happens to a user's data when their account is deleted, see Delete Users from Your Amazon Connect Instance in the Amazon Connect Administrator Guide.  After calling DeleteUser, call DeleteQuickConnect to delete any records related to the deleted users. This will help you:   Avoid dangling resources that impact your service quotas.   Remove deleted users so they don't appear to agents as transfer options.   Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using Amazon Connect Global Resiliency",
+        "Deletes a user account from the specified Connect Customer instance. For information about what happens to a user's data when their account is deleted, see Delete Users from Your Connect Customer Instance in the Connect Customer Administrator Guide.  After calling DeleteUser, call DeleteQuickConnect to delete any records related to the deleted users. This will help you:   Avoid dangling resources that impact your service quotas.   Remove deleted users so they don't appear to agents as transfer options.   Avoid the disruption of other Connect Customer processes, such as instance replication and syncing if you're using Connect Customer Global Resiliency",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -3973,7 +5819,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4005,7 +5851,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -4045,7 +5891,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -4091,7 +5937,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4123,14 +5969,144 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "describe-agent-status",
+      name: "delete-workspace",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Describes an agent status",
+        "Deletes a workspace and removes all associated view and resource assignments",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-workspace-media",
+      description: "Deletes a media asset (such as a logo) from a workspace",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--media-type",
+          description:
+            "The type of media to delete. Valid values are: IMAGE_LOGO_FAVICON and IMAGE_LOGO_HORIZONTAL",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-workspace-page",
+      description:
+        "Removes the association between a view and a page in a workspace. The page will display the default view after deletion",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page",
+          description: "The page identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-agent-status",
+      description: "Describes an agent status",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4162,9 +6138,49 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-attached-files-configuration",
+      description:
+        "Describes the attached files configuration for the specified Connect Customer instance and attachment scope. If a custom configuration exists for the specified attachment scope, the custom configuration is returned. If no custom configuration exists, the default configuration values for that attachment scope are returned",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-scope",
+          description:
+            "The scope of the attachment. Valid values are EMAIL, CHAT, CASE, and TASK",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-authentication-profile",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. To request access to this API, contact Amazon Web Services Support. Describes the target authentication profile",
+        "This API is in preview release for Connect Customer and is subject to change. To request access to this API, contact Amazon Web Services Support. Describes the target authentication profile",
       options: [
         {
           name: "--authentication-profile-id",
@@ -4176,7 +6192,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4203,12 +6219,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-contact",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Describes the specified contact.   Contact information remains available in Amazon Connect for 24 months from the InitiationTimestamp, and then it is deleted. Only contact information that is available in Amazon Connect is returned by this API",
+        "This API is in preview release for Connect Customer and is subject to change. Describes the specified contact.   Use cases  Following are common uses cases for this API:   Retrieve contact information such as the caller's phone number and the specific number the caller dialed to integrate into custom monitoring or custom agent experience solutions.   Detect when a customer chat session disconnects due to a network issue on the agent's end. Use the DisconnectReason field in the ContactTraceRecord to detect this event and then re-queue the chat for followup.   Identify after contact work (ACW) duration and call recordings information when a COMPLETED event is received by using the contact event stream.     Important things to know     SystemEndpoint is not populated for contacts with initiation method of MONITOR, QUEUE_TRANSFER, or CALLBACK   Contact information remains available in Connect Customer for 24 months from the InitiationTimestamp, and then it is deleted. Only contact information that is available in Connect Customer is returned by this API.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4242,12 +6258,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-contact-evaluation",
       description:
-        "Describes a contact evaluation in the specified Amazon Connect instance",
+        "Describes a contact evaluation in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4281,11 +6297,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-contact-flow",
       description:
-        "Describes the specified flow. You can also create and update flows using the Amazon Connect Flow language. Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published. In the response, Status indicates the flow status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. SAVED does not initiate validation of the content. SAVED | PUBLISHED",
+        "Describes the specified flow. You can also create and update flows using the Connect Customer Flow language. Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published. Use arn:aws:.../contact-flow/{id}:{version} to retrieve the content of a specific flow version. In the response, Status indicates the flow status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. SAVED does not initiate validation of the content. SAVED | PUBLISHED",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -4324,7 +6340,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4356,14 +6372,146 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "describe-email-address",
+      name: "describe-contact-flow-module-alias",
       description:
-        "Describe email address form the specified Amazon Connect instance",
+        "Retrieves detailed information about a specific alias, including which version it currently points to and its metadata",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--alias-id",
+          description: "The identifier of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-data-table",
+      description:
+        'Returns all properties for a data table except for attributes and values. All properties from CreateDataTable are returned as well as properties for region replication, versioning, and system tables. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations',
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-data-table-attribute",
+      description:
+        'Returns detailed information for a specific data table attribute including its configuration, validation rules, and metadata. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations',
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attribute-name",
+          description:
+            "The name of the attribute to retrieve detailed information for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-email-address",
+      description:
+        "Describe email address form the specified Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4397,12 +6545,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-evaluation-form",
       description:
-        "Describes an evaluation form in the specified Amazon Connect instance. If the version property is not provided, the latest version of the evaluation form is described",
+        "Describes an evaluation form in the specified Connect Customer instance. If the version property is not provided, the latest version of the evaluation form is described",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4442,13 +6590,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-hours-of-operation",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Describes the hours of operation",
+      description: "Describes the hours of operation",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4480,14 +6627,58 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-hours-of-operation-override",
+      description: "Describes the hours of operation override",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-override-id",
+          description: "The identifier for the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-instance",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status, if applicable.  If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked",
+        "This API is in preview release for Connect Customer and is subject to change. Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status, if applicable.  If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4514,12 +6705,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-instance-attribute",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Describes the specified instance attribute",
+        "This API is in preview release for Connect Customer and is subject to change. Describes the specified instance attribute",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4553,12 +6744,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-instance-storage-config",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Retrieves the current storage configurations for the specified resource type, association ID, and instance ID",
+        "This API is in preview release for Connect Customer and is subject to change. Retrieves the current storage configurations for the specified resource type, association ID, and instance ID",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4598,9 +6789,48 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-notification",
+      description:
+        "Retrieves detailed information about a specific notification, including its content, priority, recipients, and metadata",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--notification-id",
+          description: "The unique identifier for the notification",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-phone-number",
       description:
-        "Gets details and status of a phone number that\u2019s claimed to your Amazon Connect instance or traffic distribution group.  If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you receive a ResourceNotFoundException",
+        "Gets details and status of a phone number that’s claimed to your Connect Customer instance or traffic distribution group.  If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you receive a ResourceNotFoundException",
       options: [
         {
           name: "--phone-number-id",
@@ -4631,12 +6861,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-predefined-attribute",
       description:
-        "Describes a predefined attribute for the specified Amazon Connect instance. Predefined attributes are attributes in an Amazon Connect instance that can be used to route contacts to an agent or pools of agents within a queue. For more information, see Create predefined attributes for routing contacts to agents",
+        "Describes a predefined attribute for the specified Connect Customer instance. A predefined attribute is made up of a name and a value. You can use predefined attributes for:   Routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to agents.   Contact information that varies between transfers or conferences, such as the name of the business unit handling the contact. For more information, see Use contact segment attributes.   For the predefined attributes per instance quota, see Connect Customer quotas.  Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4674,7 +6904,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4707,13 +6937,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-queue",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Describes the specified queue",
+      description: "Describes the specified queue",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4751,7 +6980,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4784,12 +7013,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-routing-profile",
-      description: "Describes the specified routing profile",
+      description:
+        "Describes the specified routing profile.   DescribeRoutingProfile does not populate AssociatedQueueIds in its response. The example Response Syntax shown on this page is incorrect; we are working to update it. SearchRoutingProfiles does include AssociatedQueueIds",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4822,12 +7052,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-rule",
-      description: "Describes a rule for the specified Amazon Connect instance",
+      description:
+        "Describes a rule for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4861,7 +7092,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-security-profile",
       description:
-        "Gets basic information about the security profile. For information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Gets basic information about the security profile. For information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--security-profile-id",
@@ -4873,7 +7104,53 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-test-case",
+      description:
+        "Describes the specified test case and allows you to get the content and metadata of the test case for the specified Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "The status of the test case version to retrieve. If not specified, returns the published version if available, otherwise returns the saved version",
           args: {
             name: "string",
           },
@@ -4931,7 +7208,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-user",
       description:
-        "Describes the specified user. You can find the instance ID in the Amazon Connect console (it\u2019s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output",
+        "Describes the specified user. You can find the instance ID in the Connect Customer console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output",
       options: [
         {
           name: "--user-id",
@@ -4943,7 +7220,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -4981,7 +7258,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5008,12 +7285,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-user-hierarchy-structure",
       description:
-        "Describes the hierarchy structure of the specified Amazon Connect instance",
+        "Describes the hierarchy structure of the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5040,12 +7317,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-view",
       description:
-        "Retrieves the view for the specified Amazon Connect instance and view identifier. The view identifier can be supplied as a ViewId or ARN.  $SAVED needs to be supplied if a view is unpublished. The view identifier can contain an optional qualifier, for example, <view-id>:$SAVED, which is either an actual version number or an Amazon Connect managed qualifier $SAVED | $LATEST. If it is not supplied, then $LATEST is assumed for customer managed views and an error is returned if there is no published content available. Version 1 is assumed for Amazon Web Services managed views",
+        "Retrieves the view for the specified Connect Customer instance and view identifier. The view identifier can be supplied as a ViewId or ARN.  $SAVED needs to be supplied if a view is unpublished. The view identifier can contain an optional qualifier, for example, <view-id>:$SAVED, which is either an actual version number or an Connect Customer managed qualifier $SAVED | $LATEST. If it is not supplied, then $LATEST is assumed for customer managed views and an error is returned if there is no published content available. Version 1 is assumed for Amazon Web Services managed views",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -5084,7 +7361,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5116,14 +7393,53 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "disassociate-analytics-data-set",
+      name: "describe-workspace",
       description:
-        "Removes the dataset ID associated with a given Amazon Connect instance",
+        "Retrieves details about a workspace, including its configuration and metadata",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-analytics-data-set",
+      description:
+        "Removes the dataset ID associated with a given Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5138,7 +7454,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-account-id",
           description:
-            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance",
+            "The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -5165,12 +7481,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-approved-origin",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Revokes access to integrated applications from Amazon Connect",
+        "This API is in preview release for Connect Customer and is subject to change. Revokes access to integrated applications from Connect Customer",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5178,6 +7494,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--origin",
           description: "The domain URL of the integrated application",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -5204,12 +7528,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-bot",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot",
+        "This API is in preview release for Connect Customer and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5227,6 +7551,69 @@ const completionSpec: Fig.Spec = {
             "The Amazon Lex V2 bot to disassociate from the instance",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-email-address-alias",
+      description:
+        "Removes the alias association between two email addresses in an Connect Customer instance. After disassociation, emails sent to the former alias email address are no longer forwarded to the primary email address. Both email addresses continue to exist independently and can receive emails directly.  Use cases  Following are common uses cases for this API:    Department separation: Remove alias relationships when splitting a consolidated support queue back into separate department-specific queues.    Email address retirement: Cleanly remove forwarding relationships before decommissioning old email addresses.    Organizational restructuring: Reconfigure email routing when business processes change and aliases are no longer needed.    Important things to know    Concurrent operations: This API uses distributed locking, so concurrent operations on the same email addresses may be temporarily blocked.   Emails sent to the former alias address are still delivered directly to that address if it exists.   You do not need to delete the email addresses after disassociation. Both addresses remain active independently.   After a successful disassociation, you can immediately create a new alias relationship with the same addresses.   200 status means alias was successfully disassociated.    DisassociateEmailAddressAlias does not return the following information:   Details in the response about the email that was disassociated. The response returns an empty body.   The timestamp of when the disassociation occurred.    Endpoints: See Connect Customer endpoints and quotas.  Related operations     AssociateEmailAddressAlias: Associates an email address alias with an existing email address in an Connect Customer instance.    DescribeEmailAddress: View current alias configurations for an email address.    SearchEmailAddresses: Find email addresses and their alias relationships across an instance.    CreateEmailAddress: Create new email addresses that can participate in alias relationships.    DeleteEmailAddress: Remove email addresses (automatically removes any alias relationships).    UpdateEmailAddressMetadata: Modify email address properties (does not affect alias relationships)",
+      options: [
+        {
+          name: "--email-address-id",
+          description: "The identifier of the email address",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--alias-configuration",
+          description:
+            "Configuration object that specifies which alias relationship to remove. The alias association must currently exist between the primary email address and the specified alias email address",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5255,7 +7642,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5295,14 +7682,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "disassociate-instance-storage-config",
+      name: "disassociate-hours-of-operations",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Removes the storage type configurations for the specified resource type and association ID",
+        "Disassociates a set of hours of operations with another hours of operation. Refer to Administrator Guide  here  for more information on inheriting overrides from parent hours of operation(s)",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier of the child hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--parent-hours-of-operation-ids",
+          description:
+            "The Amazon Resource Names (ARNs) of the parent hours of operation resources to disassociate with the child hours of operation resource",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-instance-storage-config",
+      description:
+        "This API is in preview release for Connect Customer and is subject to change. Removes the storage type configurations for the specified resource type and association ID",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5318,6 +7752,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-type",
           description: "A valid resource type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -5344,12 +7786,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-lambda-function",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Remove the Lambda function from the dropdown options available in the relevant flow blocks",
+        "This API is in preview release for Connect Customer and is subject to change. Remove the Lambda function from the dropdown options available in the relevant flow blocks",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.",
           args: {
             name: "string",
           },
@@ -5358,6 +7800,14 @@ const completionSpec: Fig.Spec = {
           name: "--function-arn",
           description:
             "The Amazon Resource Name (ARN) of the Lambda function being disassociated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -5384,12 +7834,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-lex-bot",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex bot",
+        "This API is in preview release for Connect Customer and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex bot",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5406,6 +7856,14 @@ const completionSpec: Fig.Spec = {
           name: "--lex-region",
           description:
             "The Amazon Web Services Region in which the Amazon Lex bot has been created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -5432,7 +7890,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-phone-number-contact-flow",
       description:
-        "Removes the flow association from a phone number claimed to your Amazon Connect instance.  If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException",
+        "Removes the flow association from a phone number claimed to your Connect Customer instance.  If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the PhoneNumberId URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException",
       options: [
         {
           name: "--phone-number-id",
@@ -5444,7 +7902,62 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-queue-email-addresses",
+      description:
+        'Removes the association between a set of email addresses and a queue. After disassociation, agents will no longer be able to select these email addresses as "From" addresses when replying to inbound email contacts or initiating outbound email contacts in this queue.  Important things to know    Agents will no longer see these email addresses in their "From" address selection options for this queue.   The email addresses themselves are not deleted from the instance, only their availability for agent selection in this queue is removed.   Changes take effect immediately and will affect the agent experience in the Contact Control Panel (CCP)',
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description: "The identifier for the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--email-addresses-id",
+          description:
+            "List of email address identifiers to disassociate from the queue. These are the unique identifiers of email addresses that should no longer be routed to this queue",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -5470,13 +7983,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "disassociate-queue-quick-connects",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Disassociates a set of quick connects from a queue",
+      description: "Disassociates a set of quick connects from a queue",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5516,12 +8028,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "disassociate-routing-profile-queues",
-      description: "Disassociates a set of queues from a routing profile",
+      description:
+        "Disassociates a set of queues from a routing profile. Up to 10 queue references can be disassociated in a single API call. More than 10 queue references results in a single call results in an InvalidParameterException",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5536,6 +8049,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-references",
           description: "The queues to disassociate from this routing profile",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--manual-assignment-queue-references",
+          description:
+            "The manual assignment queues to disassociate with this routing profile",
           args: {
             name: "list",
           },
@@ -5562,7 +8083,55 @@ const completionSpec: Fig.Spec = {
     {
       name: "disassociate-security-key",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Deletes the specified security key",
+        "This API is in preview release for Connect Customer and is subject to change. Deletes the specified security key",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--association-id",
+          description:
+            "The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "disassociate-security-profiles",
+      description:
+        "Disassociates a security profile attached to a Q in Connect AI Agent Entity in an Amazon Connect instance",
       options: [
         {
           name: "--instance-id",
@@ -5573,9 +8142,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--association-id",
-          description:
-            "The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID",
+          name: "--security-profiles",
+          description: "List of Security Profile Object",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--entity-type",
+          description: "Only supported type is AI_AGENT",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-arn",
+          description: "ARN of a Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -5623,7 +8205,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5654,7 +8236,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5693,9 +8275,56 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "disassociate-workspace",
+      description:
+        "Removes the association between a workspace and one or more users or routing profiles",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arns",
+          description:
+            "The Amazon Resource Names (ARNs) of the resources to disassociate from the workspace",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "dismiss-user-contact",
       description:
-        "Dismisses contacts from an agent\u2019s CCP and returns the agent to an available state, which allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a MISSED, ERROR, ENDED, or REJECTED state in the Agent Event Stream",
+        "Dismisses contacts from an agent’s CCP and returns the agent to an available state, which allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a MISSED, ERROR, ENDED, or REJECTED state in the Agent Event Stream",
       options: [
         {
           name: "--user-id",
@@ -5707,7 +8336,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -5739,13 +8368,84 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "evaluate-data-table-values",
+      description:
+        "Evaluates values at the time of the request and returns them. It considers the request's timezone or the table's timezone, in that order, when accessing time based tables. When a value is accessed, the accessor's identity and the time of access are saved alongside the value to help identify values that are actively in use. The term \"Batch\" is not included in the operation name since it does not meet all the criteria for a batch operation as specified in Batch Operations: Amazon Web Services API Standards",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--values",
+          description:
+            "A list of value evaluation sets specifying which primary values and attributes to evaluate",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--time-zone",
+          description:
+            "Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table time zone if not provided",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "Specify the pagination token from a previous request to retrieve the next page of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of data table values to return in one page of results",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-attached-file",
       description:
         "Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the attached file. It will only return a downloadURL if the status of the attached file is APPROVED",
       options: [
         {
           name: "--instance-id",
-          description: "The unique identifier of the Amazon Connect instance",
+          description: "The unique identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -5798,7 +8498,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -5830,14 +8530,62 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-current-metric-data",
+      name: "get-contact-metrics",
       description:
-        "Gets the real-time metric data from the specified Amazon Connect instance. For a description of each metric, see Real-time Metrics Definitions in the Amazon Connect Administrator Guide",
+        "Retrieves contact metric data for a specified contact.  Use cases  Following are common use cases for position in queue and estimated wait time:   Customer-Facing Wait Time Announcements - Display or announce the estimated wait time and position in queue to customers before or during their queue experience.    Callback Offerings - Offer customers a callback option when the estimated wait time or position in queue exceeds a defined threshold.    Queue Routing Decisions - Route incoming contacts to less congested queues by comparing estimated wait time and position in queue across multiple queues.    Self-Service Deflection - Redirect customers to self-service options like chatbots or FAQs when estimated wait time is high or position in queue is unfavorable.     Important things to know    Metrics are only available while the contact is actively in queue.   For more information, see the Position in queue metric in the Connect Customer Administrator Guide.     Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description:
+            "The identifier of the contact in this instance of Connect Customer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--metrics",
+          description:
+            "A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is connected to an agent)",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-current-metric-data",
+      description:
+        "Gets the real-time metric data from the specified Connect Customer instance. For a description of each metric, see Metrics definitions in the Connect Customer Administrator Guide.  When you make a successful API request, you can expect the following metric values in the response:    Metric value is null: The calculation cannot be performed due to divide by zero or insufficient data    Metric value is a number (including 0) of defined type: The number provided is the calculation result    MetricResult list is empty: The request cannot find any data in the system   The following guidelines can help you work with the API:   Each dimension in the metric response must contain a value   Each item in MetricResult must include all requested metrics   If the response is slow due to large result sets, try these approaches:   Add filters to reduce the amount of data returned",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5845,7 +8593,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filters",
           description:
-            "The filters to apply to returned metrics. You can filter up to the following limits:   Queues: 100   Routing profiles: 100   Channels: 3 (VOICE, CHAT, and TASK channels are supported.)   RoutingStepExpressions: 50   Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. When using the RoutingStepExpression filter, you need to pass exactly one QueueId. The filter is also case sensitive so when using the RoutingStepExpression filter, grouping by ROUTING_STEP_EXPRESSION is required. Currently tagging is only supported on the resources that are passed in the filter",
+            "The filters to apply to returned metrics. You can filter up to the following limits:   Queues: 100   Routing profiles: 100   Channels: 3 (VOICE, CHAT, and TASK channels are supported.)   RoutingStepExpressions: 50   AgentStatuses: 50   Subtypes: 10   ValidationTestTypes: 10   Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. When using AgentStatuses as filter make sure Queues is added as primary filter. When using Subtypes as filter make sure Queues is added as primary filter. When using ValidationTestTypes as filter make sure Queues is added as primary filter. When using the RoutingStepExpression filter, you need to pass exactly one QueueId. The filter is also case sensitive so when using the RoutingStepExpression filter, grouping by ROUTING_STEP_EXPRESSION is required. Currently tagging is only supported on the resources that are passed in the filter",
           args: {
             name: "structure",
           },
@@ -5853,7 +8601,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--groupings",
           description:
-            "The grouping applied to the metrics returned. For example, when grouped by QUEUE, the metrics returned apply to each queue rather than aggregated for all queues.    If you group by CHANNEL, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.   If you group by ROUTING_PROFILE, you must include either a queue or routing profile filter. In addition, a routing profile filter is required for metrics CONTACTS_SCHEDULED, CONTACTS_IN_QUEUE, and  OLDEST_CONTACT_AGE.   If no Grouping is included in the request, a summary of metrics is returned.   When using the RoutingStepExpression filter, group by ROUTING_STEP_EXPRESSION is required",
+            "Defines the level of aggregation for metrics data by a dimension(s). Its similar to sorting items into buckets based on a common characteristic, then counting or calculating something for each bucket. For example, when grouped by QUEUE, the metrics returned apply to each queue rather than aggregated for all queues.  The grouping list is an ordered list, with the first item in the list defined as the primary grouping. If no grouping is included in the request, the aggregation happens at the instance-level.   If you group by CHANNEL, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.   If you group by AGENT_STATUS, you must include the QUEUE as the primary grouping and use queue filter. When you group by AGENT_STATUS, the only metric available is the AGENTS_ONLINE metric.   If you group by SUBTYPE or VALIDATION_TEST_TYPE as secondary grouping then you must include QUEUE as primary grouping and use Queue as filter   If you group by ROUTING_PROFILE, you must include either a queue or routing profile filter. In addition, a routing profile filter is required for metrics CONTACTS_SCHEDULED, CONTACTS_IN_QUEUE, and  OLDEST_CONTACT_AGE.   When using the RoutingStepExpression filter, group by ROUTING_STEP_EXPRESSION is required",
           args: {
             name: "list",
           },
@@ -5861,7 +8609,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--current-metrics",
           description:
-            'The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see Real-time Metrics Definitions in the Amazon Connect Administrator Guide.  AGENTS_AFTER_CONTACT_WORK  Unit: COUNT Name in real-time metrics report: ACW   AGENTS_AVAILABLE  Unit: COUNT Name in real-time metrics report: Available   AGENTS_ERROR  Unit: COUNT Name in real-time metrics report: Error   AGENTS_NON_PRODUCTIVE  Unit: COUNT Name in real-time metrics report: NPT (Non-Productive Time)   AGENTS_ON_CALL  Unit: COUNT Name in real-time metrics report: On contact   AGENTS_ON_CONTACT  Unit: COUNT Name in real-time metrics report: On contact   AGENTS_ONLINE  Unit: COUNT Name in real-time metrics report: Online   AGENTS_STAFFED  Unit: COUNT Name in real-time metrics report: Staffed   CONTACTS_IN_QUEUE  Unit: COUNT Name in real-time metrics report: In queue   CONTACTS_SCHEDULED  Unit: COUNT Name in real-time metrics report: Scheduled   OLDEST_CONTACT_AGE  Unit: SECONDS When you use groupings, Unit says SECONDS and the Value is returned in SECONDS.  When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:  { "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0 } The actual OLDEST_CONTACT_AGE is 24 seconds. When the filter RoutingStepExpression is used, this metric is still calculated from enqueue time. For example, if a contact that has been queued under <Expression 1> for 10 seconds has expired and <Expression 2> becomes active, then OLDEST_CONTACT_AGE for this queue will be counted starting from 10, not 0. Name in real-time metrics report: Oldest   SLOTS_ACTIVE  Unit: COUNT Name in real-time metrics report: Active   SLOTS_AVAILABLE  Unit: COUNT Name in real-time metrics report: Availability',
+            'The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a description of all the metrics, see Metrics definitions in the Connect Customer Administrator Guide.   MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.   AGENTS_AFTER_CONTACT_WORK  Unit: COUNT Name in real-time metrics report: ACW   AGENTS_AVAILABLE  Unit: COUNT Name in real-time metrics report: Available   AGENTS_ERROR  Unit: COUNT Name in real-time metrics report: Error   AGENTS_NON_PRODUCTIVE  Unit: COUNT Name in real-time metrics report: NPT (Non-Productive Time)   AGENTS_ON_CALL  Unit: COUNT Name in real-time metrics report: On contact   AGENTS_ON_CONTACT  Unit: COUNT Name in real-time metrics report: On contact   AGENTS_ONLINE  Unit: COUNT Name in real-time metrics report: Online   AGENTS_STAFFED  Unit: COUNT Name in real-time metrics report: Staffed   CONTACTS_IN_QUEUE  Unit: COUNT Name in real-time metrics report: In queue   CONTACTS_SCHEDULED  Unit: COUNT Name in real-time metrics report: Scheduled   ESTIMATED_WAIT_TIME  Unit: SECONDS This metric supports filter and grouping combination only used for core routing purpose. Valid filter and grouping use cases:    Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]   Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].    OLDEST_CONTACT_AGE  Unit: SECONDS When you use groupings, Unit says SECONDS and the Value is returned in SECONDS.  When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:  { "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0 } The actual OLDEST_CONTACT_AGE is 24 seconds. When the filter RoutingStepExpression is used, this metric is still calculated from enqueue time. For example, if a contact that has been queued under <Expression 1> for 10 seconds has expired and <Expression 2> becomes active, then OLDEST_CONTACT_AGE for this queue will be counted starting from 10, not 0. Name in real-time metrics report: Oldest   SLOTS_ACTIVE  Unit: COUNT Name in real-time metrics report: Active   SLOTS_AVAILABLE  Unit: COUNT Name in real-time metrics report: Availability',
           args: {
             name: "list",
           },
@@ -5911,12 +8659,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-current-user-data",
       description:
-        "Gets the real-time active user data from the specified Amazon Connect instance",
+        "Gets the real-time active user data from the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -5964,14 +8712,113 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-federation-token",
+      name: "get-effective-hours-of-operations",
       description:
-        "Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is for the Amazon Connect user which corresponds to the IAM credentials that were used to invoke this action.  For more information about how SAML sign-in works in Amazon Connect, see Configure SAML with IAM for Amazon Connect in the Amazon Connect Administrator Guide.   This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears:   Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect",
+        "Get the hours of operations with the effective override applied",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--from-date",
+          description: "The date from when the hours of operation are listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--to-date",
+          description: "The date until when the hours of operation are listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-evaluation-form-validation",
+      description:
+        "Retrieves the status and results of a validation process started by StartEvaluationFormValidation. Returns the current execution status (IN_PROGRESS, COMPLETED, or FAILED), the validated form version, and when completed, a list of findings that identify structural issues and quality improvements for the evaluation form, and may include suggested fixes. If the validation failed, a reason is provided indicating the cause of the failure",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--evaluation-form-id",
+          description: "The unique identifier for the evaluation form",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--evaluation-form-version",
+          description:
+            "The version of the evaluation form to retrieve validation results for",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-federation-token",
+      description:
+        "Supports SAML sign-in for Connect Customer. Retrieves a token for federation. The token is for the Connect Customer user which corresponds to the IAM credentials that were used to invoke this action.  For more information about how SAML sign-in works in Connect Customer, see Configure SAML with IAM for Connect Customer in the Connect Customer Administrator Guide.   This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears:   Provided identity: Principal: .... User: .... cannot be used for federation with Connect Customer",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6002,7 +8849,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6044,12 +8891,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-metric-data",
       description:
-        "Gets historical metric data from the specified Amazon Connect instance. For a description of each historical metric, see Historical Metrics Definitions in the Amazon Connect Administrator Guide.  We recommend using the GetMetricDataV2 API. It provides more flexibility, features, and the ability to query longer time ranges than GetMetricData. Use it to retrieve historical agent and contact metrics for the last 3 months, at varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance. For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how contact volume changed per day of the week",
+        "Gets historical metric data from the specified Connect Customer instance. For a description of each historical metric, see Metrics definitions in the Connect Customer Administrator Guide.  We recommend using the GetMetricDataV2 API. It provides more flexibility, features, and the ability to query longer time ranges than GetMetricData. Use it to retrieve historical agent and contact metrics for the last 3 months, at varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance. For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how contact volume changed per day of the week",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6089,24 +8936,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--historical-metrics",
           description:
-            'The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see Historical Metrics Definitions in the Amazon Connect Administrator Guide.  This API does not support a contacts incoming metric (there\'s no CONTACTS_INCOMING metric missing from the documented list).    ABANDON_TIME  Unit: SECONDS Statistic: AVG  AFTER_CONTACT_WORK_TIME  Unit: SECONDS Statistic: AVG  API_CONTACTS_HANDLED  Unit: COUNT Statistic: SUM  CALLBACK_CONTACTS_HANDLED  Unit: COUNT Statistic: SUM  CONTACTS_ABANDONED  Unit: COUNT Statistic: SUM  CONTACTS_AGENT_HUNG_UP_FIRST  Unit: COUNT Statistic: SUM  CONTACTS_CONSULTED  Unit: COUNT Statistic: SUM  CONTACTS_HANDLED  Unit: COUNT Statistic: SUM  CONTACTS_HANDLED_INCOMING  Unit: COUNT Statistic: SUM  CONTACTS_HANDLED_OUTBOUND  Unit: COUNT Statistic: SUM  CONTACTS_HOLD_ABANDONS  Unit: COUNT Statistic: SUM  CONTACTS_MISSED  Unit: COUNT Statistic: SUM  CONTACTS_QUEUED  Unit: COUNT Statistic: SUM  CONTACTS_TRANSFERRED_IN  Unit: COUNT Statistic: SUM  CONTACTS_TRANSFERRED_IN_FROM_QUEUE  Unit: COUNT Statistic: SUM  CONTACTS_TRANSFERRED_OUT  Unit: COUNT Statistic: SUM  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE  Unit: COUNT Statistic: SUM  HANDLE_TIME  Unit: SECONDS Statistic: AVG  HOLD_TIME  Unit: SECONDS Statistic: AVG  INTERACTION_AND_HOLD_TIME  Unit: SECONDS Statistic: AVG  INTERACTION_TIME  Unit: SECONDS Statistic: AVG  OCCUPANCY  Unit: PERCENT Statistic: AVG  QUEUE_ANSWER_TIME  Unit: SECONDS Statistic: AVG  QUEUED_TIME  Unit: SECONDS Statistic: MAX  SERVICE_LEVEL  You can include up to 20 SERVICE_LEVEL metrics in a request. Unit: PERCENT Statistic: AVG Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter LT (for "Less than")',
+            'The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see Metrics definition in the Connect Customer Administrator Guide.  This API does not support a contacts incoming metric (there\'s no CONTACTS_INCOMING metric missing from the documented list).    ABANDON_TIME  Unit: SECONDS Statistic: AVG UI name: Average queue abandon time   AFTER_CONTACT_WORK_TIME  Unit: SECONDS Statistic: AVG UI name: After contact work time   API_CONTACTS_HANDLED  Unit: COUNT Statistic: SUM UI name: API contacts handled   AVG_HOLD_TIME  Unit: SECONDS Statistic: AVG UI name: Average customer hold time   CALLBACK_CONTACTS_HANDLED  Unit: COUNT Statistic: SUM UI name: Callback contacts handled   CONTACTS_ABANDONED  Unit: COUNT Statistic: SUM UI name: Contacts abandoned   CONTACTS_AGENT_HUNG_UP_FIRST  Unit: COUNT Statistic: SUM UI name: Contacts agent hung up first   CONTACTS_CONSULTED  Unit: COUNT Statistic: SUM UI name: Contacts consulted   CONTACTS_HANDLED  Unit: COUNT Statistic: SUM UI name: Contacts handled   CONTACTS_HANDLED_INCOMING  Unit: COUNT Statistic: SUM UI name: Contacts handled incoming   CONTACTS_HANDLED_OUTBOUND  Unit: COUNT Statistic: SUM UI name: Contacts handled outbound   CONTACTS_HOLD_ABANDONS  Unit: COUNT Statistic: SUM UI name: Contacts hold disconnect   CONTACTS_MISSED  Unit: COUNT Statistic: SUM UI name: AGENT_NON_RESPONSE   CONTACTS_QUEUED  Unit: COUNT Statistic: SUM UI name: Contacts queued   CONTACTS_TRANSFERRED_IN  Unit: COUNT Statistic: SUM UI name: Contacts transferred in   CONTACTS_TRANSFERRED_IN_FROM_QUEUE  Unit: COUNT Statistic: SUM UI name: Contacts transferred out queue   CONTACTS_TRANSFERRED_OUT  Unit: COUNT Statistic: SUM UI name: Contacts transferred out   CONTACTS_TRANSFERRED_OUT_FROM_QUEUE  Unit: COUNT Statistic: SUM UI name: Contacts transferred out queue   HANDLE_TIME  Unit: SECONDS Statistic: AVG UI name: Average handle time   INTERACTION_AND_HOLD_TIME  Unit: SECONDS Statistic: AVG UI name: Average agent interaction and customer hold time   INTERACTION_TIME  Unit: SECONDS Statistic: AVG UI name: Average agent interaction time   OCCUPANCY  Unit: PERCENT Statistic: AVG UI name: Occupancy   QUEUE_ANSWER_TIME  Unit: SECONDS Statistic: AVG UI name: Average queue answer time   QUEUED_TIME  Unit: SECONDS Statistic: MAX UI name: Minimum flow time   SERVICE_LEVEL  You can include up to 20 SERVICE_LEVEL metrics in a request. Unit: PERCENT Statistic: AVG Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter LT (for "Less than").  UI name: Average queue abandon time',
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6155,12 +8987,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-metric-data-v2",
       description:
-        "Gets metric data from the specified Amazon Connect instance.   GetMetricDataV2 offers more features than GetMetricData, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. It does not support agent queues. For a description of the historical metrics that are supported by GetMetricDataV2 and GetMetricData, see Historical metrics definitions in the Amazon Connect Administrator Guide",
+        "Gets metric data from the specified Connect Customer instance.   GetMetricDataV2 offers more features than GetMetricData, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. It does not support agent queues. For a description of the historical metrics that are supported by GetMetricDataV2 and GetMetricData, see Metrics definitions in the Connect Customer Administrator Guide.  When you make a successful API request, you can expect the following metric values in the response:    Metric value is null: The calculation cannot be performed due to divide by zero or insufficient data    Metric value is a number (including 0) of defined type: The number provided is the calculation result    MetricResult list is empty: The request cannot find any data in the system   The following guidelines can help you work with the API:   Each dimension in the metric response must contain a value   Each item in MetricResult must include all requested metrics   If the response is slow due to large result sets, try these approaches:   Narrow the time range of your request   Add filters to reduce the amount of data returned",
       options: [
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the resource. This includes the instanceId an Amazon Connect instance",
+            "The Amazon Resource Name (ARN) of the resource. This includes the instanceId an Connect Customer instance",
           args: {
             name: "string",
           },
@@ -6184,7 +9016,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--interval",
           description:
-            "The interval period and timezone to apply to returned metrics.    IntervalPeriod: An aggregated grouping applied to request metrics. Valid IntervalPeriod values are: FIFTEEN_MIN | THIRTY_MIN | HOUR | DAY | WEEK | TOTAL.  For example, if IntervalPeriod is selected THIRTY_MIN, StartTime and EndTime differs by 1 day, then Amazon Connect returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By default Amazon Connect aggregates results based on the TOTAL interval period.  The following list describes restrictions on StartTime and EndTime based on which IntervalPeriod is requested.     FIFTEEN_MIN: The difference between StartTime and EndTime must be less than 3 days.    THIRTY_MIN: The difference between StartTime and EndTime must be less than 3 days.    HOUR: The difference between StartTime and EndTime must be less than 3 days.    DAY: The difference between StartTime and EndTime must be less than 35 days.    WEEK: The difference between StartTime and EndTime must be less than 35 days.    TOTAL: The difference between StartTime and EndTime must be less than 35 days.      TimeZone: The timezone applied to requested metrics",
+            "The interval period and timezone to apply to returned metrics.    IntervalPeriod: An aggregated grouping applied to request metrics. Valid IntervalPeriod values are: FIFTEEN_MIN | THIRTY_MIN | HOUR | DAY | WEEK | TOTAL.  For example, if IntervalPeriod is selected THIRTY_MIN, StartTime and EndTime differs by 1 day, then Connect Customer returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By default Connect Customer aggregates results based on the TOTAL interval period.  The following list describes restrictions on StartTime and EndTime based on which IntervalPeriod is requested.     FIFTEEN_MIN: The difference between StartTime and EndTime must be less than 3 days.    THIRTY_MIN: The difference between StartTime and EndTime must be less than 3 days.    HOUR: The difference between StartTime and EndTime must be less than 3 days.    DAY: The difference between StartTime and EndTime must be less than 35 days.    WEEK: The difference between StartTime and EndTime must be less than 35 days.    TOTAL: The difference between StartTime and EndTime must be less than 35 days.      TimeZone: The timezone applied to requested metrics",
           args: {
             name: "structure",
           },
@@ -6192,7 +9024,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filters",
           description:
-            "The filters to apply to returned metrics. You can filter on the following resources:   Agents   Campaigns   Channels   Feature   Queues   Routing profiles   Routing step expression   User hierarchy groups   At least one filter must be passed from queues, routing profiles, agents, or user hierarchy groups. For metrics for outbound campaigns analytics, you can also use campaigns to satisfy at least one filter requirement. To filter by phone number, see Create a historical metrics report in the Amazon Connect Administrator Guide. Note the following limits:    Filter keys: A maximum of 5 filter keys are supported in a single request. Valid filter keys: AGENT | AGENT_HIERARCHY_LEVEL_ONE | AGENT_HIERARCHY_LEVEL_TWO | AGENT_HIERARCHY_LEVEL_THREE | AGENT_HIERARCHY_LEVEL_FOUR | AGENT_HIERARCHY_LEVEL_FIVE | ANSWERING_MACHINE_DETECTION_STATUS |  BOT_ID | BOT_ALIAS | BOT_VERSION | BOT_LOCALE | BOT_INTENT_NAME | CAMPAIGN | CAMPAIGN_DELIVERY_EVENT_TYPE |CASE_TEMPLATE_ARN | CASE_STATUS | CHANNEL | contact/segmentAttributes/connect:Subtype | DISCONNECT_REASON | FEATURE | FLOW_ACTION_ID | FLOW_TYPE | FLOWS_MODULE_RESOURCE_ID | FLOWS_NEXT_RESOURCE_ID | FLOWS_NEXT_RESOURCE_QUEUE_ID | FLOWS_OUTCOME_TYPE | FLOWS_RESOURCE_ID | INITIATION_METHOD | INVOKING_RESOURCE_PUBLISHED_TIMESTAMP | INVOKING_RESOURCE_TYPE | PARENT_FLOWS_RESOURCE_ID | RESOURCE_PUBLISHED_TIMESTAMP | ROUTING_PROFILE | ROUTING_STEP_EXPRESSION | QUEUE | Q_CONNECT_ENABLED |     Filter values: A maximum of 100 filter values are supported in a single request. VOICE, CHAT, and TASK are valid filterValue for the CHANNEL filter key. They do not count towards limitation of 100 filter values. For example, a GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values, along with 3 channel filters.   contact_lens_conversational_analytics is a valid filterValue for the FEATURE filter key. It is available only to contacts analyzed by Contact Lens conversational analytics.  connect:Chat, connect:SMS, connect:Telephony, and connect:WebRTC are valid filterValue examples (not exhaustive) for the contact/segmentAttributes/connect:Subtype filter key.  ROUTING_STEP_EXPRESSION is a valid filter key with a filter value up to 3000 length. This filter is case and order sensitive. JSON string fields must be sorted in ascending order and JSON array order should be kept as is.  Q_CONNECT_ENABLED. TRUE and FALSE are the only valid filterValues for the Q_CONNECT_ENABLED filter key.    TRUE includes all contacts that had Amazon Q in Connect enabled as part of the flow.   FALSE includes all contacts that did not have Amazon Q in Connect enabled as part of the flow   This filter is available only for contact record-driven metrics.   Campaign ARNs are valid filterValues for the CAMPAIGN filter key",
+            "Filtering is an operation that selects records that match a set of specified criteria. By narrowing the dataset before aggregation, filters ensure that only relevant records are included in the computation.  Filter keys  The following are valid filter keys for a GetMetricDataV2 request:  AGENT | AI_AGENT | AI_AGENT_ID | AI_AGENT_NAME | AI_AGENT_TYPE | AI_PROMPT | AI_PROMPT_ID | AI_PROMPT_NAME | AI_PROMPT_TYPE | AI_TOOL_ID | AI_TOOL_NAME | AI_TOOL_TYPE | AI_USE_CASE | AGENT_HIERARCHY_LEVEL_ONE | AGENT_HIERARCHY_LEVEL_TWO | AGENT_HIERARCHY_LEVEL_THREE | AGENT_HIERARCHY_LEVEL_FOUR | AGENT_HIERARCHY_LEVEL_FIVE | ANSWERING_MACHINE_DETECTION_STATUS | BOT_ALIAS | BOT_ID | BOT_INTENT_NAME | BOT_LOCALE | BOT_VERSION | CAMPAIGN | CAMPAIGN_DELIVERY_EVENT_TYPE | CAMPAIGN_EXCLUDED_EVENT_TYPE | CASE_STATUS | CASE_TEMPLATE_ARN | CHANNEL | contact/segmentAttributes/connect:Subtype | contact/segmentAttributes/connect:ValidationTestType | DISCONNECT_REASON | EVALUATION_FORM | EVALUATION_QUESTION | EVALUATION_SECTION | EVALUATION_SOURCE | EVALUATOR_ID | FEATURE | FLOW_ACTION_ID | FLOW_TYPE | FLOWS_MODULE_RESOURCE_ID | FLOWS_NEXT_RESOURCE_ID | FLOWS_NEXT_RESOURCE_QUEUE_ID | FLOWS_OUTCOME_TYPE | FLOWS_RESOURCE_ID | FORM_VERSION | INITIATING_FLOW | INITIATION_METHOD | INVOKING_RESOURCE_PUBLISHED_TIMESTAMP | INVOKING_RESOURCE_TYPE | KNOWLEDGE_BASE_NAME | PARENT_FLOWS_RESOURCE_ID | Q_CONNECT_ENABLED | QUEUE | RESOURCE_PUBLISHED_TIMESTAMP | ROUTING_PROFILE | ROUTING_STEP_EXPRESSION | SESSION_ID | TEST_CASE | TEST_CASE_EXECUTION_FAILURE_REASON | TEST_CASE_EXECUTION_RESULT | TEST_CASE_EXECUTION_STATE   The following filter keys correspond to Connect Customer resources and are used for authorizing requests. A GetMetricDataV2 request requires at least one of these filters:  QUEUE, ROUTING_PROFILE, AGENT, AGENT_HIERARCHY_LEVEL_ONE, AGENT_HIERARCHY_LEVEL_TWO, AGENT_HIERARCHY_LEVEL_THREE, AGENT_HIERARCHY_LEVEL_FOUR, AGENT_HIERARCHY_LEVEL_FIVE, CAMPAIGN, EVALUATION_FORM, EVALUATOR_ID  You can use up to 5 filter keys in a single request, and up to 100 filter values across all filter keys.   Filter values    VOICE, CHAT, TASK, and EMAIL are valid filter values for the CHANNEL filter key. They do not count towards the limit of 100 filter values. For example, a GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values, along with 4 channel filters.    contact_lens_conversational_analytics is a valid filter value for the FEATURE filter key. It is available only for contacts analyzed by Contact Lens conversational analytics.    connect:Chat, connect:SMS, connect:Telephony, and connect:WebRTC are valid filter value examples (not exhaustive) for the contact/segmentAttributes/connect:Subtype filter key.    ROUTING_STEP_EXPRESSION accepts a filter value up to 3,000 characters in length. Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.   TRUE and FALSE are the only valid filter values for the Q_CONNECT_ENABLED filter key.   TRUE includes all contacts that had Connect AI Agents enabled as part of the flow.   FALSE includes all contacts that did not have Connect AI Agents enabled as part of the flow.      EXPERIENCE_VALIDATION and FLOW_VALIDATION are the only valid filter values for the contact/segmentAttributes/connect:ValidationTestType filter key. This filter is available only for contact record-driven metrics.    Campaign ARNs are valid filter values for the CAMPAIGN filter key.   To filter by phone number, see Create a historical metrics report in the Connect Customer Administrator Guide",
           args: {
             name: "list",
           },
@@ -6200,7 +9032,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--groupings",
           description:
-            "The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues. If no grouping is specified, a summary of all metrics is returned. Valid grouping keys: AGENT | AGENT_HIERARCHY_LEVEL_ONE | AGENT_HIERARCHY_LEVEL_TWO | AGENT_HIERARCHY_LEVEL_THREE | AGENT_HIERARCHY_LEVEL_FOUR | AGENT_HIERARCHY_LEVEL_FIVE | ANSWERING_MACHINE_DETECTION_STATUS | BOT_ID | BOT_ALIAS | BOT_VERSION | BOT_LOCALE | BOT_INTENT_NAME | CAMPAIGN | CAMPAIGN_DELIVERY_EVENT_TYPE | CASE_TEMPLATE_ARN | CASE_STATUS | CHANNEL | contact/segmentAttributes/connect:Subtype | DISCONNECT_REASON | FLOWS_RESOURCE_ID | FLOWS_MODULE_RESOURCE_ID | FLOW_ACTION_ID | FLOW_TYPE | FLOWS_OUTCOME_TYPE | INITIATION_METHOD | INVOKING_RESOURCE_PUBLISHED_TIMESTAMP | INVOKING_RESOURCE_TYPE | PARENT_FLOWS_RESOURCE_ID | Q_CONNECT_ENABLED | QUEUE | RESOURCE_PUBLISHED_TIMESTAMP | ROUTING_PROFILE | ROUTING_STEP_EXPRESSION",
+            "The grouping applied to the metrics that are returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values that are returned apply to the metrics for each queue. They are not aggregated for all queues. If no grouping is specified, a summary of all metrics is returned. Valid grouping keys: AGENT | AI_AGENT | AI_AGENT_ID | AI_AGENT_NAME | AI_AGENT_NAME_VERSION | AI_AGENT_TYPE | AI_PROMPT | AI_PROMPT_ID | AI_PROMPT_NAME | AI_PROMPT_NAME_VERSION | AI_PROMPT_TYPE | AI_TOOL_ID | AI_TOOL_NAME | AI_TOOL_TYPE | AI_USE_CASE | AGENT_HIERARCHY_LEVEL_ONE | AGENT_HIERARCHY_LEVEL_TWO | AGENT_HIERARCHY_LEVEL_THREE | AGENT_HIERARCHY_LEVEL_FOUR | AGENT_HIERARCHY_LEVEL_FIVE | ANSWERING_MACHINE_DETECTION_STATUS | BOT_ID | BOT_ALIAS | BOT_VERSION | BOT_LOCALE | BOT_INTENT_NAME | CAMPAIGN | CAMPAIGN_DELIVERY_EVENT_TYPE | CAMPAIGN_EXCLUDED_EVENT_TYPE | CAMPAIGN_EXECUTION_TIMESTAMP | CASE_TEMPLATE_ARN | CASE_STATUS | CHANNEL | contact/segmentAttributes/connect:Subtype | DISCONNECT_REASON | EVALUATION_FORM | EVALUATION_SECTION | EVALUATION_QUESTION | EVALUATION_SOURCE | EVALUATOR_ID | FLOWS_RESOURCE_ID | FLOWS_MODULE_RESOURCE_ID | FLOW_ACTION_ID | FLOW_TYPE | FLOWS_OUTCOME_TYPE | FORM_VERSION | INITIATION_METHOD | INVOKING_RESOURCE_PUBLISHED_TIMESTAMP | INVOKING_RESOURCE_TYPE | KNOWLEDGE_ARTICLE_NAME | KNOWLEDGE_BASE_NAME | PARENT_FLOWS_RESOURCE_ID | Q_CONNECT_ENABLED | QUEUE | RESOURCE_PUBLISHED_TIMESTAMP | ROUTING_PROFILE | ROUTING_STEP_EXPRESSION | SESSION_ID | TEST_CASE | TEST_CASE_EXECUTION_FAILURE_REASON | TEST_CASE_INVOCATION_METHOD    AI_AGENT_NAME_VERSION, AI_PROMPT_NAME_VERSION, and KNOWLEDGE_ARTICLE_NAME are valid groupings but not valid filters.  API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD. OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON Type: Array of strings Array Members: Maximum number of 4 items Required: No",
           args: {
             name: "list",
           },
@@ -6208,7 +9040,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--metrics",
           description:
-            'The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see Historical metrics definitions in the Amazon Connect Administrator Guide.  ABANDONMENT_RATE  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Abandonment rate   AGENT_ADHERENT_TIME  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy  UI name: Adherent time   AGENT_ANSWER_RATE  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent answer rate   AGENT_NON_ADHERENT_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Non-adherent time   AGENT_NON_RESPONSE  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy  UI name: Agent non-response   AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy Data for this metric is available starting from October 1, 2023 0:00:00 GMT. UI name: Agent non-response without customer abandons   AGENT_OCCUPANCY  Unit: Percentage Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy  UI name: Occupancy   AGENT_SCHEDULE_ADHERENCE  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Adherence   AGENT_SCHEDULED_TIME  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Scheduled time   AVG_ABANDON_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average queue abandon time   AVG_ACTIVE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Average active time   AVG_AFTER_CONTACT_WORK_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average after contact work time   Feature is a valid filter but not a valid grouping.   AVG_AGENT_CONNECTING_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD. For now, this metric only supports the following as INITIATION_METHOD: INBOUND | OUTBOUND | CALLBACK | API  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Average agent API connecting time   The Negate key in metric-level filters is not applicable for this metric.   AVG_AGENT_PAUSE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Average agent pause time   AVG_BOT_CONVERSATION_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Average bot conversation time   AVG_BOT_CONVERSATION_TURNS  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Average bot conversation turns   AVG_CASE_RELATED_CONTACTS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Average contacts per case   AVG_CASE_RESOLUTION_TIME  Unit: Seconds Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Average case resolution time   AVG_CONTACT_DURATION  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average contact duration   Feature is a valid filter but not a valid grouping.   AVG_CONVERSATION_DURATION  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average conversation duration   AVG_DIALS_PER_MINUTE  This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes. Unit: Count Valid groupings and filters: Agent, Campaign, Queue, Routing Profile UI name: Average dials per minute   AVG_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Average flow time   AVG_GREETING_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent greeting time   AVG_HANDLE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression UI name: Average handle time   Feature is a valid filter but not a valid grouping.   AVG_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer hold time   Feature is a valid filter but not a valid grouping.   AVG_HOLD_TIME_ALL_CONTACTS  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer hold time all contacts   AVG_HOLDS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average holds   Feature is a valid filter but not a valid grouping.   AVG_INTERACTION_AND_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interaction and customer hold time   AVG_INTERACTION_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interaction time   Feature is a valid filter but not a valid grouping.   AVG_INTERRUPTIONS_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interruptions   AVG_INTERRUPTION_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interruption time   AVG_NON_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average non-talk time   AVG_QUEUE_ANSWER_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average queue answer time   Feature is a valid filter but not a valid grouping.   AVG_RESOLUTION_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average resolution time   AVG_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average talk time   AVG_TALK_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent talk time   AVG_TALK_TIME_CUSTOMER  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer talk time   AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION  This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes. Unit: Seconds Valid groupings and filters: Campaign UI name: Average wait time after customer connection   BOT_CONVERSATIONS_COMPLETED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Bot conversations   BOT_INTENTS_COMPLETED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Bot intents completed   CAMPAIGN_CONTACTS_ABANDONED_AFTER_X  This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes. Unit: Count Valid groupings and filters: Agent, Campaign Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter GT (for Greater than). UI name: Campaign contacts abandoned after X   CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE  This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes. Unit: Percent Valid groupings and filters: Agent, Campaign Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter GT (for Greater than). UI name: Campaign contacts abandoned after X rate   CAMPAIGN_INTERACTIONS  This metric is available only for outbound campaigns using the email delivery mode.  Unit: Count Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE Valid groupings and filters: Campaign UI name: Campaign interactions   CAMPAIGN_SEND_ATTEMPTS  This metric is available only for outbound campaigns. Unit: Count Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype  UI name: Campaign send attempts   CASES_CREATED  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases created   CONTACTS_CREATED  Unit: Count Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts created   Feature is a valid filter but not a valid grouping.   CONTACTS_HANDLED  Unit: Count Valid metric filter key: INITIATION_METHOD, DISCONNECT_REASON  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect UI name: API contacts handled   Feature is a valid filter but not a valid grouping.   CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT  Unit: Count Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts handled (connected to agent timestamp)   CONTACTS_HOLD_ABANDONS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts hold disconnect   CONTACTS_ON_HOLD_AGENT_DISCONNECT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts hold agent disconnect   CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts hold customer disconnect   CONTACTS_PUT_ON_HOLD  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts put on hold   CONTACTS_TRANSFERRED_OUT_EXTERNAL  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts transferred out external   CONTACTS_TRANSFERRED_OUT_INTERNAL  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts transferred out internal   CONTACTS_QUEUED  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts queued   CONTACTS_QUEUED_BY_ENQUEUE  Unit: Count Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype UI name: Contacts queued (enqueue timestamp)   CONTACTS_REMOVED_FROM_QUEUE_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts removed from queue in X seconds   CONTACTS_RESOLVED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts resolved in X   CONTACTS_TRANSFERRED_OUT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out   Feature is a valid filter but not a valid grouping.   CONTACTS_TRANSFERRED_OUT_BY_AGENT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out by agent   CONTACTS_TRANSFERRED_OUT_FROM_QUEUE  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out queue   CURRENT_CASES  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Current cases   DELIVERY_ATTEMPTS  This metric is available only for outbound campaigns. Unit: Count Valid metric filter key: ANSWERING_MACHINE_DETECTION_STATUS, CAMPAIGN_DELIVERY_EVENT_TYPE, DISCONNECT_REASON  Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile UI name: Delivery attempts   Campaign Delivery EventType filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes.    DELIVERY_ATTEMPT_DISPOSITION_RATE  This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled. Unit: Percent Valid metric filter key: ANSWERING_MACHINE_DETECTION_STATUS, CAMPAIGN_DELIVERY_EVENT_TYPE, DISCONNECT_REASON  Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile UI name: Delivery attempt disposition rate   Campaign Delivery Event Type filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes.    FLOWS_OUTCOME  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows outcome   FLOWS_STARTED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows started   HUMAN_ANSWERED_CALLS  This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled.  Unit: Count Valid groupings and filters: Agent, Campaign UI name: Human answered   MAX_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Maximum flow time   MAX_QUEUED_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Maximum queued time   MIN_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Minimum flow time   PERCENT_BOT_CONVERSATIONS_OUTCOME  Unit: Percent Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Percent bot conversations outcome   PERCENT_BOT_INTENTS_OUTCOME  Unit: Percent Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Percent bot intents outcome   PERCENT_CASES_FIRST_CONTACT_RESOLVED  Unit: Percent Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases resolved on first contact   PERCENT_CONTACTS_STEP_EXPIRED  Unit: Percent Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  PERCENT_CONTACTS_STEP_JOINED  Unit: Percent Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  PERCENT_FLOWS_OUTCOME  Unit: Percent Valid metric filter key: FLOWS_OUTCOME_TYPE  Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows outcome percentage.  The FLOWS_OUTCOME_TYPE is not a valid grouping.   PERCENT_NON_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Non-talk time percent   PERCENT_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Talk time percent   PERCENT_TALK_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Agent talk time percent   PERCENT_TALK_TIME_CUSTOMER  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Customer talk time percent   REOPENED_CASE_ACTIONS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases reopened   RESOLVED_CASE_ACTIONS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases resolved   SERVICE_LEVEL  You can include up to 20 SERVICE_LEVEL metrics in a request. Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Service level X   STEP_CONTACTS_QUEUED  Unit: Count Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  SUM_AFTER_CONTACT_WORK_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: After contact work time   SUM_CONNECTING_TIME_AGENT  Unit: Seconds Valid metric filter key: INITIATION_METHOD. This metric only supports the following filter keys as INITIATION_METHOD: INBOUND | OUTBOUND | CALLBACK | API  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent API connecting time   The Negate key in metric-level filters is not applicable for this metric.   CONTACTS_ABANDONED  Unit: Count Metric filter:    Valid values: API| Incoming | Outbound | Transfer | Callback | Queue_Transfer| Disconnect    Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect UI name: Contact abandoned   SUM_CONTACTS_ABANDONED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts abandoned in X seconds   SUM_CONTACTS_ANSWERED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts answered in X seconds   SUM_CONTACT_FLOW_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contact flow time   SUM_CONTACT_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Agent on contact time   SUM_CONTACTS_DISCONNECTED   Valid metric filter key: DISCONNECT_REASON  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contact disconnected   SUM_ERROR_STATUS_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Error status time   SUM_HANDLE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contact handle time   SUM_HOLD_TIME  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Customer hold time   SUM_IDLE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Agent idle time   SUM_INTERACTION_AND_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Agent interaction and hold time   SUM_INTERACTION_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent interaction time   SUM_NON_PRODUCTIVE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Non-Productive Time   SUM_ONLINE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Online time   SUM_RETRY_CALLBACK_ATTEMPTS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Callback attempts',
+            'The metrics to retrieve. Specify the name or metricId, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see Metrics definition in the Connect Customer Administrator Guide.  MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 20 MetricId per request.   ABANDONMENT_RATE  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Abandonment rate   AGENT_ADHERENT_TIME  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy  UI name: Adherent time   AGENT_ANSWER_RATE  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent answer rate   AGENT_NON_ADHERENT_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Non-adherent time   AGENT_NON_RESPONSE  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy  UI name: Agent non-response   AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy Data for this metric is available starting from October 1, 2023 0:00:00 GMT. UI name: Agent non-response without customer abandons   AGENT_OCCUPANCY  Unit: Percentage Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy  UI name: Occupancy   AGENT_SCHEDULE_ADHERENCE  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Adherence   AGENT_SCHEDULED_TIME  This metric is available only in Amazon Web Services Regions where Forecasting, capacity planning, and scheduling is available. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Scheduled time   AVG_ABANDON_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect Valid metric filter key: INITIATION_METHOD  UI name: Average queue abandon time   AVG_ACTIVE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Average active time   AVG_AFTER_CONTACT_WORK_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average after contact work time   Feature is a valid filter but not a valid grouping.   AVG_AGENT_CONCURRENCY  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Average agent concurrency   AVG_AGENT_CONNECTING_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD. For now, this metric only supports the following as INITIATION_METHOD: INBOUND | OUTBOUND | CALLBACK | API  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Average agent API connecting time   The Negate key in metric-level filters is not applicable for this metric.   AVG_AGENT_PAUSE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Average agent pause time   AVG_BOT_CONVERSATION_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Average bot conversation time   AVG_BOT_CONVERSATION_TURNS  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Average bot conversation turns   AVG_CASE_RELATED_CONTACTS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Average contacts per case   AVG_CASE_RESOLUTION_TIME  Unit: Seconds Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Average case resolution time   AVG_CONTACT_DURATION  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average contact duration   Feature is a valid filter but not a valid grouping.   AVG_CONTACT_FIRST_RESPONSE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Agent average contact first response wait time   AVG_CONVERSATION_CLOSE_TIME  Unit: Seconds Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average conversation close time   AVG_CONVERSATION_DURATION  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average conversation duration   AVG_DIALS_PER_MINUTE  This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes. Unit: Count Valid groupings and filters: Agent, Campaign, Queue, Routing Profile UI name: Average dials per minute   AVG_EVALUATION_SCORE  Unit: Percent Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile UI name: Average evaluation score   AVG_FIRST_RESPONSE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average agent first response time   AVG_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Average flow time   AVG_GREETING_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent greeting time   AVG_HANDLE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression UI name: Average handle time   Feature is a valid filter but not a valid grouping.   ACTIVE_AI_AGENTS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Active AI Agents   AI_HANDOFF_RATE  Unit: Percent Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Handoff Rate   AI_HANDOFFS  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Handoff Count   AI_AGENT_INVOCATION_SUCCESS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Agent Invocation Success   AI Agent Name Version is not a valid filter but a valid grouping.   AI_AGENT_INVOCATION_SUCCESS_RATE  Unit: Percent Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Agent Invocation Success Rate   AI Agent Name Version is not a valid filter but a valid grouping.   AI_AGENT_INVOCATIONS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile UI name: AI Agent Invocation Count   AI Agent Name Version is not a valid filter but a valid grouping.   AI_AGENT_RESPONSE_HELPFUL  Unit: Count Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Agent Response Helpful   AI Agent Name Version is not a valid filter but a valid grouping.   AI_AGENT_RESPONSE_NOT_HELPFUL  Unit: Count Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Agent Response Not Helpful   AI Agent Name Version is not a valid filter but a valid grouping.   AI_RESPONSE_COMPLETION_RATE  Unit: Percent Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Response Completion Rate   AI_INVOLVED_CONTACTS  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Involved Contacts   AI_PROMPT_INVOCATION_SUCCESS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Prompt Invocation Success   AI Agent Name Version is not a valid filter but a valid grouping.   AI_PROMPT_INVOCATION_SUCCESS_RATE  Unit: Percent Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Prompt Invocation Success Rate   AI Agent Name Version is not a valid filter but a valid grouping.   AI_PROMPT_INVOCATIONS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Prompt Invocations   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_INVOCATION_SUCCESS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Tool Invocation Success   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_INVOCATION_SUCCESS_RATE  Unit: Percent Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Tool Invocation Success Rate   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_INVOCATIONS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Tool Invocations   AI Agent Name Version is not a valid filter but a valid grouping.   AVG_AI_AGENT_CONVERSATION_TURNS  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile  UI name: Average AI Agent Conversation Turns   AI Agent Name Version is not a valid filter but a valid grouping.   AVG_AI_CONVERSATION_TURNS  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Average AI Conversation Turns   AVG_AI_PROMPT_INVOCATION_LATENCY  Unit: Milliseconds Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile UI name: Average AI Prompt Invocation Latency   AI Agent Name Version is not a valid filter but a valid grouping.   AVG_AI_TOOL_INVOCATION_LATENCY  Unit: Milliseconds Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: Average AI Tool Invocation Latency   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_PARAMETER_ACCURACY  Unit: Double Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Tool Parameter Accuracy   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_SELECTION_ACCURACY  Unit: Double Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile UI name: AI Tool Selection Accuracy   AI Agent Name Version is not a valid filter but a valid grouping.   AI_TOOL_UTILIZATION_ACCURACY  Unit: Double Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID UI name: AI Tool Utilization Accuracy   AI Agent Name Version is not a valid filter but a valid grouping.   COMPLETENESS_SCORE  Unit: Double Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID UI name: Completeness Score   FAITHFULNESS_SCORE  Unit: Double Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID UI name: Faithfulness Score   GOAL_SUCCESS_RATE  Unit: Double Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID UI name: Goal Success Rate   KNOWLEDGE_CONTENT_REFERENCES  Unit: Count Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Knowledge Base Name, Queue, Routing Profile UI name: Knowledge Content References   PROACTIVE_INTENT_ENGAGEMENT_RATE  Unit: Percent Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Proactive Intent Engagement Rate   PROACTIVE_INTENT_RESPONSE_RATE  Unit: Percent Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Proactive Intent Response Rate   PROACTIVE_INTENTS_ANSWERED  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Proactive Intents Answered   PROACTIVE_INTENTS_DETECTED  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Proactive Intents Detected   PROACTIVE_INTENTS_ENGAGED  Unit: Count Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile UI name: Proactive Intents Engaged   AVG_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer hold time   Feature is a valid filter but not a valid grouping.   AVG_HOLD_TIME_ALL_CONTACTS  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer hold time all contacts   AVG_HOLDS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average holds   Feature is a valid filter but not a valid grouping.   AVG_INTERACTION_AND_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interaction and customer hold time   AVG_INTERACTION_TIME  Unit: Seconds Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interaction time   Feature is a valid filter but not a valid grouping.   AVG_INTERRUPTIONS_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interruptions   AVG_INTERRUPTION_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent interruption time   AVG_MESSAGE_LENGTH_AGENT  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average agent message length   AVG_MESSAGE_LENGTH_CUSTOMER  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average customer message length   AVG_MESSAGES  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average messages   AVG_MESSAGES_AGENT  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average agent messages   AVG_MESSAGES_BOT  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average bot messages   AVG_MESSAGES_CUSTOMER  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average customer messages   AVG_NON_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average non-talk time   AVG_QUEUE_ANSWER_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average queue answer time  Valid metric level filters: INITIATION_METHOD, FEATURE, DISCONNECT_REASON   Feature is a valid filter but not a valid grouping.   AVG_QUEUE_ANSWER_TIME_CUSTOMER_FIRST_CALLBACK  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy UI name: Avg. queue answer time - customer first callback   AVG_RESPONSE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average agent response time   AVG_RESPONSE_TIME_CUSTOMER  Unit: Seconds Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Average customer response time   AVG_RESOLUTION_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average resolution time   AVG_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average talk time   AVG_TALK_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average agent talk time   AVG_TALK_TIME_CUSTOMER  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Average customer talk time   AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION  This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes. Unit: Seconds Valid groupings and filters: Campaign UI name: Average wait time after customer connection   AVG_WAIT_TIME_AFTER_CUSTOMER_FIRST_CALLBACK_CONNECTION  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy UI name: Avg. wait time after customer connection - customer first callback   AVG_WEIGHTED_EVALUATION_SCORE  Unit: Percent Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form Id, Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile UI name: Average weighted evaluation score   BOT_CONVERSATIONS_COMPLETED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Bot conversations completed   BOT_INTENTS_COMPLETED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Bot intents completed   CAMPAIGN_CONTACTS_ABANDONED_AFTER_X  This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes. Unit: Count Valid groupings and filters: Agent, Campaign Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter GT (for Greater than). UI name: Campaign contacts abandoned after X   CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE  This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes. Unit: Percent Valid groupings and filters: Agent, Campaign Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you must enter GT (for Greater than). UI name: Campaign contacts abandoned after X rate   CAMPAIGN_INTERACTIONS  This metric is available only for outbound campaigns using the email delivery mode.  Unit: Count Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE Valid groupings and filters: Campaign UI name: Campaign interactions   CAMPAIGN_PROGRESS_RATE  This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns. Unit: Percent Valid groupings and filters: Campaign, Campaign Execution Timestamp UI name: Campaign progress rate   CAMPAIGN_SEND_ATTEMPTS  This metric is available only for outbound campaigns. Unit: Count Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype  UI name: Campaign send attempts   CAMPAIGN_SEND_EXCLUSIONS  This metric is available only for outbound campaigns. Valid metric filter key: CAMPAIGN_EXCLUDED_EVENT_TYPE Unit: Count Valid groupings and filters: Campaign, Campaign Excluded Event Type, Campaign Execution Timestamp UI name: Campaign send exclusions   CASES_CREATED  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases created   CONTACTS_CREATED  Unit: Count Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts created   Feature is a valid filter but not a valid grouping.   CONTACTS_HANDLED  Unit: Count Valid metric filter key: INITIATION_METHOD, DISCONNECT_REASON  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect UI name: Contacts handled   Feature is a valid filter but not a valid grouping.   CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT  Unit: Count Valid metric filter key: INITIATION_METHOD  Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts handled (connected to agent timestamp)   CONTACTS_HOLD_ABANDONS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts hold disconnect   CONTACTS_ON_HOLD_AGENT_DISCONNECT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts hold agent disconnect   CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts hold customer disconnect   CONTACTS_PUT_ON_HOLD  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts put on hold   CONTACTS_TRANSFERRED_OUT_EXTERNAL  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts transferred out external   CONTACTS_TRANSFERRED_OUT_INTERNAL  Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contacts transferred out internal   CONTACTS_QUEUED  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts queued   CONTACTS_QUEUED_BY_ENQUEUE  Unit: Count Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype UI name: Contacts queued (enqueue timestamp)   CONTACTS_REMOVED_FROM_QUEUE_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts removed from queue in X seconds   CONTACTS_RESOLVED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts resolved in X   CONTACTS_TRANSFERRED_OUT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out   Feature is a valid filter but not a valid grouping.   CONTACTS_TRANSFERRED_OUT_BY_AGENT  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out by agent   CONTACTS_TRANSFERRED_OUT_FROM_QUEUE  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contacts transferred out queue   CURRENT_CASES  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Current cases   CONVERSATIONS_ABANDONED  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect UI name: Conversations abandoned   DELIVERY_ATTEMPTS  This metric is available only for outbound campaigns. Unit: Count Valid metric filter key: ANSWERING_MACHINE_DETECTION_STATUS, CAMPAIGN_DELIVERY_EVENT_TYPE, DISCONNECT_REASON  Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile UI name: Delivery attempts   Campaign Delivery EventType filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes.    DELIVERY_ATTEMPT_DISPOSITION_RATE  This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled. Unit: Percent Valid metric filter key: ANSWERING_MACHINE_DETECTION_STATUS, CAMPAIGN_DELIVERY_EVENT_TYPE, DISCONNECT_REASON  Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile UI name: Delivery attempt disposition rate   Campaign Delivery Event Type filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes.    EVALUATIONS_PERFORMED  Unit: Count Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue, Routing Profile UI name: Evaluations performed   FLOWS_OUTCOME  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows outcome   FLOWS_STARTED  Unit: Count Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows started   HUMAN_ANSWERED_CALLS  This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled.  Unit: Count Valid groupings and filters: Agent, Campaign UI name: Human answered   MAX_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Maximum flow time   MAX_QUEUED_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Maximum queued time   MIN_FLOW_TIME  Unit: Seconds Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Minimum flow time   PERCENT_AUTOMATIC_FAILS  Unit: Percent Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue, Routing Profile UI name: Automatic fails percent   PERCENT_BOT_CONVERSATIONS_OUTCOME  Unit: Percent Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Percent bot conversations outcome   PERCENT_BOT_INTENTS_OUTCOME  Unit: Percent Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID UI name: Percent bot intents outcome   PERCENT_CASES_FIRST_CONTACT_RESOLVED  Unit: Percent Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases resolved on first contact   PERCENT_CONTACTS_STEP_EXPIRED  Unit: Percent Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  PERCENT_CONTACTS_STEP_JOINED  Unit: Percent Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  PERCENT_FLOWS_OUTCOME  Unit: Percent Valid metric filter key: FLOWS_OUTCOME_TYPE  Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp UI name: Flows outcome percentage.  The FLOWS_OUTCOME_TYPE is not a valid grouping.   PERCENT_NON_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Non-talk time percent   PERCENT_TALK_TIME  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Talk time percent   PERCENT_TALK_TIME_AGENT  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Agent talk time percent   PERCENT_TALK_TIME_CUSTOMER  This metric is available only for contacts analyzed by Contact Lens conversational analytics. Unit: Percentage Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Customer talk time percent   RECIPIENTS_ATTEMPTED  This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns. Unit: Count Valid groupings and filters: Campaign, Campaign Execution Timestamp UI name: Recipients attempted   RECIPIENTS_INTERACTED  This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns. Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE Unit: Count Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype, Campaign Execution Timestamp UI name: Recipients interacted   RECIPIENTS_TARGETED  This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns. Unit: Count Valid groupings and filters: Campaign, Campaign Execution Timestamp UI name: Recipients targeted   REOPENED_CASE_ACTIONS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases reopened   RESOLVED_CASE_ACTIONS  Unit: Count Required filter key: CASE_TEMPLATE_ARN Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS UI name: Cases resolved   SERVICE_LEVEL  You can include up to 20 SERVICE_LEVEL metrics in a request. Unit: Percent Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Service level X   STEP_CONTACTS_QUEUED  Unit: Count Valid groupings and filters: Queue, RoutingStepExpression UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.  SUM_AFTER_CONTACT_WORK_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: After contact work time   SUM_CONNECTING_TIME_AGENT  Unit: Seconds Valid metric filter key: INITIATION_METHOD. This metric only supports the following filter keys as INITIATION_METHOD: INBOUND | OUTBOUND | CALLBACK | API | CALLBACK_CUSTOMER_FIRST_DIALED  Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent API connecting time   The Negate key in metric-level filters is not applicable for this metric.   CONTACTS_ABANDONED  Unit: Count Metric filter:    Valid values: API| INCOMING | OUTBOUND | TRANSFER | CALLBACK | QUEUE_TRANSFER| Disconnect | CALLBACK_CUSTOMER_FIRST_DIALED    Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect UI name: Contact abandoned   SUM_CONTACTS_ABANDONED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts abandoned in X seconds   SUM_CONTACTS_ANSWERED_IN_X  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect Threshold: For ThresholdValue, enter any whole number from 1 to 604800 (inclusive), in seconds. For Comparison, you can use LT (for "Less than") or LTE (for "Less than equal"). UI name: Contacts answered in X seconds   SUM_CONTACT_FLOW_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contact flow time   SUM_CONTACT_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Agent on contact time   SUM_CONTACTS_DISCONNECTED   Valid metric filter key: DISCONNECT_REASON  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Contact disconnected   SUM_ERROR_STATUS_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Error status time   SUM_HANDLE_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Contact handle time   SUM_HOLD_TIME  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Customer hold time   SUM_IDLE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Agent idle time   SUM_INTERACTION_AND_HOLD_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect UI name: Agent interaction and hold time   SUM_INTERACTION_TIME  Unit: Seconds Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy UI name: Agent interaction time   SUM_NON_PRODUCTIVE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Agent non-productive time   SUM_ONLINE_TIME_AGENT  Unit: Seconds Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy UI name: Online time   SUM_RETRY_CALLBACK_ATTEMPTS  Unit: Count Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect UI name: Callback attempts',
           args: {
             name: "list",
           },
@@ -6254,7 +9086,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6288,12 +9120,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-task-template",
       description:
-        "Gets details about a specific task template in the specified Amazon Connect instance",
+        "Gets details about a specific task template in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6309,6 +9141,51 @@ const completionSpec: Fig.Spec = {
           name: "--snapshot-version",
           description:
             "The system generated version of a task template that is associated with a task, when the task is created",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-test-case-execution-summary",
+      description:
+        "Retrieves an overview of a test execution that includes the status of the execution, start and end time, and observation summary",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-execution-id",
+          description: "The identifier of the test case execution",
           args: {
             name: "string",
           },
@@ -6367,12 +9244,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "import-phone-number",
       description:
-        "Imports a claimed phone number from an external service, such as Amazon Web Services End User Messaging, into an Amazon Connect instance. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance was created.  Call the DescribePhoneNumber API to verify the status of a previous ImportPhoneNumber operation.   If you plan to claim or import numbers and then release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired.   By default you can claim or import and then release up to 200% of your maximum number of active phone numbers. If you claim or import and then release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming or importing any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed or imported numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services Support ticket",
+        "Imports a claimed phone number from an external service, such as Amazon Web Services End User Messaging, into an Connect Customer instance. You can call this API only in the same Amazon Web Services Region where the Connect Customer instance was created.  Call the DescribePhoneNumber API to verify the status of a previous ImportPhoneNumber operation.   If you plan to claim or import numbers and then release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired.   By default you can claim or import and then release up to 200% of your maximum number of active phone numbers. If you claim or import and then release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming or importing any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed or imported numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services Support ticket",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6428,9 +9305,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-agent-statuses",
+      name: "import-workspace-media",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Lists agent statuses",
+        "Imports a media asset (such as a logo) for use in a workspace",
       options: [
         {
           name: "--instance-id",
@@ -6441,18 +9318,57 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--media-type",
+          description:
+            "The type of media. Valid values are: IMAGE_LOGO_FAVICON and IMAGE_LOGO_HORIZONTAL",
           args: {
-            name: "integer",
+            name: "string",
+          },
+        },
+        {
+          name: "--media-source",
+          description:
+            "The media source. Can be an S3 presigned URL or a base64-encoded string",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-agent-statuses",
+      description: "Lists agent statuses",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -6508,12 +9424,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-analytics-data-associations",
       description:
-        "Lists the association status of requested dataset ID for a given Amazon Connect instance",
+        "Lists the association status of requested dataset ID for a given Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6561,14 +9477,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-approved-origins",
+      name: "list-analytics-data-lake-data-sets",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all approved origins associated with the instance",
+        "Lists the data lake datasets available to associate with for a given Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6586,6 +9502,38 @@ const completionSpec: Fig.Spec = {
           description: "The maximum number of results to return per page",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-approved-origins",
+      description:
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of all approved origins associated with the instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -6639,7 +9587,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6647,15 +9595,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
         },
         {
           name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The maximum number of results to return per page. The default MaxResult size is 25. Valid Range: Minimum value of 1. Maximum value of 100",
+          description: "The maximum number of results to return per page",
           args: {
             name: "integer",
           },
@@ -6688,29 +9635,70 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-authentication-profiles",
+      name: "list-attached-files-configurations",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. To request access to this API, contact Amazon Web Services Support. Provides summary information about the authentication profiles in a specified Amazon Connect instance",
+        "Provides summary information about the attached files configurations for the specified Connect Customer instance. This API returns effective configurations (custom overrides or defaults) for each attachment scope. If no custom configuration exists for a scope, the default configuration values are returned",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-authentication-profiles",
+      description:
+        "This API is in preview release for Connect Customer and is subject to change. To request access to this API, contact Amazon Web Services Support. Provides summary information about the authentication profiles in a specified Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -6761,29 +9749,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-bots",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots",
+        "This API is in preview release for Connect Customer and is subject to change. For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to return both Amazon Lex V1 and V2 bots",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6837,9 +9810,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-contact-evaluations",
+      name: "list-child-hours-of-operations",
       description:
-        "Lists contact evaluations in the specified Amazon Connect instance",
+        "Provides information about the child hours of operations for the specified parent hours of operation. For more information about child hours of operations, see Link overrides from different hours of operation in the  Administrator Guide",
       options: [
         {
           name: "--instance-id",
@@ -6850,17 +9823,72 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--contact-id",
-          description:
-            "The identifier of the contact in this instance of Amazon Connect",
+          name: "--hours-of-operation-id",
+          description: "The identifier of the parent hours of operation",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.  This is not expected to be set because the value returned in the previous response is always null",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-contact-evaluations",
+      description:
+        "Lists contact evaluations in the specified Connect Customer instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description:
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -6890,6 +9918,140 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-contact-flow-module-aliases",
+      description:
+        "Lists all aliases associated with a contact flow module, showing their current version mappings and metadata",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-contact-flow-module-versions",
+      description:
+        "Retrieves a paginated list of all versions for a specific contact flow module",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -6903,29 +10065,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-contact-flow-modules",
       description:
-        "Provides information about the flow modules for the specified Amazon Connect instance",
+        "Provides information about the flow modules for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -6981,11 +10128,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-contact-flow-versions",
       description:
-        "Returns all the available versions for the specified Amazon Connect instance and flow identifier",
+        "Returns all the available versions for the specified Connect Customer instance and flow identifier",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -6995,22 +10142,6 @@ const completionSpec: Fig.Spec = {
           description: "The identifier of the flow",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7059,12 +10190,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-contact-flows",
       description:
-        "Provides information about the flows for the specified Amazon Connect instance. You can also create and update flows using the Amazon Connect Flow language. For more information about flows, see Flows in the Amazon Connect Administrator Guide",
+        "Provides information about the flows for the specified Connect Customer instance. You can also create and update flows using the Connect Customer Flow language. For more information about flows, see Flows in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7074,22 +10205,6 @@ const completionSpec: Fig.Spec = {
           description: "The type of flow",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7138,12 +10253,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-contact-references",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. For the specified referenceTypes, returns a list of references associated with the contact. References are links to documents that are related to a contact, such as emails, attachments, or URLs",
+        "This API is in preview release for Connect Customer and is subject to change. For the specified referenceTypes, returns a list of references associated with the contact. References are links to documents that are related to a contact, such as emails, attachments, or URLs",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7160,14 +10275,6 @@ const completionSpec: Fig.Spec = {
           description: "The type of reference",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.  This is not expected to be set, because the value returned in the previous response is always null",
-          args: {
-            name: "string",
           },
         },
         {
@@ -7195,6 +10302,299 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-table-attributes",
+      description:
+        "Returns all attributes for a specified data table. A maximum of 100 attributes per data table is allowed. Customers can request an increase by using Amazon Web Services Service Quotas. The response can be filtered by specific attribute IDs for CloudFormation integration",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table whose attributes should be listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attribute-ids",
+          description:
+            "Optional list of specific attribute IDs to retrieve. Used for CloudFormation to effectively describe attributes by ID. If NextToken is provided, this parameter is ignored",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-table-primary-values",
+      description:
+        "Lists all primary value combinations for a given data table. Returns the unique combinations of primary attribute values that identify records in the table. Up to 100 records are returned per request",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table whose primary values should be listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--record-ids",
+          description:
+            "Optional list of specific record IDs to retrieve. Used for CloudFormation to effectively describe records by ID. If NextToken is provided, this parameter is ignored",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--primary-attribute-values",
+          description:
+            "Optional filter to retrieve primary values matching specific criteria",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-table-values",
+      description:
+        "Lists values stored in a data table with optional filtering by record IDs or primary attribute values. Returns the raw stored values along with metadata such as lock versions and modification timestamps",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table whose values should be listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--record-ids",
+          description:
+            "Optional list of specific record IDs to retrieve values for",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--primary-attribute-values",
+          description:
+            "Optional filter to retrieve values for records matching specific primary attribute criteria",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-data-tables",
+      description:
+        "Lists all data tables for the specified Amazon Connect instance. Returns summary information for each table including basic metadata and modification details",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The unique identifier for the Amazon Connect instance whose data tables should be listed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -7208,12 +10608,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-default-vocabularies",
       description:
-        "Lists the default vocabularies for the specified Amazon Connect instance",
+        "Lists the default vocabularies for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7227,16 +10627,71 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-entity-security-profiles",
+      description:
+        "Lists all security profiles attached to a Q in Connect AIAgent Entity in an Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-type",
+          description: "Only supported type is AI_AGENT",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entity-arn",
+          description: "ARN of a Q in Connect AI Agent",
           args: {
             name: "string",
           },
@@ -7287,12 +10742,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-evaluation-form-versions",
       description:
-        "Lists versions of an evaluation form in the specified Amazon Connect instance",
+        "Lists versions of an evaluation form in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7300,21 +10755,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--evaluation-form-id",
           description: "The unique identifier for the evaluation form",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -7365,27 +10805,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-evaluation-forms",
       description:
-        "Lists evaluation forms in the specified Amazon Connect instance",
+        "Lists evaluation forms in the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7440,7 +10865,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7453,18 +10878,64 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-hours-of-operation-overrides",
+      description: "List the hours of operation overrides",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
           },
         },
         {
@@ -7513,30 +10984,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-hours-of-operations",
       description:
-        "Provides information about the hours of operation for the specified Amazon Connect instance. For more information about hours of operation, see Set the Hours of Operation for a Queue in the Amazon Connect Administrator Guide",
+        "Provides information about the hours of operation for the specified Connect Customer instance. For more information about hours of operation, see Set the Hours of Operation for a Queue in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7585,29 +11040,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-instance-attributes",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all attribute types for the given instance",
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of all attribute types for the given instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7656,12 +11096,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-instance-storage-configs",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of storage configs for the identified instance and resource type",
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of storage configs for the identified instance and resource type",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7671,21 +11111,6 @@ const completionSpec: Fig.Spec = {
           description: "A valid resource type",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7734,23 +11159,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-instances",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked",
+        "This API is in preview release for Connect Customer and is subject to change. Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -7797,12 +11207,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-integration-associations",
       description:
-        "Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance",
+        "Provides summary information about the Amazon Web Services resource associations for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -7812,21 +11222,6 @@ const completionSpec: Fig.Spec = {
           description: "The integration type",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7882,29 +11277,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-lambda-functions",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow blocks",
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow blocks",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -7953,30 +11333,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-lex-bots",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the ListBots API",
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the ListBots API",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. If no value is specified, the default is 10",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8023,14 +11387,62 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-phone-numbers",
+      name: "list-notifications",
       description:
-        "Provides information about the phone numbers for the specified Amazon Connect instance.  For more information about phone numbers, see Set Up Phone Numbers for Your Contact Center in the Amazon Connect Administrator Guide.    We recommend using ListPhoneNumbersV2 to return phone number types. ListPhoneNumbers doesn't support number types UIFN, SHARED, THIRD_PARTY_TF, and THIRD_PARTY_DID. While it returns numbers of those types, it incorrectly lists them as TOLL_FREE or DID.    The phone number Arn value that is returned from each of the items in the PhoneNumberSummaryList cannot be used to tag phone number resources. It will fail with a ResourceNotFoundException. Instead, use the ListPhoneNumbersV2 API. It returns the new phone number ARN that can be used to tag phone number resources",
+        "Retrieves a paginated list of all notifications in the Amazon Connect instance",
       options: [
         {
           name: "--instance-id",
           description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of results to return per page. Valid range is 1-100",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-phone-numbers",
+      description:
+        "Provides information about the phone numbers for the specified Connect Customer instance.  For more information about phone numbers, see Set Up Phone Numbers for Your Contact Center in the Connect Customer Administrator Guide.    We recommend using ListPhoneNumbersV2 to return phone number types. ListPhoneNumbers doesn't support number types UIFN, SHARED, THIRD_PARTY_TF, and THIRD_PARTY_DID. While it returns numbers of those types, it incorrectly lists them as TOLL_FREE or DID.    The phone number Arn value that is returned from each of the items in the PhoneNumberSummaryList cannot be used to tag phone number resources. It will fail with a ResourceNotFoundException. Instead, use the ListPhoneNumbersV2 API. It returns the new phone number ARN that can be used to tag phone number resources",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8048,22 +11460,6 @@ const completionSpec: Fig.Spec = {
           description: "The ISO country code",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8112,12 +11508,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-phone-numbers-v2",
       description:
-        "Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided TargetArn is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group. For more information about phone numbers, see Set Up Phone Numbers for Your Contact Center in the Amazon Connect Administrator Guide.    When given an instance ARN, ListPhoneNumbersV2 returns only the phone numbers claimed to the instance.   When given a traffic distribution group ARN ListPhoneNumbersV2 returns only the phone numbers claimed to the traffic distribution group",
+        "Lists phone numbers claimed to your Connect Customer instance or traffic distribution group. If the provided TargetArn is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group. For more information about phone numbers, see Set Up Phone Numbers for Your Contact Center in the Connect Customer Administrator Guide.    When given an instance ARN, ListPhoneNumbersV2 returns only the phone numbers claimed to the instance.   When given a traffic distribution group ARN ListPhoneNumbersV2 returns only the phone numbers claimed to the traffic distribution group",
       options: [
         {
           name: "--target-arn",
           description:
-            "The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both TargetArn and InstanceId input are not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request",
+            "The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. If both TargetArn and InstanceId input are not provided, this API lists numbers claimed to all the Connect Customer instances belonging to your account in the same Amazon Web Services Region as the request",
           args: {
             name: "string",
           },
@@ -8125,22 +11521,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. If both TargetArn and InstanceId are not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same AWS Region as the request",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The identifier of the Connect Customer instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. If both TargetArn and InstanceId are not provided, this API lists numbers claimed to all the Connect Customer instances belonging to your account in the same Amazon Web Services Region as the request",
           args: {
             name: "string",
           },
@@ -8213,29 +11594,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-predefined-attributes",
       description:
-        "Lists predefined attributes for the specified Amazon Connect instance. Predefined attributes are attributes in an Amazon Connect instance that can be used to route contacts to an agent or pools of agents within a queue. For more information, see Create predefined attributes for routing contacts to agents",
+        "Lists predefined attributes for the specified Connect Customer instance. A predefined attribute is made up of a name and a value. You can use predefined attributes for:   Routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to agents.   Contact information that varies between transfers or conferences, such as the name of the business unit handling the contact. For more information, see Use contact segment attributes.   For the predefined attributes per instance quota, see Connect Customer quotas.  Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8284,29 +11650,13 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-prompts",
       description:
-        "Provides information about the prompts for the specified Amazon Connect instance",
+        "Provides information about the prompts for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8353,14 +11703,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-queue-quick-connects",
+      name: "list-queue-email-addresses",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Lists the quick connects associated with a queue",
+        'Lists all email addresses that are currently associated with a specific queue, providing details about which "From" email addresses agents can select when handling email contacts. This helps administrators manage agent email address options and understand the available choices for different brands and business units.  Important things to know    The response includes metadata about each email address available for agent selection, including whether it\'s configured as the default outbound email.   Agents can select from these email addresses when replying to inbound contacts or initiating outbound contacts in this queue.   The list includes both explicitly associated email addresses and any default outbound email address configured for the queue.   Results are paginated to handle queues with many associated email addresses (up to 50 per queue)',
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8382,10 +11732,47 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
+          description: "The maximum number of results to return per page",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-queue-quick-connects",
+      description: "Lists the quick connects associated with a queue",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description: "The identifier for the queue",
+          args: {
+            name: "string",
           },
         },
         {
@@ -8434,12 +11821,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-queues",
       description:
-        "Provides information about the queues for the specified Amazon Connect instance. If you do not specify a QueueTypes parameter, both standard and agent queues are returned. This might cause an unexpected truncation of results if you have more than 1000 agents and you limit the number of results of the API call in code. For more information about queues, see Queues: Standard and Agent in the Amazon Connect Administrator Guide",
+        "Provides information about the queues for the specified Connect Customer instance. If you do not specify a QueueTypes parameter, both standard and agent queues are returned. This might cause an unexpected truncation of results if you have more than 1000 agents and you limit the number of results of the API call in code. For more information about queues, see Queues: Standard and Agent in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8449,22 +11836,6 @@ const completionSpec: Fig.Spec = {
           description: "The type of queue",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8513,36 +11884,20 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-quick-connects",
       description:
-        "Provides information about the quick connects for the specified Amazon Connect instance",
+        "Provides information about the quick connects for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. Both Instance ID and Instance ARN are supported input formats",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
           name: "--quick-connect-types",
           description:
-            "The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE)",
+            "The type of quick connect. In the Connect Customer admin website, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE)",
           args: {
             name: "list",
           },
@@ -8593,12 +11948,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-realtime-contact-analysis-segments-v2",
       description:
-        "Provides a list of analysis segments for a real-time analysis session",
+        "Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels only.   This API does not support VOICE. If you attempt to use it for VOICE, an InvalidRequestException occurs",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8606,7 +11961,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -8661,13 +12016,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-routing-profile-queues",
-      description: "Lists the queues associated with a routing profile",
+      name: "list-routing-profile-manual-assignment-queues",
+      description:
+        "Lists the manual assignment queues associated with a routing profile.  Use cases  Following are common uses cases for this API:   This API returns list of queues where contacts can be manually assigned or picked by an agent who has access to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a invalid request exception will be thrown). For information about how manual contact assignment works in the agent workspace, see the Access the Worklist app in the Connect Customer agent workspace in the Connect Customer Administrator Guide.     Important things to know    This API only returns the manual assignment queues associated with a routing profile. Use the ListRoutingProfileQueues API to list the auto assignment queues for the routing profile.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8680,19 +12036,65 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-routing-profile-queues",
+      description: "Lists the queues associated with a routing profile",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--routing-profile-id",
+          description: "The identifier of the routing profile",
+          args: {
+            name: "string",
           },
         },
         {
@@ -8741,30 +12143,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-routing-profiles",
       description:
-        "Provides summary information about the routing profiles for the specified Amazon Connect instance. For more information about routing profiles, see Routing Profiles and Create a Routing Profile in the Amazon Connect Administrator Guide",
+        "Provides summary information about the routing profiles for the specified Connect Customer instance. For more information about routing profiles, see Routing Profiles and Create a Routing Profile in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8812,12 +12198,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-rules",
-      description: "List all rules for the specified Amazon Connect instance",
+      description: "List all rules for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -8832,21 +12218,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--event-source-name",
           description: "The name of the event source",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -8897,29 +12268,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-security-keys",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all security keys associated with the instance",
+        "This API is in preview release for Connect Customer and is subject to change. Returns a paginated list of all security keys associated with the instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -8968,7 +12324,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-security-profile-applications",
       description:
-        "Returns a list of third-party applications in a specific security profile",
+        "Returns a list of third-party applications or MCP Servers in a specific security profile",
       options: [
         {
           name: "--security-profile-id",
@@ -8980,24 +12336,71 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-security-profile-flow-modules",
+      description: "A list of Flow Modules an AI Agent can invoke as a tool",
+      options: [
+        {
+          name: "--security-profile-id",
+          description: "The identifier for the security profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -9046,7 +12449,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-security-profile-permissions",
       description:
-        "Lists the permissions granted to a security profile. For information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Lists the permissions granted to a security profile. For information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--security-profile-id",
@@ -9058,24 +12461,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9124,30 +12512,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-security-profiles",
       description:
-        "Provides summary information about the security profiles for the specified Amazon Connect instance. For more information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Provides summary information about the security profiles for the specified Connect Customer instance. For more information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9196,12 +12568,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-tags-for-resource",
       description:
-        "Lists the tags for the specified resource. For sample policies that use tags, see Amazon Connect Identity-Based Policy Examples in the Amazon Connect Administrator Guide",
+        "Lists the tags for the specified resource. For sample policies that use tags, see Connect Customer Identity-Based Policy Examples in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing profiles, etc) have an ARN. To locate the ARN for an instance, for example, see Find your Amazon Connect instance ID/ARN",
+            "The Amazon Resource Name (ARN) of the resource. All Connect Customer resources (instances, queues, flows, routing profiles, etc) have an ARN. To locate the ARN for an instance, for example, see Find your Connect Customer instance ID/ARN",
           args: {
             name: "string",
           },
@@ -9228,30 +12600,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-task-templates",
       description:
-        "Lists task templates for the specified Amazon Connect instance",
+        "Lists task templates for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.  It is not expected that you set this because the value returned in the previous response is always null",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page.  It is not expected that you set this",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9313,13 +12669,42 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-traffic-distribution-group-users",
-      description: "Lists traffic distribution group users",
+      name: "list-test-case-execution-records",
+      description:
+        "Lists detailed steps of test case execution that includes all observations along with actions taken and data associated in the specified Amazon Connect instance",
       options: [
         {
-          name: "--traffic-distribution-group-id",
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-execution-id",
+          description: "The identifier of the test case execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description: "Filter execution records by status",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--next-token",
           description:
-            "The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region",
+            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -9332,9 +12717,168 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-test-case-executions",
+      description:
+        "Lists all test case executions and allows filtering by test case id, test case name, start time, end time or status of the execution for the specified Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "Filter executions by test case identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-name",
+          description: "Filter executions by test case name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--start-time",
+          description: "Filter executions that started after this time",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--end-time",
+          description: "Filter executions that started before this time",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--status",
+          description: "Filter executions by status",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--next-token",
           description:
             "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description: "The maximum number of results to return per page",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-test-cases",
+      description:
+        "Lists the test cases present in the specific Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-traffic-distribution-group-users",
+      description: "Lists traffic distribution group users",
+      options: [
+        {
+          name: "--traffic-distribution-group-id",
+          description:
+            "The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region",
           args: {
             name: "string",
           },
@@ -9387,24 +12931,9 @@ const completionSpec: Fig.Spec = {
       description: "Lists traffic distribution groups",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -9459,7 +12988,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -9469,21 +12998,6 @@ const completionSpec: Fig.Spec = {
           description: "The identifier for the integration association",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9532,30 +13046,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-user-hierarchy-groups",
       description:
-        "Provides summary information about the hierarchy groups for the specified Amazon Connect instance. For more information about agent hierarchies, see Set Up Agent Hierarchies in the Amazon Connect Administrator Guide",
+        "Provides summary information about the hierarchy groups for the specified Connect Customer instance. For more information about agent hierarchies, see Set Up Agent Hierarchies in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9602,8 +13100,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-user-proficiencies",
-      description: "Lists proficiencies associated with a user",
+      name: "list-user-notifications",
+      description:
+        "Retrieves a paginated list of notifications for a specific user, including the notification status for that user",
       options: [
         {
           name: "--instance-id",
@@ -9614,25 +13113,64 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--user-id",
-          description: "The identifier of the user account",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--next-token",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results",
           args: {
             name: "string",
           },
         },
         {
           name: "--max-results",
-          description: "The maximum number of results to return per page",
+          description:
+            "The maximum number of results to return per page. Valid range is 1-1000",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--user-id",
+          description: "The identifier of the user",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-user-proficiencies",
+      description: "Lists proficiencies associated with a user",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--user-id",
+          description: "The identifier of the user account",
+          args: {
+            name: "string",
           },
         },
         {
@@ -9681,30 +13219,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-users",
       description:
-        "Provides summary information about the users for the specified Amazon Connect instance",
+        "Provides summary information about the users for the specified Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9753,12 +13275,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-view-versions",
       description:
-        "Returns all the available versions for the specified Amazon Connect instance and view identifier. Results will be sorted from highest to lowest",
+        "Returns all the available versions for the specified Connect Customer instance and view identifier. Results will be sorted from highest to lowest",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -9769,22 +13291,6 @@ const completionSpec: Fig.Spec = {
             "The identifier of the view. Both ViewArn and ViewId can be used",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -9838,7 +13344,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -9851,19 +13357,160 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return per page. The default MaxResult size is 100",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-workspace-media",
+      description:
+        "Lists media assets (such as logos) associated with a workspace",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-workspace-pages",
+      description:
+        "Lists the page configurations in a workspace, including the views assigned to each page",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-workspaces",
+      description: "Lists the workspaces in an Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -9917,7 +13564,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -9985,7 +13632,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -10019,7 +13666,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-user-status",
       description:
-        "Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status. For more information, see Agent status and Set your next status in the Amazon Connect Administrator Guide",
+        "Changes the current status of a user or agent in Connect Customer. If the agent is currently handling a contact, this sets the agent's next status. For more information, see Agent status and Set your next status in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--user-id",
@@ -10031,7 +13678,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10065,7 +13712,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "release-phone-number",
       description:
-        "Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You can call this API only in the Amazon Web Services Region where the number was claimed.  To release phone numbers from a traffic distribution group, use the ReleasePhoneNumber API, not the Amazon Connect admin website. After releasing a phone number, the phone number enters into a cooldown period for up to 180 days. It cannot be searched for or claimed again until the period has ended. If you accidentally release a phone number, contact Amazon Web Services Support.  If you plan to claim and release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired. By default you can claim and release up to 200% of your maximum number of active phone numbers. If you claim and release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services support ticket",
+        "Releases a phone number previously claimed to an Connect Customer instance or traffic distribution group. You can call this API only in the Amazon Web Services Region where the number was claimed.  To release phone numbers from a traffic distribution group, use the ReleasePhoneNumber API, not the Connect Customer admin website. After releasing a phone number, the phone number enters into a cooldown period for up to 180 days. It cannot be searched for or claimed again until the period has ended. If you accidentally release a phone number, contact Amazon Web Services Support.  If you plan to claim and release numbers frequently, contact us for a service quota exception. Otherwise, it is possible you will be blocked from claiming and releasing any more numbers until up to 180 days past the oldest number released has expired. By default you can claim and release up to 200% of your maximum number of active phone numbers. If you claim and release phone numbers using the UI or API during a rolling 180 day cycle that exceeds 200% of your phone number service level quota, you will be blocked from claiming any more numbers until 180 days past the oldest number released has expired.  For example, if you already have 99 claimed numbers and a service level quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers until you open an Amazon Web Services support ticket",
       options: [
         {
           name: "--phone-number-id",
@@ -10104,12 +13751,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "replicate-instance",
       description:
-        "Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions.  For more information about replicating an Amazon Connect instance, see Create a replica of your existing Amazon Connect instance in the Amazon Connect Administrator Guide",
+        "Replicates an Connect Customer instance in the specified Amazon Web Services Region and copies configuration information for Connect Customer resources across Amazon Web Services Regions.  For more information about replicating an Connect Customer instance, see Create a replica of your existing Connect Customer instance in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You can provide the InstanceId, or the entire ARN",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You can provide the InstanceId, or the entire ARN",
           args: {
             name: "string",
           },
@@ -10117,7 +13764,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--replica-region",
           description:
-            "The Amazon Web Services Region where to replicate the Amazon Connect instance",
+            "The Amazon Web Services Region where to replicate the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -10171,7 +13818,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -10210,7 +13857,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10259,29 +13906,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-agent-statuses",
       description:
-        "Searches AgentStatuses in an Amazon Connect instance, with optional filtering",
+        "Searches AgentStatuses in an Connect Customer instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -10345,12 +13977,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-available-phone-numbers",
       description:
-        "Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the provided TargetArn is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group",
+        "Searches for available phone numbers that you can claim to your Connect Customer instance or traffic distribution group. If the provided TargetArn is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group",
       options: [
         {
           name: "--target-arn",
           description:
-            "The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
+            "The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -10358,7 +13990,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
+            "The identifier of the Connect Customer instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -10381,21 +14013,6 @@ const completionSpec: Fig.Spec = {
           name: "--phone-number-prefix",
           description:
             "The prefix of the phone number. If provided, it must contain + as part of the country code",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -10444,14 +14061,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-contact-flow-modules",
+      name: "search-contact-evaluations",
       description:
-        "Searches the flow modules in an Amazon Connect instance, with optional filtering",
+        "Searches contact evaluations in an Connect Customer instance, with optional filtering.   Use cases  Following are common uses cases for this API:   Find contact evaluations by using specific search criteria.   Find contact evaluations that are tagged with a specific set of tags.    Important things to know    A Search operation, unlike a List operation, takes time to index changes to resource (create, update or delete). If you don't see updated information for recently changed contact evaluations, try calling the API again in a few seconds.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10469,6 +14086,53 @@ const completionSpec: Fig.Spec = {
           description: "The maximum number of results to return per page",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria to be used to return contact evaluations",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-filter",
+          description: "Filters to be applied to search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-contact-flow-modules",
+      description:
+        "Searches the flow modules in an Connect Customer instance, with optional filtering",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -10532,29 +14196,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-contact-flows",
       description:
-        "Searches the flows in an Amazon Connect instance, with optional filtering",
+        "Searches the flows in an Connect Customer instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -10617,12 +14266,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "search-contacts",
-      description: "Searches contacts in an Amazon Connect instance",
+      description: "Searches contacts in an Connect Customer instance",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10642,23 +14291,80 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--sort",
+          description: "Specifies a field to sort by and a sort order",
           args: {
-            name: "integer",
+            name: "structure",
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--sort",
-          description: "Specifies a field to sort by and a sort order",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-data-tables",
+      description:
+        "Searches for data tables based on the table's ID, name, and description. In the future, this operation can support searching on attribute names and possibly primary values. Follows other search operations closely and supports both search criteria and filters",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The unique identifier for the Amazon Connect instance to search within",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--search-filter",
+          description:
+            "Optional filters to apply to the search results, such as tag-based filtering for attribute-based access control",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports STARTS_WITH, CONTAINS, and EXACT comparison types",
           args: {
             name: "structure",
           },
@@ -10714,7 +14420,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10769,14 +14475,14 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-hours-of-operations",
+      name: "search-evaluation-forms",
       description:
-        "Searches the hours of operation in an Amazon Connect instance, with optional filtering",
+        "Searches evaluation forms in an Connect Customer instance, with optional filtering.  Use cases  Following are common uses cases for this API:   List all evaluation forms in an instance.   Find all evaluation forms that meet specific criteria, such as Title, Description, Status, and more.   Find all evaluation forms that are tagged with a specific set of tags.    Important things to know    A Search operation, unlike a List operation, takes time to index changes to resource (create, update or delete). If you don't see updated information for recently changed contact evaluations, try calling the API again in a few seconds.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -10794,6 +14500,122 @@ const completionSpec: Fig.Spec = {
           description: "The maximum number of results to return per page",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria to be used to return evaluation forms",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-filter",
+          description: "Filters to be applied to search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-hours-of-operation-overrides",
+      description: "Searches the hours of operation overrides",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--search-filter",
+          description: "Filters to be applied to search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria to be used to return hours of operations overrides",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-hours-of-operations",
+      description:
+        "Searches the hours of operation in an Connect Customer instance, with optional filtering",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -10855,9 +14677,9 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-predefined-attributes",
+      name: "search-notifications",
       description:
-        "Searches predefined attributes that meet certain criteria. Predefined attributes are attributes in an Amazon Connect instance that can be used to route contacts to an agent or pools of agents within a queue. For more information, see Create predefined attributes for routing contacts to agents",
+        "Searches for notifications based on specified criteria and filters. Returns a paginated list of notifications matching the search parameters, ordered by descending creation time. Supports filtering by content and tags",
       options: [
         {
           name: "--instance-id",
@@ -10870,16 +14692,65 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results",
           args: {
             name: "string",
           },
         },
         {
           name: "--max-results",
-          description: "The maximum number of results to return per page",
+          description:
+            "The maximum number of results to return per page. Valid range is 1-100",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--search-filter",
+          description:
+            "Filters to apply to the search results, such as tag-based filters",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria to apply when searching for notifications. Supports filtering by notification ID and message content using comparison types such as STARTS_WITH, CONTAINS, and EXACT",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-predefined-attributes",
+      description:
+        "Searches predefined attributes that meet certain criteria. A predefined attribute is made up of a name and a value. You can use predefined attributes for:   Routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to agents.   Contact information that varies between transfers or conferences, such as the name of the business unit handling the contact. For more information, see Use contact segment attributes.   For the predefined attributes per instance quota, see Connect Customer quotas.  Endpoints: See Connect Customer endpoints and quotas",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -10936,29 +14807,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-prompts",
       description:
-        "Searches prompts in an Amazon Connect instance, with optional filtering",
+        "Searches prompts in an Connect Customer instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11021,29 +14877,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-queues",
       description:
-        "Searches queues in an Amazon Connect instance, with optional filtering",
+        "Searches queues in an Connect Customer instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11107,29 +14948,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-quick-connects",
       description:
-        "Searches quick connects in an Amazon Connect instance, with optional filtering",
+        "Searches quick connects in an Connect Customer instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11193,12 +15019,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-resource-tags",
       description:
-        "Searches tags used in an Amazon Connect instance using optional search criteria",
+        "Searches tags used in an Connect Customer instance using optional search criteria",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -11206,24 +15032,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-types",
           description:
-            "The list of resource types to be used to search tags from. If not provided or if any empty list is provided, this API will search from all supported resource types.  Supported resource types    AGENT   ROUTING_PROFILE   STANDARD_QUEUE   SECURITY_PROFILE   OPERATING_HOURS   PROMPT   CONTACT_FLOW   FLOW_MODULE",
+            "The list of resource types to be used to search tags from. If not provided or if any empty list is provided, this API will search from all supported resource types. Note that lowercase and - are required.  Supported resource types    agent   agent-state   routing-profile   standard-queue   security-profile   operating-hours   prompt   contact-flow   flow- module   transfer-destination (also known as quick connect)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11279,29 +15090,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-routing-profiles",
       description:
-        "Searches routing profiles in an Amazon Connect instance, with optional filtering",
+        "Searches routing profiles in an Connect Customer instance, with optional filtering.   SearchRoutingProfiles does not populate LastModifiedRegion, LastModifiedTime, MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its response, but DescribeRoutingProfile does",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11365,29 +15161,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-security-profiles",
       description:
-        "Searches security profiles in an Amazon Connect instance, with optional filtering. For information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Searches security profiles in an Connect Customer instance, with optional filtering. For information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11449,31 +15230,86 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-user-hierarchy-groups",
+      name: "search-test-cases",
       description:
-        'Searches UserHierarchyGroups in an Amazon Connect instance, with optional filtering.  The UserHierarchyGroup with "LevelId": "0" is the foundation for building levels on top of an instance. It is not user-definable, nor is it visible in the UI',
+        "Searches for test cases in the specified Amazon Connect instance, with optional filtering",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
         },
         {
-          name: "--next-token",
+          name: "--search-filter",
+          description: "Filters to be applied to search results",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description: "The search criteria to be used to return test cases",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-user-hierarchy-groups",
+      description:
+        'Searches UserHierarchyGroups in an Connect Customer instance, with optional filtering.  The UserHierarchyGroup with "LevelId": "0" is the foundation for building levels on top of an instance. It is not user-definable, nor is it visible in the UI',
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
+          args: {
+            name: "string",
           },
         },
         {
@@ -11537,29 +15373,14 @@ const completionSpec: Fig.Spec = {
     {
       name: "search-users",
       description:
-        "Searches users in an Amazon Connect instance, with optional filtering.    AfterContactWorkTimeLimit is returned in milliseconds",
+        "Searches users in an Connect Customer instance, with optional filtering.    AfterContactWorkTimeLimit is returned in milliseconds",
       options: [
         {
           name: "--instance-id",
           description:
-            'The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.  InstanceID is a required field. The "Required: No" below is incorrect',
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -11621,9 +15442,8 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "search-vocabularies",
-      description:
-        "Searches for vocabularies within a specific Amazon Connect instance using State, NameStartsWith, and LanguageCode",
+      name: "search-views",
+      description: "Searches views based on name, description, or tags",
       options: [
         {
           name: "--instance-id",
@@ -11634,16 +15454,73 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
+          name: "--search-filter",
+          description:
+            "Filters to apply to the search, such as tag-based filters",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria, including field names and comparison types",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
         },
         {
-          name: "--next-token",
+          name: "--max-items",
           description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-vocabularies",
+      description:
+        "Searches for vocabularies within a specific Connect Customer instance using State, NameStartsWith, and LanguageCode",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -11714,9 +15591,153 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "search-workspace-associations",
+      description:
+        "Searches for workspace associations with users or routing profiles based on various criteria",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--search-filter",
+          description:
+            "Filters to apply to the search, such as tag-based filters",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria, including workspace ID, resource ID, or resource type",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "search-workspaces",
+      description:
+        "Searches workspaces based on name, description, visibility, or tags",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--search-filter",
+          description:
+            "Filters to apply to the search, such as tag-based filters",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--search-criteria",
+          description:
+            "The search criteria, including field names and comparison types",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "send-chat-integration-event",
       description:
-        "Processes chat integration events from Amazon Web Services or external integrations to Amazon Connect. A chat integration event includes:   SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat    ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a chat   When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new chat contact is also created before handling chat action.  Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS integration",
+        "Processes chat integration events from Amazon Web Services or external integrations to Connect Customer. A chat integration event includes:   SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat    ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a chat   When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new chat contact is also created before handling chat action.  Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS integration",
       options: [
         {
           name: "--source-id",
@@ -11729,7 +15750,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--destination-id",
           description:
-            "Chat system identifier, used in part to uniquely identify chat. This is associated with the Amazon Connect instance and flow to be used to start chats. For Server Migration Service, this is the phone number destination of inbound Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number ARN",
+            "Chat system identifier, used in part to uniquely identify chat. This is associated with the Connect Customer instance and flow to be used to start chats. For Server Migration Service, this is the phone number destination of inbound Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number ARN",
           args: {
             name: "string",
           },
@@ -11779,12 +15800,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-outbound-email",
       description:
-        "Send outbound email for outbound campaigns. For more information about outbound campaigns, see Set up Amazon Connect outbound campaigns.  Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API",
+        "Send outbound email for outbound campaigns. For more information about outbound campaigns, see Set up Connect Customer outbound campaigns.  Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account and call this API",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -11820,7 +15841,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--traffic-type",
-          description: "Denotes the class of traffic",
+          description:
+            "Denotes the class of traffic.  Only the CAMPAIGN traffic type is supported",
           args: {
             name: "string",
           },
@@ -11860,9 +15882,97 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "send-outbound-web-notification",
+      description:
+        "Sends an outbound web notification to a customer's web browser for outbound campaigns. For more information about outbound campaigns, see Set up Connect Customer outbound campaigns.  Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account and call this API",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--browser-id",
+          description:
+            "A unique identifier for the customer's web browser instance to which the notification is being sent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--session-id",
+          description:
+            "A unique identifier for the customer's web session to which the notification is being sent",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--expires-at",
+          description:
+            "The timestamp, in Unix epoch time format, at which the web notification expires. After this time, the notification is no longer delivered to the customer's browser",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--source",
+          description:
+            "The source of the web notification. A SourceCampaign object identifies the campaign and outbound request that triggered this notification",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--destination",
+          description:
+            "The destination for the web notification, specifying the communication widget that delivers the notification and the customer profile of the recipient",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The content of the web notification, including the notification type, the view to render, and any optional attributes used to populate it",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-attached-file-upload",
       description:
-        "Provides a pre-signed Amazon S3 URL in response for uploading your content.  You may only use this API to upload attachments to an Amazon Connect Case or Amazon Connect Email",
+        "Provides a pre-signed Amazon S3 URL in response for uploading your content.  You may only use this API to upload attachments to an Connect Customer Case or Connect Customer Email",
       options: [
         {
           name: "--client-token",
@@ -11874,7 +15984,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--instance-id",
-          description: "The unique identifier of the Amazon Connect instance",
+          description: "The unique identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -11955,12 +16065,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-chat-contact",
       description:
-        "Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the CreateParticipantConnection API in the Amazon Connect Participant Service. When a new chat contact is successfully created, clients must subscribe to the participant\u2019s connection for the created chat within 5 minutes. This is achieved by invoking CreateParticipantConnection with WEBSOCKET and CONNECTION_CREDENTIALS.  A 429 error occurs in the following situations:   API rate limit is exceeded. API TPS throttling returns a TooManyRequests exception.   The quota for concurrent active chats is exceeded. Active chat throttling returns a LimitExceededException.   If you use the ChatDurationInMinutes parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.  For more information about chat, see the following topics in the Amazon Connect Administrator Guide:     Concepts: Web and mobile messaging capabilities in Amazon Connect     Amazon Connect Chat security best practices",
+        "Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the CreateParticipantConnection API in the Connect Customer Participant Service. When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking CreateParticipantConnection with WEBSOCKET and CONNECTION_CREDENTIALS.  A 429 error occurs in the following situations:   API rate limit is exceeded. API TPS throttling returns a TooManyRequests exception.   The quota for concurrent active chats is exceeded. Active chat throttling returns a LimitExceededException.   If you use the ChatDurationInMinutes parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.  For more information about chat, see the following topics in the Connect Customer Administrator Guide:     Concepts: Web and mobile messaging capabilities in Connect Customer     Connect Customer Chat security best practices",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -11968,7 +16078,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for initiating the chat. To see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
+            "The identifier of the flow for initiating the chat. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -11976,7 +16086,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows just like any other contact attributes.  There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows just like any other contact attributes.  There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
           args: {
             name: "map",
           },
@@ -11989,9 +16099,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--participant-configuration",
+          description: "The configuration of the participant",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--initial-message",
           description:
-            "The initial message to be sent to the newly created chat. If you have a Lex bot in your flow, the initial message is not delivered to the Lex bot",
+            "The initial message to be sent to the newly created chat",
           args: {
             name: "structure",
           },
@@ -12031,7 +16148,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--related-contact-id",
           description:
-            "The unique identifier for an Amazon Connect contact. This identifier is related to the chat starting.  You cannot provide data for both RelatedContactId and PersistentChat",
+            "The unique identifier for an Connect Customer contact. This identifier is related to the chat starting.  You cannot provide data for both RelatedContactId and PersistentChat",
           args: {
             name: "string",
           },
@@ -12039,9 +16156,88 @@ const completionSpec: Fig.Spec = {
         {
           name: "--segment-attributes",
           description:
-            'A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide.  The types application/vnd.amazonaws.connect.message.interactive and application/vnd.amazonaws.connect.message.interactive.response must be present in the SupportedMessagingContentTypes field of this API in order to set SegmentAttributes as { "connect:Subtype": {"valueString" : "connect:Guide" }}',
+            'A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide.  The types application/vnd.amazonaws.connect.message.interactive and application/vnd.amazonaws.connect.message.interactive.response must be present in the SupportedMessagingContentTypes field of this API in order to set SegmentAttributes as { "connect:Subtype": {"valueString" : "connect:Guide" }}',
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--customer-id",
+          description:
+            "The customer's identification number. For example, the CustomerId may be a customer number from your CRM",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--disconnect-on-customer-exit",
+          description:
+            "A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-contact-conversational-analytics-job",
+      description:
+        "Starts a Contact Lens post-call analytics job for the specified contact. This API runs Conversational Analytics post-contact analysis on a voice recording that is already attached to the contact, generating transcription, sentiment analysis, redaction, and summarization results based on the provided configuration.  A voice recording must already be attached to the contact before calling this API. Use CreateAttachedFile to attach a recording from an S3 source URI.   For example, you can call CreateContact, then CreateAttachedFile, then StartContactConversationalAnalyticsJob to create a contact, attach a recording, and run post-call analytics",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description:
+            "The identifier of the contact in this instance of Connect Customer",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--analytics-modes",
+          description:
+            "The analytics modes to run for the contact. Valid values: PostContact",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--analytics-configuration",
+          description: "The configuration for the conversational analytics job",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -12066,12 +16262,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-contact-evaluation",
       description:
-        "Starts an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started.   Evaluations created through the public API do not contain answer values suggested from automation",
+        "Starts an empty evaluation in the specified Connect Customer instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started.   Evaluations created through the public API do not contain answer values suggested from automation",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12079,7 +16275,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -12092,9 +16288,78 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--auto-evaluation-configuration",
+          description: "Whether automated evaluations are enabled",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--client-token",
           description:
             "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            'The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }',
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-contact-media-processing",
+      description:
+        "Enables in-flight message processing for an ongoing chat session. Message processing will stay active for the rest of the chat, even if an individual contact segment ends",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description: "The identifier of the contact",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--processor-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the Lambda processor. You can find the Amazon Resource Name of the lambda in the lambda console",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--failure-mode",
+          description: "The desired behavior for failed message processing",
           args: {
             name: "string",
           },
@@ -12126,7 +16391,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12175,12 +16440,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-contact-streaming",
       description:
-        "Initiates real-time message streaming for a new chat contact.  For more information about message streaming, see Enable real-time chat message streaming in the Amazon Connect Administrator Guide. For more information about chat, see the following topics in the Amazon Connect Administrator Guide:     Concepts: Web and mobile messaging capabilities in Amazon Connect     Amazon Connect Chat security best practices",
+        "Initiates real-time message streaming for a new chat contact.  For more information about message streaming, see Enable real-time chat message streaming in the Connect Customer Administrator Guide. For more information about chat, see the following topics in the Connect Customer Administrator Guide:     Concepts: Web and mobile messaging capabilities in Connect Customer     Connect Customer Chat security best practices",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12236,7 +16501,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12250,7 +16515,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--destination-email-address",
-          description: "The email address associated with the instance",
+          description:
+            "The email address associated with the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -12288,7 +16554,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--additional-recipients",
-          description: "The addtional recipients address of the email",
+          description: "The additional recipients address of the email",
           args: {
             name: "structure",
           },
@@ -12304,7 +16570,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for initiating the emails. To see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
+            "The identifier of the flow for initiating the emails. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -12320,7 +16586,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
           args: {
             name: "map",
           },
@@ -12328,7 +16594,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--segment-attributes",
           description:
-            'A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger":135}}}}',
+            'A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger":135}}}}',
           args: {
             name: "map",
           },
@@ -12361,9 +16627,55 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-evaluation-form-validation",
+      description:
+        "Starts an asynchronous validation process for an evaluation form version in the specified Connect Customer instance. The validation first performs structural checks on the form content (such as verifying required fields, valid scoring configuration, and correct conditional logic), then asynchronously analyzes questions configured for generative AI evaluation against a set of best practices. Use GetEvaluationFormValidation to retrieve the status and results once the validation completes",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--evaluation-form-id",
+          description: "The unique identifier for the evaluation form",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--evaluation-form-version",
+          description: "The version of the evaluation form to validate",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "start-outbound-chat-contact",
       description:
-        "Initiates a new outbound SMS contact to a customer. Response of this API provides the ContactId of the outbound SMS contact created.  SourceEndpoint only supports Endpoints with CONNECT_PHONENUMBER_ARN as Type and DestinationEndpoint only supports Endpoints with TELEPHONE_NUMBER as Type. ContactFlowId initiates the flow to manage the new SMS contact created. This API can be used to initiate outbound SMS contacts for an agent, or it can also deflect an ongoing contact to an outbound SMS contact by using the StartOutboundChatContact Flow Action. For more information about using SMS in Amazon Connect, see the following topics in the Amazon Connect Administrator Guide:    Set up SMS messaging     Request an SMS-enabled phone number through AWS End User Messaging SMS",
+        "Initiates a new outbound SMS or WhatsApp contact to a customer. Response of this API provides the ContactId of the outbound SMS or WhatsApp contact created.  SourceEndpoint only supports Endpoints with CONNECT_PHONENUMBER_ARN as Type and DestinationEndpoint only supports Endpoints with TELEPHONE_NUMBER as Type. ContactFlowId initiates the flow to manage the new contact created. This API can be used to initiate outbound SMS or WhatsApp contacts for an agent, or it can also deflect an ongoing contact to an outbound SMS or WhatsApp contact by using the StartOutboundChatContact Flow Action. For more information about using SMS or WhatsApp in Connect Customer, see the following topics in the Connect Customer Administrator Guide:    Set up SMS messaging     Request an SMS-enabled phone number through Amazon Web Services End User Messaging SMS     Set up WhatsApp Business messaging",
       options: [
         {
           name: "--source-endpoint",
@@ -12382,7 +16694,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12390,7 +16702,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--segment-attributes",
           description:
-            "A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows.   Attribute keys can include only alphanumeric, -, and _.   This field can be used to show channel subtype, such as connect:Guide and connect:SMS",
+            "A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.   Attribute keys can include only alphanumeric, -, and _.   This field can be used to show channel subtype, such as connect:SMS and connect:WhatsApp",
           args: {
             name: "map",
           },
@@ -12398,7 +16710,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes",
           args: {
             name: "map",
           },
@@ -12406,7 +16718,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to Routing, Contact Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:   arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/123ec456-a007-89c0-1234-xxxxxxxxxxxx",
+            "The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer console user interface, on the navigation menu go to Routing, Contact Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:   arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/123ec456-a007-89c0-1234-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -12434,9 +16746,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--initial-templated-system-message",
+          description: "Information about template message configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--related-contact-id",
           description:
-            "The unique identifier for an Amazon Connect contact. This identifier is related to the contact starting",
+            "The unique identifier for an Connect Customer contact. This identifier is related to the contact starting",
           args: {
             name: "string",
           },
@@ -12452,7 +16771,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned",
           args: {
             name: "string",
           },
@@ -12484,7 +16803,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12492,14 +16811,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
         },
         {
           name: "--from-email-address",
-          description: "The email address associated with the instance",
+          description:
+            "The email address associated with the Connect Customer instance",
           args: {
             name: "structure",
           },
@@ -12513,7 +16833,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--additional-recipients",
-          description: "The addtional recipients address of email in CC",
+          description: "The additional recipients address of email in CC",
           args: {
             name: "structure",
           },
@@ -12556,7 +16876,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-outbound-voice-contact",
       description:
-        "Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's specified (in ContactFlowId). Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case. There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.  UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see Amazon Connect Service Quotas in the Amazon Connect Administrator Guide.    Campaign calls are not allowed by default. Before you can make a call with TrafficType = CAMPAIGN, you must submit a service quota increase request to the quota Amazon Connect campaigns",
+        "Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's specified (in ContactFlowId). Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case. Dialing timeout for this operation can be configured with the “RingTimeoutInSeconds” parameter. If not specified, the default dialing timeout will be 60 seconds which means if the call is not connected within 60 seconds, it fails.  UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see Connect Customer Service Quotas in the Connect Customer Administrator Guide.    Campaign calls are not allowed by default. Before you can make a call with TrafficType = CAMPAIGN, you must submit a service quota increase request to the quota Connect Customer campaigns.    For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API with OutboundStrategy",
       options: [
         {
           name: "--name",
@@ -12569,7 +16889,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--description",
           description:
-            "A description of the voice contact that is shown to an agent in the Contact Control Panel (CCP)",
+            "A description of the voice contact that appears in the agent's snapshot in the CCP logs. For more information about CCP logs, see Download and review CCP logs in the Connect Customer Administrator Guide",
           args: {
             name: "string",
           },
@@ -12600,7 +16920,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to Routing, Contact Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
+            "The identifier of the flow for the outbound call. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to Routing, Contact Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -12608,7 +16928,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12624,7 +16944,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--source-phone-number",
           description:
-            "The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue",
+            "The phone number associated with the Connect Customer instance, in E.164 format. If you do not specify a source phone number, you must specify a queue",
           args: {
             name: "string",
           },
@@ -12640,7 +16960,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
           args: {
             name: "map",
           },
@@ -12663,9 +16983,24 @@ const completionSpec: Fig.Spec = {
         {
           name: "--traffic-type",
           description:
-            "Denotes the class of traffic. Calls with different traffic types are handled differently by Amazon Connect. The default value is GENERAL. Use CAMPAIGN if EnableAnswerMachineDetection is set to true. For all other cases, use GENERAL",
+            "Denotes the class of traffic. Calls with different traffic types are handled differently by Connect Customer. The default value is GENERAL. Use CAMPAIGN if EnableAnswerMachineDetection is set to true. For all other cases, use GENERAL",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--outbound-strategy",
+          description: "Information about the outbound strategy",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--ring-timeout-in-seconds",
+          description:
+            "The maximum time the outbound call will wait for the destination to answer the call, in seconds",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -12690,7 +17025,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-screen-sharing",
       description:
-        "Starts screen sharing for a contact. For more information about screen sharing, see Set up in-app, web, video calling, and screen sharing capabilities in the Amazon Connect Administrator Guide",
+        "Starts screen sharing for a contact. For more information about screen sharing, see Set up in-app, web, video calling, and screen sharing capabilities in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--client-token",
@@ -12703,7 +17038,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12711,7 +17046,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -12738,12 +17073,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-task-contact",
       description:
-        "Initiates a flow to start a new task contact. For more information about task contacts, see Concepts: Tasks in Amazon Connect in the Amazon Connect Administrator Guide.  When using PreviousContactId and RelatedContactId input parameters, note the following:    PreviousContactId    Any updates to user-defined task contact attributes on any contact linked through the same PreviousContactId will affect every contact in the chain.   There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that share the same PreviousContactId.      RelatedContactId    Copies contact attributes from the related task contact to the new contact.   Any update on attributes in a new task contact does not update attributes on previous contact.   There\u2019s no limit on the number of task contacts that can be created that use the same RelatedContactId.     In addition, when calling StartTaskContact include only one of these parameters: ContactFlowID, QuickConnectID, or TaskTemplateID. Only one parameter is required as long as the task template has a flow configured to run it. If more than one parameter is specified, or only the TaskTemplateID is specified but it does not have a flow configured, the request returns an error because Amazon Connect cannot identify the unique flow to run when the task is created. A ServiceQuotaExceededException occurs when the number of open tasks exceeds the active tasks quota or there are already 12 tasks referencing the same PreviousContactId. For more information about service quotas for task contacts, see Amazon Connect service quotas in the Amazon Connect Administrator Guide",
+        "Initiates a flow to start a new task contact. For more information about task contacts, see Concepts: Tasks in Connect Customer in the Connect Customer Administrator Guide.  When using PreviousContactId and RelatedContactId input parameters, note the following:    PreviousContactId    Any updates to user-defined task contact attributes on any contact linked through the same PreviousContactId will affect every contact in the chain.   There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that share the same PreviousContactId.      RelatedContactId    Copies contact attributes from the related task contact to the new contact.   Any update on attributes in a new task contact does not update attributes on previous contact.   There’s no limit on the number of task contacts that can be created that use the same RelatedContactId.     In addition, when calling StartTaskContact include only one of these parameters: ContactFlowID, QuickConnectID, or TaskTemplateID. Only one parameter is required as long as the task template has a flow configured to run it. If more than one parameter is specified, or only the TaskTemplateID is specified but it does not have a flow configured, the request returns an error because Connect Customer cannot identify the unique flow to run when the task is created. A ServiceQuotaExceededException occurs when the number of open tasks exceeds the active tasks quota or there are already 12 tasks referencing the same PreviousContactId. For more information about service quotas for task contacts, see Connect Customer service quotas in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12759,7 +17094,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
+            "The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -12767,7 +17102,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters",
           args: {
             name: "map",
           },
@@ -12815,7 +17150,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--task-template-id",
           description:
-            "A unique identifier for the task template. For more information about task templates, see Create task templates in the Amazon Connect Administrator Guide",
+            "A unique identifier for the task template. For more information about task templates, see Create task templates in the Connect Customer Administrator Guide",
           args: {
             name: "string",
           },
@@ -12839,9 +17174,62 @@ const completionSpec: Fig.Spec = {
         {
           name: "--segment-attributes",
           description:
-            'A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to set Contact Expiry as a duration in minutes and set a UserId for the User who created a task.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger": 135}}}}.  To set the created by user, a valid AgentResourceId must be supplied, with SegmentAttributes like { "connect:CreatedByUser" { "ValueString": "arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/agent/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}}}',
+            'A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to set Contact Expiry as a duration in minutes and set a UserId for the User who created a task.  To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with SegmentAttributes like {  "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger": 135}}}}.  To set the created by user, a valid AgentResourceId must be supplied, with SegmentAttributes like { "connect:CreatedByUser" { "ValueString": "arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/agent/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}}}',
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--attachments",
+          description:
+            "List of S3 presigned URLs of task attachments and their file name. You can have a maximum of 5 attachments per task",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "start-test-case-execution",
+      description: "Starts executing a published test case",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case to execute",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
           },
         },
         {
@@ -12866,12 +17254,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-web-rtc-contact",
       description:
-        "Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It performs the actions in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as InstanceId)",
+        "Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It performs the actions in the flow that are specified (in ContactFlowId) and present in the Connect Customer instance (specified as InstanceId)",
       options: [
         {
           name: "--attributes",
           description:
-            "A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, -, and _ characters",
+            "A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, -, and _ characters",
           args: {
             name: "map",
           },
@@ -12887,7 +17275,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-flow-id",
           description:
-            "The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
+            "The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to Routing, Flows. Choose the flow. On the flow page, under the name of the flow, choose Show additional flow information. The ContactFlowId is the last part of the ARN, shown here in bold:  arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/846ec553-a005-41c0-8341-xxxxxxxxxxxx",
           args: {
             name: "string",
           },
@@ -12895,7 +17283,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12918,7 +17306,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--related-contact-id",
           description:
-            "The unique identifier for an Amazon Connect contact. This identifier is related to the contact starting",
+            "The unique identifier for an Connect Customer contact. This identifier is related to the contact starting",
           args: {
             name: "string",
           },
@@ -12973,7 +17361,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -12981,9 +17369,48 @@ const completionSpec: Fig.Spec = {
         {
           name: "--disconnect-reason",
           description:
-            "The reason a contact can be disconnected. Only Amazon Connect outbound campaigns can provide this field",
+            "The reason a contact can be disconnected. Only Connect Customer outbound campaigns can provide this field. For a list and description of all the possible disconnect reasons by channel (including outbound campaign voice contacts) see DisconnectReason under ContactTraceRecord in the Connect Customer Administrator Guide",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "stop-contact-media-processing",
+      description:
+        "Stops in-flight message processing for an ongoing chat session",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-id",
+          description: "The identifier of the contact",
+          args: {
+            name: "string",
           },
         },
         {
@@ -13013,7 +17440,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13067,7 +17494,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13107,14 +17534,66 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "stop-test-case-execution",
+      description: "Stops a running test execution",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-execution-id",
+          description: "The identifier of the test case execution to stop",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "submit-contact-evaluation",
       description:
-        "Submits a contact evaluation in the specified Amazon Connect instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object ({}) to the question identifier.  If a contact evaluation is already in submitted state, this operation will trigger a resubmission",
+        "Submits a contact evaluation in the specified Connect Customer instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object ({}) to the question identifier.  If a contact evaluation is already in submitted state, this operation will trigger a resubmission",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13141,6 +17620,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--submitted-by",
+          description:
+            "The ID of the user who submitted the contact evaluation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -13162,12 +17649,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "suspend-contact-recording",
       description:
-        "When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen. The period of time that the recording is suspended is filled with silence in the final recording. Voice and screen recordings are supported",
+        "When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call (IVR or agent), screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen. The period of time that the recording is suspended is filled with silence in the final recording.   Voice (IVR, agent) and screen recordings are supported",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13216,12 +17703,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-contact",
       description:
-        "Adds the specified tags to the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Amazon Connect usage",
+        "Adds the specified tags to the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Connect Customer usage",
       options: [
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -13229,7 +17716,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13264,7 +17751,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Adds the specified tags to the specified resource. Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see Tagging resources in Amazon Connect. For sample policies that use tags, see Amazon Connect Identity-Based Policy Examples in the Amazon Connect Administrator Guide",
+        "Adds the specified tags to the specified resource. Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see Tagging resources in Connect Customer. For sample policies that use tags, see Connect Customer Identity-Based Policy Examples in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--resource-arn",
@@ -13303,12 +17790,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "transfer-contact",
       description:
-        "Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers. Note the following requirements:   Transfer is supported for only TASK contacts.   Do not use both QueueId and UserId in the same call.   The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.   The TransferContact API can be called only on active contacts.   A contact cannot be transferred more than 11 times",
+        "Transfers TASK or EMAIL contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers. Note the following requirements:   Transfer is only supported for TASK and EMAIL contacts.   Do not use both QueueId and UserId in the same call.   The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.   The TransferContact API can be called only on active contacts.   A contact cannot be transferred more than 11 times",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13316,7 +17803,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -13373,12 +17860,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "untag-contact",
       description:
-        "Removes the specified tags from the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Amazon Connect usage",
+        "Removes the specified tags from the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Connect Customer usage",
       options: [
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -13386,7 +17873,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13457,13 +17944,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-agent-status",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates agent status",
+      description: "Updates agent status",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13533,9 +18019,64 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-attached-files-configuration",
+      description:
+        "Updates the attached files configuration for the specified Connect Customer instance and attachment scope. If no instance-specific configuration exists, this operation creates one. Partial updates are supported—only specified fields are updated, while unspecified fields retain their current values",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attachment-scope",
+          description:
+            "The scope of the attachment. Valid values are EMAIL, CHAT, CASE, and TASK",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--maximum-size-limit-in-bytes",
+          description:
+            "The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB)",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--extension-configuration",
+          description: "The configuration for allowed file extensions",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-authentication-profile",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. To request access to this API, contact Amazon Web Services Support. Updates the selected authentication profile",
+        "This API is in preview release for Connect Customer and is subject to change. To request access to this API, contact Amazon Web Services Support. Updates the selected authentication profile",
       options: [
         {
           name: "--authentication-profile-id",
@@ -13547,7 +18088,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13569,7 +18110,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-ips",
           description:
-            "A list of IP address range strings that are allowed to access the instance. For more information on how to configure IP addresses, seeConfigure session timeouts in the Amazon Connect Administrator Guide",
+            "A list of IP address range strings that are allowed to access the instance. For more information on how to configure IP addresses, seeConfigure session timeouts in the Connect Customer Administrator Guide",
           args: {
             name: "list",
           },
@@ -13577,7 +18118,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--blocked-ips",
           description:
-            "A list of IP address range strings that are blocked from accessing the instance. For more information on how to configure IP addresses, For more information on how to configure IP addresses, see Configure IP-based access control in the Amazon Connect Administrator Guide",
+            "A list of IP address range strings that are blocked from accessing the instance. For more information on how to configure IP addresses, For more information on how to configure IP addresses, see Configure IP-based access control in the Connect Customer Administrator Guide",
           args: {
             name: "list",
           },
@@ -13585,10 +18126,28 @@ const completionSpec: Fig.Spec = {
         {
           name: "--periodic-session-duration",
           description:
-            "The short lived session duration configuration for users logged in to Amazon Connect, in minutes. This value determines the maximum possible time before an agent is authenticated. For more information, For more information on how to configure IP addresses, see Configure session timeouts in the Amazon Connect Administrator Guide",
+            "The short lived session duration configuration for users logged in to Connect Customer, in minutes. This value determines the maximum possible time before an agent is authenticated. For more information, For more information on how to configure IP addresses, see Configure session timeouts in the Connect Customer Administrator Guide",
           args: {
             name: "integer",
           },
+        },
+        {
+          name: "--session-inactivity-duration",
+          description:
+            "The period, in minutes, before an agent is automatically signed out of the contact center when they go inactive",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--session-inactivity-handling-enabled",
+          description:
+            "Determines if automatic logout on user inactivity is enabled",
+        },
+        {
+          name: "--no-session-inactivity-handling-enabled",
+          description:
+            "Determines if automatic logout on user inactivity is enabled",
         },
         {
           name: "--cli-input-json",
@@ -13612,12 +18171,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-contact",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Adds or updates user-defined contact information associated with the specified contact. At least one field to be updated must be present in the request.  You can add or update user-defined contact information for both ongoing and completed contacts",
+        "This API is in preview release for Connect Customer and is subject to change. Adds or updates user-defined contact information associated with the specified contact. At least one field to be updated must be present in the request.  You can add or update user-defined contact information for both ongoing and completed contacts",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13655,7 +18214,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--segment-attributes",
           description:
-            "A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide. Currently Contact Expiry is the only segment attribute which can be updated by using the UpdateContact API",
+            "A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows. Attribute keys can include only alphanumeric, -, and _. This field can be used to show channel subtype, such as connect:Guide. Contact Expiry, and user-defined attributes (String - String) that are defined in predefined attributes, can be updated by using the UpdateContact API",
           args: {
             name: "map",
           },
@@ -13663,7 +18222,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-info",
           description:
-            "Information about the queue associated with a contact. This parameter can only be updated for external audio contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see Amazon Connect Contact Lens integration in the  Amazon Connect Administrator Guide",
+            "Information about the queue associated with a contact. This parameter can only be updated for external audio contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see Connect Customer Contact Lens integration in the  Connect Customer Administrator Guide",
           args: {
             name: "structure",
           },
@@ -13671,7 +18230,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--user-info",
           description:
-            "Information about the agent associated with a contact. This parameter can only be updated for external audio contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see Amazon Connect Contact Lens integration in the  Amazon Connect Administrator Guide",
+            "Information about the agent associated with a contact. This parameter can only be updated for external audio contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see Connect Customer Contact Lens integration in the  Connect Customer Administrator Guide",
           args: {
             name: "structure",
           },
@@ -13679,7 +18238,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--customer-endpoint",
           description:
-            "The endpoint of the customer for which the contact was initiated. For external audio contacts, this is usually the end customer's phone number. This value can only be updated for external audio contacts. For more information, see Amazon Connect Contact Lens integration in the Amazon Connect Administrator Guide",
+            "The endpoint of the customer for which the contact was initiated. For external audio contacts, this is usually the end customer's phone number. This value can only be updated for external audio contacts. For more information, see Connect Customer Contact Lens integration in the Connect Customer Administrator Guide",
           args: {
             name: "structure",
           },
@@ -13687,7 +18246,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--system-endpoint",
           description:
-            "External system endpoint for the contact was initiated. For external audio contacts, this is the phone number of the external system such as the contact center. This value can only be updated for external audio contacts. For more information, see Amazon Connect Contact Lens integration in the Amazon Connect Administrator Guide",
+            "External system endpoint for the contact was initiated. For external audio contacts, this is the phone number of the external system such as the contact center. This value can only be updated for external audio contacts. For more information, see Connect Customer Contact Lens integration in the Connect Customer Administrator Guide",
           args: {
             name: "structure",
           },
@@ -13714,7 +18273,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-contact-attributes",
       description:
-        "Creates or updates user-defined contact attributes associated with the specified contact. You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers. Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about contact record retention and the maximum size of the contact record attributes section, see Feature specifications in the Amazon Connect Administrator Guide",
+        "Creates or updates user-defined contact attributes associated with the specified contact. You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Connect Customer. You could also flag calls for additional analysis, such as legal review or to identify abusive callers. Contact attributes are available in Connect Customer for 24 months, and are then deleted. For information about contact record retention and the maximum size of the contact record attributes section, see Feature specifications in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--initial-contact-id",
@@ -13727,7 +18286,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13735,7 +18294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attributes",
           description:
-            "The Amazon Connect attributes. These attributes can be accessed in flows just like any other contact attributes. You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters. When the attributes for a contact exceed 32 KB, the contact is routed down the Error branch of the flow. As a mitigation, consider the following options:   Remove unnecessary attributes by setting their values to empty.   If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. This way you aren't needlessly persisting the 32 KB of information from one flow to another. For more information, see Flow block: Set contact attributes in the Amazon Connect Administrator Guide",
+            "The Connect Customer attributes. These attributes can be accessed in flows just like any other contact attributes. You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters. In the Set contact attributes block, when the attributes for a contact exceed 32 KB, the contact is routed down the Error branch of the flow. As a mitigation, consider the following options:   Remove unnecessary attributes by setting their values to empty.   If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. This way you aren't needlessly persisting the 32 KB of information from one flow to another. For more information, see Flow block: Set contact attributes in the Connect Customer Administrator Guide",
           args: {
             name: "map",
           },
@@ -13762,12 +18321,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-contact-evaluation",
       description:
-        "Updates details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An answer or note can be deleted by passing an empty object ({}) to the question identifier",
+        "Updates details about a contact evaluation in the specified Connect Customer instance. A contact evaluation must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An answer or note can be deleted by passing an empty object ({}) to the question identifier",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13794,6 +18353,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--updated-by",
+          description: "The ID of the user who updated the contact evaluation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -13815,11 +18381,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-contact-flow-content",
       description:
-        "Updates the specified flow. You can also create and update flows using the Amazon Connect Flow language. Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published",
+        "Updates the specified flow. You can also create and update flows using the Connect Customer Flow language. Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -13834,7 +18400,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content",
           description:
-            "The JSON string that represents the content of the flow. For an example, see Example flow in Amazon Connect Flow language.  Length Constraints: Minimum length of 1. Maximum length of 256000",
+            "The JSON string that represents the content of the flow. For an example, see Example flow in Connect Customer Flow language.  Length Constraints: Minimum length of 1. Maximum length of 256000",
           args: {
             name: "string",
           },
@@ -13865,7 +18431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13918,14 +18484,81 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-contact-flow-module-content",
+      name: "update-contact-flow-module-alias",
       description:
-        "Updates specified flow module for the specified Amazon Connect instance.  Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published",
+        "Updates a specific Aliases metadata, including the version it’s tied to, it’s name, and description",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-id",
+          description: "The identifier of the flow module",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--alias-id",
+          description: "The identifier of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contact-flow-module-version",
+          description: "The version of the flow module",
+          args: {
+            name: "long",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-contact-flow-module-content",
+      description:
+        "Updates specified flow module for the specified Connect Customer instance.  Use the $SAVED alias in the request to describe the SAVED content of a Flow. For example, arn:aws:.../contact-flow/{id}:$SAVED. After a flow is published, $SAVED needs to be supplied to view saved content that has not been published",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -13940,7 +18573,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--content",
           description:
-            "The JSON string that represents the content of the flow. For an example, see Example flow in Amazon Connect Flow language",
+            "The JSON string that represents the content of the flow. For an example, see Example flow in Connect Customer Flow language",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--settings",
+          description:
+            "Serialized JSON string of the flow module Settings schema",
           args: {
             name: "string",
           },
@@ -13971,7 +18612,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14026,11 +18667,11 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-contact-flow-name",
       description:
-        "The name of the flow. You can also create and update flows using the Amazon Connect Flow language",
+        "The name of the flow. You can also create and update flows using the Connect Customer Flow language",
       options: [
         {
           name: "--instance-id",
-          description: "The identifier of the Amazon Connect instance",
+          description: "The identifier of the Connect Customer instance",
           args: {
             name: "string",
           },
@@ -14083,7 +18724,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14091,7 +18732,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
@@ -14115,7 +18756,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--routing-criteria",
           description:
-            "Updates the routing criteria on the contact. These properties can be used to change how a\u2028 contact is routed within the queue",
+            "Updates the routing criteria on the contact. These properties can be used to change how a contact is routed within the queue",
           args: {
             name: "structure",
           },
@@ -14147,7 +18788,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14187,14 +18828,236 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-data-table-attribute",
+      description:
+        "Updates all properties for an attribute using all properties from CreateDataTableAttribute. There are no other granular update endpoints. It does not act as a patch operation - all properties must be provided. System managed attributes are not mutable by customers. Changing an attribute's validation does not invalidate existing values since validation only runs when values are created or updated",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--attribute-name",
+          description:
+            "The current name of the attribute to update. Used as an identifier since attribute names can be changed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The new name for the attribute. Must conform to Connect human readable string specification and be unique within the data table",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--value-type",
+          description:
+            "The updated value type for the attribute. When changing value types, existing values are not deleted but may return default values if incompatible",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The updated description for the attribute",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--primary",
+          description:
+            "Whether the attribute should be treated as a primary key. Converting to primary attribute requires existing values to maintain uniqueness",
+        },
+        {
+          name: "--no-primary",
+          description:
+            "Whether the attribute should be treated as a primary key. Converting to primary attribute requires existing values to maintain uniqueness",
+        },
+        {
+          name: "--validation",
+          description:
+            "The updated validation rules for the attribute. Changes do not affect existing values until they are modified",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-data-table-metadata",
+      description:
+        "Updates the metadata properties of a data table. Accepts all fields similar to CreateDataTable, except for fields and tags. There are no other granular update endpoints. It does not act as a patch operation - all properties must be provided or defaults will be used. Fields follow the same requirements as CreateDataTable",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be $LATEST. Providing any other alias fails with an error",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description:
+            "The updated name for the data table. Must conform to Connect human readable string specification and have 1-127 characters. Must be unique for the instance using case-insensitive comparison",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "The updated description for the data table. Must conform to Connect human readable string specification and have 0-250 characters",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--value-lock-level",
+          description:
+            "The updated value lock level for the data table. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--time-zone",
+          description:
+            "The updated IANA timezone identifier to use when resolving time based dynamic values",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-data-table-primary-values",
+      description:
+        "Updates the primary values for a record. This operation affects all existing values that are currently associated to the record and its primary values. Users that have restrictions on attributes and/or primary values are not authorized to use this endpoint. The combination of new primary values must be unique within the table",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The unique identifier for the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--data-table-id",
+          description:
+            "The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be one of the two available system managed aliases, $SAVED or $LATEST",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--primary-values",
+          description:
+            "The current primary values for the record. Required and must include values for all primary attributes. Fails if the table has primary attributes and some primary values are omitted",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--new-primary-values",
+          description:
+            "The new primary values for the record. Required and must include values for all primary attributes. The combination must be unique within the table",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--lock-version",
+          description:
+            "The lock version information required for optimistic locking to prevent concurrent modifications",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-email-address-metadata",
       description:
-        "Updates an email address metadata. For more information about email addresses, see Create email addresses in the Amazon Connect Administrator Guide",
+        "Updates an email address metadata. For more information about email addresses, see Create email addresses in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14250,12 +19113,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-evaluation-form",
       description:
-        "Updates details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form. This operation does not support partial updates. Instead it does a full update of evaluation form content",
+        "Updates details about a specific evaluation form version in the specified Connect Customer instance. Question and section identifiers cannot be duplicated within the same evaluation form. This operation does not support partial updates. Instead it does a full update of evaluation form content",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14314,11 +19177,52 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--auto-evaluation-configuration",
+          description: "Whether automated evaluations are enabled",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--review-configuration",
+          description:
+            "Configuration for evaluation review settings of the evaluation form",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--as-draft",
+          description:
+            "A boolean flag indicating whether to update evaluation form to draft state",
+        },
+        {
+          name: "--no-as-draft",
+          description:
+            "A boolean flag indicating whether to update evaluation form to draft state",
+        },
+        {
           name: "--client-token",
           description:
             "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--target-configuration",
+          description:
+            "Configuration that specifies the target for the evaluation form",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--language-configuration",
+          description:
+            "Configuration for language settings of the evaluation form",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -14342,13 +19246,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-hours-of-operation",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the hours of operation",
+      description: "Updates the hours of operation",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14408,14 +19311,111 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-hours-of-operation-override",
+      description: "Update the hours of operation override",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Connect Customer instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-id",
+          description: "The identifier for the hours of operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--hours-of-operation-override-id",
+          description: "The identifier for the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the hours of operation override",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--config",
+          description:
+            "Configuration information for the hours of operation override: day, start time, and end time",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--effective-from",
+          description:
+            "The date from when the hours of operation override would be effective",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--effective-till",
+          description:
+            "The date until the hours of operation override is effective",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--recurrence-config",
+          description: "Configuration for a recurring event",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--override-type",
+          description:
+            "Whether the override will be defined as a standard or as a recurring event. For more information about how override types are applied, see Build your list of overrides in the  Administrator Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-instance-attribute",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the value for the specified attribute type",
+        "This API is in preview release for Connect Customer and is subject to change. Updates the value for the specified attribute type",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14423,7 +19423,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--attribute-type",
           description:
-            "The type of attribute.  Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting",
+            "The type of attribute.  Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.   If you set the attribute type as MESSAGE_STREAMING, you need to update the Lex bot alias resource based policy to include the lex:RecognizeMessageAsync action for the connect instance ARN resource",
           args: {
             name: "string",
           },
@@ -14432,6 +19432,14 @@ const completionSpec: Fig.Spec = {
           name: "--value",
           description:
             "The value for the attribute. Maximum character limit is 100",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
           args: {
             name: "string",
           },
@@ -14458,12 +19466,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-instance-storage-config",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates an existing configuration for a resource type. This API is idempotent",
+        "This API is in preview release for Connect Customer and is subject to change. Updates an existing configuration for a resource type. This API is idempotent",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14488,6 +19496,125 @@ const completionSpec: Fig.Spec = {
           description: "The storage configuration for the instance",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see Making retries safe with idempotent APIs",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-notification-content",
+      description:
+        "Updates the localized content of an existing notification. This operation applies to all users for whom the notification was sent",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--notification-id",
+          description: "The unique identifier for the notification to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The updated localized content of the notification. A map of locale codes and values. Maximum 500 characters per locale",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-participant-authentication",
+      description:
+        "Instructs Connect Customer to resume the authentication process. The subsequent actions depend on the request body contents:    If a code is provided: Connect retrieves the identity information from Amazon Cognito and imports it into Connect Customer Profiles.    If an error is provided: The error branch of the Authenticate Customer block is executed.    The API returns a success response to acknowledge the request. However, the interaction and exchange of identity information occur asynchronously after the response is returned",
+      options: [
+        {
+          name: "--state",
+          description:
+            "The state query parameter that was provided by Cognito in the redirectUri. This will also match the state parameter provided in the AuthenticationUrl from the GetAuthenticationUrl response",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--code",
+          description:
+            "The code query parameter provided by Cognito in the redirectUri",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--error",
+          description:
+            "The error query parameter provided by Cognito in the redirectUri",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--error-description",
+          description:
+            "The error_description parameter provided by Cognito in the redirectUri",
+          args: {
+            name: "string",
           },
         },
         {
@@ -14517,7 +19644,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14525,14 +19652,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-id",
           description:
-            "The identifier of the contact in this instance of Amazon Connect",
+            "The identifier of the contact in this instance of Connect Customer",
           args: {
             name: "string",
           },
         },
         {
           name: "--channel-configuration",
-          description: "The Amazon Connect channel you want to configure",
+          description: "The Connect Customer channel you want to configure",
           args: {
             name: "structure",
           },
@@ -14559,7 +19686,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-phone-number",
       description:
-        "Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.  After using this API, you must verify that the phone number is attached to the correct flow in the target instance or traffic distribution group. You need to do this because the API switches only the phone number to a new instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too. You can call DescribePhoneNumber API to verify the status of a previous UpdatePhoneNumber operation",
+        "Updates your claimed phone number from its current Connect Customer instance or traffic distribution group to another Connect Customer instance or traffic distribution group in the same Amazon Web Services Region.  After using this API, you must verify that the phone number is attached to the correct flow in the target instance or traffic distribution group. You need to do this because the API switches only the phone number to a new instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too. You can call DescribePhoneNumber API to verify the status of a previous UpdatePhoneNumber operation",
       options: [
         {
           name: "--phone-number-id",
@@ -14571,7 +19698,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--target-arn",
           description:
-            "The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
+            "The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -14579,7 +19706,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
+            "The identifier of the Connect Customer instance that phone numbers are claimed to. You can find the instance ID in the Amazon Resource Name (ARN) of the instance. You must enter InstanceId or TargetArn",
           args: {
             name: "string",
           },
@@ -14614,7 +19741,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-phone-number-metadata",
       description:
-        "Updates a phone number\u2019s metadata.  To verify the status of a previous UpdatePhoneNumberMetadata operation, call the DescribePhoneNumber API",
+        "Updates a phone number’s metadata.  To verify the status of a previous UpdatePhoneNumberMetadata operation, call the DescribePhoneNumber API",
       options: [
         {
           name: "--phone-number-id",
@@ -14661,12 +19788,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-predefined-attribute",
       description:
-        "Updates a predefined attribute for the specified Amazon Connect instance. Predefined attributes are attributes in an Amazon Connect instance that can be used to route contacts to an agent or pools of agents within a queue. For more information, see Create predefined attributes for routing contacts to agents",
+        "Updates a predefined attribute for the specified Connect Customer instance. A predefined attribute is made up of a name and a value. For the predefined attributes per instance quota, see Connect Customer quotas.  Use cases  Following are common uses cases for this API:   Update routing proficiency (for example, agent certification) that has predefined values (for example, a list of possible certifications). For more information, see Create predefined attributes for routing contacts to agents.   Update an attribute for business unit name that has a list of predefined business unit names used in your organization. This is a use case where information for a contact varies between transfers or conferences. For more information, see Use contact segment attributes.    Endpoints: See Connect Customer endpoints and quotas",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14681,6 +19808,22 @@ const completionSpec: Fig.Spec = {
         {
           name: "--values",
           description: "The values of the predefined attribute",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--purposes",
+          description:
+            "Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--attribute-configuration",
+          description:
+            "Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Connect Customer admin website",
           args: {
             name: "structure",
           },
@@ -14711,7 +19854,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14766,13 +19909,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-queue-hours-of-operation",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the hours of operation for the specified queue",
+      description: "Updates the hours of operation for the specified queue",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14813,12 +19955,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-queue-max-contacts",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the maximum number of contacts allowed in a queue before it is considered full",
+        "Updates the maximum number of contacts allowed in a queue before it is considered full",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14860,12 +20002,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-queue-name",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the name and description of a queue. At least Name or Description must be provided",
+        "Updates the name and description of a queue. At least Name or Description must be provided",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14913,12 +20055,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-queue-outbound-caller-config",
       description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Amazon Connect instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn't contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region",
+        "Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Connect Customer instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn't contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -14965,7 +20107,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15005,13 +20147,12 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "update-queue-status",
-      description:
-        "This API is in preview release for Amazon Connect and is subject to change. Updates the status of the queue",
+      description: "Updates the status of the queue",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15057,7 +20198,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15104,7 +20245,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15157,7 +20298,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15204,7 +20345,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15250,7 +20391,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15296,7 +20437,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15351,7 +20492,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15393,7 +20534,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-rule",
       description:
-        "Updates a rule for the specified Amazon Connect instance. Use the Rules Function language to code conditions for the rule",
+        "Updates a rule for the specified Connect Customer instance. Use the Rules Function language to code conditions for the rule",
       options: [
         {
           name: "--rule-id",
@@ -15405,7 +20546,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15461,7 +20602,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-security-profile",
       description:
-        "Updates a security profile. For information about security profiles, see Security Profiles in the Amazon Connect Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
+        "Updates a security profile. For information about security profiles, see Security Profiles in the Connect Customer Administrator Guide. For a mapping of the API name and user interface name of the security profile permissions, see List of security profile permissions",
       options: [
         {
           name: "--description",
@@ -15488,7 +20629,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15496,7 +20637,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-access-control-tags",
           description:
-            "The list of tags that a security profile uses to restrict access to resources in Amazon Connect",
+            "The list of tags that a security profile uses to restrict access to resources in Connect Customer",
           args: {
             name: "map",
           },
@@ -15504,7 +20645,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--tag-restricted-resources",
           description:
-            "The list of resources that a security profile applies tag restrictions to in Amazon Connect",
+            "The list of resources that a security profile applies tag restrictions to in Connect Customer",
           args: {
             name: "list",
           },
@@ -15519,7 +20660,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--hierarchy-restricted-resources",
           description:
-            "The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: User",
+            "The list of resources that a security profile applies hierarchy restrictions to in Connect Customer. Following are acceptable ResourceNames: User",
           args: {
             name: "list",
           },
@@ -15527,9 +20668,25 @@ const completionSpec: Fig.Spec = {
         {
           name: "--allowed-access-control-hierarchy-group-id",
           description:
-            "The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect",
+            "The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--allowed-flow-modules",
+          description:
+            "A list of Flow Modules an AI Agent can invoke as a tool",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--granular-access-control-configuration",
+          description:
+            "The granular access control configuration for the security profile, including data table permissions",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -15554,7 +20711,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-task-template",
       description:
-        "Updates details about a specific task template in the specified Amazon Connect instance. This operation does not support partial updates. Instead it does a full update of template content",
+        "Updates details about a specific task template in the specified Connect Customer instance. This operation does not support partial updates. Instead it does a full update of template content",
       options: [
         {
           name: "--task-template-id",
@@ -15566,7 +20723,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15651,9 +20808,106 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-test-case",
+      description:
+        "Updates any of the metadata for a test case, such as the name, description, and status or content of an existing test case. This API doesn't allow customers to update the tags of the test case resource for the specified Amazon Connect instance",
+      options: [
+        {
+          name: "--instance-id",
+          description: "The identifier of the Amazon Connect instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--test-case-id",
+          description: "The identifier of the test case to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--content",
+          description:
+            "The JSON string that represents the content of the test",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--entry-point",
+          description: "Defines the starting point for your test",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--initialization-data",
+          description:
+            "Defines the test attributes for precise data representation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the test case",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--last-modified-time",
+          description: "The time at which the resource was last modified",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--last-modified-region",
+          description: "The region in which the resource was last modified",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-traffic-distribution",
       description:
-        "Updates the traffic distribution for a given traffic distribution group.   The SignInConfig distribution is available only on a default TrafficDistributionGroup (see the IsDefault parameter in the TrafficDistributionGroup data type). If you call UpdateTrafficDistribution with a modified SignInConfig and a non-default TrafficDistributionGroup, an InvalidRequestException is returned.  For more information about updating a traffic distribution group, see Update telephony traffic distribution across Amazon Web Services Regions  in the Amazon Connect Administrator Guide",
+        "Updates the traffic distribution for a given traffic distribution group.   When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they can handle the calls in the other Region. If you don't shift the agents, voice calls will go to the shifted Region but there won't be any agents available to receive the calls.   The SignInConfig distribution is available only on a default TrafficDistributionGroup (see the IsDefault parameter in the TrafficDistributionGroup data type). If you call UpdateTrafficDistribution with a modified SignInConfig and a non-default TrafficDistributionGroup, an InvalidRequestException is returned.  For more information about updating a traffic distribution group, see Update telephony traffic distribution across Amazon Web Services Regions  in the Connect Customer Administrator Guide.   Important things to know    Invoke the UpdateTrafficDistribution API in the region that should handle traffic",
       options: [
         {
           name: "--id",
@@ -15707,6 +20961,85 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-user-config",
+      description:
+        "Updates the configuration settings for the specified user, including per-channel auto-accept and after contact work (ACW) timeout settings.  This operation replaces the UpdateUserPhoneConfig API. While UpdateUserPhoneConfig applies the same ACW timeout to all channels, UpdateUserConfig allows you to set different auto-accept and ACW timeout values for each channel type",
+      options: [
+        {
+          name: "--auto-accept-configs",
+          description:
+            "The list of auto-accept configuration settings for each channel. When auto-accept is enabled for a channel, available agents are automatically connected to contacts from that channel without needing to manually accept. Auto-accept connects agents to contacts in less than one second",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--after-contact-work-configs",
+          description:
+            "The list of after contact work (ACW) timeout configuration settings for each channel. ACW timeout specifies how many seconds agents have for after contact work, such as entering notes about the contact. The minimum setting is 1 second, and the maximum is 2,000,000 seconds (24 days). Enter 0 for an indefinite amount of time, meaning agents must manually choose to end ACW",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--phone-number-configs",
+          description:
+            "The list of phone number configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--persistent-connection-configs",
+          description:
+            "The list of persistent connection configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--voice-enhancement-configs",
+          description:
+            "The list of voice enhancement configuration settings for each channel",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--user-id",
+          description: "The identifier of the user account",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-user-hierarchy",
       description:
         "Assigns the specified hierarchy group to the specified user",
@@ -15728,7 +21061,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15774,7 +21107,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15813,7 +21146,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15840,7 +21173,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-user-identity-info",
       description:
-        "Updates the identity information for the specified user.  We strongly recommend limiting who has the ability to invoke UpdateUserIdentityInfo. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see Best Practices for Security Profiles in the Amazon Connect Administrator Guide",
+        "Updates the identity information for the specified user.  We strongly recommend limiting who has the ability to invoke UpdateUserIdentityInfo. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see Best Practices for Security Profiles in the Connect Customer Administrator Guide",
       options: [
         {
           name: "--identity-info",
@@ -15859,7 +21192,78 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-user-notification-status",
+      description:
+        "Updates the status of a notification for a specific user, such as marking it as read or hidden. Users can only update notification status for notifications that have been sent to them. READ status deprioritizes the notification and greys it out, while HIDDEN status removes it from the notification widget",
+      options: [
+        {
+          name: "--instance-id",
+          description:
             "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--notification-id",
+          description: "The unique identifier for the notification",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--user-id",
+          description:
+            "The identifier of the user whose notification status is being updated",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "The new status for the notification. Valid values are READ, UNREAD, and HIDDEN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--last-modified-time",
+          description:
+            "The timestamp when the notification status was last modified. Used for cross-region replication and optimistic locking",
+          args: {
+            name: "timestamp",
+          },
+        },
+        {
+          name: "--last-modified-region",
+          description:
+            "The AWS Region where the notification status was last modified. Used for cross-region replication",
           args: {
             name: "string",
           },
@@ -15886,7 +21290,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-user-phone-config",
       description:
-        "Updates the phone configuration settings for the specified user",
+        "Updates the phone configuration settings for the specified user.  We recommend using the UpdateUserConfig API, which supports additional functionality that is not available in the UpdateUserPhoneConfig API, such as voice enhancement settings and per-channel configuration for auto-accept and After Contact Work (ACW) timeouts. In comparison, the UpdateUserPhoneConfig API will always set the same ACW timeouts to all channels the user handles",
       options: [
         {
           name: "--phone-config",
@@ -15906,7 +21310,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15938,7 +21342,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -15999,7 +21403,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -16045,7 +21449,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+            "The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
           args: {
             name: "string",
           },
@@ -16072,12 +21476,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-view-content",
       description:
-        "Updates the view content of the given view identifier in the specified Amazon Connect instance. It performs content validation if Status is set to SAVED and performs full content validation if Status is PUBLISHED. Note that the $SAVED alias' content will always be updated, but the $LATEST alias' content will only be updated if Status is PUBLISHED",
+        "Updates the view content of the given view identifier in the specified Connect Customer instance. It performs content validation if Status is set to SAVED and performs full content validation if Status is PUBLISHED. Note that the $SAVED alias' content will always be updated, but the $LATEST alias' content will only be updated if Status is PUBLISHED",
       options: [
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -16133,7 +21537,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--instance-id",
           description:
-            "The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance",
+            "The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance",
           args: {
             name: "string",
           },
@@ -16156,6 +21560,235 @@ const completionSpec: Fig.Spec = {
         {
           name: "--description",
           description: "The description of the view",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-workspace-metadata",
+      description:
+        "Updates the metadata of a workspace, such as its name and description",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--name",
+          description: "The name of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The description of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--title",
+          description: "The title displayed for the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-workspace-page",
+      description:
+        "Updates the configuration of a page in a workspace, including the associated view and input data",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page",
+          description: "The current page identifier",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--new-page",
+          description: "The new page identifier, if changing the page name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the view to associate with the page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--slug",
+          description: "The URL-friendly identifier for the page",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--input-data",
+          description: "A JSON string containing input parameters for the view",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-workspace-theme",
+      description:
+        "Updates the theme configuration for a workspace, including colors and styling",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--theme",
+          description:
+            "The theme configuration, including color schemes and visual styles",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-workspace-visibility",
+      description:
+        "Updates the visibility setting of a workspace, controlling whether it is available to all users, assigned users only, or none",
+      options: [
+        {
+          name: "--instance-id",
+          description:
+            "The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--workspace-id",
+          description: "The identifier of the workspace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visibility",
+          description:
+            "The visibility setting for the workspace. Valid values are: ALL (available to all users), ASSIGNED (available only to assigned users and routing profiles), and NONE (not visible to any users)",
           args: {
             name: "string",
           },

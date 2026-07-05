@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "marketplace-catalog",
   description:
@@ -245,22 +246,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results returned by a single call. This value must be provided in the next call to retrieve the next set of results. By default, this value is 20",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token value retrieved from a previous call to access the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -318,7 +303,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--entity-type",
           description:
-            "The type of entities to retrieve. Valid values are: AmiProduct, ContainerProduct, DataProduct, SaaSProduct, ProcurementPolicy, Experience, Audience, BrandingSettings, Offer, Seller, ResaleAuthorization",
+            "The type of entities to retrieve. Valid values are: AmiProduct, ContainerProduct, DataProduct, SaaSProduct, ProcurementPolicy, Experience, Audience, BrandingSettings, Offer, OfferSet, Seller, ResaleAuthorization, Solution",
           args: {
             name: "string",
           },
@@ -337,22 +322,6 @@ const completionSpec: Fig.Spec = {
             "An object that contains two attributes, SortBy and SortOrder",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The value of the next token, if it exists. Null if there are no more results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "Specifies the upper limit of the elements on a single page. If a value isn't provided, the default value is 20",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -496,7 +465,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-change-set",
       description:
-        "Allows you to request changes for your entities. Within a single ChangeSet, you can't start the same change type against the same entity multiple times. Additionally, when a ChangeSet is running, all the entities targeted by the different changes are locked until the change set has completed (either succeeded, cancelled, or failed). If you try to start a change set containing a change against an entity that is already locked, you will receive a ResourceInUseException error. For example, you can't start the ChangeSet described in the example later in this topic because it contains two changes to run the same change type (AddRevisions) against the same entity (entity-id@1). For more information about working with change sets, see  Working with change sets. For information about change types for single-AMI products, see Working with single-AMI products. Also, for more information about change types available for container-based products, see Working with container products",
+        "Allows you to request changes for your entities. Within a single ChangeSet, you can't start the same change type against the same entity multiple times. Additionally, when a ChangeSet is running, all the entities targeted by the different changes are locked until the change set has completed (either succeeded, cancelled, or failed). If you try to start a change set containing a change against an entity that is already locked, you will receive a ResourceInUseException error. For example, you can't start the ChangeSet described in the example later in this topic because it contains two changes to run the same change type (AddRevisions) against the same entity (entity-id@1). For more information about working with change sets, see  Working with change sets. For information about change types for single-AMI products, see Working with single-AMI products. Also, for more information about change types available for container-based products, see Working with container products. To download \"DetailsDocument\" shapes, see Python and Java shapes on GitHub",
       options: [
         {
           name: "--catalog",

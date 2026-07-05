@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "marketplace-deployment",
   description:
-    "The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products. Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a products. The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters (for example, API keys and external IDs) to buyers during the Quick Launch experience",
+    "The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products. Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a products. The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters, such as API keys and external IDs, to buyers during the Quick Launch experience",
   subcommands: [
     {
       name: "list-tags-for-resource",
@@ -50,7 +51,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--catalog",
           description:
-            "The catalog related to the request. Fixed value: AWS Marketplace",
+            "The catalog related to the request. Fixed value: AWSMarketplace",
           args: {
             name: "string",
           },
@@ -58,7 +59,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-token",
           description:
-            "The idempotency token for deployment parameters. A unique identifier for the new version",
+            "The idempotency token for deployment parameters. A unique identifier for the new version.  This field is not required if you're calling using an AWS SDK. Otherwise, a clientToken must be provided with the request",
           args: {
             name: "string",
           },
@@ -82,7 +83,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--product-id",
           description:
-            "The product for which AWS Marketplace will save secrets for the buyer\u2019s account",
+            "The product for which AWS Marketplace will save secrets for the buyer’s account",
           args: {
             name: "string",
           },

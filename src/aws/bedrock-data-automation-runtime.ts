@@ -1,6 +1,7 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "bedrock-data-automation-runtime",
-  description: "Amazon Bedrock Keystone Runtime",
+  description: "Amazon Bedrock Data Automation Runtime",
   subcommands: [
     {
       name: "get-data-automation-status",
@@ -11,6 +12,71 @@ const completionSpec: Fig.Spec = {
           description: "Invocation arn",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "invoke-data-automation",
+      description: "Sync API: Invoke data automation",
+      options: [
+        {
+          name: "--input-configuration",
+          description: "Input configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--data-automation-configuration",
+          description: "Data automation configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--blueprints",
+          description: "Blueprint list",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--data-automation-profile-arn",
+          description: "Data automation profile ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--encryption-configuration",
+          description: "Encryption configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--output-configuration",
+          description: "Output configuration",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -86,6 +152,124 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--data-automation-profile-arn",
+          description: "Data automation profile ARN",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "List of tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-tags-for-resource",
+      description: "List tags for an Amazon Bedrock Data Automation resource",
+      options: [
+        {
+          name: "--resource-arn",
+          description: "ARN of a taggable resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "tag-resource",
+      description: "Tag an Amazon Bedrock Data Automation resource",
+      options: [
+        {
+          name: "--resource-arn",
+          description: "ARN of a taggable resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description: "List of tags",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "untag-resource",
+      description: "Untag an Amazon Bedrock Data Automation resource",
+      options: [
+        {
+          name: "--resource-arn",
+          description: "ARN of a taggable resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tag-keys",
+          description: "List of tag keys",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -106,5 +290,4 @@ const completionSpec: Fig.Spec = {
     },
   ],
 };
-
 export default completionSpec;

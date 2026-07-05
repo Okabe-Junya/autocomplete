@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "rum",
   description:
@@ -145,22 +146,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100. To retrieve the remaining results, make another call with the returned NextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use the token returned by the previous operation to request the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -209,17 +194,40 @@ const completionSpec: Fig.Spec = {
         "Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that data to RUM. The data includes performance and reliability information such as page load time, client-side errors, and user behavior. You use this operation only to create a new app monitor. To update an existing app monitor, use UpdateAppMonitor instead. After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see How do I find a code snippet that I've already generated?",
       options: [
         {
-          name: "--app-monitor-configuration",
-          description:
-            "A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include AppMonitorConfiguration, you must set up your own authorization method. For more information, see Authorize your application to send data to Amazon Web Services. If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions",
+          name: "--name",
+          description: "A name for the app monitor",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
-          name: "--custom-events",
+          name: "--domain",
           description:
-            "Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are DISABLED. For more information about custom events, see Send custom events",
+            "The top-level internet domain name for which your application has administrative authority",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-list",
+          description:
+            "List the domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Assigns one or more tags (key-value pairs) to the app monitor. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters. You can associate as many as 50 tags with an app monitor. For more information, see Tagging Amazon Web Services resources",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--app-monitor-configuration",
+          description:
+            "A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include AppMonitorConfiguration, you must set up your own authorization method. For more information, see Authorize your application to send data to Amazon Web Services. If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions",
           args: {
             name: "structure",
           },
@@ -235,26 +243,27 @@ const completionSpec: Fig.Spec = {
             "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. If you omit this parameter, the default is false",
         },
         {
-          name: "--domain",
+          name: "--custom-events",
           description:
-            "The top-level internet domain name for which your application has administrative authority",
+            "Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are DISABLED. For more information about custom events, see Send custom events",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
-          name: "--name",
-          description: "A name for the app monitor",
+          name: "--deobfuscation-configuration",
+          description:
+            "A structure that contains the configuration for how an app monitor can deobfuscate stack traces",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
-          name: "--tags",
+          name: "--platform",
           description:
-            "Assigns one or more tags (key-value pairs) to the app monitor. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters. You can associate as many as 50 tags with an app monitor. For more information, see Tagging Amazon Web Services resources",
+            "The platform type for the app monitor. Valid values are Web for web applications, Android for Android applications, and iOS for IOS applications. If you omit this parameter, the default is Web",
           args: {
-            name: "map",
+            name: "string",
           },
         },
         {
@@ -284,6 +293,46 @@ const completionSpec: Fig.Spec = {
         {
           name: "--name",
           description: "The name of the app monitor to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-resource-policy",
+      description:
+        "Removes the association of a resource-based policy from an app monitor",
+      options: [
+        {
+          name: "--name",
+          description:
+            "The app monitor that you want to remove the resource policy from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-revision-id",
+          description:
+            "Specifies a specific policy revision to delete. Provide a PolicyRevisionId to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an InvalidPolicyRevisionIdException error",
           args: {
             name: "string",
           },
@@ -392,33 +441,9 @@ const completionSpec: Fig.Spec = {
         "Retrieves the raw performance events that RUM has collected from your web application, so that you can do your own processing or analysis of this data",
       options: [
         {
-          name: "--filters",
-          description:
-            "An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in one operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--name",
           description:
             "The name of the app monitor that collected the data that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use the token returned by the previous operation to request the next page of results",
           args: {
             name: "string",
           },
@@ -429,6 +454,14 @@ const completionSpec: Fig.Spec = {
             "A structure that defines the time range that you want to retrieve results from",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--filters",
+          description:
+            "An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify",
+          args: {
+            name: "list",
           },
         },
         {
@@ -475,26 +508,42 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "list-app-monitors",
+      name: "get-resource-policy",
       description:
-        "Returns a list of the Amazon CloudWatch RUM app monitors in the account",
+        "Use this operation to retrieve information about a resource-based policy that is attached to an app monitor",
       options: [
         {
-          name: "--max-results",
+          name: "--name",
           description:
-            "The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use the token returned by the previous operation to request the next page of results",
+            "The name of the app monitor that is associated with the resource-based policy that you want to view",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-app-monitors",
+      description:
+        "Returns a list of the Amazon CloudWatch RUM app monitors in the account",
+      options: [
         {
           name: "--cli-input-json",
           description:
@@ -547,22 +596,6 @@ const completionSpec: Fig.Spec = {
           name: "--app-monitor-name",
           description:
             "The name of the app monitor associated with the destinations that you want to retrieve",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100. To retrieve the remaining results, make another call with the returned NextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use the token returned by the previous operation to request the next page of results",
           args: {
             name: "string",
           },
@@ -643,16 +676,63 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-resource-policy",
+      description:
+        "Use this operation to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see Using resource-based policies with CloudWatch RUM",
+      options: [
+        {
+          name: "--name",
+          description:
+            "The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the ListAppMonitors operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-document",
+          description:
+            "The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see Using resource-based policies with CloudWatch RUM",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--policy-revision-id",
+          description:
+            "A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "put-rum-events",
       description:
         "Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code snippet that RUM generates for you to add to your application includes PutRumEvents operations to send this data to RUM. Each PutRumEvents operation can send a batch of events from one user session",
       options: [
         {
-          name: "--app-monitor-details",
-          description:
-            "A structure that contains information about the app monitor that collected this telemetry information",
+          name: "--id",
+          description: "The ID of the app monitor that is sending this data",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -663,10 +743,19 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--id",
-          description: "The ID of the app monitor that is sending this data",
+          name: "--app-monitor-details",
+          description:
+            "A structure that contains information about the app monitor that collected this telemetry information",
           args: {
-            name: "string",
+            name: "structure",
+          },
+        },
+        {
+          name: "--user-details",
+          description:
+            "A structure that contains information about the user session that this batch of events was collected from",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -678,11 +767,11 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--user-details",
+          name: "--alias",
           description:
-            "A structure that contains information about the user session that this batch of events was collected from",
+            "If the app monitor uses a resource-based policy that requires PutRumEvents requests to specify a certain alias, specify that alias here. This alias will be compared to the rum:alias context key in the resource-based policy. For more information, see Using resource-based policies with CloudWatch RUM",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
@@ -844,17 +933,32 @@ const completionSpec: Fig.Spec = {
         "Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor configuration that you specify in this operation are changed. For any parameters that you omit, the existing values are kept. You can't use this operation to change the tags of an existing app monitor. To change the tags of an existing app monitor, use TagResource. To create a new app monitor, use CreateAppMonitor. After you update an app monitor, sign in to the CloudWatch RUM console to get the updated JavaScript code snippet to add to your web application. For more information, see How do I find a code snippet that I've already generated?",
       options: [
         {
-          name: "--app-monitor-configuration",
-          description:
-            "A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include AppMonitorConfiguration, you must set up your own authorization method. For more information, see Authorize your application to send data to Amazon Web Services",
+          name: "--name",
+          description: "The name of the app monitor to update",
           args: {
-            name: "structure",
+            name: "string",
           },
         },
         {
-          name: "--custom-events",
+          name: "--domain",
           description:
-            "Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be DISABLED. For more information about custom events, see Send custom events",
+            "The top-level internet domain name for which your application has administrative authority",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-list",
+          description:
+            "List the domain names for which your application has administrative authority. The UpdateAppMonitor allows either the domain or the domain list",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--app-monitor-configuration",
+          description:
+            "A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include AppMonitorConfiguration, you must set up your own authorization method. For more information, see Authorize your application to send data to Amazon Web Services",
           args: {
             name: "structure",
           },
@@ -870,18 +974,19 @@ const completionSpec: Fig.Spec = {
             "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges",
         },
         {
-          name: "--domain",
+          name: "--custom-events",
           description:
-            "The top-level internet domain name for which your application has administrative authority",
+            "Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be DISABLED. For more information about custom events, see Send custom events",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {
-          name: "--name",
-          description: "The name of the app monitor to update",
+          name: "--deobfuscation-configuration",
+          description:
+            "A structure that contains the configuration for how an app monitor can deobfuscate stack traces",
           args: {
-            name: "string",
+            name: "structure",
           },
         },
         {

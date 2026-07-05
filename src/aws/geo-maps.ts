@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "geo-maps",
   description:
@@ -5,7 +6,8 @@ const completionSpec: Fig.Spec = {
   subcommands: [
     {
       name: "get-glyphs",
-      description: "Returns the map's glyphs",
+      description:
+        "GetGlyphs returns the map's glyphs. For more information, see Style labels with glyphs in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--font-stack",
@@ -18,28 +20,26 @@ const completionSpec: Fig.Spec = {
         {
           name: "--font-unicode-range",
           description:
-            "A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256.  Example: 0-255.pdf",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
+            "A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256.  Example: 0-255.pbf",
           args: {
             name: "string",
           },
         },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-sprites",
-      description: "Returns the map's sprites",
+      description:
+        "GetSprites returns the map's sprites. For more information, see Style iconography with sprites in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--file-name",
           description:
-            "Sprites API: The name of the sprite \ufb01le to retrieve, following pattern sprites(@2x)?\\.(png|json). Example: sprites.png",
+            "Sprites API: The name of the sprite ﬁle to retrieve, following pattern sprites(@2x)?\\.(png|json). Example: sprites.png",
           args: {
             name: "string",
           },
@@ -55,7 +55,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--color-scheme",
           description:
-            "Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome. Example: Light  Default value: Light   Valid values for ColorScheme are case sensitive",
+            "Sets the color tone for the map sprites, such as dark and light. Example: Light  Default value: Light   Valid values for ColorScheme are case sensitive",
           args: {
             name: "string",
           },
@@ -68,24 +68,21 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-static-map",
       description:
-        "Provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots",
+        "This operation is not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers.    GetStaticMap provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots. For more information, see the following topics in the Amazon Location Service Developer Guide:    Static maps     Customize static maps     Overlay on the static map",
       options: [
         {
           name: "--bounding-box",
           description:
-            "Takes in two pairs of coordinates, [Lon, Lat], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image.  Example: -123.17075,49.26959,-123.08125,49.31429",
+            "Takes in two pairs of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image.  Example: -123.17075,49.26959,-123.08125,49.31429",
           args: {
             name: "string",
           },
@@ -93,7 +90,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--bounded-positions",
           description:
-            "Takes in two or more pair of coordinates, [Lon, Lat], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates.   Cannot be used with Zoom and or Radius   Example: 97.170451,78.039098,99.045536,27.176178",
+            "Takes in two or more pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates.   Cannot be used with Zoom and or Radius   Example: 97.170451,78.039098,99.045536,27.176178",
           args: {
             name: "string",
           },
@@ -101,7 +98,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--center",
           description:
-            "Takes in a pair of coordinates, [Lon, Lat], which becomes the center point of the image. This parameter requires that either zoom or radius is set.  Cannot be used with Zoom and or Radius   Example: 49.295,-123.108",
+            "Takes in a pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], which becomes the center point of the image. This parameter requires that either zoom or radius is set.  Cannot be used with Zoom and or Radius   Example: 49.295,-123.108",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--color-scheme",
+          description:
+            "Sets the color tone for the map, such as dark and light. Example: Light  Default value: Light   Valid values for ColorScheme are case sensitive",
           args: {
             name: "string",
           },
@@ -113,6 +118,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--crop-labels",
+          description:
+            "It is a flag that takes in true or false. It prevents the labels that are on the edge of the image from being cut or obscured",
+        },
+        {
+          name: "--no-crop-labels",
+          description:
+            "It is a flag that takes in true or false. It prevents the labels that are on the edge of the image from being cut or obscured",
         },
         {
           name: "--geo-json-overlay",
@@ -138,11 +153,43 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--label-size",
+          description:
+            "Overrides the label size auto-calculated by FileName. Takes in one of the values - Small or Large",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--language",
+          description:
+            "Specifies the language on the map labels using the BCP 47 language tag, limited to ISO 639-1 two-letter language codes. If the specified language data isn't available for the map image, the labels will default to the regional primary language. Supported codes:    ar     as     az     be     bg     bn     bs     ca     cs     cy     da     de     el     en     es     et     eu     fi     fo     fr     ga     gl     gn     gu     he     hi     hr     hu     hy     id     is     it     ja     ka     kk     km     kn     ko     ky     lt     lv     mk     ml     mr     ms     mt     my     nl     no     or     pa     pl     pt     ro     ru     sk     sl     sq     sr     sv     ta     te     th     tr     uk     uz     vi     zh",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--padding",
           description:
             "Applies additional space (in pixels) around overlay feature to prevent them from being cut or obscured.  Value for max and min is determined by: Min: 1  Max: min(height, width)/4   Example: 100",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--political-view",
+          description:
+            "Specifies the political view, using ISO 3166-2 or ISO 3166-3 country code format. The following political views are currently supported:    ARG: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands    EGY: Egypt's view on Bir Tawil    IND: India's view on Gilgit-Baltistan    KEN: Kenya's view on the Ilemi Triangle    MAR: Morocco's view on Western Sahara    RUS: Russia's view on Crimea    SDN: Sudan's view on the Halaib Triangle    SRB: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands    SUR: Suriname's view on the Courantyne Headwaters and Lawa Headwaters    SYR: Syria's view on the Golan Heights    TUR: Turkey's view on Cyprus and Northern Cyprus    TZA: Tanzania's view on Lake Malawi    URY: Uruguay's view on Rincon de Artigas    VNM: Vietnam's view on the Paracel Islands and Spratly Islands",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--points-of-interests",
+          description:
+            "Determines if the result image will display icons representing points of interest on the map",
+          args: {
+            name: "string",
           },
         },
         {
@@ -171,8 +218,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--style",
-          description:
-            "Style specifies the desired map style for the Style APIs",
+          description: "Style specifies the desired map style",
           args: {
             name: "string",
           },
@@ -192,22 +238,21 @@ const completionSpec: Fig.Spec = {
             name: "float",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-style-descriptor",
-      description: "Returns information about the style",
+      description:
+        "GetStyleDescriptor returns information about the style. For more information, see Style dynamic maps in the Amazon Location Service Developer Guide",
       options: [
         {
           name: "--style",
-          description: "Style specifies the desired map style",
+          description:
+            "Style specifies the desired map style. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the Standard and Monochrome values",
           args: {
             name: "string",
           },
@@ -215,7 +260,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--color-scheme",
           description:
-            "Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome. Example: Light  Default value: Light   Valid values for ColorScheme are case sensitive",
+            "Sets the color tone for the map, such as dark and light. Example: Light  Default value: Light   Valid values for ColorScheme are case sensitive",
           args: {
             name: "string",
           },
@@ -223,7 +268,47 @@ const completionSpec: Fig.Spec = {
         {
           name: "--political-view",
           description:
-            "Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format. The following political views are currently supported:    ARG: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands    EGY: Egypt's view on Bir Tawil    IND: India's view on Gilgit-Baltistan    KEN: Kenya's view on the Ilemi Triangle    MAR: Morocco's view on Western Sahara    PAK: Pakistan's view on Jammu and Kashmir and the Junagadh Area    RUS: Russia's view on Crimea    SDN: Sudan's view on the Halaib Triangle    SRB: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands    SUR: Suriname's view on the Courantyne Headwaters and Lawa Headwaters    SYR: Syria's view on the Golan Heights    TUR: Turkey's view on Cyprus and Northern Cyprus    TZA: Tanzania's view on Lake Malawi    URY: Uruguay's view on Rincon de Artigas    VNM: Vietnam's view on the Paracel Islands and Spratly Islands",
+            "Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers. The following political views are currently supported:    ARG: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands    EGY: Egypt's view on Bir Tawil    IND: India's view on Gilgit-Baltistan    KEN: Kenya's view on the Ilemi Triangle    MAR: Morocco's view on Western Sahara    RUS: Russia's view on Crimea    SDN: Sudan's view on the Halaib Triangle    SRB: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands    SUR: Suriname's view on the Courantyne Headwaters and Lawa Headwaters    SYR: Syria's view on the Golan Heights    TUR: Turkey's view on Cyprus and Northern Cyprus    TZA: Tanzania's view on Lake Malawi    URY: Uruguay's view on Rincon de Artigas    VNM: Vietnam's view on the Paracel Islands and Spratly Islands",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--terrain",
+          description:
+            "Adjusts how physical terrain details are rendered on the map. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers. The following terrain styles are currently supported:    Hillshade: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.    Terrain3D: Displays physical terrain details and elevations as a three-dimensional model.    Hillshade is valid only for the Standard and Monochrome map styles",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--contour-density",
+          description:
+            "Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers. This parameter is valid for all map styles except Satellite",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--traffic",
+          description:
+            "Displays real-time traffic information overlay on map, such as incident events and flow events. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers. This parameter is valid for all map styles except Satellite",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--travel-modes",
+          description:
+            "Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers. This parameter is valid for all map styles except Satellite",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--buildings",
+          description:
+            "Adjusts how building details are rendered on the map. The following building styles are currently supported:    Buildings3D: Displays buildings as three-dimensional extrusions on the map.    Buildings3D is valid only for the Standard and Monochrome map styles",
           args: {
             name: "string",
           },
@@ -236,24 +321,29 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-tile",
       description:
-        "Returns a tile. Map tiles are used by clients to render a map. they're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level",
+        "GetTile returns a tile. Map tiles are used by clients to render a map. They're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level. For more information, see Tiles in the Amazon Location Service Developer Guide",
       options: [
+        {
+          name: "--additional-features",
+          description:
+            "A list of optional additional parameters such as map styles that can be requested for each result. Not supported in ap-southeast-1 and ap-southeast-5 regions for GrabMaps customers",
+          args: {
+            name: "list",
+          },
+        },
         {
           name: "--tileset",
           description:
-            "Specifies the desired tile set. Valid Values: raster.satellite | vector.basemap",
+            "Specifies the desired tile set. For GrabMaps customers, ap-southeast-1 and ap-southeast-5 regions support only the vector.basemap value. Valid Values: raster.satellite | vector.basemap | vector.traffic | raster.dem",
           args: {
             name: "string",
           },
@@ -267,8 +357,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--x",
-          description:
-            "The X axis value for the map tile. Must be between 0 and 19",
+          description: "The X axis value for the map tile",
           args: {
             name: "string",
           },
@@ -288,14 +377,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
   ],
 };

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "sesv2",
   description:
@@ -120,7 +121,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--suppression-options",
           description:
-            "An object that contains information about the suppression list preferences for your account",
+            "An object that contains information about the suppression list preferences for the configuration set. You can optionally include a SuppressionScope to override the tenant or account suppression scope for emails sent using this configuration set",
           args: {
             name: "structure",
           },
@@ -129,6 +130,14 @@ const completionSpec: Fig.Spec = {
           name: "--vdm-options",
           description:
             "An object that defines the VDM options for emails that you send using the configuration set",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--archiving-options",
+          description:
+            "An object that defines the MailManager archiving options for emails that you send using the configuration set",
           args: {
             name: "structure",
           },
@@ -159,7 +168,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--configuration-set-name",
-          description: "The name of the configuration set",
+          description: "The name of the configuration set ",
           args: {
             name: "string",
           },
@@ -347,6 +356,14 @@ const completionSpec: Fig.Spec = {
             "The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see Custom verification email frequently asked questions in the Amazon SES Developer Guide",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "An array of objects that define the tags (keys and values) to associate with the custom verification email template",
+          args: {
+            name: "list",
           },
         },
         {
@@ -609,6 +626,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--tags",
+          description:
+            "An array of objects that define the tags (keys and values) to associate with the email template",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -681,6 +706,141 @@ const completionSpec: Fig.Spec = {
           description: "The data source for the import job",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-multi-region-endpoint",
+      description:
+        "Creates a multi-region endpoint (global-endpoint). The primary region is going to be the AWS-Region where the operation is executed. The secondary region has to be provided in request's parameters. From the data flow standpoint there is no difference between primary and secondary regions - sending traffic will be split equally between the two. The primary region is the region where the resource has been created and where it can be managed",
+      options: [
+        {
+          name: "--endpoint-name",
+          description:
+            "The name of the multi-region endpoint (global-endpoint)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--details",
+          description:
+            "Contains details of a multi-region endpoint (global-endpoint) being created",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint)",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-tenant",
+      description:
+        "Create a tenant.  Tenants are logical containers that group related SES resources together. Each tenant can have its own set of resources like email identities, configuration sets, and templates, along with reputation metrics and sending status. This helps isolate and manage email sending for different customers or business units within your Amazon SES API v2 account. You can optionally specify SuppressionAttributes to configure tenant-level suppression at creation time. When tenant-level suppression is enabled, Amazon SES maintains a separate suppression list for the tenant instead of using the account-level suppression list",
+      options: [
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant to create. The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "An array of objects that define the tags (keys and values) to associate with the tenant",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--suppression-attributes",
+          description:
+            "An object that contains information about the suppression list preferences for the tenant. Use this to configure tenant-level suppression at creation time",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-tenant-resource-association",
+      description:
+        "Associate a resource with a tenant.  Resources can be email identities, configuration sets, or email templates. When you associate a resource with a tenant, you can use that resource when sending emails on behalf of that tenant. A single resource can be associated with multiple tenants, allowing for resource sharing across different tenants while maintaining isolation in email sending operations",
+      options: [
+        {
+          name: "--tenant-name",
+          description: "The name of the tenant to associate the resource with",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the resource to associate with the tenant",
+          args: {
+            name: "string",
           },
         },
         {
@@ -1007,14 +1167,125 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-multi-region-endpoint",
+      description:
+        "Deletes a multi-region endpoint (global-endpoint). Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region where operation is executed can be deleted",
+      options: [
+        {
+          name: "--endpoint-name",
+          description:
+            "The name of the multi-region endpoint (global-endpoint) to be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-suppressed-destination",
       description:
-        "Removes an email address from the suppression list for your account",
+        "Removes an email address from the suppression list for your account or for a specific tenant. To target a tenant's suppression list, specify the TenantName parameter. If you omit TenantName, the address is removed from the account-level suppression list",
       options: [
         {
           name: "--email-address",
           description:
-            "The suppressed email destination to remove from the account suppression list",
+            "The suppressed email destination to remove from the suppression list for your account or for the specified tenant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant whose suppression list you want to remove the address from. If you omit this parameter, the address is removed from the account-level suppression list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-tenant",
+      description:
+        "Delete an existing tenant. When you delete a tenant, its associations with resources are removed, but the resources themselves are not deleted",
+      options: [
+        {
+          name: "--tenant-name",
+          description: "The name of the tenant to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-tenant-resource-association",
+      description:
+        "Delete an association between a tenant and a resource. When you delete a tenant-resource association, the resource itself is not deleted, only its association with the specific tenant is removed. After removal, the resource will no longer be available for use with that tenant's email sending operations",
+      options: [
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant to remove the resource association from",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the resource to remove from the tenant association",
           args: {
             name: "string",
           },
@@ -1344,7 +1615,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to GetDedicatedIpsRequest. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1504,6 +1775,37 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-email-address-insights",
+      description:
+        "Provides validation insights about a specific email address, including syntax validation, DNS record checks, mailbox existence, and other deliverability factors",
+      options: [
+        {
+          name: "--email-address",
+          description: "The email address to analyze for validation insights",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-email-identity",
       description:
         "Provides information about a specific identity, including the identity's verification status, sending authorization policies, its DKIM authentication status, and its custom Mail-From settings",
@@ -1568,7 +1870,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-email-template",
       description:
-        "Displays the template object (which includes the subject line, HTML part and text part) for the template you specify. You can execute this operation no more than once per second",
+        "Displays the template object (which includes the subject line, HTML part and text part) for the template you specify. You can execute this operation no more than 50 times per second",
       options: [
         {
           name: "--template-name",
@@ -1689,14 +1991,125 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-multi-region-endpoint",
+      description:
+        "Displays the multi-region endpoint (global-endpoint) configuration. Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region where operation is executed can be displayed",
+      options: [
+        {
+          name: "--endpoint-name",
+          description:
+            "The name of the multi-region endpoint (global-endpoint)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-reputation-entity",
+      description:
+        "Retrieve information about a specific reputation entity, including its reputation management policy, customer-managed status, Amazon Web Services Amazon SES-managed status, and aggregate sending status.  Reputation entities represent resources in your Amazon SES account that have reputation tracking and management capabilities. The reputation impact reflects the highest impact reputation finding for the entity. Reputation findings can be retrieved using the ListRecommendations operation",
+      options: [
+        {
+          name: "--reputation-entity-reference",
+          description:
+            "The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--reputation-entity-type",
+          description:
+            "The type of reputation entity. Currently, only RESOURCE type entities are supported",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-suppressed-destination",
       description:
-        "Retrieves information about a specific email address that's on the suppression list for your account",
+        "Retrieves information about a specific email address that's on the suppression list for your account or for a specific tenant. To target a tenant's suppression list, specify the TenantName parameter. If you omit TenantName, the operation targets the account-level suppression list",
       options: [
         {
           name: "--email-address",
           description:
-            "The email address that's on the account suppression list",
+            "The email address that's on the suppression list for your account or for the specified tenant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant whose suppression list you want to query. If you omit this parameter, the operation targets the account-level suppression list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-tenant",
+      description:
+        "Get information about a specific tenant, including the tenant's name, ID, ARN, creation timestamp, tags, sending status, and suppression attributes",
+      options: [
+        {
+          name: "--tenant-name",
+          description: "The name of the tenant to retrieve information about",
           args: {
             name: "string",
           },
@@ -1736,7 +2149,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListConfigurationSets. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1762,12 +2175,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-contact-lists",
-      description: "Lists all of the contact lists available",
+      description:
+        'Lists all of the contact lists available. If your output includes a "NextToken" field with a string value, this indicates there may be additional contacts on the filtered list - regardless of the number of contacts returned',
       options: [
         {
           name: "--page-size",
           description:
-            "Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the NextToken element is sent in the response. Use the NextToken value in subsequent requests to retrieve additional lists",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1820,7 +2234,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of contacts that may be returned at once, which is dependent on if there are more or less contacts than the value of the PageSize. Use this parameter to paginate results. If additional contacts exist beyond the specified limit, the NextToken element is sent in the response. Use the NextToken value in subsequent requests to retrieve additional contacts",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1868,7 +2282,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListCustomVerificationEmailTemplates. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results. The value you specify has to be at least 1, and can be no more than 50",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1908,7 +2322,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListDedicatedIpPools. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1948,7 +2362,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListDeliverabilityTestReports. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results. The value you specify has to be at least 0, and can be no more than 1000",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2003,7 +2417,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description:
-            "A token that\u2019s returned from a previous call to the ListDomainDeliverabilityCampaigns operation. This token indicates the position of a campaign in the list of campaigns",
+            "A token that’s returned from a previous call to the ListDomainDeliverabilityCampaigns operation. This token indicates the position of a campaign in the list of campaigns",
           args: {
             name: "string",
           },
@@ -2011,7 +2425,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The maximum number of results to include in response to a single call to the ListDomainDeliverabilityCampaigns operation. If the number of results is larger than the number that you specify in this parameter, the response includes a NextToken element, which you can use to obtain additional results",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2051,7 +2465,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListEmailIdentities. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results. The value you specify has to be at least 0, and can be no more than 1000",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2091,7 +2505,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListEmailTemplates. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results. The value you specify has to be at least 1, and can be no more than 100",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2130,7 +2544,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Maximum number of export jobs to return at once. Use this parameter to paginate results. If additional export jobs exist beyond the specified limit, the NextToken element is sent in the response. Use the NextToken value in subsequent calls to ListExportJobs to retrieve additional export jobs",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2193,7 +2607,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Maximum number of import jobs to return at once. Use this parameter to paginate results. If additional import jobs exist beyond the specified limit, the NextToken element is sent in the response. Use the NextToken value in subsequent requests to retrieve additional addresses",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2204,6 +2618,54 @@ const completionSpec: Fig.Spec = {
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-multi-region-endpoints",
+      description:
+        "List the multi-region endpoints (global-endpoints). Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region where operation is executed will be listed",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -2241,7 +2703,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListRecommendations. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results. The value you specify has to be at least 1, and can be no more than 100",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2266,14 +2728,134 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-reputation-entities",
+      description:
+        "List reputation entities in your Amazon SES account in the current Amazon Web Services Region. You can filter the results by entity type, reputation impact, sending status, or entity reference prefix.  Reputation entities represent resources in your account that have reputation tracking and management capabilities. Use this operation to get an overview of all entities and their current reputation status",
+      options: [
+        {
+          name: "--filter",
+          description:
+            "An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-resource-tenants",
+      description:
+        "List all tenants associated with a specific resource. This operation returns a list of tenants that are associated with the specified resource. This is useful for understanding which tenants are currently using a particular resource such as an email identity, configuration set, or email template",
+      options: [
+        {
+          name: "--resource-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the resource to list associated tenants for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-suppressed-destinations",
       description:
-        "Retrieves a list of email addresses that are on the suppression list for your account",
+        "Retrieves a list of email addresses that are on the suppression list for your account or for a specific tenant. To target a tenant's suppression list, specify the TenantName parameter. If you omit TenantName, the operation targets the account-level suppression list",
       options: [
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant whose suppression list you want to retrieve. If you omit this parameter, the operation targets the account-level suppression list",
+          args: {
+            name: "string",
+          },
+        },
         {
           name: "--reasons",
           description:
-            "The factors that caused the email address to be added to",
+            "The factors that caused the email address to be added to the suppression list for your account or for a specific tenant",
           args: {
             name: "list",
           },
@@ -2305,7 +2887,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "The number of results to show in a single call to ListSuppressedDestinations. If the number of results is larger than the number you specified in this parameter, then the response includes a NextToken element, which you can use to obtain additional results",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -2332,7 +2914,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-tags-for-resource",
       description:
-        "Retrieve a list of the tags (keys and values) that are associated with a specified resource. A\u00a0tag\u00a0is a label that you optionally define and associate with a resource. Each tag consists of a required\u00a0tag key\u00a0and an optional associated\u00a0tag value. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key",
+        "Retrieve a list of the tags (keys and values) that are associated with a specified resource. A tag is a label that you optionally define and associate with a resource. Each tag consists of a required tag key and an optional associated tag value. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key",
       options: [
         {
           name: "--resource-arn",
@@ -2348,6 +2930,117 @@ const completionSpec: Fig.Spec = {
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-tenant-resources",
+      description:
+        "List all resources associated with a specific tenant. This operation returns a list of resources (email identities, configuration sets, or email templates) that are associated with the specified tenant. You can optionally filter the results by resource type",
+      options: [
+        {
+          name: "--tenant-name",
+          description: "The name of the tenant to list resources for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--filter",
+          description:
+            "A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is RESOURCE_TYPE",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-tenants",
+      description:
+        "List all tenants associated with your account in the current Amazon Web Services Region. This operation returns basic information about each tenant, such as tenant name, ID, ARN, and creation timestamp",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -2507,9 +3200,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--suppressed-reasons",
           description:
-            "A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:    COMPLAINT \u2013 Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.    BOUNCE \u2013 Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce",
+            "A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:    COMPLAINT – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.    BOUNCE – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--validation-attributes",
+          description:
+            "An object that contains additional suppression attributes for your account",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -2542,6 +3243,46 @@ const completionSpec: Fig.Spec = {
             "The VDM attributes that you wish to apply to your Amazon SES account",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-configuration-set-archiving-options",
+      description:
+        "Associate the configuration set with a MailManager archive. When you send email using the SendEmail or SendBulkEmail operations the message as it will be given to the receiving SMTP server will be archived, along with the recipient information",
+      options: [
+        {
+          name: "--configuration-set-name",
+          description:
+            "The name of the configuration set to associate with a MailManager archive",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--archive-arn",
+          description:
+            "The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email to",
+          args: {
+            name: "string",
           },
         },
         {
@@ -2705,7 +3446,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-configuration-set-suppression-options",
       description:
-        "Specify the account suppression list preferences for a configuration set",
+        "Specify the suppression list preferences for a configuration set. You can also use this operation to specify a SuppressionScope to override the suppression scope of the tenant or account for emails sent using this configuration set",
       options: [
         {
           name: "--configuration-set-name",
@@ -2716,11 +3457,27 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--suppression-scope",
+          description:
+            "The suppression scope for the configuration set. This overrides the tenant or account suppression scope for emails sent using this configuration set. Can be one of the following:    TENANT – Use the tenant's suppression list.    ACCOUNT – Use the account-level suppression list",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--suppressed-reasons",
           description:
-            "A list that contains the reasons that email addresses are automatically added to the suppression list for your account. This list can contain any or all of the following:    COMPLAINT \u2013 Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.    BOUNCE \u2013 Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce",
+            "A list that contains the reasons that email addresses are automatically added to the suppression list for your account or for a specific tenant. This list can contain any or all of the following:    COMPLAINT – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a complaint.    BOUNCE – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--validation-options",
+          description:
+            "An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -3081,7 +3838,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--signing-attributes-origin",
           description:
-            "The method to use to configure DKIM for the identity. There are the following possible values:    AWS_SES \u2013 Configure DKIM for the identity by using Easy DKIM.    EXTERNAL \u2013 Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM)",
+            "The method to use to configure DKIM for the identity. There are the following possible values:    AWS_SES – Configure DKIM for the identity by using Easy DKIM.    EXTERNAL – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM)",
           args: {
             name: "string",
           },
@@ -3204,12 +3961,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-suppressed-destination",
       description:
-        "Adds an email address to the suppression list for your account",
+        "Adds an email address to the suppression list for your account or for a specific tenant. To target a tenant's suppression list, specify the TenantName parameter. If you omit TenantName, the address is added to the account-level suppression list",
       options: [
         {
           name: "--email-address",
           description:
-            "The email address that should be added to the suppression list for your account",
+            "The email address that should be added to the suppression list for your account or for the specified tenant",
           args: {
             name: "string",
           },
@@ -3217,7 +3974,63 @@ const completionSpec: Fig.Spec = {
         {
           name: "--reason",
           description:
-            "The factors that should cause the email address to be added to the suppression list for your account",
+            "The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant whose suppression list you want to add the address to. If you omit this parameter, the address is added to the account-level suppression list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-tenant-suppression-attributes",
+      description:
+        "Configure the suppression list preferences for a tenant. Use this operation to enable or disable tenant-level suppression, or to change the suppressed reasons for a tenant. When you set the suppression scope to TENANT, Amazon SES maintains a separate suppression list for the tenant. When you set the scope to ACCOUNT, the tenant uses the account-level suppression list",
+      options: [
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant to configure suppression list preferences for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--suppressed-reasons",
+          description:
+            "A list that contains the reasons that email addresses are automatically added to the suppression list for the tenant. This list can contain any or all of the following:    COMPLAINT – Amazon SES adds an email address to the suppression list when a message sent to that address results in a complaint.    BOUNCE – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--suppression-scope",
+          description:
+            "The suppression scope for the tenant. Specify TENANT to use the tenant's own suppression list, or ACCOUNT to use the account-level suppression list.  If you don't specify a suppression scope, the tenant defaults to ACCOUNT scope and uses the account-level suppression list",
           args: {
             name: "string",
           },
@@ -3317,6 +4130,21 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--endpoint-id",
+          description: "The ID of the multi-region endpoint (global-endpoint)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant through which this bulk email will be sent.   The email sending operation will only succeed if all referenced resources (identities, configuration sets, and templates) are associated with this tenant",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3385,7 +4213,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "send-email",
       description:
-        "Sends an email message. You can use the Amazon SES API v2 to send the following types of messages:    Simple \u2013 A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon SES assembles the message for you.    Raw \u2013 A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.    Templated \u2013 A message that contains personalization tags. When you send this type of email, Amazon SES API v2 automatically replaces the tags with values that you specify",
+        "Sends an email message. You can use the Amazon SES API v2 to send the following types of messages:    Simple – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon SES assembles the message for you.    Raw – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.    Templated – A message that contains personalization tags. When you send this type of email, Amazon SES API v2 automatically replaces the tags with values that you specify",
       options: [
         {
           name: "--from-email-address",
@@ -3460,6 +4288,21 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--endpoint-id",
+          description: "The ID of the multi-region endpoint (global-endpoint)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tenant-name",
+          description:
+            "The name of the tenant through which this email will be sent.  The email sending operation will only succeed if all referenced resources (identities, configuration sets, and templates) are associated with this tenant",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--list-management-options",
           description:
             "An object used to specify a list or topic to which an email belongs, which will be used when a contact chooses to unsubscribe",
@@ -3489,7 +4332,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "tag-resource",
       description:
-        "Add one or more tags (keys and values) to a specified resource. A tag\u00a0is a label that you optionally define and associate with a resource. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags. Each tag consists of a required\u00a0tag key\u00a0and an associated\u00a0tag value, both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key",
+        "Add one or more tags (keys and values) to a specified resource. A tag is a label that you optionally define and associate with a resource. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags. Each tag consists of a required tag key and an associated tag value, both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key",
       options: [
         {
           name: "--resource-arn",
@@ -3896,6 +4739,102 @@ const completionSpec: Fig.Spec = {
             "The content of the email template, composed of a subject line, an HTML part, and a text-only part",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-reputation-entity-customer-managed-status",
+      description:
+        "Update the customer-managed sending status for a reputation entity. This allows you to enable, disable, or reinstate sending for the entity. The customer-managed status works in conjunction with the Amazon Web Services Amazon SES-managed status to determine the overall sending capability. When you update the customer-managed status, the Amazon Web Services Amazon SES-managed status remains unchanged. If Amazon Web Services Amazon SES has disabled the entity, it will not be allowed to send regardless of the customer-managed status setting. When you reinstate an entity through the customer-managed status, it can continue sending only if the Amazon Web Services Amazon SES-managed status also permits sending, even if there are active reputation findings, until the findings are resolved or new violations occur",
+      options: [
+        {
+          name: "--reputation-entity-type",
+          description:
+            "The type of reputation entity. Currently, only RESOURCE type entities are supported",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--reputation-entity-reference",
+          description:
+            "The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--sending-status",
+          description:
+            "The new customer-managed sending status for the reputation entity. This can be one of the following:    ENABLED – Allow sending for this entity.    DISABLED – Prevent sending for this entity.    REINSTATED – Allow sending even if there are active reputation findings",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-reputation-entity-policy",
+      description:
+        "Update the reputation management policy for a reputation entity. The policy determines how the entity responds to reputation findings, such as automatically pausing sending when certain thresholds are exceeded. Reputation management policies are Amazon Web Services Amazon SES-managed (predefined policies). You can select from none, standard, and strict policies",
+      options: [
+        {
+          name: "--reputation-entity-type",
+          description:
+            "The type of reputation entity. Currently, only RESOURCE type entities are supported",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--reputation-entity-reference",
+          description:
+            "The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--reputation-entity-policy",
+          description:
+            "The Amazon Resource Name (ARN) of the reputation management policy to apply to this entity. This is an Amazon Web Services Amazon SES-managed policy",
+          args: {
+            name: "string",
           },
         },
         {

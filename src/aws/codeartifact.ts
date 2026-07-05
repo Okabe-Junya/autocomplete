@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "codeartifact",
   description:
@@ -1408,14 +1409,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-package-version-readme",
@@ -1643,21 +1641,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1730,21 +1713,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--preview",
           description:
             "When this flag is included, ListAssociatedPackages will return a list of packages that would be associated with a package group, even if it does not exist",
@@ -1803,21 +1771,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes this call. Each returned DomainSummary object contains information about a domain",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1875,21 +1828,6 @@ const completionSpec: Fig.Spec = {
           name: "--domain-owner",
           description:
             "The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -2002,21 +1940,6 @@ const completionSpec: Fig.Spec = {
           name: "--package-version",
           description:
             "A string that contains the package version (for example, 3.5.2)",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -2219,21 +2142,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--origin-type",
           description:
             "The originType used to filter package versions. Only package versions with the provided originType will be returned",
@@ -2338,21 +2246,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--publish",
           description:
             "The value of the Publish package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see PackageOriginRestrictions",
@@ -2420,21 +2313,6 @@ const completionSpec: Fig.Spec = {
           name: "--repository-prefix",
           description:
             "A prefix used to filter returned repositories. Only repositories with names that start with repositoryPrefix are returned",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -2520,21 +2398,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2602,21 +2465,6 @@ const completionSpec: Fig.Spec = {
           name: "--package-group",
           description:
             "The pattern of the package group from which to list sub package groups",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -2697,9 +2545,59 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "login",
+      options: [
+        {
+          name: "--tool",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--domain-owner",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--namespace",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--duration-seconds",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--repository",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--endpoint-type",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--dry-run",
+        },
+      ],
+    },
+    {
       name: "publish-package-version",
       description:
-        "Creates a new package version containing one or more assets (or files). The unfinished flag can be used to keep the package version in the Unfinished state until all of its assets have been uploaded (see Package version status in the CodeArtifact user guide). To set the package version\u2019s status to Published, omit the unfinished flag when uploading the final asset, or set the status using UpdatePackageVersionStatus. Once a package version\u2019s status is set to Published, it cannot change back to Unfinished.  Only generic packages can be published using this API. For more information, see Using generic packages in the CodeArtifact User Guide",
+        "Creates a new package version containing one or more assets (or files). The unfinished flag can be used to keep the package version in the Unfinished state until all of its assets have been uploaded (see Package version status in the CodeArtifact user guide). To set the package version’s status to Published, omit the unfinished flag when uploading the final asset, or set the status using UpdatePackageVersionStatus. Once a package version’s status is set to Published, it cannot change back to Unfinished.  Only generic packages can be published using this API. For more information, see Using generic packages in the CodeArtifact User Guide",
       options: [
         {
           name: "--domain",
@@ -3288,7 +3186,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--expected-status",
           description:
-            "The package version\u2019s expected status before it is updated. If expectedStatus is provided, the package version's status is updated only if its status at the time UpdatePackageVersionsStatus is called matches expectedStatus",
+            "The package version’s expected status before it is updated. If expectedStatus is provided, the package version's status is updated only if its status at the time UpdatePackageVersionsStatus is called matches expectedStatus",
           args: {
             name: "string",
           },
@@ -3378,70 +3276,6 @@ const completionSpec: Fig.Spec = {
             name: "string",
             suggestions: ["input", "output"],
           },
-        },
-      ],
-    },
-    {
-      name: "login",
-      description:
-        "Sets up the idiomatic tool for your package format to use your CodeArtifact repository. Your login information is valid for up to 12 hours after which you must login again",
-      options: [
-        {
-          name: "--tool",
-          description: "The tool you want to connect with your repository",
-          args: {
-            name: "string",
-            suggestions: ["swift", "nuget", "dotnet", "npm", "pip", "twine"],
-          },
-        },
-        {
-          name: "--domain",
-          description: "Your CodeArtifact domain name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--domain-owner",
-          description: "The AWS account ID that owns your CodeArtifact domain",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--namespace",
-          description: "Associates a namespace with your repository tool",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--duration-seconds",
-          description:
-            "The time, in seconds, that the login information is valid",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--repository",
-          description: "Your CodeArtifact repository name",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--endpoint-type",
-          description:
-            "The type of endpoint you want the tool to interact with",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--dry-run",
-          description:
-            "Only print the commands that would be executed to connect your tool with your repository without making any changes to your configuration. Note that this prints the unredacted auth token as part of the output",
         },
       ],
     },

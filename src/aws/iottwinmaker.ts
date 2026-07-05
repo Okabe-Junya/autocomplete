@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "iottwinmaker",
   description:
@@ -398,7 +399,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-source",
           description:
-            "The sync source.  Currently the only supported syncSoource is SITEWISE",
+            "The sync source.  Currently the only supported syncSoource is SITEWISE ",
           args: {
             name: "string",
           },
@@ -634,7 +635,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-source",
           description:
-            "The sync source.  Currently the only supported syncSource is SITEWISE",
+            "The sync source.  Currently the only supported syncSource is SITEWISE ",
           args: {
             name: "string",
           },
@@ -1151,7 +1152,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-source",
           description:
-            "The sync source.  Currently the only supported syncSource is SITEWISE",
+            "The sync source.  Currently the only supported syncSource is SITEWISE ",
           args: {
             name: "string",
           },
@@ -1608,7 +1609,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sync-source",
           description:
-            "The sync source.  Currently the only supported syncSource is SITEWISE",
+            "The sync source.  Currently the only supported syncSource is SITEWISE ",
           args: {
             name: "string",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ecr",
   description:
@@ -247,7 +248,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--ecr-repository-prefix",
           description:
-            "The repository name prefix to use when caching images from the source registry",
+            "The repository name prefix to use when caching images from the source registry.  There is always an assumed / applied to the end of the prefix. If you specify ecr-public as the prefix, Amazon ECR treats that as ecr-public/",
           args: {
             name: "string",
           },
@@ -255,7 +256,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--upstream-registry-url",
           description:
-            "The registry URL of the upstream public registry to use as the source for the pull through cache rule. The following is the syntax to use for each supported upstream registry.   Amazon ECR Public (ecr-public) - public.ecr.aws    Docker Hub (docker-hub) - registry-1.docker.io    Quay (quay) - quay.io    Kubernetes (k8s) - registry.k8s.io    GitHub Container Registry (github-container-registry) - ghcr.io    Microsoft Azure Container Registry (azure-container-registry) - <custom>.azurecr.io",
+            "The registry URL of the upstream public registry to use as the source for the pull through cache rule. The following is the syntax to use for each supported upstream registry.   Amazon ECR (ecr) – <accountId>.dkr.ecr.<region>.amazonaws.com    Amazon ECR Public (ecr-public) – public.ecr.aws    Docker Hub (docker-hub) – registry-1.docker.io    GitHub Container Registry (github-container-registry) – ghcr.io    GitLab Container Registry (gitlab-container-registry) – registry.gitlab.com    Kubernetes (k8s) – registry.k8s.io    Microsoft Azure Container Registry (azure-container-registry) – <custom>.azurecr.io    Quay (quay) – quay.io",
           args: {
             name: "string",
           },
@@ -279,6 +280,22 @@ const completionSpec: Fig.Spec = {
           name: "--credential-arn",
           description:
             "The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate to the upstream registry",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-role-arn",
+          description:
+            "Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the ECR upstream registry. This role must be in the same account as the registry that you are configuring",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--upstream-repository-prefix",
+          description:
+            "The repository name prefix of the upstream registry to match with the upstream repository name. When this field isn't specified, Amazon ECR will use the ROOT",
           args: {
             name: "string",
           },
@@ -340,9 +357,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--image-tag-mutability-exclusion-filters",
+          description:
+            "A list of filters that specify which image tags should be excluded from the repository's image tag mutability setting",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--image-scanning-configuration",
           description:
-            "The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository",
+            "The imageScanningConfiguration parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see PutRegistryScanningConfiguration.  The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository",
           args: {
             name: "structure",
           },
@@ -419,6 +444,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--image-tag-mutability-exclusion-filters",
+          description:
+            "A list of filters that specify which image tags should be excluded from the repository creation template's image tag mutability setting",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--repository-policy",
           description:
             "The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions",
@@ -437,7 +470,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--applied-for",
           description:
-            "A list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION",
+            "A list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH",
           args: {
             name: "list",
           },
@@ -691,6 +724,62 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-signing-configuration",
+      description:
+        "Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed. For more information, see Managed signing in the Amazon Elastic Container Registry User Guide.  Deleting the signing configuration does not affect existing image signatures",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "deregister-pull-time-update-exclusion",
+      description:
+        "Removes a principal from the pull time update exclusion list for a registry. Once removed, Amazon ECR will resume updating the pull time if the specified principal pulls an image",
+      options: [
+        {
+          name: "--principal-arn",
+          description:
+            "The ARN of the IAM principal to remove from the pull time update exclusion list",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-image-replication-status",
       description: "Returns the replication status for a specified image",
       options: [
@@ -765,22 +854,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated DescribeImageScanFindings request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of image scan results returned by DescribeImageScanFindings in paginated output. When this parameter is used, DescribeImageScanFindings only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeImageScanFindings request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeImageScanFindings returns up to 100 results and a nextToken value, if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -824,9 +897,56 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-image-signing-status",
+      description:
+        "Returns the signing status for a specified image. If the image matched signing rules that reference different signing profiles, a status is returned for each profile. For more information, see Managed signing in the Amazon Elastic Container Registry User Guide",
+      options: [
+        {
+          name: "--repository-name",
+          description: "The name of the repository that contains the image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--image-id",
+          description:
+            "An object containing identifying information for an image",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--registry-id",
+          description:
+            "The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-images",
       description:
-        "Returns metadata about the images in a repository.  Beginning with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the docker images command shows the uncompressed image size, so it may return a larger image size than the image sizes returned by DescribeImages",
+        "Returns metadata about the images in a repository.  Starting with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the docker images command shows the uncompressed image size. Therefore, Docker might return a larger image than the image shown in the Amazon Web Services Management Console.   The new version of Amazon ECR Basic Scanning doesn't use the ImageDetail$imageScanFindingsSummary and ImageDetail$imageScanStatus attributes from the API response to return scan results. Use the DescribeImageScanFindings API instead. For more information about Amazon Web Services native basic scanning, see  Scan images for software vulnerabilities in Amazon ECR",
       options: [
         {
           name: "--registry-id",
@@ -848,22 +968,6 @@ const completionSpec: Fig.Spec = {
           description: "The list of image IDs for the requested repository",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated DescribeImages request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return. This option cannot be used when you specify images with imageIds",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results returned by DescribeImages in paginated output. When this parameter is used, DescribeImages only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeImages request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeImages returns up to 100 results and a nextToken value, if applicable. This option cannot be used when you specify images with imageIds",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -935,22 +1039,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon ECR repository prefixes associated with the pull through cache rules to return. If no repository prefix value is specified, all pull through cache rules are returned",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated DescribePullThroughCacheRulesRequest request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of pull through cache rules returned by DescribePullThroughCacheRulesRequest in paginated output. When this parameter is used, DescribePullThroughCacheRulesRequest only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribePullThroughCacheRulesRequest request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribePullThroughCacheRulesRequest returns up to 100 results and a nextToken value, if applicable",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1041,22 +1129,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated DescribeRepositories request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return. This option cannot be used when you specify repositories with repositoryNames.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results returned by DescribeRepositories in paginated output. When this parameter is used, DescribeRepositories only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeRepositories request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeRepositories returns up to 100 results and a nextToken value, if applicable. This option cannot be used when you specify repositories with repositoryNames",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1113,22 +1185,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated DescribeRepositoryCreationTemplates request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results returned by DescribeRepositoryCreationTemplatesRequest in paginated output. When this parameter is used, DescribeRepositoryCreationTemplatesRequest only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeRepositoryCreationTemplatesRequest request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then DescribeRepositoryCreationTemplatesRequest returns up to 100 results and a nextToken value, if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1173,11 +1229,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "get-account-setting",
-      description: "Retrieves the basic scan type version name",
+      description:
+        "Retrieves the account setting value for the specified setting name",
       options: [
         {
           name: "--name",
-          description: "Basic scan type version name",
+          description:
+            "The name of the account setting, such as BASIC_SCAN_TYPE_VERSION, REGISTRY_POLICY_SCOPE, or BLOB_MOUNTING",
           args: {
             name: "string",
           },
@@ -1347,22 +1405,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated\u2028 GetLifecyclePolicyPreviewRequest request where maxResults was used and the\u2028 results exceeded the value of that parameter. Pagination continues from the end of the\u2028 previous results that returned the nextToken value. This value is\u2028 null when there are no more results to return. This option cannot be used when you specify images with imageIds",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results returned by GetLifecyclePolicyPreviewRequest in\u2028 paginated output. When this parameter is used, GetLifecyclePolicyPreviewRequest only returns\u2028 maxResults results in a single page along with a nextToken\u2028 response element. The remaining results of the initial request can be seen by sending\u2028 another GetLifecyclePolicyPreviewRequest request with the returned nextToken\u2028 value. This value can be between 1 and 1000. If this\u2028 parameter is not used, then GetLifecyclePolicyPreviewRequest returns up to\u2028 100 results and a nextToken value, if\u2028 applicable. This option cannot be used when you specify images with imageIds",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filter",
           description:
             "An optional parameter that filters results based on image tag status and all tags, if tagged",
@@ -1412,6 +1454,9 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "get-login-password",
     },
     {
       name: "get-registry-policy",
@@ -1499,6 +1544,30 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-signing-configuration",
+      description:
+        "Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer. For more information, see Managed signing in the Amazon Elastic Container Registry User Guide",
+      options: [
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "initiate-layer-upload",
       description:
         "Notifies Amazon ECR that you intend to upload an image layer. When an image is pushed, the InitiateLayerUpload API is called once per image layer that has not already been uploaded. Whether or not an image layer has been uploaded is determined by the BatchCheckLayerAvailability API action.  This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the docker CLI to pull, tag, and push images",
@@ -1539,6 +1608,78 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-image-referrers",
+      description:
+        "Lists the artifacts associated with a specified subject image.  The IAM principal invoking this operation must have the ecr:BatchGetImage permission",
+      options: [
+        {
+          name: "--registry-id",
+          description:
+            "The Amazon Web Services account ID associated with the registry that contains the repository in which to list image referrers. If you do not specify a registry, the default registry is assumed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--repository-name",
+          description:
+            "The name of the repository that contains the subject image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--subject-id",
+          description:
+            "An object containing the image digest of the subject image for which to retrieve associated artifacts",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--filter",
+          description:
+            "The filter key and value with which to filter your ListImageReferrers results. If no filter is specified, only artifacts with ACTIVE status are returned",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The nextToken value returned from a previous paginated ListImageReferrers request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of image referrer results returned by ListImageReferrers in paginated output. When this parameter is used, ListImageReferrers only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListImageReferrers request with the returned nextToken value. This value can be between 1 and 50. If this parameter is not used, then ListImageReferrers returns up to 20 results and a nextToken value, if applicable",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-images",
       description:
         "Lists all the image IDs for the specified repository. You can filter images based on whether or not they are tagged by using the tagStatus filter and specifying either TAGGED, UNTAGGED or ANY. For example, you can filter your results to return only UNTAGGED images and then pipe that result to a BatchDeleteImage operation to delete them. Or, you can filter your results to return only TAGGED images to list all of the tags in your repository",
@@ -1556,22 +1697,6 @@ const completionSpec: Fig.Spec = {
           description: "The repository with image IDs to be listed",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListImages request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of image results returned by ListImages in paginated output. When this parameter is used, ListImages only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListImages request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then ListImages returns up to 100 results and a nextToken value, if applicable",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1626,6 +1751,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-pull-time-update-exclusions",
+      description:
+        "Lists the IAM principals that are excluded from having their image pull times recorded",
+      options: [
+        {
+          name: "--max-results",
+          description:
+            "The maximum number of pull time update exclusion results returned by ListPullTimeUpdateExclusions in paginated output. When this parameter is used, ListPullTimeUpdateExclusions only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another ListPullTimeUpdateExclusions request with the returned nextToken value. This value can be between 1 and 1000. If this parameter is not used, then ListPullTimeUpdateExclusions returns up to 100 results and a nextToken value, if applicable",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--next-token",
+          description:
+            "The nextToken value returned from a previous paginated ListPullTimeUpdateExclusions request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. This value is null when there are no more results to return.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-tags-for-resource",
       description: "List the tags for an Amazon ECR resource",
       options: [
@@ -1659,11 +1824,12 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-account-setting",
       description:
-        "Allows you to change the basic scan type version by setting the name parameter to either CLAIR to AWS_NATIVE",
+        "Allows you to change the basic scan type version or registry policy scope",
       options: [
         {
           name: "--name",
-          description: "Basic scan type version name",
+          description:
+            "The name of the account setting, such as BASIC_SCAN_TYPE_VERSION, REGISTRY_POLICY_SCOPE, or BLOB_MOUNTING",
           args: {
             name: "string",
           },
@@ -1671,7 +1837,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--value",
           description:
-            "Setting value that determines what basic scan type is being used: AWS_NATIVE or CLAIR",
+            "Setting value that is specified. Valid value for basic scan type: AWS_NATIVE. Valid values for registry policy scope: V2. Valid values for blob mounting: ENABLED or DISABLED",
           args: {
             name: "string",
           },
@@ -1734,7 +1900,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--image-tag",
           description:
-            "The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats",
+            "The tag to associate with the image. This parameter is optional",
           args: {
             name: "string",
           },
@@ -1844,6 +2010,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--image-tag-mutability-exclusion-filters",
+          description:
+            "A list of filters that specify which image tags should be excluded from the image tag mutability setting being applied",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1870,7 +2044,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--registry-id",
           description:
-            "The Amazon Web Services account ID associated with the registry that contains the repository. If you do\u2028 not specify a registry, the default registry is assumed",
+            "The Amazon Web Services account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed",
           args: {
             name: "string",
           },
@@ -2014,6 +2188,69 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "put-signing-configuration",
+      description:
+        "Creates or updates the registry's signing configuration, which defines rules for automatically signing images with Amazon Web Services Signer. For more information, see Managed signing in the Amazon Elastic Container Registry User Guide.  To successfully generate a signature, the IAM principal pushing images must have permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing configuration",
+      options: [
+        {
+          name: "--signing-configuration",
+          description: "The signing configuration to assign to the registry",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "register-pull-time-update-exclusion",
+      description:
+        "Adds an IAM principal to the pull time update exclusion list for a registry. Amazon ECR will not record the pull time if an excluded principal pulls an image",
+      options: [
+        {
+          name: "--principal-arn",
+          description:
+            "The ARN of the IAM principal to exclude from having image pull times recorded",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "set-repository-policy",
       description:
         "Applies a repository policy to the specified repository to control access permissions. For more information, see Amazon ECR Repository policies in the Amazon Elastic Container Registry User Guide",
@@ -2073,7 +2310,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "start-image-scan",
       description:
-        "Starts an image vulnerability scan. An image scan can only be started once per 24 hours on an individual image. This limit includes if an image was scanned on initial push. For more information, see Image scanning in the Amazon Elastic Container Registry User Guide",
+        "Starts a basic image vulnerability scan.  A basic image scan can only be started once per 24 hours on an individual image. This limit includes if an image was scanned on initial push. You can start up to 100,000 basic scans per 24 hours. This limit includes both scans on initial push and scans initiated by the StartImageScan API. For more information, see Basic scanning in the Amazon Elastic Container Registry User Guide",
       options: [
         {
           name: "--registry-id",
@@ -2244,6 +2481,61 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-image-storage-class",
+      description:
+        "Transitions an image between storage classes. You can transition images from Amazon ECR standard storage class to Amazon ECR archival storage class for long-term storage, or restore archived images back to Amazon ECR standard",
+      options: [
+        {
+          name: "--registry-id",
+          description:
+            "The Amazon Web Services account ID associated with the registry that contains the image to transition. If you do not specify a registry, the default registry is assumed",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--repository-name",
+          description:
+            "The name of the repository that contains the image to transition",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--image-id",
+          description:
+            "An object with identifying information for an image in an Amazon ECR repository",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--target-storage-class",
+          description: "The target storage class for the image",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-pull-through-cache-rule",
       description: "Updates an existing pull through cache rule",
       options: [
@@ -2267,6 +2559,14 @@ const completionSpec: Fig.Spec = {
           name: "--credential-arn",
           description:
             "The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate to the upstream registry",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--custom-role-arn",
+          description:
+            "Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the ECR upstream registry. This role must be in the same account as the registry that you are configuring",
           args: {
             name: "string",
           },
@@ -2334,6 +2634,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--image-tag-mutability-exclusion-filters",
+          description:
+            "A list of filters that specify which image tags should be excluded from the repository creation template's image tag mutability setting",
+          args: {
+            name: "list",
+          },
+        },
+        {
           name: "--repository-policy",
           description:
             "Updates the repository policy created using the template. A repository policy is a permissions policy associated with a repository to control access permissions",
@@ -2352,7 +2660,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--applied-for",
           description:
-            "Updates the list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION",
+            "Updates the list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH",
           args: {
             name: "list",
           },
@@ -2496,36 +2804,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "get-login",
-      description:
-        "**Note:** This command is deprecated. Use ``get-login-password`` instead.\n\n**To log in to an Amazon ECR registry**\n\nThis command retrieves an authentication token using the GetAuthorizationToken API, and then it prints a ``docker login`` command with the authorization token and, if you specified a registry ID, the URI for an Amazon ECR registry. You can execute the printed command to authenticate to the registry with Docker. After you have authenticated to an Amazon ECR registry with this command, you can use the Docker CLI to push and pull images to and from that registry as long as your IAM principal has access to do so until the token expires.  The authorization token is valid for 12 hours.\n\n.. note::\n\n    This command displays ``docker login`` commands to stdout with\n    authentication credentials. Your credentials could be visible by other\n    users on your system in a process list display or a command history. If you\n    are not on a secure system, you should consider this risk and login\n    interactively. For more information, see ``get-authorization-token``",
-      options: [
-        {
-          name: "--registry-ids",
-          description:
-            "A list of AWS account IDs that correspond to the Amazon ECR registries that you want to log in to",
-          args: {
-            name: "string",
-            isVariadic: true,
-          },
-        },
-        {
-          name: "--include-email",
-          description:
-            "Specify if the '-e' flag should be included in the 'docker login' command.  The '-e' option has been deprecated and is removed in Docker version 17.06 and later.  You must specify --no-include-email if you're using Docker version 17.06 or later.  The default behavior is to include the '-e' flag in the 'docker login' output",
-        },
-        {
-          name: "--no-include-email",
-          description: "Include email arg",
-        },
-      ],
-    },
-    {
-      name: "get-login-password",
-      description:
-        "**To log in to an Amazon ECR registry**\n\nThis command retrieves and displays an authentication token using the GetAuthorizationToken API that you can use to authenticate to an Amazon ECR registry. You can pass the authorization token to the login command of the container client of your preference, such as the Docker CLI. After you have authenticated to an Amazon ECR registry with this command, you can use the client to push and pull images from that registry as long as your IAM principal has access to do so until the token expires. The authorization token is valid for 12 hours.\n\nThis command is supported using the latest version of AWS CLI version 2 or in v1.17.10 or later of AWS CLI version 1. For information on updating to the latest AWS CLI version, see `Installing the AWS CLI `__ in the *AWS Command Line Interface User Guide*",
-    },
-    {
       name: "wait",
       description:
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
@@ -2648,7 +2926,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--next-token",
               description:
-                "The nextToken value returned from a previous paginated\u2028 GetLifecyclePolicyPreviewRequest request where maxResults was used and the\u2028 results exceeded the value of that parameter. Pagination continues from the end of the\u2028 previous results that returned the nextToken value. This value is\u2028 null when there are no more results to return. This option cannot be used when you specify images with imageIds",
+                "The nextToken value returned from a previous paginated  GetLifecyclePolicyPreviewRequest request where maxResults was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the nextToken value. This value is  null when there are no more results to return. This option cannot be used when you specify images with imageIds",
               args: {
                 name: "string",
               },
@@ -2656,7 +2934,7 @@ const completionSpec: Fig.Spec = {
             {
               name: "--max-results",
               description:
-                "The maximum number of repository results returned by GetLifecyclePolicyPreviewRequest in\u2028 paginated output. When this parameter is used, GetLifecyclePolicyPreviewRequest only returns\u2028 maxResults results in a single page along with a nextToken\u2028 response element. The remaining results of the initial request can be seen by sending\u2028 another GetLifecyclePolicyPreviewRequest request with the returned nextToken\u2028 value. This value can be between 1 and 1000. If this\u2028 parameter is not used, then GetLifecyclePolicyPreviewRequest returns up to\u2028 100 results and a nextToken value, if\u2028 applicable. This option cannot be used when you specify images with imageIds",
+                "The maximum number of repository results returned by GetLifecyclePolicyPreviewRequest in  paginated output. When this parameter is used, GetLifecyclePolicyPreviewRequest only returns  maxResults results in a single page along with a nextToken  response element. The remaining results of the initial request can be seen by sending  another GetLifecyclePolicyPreviewRequest request with the returned nextToken  value. This value can be between 1 and 100. If this  parameter is not used, then GetLifecyclePolicyPreviewRequest returns up to 100 results and a nextToken value, if  applicable. This option cannot be used when you specify images with imageIds",
               args: {
                 name: "integer",
               },

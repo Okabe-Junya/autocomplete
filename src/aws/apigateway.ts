@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "apigateway",
   description:
@@ -206,7 +207,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--domain-name-id",
           description:
-            "The identifier for the domain name resource. Supported only for private custom domain names",
+            "The identifier for the domain name resource. Required for private custom domain names",
           args: {
             name: "string",
           },
@@ -519,7 +520,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--endpoint-configuration",
           description:
-            "The endpoint configuration of this DomainName showing the endpoint types of the domain name",
+            "The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name",
           args: {
             name: "structure",
           },
@@ -535,7 +536,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--security-policy",
           description:
-            "The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are TLS_1_0 and TLS_1_2",
+            "The Transport Layer Security (TLS) version + cipher suite for this DomainName",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--endpoint-access-mode",
+          description:
+            "The endpoint access mode of the DomainName. Only available for DomainNames that use security policies that start with SecurityPolicy_",
           args: {
             name: "string",
           },
@@ -560,6 +569,14 @@ const completionSpec: Fig.Spec = {
           name: "--policy",
           description:
             "A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--routing-mode",
+          description:
+            "The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your private APIs",
           args: {
             name: "string",
           },
@@ -850,7 +867,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--endpoint-configuration",
           description:
-            "The endpoint configuration of this RestApi showing the endpoint types of the API",
+            "The endpoint configuration of this RestApi showing the endpoint types and IP address types of the API",
           args: {
             name: "structure",
           },
@@ -880,6 +897,22 @@ const completionSpec: Fig.Spec = {
           name: "--no-disable-execute-api-endpoint",
           description:
             "Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint",
+        },
+        {
+          name: "--security-policy",
+          description:
+            "The Transport Layer Security (TLS) version + cipher suite for this RestApi",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--endpoint-access-mode",
+          description:
+            "The endpoint access mode of the RestApi. Only available for RestApis that use security policies that start with SecurityPolicy_",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--api-version",
@@ -2205,22 +2238,6 @@ const completionSpec: Fig.Spec = {
       description: "Gets information about the current ApiKeys resource",
       options: [
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--name-query",
           description: "The name of queried API keys",
           args: {
@@ -2337,22 +2354,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2462,22 +2463,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2556,22 +2541,6 @@ const completionSpec: Fig.Spec = {
       name: "get-client-certificates",
       description: "Gets a collection of ClientCertificate resources",
       options: [
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -2670,22 +2639,6 @@ const completionSpec: Fig.Spec = {
           description: "The string identifier of the associated RestApi",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2804,22 +2757,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--location-status",
           description:
             "The status of the API documentation parts to retrieve. Valid values are DOCUMENTED for retrieving DocumentationPart resources with content and UNDOCUMENTED for DocumentationPart resources without content",
@@ -2920,22 +2857,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2993,7 +2914,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--domain-name-id",
           description:
-            "The identifier for the domain name resource. Supported only for private custom domain names",
+            "The identifier for the domain name resource. Required for private custom domain names",
           args: {
             name: "string",
           },
@@ -3069,22 +2990,6 @@ const completionSpec: Fig.Spec = {
       name: "get-domain-names",
       description: "Represents a collection of DomainName resources",
       options: [
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--resource-owner",
           description: "The owner of the domain name access association",
@@ -3178,14 +3083,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-gateway-response",
@@ -3235,22 +3137,6 @@ const completionSpec: Fig.Spec = {
           description: "The string identifier of the associated RestApi",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The GatewayResponses collection does not support pagination and the limit does not apply here",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3588,22 +3474,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3692,22 +3562,6 @@ const completionSpec: Fig.Spec = {
           description: "The string identifier of the associated RestApi",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3810,22 +3664,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--embed",
           description:
             'A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response. This embed parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the "methods" string. For example, GET /restapis/{restapi_id}/resources?embed=methods',
@@ -3911,22 +3749,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists the RestApis resources for your collection",
       options: [
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4003,14 +3825,11 @@ const completionSpec: Fig.Spec = {
             name: "map",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-sdk-type",
@@ -4046,22 +3865,6 @@ const completionSpec: Fig.Spec = {
       name: "get-sdk-types",
       description: "Gets SDK types",
       options: [
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -4262,22 +4065,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4404,22 +4191,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--name-query",
           description:
             "A query parameter specifying the name of the to-be-returned usage plan keys",
@@ -4475,27 +4246,11 @@ const completionSpec: Fig.Spec = {
       description: "Gets all the usage plans of the caller's account",
       options: [
         {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--key-id",
           description:
             "The identifier of the API key associated with the usage plans",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4578,22 +4333,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Gets the VpcLinks collection under the caller's account in a selected region",
       options: [
-        {
-          name: "--position",
-          description:
-            "The current pagination position in the paged result set",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of returned results per page. The default value is 25 and the maximum value is 500",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -4976,7 +4715,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--timeout-in-millis",
           description:
-            "Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds",
+            "Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only",
           args: {
             name: "integer",
           },
@@ -4986,6 +4725,20 @@ const completionSpec: Fig.Spec = {
           description: "Specifies the TLS configuration for an integration",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--response-transfer-mode",
+          description: "The response transfer mode of the integration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--integration-target",
+          description: "The ALB or NLB listener to send the request to",
+          args: {
+            name: "string",
           },
         },
         {

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "route53-recovery-control-config",
   description:
@@ -28,6 +29,14 @@ const completionSpec: Fig.Spec = {
           description: "The tags associated with the cluster",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK",
+          args: {
+            name: "string",
           },
         },
         {
@@ -491,22 +500,6 @@ const completionSpec: Fig.Spec = {
         "Returns an array of all Amazon Route 53 health checks associated with a specific routing control",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--routing-control-arn",
           description: "The Amazon Resource Name (ARN) of the routing control",
           args: {
@@ -561,22 +554,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns an array of all the clusters in an account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -627,22 +604,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--cluster-arn",
           description: "The Amazon Resource Name (ARN) of a cluster",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
           args: {
             name: "string",
           },
@@ -703,22 +664,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -769,22 +714,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--control-panel-arn",
           description: "The Amazon Resource Name (ARN) of the control panel",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of objects that you want to return with this call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token that identifies which batch of results you want to see",
           args: {
             name: "string",
           },
@@ -918,6 +847,45 @@ const completionSpec: Fig.Spec = {
           description: "Keys for the tags to be removed",
           args: {
             name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-cluster",
+      description:
+        "Updates an existing cluster. You can only update the network type of a cluster",
+      options: [
+        {
+          name: "--cluster-arn",
+          description: "The Amazon Resource Name (ARN) of the cluster",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK",
+          args: {
+            name: "string",
           },
         },
         {

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "savingsplans",
   description:
@@ -104,7 +105,7 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-savings-plan-rates",
-      description: "Describes the rates for the specified Savings Plan",
+      description: "Describes the rates for a specific, existing Savings Plan",
       options: [
         {
           name: "--savings-plan-id",
@@ -223,7 +224,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-savings-plans-offering-rates",
       description:
-        "Describes the offering rates for the specified Savings Plans",
+        "Describes the offering rates for Savings Plans you might want to purchase",
       options: [
         {
           name: "--savings-plan-offering-ids",

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "lakeformation",
   description:
@@ -52,7 +53,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "assume-decorated-role-with-saml",
       description:
-        "Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups. This API operation requires SAML federation setup in the caller\u2019s account as it can only be called with valid SAML assertions. Lake Formation does not scope down the permission of the assumed role. All permissions attached to the role via the SAML federation setup will be included in the role session.   This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API GetDataAccess. Therefore, all SAML roles that can be assumed via AssumeDecoratedRoleWithSAML must at a minimum include lakeformation:GetDataAccess in their role policies. A typical IAM policy attached to such a role would look as follows:",
+        "Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups. This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions. Lake Formation does not scope down the permission of the assumed role. All permissions attached to the role via the SAML federation setup will be included in the role session.   This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API GetDataAccess. Therefore, all SAML roles that can be assumed via AssumeDecoratedRoleWithSAML must at a minimum include lakeformation:GetDataAccess in their role policies. A typical IAM policy attached to such a role would include the following actions:    glue:*Database*   glue:*Table*   glue:*Partition*   glue:*UserDefinedFunction*   lakeformation:GetDataAccess",
       options: [
         {
           name: "--saml-assertion",
@@ -278,6 +279,117 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-lake-formation-identity-center-configuration",
+      description:
+        "Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--instance-arn",
+          description:
+            "The ARN of the IAM Identity Center instance for which the operation will be executed. For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces in the Amazon Web Services General Reference",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--external-filtering",
+          description:
+            "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--share-recipients",
+          description:
+            "A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation.  If the ShareRecipients list includes valid values, a resource share is created with the principals you want to have access to the resources. If the ShareRecipients value is null or the list is empty, no resource share is created",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--service-integrations",
+          description:
+            "A list of service integrations for enabling trusted identity propagation with external services such as Redshift",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-lake-formation-opt-in",
+      description:
+        "Enforce Lake Formation permissions for the given databases, tables, and principals",
+      options: [
+        {
+          name: "--principal",
+          description:
+            "The Lake Formation principal. Supported principals are IAM users or IAM roles",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--resource",
+          description: "A structure for the resource",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--condition",
+          description:
+            "A Lake Formation condition, which applies to permissions and opt-ins that contain an expression",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-lf-tag",
       description: "Creates an LF-tag with the specified name and values",
       options: [
@@ -325,7 +437,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-lf-tag-expression",
       description:
-        "Creates a new LF-Tag expression with the provided name, description, catalog ID, and expression body. This call fails if a LF-Tag expression with the same name already exists in the caller\u2019s account or if the underlying LF-Tags don't exist. To call this API operation, caller needs the following Lake Formation permissions:  CREATE_LF_TAG_EXPRESSION on the root catalog resource.  GRANT_WITH_LF_TAG_EXPRESSION on all underlying LF-Tag key:value pairs included in the expression",
+        "Creates a new LF-Tag expression with the provided name, description, catalog ID, and expression body. This call fails if a LF-Tag expression with the same name already exists in the caller’s account or if the underlying LF-Tags don't exist. To call this API operation, caller needs the following Lake Formation permissions:  CREATE_LF_TAG_EXPRESSION on the root catalog resource.  GRANT_WITH_LF_TAG_EXPRESSION on all underlying LF-Tag key:value pairs included in the expression",
       options: [
         {
           name: "--name",
@@ -355,101 +467,6 @@ const completionSpec: Fig.Spec = {
           description: "A list of LF-Tag conditions (key-value pairs)",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "create-lake-formation-identity-center-configuration",
-      description:
-        "Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources",
-      options: [
-        {
-          name: "--catalog-id",
-          description:
-            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--instance-arn",
-          description:
-            "The ARN of the IAM Identity Center instance for which the operation will be executed. For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces in the Amazon Web Services General Reference",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--external-filtering",
-          description:
-            "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--share-recipients",
-          description:
-            "A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation.  If the ShareRecipients list includes valid values, a resource share is created with the principals you want to have access to the resources. If the ShareRecipients value is null or the list is empty, no resource share is created",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "create-lake-formation-opt-in",
-      description:
-        "Enforce Lake Formation permissions for the given databases, tables, and principals",
-      options: [
-        {
-          name: "--principal",
-          description:
-            "The Lake Formation principal. Supported principals are IAM users or IAM roles",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--resource",
-          description: "A structure for the resource",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -523,9 +540,88 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-lake-formation-identity-center-configuration",
+      description:
+        "Deletes an IAM Identity Center connection with Lake Formation",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definition, and other control information to manage your Lake Formation environment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-lake-formation-opt-in",
+      description:
+        "Remove the Lake Formation permissions enforcement of the given databases, tables, and principals",
+      options: [
+        {
+          name: "--principal",
+          description:
+            "The Lake Formation principal. Supported principals are IAM users or IAM roles",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--resource",
+          description: "A structure for the resource",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--condition",
+          description:
+            "A Lake Formation condition, which applies to permissions and opt-ins that contain an expression",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-lf-tag",
       description:
-        "Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the LFTagPolicy attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource",
+        "Deletes an LF-tag by its key name. The operation fails if the specified tag key doesn't exist. When you delete an LF-Tag:    The associated LF-Tag policy becomes invalid.    Resources that had this tag assigned will no longer have the tag policy applied to them",
       options: [
         {
           name: "--catalog-id",
@@ -579,77 +675,6 @@ const completionSpec: Fig.Spec = {
             "The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "delete-lake-formation-identity-center-configuration",
-      description:
-        "Deletes an IAM Identity Center connection with Lake Formation",
-      options: [
-        {
-          name: "--catalog-id",
-          description:
-            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definition, and other control information to manage your Lake Formation environment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "delete-lake-formation-opt-in",
-      description:
-        "Remove the Lake Formation permissions enforcement of the given databases, tables, and principals",
-      options: [
-        {
-          name: "--principal",
-          description:
-            "The Lake Formation principal. Supported principals are IAM users or IAM roles",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--resource",
-          description: "A structure for the resource",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -1243,7 +1268,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--catalog-id",
           description:
-            "The catalog containing the governed table. Defaults to the caller\u2019s account",
+            "The catalog containing the governed table. Defaults to the caller’s account",
           args: {
             name: "string",
           },
@@ -1297,6 +1322,61 @@ const completionSpec: Fig.Spec = {
           name: "--next-token",
           description:
             "A continuation token if this is not the first call to retrieve these objects",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-temporary-data-location-credentials",
+      description:
+        "Allows a user or application in a secure environment to access data in a specific Amazon S3 location registered with Lake Formation by providing temporary scoped credentials that are limited to the requested data location and the caller's authorized access level.  GetDataAccess is logged in CloudTrail whenever a principal requests temporary data location credentials to access data in a data lake location that is registered with Lake Formation.  The API operation returns an error in the following scenarios:   The data location is not registered with Lake Formation.    No Glue table is associated with the data location.   The caller doesn't have required permissions on the associated table. The caller must have SELECT or SUPER permissions on the associated table, and credential vending for full table access must be enabled in the data lake settings.  For more information, see Application integration for full table access.   The data location is in a different Amazon Web Services Region. Lake Formation doesn't support cross-Region access when vending credentials for a data location. Lake Formation only supports Amazon S3 paths registered within the same Region as the API call",
+      options: [
+        {
+          name: "--duration-seconds",
+          description:
+            "The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--audit-context",
+          description:
+            "A structure used to include auditing information on the privileged API",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--data-locations",
+          description: "The Amazon S3 data location that you want to access",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--credentials-scope",
+          description:
+            "The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:   READ - Provides read-only access to the data location.   READ_WRITE - Provides both read and write access to the data location",
           args: {
             name: "string",
           },
@@ -1499,35 +1579,17 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-work-units",
       description:
         "Retrieves the work units generated by the StartQueryPlanning operation",
       options: [
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--query-id",
           description: "The ID of the plan query operation",
@@ -1555,6 +1617,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -1608,6 +1678,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--condition",
+          description:
+            "A Lake Formation condition, which applies to permissions and opt-ins that contain an expression",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--permissions-with-grant-option",
           description:
             "Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the Privileges",
@@ -1643,169 +1721,6 @@ const completionSpec: Fig.Spec = {
           description: "A table in the Glue Data Catalog",
           args: {
             name: "structure",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "A continuation token, if this is a continuation call",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum size of the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-lf-tag-expressions",
-      description:
-        "Returns the LF-Tag expressions in caller\u2019s account filtered based on caller's permissions. Data Lake and read only admins implicitly can see all tag expressions in their account, else caller needs DESCRIBE permissions on tag expression",
-      options: [
-        {
-          name: "--catalog-id",
-          description:
-            "The identifier for the Data Catalog. By default, the account ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is not the first call to retrieve this list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--starting-token",
-          description:
-            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--page-size",
-          description:
-            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--max-items",
-          description:
-            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
-      name: "list-lf-tags",
-      description: "Lists LF-tags that the requester has permission to view",
-      options: [
-        {
-          name: "--catalog-id",
-          description:
-            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--resource-share-type",
-          description:
-            "If resource share type is ALL, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is FOREIGN, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is not the first call to retrieve this list",
-          args: {
-            name: "string",
           },
         },
         {
@@ -1906,9 +1821,128 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "list-lf-tag-expressions",
+      description:
+        "Returns the LF-Tag expressions in caller’s account filtered based on caller's permissions. Data Lake and read only admins implicitly can see all tag expressions in their account, else caller needs DESCRIBE permissions on tag expression",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The identifier for the Data Catalog. By default, the account ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-lf-tags",
+      description: "Lists LF-tags that the requester has permission to view",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resource-share-type",
+          description:
+            "If resource share type is ALL, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is FOREIGN, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "list-permissions",
       description:
-        "Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER. This operation returns only those permissions that have been explicitly granted. For information about permissions, see Security and Access Control to Metadata and Data",
+        "Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER. This operation returns only those permissions that have been explicitly granted. If both Principal and Resource parameters are provided, the response returns effective permissions rather than the explicitly granted permissions. For information about permissions, see Security and Access Control to Metadata and Data",
       options: [
         {
           name: "--catalog-id",
@@ -1960,7 +1994,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--include-related",
           description:
-            "Indicates that related permissions should be included in the results",
+            "Indicates that related permissions should be included in the results when listing permissions on a table resource. Set the field to TRUE to show the cell filters on a table resource. Default is FALSE. The Principal parameter must not be specified when requesting cell filter information",
           args: {
             name: "string",
           },
@@ -2198,7 +2232,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "register-resource",
       description:
-        "Registers the resource as managed by the Data Catalog. To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy. The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.  ResourceArn = arn:aws:s3:::my-bucket/ UseServiceLinkedRole = true  If UseServiceLinkedRole is not set to true, you must provide or set the RoleArn:  arn:aws:iam::12345:role/my-data-access-role",
+        "Registers the resource as managed by the Data Catalog. To add or update data, Lake Formation needs read/write access to the chosen data location. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy. The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.  ResourceArn = arn:aws:s3:::my-bucket/ UseServiceLinkedRole = true  If UseServiceLinkedRole is not set to true, you must provide or set the RoleArn:  arn:aws:iam::12345:role/my-data-access-role",
       options: [
         {
           name: "--resource-arn",
@@ -2243,6 +2277,24 @@ const completionSpec: Fig.Spec = {
           name: "--no-hybrid-access-enabled",
           description:
             "Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies",
+        },
+        {
+          name: "--with-privileged-access",
+          description:
+            "Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location",
+        },
+        {
+          name: "--no-with-privileged-access",
+          description:
+            "Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location",
+        },
+        {
+          name: "--expected-resource-owner-account",
+          description:
+            "The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations",
+          args: {
+            name: "string",
+          },
         },
         {
           name: "--cli-input-json",
@@ -2347,6 +2399,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--condition",
+          description:
+            "A Lake Formation condition, which applies to permissions and opt-ins that contain an expression",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--permissions-with-grant-option",
           description:
             "Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals",
@@ -2378,21 +2438,6 @@ const completionSpec: Fig.Spec = {
       description:
         "This operation allows a search on DATABASE resources by TagCondition. This operation is used by admins who want to grant user permissions on certain TagConditions. Before making a grant, the admin can use SearchDatabasesByTags to find all resources where the given TagConditions are valid to verify whether the returned resources can be shared",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is not the first call to retrieve this list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--catalog-id",
           description:
@@ -2457,21 +2502,6 @@ const completionSpec: Fig.Spec = {
       description:
         "This operation allows a search on TABLE resources by LFTags. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use SearchTablesByLFTags to find all resources where the given LFTags are valid to verify whether the returned resources can be shared",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A continuation token, if this is not the first call to retrieve this list",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--catalog-id",
           description:
@@ -2635,6 +2665,69 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "update-lake-formation-identity-center-configuration",
+      description: "Updates the IAM Identity Center connection parameters",
+      options: [
+        {
+          name: "--catalog-id",
+          description:
+            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--share-recipients",
+          description:
+            "A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that are allowed to access to access data managed by Lake Formation.  If the ShareRecipients list includes valid values, then the resource share is updated with the principals you want to have access to the resources. If the ShareRecipients value is null, both the list of share recipients and the resource share remain unchanged. If the ShareRecipients value is an empty list, then the existing share recipients list will be cleared, and the resource share will be deleted",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--service-integrations",
+          description:
+            "A list of service integrations for enabling trusted identity propagation with external services such as Redshift",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--application-status",
+          description:
+            "Allows to enable or disable the IAM Identity Center connection",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--external-filtering",
+          description:
+            "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "update-lf-tag",
       description:
         'Updates the list of possible values for the specified LF-tag key. If the LF-tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the LF-tag key\'s value',
@@ -2744,61 +2837,6 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-lake-formation-identity-center-configuration",
-      description: "Updates the IAM Identity Center connection parameters",
-      options: [
-        {
-          name: "--catalog-id",
-          description:
-            "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--share-recipients",
-          description:
-            "A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that are allowed to access to access data managed by Lake Formation.  If the ShareRecipients list includes valid values, then the resource share is updated with the principals you want to have access to the resources. If the ShareRecipients value is null, both the list of share recipients and the resource share remain unchanged. If the ShareRecipients value is an empty list, then the existing share recipients list will be cleared, and the resource share will be deleted",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--application-status",
-          description:
-            "Allows to enable or disable the IAM Identity Center connection",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--external-filtering",
-          description:
-            "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation",
-          args: {
-            name: "structure",
-          },
-        },
-        {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-          args: {
-            name: "string",
-            suggestions: ["input", "output"],
-          },
-        },
-      ],
-    },
-    {
       name: "update-resource",
       description:
         "Updates the data access role used for vending access to the given (registered) resource in Lake Formation",
@@ -2837,6 +2875,14 @@ const completionSpec: Fig.Spec = {
             "Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies",
         },
         {
+          name: "--expected-resource-owner-account",
+          description:
+            "The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2863,7 +2909,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--catalog-id",
           description:
-            "The catalog containing the governed table to update. Defaults to the caller\u2019s account ID",
+            "The catalog containing the governed table to update. Defaults to the caller’s account ID",
           args: {
             name: "string",
           },

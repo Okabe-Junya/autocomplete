@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "tnb",
   description:
@@ -248,7 +249,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-sol-function-instance",
       description:
-        "Gets the details of a network function instance, including the instantiation state and metadata from the function package descriptor in the network function package. A network function instance is a function in a function package",
+        "Gets the details of a network function instance, including the instantiation state and metadata from the function package descriptor in the network function package. A network function instance is a function in a function package ",
       options: [
         {
           name: "--vnf-instance-id",
@@ -279,7 +280,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "get-sol-function-package",
       description:
-        "Gets the details of an individual function package, such as the operational state and whether the package is in use. A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network",
+        "Gets the details of an individual function package, such as the operational state and whether the package is in use. A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.",
       options: [
         {
           name: "--vnf-pkg-id",
@@ -327,14 +328,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-sol-function-package-descriptor",
@@ -356,14 +354,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-sol-network-instance",
@@ -480,14 +475,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "get-sol-network-package-descriptor",
@@ -502,14 +494,11 @@ const completionSpec: Fig.Spec = {
             name: "string",
           },
         },
-        {
-          name: "outfile",
-          description: "Filename where the content will be saved",
-          args: {
-            name: "string",
-          },
-        },
       ],
+      args: {
+        name: "outfile",
+        description: "Filename where the content will be saved",
+      },
     },
     {
       name: "instantiate-sol-network-instance",
@@ -570,23 +559,8 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-sol-function-instances",
       description:
-        "Lists network function instances. A network function instance is a function in a function package",
+        "Lists network function instances. A network function instance is a function in a function package ",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -636,21 +610,6 @@ const completionSpec: Fig.Spec = {
         "Lists information about function packages. A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -699,21 +658,6 @@ const completionSpec: Fig.Spec = {
         "Lists your network instances. A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -761,21 +705,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists details for a network operation, including when the operation started and the status of the operation. A network operation is any operation that is done to your network, such as network instance instantiation or termination",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--ns-instance-id",
           description:
@@ -832,21 +761,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists network packages. A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to include in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

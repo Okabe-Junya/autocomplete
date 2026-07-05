@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "wisdom",
   description:
@@ -1064,21 +1065,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1125,21 +1111,6 @@ const completionSpec: Fig.Spec = {
       name: "list-assistants",
       description: "Lists information about assistants",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1191,21 +1162,6 @@ const completionSpec: Fig.Spec = {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -1266,21 +1222,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1327,21 +1268,6 @@ const completionSpec: Fig.Spec = {
       name: "list-knowledge-bases",
       description: "Lists the knowledge bases",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1393,21 +1319,6 @@ const completionSpec: Fig.Spec = {
           name: "--knowledge-base-id",
           description:
             "The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },
@@ -1546,21 +1457,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--query-text",
           description: "The text to search for",
           args: {
@@ -1655,21 +1551,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--search-expression",
           description: "The search expression to filter results",
           args: {
@@ -1741,21 +1622,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--search-expression",
           description: "The search expression for querying the quick response",
           args: {
@@ -1813,21 +1679,6 @@ const completionSpec: Fig.Spec = {
           name: "--assistant-id",
           description:
             "The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results",
           args: {
             name: "string",
           },

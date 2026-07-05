@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "sso",
   description:
@@ -56,21 +57,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists all roles that are assigned to the user for a given AWS account",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The page token from the previous response output when you request subsequent pages",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The number of items that clients can request per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--access-token",
           description:
@@ -136,22 +122,6 @@ const completionSpec: Fig.Spec = {
         "Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the administrator of the account. For more information, see Assign User Access in the IAM Identity Center User Guide. This operation returns a paginated response",
       options: [
         {
-          name: "--next-token",
-          description:
-            "(Optional) When requesting subsequent pages, this is the page token from the previous response output",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "This is the number of items clients can request per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--access-token",
           description:
             "The token issued by the CreateToken API call. For more information, see CreateToken in the IAM Identity Center OIDC API Reference Guide",
@@ -203,36 +173,26 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "logout",
-      description:
-        "Removes the locally stored SSO tokens from the client-side cache and sends an API call to the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in session.  If a user uses IAM Identity Center to access the AWS CLI, the user\u2019s IAM Identity Center sign in session is used to obtain an IAM session, as specified in the corresponding IAM Identity Center permission set. More specifically, IAM Identity Center assumes an IAM role in the target account on behalf of the user, and the corresponding temporary AWS credentials are returned to the client. After user logout, any existing IAM role sessions that were created by using IAM Identity Center permission sets continue based on the duration configured in the permission set. For more information, see User authentications in the IAM Identity Center User Guide",
+      name: "login",
       options: [
         {
-          name: "--access-token",
-          description:
-            "The token issued by the CreateToken API call. For more information, see CreateToken in the IAM Identity Center OIDC API Reference Guide",
-          args: {
-            name: "string",
-          },
+          name: "--no-browser",
         },
         {
-          name: "--cli-input-json",
-          description:
-            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-          args: {
-            name: "string",
-          },
+          name: "--use-device-code",
         },
         {
-          name: "--generate-cli-skeleton",
-          description:
-            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          name: "--sso-session",
           args: {
             name: "string",
-            suggestions: ["input", "output"],
           },
         },
       ],
+    },
+    {
+      name: "logout",
+      description:
+        "Removes the locally stored SSO tokens from the client-side cache and sends an API call to the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in session.  If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM Identity Center sign in session is used to obtain an IAM session, as specified in the corresponding IAM Identity Center permission set. More specifically, IAM Identity Center assumes an IAM role in the target account on behalf of the user, and the corresponding temporary AWS credentials are returned to the client. After user logout, any existing IAM role sessions that were created by using IAM Identity Center permission sets continue based on the duration configured in the permission set. For more information, see User authentications in the IAM Identity Center User Guide",
     },
   ],
 };

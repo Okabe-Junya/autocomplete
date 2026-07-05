@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ssm-contacts",
   description:
@@ -134,7 +135,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "To create an escalation plan use ESCALATION. To create a contact use PERSONAL",
+            "The type of contact to create.    PERSONAL: A single, individual contact.    ESCALATION: An escalation plan.    ONCALL_SCHEDULE: An on-call schedule",
           args: {
             name: "string",
           },
@@ -269,7 +270,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-ids",
           description:
-            "The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order that you list the contacts in is their shift order in the rotation schedule. To change the order of the contact's shifts, use the UpdateRotation operation",
+            "The Amazon Resource Names (ARNs) of the contacts to add to the rotation.  Only the PERSONAL contact type is supported. The contact types ESCALATION and ONCALL_SCHEDULE are not supported for this operation.   The order that you list the contacts in is their shift order in the rotation schedule. To change the order of the contact's shifts, use the UpdateRotation operation",
           args: {
             name: "list",
           },
@@ -284,7 +285,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-zone-id",
           description:
-            'The time zone to base the rotation\u2019s activity on in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the Time Zone Database on the IANA website.  Designators for time zones that don\u2019t support Daylight Savings Time rules, such as Pacific Standard Time (PST) and Pacific Daylight Time (PDT), are not supported',
+            'The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the Time Zone Database on the IANA website.  Designators for time zones that don’t support Daylight Savings Time rules, such as Pacific Standard Time (PST), are not supported',
           args: {
             name: "string",
           },
@@ -428,7 +429,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-contact",
       description:
-        "To remove a contact from Incident Manager, you can delete the contact. Deleting a contact removes them from all escalation plans and related response plans. Deleting an escalation plan removes it from all related response plans. You will have to recreate the contact and its contact channels before you can use it again",
+        "To remove a contact from Incident Manager, you can delete the contact. However, deleting a contact does not remove it from escalation plans and related response plans. Deleting an escalation plan also does not remove it from all related response plans. To modify an escalation plan, we recommend using the UpdateContact action to specify a different existing contact",
       options: [
         {
           name: "--contact-id",
@@ -460,7 +461,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "delete-contact-channel",
       description:
-        "To no longer receive engagements on a contact channel, you can delete the channel from a contact. Deleting the contact channel removes it from the contact's engagement plan. If you delete the only contact channel for a contact, you won't be able to engage that contact during an incident",
+        "To stop receiving engagements on a contact channel, you can delete the channel from a contact. Deleting the contact channel does not remove it from the contact's engagement plan, but the stage that includes the channel will be ignored. If you delete the only contact channel for a contact, you'll no longer be able to engage that contact during an incident",
       options: [
         {
           name: "--contact-channel-id",
@@ -799,21 +800,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of contact channels per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -862,22 +848,6 @@ const completionSpec: Fig.Spec = {
         "Lists all contacts and escalation plans in Incident Manager",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of contacts and escalation plans per page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--alias-prefix",
           description:
             "Used to list only contacts who's aliases start with the specified prefix",
@@ -887,8 +857,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--type",
-          description:
-            "The type of contact. A contact is type PERSONAL and an escalation plan is type ESCALATION",
+          description: "The type of contact",
           args: {
             name: "string",
           },
@@ -940,21 +909,6 @@ const completionSpec: Fig.Spec = {
       name: "list-engagements",
       description: "Lists all engagements that have happened in an incident",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of engagements per page of results",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--incident-id",
           description:
@@ -1027,22 +981,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of acknowledgements per page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1091,14 +1029,6 @@ const completionSpec: Fig.Spec = {
         "Returns the resolution path of an engagement. For example, the escalation plan engaged in an incident might target an on-call schedule that includes several contacts in a rotation, but just one contact on-call when the incident starts. The resolution path indicates the hierarchy of escalation plan > on-call schedule > contact",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--page-id",
           description:
             "The Amazon Resource Name (ARN) of the contact engaged for the incident",
@@ -1131,6 +1061,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
@@ -1151,22 +1089,6 @@ const completionSpec: Fig.Spec = {
             "The Amazon Resource Name (ARN) of the contact you are retrieving engagements for",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of engagements to contact channels to list per page of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1222,22 +1144,6 @@ const completionSpec: Fig.Spec = {
           description: "The Amazon Resource Name (ARN) of the engagement",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token to continue to the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of engagements to contact channels to list per page of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1321,7 +1227,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-zone-id",
           description:
-            'The time zone the rotation\u2019s activity would be based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul"',
+            'The time zone the rotation’s activity would be based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul"',
           args: {
             name: "string",
           },
@@ -1340,22 +1246,6 @@ const completionSpec: Fig.Spec = {
             "Information about changes that would be made in a rotation override",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token to start the list. This token is used to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that can be specified in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -1431,22 +1321,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1519,22 +1393,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1590,22 +1448,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token to start the list. Use this token to get the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1650,12 +1492,13 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "list-tags-for-resource",
-      description: "Lists the tags of an escalation plan or contact",
+      description:
+        "Lists the tags of a contact, escalation plan, rotation, or on-call schedule",
       options: [
         {
           name: "--resource-arn",
           description:
-            "The Amazon Resource Name (ARN) of the contact or escalation plan",
+            "The Amazon Resource Name (ARN) of the contact, escalation plan, rotation, or on-call schedule",
           args: {
             name: "string",
           },
@@ -2058,7 +1901,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--contact-ids",
           description:
-            "The Amazon Resource Names (ARNs) of the contacts to include in the updated rotation.  The order in which you list the contacts is their shift order in the rotation schedule",
+            "The Amazon Resource Names (ARNs) of the contacts to include in the updated rotation.   Only the PERSONAL contact type is supported. The contact types ESCALATION and ONCALL_SCHEDULE are not supported for this operation.   The order in which you list the contacts is their shift order in the rotation schedule",
           args: {
             name: "list",
           },
@@ -2073,7 +1916,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-zone-id",
           description:
-            'The time zone to base the updated rotation\u2019s activity on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the Time Zone Database on the IANA website.  Designators for time zones that don\u2019t support Daylight Savings Time Rules, such as Pacific Standard Time (PST) and Pacific Daylight Time (PDT), aren\'t supported',
+            'The time zone to base the updated rotation’s activity on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more information, see the Time Zone Database on the IANA website.  Designators for time zones that don’t support Daylight Savings Time Rules, such as Pacific Standard Time (PST), aren\'t supported',
           args: {
             name: "string",
           },

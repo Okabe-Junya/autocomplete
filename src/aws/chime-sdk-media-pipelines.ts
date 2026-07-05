@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "chime-sdk-media-pipelines",
   description:
@@ -65,7 +66,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sink-iam-role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the sink role to be used with AwsKmsKeyId in SseAwsKeyManagementParams. Can only interact with S3Bucket sink type. The role must belong to the caller\u2019s account and be able to act on behalf of the caller during the API call. All minimum policy permissions requirements for the caller to perform sink-related actions are the same for SinkIamRoleArn. Additionally, the role must have permission to kms:GenerateDataKey using KMS key supplied as AwsKmsKeyId in SseAwsKeyManagementParams. If media concatenation will be required later, the role must also have permission to kms:Decrypt for the same KMS key",
+            "The Amazon Resource Name (ARN) of the sink role to be used with AwsKmsKeyId in SseAwsKeyManagementParams. Can only interact with S3Bucket sink type. The role must belong to the caller’s account and be able to act on behalf of the caller during the API call. All minimum policy permissions requirements for the caller to perform sink-related actions are the same for SinkIamRoleArn. Additionally, the role must have permission to kms:GenerateDataKey using KMS key supplied as AwsKmsKeyId in SseAwsKeyManagementParams. If media concatenation will be required later, the role must also have permission to kms:Decrypt for the same KMS key",
           args: {
             name: "string",
           },
@@ -243,7 +244,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--resource-access-role-arn",
           description:
-            "The ARN of the role used by the service to access Amazon Web Services resources, including Transcribe and Transcribe Call Analytics, on the caller\u2019s behalf",
+            "The ARN of the role used by the service to access Amazon Web Services resources, including Transcribe and Transcribe Call Analytics, on the caller’s behalf",
           args: {
             name: "string",
           },
@@ -1254,7 +1255,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--elements",
           description:
-            "The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream",
+            "The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream.",
           args: {
             name: "list",
           },

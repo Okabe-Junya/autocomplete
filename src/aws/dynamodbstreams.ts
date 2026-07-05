@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "dynamodbstreams",
   description:
@@ -29,6 +30,14 @@ const completionSpec: Fig.Spec = {
             "The shard ID of the first item that this operation will evaluate. Use the value that was returned for LastEvaluatedShardId in the previous operation",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--shard-filter",
+          description:
+            "This optional field contains the filter definition for the DescribeStream API",
+          args: {
+            name: "structure",
           },
         },
         {

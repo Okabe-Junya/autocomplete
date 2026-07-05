@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "finspace-data",
   description: "The FinSpace APIs let you take actions inside the FinSpace",
@@ -71,7 +72,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--change-type",
           description:
-            "The option to indicate how a Changeset will be applied to a Dataset.    REPLACE \u2013 Changeset will be considered as a replacement to all prior loaded Changesets.    APPEND \u2013 Changeset will be considered as an addition to the end of all prior loaded Changesets.    MODIFY \u2013 Changeset is considered as a replacement to a specific prior ingested Changeset",
+            "The option to indicate how a Changeset will be applied to a Dataset.    REPLACE – Changeset will be considered as a replacement to all prior loaded Changesets.    APPEND – Changeset will be considered as an addition to the end of all prior loaded Changesets.    MODIFY – Changeset is considered as a replacement to a specific prior ingested Changeset",
           args: {
             name: "string",
           },
@@ -87,7 +88,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--format-params",
           description:
-            'Options that define the structure of the source file(s) including the format type (formatType), header row (withHeader), data separation character (separator) and the type of compression (compression).   formatType is a required attribute and can have the following values:     PARQUET \u2013 Parquet source file format.    CSV \u2013 CSV source file format.    JSON \u2013 JSON source file format.    XML \u2013 XML source file format.   Here is an example of how you could specify the formatParams:   "formatParams": { "formatType": "CSV", "withHeader": "true", "separator": ",", "compression":"None" }   Note that if you only provide formatType as CSV, the rest of the attributes will automatically default to CSV values as following:   { "withHeader": "true", "separator": "," }    For more information about supported file formats, see Supported Data Types and File Formats in the FinSpace User Guide',
+            'Options that define the structure of the source file(s) including the format type (formatType), header row (withHeader), data separation character (separator) and the type of compression (compression).   formatType is a required attribute and can have the following values:     PARQUET – Parquet source file format.    CSV – CSV source file format.    JSON – JSON source file format.    XML – XML source file format.   Here is an example of how you could specify the formatParams:   "formatParams": { "formatType": "CSV", "withHeader": "true", "separator": ",", "compression":"None" }   Note that if you only provide formatType as CSV, the rest of the attributes will automatically default to CSV values as following:   { "withHeader": "true", "separator": "," }    For more information about supported file formats, see Supported Data Types and File Formats in the FinSpace User Guide',
           args: {
             name: "map",
           },
@@ -212,7 +213,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kind",
           description:
-            "The format in which Dataset data is structured.    TABULAR \u2013 Data is structured in a tabular format.    NON_TABULAR \u2013 Data is structured in a non-tabular format",
+            "The format in which Dataset data is structured.    TABULAR – Data is structured in a tabular format.    NON_TABULAR – Data is structured in a non-tabular format",
           args: {
             name: "string",
           },
@@ -293,7 +294,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--application-permissions",
           description:
-            "The option to indicate FinSpace application permissions that are granted to a specific group.  When assigning application permissions, be aware that the permission ManageUsersAndGroups allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.     CreateDataset \u2013 Group members can create new datasets.    ManageClusters \u2013 Group members can manage Apache Spark clusters from FinSpace notebooks.    ManageUsersAndGroups \u2013 Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.    ManageAttributeSets \u2013 Group members can manage attribute sets.    ViewAuditData \u2013 Group members can view audit data.    AccessNotebooks \u2013 Group members will have access to FinSpace notebooks.    GetTemporaryCredentials \u2013 Group members can get temporary API credentials",
+            "The option to indicate FinSpace application permissions that are granted to a specific group.  When assigning application permissions, be aware that the permission ManageUsersAndGroups allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.     CreateDataset – Group members can create new datasets.    ManageClusters – Group members can manage Apache Spark clusters from FinSpace notebooks.    ManageUsersAndGroups – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.    ManageAttributeSets – Group members can manage attribute sets.    ViewAuditData – Group members can view audit data.    AccessNotebooks – Group members will have access to FinSpace notebooks.    GetTemporaryCredentials – Group members can get temporary API credentials",
           args: {
             name: "list",
           },
@@ -340,7 +341,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "The option to indicate the type of user. Use one of the following options to specify this parameter:    SUPER_USER \u2013 A user with permission to all the functionality and data in FinSpace.    APP_USER \u2013 A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group",
+            "The option to indicate the type of user. Use one of the following options to specify this parameter:    SUPER_USER – A user with permission to all the functionality and data in FinSpace.    APP_USER – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group",
           args: {
             name: "string",
           },
@@ -362,7 +363,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--api-access",
           description:
-            "The option to indicate whether the user can use the GetProgrammaticAccessCredentials API to obtain credentials that can then be used to access other FinSpace Data API operations.    ENABLED \u2013 The user has permissions to use the APIs.    DISABLED \u2013 The user does not have permissions to use any APIs",
+            "The option to indicate whether the user can use the GetProgrammaticAccessCredentials API to obtain credentials that can then be used to access other FinSpace Data API operations.    ENABLED – The user has permissions to use the APIs.    DISABLED – The user does not have permissions to use any APIs",
           args: {
             name: "string",
           },
@@ -857,7 +858,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--location-type",
           description:
-            "Specify the type of the working location.    SAGEMAKER \u2013 Use the Amazon S3 location as a temporary location to store data content when working with FinSpace Notebooks that run on SageMaker studio.    INGESTION \u2013 Use the Amazon S3 location as a staging location to copy your data content and then use the location with the Changeset creation operation",
+            "Specify the type of the working location.    SAGEMAKER – Use the Amazon S3 location as a temporary location to store data content when working with FinSpace Notebooks that run on SageMaker studio.    INGESTION – Use the Amazon S3 location as a staging location to copy your data content and then use the location with the Changeset creation operation",
           args: {
             name: "string",
           },
@@ -889,21 +890,6 @@ const completionSpec: Fig.Spec = {
           name: "--dataset-id",
           description:
             "The unique identifier for the FinSpace Dataset to which the Changeset belongs",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
           args: {
             name: "string",
           },
@@ -964,21 +950,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1026,21 +997,6 @@ const completionSpec: Fig.Spec = {
       description: "Lists all of the active Datasets that a user has access to",
       options: [
         {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1087,21 +1043,6 @@ const completionSpec: Fig.Spec = {
       name: "list-permission-groups",
       description: "Lists all available permission groups in FinSpace",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1195,21 +1136,6 @@ const completionSpec: Fig.Spec = {
       name: "list-users",
       description: "Lists all available users in FinSpace",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "A token that indicates where a results page should begin",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1377,7 +1303,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--format-params",
           description:
-            'Options that define the structure of the source file(s) including the format type (formatType), header row (withHeader), data separation character (separator) and the type of compression (compression).   formatType is a required attribute and can have the following values:     PARQUET \u2013 Parquet source file format.    CSV \u2013 CSV source file format.    JSON \u2013 JSON source file format.    XML \u2013 XML source file format.   Here is an example of how you could specify the formatParams:   "formatParams": { "formatType": "CSV", "withHeader": "true", "separator": ",", "compression":"None" }   Note that if you only provide formatType as CSV, the rest of the attributes will automatically default to CSV values as following:   { "withHeader": "true", "separator": "," }    For more information about supported file formats, see Supported Data Types and File Formats in the FinSpace User Guide',
+            'Options that define the structure of the source file(s) including the format type (formatType), header row (withHeader), data separation character (separator) and the type of compression (compression).   formatType is a required attribute and can have the following values:     PARQUET – Parquet source file format.    CSV – CSV source file format.    JSON – JSON source file format.    XML – XML source file format.   Here is an example of how you could specify the formatParams:   "formatParams": { "formatType": "CSV", "withHeader": "true", "separator": ",", "compression":"None" }   Note that if you only provide formatType as CSV, the rest of the attributes will automatically default to CSV values as following:   { "withHeader": "true", "separator": "," }    For more information about supported file formats, see Supported Data Types and File Formats in the FinSpace User Guide',
           args: {
             name: "map",
           },
@@ -1430,7 +1356,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--kind",
           description:
-            "The format in which the Dataset data is structured.    TABULAR \u2013 Data is structured in a tabular format.    NON_TABULAR \u2013 Data is structured in a non-tabular format",
+            "The format in which the Dataset data is structured.    TABULAR – Data is structured in a tabular format.    NON_TABULAR – Data is structured in a non-tabular format",
           args: {
             name: "string",
           },
@@ -1505,7 +1431,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--application-permissions",
           description:
-            "The permissions that are granted to a specific group for accessing the FinSpace application.  When assigning application permissions, be aware that the permission ManageUsersAndGroups allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.     CreateDataset \u2013 Group members can create new datasets.    ManageClusters \u2013 Group members can manage Apache Spark clusters from FinSpace notebooks.    ManageUsersAndGroups \u2013 Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.    ManageAttributeSets \u2013 Group members can manage attribute sets.    ViewAuditData \u2013 Group members can view audit data.    AccessNotebooks \u2013 Group members will have access to FinSpace notebooks.    GetTemporaryCredentials \u2013 Group members can get temporary API credentials",
+            "The permissions that are granted to a specific group for accessing the FinSpace application.  When assigning application permissions, be aware that the permission ManageUsersAndGroups allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.     CreateDataset – Group members can create new datasets.    ManageClusters – Group members can manage Apache Spark clusters from FinSpace notebooks.    ManageUsersAndGroups – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.    ManageAttributeSets – Group members can manage attribute sets.    ViewAuditData – Group members can view audit data.    AccessNotebooks – Group members will have access to FinSpace notebooks.    GetTemporaryCredentials – Group members can get temporary API credentials",
           args: {
             name: "list",
           },
@@ -1553,7 +1479,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--type",
           description:
-            "The option to indicate the type of user.    SUPER_USER\u2013 A user with permission to all the functionality and data in FinSpace.    APP_USER \u2013 A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group",
+            "The option to indicate the type of user.    SUPER_USER– A user with permission to all the functionality and data in FinSpace.    APP_USER – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group",
           args: {
             name: "string",
           },
@@ -1575,7 +1501,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--api-access",
           description:
-            "The option to indicate whether the user can use the GetProgrammaticAccessCredentials API to obtain credentials that can then be used to access other FinSpace Data API operations.    ENABLED \u2013 The user has permissions to use the APIs.    DISABLED \u2013 The user does not have permissions to use any APIs",
+            "The option to indicate whether the user can use the GetProgrammaticAccessCredentials API to obtain credentials that can then be used to access other FinSpace Data API operations.    ENABLED – The user has permissions to use the APIs.    DISABLED – The user does not have permissions to use any APIs",
           args: {
             name: "string",
           },

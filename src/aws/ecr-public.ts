@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ecr-public",
   description:
@@ -312,22 +313,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value that's returned from a previous paginated DescribeImageTags request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. If there are no more results to return, this value is null. If you specify images with imageIds, you can't use this option",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results that's returned by DescribeImageTags in paginated output. When this parameter is used, DescribeImageTags only returns maxResults results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another DescribeImageTags request with the returned nextToken value. This value can be between 1 and 1000. If this parameter isn't used, then DescribeImageTags returns up to 100 results and a nextToken value, if applicable. If you specify images with imageIds, you can't use this option",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -398,22 +383,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The nextToken value that's returned from a previous paginated DescribeImages request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. If there are no more results to return, this value is null. If you specify images with imageIds, you can't use this option",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results that's returned by DescribeImages in paginated output. When this parameter is used, DescribeImages only returns maxResults results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another DescribeImages request with the returned nextToken value. This value can be between 1 and 1000. If this parameter isn't used, then DescribeImages returns up to 100 results and a nextToken value, if applicable. If you specify images with imageIds, you can't use this option",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -460,22 +429,6 @@ const completionSpec: Fig.Spec = {
       name: "describe-registries",
       description: "Returns details for a public registry",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value that's returned from a previous paginated DescribeRegistries request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. If there are no more results to return, this value is null.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results that's returned by DescribeRegistries in paginated output. When this parameter is used, DescribeRegistries only returns maxResults results in a single page along with a nextToken response element. The remaining results of the initial request can be seen by sending another DescribeRegistries request with the returned nextToken value. This value can be between 1 and 1000. If this parameter isn't used, then DescribeRegistries returns up to 100 results and a nextToken value, if applicable",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -537,22 +490,6 @@ const completionSpec: Fig.Spec = {
             "A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value that's returned from a previous paginated DescribeRepositories request where maxResults was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value. If there are no more results to return, this value is null. If you specify repositories with repositoryNames, you can't use this option.  This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of repository results that's returned by DescribeRepositories in paginated output. When this parameter is used, DescribeRepositories only returns maxResults results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another DescribeRepositories request with the returned nextToken value. This value can be between 1 and 1000. If this parameter isn't used, then DescribeRepositories returns up to 100 results and a nextToken value, if applicable. If you specify repositories with repositoryNames, you can't use this option",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -621,6 +558,9 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "get-login-password",
     },
     {
       name: "get-registry-catalog-data",
@@ -1150,11 +1090,6 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
-    },
-    {
-      name: "get-login-password",
-      description:
-        "**To log in to an Amazon ECR public registry**\n\nRetrieves and displays an authentication token using the GetAuthorizationToken API that you can use to authenticate to an Amazon ECR public registry. You can pass the authorization token to the login command of the container client of your preference, such as the Docker CLI. After you have authenticated to an Amazon ECR public registry with this command, you can use the client to push and pull images from that registry as long as your IAM principal has access to do so until the token expires. The authorization token is valid for 12 hours. This command requires the 'ecr-public:GetAuthorizationToken' and 'sts:GetServiceBearerToken' permissions",
     },
   ],
 };

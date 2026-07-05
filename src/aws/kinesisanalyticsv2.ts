@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "kinesisanalyticsv2",
   description:
@@ -733,7 +734,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-creation-timestamp",
           description:
-            "The creation timestamp of the application snapshot to delete. You can retrieve this value using or",
+            "The creation timestamp of the application snapshot to delete. You can retrieve this value using or ",
           args: {
             name: "timestamp",
           },
@@ -855,7 +856,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-application-operation",
       description:
-        "Returns information about a specific operation performed on a Managed Service for Apache Flink application",
+        "Provides a detailed description of a specified application operation. To see a list of all the operations of an application, invoke the ListApplicationOperations operation.  This operation is supported only for Managed Service for Apache Flink",
       options: [
         {
           name: "--application-name",
@@ -866,7 +867,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--operation-id",
-          description: "Identifier of the Operation",
+          description: "The operation ID of the request",
           args: {
             name: "string",
           },
@@ -905,7 +906,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--snapshot-name",
           description:
-            "The identifier of an application snapshot. You can retrieve this value using",
+            "The identifier of an application snapshot. You can retrieve this value using ",
           args: {
             name: "string",
           },
@@ -1035,7 +1036,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "list-application-operations",
       description:
-        "Lists information about operations performed on a Managed Service for Apache Flink application",
+        "Lists all the operations performed for the specified application such as UpdateApplication, StartApplication etc. The response also includes a summary of the operation. To get the complete description of a specific operation, invoke the DescribeApplicationOperation operation.  This operation is supported only for Managed Service for Apache Flink",
       options: [
         {
           name: "--application-name",
@@ -1045,31 +1046,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "Limit on the number of records returned in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If a previous command returned a pagination token, pass it into this value to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--operation",
-          description: "Type of operation performed on an application",
+          description:
+            "The type of operation that is performed on an application",
           args: {
             name: "string",
           },
         },
         {
           name: "--operation-status",
-          description: "Status of the operation performed on an application",
+          description: "The status of the operation",
           args: {
             name: "string",
           },
@@ -1124,21 +1110,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--application-name",
           description: "The name of an existing application",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description: "The maximum number of application snapshots to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "Use this parameter if you receive a NextToken response in a previous request that indicates that there is more output available. Set it to the value of the previous call's NextToken response to indicate where the output should continue from",
           args: {
             name: "string",
           },
@@ -1200,22 +1171,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--limit",
-          description:
-            "The maximum number of versions to list in this invocation of the operation",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see Using the Amazon Command Line Interface's Pagination Options",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1263,21 +1218,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Returns a list of Managed Service for Apache Flink applications in your account. For each application, the response includes the application name, Amazon Resource Name (ARN), and status.  If you want detailed information about a specific application, use DescribeApplication",
       options: [
-        {
-          name: "--limit",
-          description: "The maximum number of applications to list",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "If a previous command returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see Using the Amazon Command Line Interface's Pagination Options",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

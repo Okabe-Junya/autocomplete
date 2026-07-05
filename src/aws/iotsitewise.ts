@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "iotsitewise",
   description:
@@ -350,6 +351,16 @@ const completionSpec: Fig.Spec = {
         "Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value (TQV) data point. For more information, see Ingesting data using the API in the IoT SiteWise User Guide. To identify an asset property, you must specify one of the following:   The assetId and propertyId of an asset property.   A propertyAlias, which is a data stream alias (for example, /company/windfarm/3/turbine/7/temperature). To define an asset property's alias, see UpdateAssetProperty.    With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes] and returns a TimestampOutOfRangeException error. For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer TQV has a different quality. For example, if you store a TQV {T1, GOOD, V1}, then storing {T1, GOOD, V2} replaces the existing TQV.  IoT SiteWise authorizes access to each BatchPutAssetPropertyValue entry individually. For more information, see BatchPutAssetPropertyValue authorization in the IoT SiteWise User Guide",
       options: [
         {
+          name: "--enable-partial-entry-processing",
+          description:
+            "This setting enables partial ingestion at entry-level. If set to true, we ingest all TQVs not resulting in an error. If set to false, an invalid TQV fails ingestion of the entire entry that contains it",
+        },
+        {
+          name: "--no-enable-partial-entry-processing",
+          description:
+            "This setting enables partial ingestion at entry-level. If set to true, we ingest all TQVs not resulting in an error. If set to false, an invalid TQV fails ingestion of the entire entry that contains it",
+        },
+        {
           name: "--entries",
           description:
             "The list of asset property value entries for the batch put request. You can specify up to 10 entries per request",
@@ -379,7 +390,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-access-policy",
       description:
-        "Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor portal or project resource",
+        "Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor portal or project resource.  Support for access policies that use an SSO Group as the identity is not supported at this time",
       options: [
         {
           name: "--access-policy-identity",
@@ -461,6 +472,22 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--asset-id",
+          description:
+            "The ID to assign to the asset, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required. However, if you prefer to supply your own ID instead, you can specify it here in UUID format. If you specify your own ID, it must be globally unique",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--asset-external-id",
+          description:
+            "An external ID to assign to the asset. The external ID must be unique within your Amazon Web Services account. For more information, see Using external IDs in the IoT SiteWise User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--client-token",
           description:
             "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
@@ -479,22 +506,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asset-description",
           description: "A description for the asset",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--asset-id",
-          description:
-            "The ID to assign to the asset, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required. However, if you prefer to supply your own ID instead, you can specify it here in UUID format. If you specify your own ID, it must be globally unique",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--asset-external-id",
-          description:
-            "An external ID to assign to the asset. The external ID must be unique within your Amazon Web Services account. For more information, see Using external IDs in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -521,7 +532,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-asset-model",
       description:
-        "Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see Defining asset models in the IoT SiteWise User Guide. You can create two types of asset models, ASSET_MODEL or COMPONENT_MODEL.    ASSET_MODEL \u2013 (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL \u2013 A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model",
+        "Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see Defining asset models in the IoT SiteWise User Guide. You can create three types of asset models, ASSET_MODEL, COMPONENT_MODEL, or an INTERFACE.    ASSET_MODEL – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.     INTERFACE – An interface is a type of model that defines a standard structure that can be applied to different asset models",
       options: [
         {
           name: "--asset-model-name",
@@ -533,7 +544,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asset-model-type",
           description:
-            "The type of asset model.    ASSET_MODEL \u2013 (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL \u2013 A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model",
+            "The type of asset model.    ASSET_MODEL – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model",
           args: {
             name: "string",
           },
@@ -706,7 +717,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--if-match",
           description:
-            "The expected current entity tag (ETag) for the asset model\u2019s latest or active version (specified using matchForVersionType). The create request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
+            "The expected current entity tag (ETag) for the asset model’s latest or active version (specified using matchForVersionType). The create request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -749,7 +760,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-bulk-import-job",
       description:
-        "Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see Create a bulk import job (CLI) in the Amazon Simple Storage Service User Guide.  Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how to configure storage settings, see PutStorageConfiguration. Bulk import is designed to store historical data to IoT SiteWise. It does not trigger computations or notifications on IoT SiteWise warm or cold tier storage",
+        "Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see Create a bulk import job (CLI) in the Amazon Simple Storage Service User Guide.  Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how to configure storage settings, see PutStorageConfiguration. Bulk import is designed to store historical data to IoT SiteWise.   Newly ingested data in the hot tier triggers notifications and computations.   After data moves from the hot tier to the warm or cold tier based on retention settings, it does not trigger computations or notifications.   Data older than 7 days does not trigger computations or notifications",
       options: [
         {
           name: "--job-name",
@@ -809,6 +820,75 @@ const completionSpec: Fig.Spec = {
           name: "--no-delete-files-after-import",
           description:
             "If set to true, your data files is deleted from S3, after ingestion into IoT SiteWise storage",
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-computation-model",
+      description:
+        "Create a computation model with a configuration and data binding",
+      options: [
+        {
+          name: "--computation-model-name",
+          description: "The name of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-description",
+          description: "The description of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-configuration",
+          description: "The configuration for the computation model",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--computation-model-data-binding",
+          description:
+            "The data binding for the computation model. Key is a variable name defined in configuration. Value is a ComputationModelDataBindingValue referenced by the variable",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "A list of key-value pairs that contain metadata for the asset. For more information, see Tagging your IoT SiteWise resources in the IoT SiteWise User Guide",
+          args: {
+            name: "map",
+          },
         },
         {
           name: "--cli-input-json",
@@ -985,6 +1065,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--gateway-version",
+          description:
+            "The version of the gateway to create. Specify 3 to create an MQTT-enabled, V3 gateway and 2 to create a Classic streams, V2 gateway. If not specified, the default is 2 (Classic streams, V2 gateway).  When creating a V3 gateway (gatewayVersion=3) with the GreengrassV2 platform, you must also specify the coreDeviceOperatingSystem parameter.   We recommend creating an MQTT-enabled gateway for self-hosted gateways and Siemens Industrial Edge gateways. For more information on gateway versions, see Use Amazon Web Services IoT SiteWise Edge Edge gateways",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--tags",
           description:
             "A list of key-value pairs that contain metadata for the gateway. For more information, see Tagging your IoT SiteWise resources in the IoT SiteWise User Guide",
@@ -1073,7 +1161,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--portal-auth-mode",
           description:
-            "The service to use to authenticate users to the portal. Choose from the following options:    SSO \u2013 The portal uses IAM Identity Center to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center, you must enable IAM Identity Center. For more information, see Enabling IAM Identity Center in the IoT SiteWise User Guide. This option is only available in Amazon Web Services Regions other than the China Regions.    IAM \u2013 The portal uses Identity and Access Management to authenticate users and manage user permissions.   You can't change this value after you create a portal. Default: SSO",
+            "The service to use to authenticate users to the portal. Choose from the following options:    SSO – The portal uses IAM Identity Center to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center, you must enable IAM Identity Center. For more information, see Enabling IAM Identity Center in the IoT SiteWise User Guide. This option is only available in Amazon Web Services Regions other than the China Regions.    IAM – The portal uses Identity and Access Management to authenticate users and manage user permissions.   You can't change this value after you create a portal. Default: SSO",
           args: {
             name: "string",
           },
@@ -1293,7 +1381,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--if-match",
           description:
-            "The expected current entity tag (ETag) for the asset model\u2019s latest or active version (specified using matchForVersionType). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
+            "The expected current entity tag (ETag) for the asset model’s latest or active version (specified using matchForVersionType). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -1363,7 +1451,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--if-match",
           description:
-            "The expected current entity tag (ETag) for the asset model\u2019s latest or active version (specified using matchForVersionType). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
+            "The expected current entity tag (ETag) for the asset model’s latest or active version (specified using matchForVersionType). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -1380,6 +1468,92 @@ const completionSpec: Fig.Spec = {
           name: "--match-for-version-type",
           description:
             "Specifies the asset model version type (LATEST or ACTIVE) used in conjunction with If-Match or If-None-Match headers to determine the target ETag for the delete operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-asset-model-interface-relationship",
+      description:
+        "Deletes an interface relationship between an asset model and an interface asset model",
+      options: [
+        {
+          name: "--asset-model-id",
+          description:
+            "The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--interface-asset-model-id",
+          description:
+            "The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-computation-model",
+      description: "Deletes a computation model. This action can't be undone",
+      options: [
+        {
+          name: "--computation-model-id",
+          description: "The ID of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
           args: {
             name: "string",
           },
@@ -1785,7 +1959,8 @@ const completionSpec: Fig.Spec = {
     },
     {
       name: "describe-asset-model",
-      description: "Retrieves information about an asset model",
+      description:
+        "Retrieves information about an asset model. This includes details about the asset model's properties, hierarchies, composite models, and any interface relationships if the asset model implements interfaces",
       options: [
         {
           name: "--asset-model-id",
@@ -1881,6 +2056,46 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-asset-model-interface-relationship",
+      description:
+        "Retrieves information about an interface relationship between an asset model and an interface asset model",
+      options: [
+        {
+          name: "--asset-model-id",
+          description:
+            "The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--interface-asset-model-id",
+          description:
+            "The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-asset-property",
       description:
         "Retrieves information about an asset property.  When you call this operation for an attribute property, this response includes the default attribute value that you define in the asset model. If you update the default value in the model, this operation's response includes the new default value.  This operation doesn't return the value of the asset property. To get the value of an asset property, use GetAssetPropertyValue",
@@ -1928,6 +2143,88 @@ const completionSpec: Fig.Spec = {
         {
           name: "--job-id",
           description: "The ID of the job",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-computation-model",
+      description: "Retrieves information about a computation model",
+      options: [
+        {
+          name: "--computation-model-id",
+          description: "The ID of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-version",
+          description: "The version of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "describe-computation-model-execution-summary",
+      description:
+        "Retrieves information about the execution summary of a computation model",
+      options: [
+        {
+          name: "--computation-model-id",
+          description: "The ID of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resolve-to-resource-type",
+          description: "The type of the resolved resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resolve-to-resource-id",
+          description: "The ID of the resolved resource",
           args: {
             name: "string",
           },
@@ -2036,6 +2333,36 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "describe-execution",
+      description: "Retrieves information about the execution",
+      options: [
+        {
+          name: "--execution-id",
+          description: "The ID of the execution",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "describe-gateway",
       description: "Retrieves information about a gateway",
       options: [
@@ -2068,7 +2395,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "describe-gateway-capability-configuration",
       description:
-        "Retrieves information about a gateway capability configuration. Each gateway capability defines data sources for a gateway. A capability configuration can contain multiple data source configurations. If you define OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To list all capability configurations for a gateway, use DescribeGateway",
+        "Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability. . The namespace follows the format service:capability:version, where:    service - The service providing the capability, or iotsitewise.    capability - The specific capability type. Options include: opcuacollector for the OPC UA data source collector, or publisher for data publisher capability.    version - The version number of the capability. Option include 2 for Classic streams, V2 gateways, and 3 for MQTT-enabled, V3 gateways.   After updating a capability configuration, the sync status becomes OUT_OF_SYNC until the gateway processes the configuration.Use DescribeGatewayCapabilityConfiguration to check the sync status and verify the configuration was applied. A gateway can have multiple capability configurations with different namespaces",
       options: [
         {
           name: "--gateway-id",
@@ -2081,7 +2408,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--capability-namespace",
           description:
-            "The namespace of the capability configuration. For example, if you configure OPC-UA sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace iotsitewise:opcuacollector:version, where version is a number such as 1",
+            "The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace iotsitewise:opcuacollector:3",
           args: {
             name: "string",
           },
@@ -2404,6 +2731,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--resolve-to",
+          description: "The detailed resource this action resolves to",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2432,21 +2766,6 @@ const completionSpec: Fig.Spec = {
           description: "The IoT SiteWise query statement",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The string that specifies the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return at one time. The default is 25",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2570,22 +2889,6 @@ const completionSpec: Fig.Spec = {
             "The chronological sorting order of the requested information. Default: ASCENDING",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.   The size of the result set is equal to 1 MB.   The number of data points in the result set is equal to the value of maxResults. The maximum value of maxResults is 2500",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2736,22 +3039,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.   The size of the result set is equal to 4 MB.   The number of data points in the result set is equal to the value of maxResults. The maximum value of maxResults is 20000",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2869,25 +3156,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. If not specified, the default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--type",
           description:
-            "The interpolation type. Valid values: LINEAR_INTERPOLATION | LOCF_INTERPOLATION     LINEAR_INTERPOLATION \u2013 Estimates missing data using linear interpolation. For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM, the second interpolated value on July 3, 2021, at 9 AM, and so on.    LOCF_INTERPOLATION \u2013 Estimates missing data using last observation carried forward interpolation If no data point is found for an interval, IoT SiteWise returns the last observed data point for the previous interval and carries forward this interpolated value until a new data point is found. For example, you can get the state of an on-off valve every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the last observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9 AM as the first interpolated value. If a data point isn't found after 9 AM on July 2, 2021, IoT SiteWise uses the same interpolated value for the rest of the days",
+            "The interpolation type. Valid values: LINEAR_INTERPOLATION | LOCF_INTERPOLATION     LINEAR_INTERPOLATION – Estimates missing data using linear interpolation. For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM, the second interpolated value on July 3, 2021, at 9 AM, and so on.    LOCF_INTERPOLATION – Estimates missing data using last observation carried forward interpolation If no data point is found for an interval, IoT SiteWise returns the last observed data point for the previous interval and carries forward this interpolated value until a new data point is found. For example, you can get the state of an on-off valve every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the last observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9 AM as the first interpolated value. If a data point isn't found after 9 AM on July 2, 2021, IoT SiteWise uses the same interpolated value for the rest of the days",
           args: {
             name: "string",
           },
@@ -2989,22 +3260,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3067,19 +3322,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
+          name: "--resolve-to-resource-type",
+          description: "The type of the resolved resource",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request",
+          name: "--resolve-to-resource-id",
+          description: "The ID of the resolved resource",
           args: {
-            name: "integer",
+            name: "string",
           },
         },
         {
@@ -3136,22 +3389,6 @@ const completionSpec: Fig.Spec = {
             "The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID, if it has one. For more information, see Referencing objects with external IDs in the IoT SiteWise User Guide",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3219,25 +3456,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. If not specified, the default value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filter",
           description:
-            "Filters the requested list of asset model properties. You can choose one of the following options:    ALL \u2013 The list includes all asset model properties for a given asset model ID.     BASE \u2013 The list includes only base asset model properties for a given asset model ID.    Default: BASE",
+            "Filters the requested list of asset model properties. You can choose one of the following options:    ALL – The list includes all asset model properties for a given asset model ID.     BASE – The list includes only base asset model properties for a given asset model ID.    Default: BASE",
           args: {
             name: "string",
           },
@@ -3301,25 +3522,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asset-model-types",
           description:
-            "The type of asset model. If you don't provide an assetModelTypes, all types of asset models are returned.    ASSET_MODEL \u2013 An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL \u2013 A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model",
+            "The type of asset model. If you don't provide an assetModelTypes, all types of asset models are returned.    ASSET_MODEL – An asset model that you can use to create assets. Can't be included as a component in another asset model.    COMPONENT_MODEL – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.     INTERFACE – An interface is a type of model that defines a standard structure that can be applied to different asset models",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3387,25 +3592,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. If not specified, the default value is 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--filter",
           description:
-            "Filters the requested list of asset properties. You can choose one of the following options:    ALL \u2013 The list includes all asset properties for a given asset model ID.     BASE \u2013 The list includes only base asset properties for a given asset model ID.    Default: BASE",
+            "Filters the requested list of asset properties. You can choose one of the following options:    ALL – The list includes all asset properties for a given asset model ID.     BASE – The list includes only base asset properties for a given asset model ID.    Default: BASE",
           args: {
             name: "string",
           },
@@ -3469,25 +3658,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--traversal-type",
           description:
-            "The type of traversal to use to identify asset relationships. Choose the following option:    PATH_TO_ROOT \u2013 Identify the asset's parent assets up to the root asset. The asset that you specify in assetId is the first result in the list of assetRelationshipSummaries, and the root asset is the last result",
+            "The type of traversal to use to identify asset relationships. Choose the following option:    PATH_TO_ROOT – Identify the asset's parent assets up to the root asset. The asset that you specify in assetId is the first result in the list of assetRelationshipSummaries, and the root asset is the last result",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3539,22 +3712,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves a paginated list of asset summaries. You can use this operation to do the following:   List assets based on a specific asset model.   List top-level assets.   You can't use this operation to list all assets. To retrieve summaries for all of your assets, use ListAssetModels to get all of your asset model IDs. Then, use ListAssets to get all assets for each asset model",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--asset-model-id",
           description:
             "The ID of the asset model by which to filter the list of assets. This parameter is required if you choose ALL for filter. This can be either the actual ID in UUID format, or else externalId: followed by the external ID, if it has one. For more information, see Referencing objects with external IDs in the IoT SiteWise User Guide",
@@ -3565,7 +3722,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--filter",
           description:
-            "The filter for the requested list of assets. Choose one of the following options:    ALL \u2013 The list includes all assets for a given asset model ID. The assetModelId parameter is required if you filter by ALL.    TOP_LEVEL \u2013 The list includes only top-level assets in the asset hierarchy tree.   Default: ALL",
+            "The filter for the requested list of assets. Choose one of the following options:    ALL – The list includes all assets for a given asset model ID. The assetModelId parameter is required if you filter by ALL.    TOP_LEVEL – The list includes only top-level assets in the asset hierarchy tree.   Default: ALL",
           args: {
             name: "string",
           },
@@ -3637,25 +3794,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--traversal-direction",
           description:
-            "The direction to list associated assets. Choose one of the following options:    CHILD \u2013 The list includes all child assets associated to the asset.    PARENT \u2013 The list includes the asset's parent asset.   Default: CHILD",
+            "The direction to list associated assets. Choose one of the following options:    CHILD – The list includes all child assets associated to the asset.    PARENT – The list includes the asset's parent asset.   Default: CHILD",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3706,22 +3847,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Retrieves a paginated list of bulk import job requests. For more information, see List bulk import jobs (CLI) in the IoT SiteWise User Guide",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--filter",
           description:
@@ -3787,19 +3912,171 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token to be used for the next set of paginated results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return for each paginated request. Default: 50",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-computation-model-data-binding-usages",
+      description:
+        "Lists all data binding usages for computation models. This allows to identify where specific data bindings are being utilized across the computation models. This track dependencies between data sources and computation models",
+      options: [
+        {
+          name: "--data-binding-value-filter",
+          description:
+            "A filter used to limit the returned data binding usages based on specific data binding values. You can filter by asset, asset model, asset property, or asset model property to find all computation models using these specific data sources",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-computation-model-resolve-to-resources",
+      description:
+        "Lists all distinct resources that are resolved from the executed actions of the computation model",
+      options: [
+        {
+          name: "--computation-model-id",
+          description:
+            "The ID of the computation model for which to list resolved resources",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--starting-token",
+          description:
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-computation-models",
+      description:
+        "Retrieves a paginated list of summaries of all computation models",
+      options: [
+        {
+          name: "--computation-model-type",
+          description:
+            "The type of computation model. If a computationModelType is not provided, all types of computation models are returned",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3858,22 +4135,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3929,19 +4190,85 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results, or null if there are no additional results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return for each paginated request",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-executions",
+      description: "Retrieves a paginated list of summaries of all executions",
+      options: [
+        {
+          name: "--target-resource-type",
+          description: "The type of the target resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--target-resource-id",
+          description: "The ID of the target resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resolve-to-resource-type",
+          description: "The type of the resolved resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--resolve-to-resource-id",
+          description: "The ID of the resolved resource",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--action-type",
+          description: "The type of action exectued",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3992,19 +4319,59 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a paginated list of gateways",
       options: [
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token to be used for the next set of paginated results",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return for each paginated request. Default: 50",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-interface-relationships",
+      description:
+        "Retrieves a paginated list of asset models that have a specific interface asset model applied to them",
+      options: [
+        {
+          name: "--interface-asset-model-id",
+          description:
+            "The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
           },
         },
         {
@@ -4054,22 +4421,6 @@ const completionSpec: Fig.Spec = {
       name: "list-portals",
       description: "Retrieves a paginated list of IoT SiteWise Monitor portals",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -4126,22 +4477,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4194,22 +4529,6 @@ const completionSpec: Fig.Spec = {
           description: "The ID of the portal",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request. Default: 50",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4290,22 +4609,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves a paginated list of time series (data streams)",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token to be used for the next set of paginated results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return for each paginated request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--asset-id",
           description:
             "The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else externalId: followed by the external ID, if it has one. For more information, see Referencing objects with external IDs in the IoT SiteWise User Guide",
@@ -4323,7 +4626,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--time-series-type",
           description:
-            "The type of the time series. The time series type can be one of the following values:    ASSOCIATED \u2013 The time series is associated with an asset property.    DISASSOCIATED \u2013 The time series isn't associated with any asset property",
+            "The type of the time series. The time series type can be one of the following values:    ASSOCIATED – The time series is associated with an asset property.    DISASSOCIATED – The time series isn't associated with any asset property",
           args: {
             name: "string",
           },
@@ -4358,6 +4661,62 @@ const completionSpec: Fig.Spec = {
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "put-asset-model-interface-relationship",
+      description:
+        "Creates or updates an interface relationship between an asset model and an interface asset model. This operation applies an interface to an asset model",
+      options: [
+        {
+          name: "--asset-model-id",
+          description:
+            "The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--interface-asset-model-id",
+          description:
+            "The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--property-mapping-configuration",
+          description:
+            "The configuration for mapping properties from the interface asset model to the asset model where the interface is applied. This configuration controls how properties are matched and created during the interface application process",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
           },
         },
         {
@@ -4448,7 +4807,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-type",
           description:
-            "The storage tier that you specified for your data. The storageType parameter can be one of the following values:    SITEWISE_DEFAULT_STORAGE \u2013 IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.    MULTI_LAYER_STORAGE \u2013 IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket",
+            "The storage tier that you specified for your data. The storageType parameter can be one of the following values:    SITEWISE_DEFAULT_STORAGE – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.    MULTI_LAYER_STORAGE – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket",
           args: {
             name: "string",
           },
@@ -4464,7 +4823,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--disassociated-data-storage",
           description:
-            "Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The disassociatedDataStorage can be one of the following values:    ENABLED \u2013 IoT SiteWise accepts time series that aren't associated with asset properties.  After the disassociatedDataStorage is enabled, you can't disable it.     DISABLED \u2013 IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.   For more information, see Data streams in the IoT SiteWise User Guide",
+            "Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The disassociatedDataStorage can be one of the following values:    ENABLED – IoT SiteWise accepts time series that aren't associated with asset properties.  After the disassociatedDataStorage is enabled, you can't disable it.     DISABLED – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.   For more information, see Data streams in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -4492,6 +4851,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "structure",
           },
+        },
+        {
+          name: "--disallow-ingest-null-na-n",
+          description:
+            "Describes the configuration for ingesting NULL and NaN data. By default the feature is allowed. The feature is disallowed if the value is true",
+        },
+        {
+          name: "--no-disallow-ingest-null-na-n",
+          description:
+            "Describes the configuration for ingesting NULL and NaN data. By default the feature is allowed. The feature is disallowed if the value is true",
         },
         {
           name: "--cli-input-json",
@@ -4665,6 +5034,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--asset-external-id",
+          description:
+            "An external ID to assign to the asset. The asset must not already have an external ID. The external ID must be unique within your Amazon Web Services account. For more information, see Using external IDs in the IoT SiteWise User Guide",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--asset-name",
           description: "A friendly name for the asset",
           args: {
@@ -4682,14 +5059,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--asset-description",
           description: "A description for the asset",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--asset-external-id",
-          description:
-            "An external ID to assign to the asset. The asset must not already have an external ID. The external ID must be unique within your Amazon Web Services account. For more information, see Using external IDs in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -4716,7 +5085,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-asset-model",
       description:
-        "Updates an asset model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see Updating assets and models in the IoT SiteWise User Guide.  If you remove a property from an asset model, IoT SiteWise deletes all previous data for that property. You can\u2019t change the type or data type of an existing property. To replace an existing asset model property with a new one with the same name, do the following:   Submit an UpdateAssetModel request with the entire existing property removed.   Submit a second UpdateAssetModel request that includes the new property. The new asset property will have the same name as the previous one and IoT SiteWise will generate a new unique id",
+        "Updates an asset model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see Updating assets and models in the IoT SiteWise User Guide.  If you remove a property from an asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property. To replace an existing asset model property with a new one with the same name, do the following:   Submit an UpdateAssetModel request with the entire existing property removed.   Submit a second UpdateAssetModel request that includes the new property. The new asset property will have the same name as the previous one and IoT SiteWise will generate a new unique id",
       options: [
         {
           name: "--asset-model-id",
@@ -4783,7 +5152,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--if-match",
           description:
-            "The expected current entity tag (ETag) for the asset model\u2019s latest or active version (specified using matchForVersionType). The update request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
+            "The expected current entity tag (ETag) for the asset model’s latest or active version (specified using matchForVersionType). The update request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -4826,7 +5195,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-asset-model-composite-model",
       description:
-        "Updates a composite model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see Updating assets and models in the IoT SiteWise User Guide.  If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can\u2019t change the type or data type of an existing property. To replace an existing composite asset model property with a new one with the same name, do the following:   Submit an UpdateAssetModelCompositeModel request with the entire existing property removed.   Submit a second UpdateAssetModelCompositeModel request that includes the new property. The new asset property will have the same name as the previous one and IoT SiteWise will generate a new unique id",
+        "Updates a composite model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see Updating assets and models in the IoT SiteWise User Guide.  If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property. To replace an existing composite asset model property with a new one with the same name, do the following:   Submit an UpdateAssetModelCompositeModel request with the entire existing property removed.   Submit a second UpdateAssetModelCompositeModel request that includes the new property. The new asset property will have the same name as the previous one and IoT SiteWise will generate a new unique id",
       options: [
         {
           name: "--asset-model-id",
@@ -4883,7 +5252,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--if-match",
           description:
-            "The expected current entity tag (ETag) for the asset model\u2019s latest or active version (specified using matchForVersionType). The update request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
+            "The expected current entity tag (ETag) for the asset model’s latest or active version (specified using matchForVersionType). The update request is rejected if the tag does not match the latest or active version's current entity tag. See Optimistic locking for asset model writes in the IoT SiteWise User Guide",
           args: {
             name: "string",
           },
@@ -4972,6 +5341,73 @@ const completionSpec: Fig.Spec = {
           name: "--property-unit",
           description:
             "The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-computation-model",
+      description: "Updates the computation model",
+      options: [
+        {
+          name: "--computation-model-id",
+          description: "The ID of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-name",
+          description: "The name of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-description",
+          description: "The description of the computation model",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--computation-model-configuration",
+          description: "The configuration for the computation model",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--computation-model-data-binding",
+          description:
+            "The data binding for the computation model. Key is a variable name defined in configuration. Value is a ComputationModelDataBindingValue referenced by the variable",
+          args: {
+            name: "map",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required",
           args: {
             name: "string",
           },
@@ -5154,7 +5590,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-gateway-capability-configuration",
       description:
-        "Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway. A capability configuration can contain multiple data source configurations. If you define OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To list all capability configurations for a gateway, use DescribeGateway",
+        "Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway. Important workflow notes: Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability. . The namespace follows the format service:capability:version, where:    service - The service providing the capability, or iotsitewise.    capability - The specific capability type. Options include: opcuacollector for the OPC UA data source collector, or publisher for data publisher capability.    version - The version number of the capability. Option include 2 for Classic streams, V2 gateways, and 3 for MQTT-enabled, V3 gateways.   After updating a capability configuration, the sync status becomes OUT_OF_SYNC until the gateway processes the configuration.Use DescribeGatewayCapabilityConfiguration to check the sync status and verify the configuration was applied. A gateway can have multiple capability configurations with different namespaces",
       options: [
         {
           name: "--gateway-id",
@@ -5166,7 +5602,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--capability-namespace",
           description:
-            "The namespace of the gateway capability configuration to be updated. For example, if you configure OPC-UA sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace iotsitewise:opcuacollector:version, where version is a number such as 1",
+            "The namespace of the gateway capability configuration to be updated. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace iotsitewise:opcuacollector:3",
           args: {
             name: "string",
           },
@@ -5363,51 +5799,9 @@ const completionSpec: Fig.Spec = {
         "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met",
       subcommands: [
         {
-          name: "asset-active",
+          name: "asset-model-not-exists",
           description:
-            "Wait until JMESPath query assetStatus.state returns ACTIVE when polling with ``describe-asset``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
-          options: [
-            {
-              name: "--asset-id",
-              description:
-                "The ID of the asset. This can be either the actual ID in UUID format, or else externalId: followed by the external ID, if it has one. For more information, see Referencing objects with external IDs in the IoT SiteWise User Guide",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--exclude-properties",
-              description:
-                "Whether or not to exclude asset properties from the response",
-            },
-            {
-              name: "--no-exclude-properties",
-              description:
-                "Whether or not to exclude asset properties from the response",
-            },
-            {
-              name: "--cli-input-json",
-              description:
-                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
-              args: {
-                name: "string",
-              },
-            },
-            {
-              name: "--generate-cli-skeleton",
-              description:
-                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
-              args: {
-                name: "string",
-                suggestions: ["input", "output"],
-              },
-            },
-          ],
-        },
-        {
-          name: "asset-model-active",
-          description:
-            "Wait until JMESPath query assetModelStatus.state returns ACTIVE when polling with ``describe-asset-model``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
+            "Wait until ResourceNotFoundException is thrown when polling with ``describe-asset-model``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
           options: [
             {
               name: "--asset-model-id",
@@ -5455,9 +5849,9 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "asset-model-not-exists",
+          name: "asset-model-active",
           description:
-            "Wait until ResourceNotFoundException is thrown when polling with ``describe-asset-model``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
+            "Wait until JMESPath query assetModelStatus.state returns ACTIVE when polling with ``describe-asset-model``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
           options: [
             {
               name: "--asset-model-id",
@@ -5547,9 +5941,51 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "portal-active",
+          name: "asset-active",
           description:
-            "Wait until JMESPath query portalStatus.state returns ACTIVE when polling with ``describe-portal``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
+            "Wait until JMESPath query assetStatus.state returns ACTIVE when polling with ``describe-asset``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
+          options: [
+            {
+              name: "--asset-id",
+              description:
+                "The ID of the asset. This can be either the actual ID in UUID format, or else externalId: followed by the external ID, if it has one. For more information, see Referencing objects with external IDs in the IoT SiteWise User Guide",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--exclude-properties",
+              description:
+                "Whether or not to exclude asset properties from the response",
+            },
+            {
+              name: "--no-exclude-properties",
+              description:
+                "Whether or not to exclude asset properties from the response",
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "portal-not-exists",
+          description:
+            "Wait until ResourceNotFoundException is thrown when polling with ``describe-portal``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
           options: [
             {
               name: "--portal-id",
@@ -5578,9 +6014,9 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "portal-not-exists",
+          name: "portal-active",
           description:
-            "Wait until ResourceNotFoundException is thrown when polling with ``describe-portal``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
+            "Wait until JMESPath query portalStatus.state returns ACTIVE when polling with ``describe-portal``. It will poll every 3 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks",
           options: [
             {
               name: "--portal-id",

@@ -1,12 +1,13 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "networkmonitor",
   description:
-    "Amazon CloudWatch Network Monitor is an Amazon Web Services active network monitoring service that identifies if a network issues exists within the Amazon Web Services network or your own company network. Within Network Monitor you'll choose the source VPCs and subnets from the Amazon Web Services network in which you operate and then you'll choose the destination IP addresses from your on-premises network. From these sources and destinations, Network Monitor creates a monitor containing all the possible source and destination combinations, each of which is called a probe, within a single monitor. These probes then monitor network traffic to help you identify where network issues might be affecting your traffic. Before you begin, ensure the Amazon Web Services CLI is configured in the Amazon Web Services Account where you will create the Network Monitor resource. Network Monitor doesn\u2019t support creation on cross-account resources, but you can create a Network Monitor in any subnet belonging to a VPC owned by your Account. For more information, see Using Amazon CloudWatch Network Monitor in the Amazon CloudWatch User Guide",
+    "Amazon CloudWatch Network Monitor is an Amazon Web Services active network monitoring service that identifies if a network issues exists within the Amazon Web Services network or your own company network. Within Network Monitor you'll choose the source VPCs and subnets from the Amazon Web Services network in which you operate and then you'll choose the destination IP addresses from your on-premises network. From these sources and destinations, Network Monitor creates a monitor containing all the possible source and destination combinations, each of which is called a probe, within a single monitor. These probes then monitor network traffic to help you identify where network issues might be affecting your traffic. Before you begin, ensure the Amazon Web Services CLI is configured in the Amazon Web Services Account where you will create the Network Monitor resource. Network Monitor doesn’t support creation on cross-account resources, but you can create a Network Monitor in any subnet belonging to a VPC owned by your Account. For more information, see Using Amazon CloudWatch Network Monitor in the Amazon CloudWatch User Guide",
   subcommands: [
     {
       name: "create-monitor",
       description:
-        "Creates a monitor between a source subnet and destination IP address. Within a monitor you'll create one or more probes that monitor network traffic between your source Amazon Web Services VPC subnets and your destination IP addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch. You can also create a monitor with probes using this command. For each probe, you define the following:    source\u2014The subnet IDs where the probes will be created.    destination\u2014 The target destination IP address for the probe.    destinationPort\u2014Required only if the protocol is TCP.    protocol\u2014The communication protocol between the source and destination. This will be either TCP or ICMP.    packetSize\u2014The size of the packets. This must be a number between 56 and 8500.   (Optional) tags \u2014Key-value pairs created and assigned to the probe",
+        "Creates a monitor between a source subnet and destination IP address. Within a monitor you'll create one or more probes that monitor network traffic between your source Amazon Web Services VPC subnets and your destination IP addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch. You can also create a monitor with probes using this command. For each probe, you define the following:    source—The subnet IDs where the probes will be created.    destination— The target destination IP address for the probe.    destinationPort—Required only if the protocol is TCP.    protocol—The communication protocol between the source and destination. This will be either TCP or ICMP.    packetSize—The size of the packets. This must be a number between 56 and 8500.   (Optional) tags —Key-value pairs created and assigned to the probe",
       options: [
         {
           name: "--monitor-name",
@@ -267,21 +268,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of all of your monitors",
       options: [
         {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If MaxResults is given a value larger than 100, only 100 results are returned",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--state",
           description: "The list of all monitors and their states",
           args: {
@@ -479,7 +465,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-probe",
       description:
-        "Updates a monitor probe. This action requires both the monitorName and probeId parameters. Run ListMonitors to get a list of monitor names. Run GetMonitor to get a list of probes and probe IDs.  You can update the following para create a monitor with probes using this command. For each probe, you define the following:    state\u2014The state of the probe.    destination\u2014 The target destination IP address for the probe.    destinationPort\u2014Required only if the protocol is TCP.    protocol\u2014The communication protocol between the source and destination. This will be either TCP or ICMP.    packetSize\u2014The size of the packets. This must be a number between 56 and 8500.   (Optional) tags \u2014Key-value pairs created and assigned to the probe",
+        "Updates a monitor probe. This action requires both the monitorName and probeId parameters. Run ListMonitors to get a list of monitor names. Run GetMonitor to get a list of probes and probe IDs.  You can update the following para create a monitor with probes using this command. For each probe, you define the following:    state—The state of the probe.    destination— The target destination IP address for the probe.    destinationPort—Required only if the protocol is TCP.    protocol—The communication protocol between the source and destination. This will be either TCP or ICMP.    packetSize—The size of the packets. This must be a number between 56 and 8500.   (Optional) tags —Key-value pairs created and assigned to the probe",
       options: [
         {
           name: "--monitor-name",
@@ -529,7 +515,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--packet-size",
           description:
-            "He updated packets size for network traffic between the source and destination. This must be a number between 56 and 8500",
+            "he updated packets size for network traffic between the source and destination. This must be a number between 56 and 8500",
           args: {
             name: "integer",
           },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "synthetics",
   description:
@@ -59,7 +60,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--code",
           description:
-            "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included",
+            "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an Amazon S3 bucket, the bucket name, key, and version are also included",
           args: {
             name: "structure",
           },
@@ -67,7 +68,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--artifact-s3-location",
           description:
-            "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files. The name of the S3 bucket can't include a period (.)",
+            "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files. The name of the Amazon S3 bucket can't include a period (.)",
           args: {
             name: "string",
           },
@@ -91,7 +92,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--run-config",
           description:
-            "A structure that contains the configuration for individual canary runs, such as timeout value and environment variables.  The environment variables keys and values are not encrypted. Do not store sensitive information in this field",
+            "A structure that contains the configuration for individual canary runs, such as timeout value and environment variables.  Environment variable keys and values are encrypted at rest using Amazon Web Services owned KMS keys. However, the environment variables are not encrypted on the client side. Do not store sensitive information in them",
           args: {
             name: "structure",
           },
@@ -99,7 +100,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--success-retention-period-in-days",
           description:
-            "The number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days",
+            "The number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
           args: {
             name: "integer",
           },
@@ -107,7 +108,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--failure-retention-period-in-days",
           description:
-            "The number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days",
+            "The number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
           args: {
             name: "integer",
           },
@@ -142,6 +143,22 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted. If you omit this parameter, the default of AUTOMATIC is used, which means that the Lambda functions and layers will be deleted when the canary is deleted. If the value of this parameter is OFF, then the value of the DeleteLambda parameter of the DeleteCanary operation determines whether the Lambda functions and layers will be deleted",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--browser-configs",
+          description:
+            "CloudWatch Synthetics now supports multibrowser canaries for syn-nodejs-puppeteer-11.0 and syn-nodejs-playwright-3.0 runtimes. This feature allows you to run your canaries on both Firefox and Chrome browsers. To create a multibrowser canary, you need to specify the BrowserConfigs with a list of browsers you want to use.  If not specified, browserConfigs defaults to Chrome",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--add-replica-locations",
+          description:
+            "A list of locations (Amazon Web Services Regions) to add as replicas for the canary. Each location specifies a Region and optional VPC configuration for the replica. You can add up to 50 replica locations",
+          args: {
+            name: "list",
           },
         },
         {
@@ -371,6 +388,13 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--browser-type",
+          description: "The type of browser to use for the canary run",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -482,6 +506,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--dry-run-id",
+          description:
+            "The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -514,7 +546,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--next-token",
           description:
-            "A token that indicates that there is more data available. You can use this token in a subsequent GetCanaryRuns operation to retrieve the next set of results",
+            "A token that indicates that there is more data available. You can use this token in a subsequent GetCanaryRuns operation to retrieve the next set of results.  When auto retry is enabled for the canary, the first subsequent retry is suffixed with *1 indicating its the first retry and the next subsequent try is suffixed with *2",
           args: {
             name: "string",
           },
@@ -525,6 +557,22 @@ const completionSpec: Fig.Spec = {
             "Specify this parameter to limit how many runs are returned each time you use the GetCanaryRuns operation. If you omit this parameter, the default of 100 is used",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--dry-run-id",
+          description:
+            "The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--run-type",
+          description:
+            "When you provide RunType=CANARY_RUN and dryRunId, you will get an exception    When a value is not provided for RunType, the default value is CANARY_RUN    When CANARY_RUN is provided, all canary runs excluding dry runs are returned   When DRY_RUN is provided, all dry runs excluding canary runs are returned",
+          args: {
+            name: "string",
           },
         },
         {
@@ -777,9 +825,145 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "start-canary-dry-run",
+      description:
+        "Use this operation to start a dry run for a canary that has already been created",
+      options: [
+        {
+          name: "--name",
+          description:
+            "The name of the canary that you want to dry run. To find canary names, use DescribeCanaries",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--code",
+          description:
+            "Use this structure to input your script code for the canary. This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an Amazon S3 bucket, the bucket name, key, and version are also included. If the script was passed into the canary directly, the script code is contained in the value of Zipfile.  If you are uploading your canary scripts with an Amazon S3 bucket, your zip file should include your script in a certain folder structure.   For Node.js canaries, the folder structure must be nodejs/node_modules/myCanaryFilename.js  For more information, see Packaging your Node.js canary files    For Python canaries, the folder structure must be python/myCanaryFilename.py  or python/myFolder/myCanaryFilename.py  For more information, see Packaging your Python canary files",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--runtime-version",
+          description:
+            "Specifies the runtime version to use for the canary. For a list of valid runtime versions and for more information about runtime versions, see  Canary Runtime Versions",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--run-config",
+          description:
+            "A structure that contains input information for a canary run",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--vpc-config",
+          description:
+            "If this canary is to test an endpoint in a VPC, this structure contains information about the subnets and security groups of the VPC endpoint. For more information, see  Running a Canary in a VPC",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--execution-role-arn",
+          description:
+            "The ARN of the IAM role to be used to run the canary. This role must already exist, and must include lambda.amazonaws.com as a principal in the trust policy. The role must also have the following permissions:",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--success-retention-period-in-days",
+          description:
+            "The number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--failure-retention-period-in-days",
+          description:
+            "The number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--visual-reference",
+          description:
+            "An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can optionally also specify parts of the screenshots to ignore during the visual monitoring comparison. Visual monitoring is supported only on canaries running the syn-puppeteer-node-3.2 runtime or later. For more information, see  Visual monitoring and  Visual monitoring blueprint",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--artifact-s3-location",
+          description:
+            "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files. The name of the Amazon S3 bucket can't include a period (.)",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--artifact-config",
+          description:
+            "A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--provisioned-resource-cleanup",
+          description:
+            "Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted. If you omit this parameter, the default of AUTOMATIC is used, which means that the Lambda functions and layers will be deleted when the canary is deleted. If the value of this parameter is OFF, then the value of the DeleteLambda parameter of the DeleteCanary operation determines whether the Lambda functions and layers will be deleted",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--browser-configs",
+          description:
+            "A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both CHROME and FIREFOX browsers.  If not specified, browserConfigs defaults to Chrome",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--visual-references",
+          description:
+            "A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.  syn-nodejs-puppeteer-11.0 and above, and syn-nodejs-playwright-3.0 and above, only supports visualReferences. visualReference field is not supported. Versions older than syn-nodejs-puppeteer-11.0 supports both visualReference and visualReferences for backward compatibility. It is recommended to use visualReferences for consistency and future compatibility",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "stop-canary",
       description:
-        "Stops the canary to prevent all future runs. If the canary is currently running,the run that is in progress completes on its own, publishes metrics, and uploads artifacts, but it is not recorded in Synthetics as a completed run. You can use StartCanary to start it running again with the canary\u2019s current schedule at any point in the future",
+        "Stops the canary to prevent all future runs. If the canary is currently running,the run that is in progress completes on its own, publishes metrics, and uploads artifacts, but it is not recorded in Synthetics as a completed run. You can use StartCanary to start it running again with the canary’s current schedule at any point in the future",
       options: [
         {
           name: "--name",
@@ -889,7 +1073,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-canary",
       description:
-        "Updates the configuration of a canary that has already been created. You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use TagResource",
+        "Updates the configuration of a canary that has already been created. For multibrowser canaries, you can add or remove browsers by updating the browserConfig list in the update call. For example:   To add Firefox to a canary that currently uses Chrome, specify browserConfigs as [CHROME, FIREFOX]   To remove Firefox and keep only Chrome, specify browserConfigs as [CHROME]   You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use TagResource.  When you use the dryRunId field when updating a canary, the only other field you can provide is the Schedule. Adding any other field will thrown an exception",
       options: [
         {
           name: "--name",
@@ -902,7 +1086,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--code",
           description:
-            "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included",
+            "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an Amazon S3 bucket, the bucket name, key, and version are also included",
           args: {
             name: "structure",
           },
@@ -934,7 +1118,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--run-config",
           description:
-            "A structure that contains the timeout value that is used for each individual run of the canary.  The environment variables keys and values are not encrypted. Do not store sensitive information in this field",
+            "A structure that contains the timeout value that is used for each individual run of the canary.  Environment variable keys and values are encrypted at rest using Amazon Web Services owned KMS keys. However, the environment variables are not encrypted on the client side. Do not store sensitive information in them",
           args: {
             name: "structure",
           },
@@ -942,7 +1126,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--success-retention-period-in-days",
           description:
-            "The number of days to retain data about successful runs of this canary",
+            "The number of days to retain data about successful runs of this canary. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
           args: {
             name: "integer",
           },
@@ -950,7 +1134,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--failure-retention-period-in-days",
           description:
-            "The number of days to retain data about failed runs of this canary",
+            "The number of days to retain data about failed runs of this canary. This setting affects the range of information returned by GetCanaryRuns, as well as the range of information displayed in the Synthetics console",
           args: {
             name: "integer",
           },
@@ -974,7 +1158,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--artifact-s3-location",
           description:
-            "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files. The name of the S3 bucket can't include a period (.)",
+            "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files. The name of the Amazon S3 bucket can't include a period (.)",
           args: {
             name: "string",
           },
@@ -993,6 +1177,46 @@ const completionSpec: Fig.Spec = {
             "Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted. If the value of this parameter is OFF, then the value of the DeleteLambda parameter of the DeleteCanary operation determines whether the Lambda functions and layers will be deleted",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--dry-run-id",
+          description:
+            "Update the existing canary using the updated configurations from the DryRun associated with the DryRunId.  When you use the dryRunId field when updating a canary, the only other field you can provide is the Schedule. Adding any other field will thrown an exception",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--visual-references",
+          description:
+            "A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.  syn-nodejs-puppeteer-11.0 and above, and syn-nodejs-playwright-3.0 and above, only supports visualReferences. visualReference field is not supported. Versions older than syn-nodejs-puppeteer-11.0 supports both visualReference and visualReferences for backward compatibility. It is recommended to use visualReferences for consistency and future compatibility. For multibrowser visual monitoring, you can update the baseline for all configured browsers in a single update call by specifying a list of VisualReference objects, one per browser. Each VisualReference object maps to a specific browser configuration, allowing you to manage visual baselines for multiple browsers simultaneously. For single configuration canaries using Chrome browser (default browser), use visualReferences for syn-nodejs-puppeteer-11.0 and above, and syn-nodejs-playwright-3.0 and above canaries. The browserType in the visualReference object is not mandatory",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--browser-configs",
+          description:
+            "A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both CHROME and FIREFOX browsers.  If not specified, browserConfigs defaults to Chrome",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--add-replica-locations",
+          description:
+            "A list of locations (Amazon Web Services Regions) to add as replicas for the canary. Each location specifies a Region and optional VPC configuration for the replica. You can add up to 50 replica locations",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--remove-replica-locations",
+          description:
+            "A list of locations (Amazon Web Services Regions) to remove as replicas for the canary. You must specify at least one location to remove. All replicas can be removed in a single API call and you cannot remove the primary location",
+          args: {
+            name: "list",
           },
         },
         {

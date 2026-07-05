@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "amplifybackend",
   description: "AWS Amplify Admin API",
@@ -1036,21 +1037,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--job-id",
           description: "The ID for the job",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results that you want in the response",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
           args: {
             name: "string",
           },

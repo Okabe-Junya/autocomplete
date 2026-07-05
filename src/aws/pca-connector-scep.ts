@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "pca-connector-scep",
   description:
@@ -69,6 +70,14 @@ const completionSpec: Fig.Spec = {
             "If you don't supply a value, by default Connector for SCEP creates a connector for general-purpose use. A general-purpose connector is designed to work with clients or endpoints that support the SCEP protocol, except Connector for SCEP for Microsoft Intune. With connectors for general-purpose use, you manage SCEP challenge passwords using Connector for SCEP. For information about considerations and limitations with using Connector for SCEP, see Considerations and Limitations. If you provide an IntuneConfiguration, Connector for SCEP creates a connector for use with Microsoft Intune, and you manage the challenge passwords using Microsoft Intune. For more information, see Using Connector for SCEP for Microsoft Intune",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--vpc-endpoint-id",
+          description:
+            "If you don't supply a value, by default Connector for SCEP creates a connector accessible over the public internet. If you provide a VPC endpoint ID, creates a connector accessible only through that specific VPC endpoint",
+          args: {
+            name: "string",
           },
         },
         {
@@ -265,22 +274,6 @@ const completionSpec: Fig.Spec = {
       description: "Retrieves the challenge metadata for the specified ARN",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that you want Connector for SCEP to return for this request. If more objects are available, in the response, Connector for SCEP provides a NextToken value that you can use in a subsequent call to get the next batch of objects",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Connector for SCEP returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--connector-arn",
           description: "The Amazon Resource Name (ARN) of the connector",
           args: {
@@ -335,22 +328,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Lists the connectors belonging to your Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of objects that you want Connector for SCEP to return for this request. If more objects are available, in the response, Connector for SCEP provides a NextToken value that you can use in a subsequent call to get the next batch of objects",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "When you request a list of objects with a MaxResults setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Connector for SCEP returns a NextToken value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:

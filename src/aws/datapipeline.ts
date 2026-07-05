@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "datapipeline",
   description:
@@ -18,10 +19,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--parameter-values",
           description:
-            "The JSON parameter values. You can specify these as\nkey-value pairs in the key=value format. Multiple parameters\nare separated by a space. For list type parameter values\nyou can use the same key name and specify each value as\na key value pair. e.g. arrayValue=value1 arrayValue=value2",
+            "A list of parameter values to pass to the pipeline at activation",
           args: {
             name: "string",
-            isVariadic: true,
           },
         },
         {
@@ -34,8 +34,6 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--parameter-values-uri",
-          description:
-            "The JSON parameter values.  If the parameter values are\nin a file you can use the file:// syntax to\nspecify a filename. You can optionally provide these in\npipeline definition as well. Parameter values provided\non command line would replace the one in definition",
           args: {
             name: "string",
           },
@@ -95,6 +93,9 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
+    },
+    {
+      name: "create-default-roles",
     },
     {
       name: "create-pipeline",
@@ -255,14 +256,6 @@ const completionSpec: Fig.Spec = {
             "Indicates whether any expressions in the object should be evaluated when the object descriptions are returned",
         },
         {
-          name: "--marker",
-          description:
-            "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call DescribeObjects with the marker value from the previous call to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -282,6 +275,14 @@ const completionSpec: Fig.Spec = {
           name: "--max-items",
           description:
             "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
           },
@@ -419,14 +420,6 @@ const completionSpec: Fig.Spec = {
         "Lists the pipeline identifiers for all active pipelines that you have permission to access",
       options: [
         {
-          name: "--marker",
-          description:
-            "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call ListPipelines with the marker value from the previous call to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -451,12 +444,49 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--generate-cli-skeleton",
           description:
             "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
           args: {
             name: "string",
             suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-runs",
+      options: [
+        {
+          name: "--pipeline-id",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--start-interval",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--schedule-interval",
+          args: {
+            name: "string",
           },
         },
       ],
@@ -522,33 +552,26 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--parameter-objects",
-          description:
-            "The JSON parameter objects.  If the parameter objects are\nin a file you can use the file:// syntax to\nspecify a filename. You can optionally provide these in\npipeline definition as well. Parameter objects provided\non command line would replace the one in definition",
+          description: "The parameter objects used with the pipeline",
           args: {
             name: "string",
           },
         },
         {
           name: "--parameter-values",
-          description:
-            "The JSON parameter values. You can specify these as\nkey-value pairs in the key=value format. Multiple parameters\nare separated by a space. For list type parameter values\nyou can use the same key name and specify each value as\na key value pair. e.g. arrayValue=value1 arrayValue=value2",
+          description: "The parameter values used with the pipeline",
           args: {
             name: "string",
-            isVariadic: true,
           },
         },
         {
           name: "--pipeline-definition",
-          description:
-            "The JSON pipeline definition.  If the pipeline definition\nis in a file you can use the file:// syntax to\nspecify a filename",
           args: {
             name: "string",
           },
         },
         {
           name: "--parameter-values-uri",
-          description:
-            "The JSON parameter values.  If the parameter values are\nin a file you can use the file:// syntax to\nspecify a filename. You can optionally provide these in\npipeline definition as well. Parameter values provided\non command line would replace the one in definition",
           args: {
             name: "string",
           },
@@ -590,22 +613,6 @@ const completionSpec: Fig.Spec = {
             "Indicates whether the query applies to components or instances. The possible values are: COMPONENT, INSTANCE, and ATTEMPT",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--marker",
-          description:
-            "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call QueryObjects with the marker value from the previous call to retrieve the next set of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--limit",
-          description:
-            "The maximum number of object names that QueryObjects will return in a single call. The default value is 100",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -946,49 +953,6 @@ const completionSpec: Fig.Spec = {
           },
         },
       ],
-    },
-    {
-      name: "list-runs",
-      description:
-        "Lists the times the specified pipeline has run. You can optionally filter the complete list of results to include only the runs you are interested in",
-      options: [
-        {
-          name: "--pipeline-id",
-          description: "The identifier of the pipeline",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--status",
-          description:
-            "Filters the list to include only runs in the specified statuses. The valid statuses are as follows: waiting, pending, cancelled, running, finished, failed, waiting_for_runner, and waiting_on_dependencies",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--start-interval",
-          description:
-            "Filters the list to include only runs that started within the specified interval",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--schedule-interval",
-          description:
-            "Filters the list to include only runs that are scheduled to start within the specified interval",
-          args: {
-            name: "string",
-          },
-        },
-      ],
-    },
-    {
-      name: "create-default-roles",
-      description:
-        'NOTE: \nSupport for this command has been deprecated and may fail to create these roles\nif they do not already exist. For more information on managing these policies\nmanually see the following documentation:\n\nhttps://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html\n\n\nCreates the default IAM role "DataPipelineDefaultRole" and "DataPipelineDefaultResourceRole" which are used while creating an EMR\ncluster.\n\nIf these roles do not exist, create-default-roles will automatically create\nthem and set their policies.\n\nIf these roles have already been created create-default-roles will not update\ntheir policies',
     },
   ],
 };

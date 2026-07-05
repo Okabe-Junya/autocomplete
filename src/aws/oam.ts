@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "oam",
   description:
-    "Use Amazon CloudWatch Observability Access Manager to create and manage links between source accounts and monitoring accounts by using CloudWatch cross-account observability. With CloudWatch cross-account observability, you can monitor and troubleshoot applications that span multiple accounts within a Region. Seamlessly search, visualize, and analyze your metrics, logs, traces, and Application Insights applications in any of the linked accounts without account boundaries. Set up one or more Amazon Web Services accounts as monitoring accounts and link them with multiple source accounts. A monitoring account is a central Amazon Web Services account that can view and interact with observability data generated from source accounts. A source account is an individual Amazon Web Services account that generates observability data for the resources that reside in it. Source accounts share their observability data with the monitoring account. The shared observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, traces in X-Ray, and applications in Amazon CloudWatch Application Insights",
+    "Use Amazon CloudWatch Observability Access Manager to create and manage links between source accounts and monitoring accounts by using CloudWatch cross-account observability. With CloudWatch cross-account observability, you can monitor and troubleshoot applications that span multiple accounts within a Region. Seamlessly search, visualize, and analyze your metrics, logs, traces, Application Signals services and service level objectives (SLOs), Application Insights applications, and internet monitors in any of the linked accounts without account boundaries. Set up one or more Amazon Web Services accounts as monitoring accounts and link them with multiple source accounts. A monitoring account is a central Amazon Web Services account that can view and interact with observability data generated from source accounts. A source account is an individual Amazon Web Services account that generates observability data for the resources that reside in it. Source accounts share their observability data with the monitoring account. The shared observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, traces in X-Ray, Application Signals services and service level objectives (SLOs), applications in Amazon CloudWatch Application Insights, and internet monitors in CloudWatch Internet Monitor. When you set up a link, you can choose to share the metrics from all namespaces with the monitoring account, or filter to a subset of namespaces. And for CloudWatch Logs, you can choose to share all log groups with the monitoring account, or filter to a subset of log groups",
   subcommands: [
     {
       name: "create-link",
@@ -11,7 +12,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--label-template",
           description:
-            "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account. You can use a custom label or use the following variables:    $AccountName is the name of the account    $AccountEmail is the globally unique email address of the account    $AccountEmailNoDomain is the email address of the account without the domain name",
+            "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account. You can use a custom label or use the following variables:    $AccountName is the name of the account    $AccountEmail is the globally unique email address of the account    $AccountEmailNoDomain is the email address of the account without the domain name    In the Amazon Web Services GovCloud (US-East) and Amazon Web Services GovCloud (US-West) Regions, the only supported option is to use custom labels, and the $AccountName, $AccountEmail, and $AccountEmailNoDomain variables all resolve as account-id instead of the specified variable",
           args: {
             name: "string",
           },
@@ -181,6 +182,16 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--include-tags",
+          description:
+            "Specifies whether to include the tags associated with the link in the response. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception. The default value is false",
+        },
+        {
+          name: "--no-include-tags",
+          description:
+            "Specifies whether to include the tags associated with the link in the response. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception. The default value is false",
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -210,6 +221,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--include-tags",
+          description:
+            "Specifies whether to include the tags associated with the sink in the response. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception. The default value is false",
+        },
+        {
+          name: "--no-include-tags",
+          description:
+            "Specifies whether to include the tags associated with the sink in the response. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception. The default value is false",
         },
         {
           name: "--cli-input-json",
@@ -267,22 +288,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of source account links that are linked to this monitoring account sink. To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use ListSinks. To find a list of links for one source account, use ListLinks",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Limits the number of returned links to the specified number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. You received this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--sink-identifier",
           description:
             "The ARN of the sink that you want to retrieve links for",
@@ -339,22 +344,6 @@ const completionSpec: Fig.Spec = {
         "Use this operation in a source account to return a list of links to monitoring account sinks that this source account has. To find a list of links for one monitoring account sink, use ListAttachedLinks from within the monitoring account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "Limits the number of returned links to the specified number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. You received this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -402,22 +391,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Use this operation in a monitoring account to return the list of sinks created in that account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "Limits the number of returned links to the specified number",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of items to return. You received this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -496,7 +469,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "put-sink-policy",
       description:
-        "Creates or updates the resource policy that grants permissions to source accounts to link to the monitoring account sink. When you create a sink policy, you can grant permissions to all accounts in an organization or to individual accounts. You can also use a sink policy to limit the types of data that is shared. The three types that you can allow or deny are:    Metrics - Specify with AWS::CloudWatch::Metric     Log groups - Specify with AWS::Logs::LogGroup     Traces - Specify with AWS::XRay::Trace     Application Insights - Applications - Specify with AWS::ApplicationInsights::Application    See the examples in this section to see how to specify permitted source accounts and data types",
+        "Creates or updates the resource policy that grants permissions to source accounts to link to the monitoring account sink. When you create a sink policy, you can grant permissions to all accounts in an organization or to individual accounts. You can also use a sink policy to limit the types of data that is shared. The six types of services with their respective resource types that you can allow or deny are:    Metrics - Specify with AWS::CloudWatch::Metric     Log groups - Specify with AWS::Logs::LogGroup     Traces - Specify with AWS::XRay::Trace     Application Insights - Applications - Specify with AWS::ApplicationInsights::Application     Internet Monitor - Specify with AWS::InternetMonitor::Monitor     Application Signals - Specify with AWS::ApplicationSignals::Service and AWS::ApplicationSignals::ServiceLevelObjective    See the examples in this section to see how to specify permitted source accounts and data types",
       options: [
         {
           name: "--policy",
@@ -622,6 +595,16 @@ const completionSpec: Fig.Spec = {
           args: {
             name: "string",
           },
+        },
+        {
+          name: "--include-tags",
+          description:
+            "Specifies whether to include the tags associated with the link in the response after the update operation. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception.  The default value is false",
+        },
+        {
+          name: "--no-include-tags",
+          description:
+            "Specifies whether to include the tags associated with the link in the response after the update operation. When IncludeTags is set to true and the caller has the required permission, oam:ListTagsForResource, the API will return the tags for the specified resource. If the caller doesn't have the required permission, oam:ListTagsForResource, the API will raise an exception.  The default value is false",
         },
         {
           name: "--link-configuration",

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "deadline",
   description:
@@ -10,13 +11,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--farm-id",
           description: "The ID of the farm to associate with the member",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--principal-id",
-          description: "The member's principal ID to associate with the farm",
           args: {
             name: "string",
           },
@@ -41,6 +35,21 @@ const completionSpec: Fig.Spec = {
           name: "--membership-level",
           description:
             "The principal's membership level for the associated farm",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal-id",
+          description: "The member's principal ID to associate with the farm",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-center-region",
+          description:
+            "The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm",
           args: {
             name: "string",
           },
@@ -83,13 +92,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--principal-id",
-          description: "The member's principal ID to associate with a fleet",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--principal-type",
           description:
             "The member's principal type to associate with the fleet",
@@ -109,6 +111,21 @@ const completionSpec: Fig.Spec = {
           name: "--membership-level",
           description:
             "The principal's membership level for the associated fleet",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal-id",
+          description: "The member's principal ID to associate with a fleet",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-center-region",
+          description:
+            "The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm",
           args: {
             name: "string",
           },
@@ -158,13 +175,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--principal-id",
-          description: "The member's principal ID to associate with the job",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--principal-type",
           description: "The member's principal type to associate with the job",
           args: {
@@ -183,6 +193,21 @@ const completionSpec: Fig.Spec = {
           name: "--membership-level",
           description:
             "The principal's membership level for the associated job",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal-id",
+          description: "The member's principal ID to associate with the job",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-center-region",
+          description:
+            "The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm",
           args: {
             name: "string",
           },
@@ -225,13 +250,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--principal-id",
-          description: "The member's principal ID to associate with the queue",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--principal-type",
           description:
             "The member's principal type to associate with the queue",
@@ -251,6 +269,21 @@ const completionSpec: Fig.Spec = {
           name: "--membership-level",
           description:
             "The principal's membership level for the associated queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--principal-id",
+          description: "The member's principal ID to associate with the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-center-region",
+          description:
+            "The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm",
           args: {
             name: "string",
           },
@@ -485,6 +518,38 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-get-job",
+      description:
+        "Retrieves multiple jobs in a single request. This is a batch version of the GetJob API. The result of getting each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of job identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "batch-get-job-entity",
       description: "Get batched job details for a worker",
       options: [
@@ -540,6 +605,246 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "batch-get-session",
+      description:
+        "Retrieves multiple sessions in a single request. This is a batch version of the GetSession API. The result of getting each session is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of session identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-get-session-action",
+      description:
+        "Retrieves multiple session actions in a single request. This is a batch version of the GetSessionAction API. The result of getting each session action is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-get-step",
+      description:
+        "Retrieves multiple steps in a single request. This is a batch version of the GetStep API. The result of getting each step is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of step identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-get-task",
+      description:
+        "Retrieves multiple tasks in a single request. This is a batch version of the GetTask API. The result of getting each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of task identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-get-worker",
+      description:
+        "Retrieves multiple workers in a single request. This is a batch version of the GetWorker API. The result of getting each worker is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--identifiers",
+          description:
+            "The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-update-job",
+      description:
+        "Updates multiple jobs in a single request. This is a batch version of the UpdateJob API. The result of updating each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200. When you change the status of a job to ARCHIVED, the job can't be scheduled or archived.  An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--jobs",
+          description:
+            "The list of jobs to update. You can specify up to 100 jobs per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "batch-update-task",
+      description:
+        "Updates multiple tasks in a single request. This is a batch version of the UpdateTask API. The result of updating each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200",
+      options: [
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tasks",
+          description:
+            "The list of tasks to update. You can specify up to 100 tasks per request",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "copy-job-template",
       description: "Copies a job template to an Amazon S3 bucket",
       options: [
@@ -551,15 +856,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--job-id",
-          description: "The job ID to copy",
+          name: "--queue-id",
+          description: "The queue ID to copy",
           args: {
             name: "string",
           },
         },
         {
-          name: "--queue-id",
-          description: "The queue ID to copy",
+          name: "--job-id",
+          description: "The job ID to copy",
           args: {
             name: "string",
           },
@@ -597,25 +902,10 @@ const completionSpec: Fig.Spec = {
         "Creates a budget to set spending thresholds for your rendering activity",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to include in this budget",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--usage-tracking-resource",
-          description: "The queue ID provided to this budget to track usage",
-          args: {
-            name: "structure",
           },
         },
         {
@@ -632,6 +922,21 @@ const completionSpec: Fig.Spec = {
             "The description of the budget.  This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--usage-tracking-resource",
+          description: "The queue ID provided to this budget to track usage",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -654,6 +959,14 @@ const completionSpec: Fig.Spec = {
           description: "The schedule to associate with this budget",
           args: {
             name: "structure",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
+          args: {
+            name: "map",
           },
         },
         {
@@ -712,6 +1025,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--cost-scale-factor",
+          description:
+            "A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1",
+          args: {
+            name: "float",
+          },
+        },
+        {
           name: "--tags",
           description:
             "The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
@@ -744,16 +1065,16 @@ const completionSpec: Fig.Spec = {
         "Creates a fleet. Fleets gather information relating to compute, or capacity, for renders within your farms. You can choose to manage your own capacity or opt to have fleets fully managed by Deadline Cloud",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
+          name: "--farm-id",
+          description: "The farm ID of the farm to connect to the fleet",
           args: {
             name: "string",
           },
         },
         {
-          name: "--farm-id",
-          description: "The farm ID of the farm to connect to the fleet",
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -791,7 +1112,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--max-worker-count",
-          description: "The maximum number of workers for the fleet",
+          description:
+            "The maximum number of workers for the fleet. Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to CreateWorker before the field updates, you might exceed your fleet's maximum worker count. For example, if your maxWorkerCount is 10 and you currently have 9 workers, making two quick CreateWorker calls might successfully create 2 workers instead of 1, resulting in 11 total workers",
           args: {
             name: "integer",
           },
@@ -810,6 +1132,14 @@ const completionSpec: Fig.Spec = {
             "Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
           args: {
             name: "map",
+          },
+        },
+        {
+          name: "--host-configuration",
+          description:
+            "Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet",
+          args: {
+            name: "structure",
           },
         },
         {
@@ -834,7 +1164,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-job",
       description:
-        "Creates a job. A job is a set of instructions that AWS Deadline Cloud uses to schedule and run work on available workers. For more information, see Deadline Cloud jobs",
+        "Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule and run work on available workers. For more information, see Deadline Cloud jobs",
       options: [
         {
           name: "--farm-id",
@@ -875,7 +1205,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--priority",
           description:
-            "The priority of the job on a scale of 0 to 100. The highest priority (first scheduled) is 100. When two jobs have the same priority, the oldest job is scheduled first",
+            "The priority of the job. The highest priority (first scheduled) is 100. When two jobs have the same priority, the oldest job is scheduled first",
           args: {
             name: "integer",
           },
@@ -927,10 +1257,42 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--max-worker-count",
+          description:
+            "The maximum number of worker hosts that can concurrently process a job. When the maxWorkerCount is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers. You can't set the maxWorkerCount to 0. If you set it to -1, there is no maximum number of workers. If you don't specify the maxWorkerCount, Deadline Cloud won't throttle the number of workers used to process the job",
+          args: {
+            name: "integer",
+          },
+        },
+        {
           name: "--source-job-id",
           description: "The job ID for the source job",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--name-override",
+          description:
+            "A custom name to override the job name derived from the job template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description-override",
+          description:
+            "A custom description to override the job description derived from the job template",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to add to your job. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
+          args: {
+            name: "map",
           },
         },
         {
@@ -1015,6 +1377,77 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "create-limit",
+      description:
+        "Creates a limit that manages the distribution of shared resources, such as floating licenses. A limit can throttle work assignments, help manage workloads, and track current usage. Before you use a limit, you must associate the limit with one or more queues.  You must add the amountRequirementName to a step in a job template to declare the limit requirement",
+      options: [
+        {
+          name: "--farm-id",
+          description: "The farm ID of the farm that contains the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--display-name",
+          description:
+            "The display name of the limit.  This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--amount-requirement-name",
+          description:
+            "The value that you specify as the name in the amounts field of the hostRequirements in a step of a job template to declare the limit requirement",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-count",
+          description:
+            "The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available. The maxCount must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "A description of the limit. A description helps you identify the purpose of the limit.  This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "create-monitor",
       description:
         "Creates an Amazon Web Services Deadline Cloud monitor that you can use to view your farms, queues, and fleets. After you submit a job, you can track the progress of the tasks and steps that make up the job, and then download the job's results",
@@ -1038,7 +1471,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--identity-center-instance-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM Identity Center instance that authenticates monitor users",
+            "The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor users",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--identity-center-region",
+          description:
+            "The Region where IAM Identity Center is enabled. Required when IAM Identity Center is in a different Region than the monitor",
           args: {
             name: "string",
           },
@@ -1054,9 +1495,17 @@ const completionSpec: Fig.Spec = {
         {
           name: "--role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources",
+            "The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
+          args: {
+            name: "map",
           },
         },
         {
@@ -1084,16 +1533,16 @@ const completionSpec: Fig.Spec = {
         "Creates a queue to coordinate the order in which jobs run on a farm. A queue can also specify where to pull resources and indicate where to output completed jobs",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
+          name: "--farm-id",
+          description: "The farm ID of the farm to connect to the queue",
           args: {
             name: "string",
           },
         },
         {
-          name: "--farm-id",
-          description: "The farm ID of the farm to connect to the queue",
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -1168,6 +1617,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--scheduling-configuration",
+          description:
+            "The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue. If not specified, the queue defaults to the priorityFifo scheduling configuration",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1192,14 +1649,6 @@ const completionSpec: Fig.Spec = {
         "Creates an environment for a queue that defines how jobs in the queue run",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID of the farm to connect to the environment",
           args: {
@@ -1214,9 +1663,17 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--priority",
           description:
-            "Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority. If two environments share the same priority value, the environment created first takes higher priority",
+            "Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority",
           args: {
             name: "integer",
           },
@@ -1299,22 +1756,70 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "create-storage-profile",
+      name: "create-queue-limit-association",
       description:
-        "Creates a storage profile that specifies the operating system, file type, and file location of resources used on a farm",
+        "Associates a limit with a particular queue. After the limit is associated, all workers for jobs that specify the limit associated with the queue are subject to the limit. You can't associate two limits with the same amountRequirementName to the same queue",
       options: [
         {
-          name: "--client-token",
+          name: "--farm-id",
           description:
-            "The unique token which the server uses to recognize retries of the same request",
+            "The unique identifier of the farm that contains the queue and limit to associate",
           args: {
             name: "string",
           },
         },
         {
+          name: "--queue-id",
+          description:
+            "The unique identifier of the queue to associate with the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description:
+            "The unique identifier of the limit to associate with the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "create-storage-profile",
+      description:
+        "Creates a storage profile that specifies the operating system, file type, and file location of resources used on a farm",
+      options: [
+        {
           name: "--farm-id",
           description:
             "The farm ID of the farm to connect to the storage profile",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -1364,7 +1869,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "create-worker",
       description:
-        "Creates a worker. A worker tells your instance how much processing power (vCPU), and memory (GiB) you\u2019ll need to assemble the digital assets held within a particular instance. You can specify certain instance types to use, or let the worker know which instances types to exclude",
+        "Creates a worker. A worker tells your instance how much processing power (vCPU), and memory (GiB) you’ll need to assemble the digital assets held within a particular instance. You can specify certain instance types to use, or let the worker know which instances types to exclude. Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to CreateWorker before the field updates, you might exceed your fleet's maximum worker count. For example, if your maxWorkerCount is 10 and you currently have 9 workers, making two quick CreateWorker calls might successfully create 2 workers instead of 1, resulting in 11 total workers",
       options: [
         {
           name: "--farm-id",
@@ -1393,6 +1898,14 @@ const completionSpec: Fig.Spec = {
             "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--tags",
+          description:
+            "Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings",
+          args: {
+            name: "map",
           },
         },
         {
@@ -1486,14 +1999,6 @@ const completionSpec: Fig.Spec = {
       description: "Deletes a fleet",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID of the farm to remove from the fleet",
           args: {
@@ -1503,6 +2008,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--fleet-id",
           description: "The fleet ID of the fleet to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -1534,6 +2047,45 @@ const completionSpec: Fig.Spec = {
           name: "--license-endpoint-id",
           description:
             "The license endpoint ID of the license endpoint to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-limit",
+      description:
+        "Removes a limit from the specified farm. Before you delete a limit you must use the DeleteQueueLimitAssociation operation to remove the association with any queues",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the limit to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description: "The unique identifier of the limit to delete",
           args: {
             name: "string",
           },
@@ -1757,6 +2309,52 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "delete-queue-limit-association",
+      description:
+        "Removes the association between a queue and a limit. You must use the UpdateQueueLimitAssociation operation to set the status to STOP_LIMIT_USAGE_AND_COMPLETE_TASKS or STOP_LIMIT_USAGE_AND_CANCEL_TASKS. The status does not change immediately. Use the GetQueueLimitAssociation operation to see if the status changed to STOPPED before deleting the association",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the queue and limit to disassociate",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description: "The unique identifier of the queue to disassociate",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description: "The unique identifier of the limit to disassociate",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "delete-storage-profile",
       description: "Deletes a storage profile",
       options: [
@@ -1772,6 +2370,50 @@ const completionSpec: Fig.Spec = {
           name: "--storage-profile-id",
           description:
             "The storage profile ID of the storage profile to delete",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "delete-volume",
+      description: "Deletes a persistent volume",
+      options: [
+        {
+          name: "--farm-id",
+          description: "The farm ID of the farm that contains the fleet",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--fleet-id",
+          description: "The fleet ID of the fleet that contains the volume",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--volume-id",
+          description: "The volume ID of the volume to delete",
           args: {
             name: "string",
           },
@@ -2137,15 +2779,15 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--job-id",
-          description: "The job ID",
+          name: "--queue-id",
+          description: "The queue ID associated with the job",
           args: {
             name: "string",
           },
         },
         {
-          name: "--queue-id",
-          description: "The queue ID associated with the job",
+          name: "--job-id",
+          description: "The job ID",
           args: {
             name: "string",
           },
@@ -2200,6 +2842,44 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-limit",
+      description: "Gets information about a specific limit",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description: "The unique identifier of the limit to return",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-monitor",
       description: "Gets information about the specified monitor",
       options: [
@@ -2207,6 +2887,37 @@ const completionSpec: Fig.Spec = {
           name: "--monitor-id",
           description:
             "The unique identifier for the monitor. This ID is returned by the CreateMonitor operation",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "get-monitor-settings",
+      description: "Gets the settings for a Deadline Cloud monitor",
+      options: [
+        {
+          name: "--monitor-id",
+          description:
+            "The unique identifier of the monitor. This ID is returned by the CreateMonitor operation, and is included in the response to the ListMonitors operation",
           args: {
             name: "string",
           },
@@ -2357,6 +3068,54 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-queue-limit-association",
+      description:
+        "Gets information about a specific association between a queue and a limit",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the associated queue and limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description:
+            "The unique identifier of the queue associated with the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description:
+            "The unique identifier of the limit associated with the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-session",
       description: "Gets a session",
       options: [
@@ -2475,22 +3234,6 @@ const completionSpec: Fig.Spec = {
           name: "--aggregation-id",
           description:
             "The identifier returned by the StartSessionsStatisticsAggregation operation that identifies the aggregated statistics",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
           args: {
             name: "string",
           },
@@ -2730,6 +3473,50 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
+      name: "get-volume",
+      description: "Gets a persistent volume",
+      options: [
+        {
+          name: "--farm-id",
+          description: "The farm ID of the farm that contains the fleet",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--fleet-id",
+          description: "The fleet ID of the fleet that contains the volume",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--volume-id",
+          description: "The volume ID of the volume to retrieve",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
       name: "get-worker",
       description: "Gets a worker",
       options: [
@@ -2778,22 +3565,6 @@ const completionSpec: Fig.Spec = {
       description: "A list of the available metered products",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2841,26 +3612,10 @@ const completionSpec: Fig.Spec = {
       description: "A list of budgets in a farm",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID associated with the budgets",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -2925,22 +3680,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2988,26 +3727,10 @@ const completionSpec: Fig.Spec = {
       description: "Lists farms",
       options: [
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--principal-id",
           description: "The principal ID of the member to list on the farm",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3069,22 +3792,6 @@ const completionSpec: Fig.Spec = {
           description: "The fleet ID to include on the list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3165,22 +3872,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3249,22 +3940,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3319,13 +3994,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--job-id",
-          description: "The job ID to include on the list",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--queue-id",
           description: "The queue ID to include on the list",
           args: {
@@ -3333,19 +4001,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
+          name: "--job-id",
+          description: "The job ID to include on the list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3403,13 +4062,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--principal-id",
-          description: "The principal ID of the members on the jobs",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--queue-id",
           description: "The queue ID for the job",
           args: {
@@ -3417,19 +4069,10 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
+          name: "--principal-id",
+          description: "The principal ID of the members on the jobs",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3480,19 +4123,58 @@ const completionSpec: Fig.Spec = {
       description: "Lists license endpoints",
       options: [
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results, or null to start from the beginning",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-limits",
+      description: "Gets a list of limits defined in the specified farm",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the limits",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3551,22 +4233,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -3613,22 +4279,6 @@ const completionSpec: Fig.Spec = {
       name: "list-monitors",
       description: "Gets a list of your monitors in Deadline Cloud",
       options: [
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -3688,22 +4338,6 @@ const completionSpec: Fig.Spec = {
           description: "The queue ID for the queue environment list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3775,19 +4409,75 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results, or null to start from the beginning",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-queue-limit-associations",
+      description:
+        "Gets a list of the associations between queues and limits defined in a farm",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the limits and associations",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--queue-id",
+          description:
+            "Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the queueId and the limitId, only the specified limit is returned if it exists",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description:
+            "Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the queueId and the limitId, only the specified limit is returned if it exists",
+          args: {
+            name: "string",
           },
         },
         {
@@ -3849,22 +4539,6 @@ const completionSpec: Fig.Spec = {
           description: "The queue ID to include on the list",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -3931,25 +4605,9 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status",
           description:
-            "The status of the queues listed.    ACTIVE\u2013The queues are active.    SCHEDULING\u2013The queues are scheduling.    SCHEDULING_BLOCKED\u2013The queue scheduling is blocked for these queues",
+            "The status of the queues listed.    ACTIVE–The queues are active.    SCHEDULING–The queues are scheduling.    SCHEDULING_BLOCKED–The queue scheduling is blocked for these queues",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4035,22 +4693,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4119,22 +4761,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4200,22 +4826,6 @@ const completionSpec: Fig.Spec = {
           description: "The worker ID for the session",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4294,22 +4904,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4385,22 +4979,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4469,22 +5047,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -4536,22 +5098,6 @@ const completionSpec: Fig.Spec = {
           description: "The farm ID of the storage profile",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4613,22 +5159,6 @@ const completionSpec: Fig.Spec = {
           description: "The queue ID for the storage profile",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4737,19 +5267,64 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--next-token",
+          name: "--cli-input-json",
           description:
-            "The token for the next set of results, or null to start from the beginning",
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
           args: {
             name: "string",
           },
         },
         {
-          name: "--max-results",
+          name: "--starting-token",
           description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
+            "A token to specify where to start paginating.  This is the\nNextToken from a previously truncated response.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--page-size",
+          description:
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--max-items",
+          description:
+            "The total number of items to return in the command's output.\nIf the total number of items available is more than the value\nspecified, a NextToken is provided in the command's\noutput.  To resume pagination, provide the\nNextToken value in the starting-token\nargument of a subsequent command.  Do not use the\nNextToken response element directly outside of the\nAWS CLI.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "list-volumes",
+      description: "Lists the persistent volumes in a fleet",
+      options: [
+        {
+          name: "--farm-id",
+          description: "The farm ID of the farm that contains the fleet",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--fleet-id",
+          description: "The fleet ID of the fleet that contains the volumes",
+          args: {
+            name: "string",
           },
         },
         {
@@ -4811,22 +5386,6 @@ const completionSpec: Fig.Spec = {
           description: "The fleet ID of the workers",
           args: {
             name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results, or null to start from the beginning",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return. Use this parameter with NextToken to get results as a set of sequential pages",
-          args: {
-            name: "integer",
           },
         },
         {
@@ -4921,16 +5480,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--queue-ids",
-          description: "The queue ID to use in the job search",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--filter-expressions",
-          description:
-            "The filter expression, AND or OR, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis ()",
+          description: "The search terms for a resource",
           args: {
             name: "structure",
           },
@@ -4944,8 +5495,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--item-offset",
-          description:
-            "Defines how far into the scrollable list to start the return of results",
+          description: "The offset for the search results",
           args: {
             name: "integer",
           },
@@ -4953,9 +5503,16 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Specifies the number of items per page for the resource",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--queue-ids",
+          description: "The queue ID to use in the job search",
+          args: {
+            name: "list",
           },
         },
         {
@@ -4989,23 +5546,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--queue-ids",
-          description: "The queue IDs in the step search",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--job-id",
-          description: "The job ID to use in the step search",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filter-expressions",
-          description:
-            "The filter expression, AND or OR, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis ()",
+          description: "The search terms for a resource",
           args: {
             name: "structure",
           },
@@ -5019,8 +5561,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--item-offset",
-          description:
-            "Defines how far into the scrollable list to start the return of results",
+          description: "The offset for the search results",
           args: {
             name: "integer",
           },
@@ -5028,9 +5569,23 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Specifies the number of items per page for the resource",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--queue-ids",
+          description: "The queue IDs in the step search",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--job-id",
+          description: "The job ID to use in the step search",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5064,23 +5619,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--queue-ids",
-          description: "The queue IDs to include in the search",
-          args: {
-            name: "list",
-          },
-        },
-        {
-          name: "--job-id",
-          description: "The job ID for the task search",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--filter-expressions",
-          description:
-            "The filter expression, AND or OR, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis ()",
+          description: "The search terms for a resource",
           args: {
             name: "structure",
           },
@@ -5094,8 +5634,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--item-offset",
-          description:
-            "Defines how far into the scrollable list to start the return of results",
+          description: "The offset for the search results",
           args: {
             name: "integer",
           },
@@ -5103,9 +5642,23 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Specifies the number of items per page for the resource",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--queue-ids",
+          description: "The queue IDs to include in the search",
+          args: {
+            name: "list",
+          },
+        },
+        {
+          name: "--job-id",
+          description: "The job ID for the task search",
+          args: {
+            name: "string",
           },
         },
         {
@@ -5139,16 +5692,8 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--fleet-ids",
-          description: "The fleet ID of the workers to search for",
-          args: {
-            name: "list",
-          },
-        },
-        {
           name: "--filter-expressions",
-          description:
-            "The filter expression, AND or OR, to use when searching among a group of search strings in a resource. You can use two groupings per search each within parenthesis ()",
+          description: "The search terms for a resource",
           args: {
             name: "structure",
           },
@@ -5162,8 +5707,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--item-offset",
-          description:
-            "Defines how far into the scrollable list to start the return of results",
+          description: "The offset for the search results",
           args: {
             name: "integer",
           },
@@ -5171,9 +5715,16 @@ const completionSpec: Fig.Spec = {
         {
           name: "--page-size",
           description:
-            "Specifies the number of items per page for the resource",
+            "The size of each page to get in the AWS service call.  This\ndoes not affect the number of items returned in the command's\noutput.  Setting a smaller page size results in more calls to\nthe AWS service, retrieving fewer items in each call.  This can\nhelp prevent the AWS service calls from timing out.\nFor usage examples, see Pagination in the AWS Command Line Interface User\nGuide",
           args: {
             name: "integer",
+          },
+        },
+        {
+          name: "--fleet-ids",
+          description: "The fleet ID of the workers to search for",
+          args: {
+            name: "list",
           },
         },
         {
@@ -5362,14 +5913,6 @@ const completionSpec: Fig.Spec = {
         "Updates a budget that sets spending thresholds for rendering activity",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID of the budget to update",
           args: {
@@ -5379,6 +5922,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--budget-id",
           description: "The budget ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -5402,7 +5953,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--status",
           description:
-            "Updates the status of the budget.    ACTIVE\u2013The budget is being evaluated.    INACTIVE\u2013The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses",
+            "Updates the status of the budget.    ACTIVE–The budget is being evaluated.    INACTIVE–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses",
           args: {
             name: "string",
           },
@@ -5484,6 +6035,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--cost-scale-factor",
+          description:
+            "A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment",
+          args: {
+            name: "float",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5507,14 +6066,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates a fleet",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to update",
           args: {
@@ -5524,6 +6075,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--fleet-id",
           description: "The fleet ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -5561,7 +6120,8 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--max-worker-count",
-          description: "The maximum number of workers in the fleet",
+          description:
+            "The maximum number of workers in the fleet. Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to CreateWorker before the field updates, you might exceed your fleet's maximum worker count. For example, if your maxWorkerCount is 10 and you currently have 9 workers, making two quick CreateWorker calls might successfully create 2 workers instead of 1, resulting in 11 total workers",
           args: {
             name: "integer",
           },
@@ -5569,6 +6129,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--configuration",
           description: "The fleet configuration to update",
+          args: {
+            name: "structure",
+          },
+        },
+        {
+          name: "--host-configuration",
+          description:
+            "Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet",
           args: {
             name: "structure",
           },
@@ -5598,14 +6166,6 @@ const completionSpec: Fig.Spec = {
         "Updates a job.  When you change the status of the job to ARCHIVED, the job can't be scheduled or archived.  An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID of the job to update",
           args: {
@@ -5627,6 +6187,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
+          args: {
+            name: "string",
+          },
+        },
+        {
           name: "--target-task-run-status",
           description: "The task status to update the job's tasks to",
           args: {
@@ -5635,7 +6203,7 @@ const completionSpec: Fig.Spec = {
         },
         {
           name: "--priority",
-          description: "The job priority to update",
+          description: "The updated job priority",
           args: {
             name: "integer",
           },
@@ -5661,6 +6229,90 @@ const completionSpec: Fig.Spec = {
             "The status of a job in its lifecycle. When you change the status of the job to ARCHIVED, the job can't be scheduled or archived.  An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--max-worker-count",
+          description:
+            "The maximum number of worker hosts that can concurrently process a job. When the maxWorkerCount is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers. You can't set the maxWorkerCount to 0. If you set it to -1, there is no maximum number of workers. If you don't specify the maxWorkerCount, the default is -1. The maximum number of workers that can process tasks in the job",
+          args: {
+            name: "integer",
+          },
+        },
+        {
+          name: "--name",
+          description: "The updated job name",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description: "The updated job description",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-limit",
+      description: "Updates the properties of the specified limit",
+      options: [
+        {
+          name: "--farm-id",
+          description:
+            "The unique identifier of the farm that contains the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description: "The unique identifier of the limit to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--display-name",
+          description:
+            "The new display name of the limit.  This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--description",
+          description:
+            "The new description of the limit.  This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--max-count",
+          description:
+            "The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available. If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number. The maxCount must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit",
+          args: {
+            name: "integer",
           },
         },
         {
@@ -5713,9 +6365,49 @@ const completionSpec: Fig.Spec = {
         {
           name: "--role-arn",
           description:
-            "The Amazon Resource Name (ARN) of the new IAM role to use with the monitor",
+            "The Amazon Resource Name of the new IAM role to use with the monitor",
           args: {
             name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-monitor-settings",
+      description:
+        "Updates the settings for a Deadline Cloud monitor. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key",
+      options: [
+        {
+          name: "--monitor-id",
+          description:
+            "The unique identifier of the monitor to update settings for",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--settings",
+          description:
+            "The monitor settings to update as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key",
+          args: {
+            name: "map",
           },
         },
         {
@@ -5742,13 +6434,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates a queue",
       options: [
         {
-          name: "--client-token",
-          description: "The idempotency token to update in the queue",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to update in the queue",
           args: {
@@ -5758,6 +6443,13 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-id",
           description: "The queue ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description: "The idempotency token to update in the queue",
           args: {
             name: "string",
           },
@@ -5840,6 +6532,14 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
+          name: "--scheduling-configuration",
+          description:
+            "The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue. When updating the scheduling configuration, the entire configuration is replaced. In-progress tasks run to completion before the new scheduling configuration takes effect",
+          args: {
+            name: "structure",
+          },
+        },
+        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -5863,14 +6563,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates the queue environment",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID of the queue environment to update",
           args: {
@@ -5887,6 +6579,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--queue-environment-id",
           description: "The queue environment ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -5983,17 +6683,65 @@ const completionSpec: Fig.Spec = {
       ],
     },
     {
-      name: "update-session",
-      description: "Updates a session",
+      name: "update-queue-limit-association",
+      description:
+        "Updates the status of the queue. If you set the status to one of the STOP_LIMIT_USAGE* values, there will be a delay before the status transitions to the STOPPED state",
       options: [
         {
-          name: "--client-token",
+          name: "--farm-id",
           description:
-            "The unique token which the server uses to recognize retries of the same request",
+            "The unique identifier of the farm that contains the associated queues and limits",
           args: {
             name: "string",
           },
         },
+        {
+          name: "--queue-id",
+          description:
+            "The unique identifier of the queue associated to the limit",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--limit-id",
+          description:
+            "The unique identifier of the limit associated to the queue",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--status",
+          description:
+            "Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--cli-input-json",
+          description:
+            "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--generate-cli-skeleton",
+          description:
+            "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+          args: {
+            name: "string",
+            suggestions: ["input", "output"],
+          },
+        },
+      ],
+    },
+    {
+      name: "update-session",
+      description: "Updates a session",
+      options: [
         {
           name: "--farm-id",
           description: "The farm ID to update in the session",
@@ -6018,6 +6766,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--session-id",
           description: "The session ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -6053,14 +6809,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates a step",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to update",
           args: {
@@ -6084,6 +6832,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--step-id",
           description: "The step ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -6119,14 +6875,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates a storage profile",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to update",
           args: {
@@ -6136,6 +6884,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--storage-profile-id",
           description: "The storage profile ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -6193,14 +6949,6 @@ const completionSpec: Fig.Spec = {
       description: "Updates a task",
       options: [
         {
-          name: "--client-token",
-          description:
-            "The unique token which the server uses to recognize retries of the same request",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--farm-id",
           description: "The farm ID to update",
           args: {
@@ -6231,6 +6979,14 @@ const completionSpec: Fig.Spec = {
         {
           name: "--task-id",
           description: "The task ID to update",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--client-token",
+          description:
+            "The unique token which the server uses to recognize retries of the same request",
           args: {
             name: "string",
           },
@@ -6422,13 +7178,20 @@ const completionSpec: Fig.Spec = {
           ],
         },
         {
-          name: "job-create-complete",
+          name: "job-complete",
           description:
-            "Wait until a Job is created. Use this after invoking CreateJob. It will poll every 1 seconds until a successful state has been reached. This will exit with a return code of 255 after 120 failed checks",
+            "Wait until a job reaches any terminal status. Waits up to 1 hour by default. It will poll every 15 seconds until a successful state has been reached. This will exit with a return code of 255 after 240 failed checks",
           options: [
             {
               name: "--farm-id",
               description: "The farm ID of the farm in the job",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--queue-id",
+              description: "The queue ID associated with the job",
               args: {
                 name: "string",
               },
@@ -6441,8 +7204,91 @@ const completionSpec: Fig.Spec = {
               },
             },
             {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "job-create-complete",
+          description:
+            "Wait until a job is created. Use this after invoking CreateJob. It will poll every 1 seconds until a successful state has been reached. This will exit with a return code of 255 after 120 failed checks",
+          options: [
+            {
+              name: "--farm-id",
+              description: "The farm ID of the farm in the job",
+              args: {
+                name: "string",
+              },
+            },
+            {
               name: "--queue-id",
               description: "The queue ID associated with the job",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--job-id",
+              description: "The job ID",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "job-succeeded",
+          description:
+            "Wait until a job has succeeded. Fails if the job reaches a non-successful terminal status. Waits up to 1 hour by default. It will poll every 15 seconds until a successful state has been reached. This will exit with a return code of 255 after 240 failed checks",
+          options: [
+            {
+              name: "--farm-id",
+              description: "The farm ID of the farm in the job",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--queue-id",
+              description: "The queue ID associated with the job",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--job-id",
+              description: "The job ID",
               args: {
                 name: "string",
               },
@@ -6551,6 +7397,54 @@ const completionSpec: Fig.Spec = {
             {
               name: "--fleet-id",
               description: "The fleet ID for the queue-fleet association",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--cli-input-json",
+              description:
+                "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--generate-cli-skeleton",
+              description:
+                "Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value ``input``, prints a sample input JSON that can be used as an argument for ``--cli-input-json``. If provided with the value ``output``, it validates the command inputs and returns a sample output JSON for that command",
+              args: {
+                name: "string",
+                suggestions: ["input", "output"],
+              },
+            },
+          ],
+        },
+        {
+          name: "queue-limit-association-stopped",
+          description:
+            "Wait until a QueueLimitAssociation is stopped. Use this after setting the status to STOP_LIMIT_USAGE_AND_COMPLETE_TASKS or STOP_LIMIT_USAGE_AND_CANCEL_TASKS to wait for a QueueLimitAssociation to reach STOPPED It will poll every 10 seconds until a successful state has been reached. This will exit with a return code of 255 after 60 failed checks",
+          options: [
+            {
+              name: "--farm-id",
+              description:
+                "The unique identifier of the farm that contains the associated queue and limit",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--queue-id",
+              description:
+                "The unique identifier of the queue associated with the limit",
+              args: {
+                name: "string",
+              },
+            },
+            {
+              name: "--limit-id",
+              description:
+                "The unique identifier of the limit associated with the queue",
               args: {
                 name: "string",
               },

@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "appmesh",
   description:
@@ -1151,14 +1152,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of existing gateway routes that are associated to a virtual gateway",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListGatewayRoutes in paginated output. When you use this parameter, ListGatewayRoutes returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListGatewayRoutes request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListGatewayRoutes returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description: "The name of the service mesh to list gateway routes in",
           args: {
@@ -1169,14 +1162,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListGatewayRoutes request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },
@@ -1237,22 +1222,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of existing service meshes",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListMeshes in paginated output. When you use this parameter, ListMeshes returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListMeshes request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListMeshes returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListMeshes request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value.  This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1300,14 +1269,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of existing routes in a service mesh",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListRoutes in paginated output. When you use this parameter, ListRoutes returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListRoutes request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListRoutes returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description: "The name of the service mesh to list routes in",
           args: {
@@ -1318,14 +1279,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListRoutes request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },
@@ -1385,22 +1338,6 @@ const completionSpec: Fig.Spec = {
       description: "List the tags for an App Mesh resource",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of tag results returned by ListTagsForResource in paginated output. When this parameter is used, ListTagsForResource returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListTagsForResource request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListTagsForResource returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListTagsForResource request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-arn",
           description:
             "The Amazon Resource Name (ARN) that identifies the resource to list the tags for",
@@ -1457,14 +1394,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of existing virtual gateways in a service mesh",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListVirtualGateways in paginated output. When you use this parameter, ListVirtualGateways returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListVirtualGateways request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListVirtualGateways returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description:
             "The name of the service mesh to list virtual gateways in",
@@ -1476,14 +1405,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListVirtualGateways request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },
@@ -1536,14 +1457,6 @@ const completionSpec: Fig.Spec = {
       description: "Returns a list of existing virtual nodes",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListVirtualNodes in paginated output. When you use this parameter, ListVirtualNodes returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListVirtualNodes request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListVirtualNodes returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description: "The name of the service mesh to list virtual nodes in",
           args: {
@@ -1554,14 +1467,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListVirtualNodes request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },
@@ -1615,14 +1520,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of existing virtual routers in a service mesh",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListVirtualRouters in paginated output. When you use this parameter, ListVirtualRouters returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListVirtualRouters request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListVirtualRouters returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description:
             "The name of the service mesh to list virtual routers in",
@@ -1634,14 +1531,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListVirtualRouters request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },
@@ -1695,14 +1584,6 @@ const completionSpec: Fig.Spec = {
         "Returns a list of existing virtual services in a service mesh",
       options: [
         {
-          name: "--limit",
-          description:
-            "The maximum number of results returned by ListVirtualServices in paginated output. When you use this parameter, ListVirtualServices returns only limit results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListVirtualServices request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListVirtualServices returns up to 100 results and a nextToken value if applicable",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--mesh-name",
           description:
             "The name of the service mesh to list virtual services in",
@@ -1714,14 +1595,6 @@ const completionSpec: Fig.Spec = {
           name: "--mesh-owner",
           description:
             "The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see Working with shared meshes",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The nextToken value returned from a previous paginated ListVirtualServices request where limit was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the nextToken value",
           args: {
             name: "string",
           },

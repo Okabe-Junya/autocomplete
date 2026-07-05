@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "rds-data",
   description:
-    "RDS Data API Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these statements, you use the RDS Data API (Data API). Data API is available with the following types of Aurora databases:   Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1   Aurora MySQL - Serverless v2, provisioned, and Serverless v1   For more information about the Data API, see Using RDS Data API in the Amazon Aurora User Guide",
+    "RDS Data API Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these statements, you use the RDS Data API (Data API). Data API is available with the following types of Aurora databases:   Aurora PostgreSQL - Serverless and provisioned   Aurora MySQL - Serverless and provisioned   For more information about the Data API, see Using RDS Data API in the Amazon Aurora User Guide",
   subcommands: [
     {
       name: "batch-execute-statement",
@@ -186,7 +187,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "execute-sql",
       description:
-        "Runs one or more SQL statements.  This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters. For Aurora Serverless v1 DB clusters, the operation is deprecated. Use the BatchExecuteStatement or ExecuteStatement operation",
+        "Runs one or more SQL statements.  This operation is deprecated. Please use the BatchExecuteStatement or ExecuteStatement operation",
       options: [
         {
           name: "--db-cluster-or-instance-arn",
@@ -260,7 +261,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--secret-arn",
           description:
-            "The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret. For information about creating the secret, see Create a database secret",
+            "The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in the secret. For information about creating the secret, see Create a database secret.  When you use the CLI on Linux to reference a secret created in the RDS console, the ARN might include special characters like rds!cluster. If you enclose the ARN in double quotes, the ! character might trigger a shell expansion error, such as -bash: !cluster: event not found. To avoid this, escape the exclamation mark (\\!) in the ARN or enclose the entire ARN in single quotes (') instead of double quotes. Alternatively, disable shell history expansion by running set +H before you execute the command",
           args: {
             name: "string",
           },

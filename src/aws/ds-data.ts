@@ -1,7 +1,8 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ds-data",
   description:
-    "Amazon Web Services Directory Service Data is an extension of Directory Service. This API reference provides detailed information about Directory Service Data operations and object types.   With Directory Service Data, you can create, read, update, and delete users, groups, and memberships from your Managed Microsoft AD without additional costs and without deploying dedicated management instances. You can also perform built-in object management tasks across directories without direct network connectivity, which simplifies provisioning and access management to achieve fully automated deployments. Directory Service Data supports user and group write operations, such as CreateUser and CreateGroup, within the organizational unit (OU) of your Managed Microsoft AD. Directory Service Data supports read operations, such as ListUsers and ListGroups, on all users, groups, and group memberships within your Managed Microsoft AD and across trusted realms. Directory Service Data supports adding and removing group members in your OU and the Amazon Web Services Delegated Groups OU, so you can grant and deny access to specific roles and permissions. For more information, see Manage users and groups in the Directory Service Administration Guide.    Directory management operations and configuration changes made against the Directory Service API will also reflect in Directory Service Data API with eventual consistency. You can expect a short delay between management changes, such as adding a new directory trust and calling the Directory Service Data API for the newly created trusted realm.    Directory Service Data connects to your Managed Microsoft AD domain controllers and performs operations on underlying directory objects. When you create your Managed Microsoft AD, you choose subnets for domain controllers that Directory Service creates on your behalf. If a domain controller is unavailable, Directory Service Data uses an available domain controller. As a result, you might notice eventual consistency while objects replicate from one domain controller to another domain controller. For more information, see What gets created in the Directory Service Administration Guide. Directory limits vary by Managed Microsoft AD edition:     Standard edition \u2013 Supports 8 transactions per second (TPS) for read operations and 4 TPS for write operations per directory. There's a concurrency limit of 10 concurrent requests.     Enterprise edition \u2013 Supports 16 transactions per second (TPS) for read operations and 8 TPS for write operations per directory. There's a concurrency limit of 10 concurrent requests.    Amazon Web Services Account - Supports a total of 100 TPS for Directory Service Data operations across all directories.    Directory Service Data only supports the Managed Microsoft AD directory type and is only available in the primary Amazon Web Services Region. For more information, see Managed Microsoft AD and Primary vs additional Regions in the Directory Service Administration Guide",
+    "Amazon Web Services Directory Service Data is an extension of Directory Service. This API reference provides detailed information about Directory Service Data operations and object types.   With Directory Service Data, you can create, read, update, and delete users, groups, and memberships from your Managed Microsoft AD without additional costs and without deploying dedicated management instances. You can also perform built-in object management tasks across directories without direct network connectivity, which simplifies provisioning and access management to achieve fully automated deployments. Directory Service Data supports user and group write operations, such as CreateUser and CreateGroup, within the organizational unit (OU) of your Managed Microsoft AD. Directory Service Data supports read operations, such as ListUsers and ListGroups, on all users, groups, and group memberships within your Managed Microsoft AD and across trusted realms. Directory Service Data supports adding and removing group members in your OU and the Amazon Web Services Delegated Groups OU, so you can grant and deny access to specific roles and permissions. For more information, see Manage users and groups in the Directory Service Administration Guide.    Directory management operations and configuration changes made against the Directory Service API will also reflect in Directory Service Data API with eventual consistency. You can expect a short delay between management changes, such as adding a new directory trust and calling the Directory Service Data API for the newly created trusted realm.    Directory Service Data connects to your Managed Microsoft AD domain controllers and performs operations on underlying directory objects. When you create your Managed Microsoft AD, you choose subnets for domain controllers that Directory Service creates on your behalf. If a domain controller is unavailable, Directory Service Data uses an available domain controller. As a result, you might notice eventual consistency while objects replicate from one domain controller to another domain controller. For more information, see What gets created in the Directory Service Administration Guide. Directory limits vary by Managed Microsoft AD edition:     Standard edition – Supports 8 transactions per second (TPS) for read operations and 4 TPS for write operations per directory. There's a concurrency limit of 10 concurrent requests.     Enterprise edition – Supports 16 transactions per second (TPS) for read operations and 8 TPS for write operations per directory. There's a concurrency limit of 10 concurrent requests.    Amazon Web Services Account - Supports a total of 100 TPS for Directory Service Data operations across all directories.    Directory Service Data only supports the Managed Microsoft AD directory type and is only available in the primary Amazon Web Services Region. For more information, see Managed Microsoft AD and Primary vs additional Regions in the Directory Service Administration Guide",
   subcommands: [
     {
       name: "add-group-member",
@@ -151,7 +152,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--directory-id",
           description:
-            "The identifier (ID) of the directory that\u2019s associated with the user",
+            "The identifier (ID) of the directory that’s associated with the user",
           args: {
             name: "string",
           },
@@ -472,25 +473,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--member-realm",
           description:
             "The domain name that's associated with the group member. This parameter defaults to the Managed Microsoft AD domain.    This parameter is optional and case insensitive",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
           args: {
             name: "string",
           },
@@ -567,22 +552,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--realm",
           description:
             "The domain name associated with the directory.    This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.   This value is case insensitive",
@@ -647,25 +616,9 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
           name: "--member-realm",
           description:
             "The domain name that's associated with the group member.    This parameter is optional, so you can limit your results to the group members in a specific domain.   This parameter is case insensitive and defaults to Realm",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
           args: {
             name: "string",
           },
@@ -738,22 +691,6 @@ const completionSpec: Fig.Spec = {
           name: "--directory-id",
           description:
             "The identifier (ID) of the directory that's associated with the user",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
           args: {
             name: "string",
           },
@@ -885,22 +822,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--realm",
           description:
             "The domain name that's associated with the group.    This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned.   This value is case insensitive",
@@ -976,22 +897,6 @@ const completionSpec: Fig.Spec = {
           name: "--directory-id",
           description:
             "The identifier (ID) of the directory that's associated with the user",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to be returned per request",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "An encoded paging token for paginated calls that can be passed back to retrieve the next page",
           args: {
             name: "string",
           },

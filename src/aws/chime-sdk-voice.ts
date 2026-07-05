@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "chime-sdk-voice",
   description:
@@ -483,7 +484,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--aws-region",
           description:
-            "The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value: us-east-1",
+            "The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value: us-east-1 ",
           args: {
             name: "string",
           },
@@ -506,7 +507,15 @@ const completionSpec: Fig.Spec = {
         {
           name: "--integration-type",
           description:
-            "The connectors for use with Amazon Connect. The following options are available:    CONNECT_CALL_TRANSFER_CONNECTOR - Enables enterprises to integrate Amazon Connect with other voice systems to directly transfer voice calls and metadata without using the public telephone network. They can use Amazon Connect telephony and Interactive Voice Response (IVR) with their existing voice systems to modernize the IVR experience of their existing contact center and their enterprise and branch voice systems. Additionally, enterprises migrating their contact center to Amazon Connect can start with Connect telephony and IVR for immediate modernization ahead of agent migration.    CONNECT_ANALYTICS_CONNECTOR - Enables enterprises to integrate Amazon Connect with other voice systems for real-time and post-call analytics. They can use Amazon Connect Contact Lens with their existing voice systems to provides call recordings, conversational analytics (including contact transcript, sensitive data redaction, content categorization, theme detection, sentiment analysis, real-time alerts, and post-contact summary), and agent performance evaluations (including evaluation forms, automated evaluation, supervisor review) with a rich user experience to display, search and filter customer interactions, and programmatic access to data streams and the data lake. Additionally, enterprises migrating their contact center to Amazon Connect can start with Contact Lens analytics and performance insights ahead of agent migration",
+            "The connectors for use with Connect Customer. The following options are available:    CONNECT_CALL_TRANSFER_CONNECTOR - Enables enterprises to integrate Connect Customer with other voice systems to directly transfer voice calls and metadata without using the public telephone network. They can use Connect Customer telephony and Interactive Voice Response (IVR) with their existing voice systems to modernize the IVR experience of their existing contact center and their enterprise and branch voice systems. Additionally, enterprises migrating their contact center to Connect Customer can start with Connect telephony and IVR for immediate modernization ahead of agent migration.    CONNECT_ANALYTICS_CONNECTOR - Enables enterprises to integrate Connect Customer with other voice systems for real-time and post-call analytics. They can use Connect Customer Contact Lens with their existing voice systems to provides call recordings, conversational analytics (including contact transcript, sensitive data redaction, content categorization, theme detection, sentiment analysis, real-time alerts, and post-contact summary), and agent performance evaluations (including evaluation forms, automated evaluation, supervisor review) with a rich user experience to display, search and filter customer interactions, and programmatic access to data streams and the data lake. Additionally, enterprises migrating their contact center to Connect Customer can start with Contact Lens analytics and performance insights ahead of agent migration",
+          args: {
+            name: "string",
+          },
+        },
+        {
+          name: "--network-type",
+          description:
+            "The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6)",
           args: {
             name: "string",
           },
@@ -1277,7 +1286,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--phone-number-order-id",
-          description: "The ID of the phone number order",
+          description: "The ID of the phone number order ",
           args: {
             name: "string",
           },
@@ -1370,7 +1379,7 @@ const completionSpec: Fig.Spec = {
       options: [
         {
           name: "--sip-media-application-id",
-          description: "The SIP media application ID",
+          description: "The SIP media application ID ",
           args: {
             name: "string",
           },
@@ -2132,21 +2141,6 @@ const completionSpec: Fig.Spec = {
         "Lists the SIP media applications under the administrator's AWS account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. Defaults to 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token used to return the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2196,21 +2190,6 @@ const completionSpec: Fig.Spec = {
         {
           name: "--sip-media-application-id",
           description: "The SIP media application ID",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return in a single call. Defaults to 100",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token used to return the next page of results",
           args: {
             name: "string",
           },
@@ -3709,7 +3688,7 @@ const completionSpec: Fig.Spec = {
     {
       name: "update-voice-profile",
       description:
-        "Updates the specified voice profile\u2019s voice print and refreshes its expiration timestamp.  As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of your caller\u2019s biometric identifiers and biometric information (\u201cbiometric data\u201d) in the form of a digital voiceprint requires the caller\u2019s informed consent via a written release. Such consent is required under various state laws, including biometrics laws in Illinois, Texas, Washington and other state privacy laws. You must provide a written release to each caller through a process that clearly reflects each caller\u2019s informed consent before using Amazon Chime SDK Voice Insights service, as required under the terms of your agreement with AWS governing your use of the service",
+        "Updates the specified voice profile’s voice print and refreshes its expiration timestamp.  As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of your caller’s biometric identifiers and biometric information (“biometric data”) in the form of a digital voiceprint requires the caller’s informed consent via a written release. Such consent is required under various state laws, including biometrics laws in Illinois, Texas, Washington and other state privacy laws. You must provide a written release to each caller through a process that clearly reflects each caller’s informed consent before using Amazon Chime SDK Voice Insights service, as required under the terms of your agreement with AWS governing your use of the service",
       options: [
         {
           name: "--voice-profile-id",

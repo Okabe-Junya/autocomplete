@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "connectcampaigns",
   description: "Provide APIs to create and manage Amazon Connect Campaigns",
@@ -311,20 +312,6 @@ const completionSpec: Fig.Spec = {
       description:
         "Provides summary information about the campaigns under the specified Amazon Connect account",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of results to return per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next set of results",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--filters",
           description: "Filter model by type",

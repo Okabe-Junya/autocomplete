@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "ssm-incidents",
   description:
@@ -495,22 +496,6 @@ const completionSpec: Fig.Spec = {
         "Retrieves the resource policies attached to the specified response plan",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of resource policies to display for each page of results",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--resource-arn",
           description:
             "The Amazon Resource Name (ARN) of the response plan with the attached resource policy",
@@ -645,21 +630,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of findings to retrieve per call",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -713,21 +683,6 @@ const completionSpec: Fig.Spec = {
             "Filters the list of incident records you want to search through. You can filter on the following keys:    creationTime     impact     status     createdBy    Note the following when when you use Filters:   If you don't specify a Filter, the response includes all incident records.   If you specify more than one filter in a single request, the response returns incident records that match all filters.   If you specify a filter with more than one value, the response returns incident records that match any of the values provided",
           args: {
             name: "list",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
           },
         },
         {
@@ -786,21 +741,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description: "The maximum number of related items per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -849,21 +789,6 @@ const completionSpec: Fig.Spec = {
         "Lists details about the replication set configured in your account",
       options: [
         {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -910,21 +835,6 @@ const completionSpec: Fig.Spec = {
       name: "list-response-plans",
       description: "Lists all response plans in your account",
       options: [
-        {
-          name: "--max-results",
-          description: "The maximum number of response plans per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1016,21 +926,6 @@ const completionSpec: Fig.Spec = {
           name: "--incident-record-arn",
           description:
             "The Amazon Resource Name (ARN) of the incident that includes the timeline event",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description: "The maximum number of results per page",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The pagination token for the next set of items to return. (You received this token from a previous call.)",
           args: {
             name: "string",
           },

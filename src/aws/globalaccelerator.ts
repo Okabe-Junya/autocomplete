@@ -1,3 +1,4 @@
+// Generated from awscli 2.35.15 data by scripts/generate-aws-specs.mjs — do not edit by hand
 const completionSpec: Fig.Spec = {
   name: "globalaccelerator",
   description:
@@ -220,7 +221,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of an accelerator",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of an accelerator",
           args: {
             name: "string",
           },
@@ -283,7 +284,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -357,7 +358,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -421,7 +422,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -469,7 +470,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -555,7 +556,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--health-check-interval-seconds",
           description:
-            "The time\u201410 seconds or 30 seconds\u2014between each health check for an endpoint. The default value is 30",
+            "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30",
           args: {
             name: "integer",
           },
@@ -571,7 +572,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -634,7 +635,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-affinity",
           description:
-            'Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the "five-tuple" (5-tuple) properties\u2014source IP address, source port, destination IP address, destination port, and protocol\u2014to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes.  If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the "two-tuple" (2-tuple) properties\u2014 source (client) IP address and destination IP address\u2014to select the hash value. The default value is NONE',
+            'Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes.  If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value. The default value is NONE',
           args: {
             name: "string",
           },
@@ -642,7 +643,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--idempotency-token",
           description:
-            "A unique, case-sensitive identifier that you provide to ensure the idempotency\u2014that is, the uniqueness\u2014of the request",
+            "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request",
           args: {
             name: "string",
           },
@@ -1269,22 +1270,6 @@ const completionSpec: Fig.Spec = {
       description: "List the accelerators for an Amazon Web Services account",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The number of Global Accelerator objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1333,21 +1318,6 @@ const completionSpec: Fig.Spec = {
         "Lists the IP address ranges that were specified in calls to ProvisionByoipCidr, including the current state and a history of state changes",
       options: [
         {
-          name: "--max-results",
-          description:
-            "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description: "The token for the next page of results",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1395,22 +1365,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List the cross-account attachments that have been created in Global Accelerator",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of cross-account attachment objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1499,22 +1453,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of cross-account resource objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1562,22 +1500,6 @@ const completionSpec: Fig.Spec = {
       description:
         "List the custom routing accelerators for an Amazon Web Services account",
       options: [
-        {
-          name: "--max-results",
-          description:
-            "The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
         {
           name: "--cli-input-json",
           description:
@@ -1635,22 +1557,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of endpoint group objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1701,22 +1607,6 @@ const completionSpec: Fig.Spec = {
           name: "--accelerator-arn",
           description:
             "The Amazon Resource Name (ARN) of the accelerator to list listeners for",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of listener objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
           args: {
             name: "string",
           },
@@ -1786,22 +1676,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of destination port mappings that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1865,22 +1739,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of destination port mappings that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -1936,22 +1794,6 @@ const completionSpec: Fig.Spec = {
           },
         },
         {
-          name: "--max-results",
-          description:
-            "The number of endpoint group objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
-          args: {
-            name: "string",
-          },
-        },
-        {
           name: "--cli-input-json",
           description:
             "Performs service operation based on the JSON string provided. The JSON string follows the format provided by ``--generate-cli-skeleton``. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally",
@@ -2002,22 +1844,6 @@ const completionSpec: Fig.Spec = {
           name: "--accelerator-arn",
           description:
             "The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects",
-          args: {
-            name: "string",
-          },
-        },
-        {
-          name: "--max-results",
-          description:
-            "The number of listener objects that you want to return with this call. The default value is 10",
-          args: {
-            name: "integer",
-          },
-        },
-        {
-          name: "--next-token",
-          description:
-            "The token for the next set of results. You receive this token from a previous call",
           args: {
             name: "string",
           },
@@ -2585,7 +2411,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--flow-logs-s3-prefix",
           description:
-            "Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true.  If you don\u2019t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id",
+            "Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true.  If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id",
           args: {
             name: "string",
           },
@@ -2703,7 +2529,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--health-check-interval-seconds",
           description:
-            "The time\u201410 seconds or 30 seconds\u2014between each health check for an endpoint. The default value is 30",
+            "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30",
           args: {
             name: "integer",
           },
@@ -2774,7 +2600,7 @@ const completionSpec: Fig.Spec = {
         {
           name: "--client-affinity",
           description:
-            'Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the "five-tuple" (5-tuple) properties\u2014source IP address, source port, destination IP address, destination port, and protocol\u2014to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes.  If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the "two-tuple" (2-tuple) properties\u2014 source (client) IP address and destination IP address\u2014to select the hash value. The default value is NONE',
+            'Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes.  If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the "two-tuple" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value. The default value is NONE',
           args: {
             name: "string",
           },
