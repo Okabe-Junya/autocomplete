@@ -22,14 +22,11 @@ class AutocompleteSpecs < Formula
   end
 
   def caveats
-    # post_install cannot create this symlink: Homebrew sandboxes it with a
-    # redirected HOME, so writes to "~" silently land in a throwaway dir.
     <<~EOS
-      To let Kiro CLI load these specs, create a one-time symlink
-      (move any existing real directory aside first):
+      To let Kiro CLI load these specs, create a one-time symlink:
         mkdir -p ~/.fig/autocomplete
         ln -sfn #{opt_pkgshare}/build ~/.fig/autocomplete/build
-      The link target is stable, so future \\\`brew upgrade\\\`s apply automatically.
+      Future upgrades apply automatically.
     EOS
   end
 
