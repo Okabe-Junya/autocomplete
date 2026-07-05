@@ -401,7 +401,15 @@ function decodeEntities(s) {
 // in the existing files).
 function cleanDoc(html) {
   if (!html) return "";
-  let t = decodeEntities(String(html).replace(/<[^>]+>/g, ""));
+  // Strip tags to a fixpoint so nested fragments like `<scr<script>ipt>`
+  // cannot leave a tag behind after a single pass
+  let t = String(html);
+  let prev;
+  do {
+    prev = t;
+    t = t.replace(/<[^>]+>/g, "");
+  } while (t !== prev);
+  t = decodeEntities(t);
   t = t.replace(/^\s+|\s+$/g, "");
   if (t.endsWith(".")) t = t.slice(0, -1);
   return t;
